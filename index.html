@@ -13,8 +13,10 @@
 
 <nav>
   <div class="nav-brand">
-    <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
-    <span class="nav-title">Khliborob Digital Archive</span>
+    <a href="" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
   </div>
   <div class="nav-links">
     <a href="browse/" data-i18n="nav_browse">Browse</a>
@@ -26,19 +28,54 @@
     <div class="lang-switcher">
       <button class="lang-btn" data-lang="uk">УКР</button>
       <button class="lang-btn active" data-lang="en">ENG</button>
-      <button class="lang-btn" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
     </div>
   </div>
 </nav>
 
-<div class="gpu-banner">
-  <span class="gpu-icon">🔍</span>
-  <span>
-    <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
-    &nbsp;<a href="gpu-documents/" data-i18n="gpu_link">View documents</a>
-  </span>
+<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem">
+  <div style="display:flex;align-items:flex-start;gap:.75rem;flex:1">
+    <span class="gpu-icon" style="flex-shrink:0">🔍</span>
+    <span>
+      <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
+      &nbsp;<a href="gpu-documents/" data-i18n="gpu_link">View documents</a>
+    </span>
+  </div>
+  <button onclick="closeBanner()" aria-label="Close"
+    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:18px;
+           color:var(--gpu-tx);opacity:.6;padding:0 .3rem;line-height:1">✕</button>
 </div>
+<script>
+function closeBanner(){
+  const b=document.getElementById("gpu-banner");
+  if(b){b.style.display="none";sessionStorage.setItem("gpuBannerClosed","1");}
+}
+(function(){
+  if(sessionStorage.getItem("gpuBannerClosed")==="1"){
+    document.addEventListener("DOMContentLoaded",function(){
+      const b=document.getElementById("gpu-banner");
+      if(b)b.style.display="none";
+    });
+  }
+})();
+</script>
 
+
+<div style='background:var(--card-bg);border:2px solid var(--blue);border-radius:var(--radius);padding:1.5rem;margin:1.5rem 0'>
+  <div style='font-size:11px;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;font-weight:500;margin-bottom:.4rem'>Featured issue</div>
+  <h2 style='font-size:18px;font-weight:500;margin-bottom:.4rem'>
+    <a href='issues/khliborob_19270316_no11/' style='color:var(--text);text-decoration:none'>
+      УКРАЇНСЬКИЙ ХЛІБОРОБ — 1927-03-16 (No. № 11 (139))
+    </a>
+  </h2>
+  <p style='font-size:13px;line-height:1.6;margin-bottom:.8rem;color:var(--text)'>The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of tr...</p>
+  <div style='display:flex;gap:1.5rem;font-size:12px;color:var(--muted);flex-wrap:wrap;margin-bottom:.8rem'>
+    <span>👤 Basilio Muchar, Pedro Mazurechen, Sterdo Gofort, David Ward, Ilko Borshchak</span>
+    <span>📍 Porto União, União da Vitória, Paraná, Brazil, Argentina</span>
+    <span>📄 4 pages</span>
+  </div>
+  <a href='issues/khliborob_19270316_no11/' style='font-size:13px;color:#1a4a8a;font-weight:500'>Read this issue →</a>
+</div>
 <div class="hero">
   <h1>Хлібороб · O Lavrador</h1>
   <p data-i18n="hero_subtitle">Digital archive of Khliborob / O Lavrador — the Ukrainian diaspora newspaper in Brazil (1924–present)</p>

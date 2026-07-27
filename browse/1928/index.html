@@ -13,8 +13,10 @@
 
 <nav>
   <div class="nav-brand">
-    <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
-    <span class="nav-title">Khliborob Digital Archive</span>
+    <a href="../../" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
   </div>
   <div class="nav-links">
     <a href="../../browse/" data-i18n="nav_browse">Browse</a>
@@ -26,23 +28,42 @@
     <div class="lang-switcher">
       <button class="lang-btn" data-lang="uk">УКР</button>
       <button class="lang-btn active" data-lang="en">ENG</button>
-      <button class="lang-btn" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
     </div>
   </div>
 </nav>
 
-<div class="gpu-banner">
-  <span class="gpu-icon">🔍</span>
-  <span>
-    <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
-    &nbsp;<a href="gpu-documents/" data-i18n="gpu_link">View documents</a>
-  </span>
+<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem">
+  <div style="display:flex;align-items:flex-start;gap:.75rem;flex:1">
+    <span class="gpu-icon" style="flex-shrink:0">🔍</span>
+    <span>
+      <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
+      &nbsp;<a href="../../gpu-documents/" data-i18n="gpu_link">View documents</a>
+    </span>
+  </div>
+  <button onclick="closeBanner()" aria-label="Close"
+    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:18px;
+           color:var(--gpu-tx);opacity:.6;padding:0 .3rem;line-height:1">✕</button>
 </div>
+<script>
+function closeBanner(){
+  const b=document.getElementById("gpu-banner");
+  if(b){b.style.display="none";sessionStorage.setItem("gpuBannerClosed","1");}
+}
+(function(){
+  if(sessionStorage.getItem("gpuBannerClosed")==="1"){
+    document.addEventListener("DOMContentLoaded",function(){
+      const b=document.getElementById("gpu-banner");
+      if(b)b.style.display="none";
+    });
+  }
+})();
+</script>
 <div class="browse-layout"><div class="sidebar"><h3 data-i18n="nav_browse">Browse</h3><div class="decade-group"><div class="decade-label">1920s</div><a class="year-link active" href="../browse/1928/">1928</a></div></div>
 <div class="main-content">
   <h2>1928 — 1 issues</h2>
   <div class="issue-grid">
-<a class="issue-card" href="../issues/khliborob_19280926_no30/">
+<a class="issue-card" href="../issues/issues/khliborob_19280926_no30/">
   <div class="issue-date">1928-09-26</div>
   <div class="issue-num">No. V. 30. (207)</div>
   <div class="issue-meta">4 pages · 53 locations</div>

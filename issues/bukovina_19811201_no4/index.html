@@ -13,8 +13,10 @@
 
 <nav>
   <div class="nav-brand">
-    <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
-    <span class="nav-title">Khliborob Digital Archive</span>
+    <a href="../../" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
   </div>
   <div class="nav-links">
     <a href="../../browse/" data-i18n="nav_browse">Browse</a>
@@ -26,18 +28,37 @@
     <div class="lang-switcher">
       <button class="lang-btn" data-lang="uk">УКР</button>
       <button class="lang-btn active" data-lang="en">ENG</button>
-      <button class="lang-btn" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
     </div>
   </div>
 </nav>
 
-<div class="gpu-banner">
-  <span class="gpu-icon">🔍</span>
-  <span>
-    <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
-    &nbsp;<a href="gpu-documents/" data-i18n="gpu_link">View documents</a>
-  </span>
+<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem">
+  <div style="display:flex;align-items:flex-start;gap:.75rem;flex:1">
+    <span class="gpu-icon" style="flex-shrink:0">🔍</span>
+    <span>
+      <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
+      &nbsp;<a href="../../gpu-documents/" data-i18n="gpu_link">View documents</a>
+    </span>
+  </div>
+  <button onclick="closeBanner()" aria-label="Close"
+    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:18px;
+           color:var(--gpu-tx);opacity:.6;padding:0 .3rem;line-height:1">✕</button>
 </div>
+<script>
+function closeBanner(){
+  const b=document.getElementById("gpu-banner");
+  if(b){b.style.display="none";sessionStorage.setItem("gpuBannerClosed","1");}
+}
+(function(){
+  if(sessionStorage.getItem("gpuBannerClosed")==="1"){
+    document.addEventListener("DOMContentLoaded",function(){
+      const b=document.getElementById("gpu-banner");
+      if(b)b.style.display="none";
+    });
+  }
+})();
+</script>
 
 <div class="issue-layout">
   <div class="issue-header">
@@ -295,16 +316,53 @@ But let's return to the 'Obrii' almanacs. It goes without saying that the broade
 (Continued on page 3)</div>
     </div>
   </div>
+  <div class="content-panel" style="margin-top:1.2rem" id="pt-panel">
+    <h3 data-i18n="transcript_pt">Tradução (português)</h3>
+    <div class="transcript" id="pt-content" style="color:var(--muted);font-style:italic">
+      Tradução automática para português brasileiro via IA — clique para gerar.
+    </div>
+    <button onclick="generatePT()" id="pt-btn"
+      style="margin-top:.6rem;font-size:12px;padding:.35rem .8rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--card-bg);cursor:pointer;color:var(--text)">
+      🇧🇷 Gerar tradução em português brasileiro
+    </button>
+  </div>
+  <script>
+  function generatePT() {
+    const btn = document.getElementById("pt-btn");
+    const out = document.getElementById("pt-content");
+    btn.disabled = true;
+    btn.textContent = "Traduzindo…";
+    const ukText = document.querySelector(".transcript[lang=uk]").textContent;
+    fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=GEMINI_KEY_PLACEHOLDER", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({contents: [{parts: [{text:
+        "Traduza o seguinte texto ucraniano de um jornal histórico para português brasileiro (Brasil). Traduza fielmente, preservando nomes próprios e estrutura:
+
+" + ukText
+      }]}]})
+    }).then(r => r.json()).then(d => {
+      out.style.fontStyle = "normal";
+      out.style.color = "var(--text)";
+      out.textContent = d.candidates[0].content.parts[0].text;
+      btn.textContent = "✅ Traduzido";
+    }).catch(e => {
+      out.textContent = "Tradução em português brasileiro indisponível no modo offline. Execute o servidor RAG para tradução ao vivo.";
+      btn.disabled = false;
+      btn.textContent = "🇧🇷 Tentar novamente";
+    });
+  }
+  </script>
 
   <div class="content-grid">
     <div class="content-panel">
       <h3 data-i18n="locations">Locations</h3>
-      <iframe class="map-frame" src="/maps/bukovina_19811201_no4_page01_map.html" title="Location map"></iframe>
+      <p style="font-size:12px;color:var(--muted);padding:1rem">📌 Location map available after full IPFS archival run</p>
       <div class="entity-list" style="margin-top:.6rem"><span class="entity-tag">Bukovyna</span><span class="entity-tag">Ukraine</span><span class="entity-tag">Romania</span><span class="entity-tag">USSR</span><span class="entity-tag">Toronto</span><span class="entity-tag">Danube River</span><span class="entity-tag">Dobruja</span><span class="entity-tag">Tulcea</span><span class="entity-tag">Northern Bukovina</span><span class="entity-tag">Southern Bukovina</span><span class="entity-tag">Rădăuți</span><span class="entity-tag">Suceava</span><span class="entity-tag">Moldova</span><span class="entity-tag">Cacica</span><span class="entity-tag">Maramureș</span><span class="entity-tag">Sighetu Marmației</span><span class="entity-tag">Tiachiv</span><span class="entity-tag">Banat</span><span class="entity-tag">Chernivtsi</span><span class="entity-tag">Bucharest</span><span class="entity-tag">Lviv</span><span class="entity-tag">Germany</span><span class="entity-tag">Eastern Europe</span><span class="entity-tag">Galicia</span><span class="entity-tag">Galicia-Volhynia Kingdom</span><span class="entity-tag">Poland</span><span class="entity-tag">Russia</span><span class="entity-tag">Berlin</span><span class="entity-tag">Western Ukrainian People's Republic</span><span class="entity-tag">Dniester River</span><span class="entity-tag">Southern Bug River</span><span class="entity-tag">Odesa</span><span class="entity-tag">Moscow</span><span class="entity-tag">Cluj-Napoca</span><span class="entity-tag">Siberia</span></div>
     </div>
     <div class="content-panel">
       <h3>Knowledge graph</h3>
-      <iframe class="graph-frame" src="/graphs/bukovina_19811201_no4_page01_graph.html" title="Knowledge graph"></iframe>
+      <p style="font-size:12px;color:var(--muted);padding:1rem">📊 Knowledge graph available after full IPFS archival run</p>
       <div class="entity-list" style="margin-top:.6rem"><span class="entity-tag">Oleksander Kovalsky</span><span class="entity-tag">U. Karop</span><a class="entity-tag" href="https://www.wikidata.org/entity/Q830350" target="_blank" rel="noopener">Ivan</a><a class="entity-tag" href="https://www.wikidata.org/entity/Q872532" target="_blank" rel="noopener">Vanka</a><a class="entity-tag" href="https://www.wikidata.org/entity/Q20001646" target="_blank" rel="noopener">Yana</a><a class="entity-tag" href="https://www.wikidata.org/entity/Q56279173" target="_blank" rel="noopener">Yanek</a></div>
     </div>
   </div>
