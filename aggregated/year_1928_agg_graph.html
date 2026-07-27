@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>1928 — Knowledge Graph</title>
+  <style>
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:#1a1a2e; font-family:sans-serif; color:#eee;
+            display:flex; flex-direction:column; height:100vh; overflow:hidden; }
+    #header { background:#16213e; padding:10px 16px; border-bottom:1px solid #0f3460;
+               flex-shrink:0; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+    #header h2 { font-size:0.95rem; margin:0; }
+    #header p  { font-size:0.75rem; opacity:0.6; margin:0; }
+    #filter-bar { display:flex; align-items:center; gap:10px; font-size:0.78rem;
+                   background:#0f3460; padding:5px 12px; border-radius:5px; margin-left:auto; }
+    #filter-bar label { white-space:nowrap; }
+    #min-mentions { width:120px; accent-color:#e94560; }
+    #node-count { font-size:0.75rem; opacity:0.7; white-space:nowrap; }
+    #main { display:flex; flex:1; overflow:hidden; }
+    #cy { flex:1; }
+    #detail { width:230px; background:#16213e; border-left:1px solid #0f3460;
+               padding:12px; font-size:0.8rem; overflow-y:auto; flex-shrink:0; }
+    #detail h3 { font-size:0.88rem; color:#e94560; margin-bottom:6px; }
+    #detail .badge { display:inline-block; background:#0f3460; border-radius:3px;
+                      padding:1px 6px; font-size:0.7rem; margin-bottom:8px; }
+    #detail .field { margin-bottom:8px; }
+    #detail .field b { display:block; color:#888; font-size:0.72rem; margin-bottom:2px; }
+    #detail a { color:#e94560; }
+    #detail ul { padding-left:14px; }
+    #detail li { font-size:0.76rem; padding:1px 0; }
+    #detail .hint { color:#444; font-size:0.75rem; margin-top:16px; }
+    #legend { position:fixed; bottom:10px; left:10px; background:#16213e;
+               padding:6px 10px; border-radius:5px; font-size:0.72rem; }
+    #legend span { display:inline-block; width:9px; height:9px;
+                    border-radius:50%; margin-right:4px; vertical-align:middle; }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div>
+      <h2>🧠 1928 — Knowledge Graph</h2>
+      <p>1 issue(s) &nbsp;·&nbsp; Scroll to zoom · Drag to pan · Click node for details</p>
+    </div>
+    <div id="filter-bar">
+      <label for="min-mentions">Min. page mentions:</label>
+      <input type="range" id="min-mentions" min="1" max="1" value="1" step="1"/>
+      <span id="filter-val">1</span>
+      <span id="node-count"></span>
+    </div>
+  </div>
+  <div id="main">
+    <div id="cy"></div>
+    <div id="detail"><p class="hint">Click any node to see details.</p></div>
+  </div>
+  <div id="legend">
+    <span style="background:#e94560"></span>Page &nbsp;
+    <span style="background:#4a90d9"></span>Person &nbsp;
+    <span style="background:#7c53b8"></span>Location
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+  <script>
+    if (window.self !== window.top) {
+      document.body.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;
+                    justify-content:center;height:100vh;background:#1a1a2e;
+                    color:#eee;font-family:sans-serif;gap:20px;padding:20px;text-align:center;">
+          <p style="font-size:1rem;opacity:0.7;margin:0">
+            The Knowledge Graph must be opened in its own tab to be interactive.
+          </p>
+          <a href="${window.location.href}" target="_blank"
+             style="background:#e94560;color:#fff;padding:14px 32px;
+                    border-radius:6px;text-decoration:none;font-size:1rem;font-weight:bold;">
+            🧠 Open Knowledge Graph ↗
+          </a>
+        </div>`;
+    }
+
+    const rawNodes = [{"id": "khliborob_19280926_no30", "type": "page", "label": "khliborob_19280926_no30", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Porto União", "type": "location", "label": "Porto União", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Brazil", "type": "location", "label": "Brazil", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Rio de Janeiro", "type": "location", "label": "Rio de Janeiro", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "São Paulo", "type": "location", "label": "São Paulo", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Santa Catarina", "type": "location", "label": "Santa Catarina", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Soviet Union", "type": "location", "label": "Soviet Union", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Madrid", "type": "location", "label": "Madrid", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Spain", "type": "location", "label": "Spain", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Ukraine", "type": "location", "label": "Ukraine", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Caucasus", "type": "location", "label": "Caucasus", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Kharkiv", "type": "location", "label": "Kharkiv", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Yugoslavia", "type": "location", "label": "Yugoslavia", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Manchuria", "type": "location", "label": "Manchuria", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "China", "type": "location", "label": "China", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "New York City", "type": "location", "label": "New York City", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "United States (USA)", "type": "location", "label": "United States (USA)", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Greece", "type": "location", "label": "Greece", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Romania", "type": "location", "label": "Romania", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Volhynia", "type": "location", "label": "Volhynia", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Galicia", "type": "location", "label": "Galicia", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Russia", "type": "location", "label": "Russia", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Prague", "type": "location", "label": "Prague", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Lviv", "type": "location", "label": "Lviv", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Poland", "type": "location", "label": "Poland", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Tukhlya", "type": "location", "label": "Tukhlya", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Przemyśl", "type": "location", "label": "Przemyśl", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Tukholshchyna", "type": "location", "label": "Tukholshchyna", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Muscovy", "type": "location", "label": "Muscovy", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Doryzoni", "type": "location", "label": "Doryzoni", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Rome", "type": "location", "label": "Rome", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Nicaea", "type": "location", "label": "Nicaea", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Southern Germany", "type": "location", "label": "Southern Germany", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Canada", "type": "location", "label": "Canada", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Kitsman", "type": "location", "label": "Kitsman", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Bukovyna", "type": "location", "label": "Bukovyna", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Bessarabia", "type": "location", "label": "Bessarabia", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Trento", "type": "location", "label": "Trento", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Europe", "type": "location", "label": "Europe", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Baltic Sea", "type": "location", "label": "Baltic Sea", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Sea of Azov", "type": "location", "label": "Sea of Azov", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Kronstadt", "type": "location", "label": "Kronstadt", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Gulf of Finland", "type": "location", "label": "Gulf of Finland", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Leningrad", "type": "location", "label": "Leningrad", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Curitiba", "type": "location", "label": "Curitiba", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Stanislaviv (Ivano-Frankivsk)", "type": "location", "label": "Stanislaviv (Ivano-Frankivsk)", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Hryby (Lviv Oblast)", "type": "location", "label": "Hryby (Lviv Oblast)", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Paraná", "type": "location", "label": "Paraná", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Vitória (Brazil)", "type": "location", "label": "Vitória (Brazil)", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Rio Grande (Brazil)", "type": "location", "label": "Rio Grande (Brazil)", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Antônio Cândido (Paraná, Brazil)", "type": "location", "label": "Antônio Cândido (Paraná, Brazil)", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Dorizon (Ponta Grossa, Brazil)", "type": "location", "label": "Dorizon (Ponta Grossa, Brazil)", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Ponta Grossa", "type": "location", "label": "Ponta Grossa", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Argentina", "type": "location", "label": "Argentina", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Gregori Prechlak", "type": "person", "label": "Gregori Prechlak", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Pedro Mazurechen", "type": "person", "label": "Pedro Mazurechen", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Stepan Radić", "type": "person", "label": "Stepan Radić", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Benker", "type": "person", "label": "Benker", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Eleftherios Venizelos", "type": "person", "label": "Eleftherios Venizelos", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Hans Koch", "type": "person", "label": "Hans Koch", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Pasternak", "type": "person", "label": "Pasternak", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Kipnik", "type": "person", "label": "Kipnik", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Serhii Tymoshenko", "type": "person", "label": "Serhii Tymoshenko", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Andriy Sheptytsky", "type": "person", "label": "Andriy Sheptytsky", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Yosyp Khomyshyn", "type": "person", "label": "Yosyp Khomyshyn", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Hryts Kosak", "type": "person", "label": "Hryts Kosak", "pages": [], "snippets_uk": {}, "snippets_en": {}}];
+    const rawEdges = [{"source": "khliborob_19280926_no30", "target": "Porto União", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Brazil", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Rio de Janeiro", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "São Paulo", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Santa Catarina", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Soviet Union", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Madrid", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Spain", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Ukraine", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Caucasus", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Kharkiv", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Yugoslavia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Manchuria", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "China", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "New York City", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "United States (USA)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Greece", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Romania", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Volhynia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Galicia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Russia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Prague", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Lviv", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Poland", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Tukhlya", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Przemyśl", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Tukholshchyna", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Muscovy", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Doryzoni", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Rome", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Nicaea", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Southern Germany", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Canada", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Kitsman", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Bukovyna", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Bessarabia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Trento", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Europe", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Baltic Sea", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Sea of Azov", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Kronstadt", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Gulf of Finland", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Leningrad", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Curitiba", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Stanislaviv (Ivano-Frankivsk)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Hryby (Lviv Oblast)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Paraná", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Vitória (Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Rio Grande (Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Antônio Cândido (Paraná, Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Dorizon (Ponta Grossa, Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Ponta Grossa", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Argentina", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30", "target": "Gregori Prechlak", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Pedro Mazurechen", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Stepan Radić", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Benker", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Eleftherios Venizelos", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Hans Koch", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Pasternak", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Kipnik", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Serhii Tymoshenko", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Andriy Sheptytsky", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Yosyp Khomyshyn", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30", "target": "Hryts Kosak", "label": "MENTIONS"}];
+
+    function nodeId(x) { return (x && typeof x === "object") ? x.id : String(x); }
+
+    // Pre-compute page mention count per node id
+    const pageIds = new Set(rawNodes.filter(n => n.type === "page").map(n => n.id));
+    const mentionCount = {};
+    rawEdges.forEach(e => {
+      const src = nodeId(e.source), tgt = nodeId(e.target);
+      if (pageIds.has(src)) mentionCount[tgt] = (mentionCount[tgt]||0) + 1;
+      if (pageIds.has(tgt)) mentionCount[src] = (mentionCount[src]||0) + 1;
+    });
+
+    function buildElements(minMentions) {
+      const visibleNodeIds = new Set(
+        rawNodes
+          .filter(n => n.type === "page" || (mentionCount[n.id]||0) >= minMentions)
+          .map(n => n.id)
+      );
+      const nodes = rawNodes
+        .filter(n => visibleNodeIds.has(n.id))
+        .map(n => ({ data: { id: n.id, label: n.label, type: n.type,
+                               pages: (n.pages||[]).join(", "),
+                               omeka_url: n.omeka_url||"",
+                               mentions: mentionCount[n.id]||0,
+                               snippets_uk: JSON.stringify(n.snippets_uk||{}),
+                               snippets_en: JSON.stringify(n.snippets_en||{}),
+                               omeka_urls: JSON.stringify(n.omeka_urls||{}) } }));
+      const edges = rawEdges
+        .filter(e => visibleNodeIds.has(nodeId(e.source)) && visibleNodeIds.has(nodeId(e.target)))
+        .map((e,i) => ({ data: { id:"e"+i,
+                                   source: nodeId(e.source),
+                                   target: nodeId(e.target),
+                                   label: e.label } }));
+      return [...nodes, ...edges];
+    }
+
+    function updateCount(min) {
+      const visible = rawNodes.filter(n => n.type !== "page" && (mentionCount[n.id]||0) >= min).length;
+      document.getElementById("node-count").textContent =
+        `(${visible} entities visible)`;
+    }
+
+    const cy = cytoscape({
+      container: document.getElementById("cy"),
+      elements: buildElements(1),
+      style: [
+        { selector: "node[type='page']",
+           style: { "background-color":"#e94560","border-color":"#fff","border-width":2,
+                     "width":28,"height":28,"label":"data(label)",
+                     "color":"#eee","font-size":10,"text-valign":"bottom","text-margin-y":4 } },
+        { selector: "node[type='person']",
+           style: { "background-color":"#4a90d9","border-color":"#e94560","border-width":1.5,
+                     "width":18,"height":18,"label":"data(label)",
+                     "color":"#eee","font-size":8,"text-valign":"bottom","text-margin-y":3 } },
+        { selector: "node[type='location']",
+           style: { "background-color":"#7c53b8","border-color":"#e94560","border-width":1.5,
+                     "width":18,"height":18,"label":"data(label)",
+                     "color":"#eee","font-size":8,"text-valign":"bottom","text-margin-y":3 } },
+        { selector: "node:selected",
+           style: { "border-color":"#fff","border-width":3,"overlay-opacity":0.15 } },
+        { selector: "edge",
+           style: { "line-color":"#444","opacity":0.6,"width":1.2,
+                     "curve-style":"bezier","target-arrow-shape":"none" } },
+      ],
+      layout: { name:"cose", animate:false, padding:40,
+                  nodeRepulsion:6000, idealEdgeLength:100,
+                  gravity:0.2, numIter:500 },
+      userZoomingEnabled: true,
+      userPanningEnabled: true,
+      boxSelectionEnabled: false,
+    });
+
+    // Initialise count display
+    updateCount(1);
+
+    // Slider: filter nodes by minimum page-mention count
+    const slider = document.getElementById("min-mentions");
+    slider.addEventListener("input", function() {
+      const min = parseInt(this.value);
+      document.getElementById("filter-val").textContent = min;
+      updateCount(min);
+      cy.elements().remove();
+      cy.add(buildElements(min));
+      cy.layout({ name:"cose", animate:true, animationDuration:400,
+                   padding:40, nodeRepulsion:6000,
+                   idealEdgeLength:100, gravity:0.2, numIter:300 }).run();
+      document.getElementById("detail").innerHTML =
+        "<p class='hint'>Click any node to see details.</p>";
+    });
+
+    cy.on("tap", "node", function(e) {
+      const d   = e.target.data();
+      let body = "";
+      // Format a raw page_id into a readable citation
+      // e.g. bukovina_19811201_no4_page01 → "Bukovina, 1 December 1981, No. 4, Page 1"
+      function formatPageId(pid) {
+        var months = ["","January","February","March","April","May","June",
+                      "July","August","September","October","November","December"];
+        var m = pid.match(/([a-z]+)_([0-9][0-9][0-9][0-9])([0-9][0-9])([0-9][0-9])_([^_]+)_page([0-9]+)/i);
+        if (!m) return pid;
+        var paper = m[1].charAt(0).toUpperCase() + m[1].slice(1);
+        var mon   = months[parseInt(m[3], 10)] || m[3];
+        var issue = m[5].replace(/^no/i, "No. ").replace(/^ch/i, "Ch. ");
+        return paper + ", " + parseInt(m[4], 10) + " " + mon + " " + m[2] + ", " + issue + ", Page " + parseInt(m[6], 10);
+      }
+
+      if (d.type === "page") {
+        const entities = e.target.neighborhood("node")
+          .map(n => `<li>${n.data("label")} <span style="color:#888;font-size:0.7rem">[${n.data("type")}]</span></li>`)
+          .join("");
+        body = `<div class="field"><b>Entities mentioned</b>
+                  <ul>${entities || "<li>—</li>"}</ul></div>`;
+      } else {
+        const snUk = JSON.parse(d.snippets_uk || "{}");
+        const snEn = JSON.parse(d.snippets_en || "{}");
+        const pages = d.pages ? d.pages.split(", ") : [];
+
+        const omUrls = JSON.parse(d.omeka_urls || "{}");
+        const pageItems = pages.map(p => {
+          const url  = omUrls[p] || "";
+          const cite = formatPageId(p);
+          const link = url
+            ? `<a href="${url}" target="_blank"
+                  style="color:#e94560;text-decoration:none;font-size:0.78rem">
+                ${cite} ↗</a>`
+            : `<b style="font-size:0.78rem">${cite}</b>`;
+          const uk = snUk[p] ? `<div style="background:#0a0a1a;border-left:3px solid #e94560;
+                                  padding:5px 8px;margin:4px 0;font-size:0.74rem;
+                                  font-style:italic;color:#bbb">🇺🇦 "${snUk[p]}"</div>` : "";
+          const en = snEn[p] ? `<div style="background:#0a0a1a;border-left:3px solid #4a90d9;
+                                  padding:5px 8px;margin:4px 0;font-size:0.74rem;
+                                  font-style:italic;color:#bbb">🇬🇧 "${snEn[p]}"</div>` : "";
+          return `<li style="margin-bottom:10px;list-style:none">
+                    ${link}${uk}${en}
+                  </li>`;
+        }).join("") || "<li>—</li>";
+
+        body = `<div class="field"><b>Cited in</b><ul style="padding:0">${pageItems}</ul></div>`;
+      }
+      document.getElementById("detail").innerHTML = `
+        <h3>${d.label}</h3>
+        <span class="badge">${d.type}</span>
+        ${body}`;
+    });
+
+    cy.on("tap", function(e) {
+      if (e.target === cy) {
+        document.getElementById("detail").innerHTML =
+          "<p class='hint'>Click any node to see details.</p>";
+      }
+    });
+  </script>
+</body>
+</html>

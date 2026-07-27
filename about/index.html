@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Khliborob Digital Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+    <span class="nav-title">Khliborob Digital Archive</span>
+  </div>
+  <div class="nav-links">
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <a href="../search/" data-i18n="nav_search">Search</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT</button>
+    </div>
+  </div>
+</nav>
+
+<div class="gpu-banner">
+  <span class="gpu-icon">🔍</span>
+  <span>
+    <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
+    &nbsp;<a href="gpu-documents/" data-i18n="gpu_link">View documents</a>
+  </span>
+</div>
+
+<div style="max-width:720px;margin:2rem auto;padding:0 1.5rem">
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">About this archive</h1>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The newspaper</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Khliborob (Хлібороб, "The Farmer") was founded in Porto União, Paraná, Brazil
+    in 1924 by the Ukrainian poet Petro Karmansky. It is one of the longest-running
+    Ukrainian diaspora newspapers in the world, published continuously to the present
+    day (under the name O Lavrador since the Vargas-era forced Portuguese transition
+    of 1940–46). It is published by SUBRAS (Sociedade Ucraniana do Brasil) in Curitiba.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The GPU discovery</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Four declassified documents from the Branch State Archives of the Ukrainian
+    Foreign Intelligence Service (SZRU) demonstrate that Khliborob circulated
+    within a transnational Ukrainian political network connecting Curitiba, São Paulo,
+    and Istanbul during the Holodomor period (1929–1933). GPU intelligence summaries
+    compiled for Japanese diplomatic services in November 1932 cite the newspaper
+    as a source for information about executions of starving peasants in Soviet Ukraine.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The pipeline</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    This archive was built using an open-source digitization pipeline developed at
+    the University of Münster. Issues are processed using Gemini 2.5 Flash for OCR
+    and bilingual (Ukrainian/English) transcription, stored permanently on IPFS via
+    Pinata, and cryptographically anchored on the Polygon blockchain. The pipeline
+    source code is available at
+    <a href="https://github.com/yourusername/khliborob-pipeline" target="_blank"
+       rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Partners</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>SUBRAS</strong> (Sociedade Ucraniana do Brasil) — institutional partner
+    and custodian of the physical archive.<br>
+    <strong>University of Münster</strong> — Institut für Osteuropäische Geschichte.<br>
+    <strong>SZRU</strong> (Foreign Intelligence Service of Ukraine) — provided
+    declassified archival documents.
+  </p>
+
+  <p style="font-size:12px;color:var(--muted);margin-top:2rem">
+    All digitized materials are deposited in the
+    <a href="https://archive.org" target="_blank" rel="noopener">Internet Archive</a>
+    for permanent preservation. Blockchain provenance is anchored on the Polygon
+    mainnet. This archive is free and open access.
+  </p>
+</div>
+<footer>
+  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
+</footer>
+<script src="../assets/lang.js"></script>
+</body>
+</html>

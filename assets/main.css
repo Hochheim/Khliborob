@@ -1,0 +1,176 @@
+
+:root {
+  --blue:    #1a4a8a;
+  --yellow:  #FFD500;
+  --blue-lt: #e8f0fb;
+  --gpu-bg:  #fff8e6;
+  --gpu-bd:  #c8a800;
+  --gpu-tx:  #7a5c00;
+  --text:    #1a1a1a;
+  --muted:   #666;
+  --border:  #ddd;
+  --bg:      #f8f8f6;
+  --card-bg: #fff;
+  --radius:  8px;
+  --nav-h:   52px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text:    #eee;
+    --muted:   #aaa;
+    --border:  #333;
+    --bg:      #111;
+    --card-bg: #1c1c1c;
+    --blue-lt: #0d2545;
+    --gpu-bg:  #2a2000;
+    --gpu-bd:  #9a7a00;
+    --gpu-tx:  #e8c840;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+     background:var(--bg);color:var(--text);font-size:15px;line-height:1.6}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h);
+    display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}
+.nav-brand{display:flex;align-items:center;gap:.6rem}
+.flag{width:24px;height:16px;display:flex;flex-direction:column;
+      border-radius:2px;overflow:hidden;flex-shrink:0}
+.flag-top{background:#005BBB;flex:1}
+.flag-bot{background:#FFD500;flex:1}
+.nav-title{font-size:14px;font-weight:500;color:#fff}
+.nav-links{display:flex;gap:1.2rem;align-items:center}
+.nav-links a{font-size:13px;color:rgba(255,255,255,.85)}
+.lang-switcher{display:flex;gap:.3rem;margin-left:.8rem;
+               border-left:1px solid rgba(255,255,255,.3);padding-left:.8rem}
+.lang-btn{font-size:11px;padding:3px 7px;border-radius:3px;cursor:pointer;
+          border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);
+          background:transparent}
+.lang-btn.active{background:#FFD500;color:#1a1a1a;border-color:#FFD500;font-weight:500}
+
+/* GPU BANNER */
+.gpu-banner{background:var(--gpu-bg);border-bottom:2px solid var(--gpu-bd);
+            padding:.75rem 1.5rem;font-size:13px;color:var(--gpu-tx);
+            display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+.gpu-banner strong{font-weight:500}
+.gpu-banner a{color:var(--blue);font-weight:500}
+.gpu-icon{font-size:18px;flex-shrink:0}
+
+/* HERO */
+.hero{background:var(--blue);color:#fff;padding:2.5rem 1.5rem}
+.hero h1{font-size:26px;font-weight:500;margin-bottom:.4rem}
+.hero p{font-size:14px;opacity:.85;max-width:520px;margin-bottom:1.2rem;line-height:1.6}
+.search-box{display:flex;gap:.5rem;max-width:560px}
+.search-box input{flex:1;font-size:14px;padding:.55rem .9rem;
+                  border:none;border-radius:var(--radius);
+                  background:rgba(255,255,255,.95);color:#222}
+.search-box input:focus{outline:2px solid var(--yellow);outline-offset:1px}
+.search-box button{font-size:13px;padding:.55rem 1.1rem;border:none;
+                   border-radius:var(--radius);background:var(--yellow);
+                   color:#1a1a1a;font-weight:500;cursor:pointer}
+.search-box button:hover{background:#e8c800}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);
+       border-bottom:1px solid var(--border)}
+.stat{padding:1rem 1.5rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-size:22px;font-weight:500;color:var(--blue)}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:.1rem}
+
+/* BROWSE */
+.browse-layout{display:grid;grid-template-columns:200px 1fr;gap:0;
+               min-height:calc(100vh - var(--nav-h) - 200px)}
+.sidebar{border-right:1px solid var(--border);padding:1.2rem;
+         background:var(--card-bg)}
+.sidebar h3{font-size:11px;font-weight:500;color:var(--muted);
+            text-transform:uppercase;letter-spacing:.06em;margin-bottom:.7rem}
+.decade-group{margin-bottom:1rem}
+.decade-label{font-size:11px;font-weight:500;color:var(--muted);margin-bottom:.3rem}
+.year-link{display:block;font-size:13px;color:var(--text);
+           padding:.15rem .4rem;border-radius:4px;text-decoration:none}
+.year-link:hover{background:var(--blue-lt);color:var(--blue)}
+.year-link.active{background:var(--blue);color:#fff;font-weight:500}
+.year-link.has-gpu::after{content:" ●";color:var(--gpu-bd);font-size:9px}
+
+.main-content{padding:1.5rem}
+.main-content h2{font-size:18px;font-weight:500;margin-bottom:1rem}
+.issue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:.6rem}
+.issue-card{background:var(--card-bg);border:1px solid var(--border);
+            border-radius:var(--radius);padding:.75rem;cursor:pointer;
+            text-decoration:none;display:block;transition:border-color .15s}
+.issue-card:hover{border-color:var(--blue)}
+.issue-card.gpu-linked{border-color:var(--gpu-bd)}
+.issue-date{font-size:11px;color:var(--muted)}
+.issue-num{font-size:14px;font-weight:500;color:var(--text);margin:.2rem 0}
+.issue-meta{font-size:11px;color:var(--muted)}
+.gpu-tag{display:inline-block;font-size:10px;padding:1px 5px;border-radius:3px;
+         background:var(--gpu-bg);color:var(--gpu-tx);margin-top:.3rem;
+         border:1px solid var(--gpu-bd)}
+
+/* ISSUE PAGE */
+.issue-layout{max-width:960px;margin:0 auto;padding:1.5rem}
+.issue-header{margin-bottom:1.2rem;padding-bottom:1rem;
+              border-bottom:1px solid var(--border)}
+.issue-header h1{font-size:22px;font-weight:500;margin-bottom:.2rem}
+.issue-header p{font-size:13px;color:var(--muted)}
+.gpu-connection{background:var(--gpu-bg);border:.5px solid var(--gpu-bd);
+                border-left:4px solid var(--gpu-bd);border-radius:0 var(--radius) var(--radius) 0;
+                padding:.8rem 1rem;margin-bottom:1.2rem}
+.gpu-connection h3{font-size:13px;font-weight:500;color:var(--gpu-tx);margin-bottom:.3rem}
+.gpu-connection p{font-size:12px;color:var(--gpu-tx);line-height:1.5}
+.gpu-connection .gpu-meta{font-size:11px;color:var(--muted);margin-top:.4rem}
+
+.content-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+.content-panel{background:var(--card-bg);border:1px solid var(--border);
+               border-radius:var(--radius);padding:1rem}
+.content-panel h3{font-size:12px;font-weight:500;color:var(--muted);
+                  text-transform:uppercase;letter-spacing:.05em;margin-bottom:.7rem}
+.transcript{font-size:13px;line-height:1.7;max-height:320px;overflow-y:auto;
+            white-space:pre-wrap;word-break:break-word}
+.map-frame{width:100%;height:280px;border:none;border-radius:var(--radius)}
+.graph-frame{width:100%;height:320px;border:none;border-radius:var(--radius)}
+.meta-table{width:100%;font-size:12px;border-collapse:collapse}
+.meta-table td{padding:.3rem .4rem;border-bottom:1px solid var(--border);
+               vertical-align:top}
+.meta-table td:first-child{color:var(--muted);width:120px;font-weight:500}
+.meta-table td a{word-break:break-all;font-size:11px}
+.entity-list{display:flex;flex-wrap:wrap;gap:.3rem}
+.entity-tag{font-size:11px;padding:2px 7px;border-radius:3px;
+            background:var(--blue-lt);color:var(--blue)}
+
+/* GPU DOCS PAGE */
+.gpu-page{max-width:800px;margin:0 auto;padding:1.5rem}
+.gpu-doc-card{background:var(--card-bg);border:1px solid var(--border);
+              border-radius:var(--radius);padding:1.2rem;margin-bottom:1rem}
+.gpu-doc-card h2{font-size:16px;font-weight:500;margin-bottom:.4rem}
+.gpu-doc-card .arch-ref{font-size:12px;color:var(--muted);margin-bottom:.7rem;
+                        font-family:monospace}
+.gpu-doc-card p{font-size:13px;line-height:1.6;margin-bottom:.5rem}
+.issue-links{display:flex;gap:.4rem;flex-wrap:wrap}
+.issue-link{font-size:11px;padding:2px 7px;border-radius:3px;
+            background:var(--blue-lt);color:var(--blue);text-decoration:none}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
+       font-size:12px;color:var(--muted);text-align:center;margin-top:2rem}
+
+/* SEARCH RESULTS */
+#search-results{padding:1.5rem;max-width:800px;margin:0 auto}
+.result-card{background:var(--card-bg);border:1px solid var(--border);
+             border-radius:var(--radius);padding:.8rem 1rem;margin-bottom:.6rem}
+.result-date{font-size:11px;color:var(--muted)}
+.result-title{font-size:14px;font-weight:500;margin:.2rem 0}
+.result-snippet{font-size:12px;color:var(--muted);line-height:1.5}
+mark{background:var(--yellow);color:#1a1a1a;border-radius:2px;padding:0 2px}
+
+@media(max-width:640px){
+  .browse-layout{grid-template-columns:1fr}
+  .sidebar{border-right:none;border-bottom:1px solid var(--border)}
+  .content-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}
+}

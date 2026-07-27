@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Agent — Khliborob Digital Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+    <span class="nav-title">Khliborob Digital Archive</span>
+  </div>
+  <div class="nav-links">
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <a href="../search/" data-i18n="nav_search">Search</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT</button>
+    </div>
+  </div>
+</nav>
+
+<div class="gpu-banner">
+  <span class="gpu-icon">🔍</span>
+  <span>
+    <strong data-i18n="gpu_banner">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</strong>
+    &nbsp;<a href="gpu-documents/" data-i18n="gpu_link">View documents</a>
+  </span>
+</div>
+
+<div style="max-width:800px;margin:0 auto;padding:1.5rem;display:flex;flex-direction:column;height:calc(100vh - 120px)">
+  <div style="margin-bottom:1rem">
+    <h1 style="font-size:20px;font-weight:500;margin-bottom:.3rem" data-i18n="nav_chat">Research Agent</h1>
+    <p style="font-size:13px;color:var(--muted)">
+      Ask questions about the archive in Ukrainian, English, or Portuguese.
+      Answers are grounded exclusively in the digitized corpus with full citations.
+      <strong>Start the RAG server first:</strong> <code>python rag_query.py</code>
+    </p>
+  </div>
+
+  <div id="chat-messages" style="flex:1;overflow-y:auto;border:1px solid var(--border);
+       border-radius:var(--radius);padding:1rem;background:var(--card-bg);margin-bottom:1rem;
+       display:flex;flex-direction:column;gap:.8rem">
+    <div class="msg msg-system">
+      <div class="msg-bubble msg-bubble-system">
+        👋 Welcome to the Khliborob Research Agent. I can answer questions about the
+        digitized issues of <em>Хлібороб / O Lavrador</em> — try asking about people,
+        places, or events mentioned in the archive.
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:.5rem">
+    <input id="chat-input" type="text" placeholder="Ask a question about the archive…"
+           style="flex:1;font-size:14px;padding:.55rem .9rem;border:1px solid var(--border-strong,#ccc);
+                  border-radius:var(--radius);background:var(--card-bg);color:var(--text)" />
+    <button onclick="sendQuestion()" id="send-btn"
+            style="font-size:13px;padding:.55rem 1.1rem;border:none;border-radius:var(--radius);
+                   background:#1a4a8a;color:#fff;font-weight:500;cursor:pointer;white-space:nowrap">
+      Ask
+    </button>
+  </div>
+
+  <p style="font-size:11px;color:var(--muted);margin-top:.5rem;text-align:center">
+    Answers are generated from the digitized corpus only. All claims cite their source.
+  </p>
+</div>
+
+<style>
+.msg { display:flex; flex-direction:column; }
+.msg-user { align-items:flex-end; }
+.msg-assistant { align-items:flex-start; }
+.msg-system { align-items:flex-start; }
+.msg-bubble {
+  max-width:85%; font-size:13px; line-height:1.6; padding:.6rem .9rem;
+  border-radius:10px; white-space:pre-wrap; word-break:break-word;
+}
+.msg-bubble-user      { background:#1a4a8a; color:#fff; }
+.msg-bubble-assistant { background:var(--card-bg); border:1px solid var(--border); color:var(--text); }
+.msg-bubble-system    { background:var(--blue-lt,#e8f0fb); color:var(--text); }
+.msg-bubble-error     { background:#fff0f0; border:1px solid #fcc; color:#900; }
+.citations-block {
+  margin-top:.5rem; font-size:11px; color:var(--muted);
+  border-top:1px solid var(--border); padding-top:.4rem;
+}
+.citation-item { margin-bottom:.2rem; }
+.citation-item a { color:#1a4a8a; }
+.typing { opacity:.6; font-style:italic; }
+</style>
+
+<script>
+const RAG_URL = "http://localhost:5050/query";
+
+async function sendQuestion() {
+  const input = document.getElementById("chat-input");
+  const q = input.value.trim();
+  if (!q) return;
+
+  input.value = "";
+  document.getElementById("send-btn").disabled = true;
+
+  // Add user bubble
+  appendMsg("user", q);
+
+  // Add typing indicator
+  const typingId = appendMsg("assistant", "Searching the archive…", "typing");
+
+  try {
+    const resp = await fetch(RAG_URL, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({question: q, top_k: 8})
+    });
+
+    if (!resp.ok) {
+      const err = await resp.json();
+      replaceMsg(typingId, "error",
+        "⚠️ Server error: " + (err.error || resp.statusText) +
+        "
+
+Make sure the RAG server is running: python rag_query.py");
+      return;
+    }
+
+    const data = await resp.json();
+
+    // Format citations
+    let citBlock = "";
+    if (data.citations && data.citations.length) {
+      citBlock = '<div class="citations-block"><strong>Sources:</strong><br>';
+      data.citations.forEach(c => {
+        const link = c.ipfs_url
+          ? `<a href="${c.ipfs_url}" target="_blank" rel="noopener">IPFS</a>`
+          : "";
+        const poly = c.tx_hash && c.tx_hash !== "sandbox"
+          ? `<a href="https://polygonscan.com/tx/${c.tx_hash}" target="_blank" rel="noopener">Blockchain</a>`
+          : "";
+        const links = [link, poly].filter(Boolean).join(" · ");
+        citBlock += `<div class="citation-item">[${c.citation_number}] ${c.newspaper_en}, `
+          + `${c.publication_date}, No. ${c.issue_number} — score: ${c.similarity_score}`
+          + (links ? ` — ${links}` : "") + `</div>`;
+      });
+      citBlock += "</div>";
+    }
+
+    replaceMsg(typingId, "assistant", data.answer, "", citBlock);
+
+  } catch (err) {
+    replaceMsg(typingId, "error",
+      "⚠️ Could not reach the RAG server at localhost:5050.
+
+" +
+      "Run: python rag_query.py
+
+Error: " + err.message);
+  } finally {
+    document.getElementById("send-btn").disabled = false;
+    input.focus();
+  }
+}
+
+function appendMsg(role, text, extra_class = "", citBlock = "") {
+  const id = "msg-" + Date.now() + "-" + Math.random();
+  const box = document.getElementById("chat-messages");
+  const div = document.createElement("div");
+  div.className = "msg msg-" + role;
+  div.id = id;
+  div.innerHTML = `<div class="msg-bubble msg-bubble-${extra_class || role}">${
+    escHtml(text)
+  }</div>${citBlock}`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+  return id;
+}
+
+function replaceMsg(id, role, text, extra_class = "", citBlock = "") {
+  const div = document.getElementById(id);
+  if (!div) return;
+  div.className = "msg msg-" + role;
+  div.innerHTML = `<div class="msg-bubble msg-bubble-${extra_class || role}">${
+    escHtml(text)
+  }</div>${citBlock}`;
+  document.getElementById("chat-messages").scrollTop = 99999;
+}
+
+function escHtml(t) {
+  return t.replace(/&/g,"&amp;").replace(/</g,"&lt;")
+          .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+document.getElementById("chat-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") sendQuestion();
+});
+</script>
+<footer>
+  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
+</footer>
+<script src="../assets/lang.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knowledge Graph — khliborob_19280926_no30_page01</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a2e; font-family: sans-serif; color: #eee;
+            display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+    #header { background: #16213e; padding: 10px 16px; border-bottom: 1px solid #0f3460; flex-shrink: 0; }
+    #header h2 { font-size: 0.95rem; margin: 0; }
+    #header p  { font-size: 0.75rem; opacity: 0.6; margin-top: 2px; }
+    #main { display: flex; flex: 1; overflow: hidden; }
+    #cy { flex: 1; }
+    #detail { width: 230px; background: #16213e; border-left: 1px solid #0f3460;
+               padding: 12px; font-size: 0.8rem; overflow-y: auto; flex-shrink: 0; }
+    #detail h3 { font-size: 0.88rem; color: #e94560; margin-bottom: 6px; }
+    #detail .badge { display: inline-block; background: #0f3460; border-radius: 3px;
+                      padding: 1px 6px; font-size: 0.7rem; margin-bottom: 8px; }
+    #detail .field { margin-bottom: 8px; }
+    #detail .field b { display: block; color: #888; font-size: 0.72rem; margin-bottom: 2px; }
+    #detail a { color: #e94560; }
+    #detail ul { padding-left: 14px; }
+    #detail li { font-size: 0.76rem; padding: 1px 0; }
+    #detail .hint { color: #444; font-size: 0.75rem; margin-top: 16px; }
+    #detail .snippet { background: #0a0a1a; border-left: 3px solid #e94560;
+                        padding: 6px 10px; margin-top: 8px; font-size: 0.76rem;
+                        font-style: italic; color: #bbb; line-height: 1.5; }
+    #overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55);
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; z-index: 10; }
+    #overlay p { color: #fff; font-size: 0.9rem; background: #16213e;
+                  padding: 12px 24px; border-radius: 6px; border: 1px solid #0f3460; }
+    #legend { position: fixed; bottom: 10px; left: 10px; background: #16213e;
+               padding: 6px 10px; border-radius: 5px; font-size: 0.72rem; }
+    #legend span { display: inline-block; width: 9px; height: 9px;
+                    border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2>🧠 Knowledge Graph — khliborob_19280926_no30_page01</h2>
+    <p>Ukrainian Farmer &nbsp;·&nbsp; 1928-09-26 &nbsp;·&nbsp; V. 30. (207) &nbsp;·&nbsp;
+       Scroll to zoom · Drag to pan · Click node for details</p>
+  </div>
+  <div id="main" style="position:relative">
+    <div id="overlay">
+      <p>▶ Click to activate the graph · Scroll to zoom · Drag to pan</p>
+    </div>
+    <div id="cy"></div>
+    <div id="detail"><p class="hint">Click any node to see details.</p></div>
+  </div>
+  <div id="legend">
+    <span style="background:#e94560"></span>Page &nbsp;
+    <span style="background:#4a90d9"></span>Person &nbsp;
+    <span style="background:#7c53b8"></span>Location
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+  <script>
+    // If loaded inside an iframe (e.g. Omeka), replace page with a
+    // clearly visible link. window.open() is blocked as a popup here,
+    // but an <a target="_blank"> clicked by the user always works.
+    if (window.self !== window.top) {
+      document.body.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;
+                    justify-content:center;height:100vh;background:#1a1a2e;
+                    color:#eee;font-family:sans-serif;gap:20px;text-align:center;
+                    padding:20px;">
+          <p style="font-size:1rem;opacity:0.7;margin:0">
+            The Knowledge Graph must be opened in its own tab to be interactive.
+          </p>
+          <a href="${window.location.href}" target="_blank"
+             style="background:#e94560;color:#fff;padding:14px 32px;
+                    border-radius:6px;text-decoration:none;font-size:1rem;
+                    font-weight:bold;">
+            🧠 Open Knowledge Graph ↗
+          </a>
+        </div>`;
+    }
+
+    const rawNodes = [{"id": "khliborob_19280926_no30_page01", "type": "page", "label": "khliborob_19280926_no30_page01"}, {"id": "Григорій Прехляк", "type": "person", "label": "Григорій Прехляк / Gregori Prechlak", "snippet_uk": "", "snippet_en": ""}, {"id": "Петро Мазуречен", "type": "person", "label": "Петро Мазуречен / Pedro Mazurechen", "snippet_uk": "", "snippet_en": ""}, {"id": "Степан Радіч", "type": "person", "label": "Степан Радіч / Stepan Radić", "snippet_uk": "…мишин. З цілого світу. Югославія. Жінка недавно помершого хорватського провідника Степана Радіча вислала до Ліги Націй просьбу о виданна контролі, яка малаби контролювати поступовання сербських судови…", "snippet_en": ""}, {"id": "Бенкер", "type": "person", "label": "Бенкер / Benker", "snippet_uk": "… Шантунг. Голодом загрожений простір 100 миль довгий і 30 миль широкий. Секретар комітету Бенкер, що приїхав з Китаю до Америки каже, що 1.500.000 китайцям грозить вже тепер смерть з голоду. Буревій н…", "snippet_en": ""}, {"id": "Елефтеріос Бенізельос", "type": "person", "label": "Елефтеріос Бенізельос / Eleftherios Venizelos", "snippet_uk": "…рилася. До тепер було 300.000 хворих. Захорілих також і президент грецької ради міністрів Бенізельос. Румуни і позичка. Уряд звернувся до Ліги Націй з просьбою о поміч. В короткому часі румунський уряд…", "snippet_en": ""}, {"id": "Ганс Кох", "type": "person", "label": "Ганс Кох / Hans Koch", "snippet_uk": "…ипадає на відпустки. З українських справ. Німці про Україну. Молодий німецький учений др. Ганс Кох виголосив недавно в радіо незвичайний виклад на тему „Україна в очах Німця“. Подавши загальні дані пр…", "snippet_en": ""}, {"id": "Пастернак", "type": "person", "label": "Пастернак / Pasternak", "snippet_uk": "…орію. Поширення Всенародньої Бібліотеки України. Як видно з доповіди директора Бібліотеки Пастернака на засіданню НКО, значного стану, чінння ВБУ, за 10 літ існуванна сягнуло і навіть поза межі цілого…", "snippet_en": ""}, {"id": "Кіпнік", "type": "person", "label": "Кіпнік / Kipnik", "snippet_uk": "…еставрацію Софійського Собору. Вже почалися роботи під проводом ленінградського професора Кіпніка. Дальше замкнення „Просвіт“ на Волині. На Волині польська влада позачинала та опечатала читальні в Поч…", "snippet_en": ""}, {"id": "Сергій Тимошенко", "type": "person", "label": "Сергій Тимошенко / Serhii Tymoshenko", "snippet_uk": "…кої Академії в Подебрадах (Чехословаччина) вибрала ректором на слідуючий рік проф. Сергія Тимошенка. Нове нещастя. З Галичини приходять відомости про градові тучі. Град винищив засіви в Самбірському п…", "snippet_en": ""}, {"id": "Андрій Щептицький", "type": "person", "label": "Андрій Щептицький / Andriy Sheptytsky", "snippet_uk": "…итрополит Щептицький кардиналом. Часописи подають вістки, що греко-католицький митрополит Андрій Щептицький має вступити, та осісти на стале в Римі, де його іменують кардиналом. Його наслідником мавби…", "snippet_en": ""}, {"id": "Йосип Хомишин", "type": "person", "label": "Йосип Хомишин / Yosyp Khomyshyn", "snippet_uk": "…в Римі, де його іменують кардиналом. Його наслідником мавби бути станиславівський епископ Хомишин. З цілого світу. Югославія. Жінка недавно помершого хорватського провідника Степана Радіча вислала до …", "snippet_en": ""}, {"id": "Гриць Косак", "type": "person", "label": "Гриць Косак / Hryts Kosak", "snippet_uk": "… агенція. Що вони не могли витримати роботи в копальнях та анти-відношення адміністрації. Гриць Косак-червоним. Бувшого команданта 1-ої української армії і полковника Української Галицької Армії (УГА)…", "snippet_en": ""}, {"id": "Porto União", "type": "location", "label": "Porto União", "snippet_uk": "30. (207) Порто Уніон, середа 26 вересня 1928. Рік видання V. О LAVRADOR UKRAINSKÝ ХЛІБОРОБ НЕЗАЛЕЖНИЙ ТИЖНЕВИК ОРГАН 'У…", "snippet_en": "30. (207) Porto União, Wednesday, September 26, 1928. Year of publication V. O LAVRADOR UKRAINSKÝ KHLIBOROB INDEPENDENT …", "lat": -26.2415, "lon": -50.9388, "name_uk": "Порто Уніон"}, {"id": "Brazil", "type": "location", "label": "Brazil", "snippet_uk": "… видання V. О LAVRADOR UKRAINSKÝ ХЛІБОРОБ НЕЗАЛЕЖНИЙ ТИЖНЕВИК ОРГАН 'УКРАЇНСЬКОГО СОЮЗУ В БРАЗИЛІЇ' виходить КОЖНОГО ЧЕТВЕРГА І КОШТУЄ НА РІК 12 $000, В АРГЕНТИНІ 5 ПЕЗІВ, В ІНШ. КРАЯХ 2 ДОЛ., ПІВР. П…", "snippet_en": "… TIME ADVERTISEMENT. O Lavrador Ukraino Weekly newspaper, organ of the Ukrainian Union in Brazil. Director: Gregori Prechlak. Manager: Pedro Mazurechen. Typographia da União Ukraino with its headquart…", "lat": -14.235, "lon": -51.9253, "name_uk": "Бразилія"}, {"id": "Rio de Janeiro", "type": "location", "label": "Rio de Janeiro", "snippet_uk": "…роткому часі зачнеться будова залізниці, що получить землі компанії з залізницею S. Paulo Rio Grande до Ігуаріягива, перетинаючи усю зону S. Jeronymo і Ribeirão Verde. Звідти потягне залізниця S. Fran…", "snippet_en": "…- Paraná. To get it, or not to be home! From Brazil. Match factory trust? Newspapers from Rio and S. Paulo report that American capitalists, having founded the syndicate 'Companhia Brasileira de Phosp…", "lat": -22.9068, "lon": -43.1729, "name_uk": "Ріо-де-Жанейро"}, {"id": "São Paulo", "type": "location", "label": "São Paulo", "snippet_uk": "…. В короткому часі зачнеться будова залізниці, що получить землі компанії з залізницею S. Paulo Rio Grande до Ігуаріягива, перетинаючи усю зону S. Jeronymo і Ribeirão Verde. Звідти потягне залізниця S…", "snippet_en": "…o get it, or not to be home! From Brazil. Match factory trust? Newspapers from Rio and S. Paulo report that American capitalists, having founded the syndicate 'Companhia Brasileira de Phosphoros', are…", "lat": -23.5505, "lon": -46.6333, "name_uk": "Сан-Паулу"}, {"id": "Santa Catarina", "type": "location", "label": "Santa Catarina", "snippet_uk": "", "snippet_en": "…In 1926, this amount was established in S. Paulo and paid from own funds. Exports from S. Catarina. From January to August of this year, 1,304,000$000 of goods were exported. To the companies União an…", "lat": -27.2185, "lon": -50.2003, "name_uk": "Санта-Катаріна"}, {"id": "Soviet Union", "type": "location", "label": "Soviet Union", "snippet_uk": "…928. Рік видання V. О LAVRADOR UKRAINSKÝ ХЛІБОРОБ НЕЗАЛЕЖНИЙ ТИЖНЕВИК ОРГАН 'УКРАЇНСЬКОГО СОЮЗУ В БРАЗИЛІЇ' виходить КОЖНОГО ЧЕТВЕРГА І КОШТУЄ НА РІК 12 $000, В АРГЕНТИНІ 5 ПЕЗІВ, В ІНШ. КРАЯХ 2 ДОЛ.,…", "snippet_en": "…e seen that the government fulfills its conditions to the existing banks. C.P.C.P. In the Soviet Union, a new law on military service has been issued. For preparation for military service in the field…", "lat": 61.524, "lon": 105.3188, "name_uk": "Радянський Союз"}, {"id": "Madrid", "type": "location", "label": "Madrid", "snippet_uk": "…ий виконавчий комітет відкинув прохання о помилування. Засуджених розстріляно. Еспанія. В Мадриті згорів театр Ногостей. Пожар стратило життя 425 осіб, є багато тяжче або лекше ранених.'", "snippet_en": "…cutive Committee rejected the appeal for clemency. The condemned were executed. Spain. In Madrid, the 'Nogostei' theater burned down. The fire claimed the lives of 425 people; many are seriously or li…", "lat": 40.4168, "lon": -3.7038, "name_uk": "Мадрид"}, {"id": "Spain", "type": "location", "label": "Spain", "snippet_uk": "", "snippet_en": "…entral Executive Committee rejected the appeal for clemency. The condemned were executed. Spain. In Madrid, the 'Nogostei' theater burned down. The fire claimed the lives of 425 people; many are serio…", "lat": 40.4637, "lon": -3.7492, "name_uk": "Іспанія"}, {"id": "Ukraine", "type": "location", "label": "Ukraine", "snippet_uk": "…лодий німецький учений др. Ганс Кох виголосив недавно в радіо незвичайний виклад на тему „Україна в очах Німця“. Подавши загальні дані про Україна та підкреснув др. Кох обставину, яка мусить вдаряти к…", "snippet_en": "… last 5 years, of which 2 years are spent on leave. From Ukrainian affairs. Germans about Ukraine. A young German scholar, Dr. Hans Koch, recently delivered an unusual radio lecture on the topic 'Ukra…", "lat": 48.3794, "lon": 31.1656, "name_uk": "Україна"}, {"id": "Caucasus", "type": "location", "label": "Caucasus", "snippet_uk": "…иця Косака іменувала більшовицька влада генералом червоної армії. Його приділено до штабу Кавказького повстанського загону атакованого. Розстріл повстанців. Радянський суд в Умані засудив на кару смер…", "snippet_en": "…e Bolshevik authorities as a general of the Red Army. He was assigned to the staff of the Caucasian rebel detachment under attack. Execution of rebels. The Soviet court in Uman sentenced 11 rebels to …", "lat": 42.0, "lon": 45.0, "name_uk": "Кавказ"}, {"id": "Kharkiv", "type": "location", "label": "Kharkiv", "snippet_uk": "", "snippet_en": "", "lat": 49.9935, "lon": 36.2304, "name_uk": "Харків"}, {"id": "Yugoslavia", "type": "location", "label": "Yugoslavia", "snippet_uk": "…кардиналом. Його наслідником мавби бути станиславівський епископ Хомишин. З цілого світу. Югославія. Жінка недавно помершого хорватського провідника Степана Радіча вислала до Ліги Націй просьбу о вида…", "snippet_en": "…cardinal. His successor is to be the Stanislaviv bishop Khomyshyn. From around the world. Yugoslavia. The wife of the recently deceased Croatian leader Stepan Radić sent a request to the League of Nat…", "lat": 44.0, "lon": 21.0, "name_uk": "Югославія"}, {"id": "Manchuria", "type": "location", "label": "Manchuria", "snippet_uk": "… її мужа. Београдська поліція сконфіскувала часописи, котрі цього листа оголосили. Чума в Манджурії. В північно західній частині Манджурії шаліє чума. 60 сіл вже вимерло на цю страшну хворобу. Францус…", "snippet_en": "…mplices. Belgrade police confiscated the newspapers that published this letter. Plague in Manchuria.\\In the northwestern part of Manchuria, the plague is raging. 60 villages have already died out from…", "lat": 47.0, "lon": 125.0, "name_uk": "Манджурія"}, {"id": "China", "type": "location", "label": "China", "snippet_uk": "…. Голод в Китаю. В Півн. Америці на зазив Ньюйоркського Рятункового Комітету для допомоги китайцям розпочато кампанію за зібранням 10 міліонів долярів на допомогу голодуючим китайцям в части провінції…", "snippet_en": "…gainst celibacy. A group of French priests began an agitation against celibacy. Famine in China. In North America, at the call of the New York Rescue Committee for aid to the Chinese, a campaign has b…", "lat": 35.8617, "lon": 104.1954, "name_uk": "Китай"}, {"id": "New York City", "type": "location", "label": "New York City", "snippet_uk": "", "snippet_en": "… WIDTH IN THE LENGTH OF ONE COLUMN, FOR ONE TIME ADVERTISEMENT. O Lavrador Ukraino Weekly newspaper, organ of the Ukrainian Union in Brazil. Director: Gregori Prechlak. Manager: Pedro Mazurechen. Typo…", "lat": 40.7128, "lon": -74.006, "name_uk": "Нью-Йорк"}, {"id": "United States (USA)", "type": "location", "label": "United States (USA)", "snippet_uk": "", "snippet_en": "…eatened with death from hunger. Hurricane in the Antilles and in the southern part of the United States. A terrible cyclone hit the Antilles islands. The islands of Puerto Rico, Martinique, and Guadel…", "lat": 37.0902, "lon": -95.7129, "name_uk": "Сполучені Держави (США)"}, {"id": "Greece", "type": "location", "label": "Greece", "snippet_uk": "…уревій також через штати Флорида, Небраска, Ілінойс та др. Злуч. Держав. Епідемія грипи в Греції. В Афінах і та дальших околицях Греції вибухла епідемія грипи. Вона дуже поширилася. До тепер було 300.…", "snippet_en": "…e states of Florida, Nebraska, Illinois, and others in the United States. Flu epidemic in Greece. In Athens and its surroundings in Greece, a flu epidemic broke out. It spread widely. So far, there ha…", "lat": 39.0742, "lon": 21.8243, "name_uk": "Греція"}, {"id": "Romania", "type": "location", "label": "Romania", "snippet_uk": "…ряд старався дістати позичку в заграничних банках. Старання на кінець увінчались успіхом; Румунія дістала позичку, але під дуже важкими умовами. Всі доходи і розходи мають бути під контролею чужоземно…", "snippet_en": "…of the Greek Council of Ministers Venizelos. Diseases also among people of other nations. Romanians and a loan. The government appealed to the League of Nations for help. In a short time, the Romanian…", "lat": 45.9432, "lon": 24.9668, "name_uk": "Румунія"}, {"id": "Volhynia", "type": "location", "label": "Volhynia", "snippet_uk": "…лися роботи під проводом ленінградського професора Кіпніка. Дальше замкнення „Просвіт“ на Волині. На Волині польська влада позачинала та опечатала читальні в Почаєві, Вишнівці, Рахманові, Савчинцях, К…", "snippet_en": "…un under the guidance of the Leningrad professor Kipnik. Further closure of 'Prosvita' in Volhynia. In Volhynia, the Polish authorities began to close and seal reading rooms in Pochaiv, Vyshnivtsi, Ra…", "lat": 50.73, "lon": 25.1, "name_uk": "Волинь"}, {"id": "Galicia", "type": "location", "label": "Galicia", "snippet_uk": "…тнографічної території сильнішими сусідами ослаблює українську державно-національну ідею (Галич, Богдан Хмельницький). Тут знов він підкріпив свою тезу порівнанням між слов’янських і німецьких окраїн …", "snippet_en": "…n ethnographic territory by stronger neighbors weakens the Ukrainian state-national idea (Galicia, Bohdan Khmelnytsky). Here again, he supported his thesis by comparing how the Slavic and German borde…", "lat": 49.76, "lon": 24.98, "name_uk": "Галичина"}];
+    const rawEdges = [{"source": "khliborob_19280926_no30_page01", "target": "Григорій Прехляк", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Петро Мазуречен", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Степан Радіч", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Бенкер", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Елефтеріос Бенізельос", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Ганс Кох", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Пастернак", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Кіпнік", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Сергій Тимошенко", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Андрій Щептицький", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Йосип Хомишин", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Гриць Косак", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Porto União", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Brazil", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Rio de Janeiro", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "São Paulo", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Santa Catarina", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Soviet Union", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Madrid", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Spain", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Ukraine", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Caucasus", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Kharkiv", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Yugoslavia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Manchuria", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "China", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "New York City", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "United States (USA)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Greece", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Romania", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Volhynia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Galicia", "label": "LOCATED IN"}];
+
+    function nodeId(x) { return (x && typeof x === "object") ? x.id : String(x); }
+
+    const elements = [
+      ...rawNodes.map(n => ({ data: { id: n.id, label: n.label, type: n.type,
+                                        lat: n.lat||0, lon: n.lon||0, name_uk: n.name_uk||"",
+                                        snippet_uk: n.snippet_uk||"", snippet_en: n.snippet_en||"" } })),
+      ...rawEdges.map((e,i) => ({ data: { id:"e"+i,
+                                            source: nodeId(e.source),
+                                            target: nodeId(e.target),
+                                            label: e.label } }))
+    ];
+
+    const cy = cytoscape({
+      container: document.getElementById("cy"),
+      elements,
+      style: [
+        { selector: "node[type='page']",
+           style: { "background-color":"#e94560","border-color":"#fff","border-width":2,
+                     "width":36,"height":36,"label":"data(label)",
+                     "color":"#eee","font-size":11,"text-valign":"bottom","text-margin-y":4 } },
+        { selector: "node[type='person']",
+           style: { "background-color":"#4a90d9","border-color":"#e94560","border-width":1.5,
+                     "width":22,"height":22,"label":"data(label)",
+                     "color":"#eee","font-size":9,"text-valign":"bottom","text-margin-y":3 } },
+        { selector: "node[type='location']",
+           style: { "background-color":"#7c53b8","border-color":"#e94560","border-width":1.5,
+                     "width":22,"height":22,"label":"data(label)",
+                     "color":"#eee","font-size":9,"text-valign":"bottom","text-margin-y":3 } },
+        { selector: "node:selected",
+           style: { "border-color":"#fff","border-width":3,"overlay-opacity":0.15 } },
+        { selector: "edge",
+           style: { "line-color":"#444","opacity":0.7,"width":1.5,
+                     "curve-style":"bezier","target-arrow-shape":"none" } },
+      ],
+      layout: { name:"cose", animate:false, padding:40,
+                  nodeRepulsion:8000, idealEdgeLength:120,
+                  gravity:0.25, numIter:500 },
+      userZoomingEnabled: true,
+      userPanningEnabled: true,
+      boxSelectionEnabled: false,
+    });
+
+    // Dismiss overlay on first interaction to give Cytoscape focus
+    document.getElementById("overlay").addEventListener("click", function() {
+      this.style.display = "none";
+      cy.resize();
+      cy.fit();
+    });
+
+    cy.on("tap", "node", function(e) {
+      const d = e.target.data();
+
+      let extra = "";
+      if (d.type === "page") {
+        extra = `<div class="field"><b>Publication</b>1928-09-26</div>
+                 <div class="field"><b>Issue</b>V. 30. (207)</div>`;
+      } else if (d.type === "location" && (d.lat || d.lon)) {
+        const url = `https://www.openstreetmap.org/?mlat=${d.lat}&mlon=${d.lon}&zoom=10`;
+        extra = `<div class="field"><b>Ukrainian name</b>${d.name_uk||"—"}</div>
+                 <div class="field"><b>Coordinates</b>${d.lat}, ${d.lon}</div>
+                 <div class="field"><a href="${url}" target="_blank">Open in OpenStreetMap ↗</a></div>`;
+      }
+
+      const snippet = (d.snippet_uk || d.snippet_en) ? `
+        ${d.snippet_uk ? `<div class="snippet"><b style="color:#888;font-size:0.7rem">🇺🇦 UK</b><br>"${d.snippet_uk}"</div>` : ""}
+        ${d.snippet_en ? `<div class="snippet" style="margin-top:4px"><b style="color:#888;font-size:0.7rem">🇬🇧 EN</b><br>"${d.snippet_en}"</div>` : ""}
+      ` : "";
+
+      const conn = e.target.neighborhood("node").map(n => `<li>${n.data("label")}</li>`).join("");
+      document.getElementById("detail").innerHTML = `
+        <h3>${d.label}</h3>
+        <span class="badge">${d.type}</span>
+        ${extra}
+        ${snippet}
+        <div class="field"><b>Connected to</b><ul>${conn||"<li>—</li>"}</ul></div>`;
+    });
+
+    cy.on("tap", function(e) {
+      if (e.target === cy) {
+        document.getElementById("detail").innerHTML =
+          "<p class='hint'>Click any node to see details.</p>";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knowledge Graph — bukovina_19811201_no4_page01</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #1a1a2e; font-family: sans-serif; color: #eee;
+            display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+    #header { background: #16213e; padding: 10px 16px; border-bottom: 1px solid #0f3460; flex-shrink: 0; }
+    #header h2 { font-size: 0.95rem; margin: 0; }
+    #header p  { font-size: 0.75rem; opacity: 0.6; margin-top: 2px; }
+    #main { display: flex; flex: 1; overflow: hidden; }
+    #cy { flex: 1; }
+    #detail { width: 230px; background: #16213e; border-left: 1px solid #0f3460;
+               padding: 12px; font-size: 0.8rem; overflow-y: auto; flex-shrink: 0; }
+    #detail h3 { font-size: 0.88rem; color: #e94560; margin-bottom: 6px; }
+    #detail .badge { display: inline-block; background: #0f3460; border-radius: 3px;
+                      padding: 1px 6px; font-size: 0.7rem; margin-bottom: 8px; }
+    #detail .field { margin-bottom: 8px; }
+    #detail .field b { display: block; color: #888; font-size: 0.72rem; margin-bottom: 2px; }
+    #detail a { color: #e94560; }
+    #detail ul { padding-left: 14px; }
+    #detail li { font-size: 0.76rem; padding: 1px 0; }
+    #detail .hint { color: #444; font-size: 0.75rem; margin-top: 16px; }
+    #detail .snippet { background: #0a0a1a; border-left: 3px solid #e94560;
+                        padding: 6px 10px; margin-top: 8px; font-size: 0.76rem;
+                        font-style: italic; color: #bbb; line-height: 1.5; }
+    #overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.55);
+                display: flex; align-items: center; justify-content: center;
+                cursor: pointer; z-index: 10; }
+    #overlay p { color: #fff; font-size: 0.9rem; background: #16213e;
+                  padding: 12px 24px; border-radius: 6px; border: 1px solid #0f3460; }
+    #legend { position: fixed; bottom: 10px; left: 10px; background: #16213e;
+               padding: 6px 10px; border-radius: 5px; font-size: 0.72rem; }
+    #legend span { display: inline-block; width: 9px; height: 9px;
+                    border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2>🧠 Knowledge Graph — bukovina_19811201_no4_page01</h2>
+    <p>Bukovyna &nbsp;·&nbsp; 1981-12-01 &nbsp;·&nbsp; Vol VII, No. 4 (26) &nbsp;·&nbsp;
+       Scroll to zoom · Drag to pan · Click node for details</p>
+  </div>
+  <div id="main" style="position:relative">
+    <div id="overlay">
+      <p>▶ Click to activate the graph · Scroll to zoom · Drag to pan</p>
+    </div>
+    <div id="cy"></div>
+    <div id="detail"><p class="hint">Click any node to see details.</p></div>
+  </div>
+  <div id="legend">
+    <span style="background:#e94560"></span>Page &nbsp;
+    <span style="background:#4a90d9"></span>Person &nbsp;
+    <span style="background:#7c53b8"></span>Location
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+  <script>
+    // If loaded inside an iframe (e.g. Omeka), replace page with a
+    // clearly visible link. window.open() is blocked as a popup here,
+    // but an <a target="_blank"> clicked by the user always works.
+    if (window.self !== window.top) {
+      document.body.innerHTML = `
+        <div style="display:flex;flex-direction:column;align-items:center;
+                    justify-content:center;height:100vh;background:#1a1a2e;
+                    color:#eee;font-family:sans-serif;gap:20px;text-align:center;
+                    padding:20px;">
+          <p style="font-size:1rem;opacity:0.7;margin:0">
+            The Knowledge Graph must be opened in its own tab to be interactive.
+          </p>
+          <a href="${window.location.href}" target="_blank"
+             style="background:#e94560;color:#fff;padding:14px 32px;
+                    border-radius:6px;text-decoration:none;font-size:1rem;
+                    font-weight:bold;">
+            🧠 Open Knowledge Graph ↗
+          </a>
+        </div>`;
+    }
+
+    const rawNodes = [{"id": "bukovina_19811201_no4_page01", "type": "page", "label": "bukovina_19811201_no4_page01"}, {"id": "Олександер Ковальський", "type": "person", "label": "Олександер Ковальський / Oleksander Kovalsky", "snippet_uk": "БУКОВИНА Редагує: мґр. Олександер Ковальський УКРАЇНСЬКИЙ НЕЗАЛЕЖНИЙ ЖУРНАЛ Виходить квартально ГРУДЕНЬ — DECEMBER 1981 Ч. 4 (26) — Рік…", "snippet_en": ""}, {"id": "У. Кароп", "type": "person", "label": "У. Кароп / U. Karop", "snippet_uk": "…аїнцям бажає УПРАВА УКРАЇНСЬКО-БУКОВИНСЬКОЇ ГРОМАДИ ТА РЕДАКЦІЯ І АДМІНІСТРАЦІЯ БУКОВИНИ  У. Кароп Українці в Румунії Після коректур кордону поміж СССР і Румунією в 1940 і 1944 рр. у межах Румунської …", "snippet_en": ""}, {"id": "Іван", "type": "person", "label": "Іван / Ivan", "snippet_uk": "… ЙОГО 'БРАТІВ' ВАНЬКУ Й ЯНА, ТА ПРО ЇХ ТЕПЕРІШНЬОГО ПАНА Старі люди оповідають, що нашого Івана, на колись дуже давно, не називали все Безталанним. Називали його Мудрим, Ве-ликим, Завойовником, Осмоми…", "snippet_en": ""}, {"id": "Ванька", "type": "person", "label": "Ванька / Vanka", "snippet_uk": "…омислом та ще й іншими гарними прізвищами. Тоді Іван був сильний та багатий. 'Брати' його Ванька і Ян, тоді ще в пеленках валялися, а теперішні 'доброзичливі' сусіди, були ще на пів дикими кочовиками.…", "snippet_en": ""}, {"id": "Яна", "type": "person", "label": "Яна / Yana", "snippet_uk": "… Не вспів Іван прочухатися від 'вдячно-сти' одного брата, як за якийсь час, „мал-жоночка' Яна каже: — Цо ж ти за госпадак, Янку!? Ти хиба пуйдьєш пси биш з таком госпадаком! У цебє є тилькi п'ескi i п…", "snippet_en": ""}, {"id": "Янек", "type": "person", "label": "Янек / Yanek", "snippet_uk": "…ольварек! Я хцем мець мо-йонтек од можа до можа! Пренцзи! Юж! Не бондзь глупи, муй кохани Янек!  І Янек, що боявся втратити ласку і пе-стощі своєї приманчивої малжонки, пішов і заграбав західню частин…", "snippet_en": ""}, {"id": "Bukovyna", "type": "location", "label": "Bukovyna", "snippet_uk": "БУКОВИНА Редагує: мґр. Олександер Ковальський УКРАЇНСЬКИЙ НЕЗАЛЕЖНИЙ ЖУРНАЛ Виходить квартально ГРУДЕНЬ — DECE…", "snippet_en": "…amcearca, Poșta, Frecăței, Cataloi, Ciucurova, Bașpunar, Nampurliya Lower; 2) in southern Bukovyna — 39 villages near Rădăuți, Siret and Suceava; Cârlibaba, Izvoarele Sucevei, Moldova Sulița, Breaza, …", "lat": 48.0, "lon": 25.5, "name_uk": "Буковина"}, {"id": "Ukraine", "type": "location", "label": "Ukraine", "snippet_uk": "БУКОВИНА Редагує: мґр. Олександер Ковальський УКРАЇНСЬКИЙ НЕЗАЛЕЖНИЙ ЖУРНАЛ Виходить квартально ГРУДЕНЬ — DECEMBER 1981 Ч. 4 (26) — Рік VII No. 4 (26) — Vol…", "snippet_en": "**BUKOVINA** Edited by: Mgr. Oleksander Kovalsky UKRAINIAN INDEPENDENT JOURNAL Published quarterly DECEMBER — DECEMBER 1981 No. 4 (26) — Vol. VII No. 4 (26) — …", "lat": 49.0, "lon": 32.0, "name_uk": "Україна"}, {"id": "Romania", "type": "location", "label": "Romania", "snippet_uk": "…УКРАЇНСЬКО-БУКОВИНСЬКОЇ ГРОМАДИ ТА РЕДАКЦІЯ І АДМІНІСТРАЦІЯ БУКОВИНИ  У. Кароп Українці в Румунії Після коректур кордону поміж СССР і Румунією в 1940 і 1944 рр. у межах Румунської Народної Республіки …", "snippet_en": "… ****************************************************************  U. Karop Ukrainians in Romania After the border adjustments between the USSR and Romania in 1940 and 1944, within the borders of the …", "lat": 46.0, "lon": 25.0, "name_uk": "Румунія"}, {"id": "USSR", "type": "location", "label": "USSR", "snippet_uk": "…и досі звуть себе ще 'хахлами' й 'руснаками'; дехто з-поміж них виїхав в 1945-1946 рр. до СРСР. Живуть вони в селах поруч з російськими 'літованими' (старовірами) та нащадками донсько — козацьких 'нек…", "snippet_en": "…****************  U. Karop Ukrainians in Romania After the border adjustments between the USSR and Romania in 1940 and 1944, within the borders of the Romanian People's Republic there remained about a…", "lat": 60.0, "lon": 90.0, "name_uk": "СРСР"}, {"id": "Toronto", "type": "location", "label": "Toronto", "snippet_uk": "… Ціна примірника 50 ц. Price 50¢ per copy BUKOVINA Ukrainian Quarterly 4 Underwood Avenue Toronto, Ontario M6S 2J5 Canada  ХРИСТОС РОЖДАЄТЬСЯ! ВЕСЕЛИХ СВЯТ РІЗДВА ХРИСТОВОГО І ЩАСЛИВОГО НОВОГО РОКУ Вс…", "snippet_en": "…VII Price 50¢ per copy Price 50¢ per copy BUKOVINA Ukrainian Quarterly 4 Underwood Avenue Toronto, Ontario M6S 2J5 Canada  CHRIST IS BORN! MERRY CHRISTMAS HOLIDAYS AND A HAPPY NEW YEAR Wished to all o…", "lat": 43.7, "lon": -79.4, "name_uk": "Торонто"}, {"id": "Danube River", "type": "location", "label": "Danube River", "snippet_uk": "…уміжної частини українського материка, а чи теренів, звідки вони колишні. Добруджансько — дунайські українці, головно рибалки й хлібороби, виводяться від запорізьких втікачів 1775 р. 'під тур-ка' післ…", "snippet_en": "…an, without Russisms. The South Bukovynian group of Ukrainians, Hutsuls along the Suceava River and Pokuttians along the Siret River — this is an ancient Romanian linguistic territory, similar to the …", "lat": 47.6171531, "lon": 19.0841799, "name_uk": "Дунай"}, {"id": "Dobruja", "type": "location", "label": "Dobruja", "snippet_uk": "…і, залежно від суміжної частини українського материка, а чи теренів, звідки вони колишні. Добруджансько — дунайські українці, головно рибалки й хлібороби, виводяться від запорізьких втікачів 1775 р. '…", "snippet_en": "…people. These villages are concentrated in 4 regions: 1) in the Danube Delta and northern Dobruja — 37 localities: Katerlez (St. George), Skulym, Karaorman, Letea, St. Crișan, Gorgova, Vuzilina, Tatan…", "lat": 44.5, "lon": 28.5, "name_uk": "Добруджа"}, {"id": "Tulcea", "type": "location", "label": "Tulcea", "snippet_uk": "…ува, Клажанка, Ілгани Гор., Махмудія, Перліта, Бештепе, Мургугіль, Дунавець Гор.: і Дол., Тульча, Кишлиця, Паркеш, Ісачка, Телиця, Ціганка, Джафрка, Гамчарка, Пошта, Фрекацей, Каталой, Чукурова, Башпу…", "snippet_en": "…Klazhanka, Ilhany Upper, Mahmudia, Perlita, Beștepe, Murighiol, Dunavets Upper and Lower, Tulcea, Chișlița, Parcheș, Isaccea, Telița, Țiganca, Dzhafrka, Hamcearca, Poșta, Frecăței, Cataloi, Ciucurova,…", "lat": 45.18, "lon": 28.8, "name_uk": "Тульча"}, {"id": "Northern Bukovina", "type": "location", "label": "Northern Bukovina", "snippet_uk": "БУКОВИНА Редагує: мґр. Олександер Ковальський УКРАЇНСЬКИЙ НЕЗАЛЕЖНИЙ ЖУРНАЛ Виходить квартально ГРУДЕНЬ — DECE…", "snippet_en": "**BUKOVINA** Edited by: Mgr. Oleksander Kovalsky UKRAINIAN INDEPENDENT JOURNAL Published quarterly DECEMBER — DE…", "lat": 48.5, "lon": 26.0, "name_uk": "Північна Буковина"}, {"id": "Southern Bukovina", "type": "location", "label": "Southern Bukovina", "snippet_uk": "БУКОВИНА Редагує: мґр. Олександер Ковальський УКРАЇНСЬКИЙ НЕЗАЛЕЖНИЙ ЖУРНАЛ Виходить квартально ГРУДЕНЬ — DECE…", "snippet_en": "**BUKOVINA** Edited by: Mgr. Oleksander Kovalsky UKRAINIAN INDEPENDENT JOURNAL Published quarterly DECEMBER — DE…", "lat": 47.7, "lon": 25.8, "name_uk": "Південна Буковина"}, {"id": "Rădăuți", "type": "location", "label": "Rădăuți", "snippet_uk": "… Фрекацей, Каталой, Чукурова, Башпунар, Нампурлія Дол.; 2) в півд. Буковині — 39 сіл біля Радівець, Серету й Сучави; Кирлібаба, Ізвори Сучави, Молдова Сулиця, Бряза, Арджел, Молдовиця, Вилиця, Палтін,…", "snippet_en": "…ataloi, Ciucurova, Bașpunar, Nampurliya Lower; 2) in southern Bukovyna — 39 villages near Rădăuți, Siret and Suceava; Cârlibaba, Izvoarele Sucevei, Moldova Sulița, Breaza, Argel, Moldovița, Vălița, Pa…", "lat": 47.85, "lon": 25.91, "name_uk": "Радівець"}, {"id": "Suceava", "type": "location", "label": "Suceava", "snippet_uk": "… Чукурова, Башпунар, Нампурлія Дол.; 2) в півд. Буковині — 39 сіл біля Радівець, Серету й Сучави; Кирлібаба, Ізвори Сучави, Молдова Сулиця, Бряза, Арджел, Молдовиця, Вилиця, Палтін, Бая Болдуй, Чуммир…", "snippet_en": "…Bașpunar, Nampurliya Lower; 2) in southern Bukovyna — 39 villages near Rădăuți, Siret and Suceava; Cârlibaba, Izvoarele Sucevei, Moldova Sulița, Breaza, Argel, Moldovița, Vălița, Paltin, Baia Boldoi, …", "lat": 47.65, "lon": 26.25, "name_uk": "Сучава"}, {"id": "Moldova", "type": "location", "label": "Moldova", "snippet_uk": "….; 2) в півд. Буковині — 39 сіл біля Радівець, Серету й Сучави; Кирлібаба, Ізвори Сучави, Молдова Сулиця, Бряза, Арджел, Молдовиця, Вилиця, Палтін, Бая Болдуй, Чуммирна, Лупчина, Улма, Нісипіт, Ігріше…", "snippet_en": "…ern Bukovyna — 39 villages near Rădăuți, Siret and Suceava; Cârlibaba, Izvoarele Sucevei, Moldova Sulița, Breaza, Argel, Moldovița, Vălița, Paltin, Baia Boldoi, Ciumârna, Lupcina, Ulma, Nisipitu, Igri…", "lat": 47.0, "lon": 28.5, "name_uk": "Молдова"}, {"id": "Cacica", "type": "location", "label": "Cacica", "snippet_uk": "…, Лупчина, Улма, Нісипіт, Ігріше, Кунунський, 14-ий км, На, Гропені, Кліт, Солонеш, Неуш, Качіка, Мелешівці, Вашківці, Руснаки, Синівці, Негостина, Балківці, Ботошаниця, Шербівці, Каля нешти — Купарен…", "snippet_en": "…na, Lupcina, Ulma, Nisipitu, Igrișe, Cununski, 14th km, Na, Gropeni, Clit, Soloneț, Neuș, Cacica, Meleșivtsi, Vashkivtsi, Rusnaky, Synivtsi, Negostina, Balcivtsi, Botoșanița, Șerbăuți, Calea Nești — K…", "lat": 47.65, "lon": 25.85, "name_uk": "Качіка"}, {"id": "Maramureș", "type": "location", "label": "Maramureș", "snippet_uk": "…Васілаке, Данила, Слободзя, Дарканешті, Марш, Гожешти, Кіндешті, Семегіча: Іпотешти; 3) в Мармарощині (Сигіт щині) — 15 сіл; Тячево, Ремети, Довге Поле, Кричунь, Луг, Вишня Рівна, Бичків, Кренешень, М…", "snippet_en": "…silake, Danyla, Slobozia, Dărmănești, Marș, Hožești, Kindești, Semehicha: Ipotești; 3) in Maramureș (Syhitshchyna) — 15 villages; Tiachiv, Remeti, Dovhe Pole, Krychun, Luh, Vyshnia Rivna, Bychkiv, Kre…", "lat": 47.9, "lon": 24.2, "name_uk": "Мармарощина"}, {"id": "Sighetu Marmației", "type": "location", "label": "Sighetu Marmației", "snippet_uk": "…ила, Слободзя, Дарканешті, Марш, Гожешти, Кіндешті, Семегіча: Іпотешти; 3) в Мармарощині (Сигіт щині) — 15 сіл; Тячево, Ремети, Довге Поле, Кричунь, Луг, Вишня Рівна, Бичків, Кренешень, Миково, Красна…", "snippet_en": "", "lat": 47.92, "lon": 23.88, "name_uk": "Сигіт"}, {"id": "Tiachiv", "type": "location", "label": "Tiachiv", "snippet_uk": "…шті, Марш, Гожешти, Кіндешті, Семегіча: Іпотешти; 3) в Мармарощині (Сигіт щині) — 15 сіл; Тячево, Ремети, Довге Поле, Кричунь, Луг, Вишня Рівна, Бичків, Кренешень, Миково, Красна, Вишавська Дол., Бист…", "snippet_en": "…rș, Hožești, Kindești, Semehicha: Ipotești; 3) in Maramureș (Syhitshchyna) — 15 villages; Tiachiv, Remeti, Dovhe Pole, Krychun, Luh, Vyshnia Rivna, Bychkiv, Kreneșeni, Mykovo, Krasna, Vyshava Dol., By…", "lat": 48.02, "lon": 23.57, "name_uk": "Тячево"}, {"id": "Banat", "type": "location", "label": "Banat", "snippet_uk": "…а, Бичків, Кренешень, Миково, Красна, Вишавська Дол., Бистра, Руськово, Вий, Поляни; 4) в Банаті — Біла Лугож й Карансебеш — 7 сіл. Усар, Че-решня, Антолка, Кричова, Зоріле, Колачеле, Корнуцел. І похо…", "snippet_en": "…a, Bychkiv, Kreneșeni, Mykovo, Krasna, Vyshava Dol., Bystra, Ruskovo, Viy, Poliany; 4) in Banat — Bila Lugoj and Caransebeș — 7 villages. Usar, Cereșnya, Antolka, Krychova, Zorile, Kolachele, Cornuțel…", "lat": 45.7, "lon": 21.0, "name_uk": "Банат"}, {"id": "Chernivtsi", "type": "location", "label": "Chernivtsi", "snippet_uk": "…ваний угорцями й румунами. Національно — свідому працю вела тут скрізь у міжвоєнному часі чернівецька інтелігенція. Її представники, подекуди також з Бесарабії й Хотинщини й Акерманщини, зустрінете ще…", "snippet_en": "…tionally conscious work was carried out everywhere here during the interwar period by the Chernivtsi intelligentsia. Its representatives, sometimes also from Bessarabia, Khotynshchyna, and Akerman, ca…", "lat": 48.29, "lon": 25.93, "name_uk": "Чернівці"}, {"id": "Bucharest", "type": "location", "label": "Bucharest", "snippet_uk": "…ете ще сьогодні як організаторів шкільництва, видавничої справи, учителів та священиків у Букарешті та на провінції. Про безприкладне 'притиснення' українського культурного та політичного життя і руму…", "snippet_en": "…can still be found today as organizers of schooling, publishing, teachers, and priests in Bucharest and in the provinces.  There is no need to mention the unprecedented 'suppression' of Ukrainian cult…", "lat": 44.43, "lon": 26.1, "name_uk": "Букарешт"}];
+    const rawEdges = [{"source": "bukovina_19811201_no4_page01", "target": "Олександер Ковальський", "label": "MENTIONS"}, {"source": "bukovina_19811201_no4_page01", "target": "У. Кароп", "label": "MENTIONS"}, {"source": "bukovina_19811201_no4_page01", "target": "Іван", "label": "MENTIONS"}, {"source": "bukovina_19811201_no4_page01", "target": "Ванька", "label": "MENTIONS"}, {"source": "bukovina_19811201_no4_page01", "target": "Яна", "label": "MENTIONS"}, {"source": "bukovina_19811201_no4_page01", "target": "Янек", "label": "MENTIONS"}, {"source": "bukovina_19811201_no4_page01", "target": "Bukovyna", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Ukraine", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Romania", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "USSR", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Toronto", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Danube River", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Dobruja", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Tulcea", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Northern Bukovina", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Southern Bukovina", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Rădăuți", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Suceava", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Moldova", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Cacica", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Maramureș", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Sighetu Marmației", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Tiachiv", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Banat", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Chernivtsi", "label": "LOCATED IN"}, {"source": "bukovina_19811201_no4_page01", "target": "Bucharest", "label": "LOCATED IN"}];
+
+    function nodeId(x) { return (x && typeof x === "object") ? x.id : String(x); }
+
+    const elements = [
+      ...rawNodes.map(n => ({ data: { id: n.id, label: n.label, type: n.type,
+                                        lat: n.lat||0, lon: n.lon||0, name_uk: n.name_uk||"",
+                                        snippet_uk: n.snippet_uk||"", snippet_en: n.snippet_en||"" } })),
+      ...rawEdges.map((e,i) => ({ data: { id:"e"+i,
+                                            source: nodeId(e.source),
+                                            target: nodeId(e.target),
+                                            label: e.label } }))
+    ];
+
+    const cy = cytoscape({
+      container: document.getElementById("cy"),
+      elements,
+      style: [
+        { selector: "node[type='page']",
+           style: { "background-color":"#e94560","border-color":"#fff","border-width":2,
+                     "width":36,"height":36,"label":"data(label)",
+                     "color":"#eee","font-size":11,"text-valign":"bottom","text-margin-y":4 } },
+        { selector: "node[type='person']",
+           style: { "background-color":"#4a90d9","border-color":"#e94560","border-width":1.5,
+                     "width":22,"height":22,"label":"data(label)",
+                     "color":"#eee","font-size":9,"text-valign":"bottom","text-margin-y":3 } },
+        { selector: "node[type='location']",
+           style: { "background-color":"#7c53b8","border-color":"#e94560","border-width":1.5,
+                     "width":22,"height":22,"label":"data(label)",
+                     "color":"#eee","font-size":9,"text-valign":"bottom","text-margin-y":3 } },
+        { selector: "node:selected",
+           style: { "border-color":"#fff","border-width":3,"overlay-opacity":0.15 } },
+        { selector: "edge",
+           style: { "line-color":"#444","opacity":0.7,"width":1.5,
+                     "curve-style":"bezier","target-arrow-shape":"none" } },
+      ],
+      layout: { name:"cose", animate:false, padding:40,
+                  nodeRepulsion:8000, idealEdgeLength:120,
+                  gravity:0.25, numIter:500 },
+      userZoomingEnabled: true,
+      userPanningEnabled: true,
+      boxSelectionEnabled: false,
+    });
+
+    // Dismiss overlay on first interaction to give Cytoscape focus
+    document.getElementById("overlay").addEventListener("click", function() {
+      this.style.display = "none";
+      cy.resize();
+      cy.fit();
+    });
+
+    cy.on("tap", "node", function(e) {
+      const d = e.target.data();
+
+      let extra = "";
+      if (d.type === "page") {
+        extra = `<div class="field"><b>Publication</b>1981-12-01</div>
+                 <div class="field"><b>Issue</b>Vol VII, No. 4 (26)</div>`;
+      } else if (d.type === "location" && (d.lat || d.lon)) {
+        const url = `https://www.openstreetmap.org/?mlat=${d.lat}&mlon=${d.lon}&zoom=10`;
+        extra = `<div class="field"><b>Ukrainian name</b>${d.name_uk||"—"}</div>
+                 <div class="field"><b>Coordinates</b>${d.lat}, ${d.lon}</div>
+                 <div class="field"><a href="${url}" target="_blank">Open in OpenStreetMap ↗</a></div>`;
+      }
+
+      const snippet = (d.snippet_uk || d.snippet_en) ? `
+        ${d.snippet_uk ? `<div class="snippet"><b style="color:#888;font-size:0.7rem">🇺🇦 UK</b><br>"${d.snippet_uk}"</div>` : ""}
+        ${d.snippet_en ? `<div class="snippet" style="margin-top:4px"><b style="color:#888;font-size:0.7rem">🇬🇧 EN</b><br>"${d.snippet_en}"</div>` : ""}
+      ` : "";
+
+      const conn = e.target.neighborhood("node").map(n => `<li>${n.data("label")}</li>`).join("");
+      document.getElementById("detail").innerHTML = `
+        <h3>${d.label}</h3>
+        <span class="badge">${d.type}</span>
+        ${extra}
+        ${snippet}
+        <div class="field"><b>Connected to</b><ul>${conn||"<li>—</li>"}</ul></div>`;
+    });
+
+    cy.on("tap", function(e) {
+      if (e.target === cy) {
+        document.getElementById("detail").innerHTML =
+          "<p class='hint'>Click any node to see details.</p>";
+      }
+    });
+  </script>
+</body>
+</html>
