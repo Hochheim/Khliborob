@@ -23,3 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   applyLang(currentLang);
 });
+
+const _baseApply = applyLang;
+applyLang = function(lang) {
+  _baseApply(lang);
+  // Translate elements with data-lang-en / data-lang-uk / data-lang-pt
+  ['en','uk','pt'].forEach(l => {
+    document.querySelectorAll('[data-lang-' + l + ']').forEach(el => {
+      if (l === lang) el.style.display = '';
+      else el.style.display = 'none';
+    });
+  });
+};
