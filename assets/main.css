@@ -97,7 +97,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
 .decade-toggle .arrow{font-size:10px;transition:transform .2s}
 .decade-toggle.collapsed .arrow{transform:rotate(-90deg)}
 .decade-years{overflow:hidden;transition:max-height .2s ease}
-.decade-years.collapsed{max-height:0!important}
 .year-link{display:block;font-size:13px;color:var(--text);
            padding:.15rem .6rem;border-radius:4px;text-decoration:none}
 .year-link:hover{background:var(--blue-lt);color:var(--blue)}
@@ -139,7 +138,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
                   text-transform:uppercase;letter-spacing:.05em;margin-bottom:.7rem}
 .transcript{font-size:13px;line-height:1.7;max-height:320px;overflow-y:auto;
             white-space:pre-wrap;word-break:break-word}
-.map-frame{width:100%;height:280px;border:none;border-radius:var(--radius)}
+.map-frame{width:100%;height:420px;border:none;border-radius:var(--radius)}
 .graph-frame{width:100%;height:320px;border:none;border-radius:var(--radius)}
 .meta-table{width:100%;font-size:12px;border-collapse:collapse}
 .meta-table td{padding:.3rem .4rem;border-bottom:1px solid var(--border);
