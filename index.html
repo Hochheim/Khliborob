@@ -13,7 +13,7 @@
 
 <nav>
   <div class="nav-brand">
-    <a href="" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+    <a href="index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
       <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
       <span class="nav-title">Khliborob Digital Archive</span>
     </a>
@@ -100,16 +100,48 @@ function closeBanner(){
   </div>
 </div>
 
-<div style="padding:1.5rem 1.5rem 0">
-  <h2 style="font-size:16px;font-weight:500;margin-bottom:.8rem">
-    Issues connected to GPU documents
-  </h2>
+<div style="padding:1.5rem">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem">
+
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+      <div style="background:var(--blue-lt);height:140px;display:flex;align-items:center;
+           justify-content:center;font-size:48px">📰</div>
+      <div style="padding:1rem">
+        <h3 style="font-size:15px;font-weight:500;margin-bottom:.3rem">Browse the Archive</h3>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:.8rem;line-height:1.5">
+          3 digitized issues from 1927 to present.
+          Navigate by year and decade.
+        </p>
+        <a href="browse/" style="display:inline-flex;align-items:center;gap:.4rem;
+          background:#1a4a8a;color:#fff;padding:.5rem 1rem;border-radius:var(--radius);
+          font-size:13px;font-weight:500;text-decoration:none">
+          📂 Browse all issues →
+        </a>
+      </div>
+    </div>
+
+    <div style="background:var(--gpu-bg);border:1px solid var(--gpu-bd);border-radius:var(--radius);overflow:hidden">
+      <div style="background:linear-gradient(135deg,#1a4a8a,#c8a800);height:140px;
+           display:flex;align-items:center;justify-content:center;font-size:48px">🔍</div>
+      <div style="padding:1rem">
+        <h3 style="font-size:15px;font-weight:500;margin-bottom:.3rem;color:var(--gpu-tx)">GPU Documents</h3>
+        <p style="font-size:12px;color:var(--gpu-tx);margin-bottom:.8rem;line-height:1.5;opacity:.8">
+          Declassified Soviet intelligence files linking Khliborob to the Holodomor period.
+        </p>
+        <a href="gpu-documents/" style="display:inline-flex;align-items:center;gap:.4rem;
+          background:var(--gpu-bd);color:#fff;padding:.5rem 1rem;border-radius:var(--radius);
+          font-size:13px;font-weight:500;text-decoration:none">
+          🔍 View documents →
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin-bottom:.8rem">Issues connected to GPU documents</h2>
   <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem">
     
   </div>
-  <p style="margin-top:1rem;font-size:13px">
-    <a href="browse/" data-i18n="nav_browse">Browse all issues →</a>
-  </p>
 </div>
 
 <script>
