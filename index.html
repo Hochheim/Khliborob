@@ -103,7 +103,10 @@ function closeBanner(){
 <div style="padding:1.5rem">
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem">
 
-    <a href="browse/" style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:block;text-decoration:none;color:inherit">
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+         transition:box-shadow .15s;cursor:pointer" onclick="location.href='browse/'" 
+         onmouseover="this.style.boxShadow='0 4px 12px rgba(26,74,138,.15)'" 
+         onmouseout="this.style.boxShadow='none'">
       <div style="background:var(--blue-lt);height:140px;display:flex;align-items:center;
            justify-content:center;font-size:48px">📰</div>
       <div style="padding:1rem">
@@ -112,15 +115,18 @@ function closeBanner(){
           3 digitized issues from 1927 to present.
           Navigate by year and decade.
         </p>
-        <a href="browse/" style="display:inline-flex;align-items:center;gap:.4rem;
+        <span style="display:inline-flex;align-items:center;gap:.4rem;
           background:#1a4a8a;color:#fff;padding:.5rem 1rem;border-radius:var(--radius);
-          font-size:13px;font-weight:500;text-decoration:none">
+          font-size:13px;font-weight:500">
           📂 Browse all issues →
-        </a>
+        </span>
       </div>
-    </a>
+    </div>
 
-    <a href="gpu-documents/" style="background:var(--gpu-bg);border:1px solid var(--gpu-bd);border-radius:var(--radius);overflow:hidden;display:block;text-decoration:none;color:inherit">
+    <div style="background:var(--gpu-bg);border:1px solid var(--gpu-bd);border-radius:var(--radius);overflow:hidden;
+         transition:box-shadow .15s;cursor:pointer" onclick="location.href='gpu-documents/'" 
+         onmouseover="this.style.boxShadow='0 4px 12px rgba(200,168,0,.2)'" 
+         onmouseout="this.style.boxShadow='none'">
       <div style="background:linear-gradient(135deg,#1a4a8a,#c8a800);height:140px;
            display:flex;align-items:center;justify-content:center;font-size:48px">🔍</div>
       <div style="padding:1rem">
@@ -128,21 +134,13 @@ function closeBanner(){
         <p style="font-size:12px;color:var(--gpu-tx);margin-bottom:.8rem;line-height:1.5;opacity:.8">
           Declassified Soviet intelligence files linking Khliborob to the Holodomor period.
         </p>
-        <a href="gpu-documents/" style="display:inline-flex;align-items:center;gap:.4rem;
+        <span style="display:inline-flex;align-items:center;gap:.4rem;
           background:var(--gpu-bd);color:#fff;padding:.5rem 1rem;border-radius:var(--radius);
-          font-size:13px;font-weight:500;text-decoration:none">
+          font-size:13px;font-weight:500">
           🔍 View documents →
-        </a>
+        </span>
       </div>
-    </a>
-
-  </div>
-
-  <h2 style="font-size:16px;font-weight:500;margin-bottom:.8rem">Issues connected to GPU documents</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.8rem">
-    
-  </div>
-</div>
+    </div>
 
 <script>
 function doSearch() {
