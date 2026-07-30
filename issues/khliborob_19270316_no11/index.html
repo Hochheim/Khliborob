@@ -33,37 +33,11 @@
   </div>
 </nav>
 
-<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem">
-  <div style="display:flex;align-items:flex-start;gap:.75rem;flex:1">
-    <span class="gpu-icon" style="flex-shrink:0">🔍</span>
-    <span>
-      <span data-i18n="gpu_banner" style="font-weight:500">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</span>
-      &nbsp;<a href="../../gpu-documents/" data-i18n="gpu_link">View documents</a>
-    </span>
-  </div>
-  <button onclick="closeBanner()" aria-label="Close"
-    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:18px;
-           color:var(--gpu-tx);opacity:.6;padding:0 .3rem;line-height:1">✕</button>
-</div>
-<script>
-function closeBanner(){
-  const b=document.getElementById("gpu-banner");
-  if(b){b.style.display="none";sessionStorage.setItem("gpuBannerClosed","1");}
-}
-(function(){
-  if(sessionStorage.getItem("gpuBannerClosed")==="1"){
-    document.addEventListener("DOMContentLoaded",function(){
-      const b=document.getElementById("gpu-banner");
-      if(b)b.style.display="none";
-    });
-  }
-})();
-</script>
 
 <div class="issue-layout">
   <div class="issue-header">
     <h1>Хлібороб / O Lavrador — 1927-03-16 (No. № 11 (139))</h1>
-    <div style="margin-top:1rem"><iframe src="https://gateway.pinata.cloud/ipfs/QmWdTR6Vi5a4mtQ1nYqfx4x2KYCU6tZwFy9MEb7RhsNuTC" style="width:100%;height:800px;border:1px solid var(--border);border-radius:var(--radius)" title="Full issue PDF"></iframe><div style="margin-top:.4rem;font-size:13px"><a href="https://gateway.pinata.cloud/ipfs/QmWdTR6Vi5a4mtQ1nYqfx4x2KYCU6tZwFy9MEb7RhsNuTC" target="_blank" rel="noopener" style="color:var(--blue)">📥 Download full issue PDF ↗</a></div></div>
+    <div style="margin-top:1rem"><iframe src="https://gateway.pinata.cloud/ipfs/QmWdTR6Vi5a4mtQ1nYqfx4x2KYCU6tZwFy9MEb7RhsNuTC" style="width:100%;height:800px;border:1px solid var(--border);border-radius:var(--radius)" title="Full issue PDF"></iframe><div style="margin-top:.4rem;font-size:13px;display:flex;align-items:center;gap:.8rem"><a href="https://gateway.pinata.cloud/ipfs/QmWdTR6Vi5a4mtQ1nYqfx4x2KYCU6tZwFy9MEb7RhsNuTC" target="_blank" rel="noopener" style="color:var(--blue)">📥 Download full issue PDF ↗</a><span style="color:var(--muted)">Save as: khliborob_19270316_no11.pdf</span></div></div>
     <p>
   <span data-lang-en>The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of trade and illiteracy. Ukrainian affairs include protests by scholars against the oppression of Belarusians and Ukrainians in Poland, the discovery of historical documents related to Hetman Mazepa in Paris, and the liquidation of 'khrunivstvo' (a political movement) by Bachynsky. International news covers the political isolation of Yugoslavia, England's role in the Balkans, Pope Pius XI's awards to Polish figures, and the situation in Upper Silesia. The issue also includes a chronicle of life in Brazil, financial reports, and editorial correspondence.</span>
   <span data-lang-uk style='display:none'>Газета 'Український Хлібороб', випуск 11 (139) від 16 березня 1927 року, містить різноманітні новини з Бразилії, України та світу. З Бразилії повідомляється про приїзд іспанських та майбутній приїзд польських емігрантів до Сан-Паулу, криваву сцену в американському консуляті, та загальні проблеми торгівлі та неписьменності. Українські справи включають протести вчених проти утисків білорусів та українців у Польщі, викриття історичних документів гетьмана Мазепи у Парижі, а також ліквідацію 'хрунівства' Бачинського. Міжнародні новини охоплюють політичну ізоляцію Югославії, роль Англії на Балканах, діяльність Папи Пія ХІ щодо нагородження польських діячів, а також ситуацію в Горішньому Шлеську. Також присутні хроніка життя в Бразилії, фінансові звіти та редакційна переписка.</span>

@@ -33,33 +33,7 @@
   </div>
 </nav>
 
-<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem">
-  <div style="display:flex;align-items:flex-start;gap:.75rem;flex:1">
-    <span class="gpu-icon" style="flex-shrink:0">🔍</span>
-    <span>
-      <span data-i18n="gpu_banner" style="font-weight:500">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</span>
-      &nbsp;<a href="../../gpu-documents/" data-i18n="gpu_link">View documents</a>
-    </span>
-  </div>
-  <button onclick="closeBanner()" aria-label="Close"
-    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:18px;
-           color:var(--gpu-tx);opacity:.6;padding:0 .3rem;line-height:1">✕</button>
-</div>
-<script>
-function closeBanner(){
-  const b=document.getElementById("gpu-banner");
-  if(b){b.style.display="none";sessionStorage.setItem("gpuBannerClosed","1");}
-}
-(function(){
-  if(sessionStorage.getItem("gpuBannerClosed")==="1"){
-    document.addEventListener("DOMContentLoaded",function(){
-      const b=document.getElementById("gpu-banner");
-      if(b)b.style.display="none";
-    });
-  }
-})();
-</script>
-<div class="browse-layout"><div class="sidebar"><h3 data-i18n="nav_browse">Browse</h3><div class="decade-group"><div class="decade-label" style="font-size:11px;font-weight:500;color:var(--muted);margin:.4rem 0 .2rem .4rem">1920s</div><a class="year-link active" href="../1927/">1927</a></div><div style="margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border)"><a href="../../" style="font-size:12px;color:var(--muted)">← Back to archive</a></div></div>
+<div class="browse-layout"><div class="sidebar"><h3 data-i18n="nav_browse">Browse</h3><div class="decade-group"><a class="decade-label" href="../1927/" style="font-size:11px;font-weight:600;color:var(--muted);margin:.4rem 0 .2rem .4rem;display:block;text-decoration:none;cursor:pointer">1920s</a><a class="year-link active" href="../1927/">1927</a><a class="year-link" href="../1928/">1928</a></div><div style="margin-top:1rem;padding-top:.8rem;border-top:1px solid var(--border)"><a href="../../" style="font-size:12px;color:var(--muted)">← Back to archive</a></div></div>
 <div class="main-content">
   <h2>1927 — 1 issues</h2>
   <div class="issue-grid">

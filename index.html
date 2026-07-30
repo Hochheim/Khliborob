@@ -33,17 +33,15 @@
   </div>
 </nav>
 
-<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem">
-  <div style="display:flex;align-items:flex-start;gap:.75rem;flex:1">
-    <span class="gpu-icon" style="flex-shrink:0">🔍</span>
-    <span>
-      <span data-i18n="gpu_banner" style="font-weight:500">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</span>
-      &nbsp;<a href="gpu-documents/" data-i18n="gpu_link">View documents</a>
-    </span>
-  </div>
+<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.4rem 1.5rem;font-size:12px">
+  <span style="display:flex;align-items:center;gap:.5rem;color:var(--gpu-tx)">
+    <span style="font-size:13px">🔍</span>
+    <span data-i18n="gpu_banner" style="opacity:.85">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</span>
+    &nbsp;<a href="gpu-documents/" data-i18n="gpu_link" style="font-size:12px;white-space:nowrap">View documents</a>
+  </span>
   <button onclick="closeBanner()" aria-label="Close"
-    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:18px;
-           color:var(--gpu-tx);opacity:.6;padding:0 .3rem;line-height:1">✕</button>
+    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:14px;
+           color:var(--gpu-tx);opacity:.5;padding:0 .2rem;line-height:1">✕</button>
 </div>
 <script>
 function closeBanner(){
@@ -87,11 +85,11 @@ function closeBanner(){
 
 <div class="stats">
   <div class="stat">
-    <div class="stat-num">3</div>
+    <div class="stat-num">2</div>
     <div class="stat-lbl" data-i18n="stat_issues">digitized issues</div>
   </div>
   <div class="stat">
-    <div class="stat-num">10</div>
+    <div class="stat-num">8</div>
     <div class="stat-lbl" data-i18n="stat_pages">searchable pages</div>
   </div>
   <div class="stat">
@@ -104,15 +102,14 @@ function closeBanner(){
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem">
 
     <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
-         transition:box-shadow .15s;cursor:pointer" onclick="location.href='browse/'" 
-         onmouseover="this.style.boxShadow='0 4px 12px rgba(26,74,138,.15)'" 
+         transition:box-shadow .15s;cursor:pointer" onclick="location.href='browse/'"
+         onmouseover="this.style.boxShadow='0 4px 12px rgba(26,74,138,.15)'"
          onmouseout="this.style.boxShadow='none'">
-      <div style="background:var(--blue-lt);height:140px;display:flex;align-items:center;
-           justify-content:center;font-size:48px">📰</div>
+      <img src="https://gateway.pinata.cloud/ipfs/QmRfnxksdFnofDD6mMgAA2zcsf5bN3o4HbS6qXthUHVGUW" style="width:100%;height:140px;object-fit:cover;object-position:top;display:block" alt="Newspaper scan">
       <div style="padding:1rem">
         <h3 style="font-size:15px;font-weight:500;margin-bottom:.3rem">Browse the Archive</h3>
         <p style="font-size:12px;color:var(--muted);margin-bottom:.8rem;line-height:1.5">
-          3 digitized issues from 1927 to present.
+          2 digitized issues from 1927 to present.
           Navigate by year and decade.
         </p>
         <span style="display:inline-flex;align-items:center;gap:.4rem;

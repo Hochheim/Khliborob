@@ -33,37 +33,11 @@
   </div>
 </nav>
 
-<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem">
-  <div style="display:flex;align-items:flex-start;gap:.75rem;flex:1">
-    <span class="gpu-icon" style="flex-shrink:0">🔍</span>
-    <span>
-      <span data-i18n="gpu_banner" style="font-weight:500">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</span>
-      &nbsp;<a href="../../gpu-documents/" data-i18n="gpu_link">View documents</a>
-    </span>
-  </div>
-  <button onclick="closeBanner()" aria-label="Close"
-    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:18px;
-           color:var(--gpu-tx);opacity:.6;padding:0 .3rem;line-height:1">✕</button>
-</div>
-<script>
-function closeBanner(){
-  const b=document.getElementById("gpu-banner");
-  if(b){b.style.display="none";sessionStorage.setItem("gpuBannerClosed","1");}
-}
-(function(){
-  if(sessionStorage.getItem("gpuBannerClosed")==="1"){
-    document.addEventListener("DOMContentLoaded",function(){
-      const b=document.getElementById("gpu-banner");
-      if(b)b.style.display="none";
-    });
-  }
-})();
-</script>
 
 <div class="issue-layout">
   <div class="issue-header">
     <h1>Хлібороб / O Lavrador — 1928-09-26 (No. V. 30. (207))</h1>
-    <div style="margin-top:1rem"><iframe src="https://gateway.pinata.cloud/ipfs/QmaMdsduFeeerhhQJfJ1ZRoKtBuEPJkuYcH6Am1n1Riu8r" style="width:100%;height:800px;border:1px solid var(--border);border-radius:var(--radius)" title="Full issue PDF"></iframe><div style="margin-top:.4rem;font-size:13px"><a href="https://gateway.pinata.cloud/ipfs/QmaMdsduFeeerhhQJfJ1ZRoKtBuEPJkuYcH6Am1n1Riu8r" target="_blank" rel="noopener" style="color:var(--blue)">📥 Download full issue PDF ↗</a></div></div>
+    <div style="margin-top:1rem"><iframe src="https://gateway.pinata.cloud/ipfs/QmaMdsduFeeerhhQJfJ1ZRoKtBuEPJkuYcH6Am1n1Riu8r" style="width:100%;height:800px;border:1px solid var(--border);border-radius:var(--radius)" title="Full issue PDF"></iframe><div style="margin-top:.4rem;font-size:13px;display:flex;align-items:center;gap:.8rem"><a href="https://gateway.pinata.cloud/ipfs/QmaMdsduFeeerhhQJfJ1ZRoKtBuEPJkuYcH6Am1n1Riu8r" target="_blank" rel="noopener" style="color:var(--blue)">📥 Download full issue PDF ↗</a><span style="color:var(--muted)">Save as: khliborob_19280926_no30.pdf</span></div></div>
     <p>
   <span data-lang-en>This page features international news from Brazil, the USSR, Spain, Yugoslavia, China, and the USA. Key topics include the formation of a match syndicate in Brazil, the conscription law in the USSR, a theater fire in Madrid, a plague outbreak in Manchuria, widespread famine in China, and hurricane devastation in the Antilles and the Southern USA. Ukrainian news covers a lecture by German scholar Dr. Koch on Ukrainian identity, the expansion of the All-National Library of Ukraine, the restoration of St. Sophia Cathedral, the continued closure of 'Prosvita' reading rooms in Volhynia, and reports of hailstorms in Galicia. It also mentions Metropolitan Andriy Sheptytsky being referred to as a cardinal in Rome and the appointment of a new rector for the Ukrainian Economic Academy in Poděbrady.</span>
   <span data-lang-uk style='display:none'>Ця сторінка містить міжнародні новини з Бразилії, СРСР, Іспанії, Югославії, Китаю та США. Основні теми включають створення синдикату сірників у Бразилії, закон про військову службу в СРСР, пожежу в театрі Мадрида, чуму в Маньчжурії, голод у Китаї та ураганні руйнування на Антильських островах та півдні США. Українські новини охоплюють виклад німецького вченого доктора Коха про українську ідентичність, розширення Всенародної Бібліотеки України, реставрацію Софійського Собору, подальше закриття читалень 'Просвіти' на Волині та повідомлення про градові бурі на Галичині. Також згадується, що митрополит Андрей Шептицький іменується кардиналом у Римі та призначено нового ректора Української Господарської Академії в Подебрадах.</span>
