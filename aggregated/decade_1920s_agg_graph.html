@@ -95,7 +95,6 @@
   <div id="detail"><p class="hint">Click any node<br>to see details.</p></div>
 
   <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
   <script>
   // ── iframe redirect ──
   if (window.self !== window.top) {
@@ -226,13 +225,11 @@
   ];
 
   const LAYOUT_OPTS = {
-    name:"fcose", animate:false, padding:60, quality:"proof",
-    nodeRepulsion:18000, idealEdgeLength:120, edgeElasticity:0.4,
-    gravity:0.15, gravityRange:3.8, numIter:2500,
-    randomize:true, nodeSeparation:80,
+    name:"cose", animate:false, padding:80,
+    nodeRepulsion:28000, idealEdgeLength:160, edgeElasticity:0.3,
+    gravity:0.08, numIter:1200, nodeDimensionsIncludeLabels:true,
+    randomize:true,
   };
-
-  cytoscape.use(cytoscapeFcose);
 
   const cy = cytoscape({
     container: document.getElementById("cy"),

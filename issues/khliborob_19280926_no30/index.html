@@ -22,7 +22,7 @@
     <a href="../../browse/" data-i18n="nav_browse">Browse</a>
     <a href="../../search/" data-i18n="nav_search">Search</a>
     <a href="../../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
-    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
     <a href="../../chat/" data-i18n="nav_chat">Research Agent</a>
     <a href="../../about/" data-i18n="nav_about">About</a>
     <div class="lang-switcher">
@@ -37,7 +37,64 @@
 <div class="issue-layout">
   <div class="issue-header">
     <h1>Хлібороб / O Lavrador — 1928-09-26 (No. V. 30. (207))</h1>
-    <div style="margin-top:1rem"><iframe src="https://gateway.pinata.cloud/ipfs/QmaMdsduFeeerhhQJfJ1ZRoKtBuEPJkuYcH6Am1n1Riu8r#toolbar=1&navpanes=1&scrollbar=1" style="width:100%;height:900px;border:1px solid var(--border);border-radius:var(--radius)" title="Full issue PDF — all pages"></iframe><div style="margin-top:.4rem;font-size:13px;display:flex;align-items:center;gap:.8rem"><a href="https://gateway.pinata.cloud/ipfs/QmaMdsduFeeerhhQJfJ1ZRoKtBuEPJkuYcH6Am1n1Riu8r" target="_blank" rel="noopener" style="color:var(--blue)" download="khliborob_19280926_no30.pdf">📥 Download full issue PDF ↗</a><span style="color:var(--muted)">Save as: khliborob_19280926_no30.pdf</span></div></div>
+    <div style="margin-top:1rem">
+<div id="scan-viewer" style="position:relative;width:100%;height:700px;overflow:hidden;
+     background:#1a1a1a;border-radius:var(--radius);border:1px solid var(--border);
+     cursor:grab;touch-action:none;user-select:none">
+  <img id="scan-img" draggable="false"
+       style="position:absolute;top:0;left:0;transform-origin:0 0;max-width:none;max-height:none"
+       alt="Newspaper scan">
+  <div id="scan-nav" style="position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+       display:flex;align-items:center;gap:8px;background:rgba(0,0,0,.6);
+       border-radius:20px;padding:4px 12px;font-size:13px;color:#fff">
+    <button id="prev-pg" onclick="changePage(-1)"
+      style="background:none;border:none;color:#fff;font-size:16px;cursor:pointer;padding:0 4px">‹</button>
+    <span id="pg-label">Page 1 / 1</span>
+    <button id="next-pg" onclick="changePage(1)"
+      style="background:none;border:none;color:#fff;font-size:16px;cursor:pointer;padding:0 4px">›</button>
+  </div>
+  <div style="position:absolute;top:10px;right:10px;font-size:11px;color:#fff;opacity:.5;pointer-events:none">
+    Drag to pan · Scroll to zoom</div>
+</div>
+<div style="margin-top:.4rem"><a href="https://gateway.pinata.cloud/ipfs/QmaMdsduFeeerhhQJfJ1ZRoKtBuEPJkuYcH6Am1n1Riu8r" target="_blank" rel="noopener" style="font-size:13px;color:var(--blue)">📥 Download full issue PDF ↗</a></div>
+</div>
+<script>
+(function(){
+  var urls=["https://gateway.pinata.cloud/ipfs/QmNW5w6jFDR1YbSiGXRWvMKdDHsUxnZBcMXVJ9MbvLHPCR", "https://gateway.pinata.cloud/ipfs/QmZ21JhsCSMjUGQ1uTbnLhFB2WQRno9v7sDDBrqq9H3E9f", "https://gateway.pinata.cloud/ipfs/QmSBwawZ1geihaAyHq74C3ATocQAf66Q77r7UTx5xpymm1", "https://gateway.pinata.cloud/ipfs/QmWWNNd4WwrHPxv7vY9Tk3HopPh3cRhCS6mSAHQagMwJAm"];
+  var cur=0,scale=1,ox=0,oy=0,drag=false,sx,sy,sox,soy;
+  var el=document.getElementById("scan-viewer");
+  var img=document.getElementById("scan-img");
+  var lbl=document.getElementById("pg-label");
+  if(!urls.length){el.style.display="none";return;}
+  function clamp(v,a,b){return Math.max(a,Math.min(b,v));}
+  function apply(){img.style.transform="translate("+ox+"px,"+oy+"px) scale("+scale+")";}
+  function load(i){
+    cur=i; lbl.textContent="Page "+(i+1)+" / "+urls.length;
+    document.getElementById("prev-pg").style.opacity=i>0?"1":"0.3";
+    document.getElementById("next-pg").style.opacity=i<urls.length-1?"1":"0.3";
+    scale=1;ox=0;oy=0;
+    img.onload=function(){
+      var iw=img.naturalWidth,ih=img.naturalHeight,bw=el.clientWidth,bh=el.clientHeight;
+      scale=Math.min(bw/iw,bh/ih);
+      ox=(bw-iw*scale)/2;oy=(bh-ih*scale)/2;apply();
+    };
+    img.src=urls[i];
+  }
+  window.changePage=function(d){if(cur+d>=0&&cur+d<urls.length)load(cur+d);};
+  el.addEventListener("mousedown",function(e){drag=true;sx=e.clientX;sy=e.clientY;sox=ox;soy=oy;el.style.cursor="grabbing";e.preventDefault();});
+  window.addEventListener("mouseup",function(){drag=false;el.style.cursor="grab";});
+  window.addEventListener("mousemove",function(e){if(!drag)return;ox=sox+(e.clientX-sx);oy=soy+(e.clientY-sy);apply();});
+  el.addEventListener("wheel",function(e){e.preventDefault();
+    var r=el.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top;
+    var f=e.deltaY<0?1.12:1/1.12,ns=clamp(scale*f,0.1,8);
+    ox=mx-(mx-ox)*(ns/scale);oy=my-(my-oy)*(ns/scale);scale=ns;apply();
+  },{passive:false});
+  el.addEventListener("touchstart",function(e){if(e.touches.length===1){drag=true;sx=e.touches[0].clientX;sy=e.touches[0].clientY;sox=ox;soy=oy;}},{passive:true});
+  el.addEventListener("touchend",function(){drag=false;});
+  el.addEventListener("touchmove",function(e){if(drag&&e.touches.length===1){ox=sox+(e.touches[0].clientX-sx);oy=soy+(e.touches[0].clientY-sy);apply();}},{passive:true});
+  load(0);
+})();
+</script>
     <p>
   <span data-lang-en>This page features international news from Brazil, the USSR, Spain, Yugoslavia, China, and the USA. Key topics include the formation of a match syndicate in Brazil, the conscription law in the USSR, a theater fire in Madrid, a plague outbreak in Manchuria, widespread famine in China, and hurricane devastation in the Antilles and the Southern USA. Ukrainian news covers a lecture by German scholar Dr. Koch on Ukrainian identity, the expansion of the All-National Library of Ukraine, the restoration of St. Sophia Cathedral, the continued closure of 'Prosvita' reading rooms in Volhynia, and reports of hailstorms in Galicia. It also mentions Metropolitan Andriy Sheptytsky being referred to as a cardinal in Rome and the appointment of a new rector for the Ukrainian Economic Academy in Poděbrady.</span>
   <span data-lang-uk style='display:none'>Ця сторінка містить міжнародні новини з Бразилії, СРСР, Іспанії, Югославії, Китаю та США. Основні теми включають створення синдикату сірників у Бразилії, закон про військову службу в СРСР, пожежу в театрі Мадрида, чуму в Маньчжурії, голод у Китаї та ураганні руйнування на Антильських островах та півдні США. Українські новини охоплюють виклад німецького вченого доктора Коха про українську ідентичність, розширення Всенародної Бібліотеки України, реставрацію Софійського Собору, подальше закриття читалень 'Просвіти' на Волині та повідомлення про градові бурі на Галичині. Також згадується, що митрополит Андрей Шептицький іменується кардиналом у Римі та призначено нового ректора Української Господарської Академії в Подебрадах.</span>

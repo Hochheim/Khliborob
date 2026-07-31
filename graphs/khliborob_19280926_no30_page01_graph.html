@@ -68,7 +68,6 @@
   <div id="detail"><p class="hint">Click any node<br>to see details.</p></div>
 
   <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/cytoscape-fcose@2.2.0/cytoscape-fcose.js"></script>
   <script>
   if (window.self !== window.top) {
     document.body.innerHTML = `
@@ -87,8 +86,30 @@
   const rawEdges = [{"source": "khliborob_19280926_no30_page01", "target": "Григорій Прехляк", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Петро Мазуречен", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Степан Радіч", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Бенкер", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Елефтеріос Бенізельос", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Ганс Кох", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Пастернак", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Кіпнік", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Сергій Тимошенко", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Андрій Щептицький", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Йосип Хомишин", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Гриць Косак", "label": "MENTIONS"}, {"source": "khliborob_19280926_no30_page01", "target": "Porto União", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Brazil", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Rio de Janeiro", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "São Paulo", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Santa Catarina", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Soviet Union", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Madrid", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Spain", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Ukraine", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Caucasus", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Kharkiv", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Yugoslavia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Manchuria", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "China", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "New York City", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "United States (USA)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Greece", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Romania", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Volhynia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Galicia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Russia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Prague", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Lviv", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Poland", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Tukhlya", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Przemyśl", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Tukholshchyna", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Muscovy", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Doryzoni", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Rome", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Nicaea", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Southern Germany", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Canada", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Kitsman", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Bukovyna", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Bessarabia", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Trento", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Europe", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Baltic Sea", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Sea of Azov", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Kronstadt", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Gulf of Finland", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Leningrad", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Curitiba", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Stanislaviv (Ivano-Frankivsk)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Hryby (Lviv Oblast)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Paraná", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Vitória (Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Rio Grande (Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Antônio Cândido (Paraná, Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Dorizon (Ponta Grossa, Brazil)", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Ponta Grossa", "label": "LOCATED IN"}, {"source": "khliborob_19280926_no30_page01", "target": "Argentina", "label": "LOCATED IN"}];
   function nodeId(x) { return (x && typeof x === "object") ? x.id : String(x); }
 
-  cytoscape.use(cytoscapeFcose);
+  // Manual radial layout: page node at centre, persons left arc, locations right arc
+  function radialPositions(nodes) {
+    const pos = {};
+    const W = window.innerWidth - 270, H = window.innerHeight - 60;
+    const cx = W/2, cy = H/2;
+    const persons   = nodes.filter(n => n.type==="person");
+    const locations = nodes.filter(n => n.type==="location");
+    const pages     = nodes.filter(n => n.type==="page");
+    pages.forEach(n => { pos[n.id] = {x:cx, y:cy}; });
+    const r = Math.min(W,H)*0.38;
+    function arc(list, startAngle, endAngle) {
+      list.forEach((n,i) => {
+        const a = list.length===1
+          ? (startAngle+endAngle)/2
+          : startAngle + (endAngle-startAngle)*(i/(list.length-1));
+        pos[n.id] = {x: cx + r*Math.cos(a), y: cy + r*Math.sin(a)};
+      });
+    }
+    arc(persons,   -Math.PI*0.9, -Math.PI*0.1);
+    arc(locations,  Math.PI*0.1,  Math.PI*0.9);
+    return pos;
+  }
 
+  const posBag = radialPositions(rawNodes);
   const elements = [
     ...rawNodes.map(n => ({ data:{
       id: n.id, label: n.label, type: n.type,
@@ -96,7 +117,7 @@
       name_uk: n.name_uk||"",
       snippet_uk: n.snippet_uk||"",
       snippet_en: n.snippet_en||"",
-    } })),
+    }, position: posBag[n.id] || {x:400,y:300} })),
     ...rawEdges.map((e,i) => ({ data:{
       id:"e"+i, source:nodeId(e.source), target:nodeId(e.target), label:e.label
     } }))
@@ -108,7 +129,7 @@
     style: [
       { selector:"node[type='page']", style:{
           "background-color":"#f59e0b","border-color":"#b45309","border-width":2,
-          "width":42,"height":42,"shape":"rectangle",
+          "width":46,"height":46,"shape":"rectangle",
           "label":"data(label)","color":"#78350f","font-size":12,"font-weight":600,
           "text-valign":"bottom","text-halign":"center","text-margin-y":6,
           "text-background-color":"#fff","text-background-opacity":1,
@@ -117,7 +138,7 @@
       } },
       { selector:"node[type='person']", style:{
           "background-color":"#3b82f6","border-color":"#1d4ed8","border-width":2,
-          "width":32,"height":32,
+          "width":34,"height":34,
           "label":"data(label)","color":"#1e3a5f","font-size":13,"font-weight":600,
           "text-valign":"bottom","text-halign":"center","text-margin-y":6,
           "text-background-color":"#fff","text-background-opacity":1,
@@ -126,7 +147,7 @@
       } },
       { selector:"node[type='location']", style:{
           "background-color":"#10b981","border-color":"#065f46","border-width":2,
-          "width":32,"height":32,
+          "width":34,"height":34,
           "label":"data(label)","color":"#064e3b","font-size":13,"font-weight":600,
           "text-valign":"bottom","text-halign":"center","text-margin-y":6,
           "text-background-color":"#fff","text-background-opacity":1,
@@ -138,15 +159,12 @@
       { selector:"node.highlighted", style:{"border-color":"#e11d48","border-width":3} },
       { selector:"edge", style:{
           "line-color":"#cbd5e1","opacity":0.7,"width":1.5,
-          "curve-style":"bezier","target-arrow-shape":"none",
+          "curve-style":"straight","target-arrow-shape":"none",
       } },
       { selector:"edge.dimmed",      style:{"opacity":0.04} },
       { selector:"edge.highlighted", style:{"line-color":"#e11d48","opacity":1,"width":2.5} },
     ],
-    layout:{ name:"fcose", animate:false, padding:60, quality:"proof",
-              nodeRepulsion:20000, idealEdgeLength:140, edgeElasticity:0.4,
-              gravity:0.1, gravityRange:4, numIter:2500,
-              randomize:true, nodeSeparation:100 },
+    layout:{ name:"preset" },
     userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
   });
 
