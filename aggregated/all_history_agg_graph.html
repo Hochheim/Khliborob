@@ -147,7 +147,7 @@
   function nodeSize(n) {
     const mc = mentionCount[n.id] || 0;
     const max = 2;
-    return max <= 1 ? 36 : 28 + Math.round((mc / max) * 42);
+    return max <= 1 ? 32 : 28 + Math.round((mc / max) * 16);
   }
 
   // ── build Cytoscape elements ──
