@@ -95,17 +95,26 @@
     const locations = nodes.filter(n => n.type==="location");
     const pages     = nodes.filter(n => n.type==="page");
     pages.forEach(n => { pos[n.id] = {x:cx, y:cy}; });
-    const r = Math.min(W,H)*0.38;
+    // Radius grows with node count so labels never overlap
+    const nMax = Math.max(persons.length, locations.length, 1);
+    const r = Math.max(Math.min(W,H)*0.40, nMax * 55);
     function arc(list, startAngle, endAngle) {
+      if (!list.length) return;
+      // Minimum angular gap between adjacent nodes (radians → ~80px spacing on circle)
+      const minGap = Math.max(0, 80 / r);
+      const span   = endAngle - startAngle;
+      const step   = list.length===1 ? 0 : Math.max(span/(list.length-1), minGap);
+      const totalSpan = step * (list.length - 1);
+      const offset = (span - totalSpan) / 2;
       list.forEach((n,i) => {
         const a = list.length===1
           ? (startAngle+endAngle)/2
-          : startAngle + (endAngle-startAngle)*(i/(list.length-1));
+          : startAngle + offset + i*step;
         pos[n.id] = {x: cx + r*Math.cos(a), y: cy + r*Math.sin(a)};
       });
     }
-    arc(persons,   -Math.PI*0.9, -Math.PI*0.1);
-    arc(locations,  Math.PI*0.1,  Math.PI*0.9);
+    arc(persons,   -Math.PI*0.95, -Math.PI*0.05);
+    arc(locations,  Math.PI*0.05,  Math.PI*0.95);
     return pos;
   }
 
