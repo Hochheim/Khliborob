@@ -92,6 +92,54 @@
   const EDGES = [{"source": "Бенкер", "target": "China"}, {"source": "Ганс Кох", "target": "Ukraine"}, {"source": "Кіпнік", "target": "Leningrad"}, {"source": "Андрій Щептицький", "target": "Yugoslavia"}, {"source": "Андрій Щептицький", "target": "Rome"}, {"source": "Гриць Косак", "target": "Porto União"}, {"source": "Гриць Косак", "target": "Caucasus"}, {"source": "Гриць Косак", "target": "Romania"}, {"source": "Гриць Косак", "target": "Rome"}, {"source": "Porto União", "target": "Brazil"}, {"source": "Porto União", "target": "Caucasus"}, {"source": "Porto União", "target": "Rome"}, {"source": "Porto União", "target": "Paraná"}, {"source": "Porto União", "target": "Argentina"}, {"source": "Brazil", "target": "Caucasus"}, {"source": "Brazil", "target": "Paraná"}, {"source": "Brazil", "target": "Argentina"}, {"source": "Soviet Union", "target": "Ukraine"}, {"source": "Madrid", "target": "Spain"}, {"source": "Madrid", "target": "Galicia"}, {"source": "Spain", "target": "Galicia"}, {"source": "Ukraine", "target": "Galicia"}, {"source": "Ukraine", "target": "Europe"}, {"source": "Caucasus", "target": "Rome"}, {"source": "Caucasus", "target": "Argentina"}, {"source": "Yugoslavia", "target": "Manchuria"}, {"source": "Yugoslavia", "target": "China"}, {"source": "Yugoslavia", "target": "Galicia"}, {"source": "Yugoslavia", "target": "Rome"}, {"source": "Manchuria", "target": "China"}, {"source": "Manchuria", "target": "Rome"}, {"source": "Greece", "target": "Romania"}, {"source": "Romania", "target": "Galicia"}, {"source": "Romania", "target": "Rome"}, {"source": "Volhynia", "target": "Galicia"}, {"source": "Volhynia", "target": "Europe"}, {"source": "Volhynia", "target": "Leningrad"}, {"source": "Galicia", "target": "Rome"}, {"source": "Europe", "target": "Leningrad"}, {"source": "Paraná", "target": "Argentina"}];
   function nid(x) { return typeof x==="object"?x.id:String(x); }
 
+  // Two-row deterministic layout:
+  // persons spread across the top strip, locations across the bottom (up to 2 rows).
+  // Node x-positions are spaced by label width estimate, not equidistant.
+  function twoRowPositions() {
+    const persons   = RAW.filter(n => n.type==="person");
+    const locations = RAW.filter(n => n.type==="location");
+    const W = document.getElementById("cy").clientWidth  || 800;
+    const H = document.getElementById("cy").clientHeight || 600;
+    const PAD = 80;
+    const usableW = W - PAD * 2;
+    const pos = {};
+
+    function placeRow(list, y, minSpacing) {
+      if (!list.length) return;
+      // estimate each node's footprint: label chars × 7px + node size + margin
+      const widths = list.map(n => Math.max(minSpacing, n.label.length * 7 + 80));
+      const total  = widths.reduce((s,w) => s+w, 0);
+      const scale  = total > usableW ? usableW / total : 1;
+      let x = PAD + (usableW - total * scale) / 2 + widths[0] * scale / 2;
+      list.forEach((n,i) => {
+        pos[n.id] = {x, y};
+        x += (widths[i] * scale / 2) + (widths[i+1] ? widths[i+1] * scale / 2 : 0);
+      });
+    }
+
+    // Persons: single row near the top
+    placeRow(persons, H * 0.22, 160);
+
+    // Locations: one or two rows in the bottom half
+    if (locations.length <= 8) {
+      placeRow(locations, H * 0.72, 140);
+    } else {
+      const mid   = Math.ceil(locations.length / 2);
+      const rowA  = locations.slice(0, mid);
+      const rowB  = locations.slice(mid);
+      placeRow(rowA, H * 0.60, 130);
+      placeRow(rowB, H * 0.82, 130);
+    }
+
+    // If only one type present, spread in a single centred row
+    if (!persons.length)   placeRow(locations, H * 0.50, 140);
+    if (!locations.length) placeRow(persons,   H * 0.50, 160);
+
+    return pos;
+  }
+
+  const pos = twoRowPositions();
+
   const cy = cytoscape({
     container: document.getElementById("cy"),
     elements: [
@@ -99,7 +147,7 @@
           id:n.id, label:n.label, type:n.type,
           lat:n.lat||0, lon:n.lon||0, name_uk:n.name_uk||"",
           snippet_uk:n.snippet_uk||"", snippet_en:n.snippet_en||""
-      } })),
+      }, position: pos[n.id] || {x:400,y:300} })),
       ...EDGES.map((e,i) => ({ data:{ id:"e"+i, source:nid(e.source), target:nid(e.target) } }))
     ],
     style:[
@@ -110,7 +158,7 @@
         "text-valign":"bottom","text-halign":"center","text-margin-y":8,
         "text-background-color":"rgba(255,255,255,.85)","text-background-opacity":1,
         "text-background-padding":"2px","text-background-shape":"roundrectangle",
-        "text-max-width":"140px","text-wrap":"wrap",
+        "text-max-width":"150px","text-wrap":"wrap",
       } },
       { selector:"node[type='location']", style:{
         "background-color":"#10b981","border-color":"#047857","border-width":2,
@@ -119,26 +167,22 @@
         "text-valign":"bottom","text-halign":"center","text-margin-y":12,
         "text-background-color":"rgba(255,255,255,.85)","text-background-opacity":1,
         "text-background-padding":"2px","text-background-shape":"roundrectangle",
-        "text-max-width":"140px","text-wrap":"wrap",
+        "text-max-width":"150px","text-wrap":"wrap",
       } },
       { selector:"node.dim",  style:{"opacity":0.15} },
       { selector:"node.hi",   style:{"border-color":"#e11d48","border-width":4} },
       { selector:"edge", style:{
-        "line-color":"#94a3b8","opacity":0.5,"width":2,"curve-style":"bezier"
+        "line-color":"#94a3b8","opacity":0.45,"width":1.8,"curve-style":"bezier"
       } },
       { selector:"edge.dim",  style:{"opacity":0.04} },
       { selector:"edge.hi",   style:{"line-color":"#e11d48","opacity":1,"width":3} },
     ],
-    layout:{
-      name:"cose", animate:false, padding:80, fit:true,
-      nodeRepulsion:55000, idealEdgeLength:180, edgeElasticity:0.25,
-      gravity:0.05, numIter:1500, nodeDimensionsIncludeLabels:true, randomize:false,
-    },
+    layout:{ name:"preset" },
     userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
   });
-  cy.fit(cy.elements(), 80);
+  cy.fit(cy.elements(), 60);
 
-  document.getElementById("fitbtn").onclick = () => cy.fit(cy.elements(), 80);
+  document.getElementById("fitbtn").onclick = () => cy.fit(cy.elements(), 60);
 
   document.getElementById("search").addEventListener("input", function(){
     const q = this.value.trim().toLowerCase();
