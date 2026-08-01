@@ -376,7 +376,7 @@ E. Sta Catharina.
     </div>
     <div class="content-panel">
       <h3 data-i18n="transcript_en">Translation (English)</h3>
-      <div class="transcript">[Page 01]
+      <div class="transcript" lang="en">[Page 01]
 No. 11 (139). Porto União, Wednesday, March 16, 1927. Year of publication IV
 O LAVRADOR UKRAINO
 UKRAINIAN FARMER
@@ -664,44 +664,11 @@ A carelessly spoken word is a complete secret.
 He who has not felt pity has never loved.
 The first indicator of domestic happiness is love for one's home.</div>
     </div>
-  </div>
-  <div class="content-panel" style="margin-top:1.2rem" id="pt-panel">
-    <h3 data-i18n="transcript_pt">Tradução (português)</h3>
-    <div class="transcript" id="pt-content" style="color:var(--muted);font-style:italic">
-      Tradução automática para português brasileiro via IA — clique para gerar.
+    <div class="content-panel">
+      <h3 data-i18n="transcript_pt">Tradução (Português Brasileiro)</h3>
+      <div class="transcript" lang="pt-BR">—</div>
     </div>
-    <button onclick="generatePT()" id="pt-btn"
-      style="margin-top:.6rem;font-size:12px;padding:.35rem .8rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--card-bg);cursor:pointer;color:var(--text)">
-      🇧🇷 Gerar tradução em português brasileiro
-    </button>
   </div>
-  <script>
-  function generatePT() {
-    const btn = document.getElementById("pt-btn");
-    const out = document.getElementById("pt-content");
-    btn.disabled = true;
-    btn.textContent = "Traduzindo…";
-    const ukText = document.querySelector(".transcript[lang=uk]").textContent;
-    fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=GEMINI_KEY_PLACEHOLDER", {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({contents: [{parts: [{text:
-        "Traduza o seguinte texto ucraniano de um jornal histórico para português brasileiro (Brasil). Traduza fielmente, preservando nomes próprios e estrutura:
-
-" + ukText
-      }]}]})
-    }).then(r => r.json()).then(d => {
-      out.style.fontStyle = "normal";
-      out.style.color = "var(--text)";
-      out.textContent = d.candidates[0].content.parts[0].text;
-      btn.textContent = "✅ Traduzido";
-    }).catch(e => {
-      out.textContent = "Tradução em português brasileiro indisponível no modo offline. Execute o servidor RAG para tradução ao vivo.";
-      btn.disabled = false;
-      btn.textContent = "🇧🇷 Tentar novamente";
-    });
-  }
-  </script>
 
   <div class="content-grid">
     <div class="content-panel">

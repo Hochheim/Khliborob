@@ -72,7 +72,7 @@
         <span><span class="dot" style="background:#f59e0b"></span>Issue</span>
         <span><span class="dot" style="background:#3b82f6"></span>Person</span>
         <span><span class="dia"></span>Location</span>
-        <span style="color:#94a3b8">— co-occurrence</span>
+        <span style="color:#94a3b8">— typed relation</span>
       </div>
     </div>
     <div id="panel"><p class="hint">Click any node<br>to see details.</p></div>
@@ -151,7 +151,8 @@
           lat:n.lat||0, lon:n.lon||0, name_uk:n.name_uk||"",
           snippet_uk:n.snippet_uk||"", snippet_en:n.snippet_en||""
       }, position: pos[n.id] || {x:400,y:300} })),
-      ...EDGES.map((e,i) => ({ data:{ id:"e"+i, source:nid(e.source), target:nid(e.target) } }))
+      ...EDGES.map((e,i) => ({ data:{ id:"e"+i, source:nid(e.source), target:nid(e.target),
+          label:e.label||"", evidence:e.evidence||"" } }))
     ],
     style:[
       { selector:"node[type='page']", style:{
@@ -182,7 +183,10 @@
       { selector:"node.dim",  style:{"opacity":0.15} },
       { selector:"node.hi",   style:{"border-color":"#e11d48","border-width":4} },
       { selector:"edge", style:{
-        "line-color":"#94a3b8","opacity":0.45,"width":1.8,"curve-style":"bezier"
+        "line-color":"#94a3b8","opacity":0.55,"width":2,"curve-style":"bezier",
+        "label":"data(label)","font-size":9,"color":"#6b7280",
+        "text-background-color":"rgba(255,255,255,.8)","text-background-opacity":1,
+        "text-background-padding":"1px","text-rotation":"autorotate",
       } },
       { selector:"edge.dim",  style:{"opacity":0.04} },
       { selector:"edge.hi",   style:{"line-color":"#e11d48","opacity":1,"width":3} },
