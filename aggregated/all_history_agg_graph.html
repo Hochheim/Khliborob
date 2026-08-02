@@ -129,16 +129,26 @@
   const hasPageNodes = rawNodes.some(n => n.type === "page");
   const directMode = !hasPageNodes;
   const mentionCount = {};
-  rawEdges.forEach(e => {
-    const s = nodeId(e.source), t = nodeId(e.target);
-    if (directMode) {
-      mentionCount[s] = (mentionCount[s]||0)+1;
-      mentionCount[t] = (mentionCount[t]||0)+1;
-    } else {
+  if (directMode) {
+    // "Mentions" means how many issues/pages reference the entity. Edge
+    // degree is useless here: in a co-mention graph everyone in the same
+    // issue links to everyone else, so every node would show the same
+    // near-total count.
+    rawNodes.forEach(n => { mentionCount[n.id] = (n.pages && n.pages.length) || 0; });
+    if (!Object.values(mentionCount).some(v => v > 0)) {
+      rawEdges.forEach(e => {
+        const s = nodeId(e.source), t = nodeId(e.target);
+        mentionCount[s] = (mentionCount[s]||0)+1;
+        mentionCount[t] = (mentionCount[t]||0)+1;
+      });
+    }
+  } else {
+    rawEdges.forEach(e => {
+      const s = nodeId(e.source), t = nodeId(e.target);
       if (pageIds.has(s)) mentionCount[t] = (mentionCount[t]||0)+1;
       if (pageIds.has(t)) mentionCount[s] = (mentionCount[s]||0)+1;
-    }
-  });
+    });
+  }
 
   // ── co-occurrence edges: only pairs that share 2+ pages ──
   // Counting ALL co-occurrences per page produces a near-complete graph
@@ -325,14 +335,6 @@
     const pos = computePositions(cy.nodes().toArray());
     cy.nodes().forEach(n => { if (pos[n.data("id")]) n.position(pos[n.data("id")]); });
     cy.fit(cy.elements(), 60);
-  }
-
-  // For person-only networks (no page nodes), use edge-degree as mention count
-  if (!hasPageNodes) {
-    rawNodes.forEach(n => {
-      const deg = rawEdges.filter(e => e.source === n.id || e.target === n.id).length;
-      mentionCount[n.id] = deg;
-    });
   }
 
   const initMin = hasPageNodes ? 1 : 0;
