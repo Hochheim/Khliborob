@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research Agent — Khliborob Digital Archive</title>
+<title>Research Agent â€” Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/main.css">
@@ -28,7 +28,7 @@
     <a href="../persons/">Persons</a>
     <a href="../locations/">Locations</a>
     <div class="lang-switcher">
-      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn" data-lang="uk">Ð£ÐšÐ </button>
       <button class="lang-btn active" data-lang="en">ENG</button>
       <button class="lang-btn" data-lang="pt">PT-BR</button>
     </div>
@@ -51,15 +51,15 @@
        display:flex;flex-direction:column;gap:.8rem">
     <div class="msg msg-system">
       <div class="msg-bubble msg-bubble-system">
-        👋 Welcome to the Khliborob Research Agent. I can answer questions about the
-        digitized issues of <em>Хлібороб / O Lavrador</em> — try asking about people,
+        ðŸ‘‹ Welcome to the Khliborob Research Agent. I can answer questions about the
+        digitized issues of <em>Ð¥Ð»Ñ–Ð±Ð¾Ñ€Ð¾Ð± / O Lavrador</em> â€” try asking about people,
         places, or events mentioned in the archive.
       </div>
     </div>
   </div>
 
   <div style="display:flex;gap:.5rem">
-    <input id="chat-input" type="text" placeholder="Ask a question about the archive…"
+    <input id="chat-input" type="text" placeholder="Ask a question about the archiveâ€¦"
            style="flex:1;font-size:14px;padding:.55rem .9rem;border:1px solid var(--border-strong,#ccc);
                   border-radius:var(--radius);background:var(--card-bg);color:var(--text)" />
     <button onclick="sendQuestion()" id="send-btn"
@@ -111,7 +111,7 @@ async function sendQuestion() {
   appendMsg("user", q);
 
   // Add typing indicator
-  const typingId = appendMsg("assistant", "Searching the archive…", "typing");
+  const typingId = appendMsg("assistant", "Searching the archiveâ€¦", "typing");
 
   try {
     const resp = await fetch(RAG_URL, {
@@ -123,7 +123,7 @@ async function sendQuestion() {
     if (!resp.ok) {
       const err = await resp.json();
       replaceMsg(typingId, "error",
-        "⚠️ Server error: " + (err.error || resp.statusText) +
+        "âš ï¸ Server error: " + (err.error || resp.statusText) +
         "
 
 Make sure the RAG server is running: python rag_query.py");
@@ -143,10 +143,10 @@ Make sure the RAG server is running: python rag_query.py");
         const poly = c.tx_hash && c.tx_hash !== "sandbox"
           ? `<a href="https://polygonscan.com/tx/${c.tx_hash}" target="_blank" rel="noopener">Blockchain</a>`
           : "";
-        const links = [link, poly].filter(Boolean).join(" · ");
+        const links = [link, poly].filter(Boolean).join(" Â· ");
         citBlock += `<div class="citation-item">[${c.citation_number}] ${c.newspaper_en}, `
-          + `${c.publication_date}, No. ${c.issue_number} — score: ${c.similarity_score}`
-          + (links ? ` — ${links}` : "") + `</div>`;
+          + `${c.publication_date}, No. ${c.issue_number} â€” score: ${c.similarity_score}`
+          + (links ? ` â€” ${links}` : "") + `</div>`;
       });
       citBlock += "</div>";
     }
@@ -155,7 +155,7 @@ Make sure the RAG server is running: python rag_query.py");
 
   } catch (err) {
     replaceMsg(typingId, "error",
-      "⚠️ Could not reach the RAG server at localhost:5050.
+      "âš ï¸ Could not reach the RAG server at localhost:5050.
 
 " +
       "Run: python rag_query.py
@@ -201,7 +201,7 @@ document.getElementById("chat-input").addEventListener("keydown", e => {
 });
 </script>
 <footer>
-  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
+  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of MÃ¼nster.</span>
 </footer>
 <script src="../assets/lang.js"></script>
 </body>

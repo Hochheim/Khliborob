@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Transcript Review — Khliborob Digital Archive</title>
+<title>Transcript Review â€” Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/main.css">
@@ -28,7 +28,7 @@
     <a href="../persons/">Persons</a>
     <a href="../locations/">Locations</a>
     <div class="lang-switcher">
-      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn" data-lang="uk">Ð£ÐšÐ </button>
       <button class="lang-btn active" data-lang="en">ENG</button>
       <button class="lang-btn" data-lang="pt">PT-BR</button>
     </div>
@@ -40,7 +40,7 @@
   background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
   <h1 style="font-size:18px;font-weight:600;margin-bottom:.5rem">Transcript Review</h1>
   <p style="font-size:13px;color:var(--muted);margin-bottom:1.5rem">
-    Enter the reviewer password to access flagged tokens.
+    Enter the reviewer password to access flagged words.
   </p>
   <input id="pw-input" type="password" placeholder="Password"
     style="width:100%;font-size:14px;padding:.5rem .8rem;border:1px solid var(--border);
@@ -73,7 +73,7 @@
 
   <p id="all-done" style="display:none;text-align:center;font-size:14px;
     color:var(--muted);padding:3rem">
-    ✅ All flagged tokens have been reviewed. Thank you!
+    âœ… All flagged words have been reviewed. Thank you!
   </p>
 </div>
 
@@ -84,9 +84,9 @@ const REPO_OWNER  = "Hochheim";
 const REPO_NAME   = "Khliborob";
 const WORKFLOW_ID = "apply_correction.yml";
 
-// GitHub fine-grained PAT — workflow_dispatch only on this repo
-// Replace with a real token after creating it in GitHub Settings → Developer settings
-// → Fine-grained tokens → New token → Repository: Khliborob → Permissions: Actions (write)
+// GitHub fine-grained PAT â€” workflow_dispatch only on this repo
+// Replace with a real token after creating it in GitHub Settings â†’ Developer settings
+// â†’ Fine-grained tokens â†’ New token â†’ Repository: Khliborob â†’ Permissions: Actions (write)
 const GH_TOKEN = "REPLACE_WITH_GITHUB_ACTIONS_WRITE_TOKEN";
 
 async function sha256(str) {
@@ -136,7 +136,7 @@ function renderTokens() {
       </div>
       <p style="font-size:13px;margin-bottom:.4rem;line-height:1.6">${ctx}</p>
       <p style="font-size:11px;color:var(--muted);margin-bottom:.8rem">
-        ⚠ <em>${tok.reason}</em></p>
+        âš  <em>${tok.reason}</em></p>
       <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap">
         <input id="corr-${i}" type="text" value="${tok.word}"
           style="font-size:13px;padding:.35rem .7rem;border:1px solid var(--border);
@@ -164,11 +164,11 @@ async function submitCorrection(i, btn) {
   const corrected = document.getElementById("corr-" + i).value.trim();
   if (!corrected) return;
   btn.disabled = true;
-  btn.textContent = "Submitting…";
+  btn.textContent = "Submittingâ€¦";
   const status = document.getElementById("status-" + i);
   status.style.display = "block";
   status.style.color = "var(--muted)";
-  status.textContent = "Sending to archive…";
+  status.textContent = "Sending to archiveâ€¦";
   try {
     const resp = await fetch(
       `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${WORKFLOW_ID}/dispatches`,
@@ -193,7 +193,7 @@ async function submitCorrection(i, btn) {
     );
     if (resp.status === 204) {
       status.style.color = "#16a34a";
-      status.textContent = "✅ Correction submitted. The archive will update in ~3 minutes.";
+      status.textContent = "âœ… Correction submitted. The archive will update in ~3 minutes.";
       localStorage.setItem("reviewed_" + btn.dataset.page + "_" + btn.dataset.word, "1");
       setTimeout(renderTokens, 1500);
     } else {
@@ -217,7 +217,7 @@ function skipToken(i, pageId, word) {
 }
 </script>
 <footer>
-  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
+  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of MÃ¼nster.</span>
 </footer>
 <script src="../assets/lang.js"></script>
 </body>
