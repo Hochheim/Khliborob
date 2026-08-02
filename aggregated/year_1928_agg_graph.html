@@ -125,7 +125,10 @@
     if (pageIds.has(t)) mentionCount[s] = (mentionCount[s]||0)+1;
   });
 
-  // ── co-occurrence edges (entity ↔ entity sharing a page) ──
+  // ── co-occurrence edges: only pairs that share 2+ pages ──
+  // Counting ALL co-occurrences per page produces a near-complete graph
+  // (N entities → N*(N-1)/2 edges), making the map unreadable.
+  // We keep only pairs that are co-mentioned across at least 2 separate pages.
   const pageToEntities = {};
   rawEdges.forEach(e => {
     const s = nodeId(e.source), t = nodeId(e.target);
@@ -133,15 +136,18 @@
     const en = pg === s ? t : s;
     if (pg) { pageToEntities[pg] = pageToEntities[pg] || []; pageToEntities[pg].push(en); }
   });
-  const coEdges = [];
-  const coSeen  = new Set();
+  const coPairCount = {};
   Object.values(pageToEntities).forEach(ents => {
     for (let i = 0; i < ents.length; i++)
       for (let j = i+1; j < ents.length; j++) {
         const key = [ents[i],ents[j]].sort().join("|");
-        if (!coSeen.has(key)) { coSeen.add(key); coEdges.push({source:ents[i],target:ents[j]}); }
+        coPairCount[key] = (coPairCount[key]||0) + 1;
       }
   });
+  const CO_THRESHOLD = 2;  // must share at least 2 pages to draw an edge
+  const coEdges = Object.entries(coPairCount)
+    .filter(([,cnt]) => cnt >= CO_THRESHOLD)
+    .map(([key]) => { const [a,b]=key.split("|"); return {source:a,target:b}; });
 
   // ── node size: 28-70px proportional to mention count ──
   function nodeSize(n) {
@@ -239,9 +245,16 @@
                                   .sort((a,b) => (b.data("mentions")||0)-(a.data("mentions")||0));
     const pages     = nodeElements.filter(n => n.data("type")==="page");
 
+    // Label-aware width: node diameter + label text width + a gap
+    function itemWidth(n) {
+      const sz  = n.data("size") || 36;
+      const lbl = (n.data("label") || "").length;
+      return Math.max(sz + 20, lbl * 7 + sz + 24);
+    }
+
     function placeRow(list, y) {
       if (!list.length) return;
-      const widths = list.map(n => Math.max(120, n.data("label").length * 8 + 60));
+      const widths = list.map(itemWidth);
       const total  = widths.reduce((s,w)=>s+w, 0);
       const scale  = total > usableW ? usableW / total : 1;
       let x = PAD + (usableW - total*scale) / 2 + widths[0]*scale/2;
@@ -252,20 +265,24 @@
       });
     }
 
+    // Determine how many items fit per row based on average label width
+    function perRowFor(list) {
+      if (!list.length) return 1;
+      const avgW = list.reduce((s,n)=>s+itemWidth(n),0) / list.length;
+      return Math.max(1, Math.floor(usableW / avgW));
+    }
+
     function placeMultiRow(list, topY, rowH, downward) {
       if (!list.length) return;
-      const perRow = Math.max(1, Math.floor(usableW / 130));
+      const perRow = perRowFor(list);
       const rows = [];
       for (let i = 0; i < list.length; i += perRow) rows.push(list.slice(i, i+perRow));
       rows.forEach((row, ri) => placeRow(row, topY + (downward?1:-1) * ri * rowH));
     }
 
-    const nRows = Math.ceil(persons.length   / Math.max(1, Math.floor(usableW/130)));
-    const lRows = Math.ceil(locations.length / Math.max(1, Math.floor(usableW/130)));
-    const rowH  = Math.min(90, (H * 0.4) / Math.max(nRows, lRows, 1));
-
-    placeMultiRow(persons,   PAD + 30, rowH, true);
-    placeMultiRow(locations, H - PAD - 30, rowH, false);
+    const ROW_H = 100;  // fixed row height with room for node + label
+    placeMultiRow(persons,   PAD + 50, ROW_H, true);
+    placeMultiRow(locations, H - PAD - 50, ROW_H, false);
 
     // Scatter any page nodes across the middle band
     if (pages.length) {
@@ -351,8 +368,10 @@
     resetDetail();
   });
 
-  // ── hover: dim/highlight ──
+  // ── hover highlight (never clears a tap-locked selection) ──
+  let tappedNode = null;
   cy.on("mouseover", "node", function(e) {
+    if (tappedNode) return;  // don't interfere with a click-locked selection
     const hood = e.target.closedNeighborhood();
     cy.elements().not(hood).addClass("dimmed");
     hood.removeClass("dimmed");
@@ -361,6 +380,7 @@
     cy.container().style.cursor = "pointer";
   });
   cy.on("mouseout", "node", function() {
+    if (tappedNode) return;
     cy.elements().removeClass("dimmed highlighted");
     cy.container().style.cursor = "";
   });
@@ -382,8 +402,15 @@
     return paper+", "+parseInt(m[4],10)+" "+mon+" "+m[2]+", "+iss+pg;
   }
 
-  // ── click: detail panel ──
+  // ── click: detail panel + lock highlight ──
   cy.on("tap", "node", function(e) {
+    // Lock the highlight so mouseout doesn't clear it
+    tappedNode = e.target;
+    const hood = e.target.closedNeighborhood();
+    cy.elements().removeClass("dimmed highlighted");
+    cy.elements().not(hood).addClass("dimmed");
+    hood.edges().addClass("highlighted");
+    e.target.addClass("highlighted");
     const d = e.target.data();
     const badgeClass = "badge badge-" + d.type;
     const typeLabel  = d.type === "page" ? "Issue" : d.type.charAt(0).toUpperCase()+d.type.slice(1);
@@ -429,7 +456,11 @@
   });
 
   cy.on("tap", function(e) {
-    if (e.target === cy) { resetDetail(); cy.elements().removeClass("dimmed highlighted"); }
+    if (e.target === cy) {
+      tappedNode = null;
+      resetDetail();
+      cy.elements().removeClass("dimmed highlighted");
+    }
   });
   </script>
 </body>
