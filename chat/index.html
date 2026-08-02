@@ -6,7 +6,7 @@
 <title>Research Agent — Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608022202">
+<link rel="stylesheet" href="../assets/main.css?v=202608022210">
 
 </head>
 <body>
@@ -59,7 +59,6 @@
         grounded in the corpus and cite their sources. Try one of these:
         <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem">
           <button class="chip" onclick="askExample(this)">Who is Pedro Mazurechen?</button>
-          <button class="chip" onclick="askExample(this)">What do the GPU documents say about Istanbul?</button>
           <button class="chip" onclick="askExample(this)">Що газета писала про Мазепу?</button>
           <button class="chip" onclick="askExample(this)">Which international events of 1927 are covered?</button>
         </div>
@@ -446,7 +445,10 @@ const AGENT_SYS =
   '2. Cite claims with [N] markers using the source_number values from tool results, e.g. [1] or [1][3].\n' +
   '3. If, after the protocol above, the corpus still does not contain the answer, say so explicitly — mention the pilot corpus is only 2 issues.\n' +
   '4. When quoting Ukrainian text, give the original followed by a translation in parentheses.\n' +
-  '5. Respond in the same language as the researcher\'s question.\n' +
+  '5. LANGUAGE: Write the ENTIRE answer in the language of the researcher\'s latest question. ' +
+  'A question asked in English gets an English answer, Portuguese gets Portuguese, Ukrainian gets ' +
+  'Ukrainian — regardless of the language of the source material. Only verbatim quotes stay in the ' +
+  'original (with a translation in parentheses).\n' +
   '6. Be concise: a focused paragraph or two.';
 
 let chatHistory = [];
@@ -480,6 +482,14 @@ async function runAgent(question, key, status) {
   // follow-ups like "what else did he do?" resolve); tool traffic stays
   // local to the current question to keep requests small.
   let contents = chatHistory.slice(-16);
+  // Reinforce language fidelity at the point where the model reads the
+  // question: with all source material in Ukrainian, a system-prompt rule
+  // alone was not enough to keep e.g. an English question from getting a
+  // Ukrainian answer. Local copy only — chat history stays clean.
+  const lastTurn = contents[contents.length - 1];
+  contents[contents.length - 1] = { role: "user", parts: [{
+    text: lastTurn.parts[0].text + "\n\n[Answer in the same language this question is written in.]"
+  }] };
   for (let step = 0; step < 8; step++) {
     const content = await geminiTurn(contents, key);
     const parts = content.parts || [];
@@ -619,6 +629,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608022202"></script>
+<script src="../assets/lang.js?v=202608022210"></script>
 </body>
 </html>
