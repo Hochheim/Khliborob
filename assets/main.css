@@ -132,6 +132,8 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
 .gpu-connection .gpu-meta{font-size:11px;color:var(--muted);margin-top:.4rem}
 
 .content-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+.content-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:1.2rem}
+@media (max-width:1100px){.content-grid-4{grid-template-columns:1fr 1fr}}
 .content-panel{background:var(--card-bg);border:1px solid var(--border);
                border-radius:var(--radius);padding:1rem}
 .content-panel h3{font-size:12px;font-weight:500;color:var(--muted);
@@ -181,6 +183,8 @@ mark{background:var(--yellow);color:#1a1a1a;border-radius:2px;padding:0 2px}
   .sidebar{border-right:none;border-bottom:1px solid var(--border)}
   .content-grid{grid-template-columns:1fr}
   .content-grid .content-panel:not(:first-child){margin-top:.8rem}
+  .content-grid-4{grid-template-columns:1fr}
+  .content-grid-4 .content-panel:not(:first-child){margin-top:.8rem}
   .stats{grid-template-columns:1fr}
   .stat{border-right:none;border-bottom:1px solid var(--border)}
 }

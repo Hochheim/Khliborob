@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
-  <responseDate>2026-08-02T21:41:08Z</responseDate>
+  <responseDate>2026-08-02T22:32:24Z</responseDate>
   <request verb="ListRecords" metadataPrefix="oai_dc">https://hochheim.github.io/Khliborob/oai-pmh.xml</request>
   <!-- Static snapshot export, not a live OAI-PMH verb endpoint. See /about/ for details. -->
   <ListRecords>
@@ -44,6 +44,7 @@
           <dc:format>image/jpeg</dc:format>
           <dc:language>ukr</dc:language>
           <dc:language>eng</dc:language>
+          <dc:language>por</dc:language>
           <dc:coverage>Porto União / União da Vitória, Paraná, Brazil</dc:coverage>
           <dc:identifier>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/</dc:identifier>
           <dc:relation>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/iiif/manifest.json</dc:relation>
