@@ -31,6 +31,7 @@
       <button class="lang-btn" data-lang="uk">УКР</button>
       <button class="lang-btn active" data-lang="en">ENG</button>
       <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
     </div>
   </div>
 </nav>
@@ -40,9 +41,11 @@
   <div style="margin-bottom:1rem">
     <h1 style="font-size:20px;font-weight:500;margin-bottom:.3rem" data-i18n="nav_chat">Research Agent</h1>
     <p style="font-size:13px;color:var(--muted)">
-      Ask questions about the archive in Ukrainian, English, or Brazilian Portuguese.
-      Answers are grounded exclusively in the digitized corpus with full citations.
-      <strong>Start the RAG server first:</strong> <code>python rag_query.py</code>
+      Ask questions about the archive in Ukrainian, English, or Brazilian Portuguese. This
+      runs entirely in your browser: it matches your question against the digitized corpus
+      and returns the original passages verbatim, with full citations — no server, no AI
+      paraphrasing, nothing that can hallucinate a source. It only covers the
+      <a href="../about/">pilot corpus</a> currently on this site (2 issues).
     </p>
   </div>
 
@@ -51,9 +54,10 @@
        display:flex;flex-direction:column;gap:.8rem">
     <div class="msg msg-system">
       <div class="msg-bubble msg-bubble-system">
-        👋 Welcome to the Khliborob Research Agent. I can answer questions about the
-        digitized issues of <em>Хлібороб / O Lavrador</em> — try asking about people,
-        places, or events mentioned in the archive.
+        👋 Welcome to the Khliborob Research Agent. Ask about people, places, or events
+        mentioned in the digitized issues of <em>Хлібороб / O Lavrador</em> — e.g. "Mazepa",
+        "American consulate", "Bachynsky". This searches the original transcripts directly
+        and quotes them back to you with a source citation.
       </div>
     </div>
   </div>
@@ -97,7 +101,79 @@
 </style>
 
 <script>
-const RAG_URL = "http://localhost:5050/query";
+// Fully static, client-side grounded search. No server, no API key.
+// Loads a pre-built index of every digitized page's transcripts and
+// scores them against the question by term overlap, then quotes the
+// original passages back verbatim with a citation — extractive, not
+// generative, so it cannot hallucinate a source.
+let SEARCH_INDEX = null;
+
+async function loadIndex() {
+  if (SEARCH_INDEX) return SEARCH_INDEX;
+  const resp = await fetch("../assets/search-index.json");
+  SEARCH_INDEX = await resp.json();
+  return SEARCH_INDEX;
+}
+
+function tokenize(text) {
+  return (text.toLowerCase().match(/[\p{L}\p{N}]+/gu) || []).filter(t => t.length >= 2);
+}
+
+function escapeRe(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Ukrainian/Portuguese are inflected languages — a query for "Мазепа" (nominative)
+// will not substring-match "Мазепи" (genitive) in the transcript. A real stemmer
+// is out of scope for a static client-side tool, so this falls back to matching
+// on a truncated stem (drop the last 1-2 characters) for longer words, which
+// catches most case-ending variation cheaply. Full-word hits are weighted higher
+// than stem-only hits so exact matches still rank first.
+function stemOf(tok) {
+  return tok.length >= 6 ? tok.slice(0, tok.length - 2) : (tok.length >= 4 ? tok.slice(0, tok.length - 1) : tok);
+}
+
+function scoreRecord(queryTokens, record) {
+  const hay = ((record.text_en||"") + " " + (record.text_uk||"") + " " + (record.text_pt||"")).toLowerCase();
+  let score = 0;
+  for (const tok of queryTokens) {
+    const fullMatches = hay.match(new RegExp(escapeRe(tok), "g"));
+    if (fullMatches) { score += fullMatches.length * 3; continue; }
+    const stem = stemOf(tok);
+    if (stem.length < 3) continue;
+    const stemMatches = hay.match(new RegExp(escapeRe(stem), "g"));
+    if (stemMatches) score += stemMatches.length;
+  }
+  return score;
+}
+
+function bestSnippet(queryTokens, record) {
+  const fields = [
+    ["English translation", record.text_en],
+    ["Ukrainian original", record.text_uk],
+    ["Portuguese translation", record.text_pt],
+  ];
+  for (const [label, text] of fields) {
+    if (!text) continue;
+    const lower = text.toLowerCase();
+    let hitIdx = -1;
+    for (const tok of queryTokens) {
+      let idx = lower.indexOf(tok);
+      if (idx === -1) {
+        const stem = stemOf(tok);
+        if (stem.length >= 3) idx = lower.indexOf(stem);
+      }
+      if (idx !== -1) { hitIdx = idx; break; }
+    }
+    if (hitIdx === -1) continue;
+    const start = Math.max(0, hitIdx - 140);
+    const end = Math.min(text.length, hitIdx + 200);
+    const snippet = (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "");
+    return { label, snippet };
+  }
+  const fallback = record.text_en || record.text_uk || record.text_pt || "";
+  return { label: "English translation", snippet: fallback.slice(0, 240) + (fallback.length > 240 ? "…" : "") };
+}
 
 async function sendQuestion() {
   const input = document.getElementById("chat-input");
@@ -106,61 +182,55 @@ async function sendQuestion() {
 
   input.value = "";
   document.getElementById("send-btn").disabled = true;
-
-  // Add user bubble
   appendMsg("user", q);
-
-  // Add typing indicator
-  const typingId = appendMsg("assistant", "Searching the archive…", "typing");
+  const typingId = appendMsg("assistant", "Searching the corpus…", "typing");
 
   try {
-    const resp = await fetch(RAG_URL, {
-      method: "POST",
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({question: q, top_k: 8})
-    });
-
-    if (!resp.ok) {
-      const err = await resp.json();
-      replaceMsg(typingId, "error",
-        "⚠️ Server error: " + (err.error || resp.statusText) +
-        "
-
-Make sure the RAG server is running: python rag_query.py");
+    const index = await loadIndex();
+    const queryTokens = tokenize(q);
+    if (queryTokens.length === 0) {
+      replaceMsg(typingId, "assistant", "Please enter a search term.");
       return;
     }
 
-    const data = await resp.json();
+    const scored = index
+      .map(r => ({ record: r, score: scoreRecord(queryTokens, r) }))
+      .filter(r => r.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 5);
 
-    // Format citations
-    let citBlock = "";
-    if (data.citations && data.citations.length) {
-      citBlock = '<div class="citations-block"><strong>Sources:</strong><br>';
-      data.citations.forEach(c => {
-        const link = c.ipfs_url
-          ? `<a href="${c.ipfs_url}" target="_blank" rel="noopener">IPFS</a>`
-          : "";
-        const poly = c.tx_hash && c.tx_hash !== "sandbox"
-          ? `<a href="https://polygonscan.com/tx/${c.tx_hash}" target="_blank" rel="noopener">Blockchain</a>`
-          : "";
-        const links = [link, poly].filter(Boolean).join(" · ");
-        citBlock += `<div class="citation-item">[${c.citation_number}] ${c.newspaper_en}, `
-          + `${c.publication_date}, No. ${c.issue_number} — score: ${c.similarity_score}`
-          + (links ? ` — ${links}` : "") + `</div>`;
-      });
-      citBlock += "</div>";
+    if (scored.length === 0) {
+      replaceMsg(typingId, "assistant",
+        "The digitized pilot corpus (2 issues, 8 pages) does not contain material matching " +
+        "this query. Try a different term, or browse the Persons and Locations index for " +
+        "names known to appear in the archive.");
+      return;
     }
 
-    replaceMsg(typingId, "assistant", data.answer, "", citBlock);
+    let answer = `Found ${scored.length} matching passage(s) in the pilot corpus:
+
+`;
+    let citBlock = '<div class="citations-block"><strong>Sources:</strong><br>';
+    scored.forEach((s, i) => {
+      const r = s.record;
+      const { label, snippet } = bestSnippet(queryTokens, r);
+      answer += `[${i+1}] (${label}) "${snippet}"
+
+`;
+      const links = [
+        `<a href="${r.issue_url}" target="_blank" rel="noopener">issue page</a>`,
+        r.ipfs_url ? `<a href="${r.ipfs_url}" target="_blank" rel="noopener">IPFS scan</a>` : "",
+        r.tx_url ? `<a href="${r.tx_url}" target="_blank" rel="noopener">blockchain</a>` : "",
+      ].filter(Boolean).join(" · ");
+      citBlock += `<div class="citation-item">[${i+1}] Khliborob / O Lavrador, ${escHtml(r.date)}, `
+        + `No. ${escHtml(String(r.issue_number))}, page ${escHtml(String(r.page_number))} — ${links}</div>`;
+    });
+    citBlock += "</div>";
+
+    replaceMsg(typingId, "assistant", answer.trim(), "", citBlock);
 
   } catch (err) {
-    replaceMsg(typingId, "error",
-      "⚠️ Could not reach the RAG server at localhost:5050.
-
-" +
-      "Run: python rag_query.py
-
-Error: " + err.message);
+    replaceMsg(typingId, "error", "⚠️ Could not load the search index: " + err.message);
   } finally {
     document.getElementById("send-btn").disabled = false;
     input.focus();
@@ -199,6 +269,7 @@ function escHtml(t) {
 document.getElementById("chat-input").addEventListener("keydown", e => {
   if (e.key === "Enter") sendQuestion();
 });
+loadIndex();
 </script>
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>

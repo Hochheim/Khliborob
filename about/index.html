@@ -31,6 +31,7 @@
       <button class="lang-btn" data-lang="uk">УКР</button>
       <button class="lang-btn active" data-lang="en">ENG</button>
       <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
     </div>
   </div>
 </nav>
@@ -38,6 +39,16 @@
 
 <div style="max-width:720px;margin:2rem auto;padding:0 1.5rem">
   <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">About this archive</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Pilot corpus.</strong> This site currently presents 2 fully digitized issues
+    (8 pages) out of an estimated 14,000+ pages held by SUBRAS spanning 1924–present. It exists
+    to demonstrate the digitization pipeline end-to-end — OCR, translation, entity extraction,
+    provenance anchoring, standards-compliant export — ahead of a funding application to digitize
+    the full run. Figures on this site (issue counts, person/location indices) describe the pilot
+    corpus, not the complete newspaper archive.
+  </div>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The newspaper</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
@@ -57,6 +68,39 @@
     compiled for Japanese diplomatic services in November 1932 cite the newspaper
     as a source for information about executions of starving peasants in Soviet Ukraine.
   </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    These documents name real individuals under surveillance during a period of political
+    persecution. They are reproduced here as declassified historical intelligence records
+    released by SZRU (published 23 November 2025) for scholarly research; readers should
+    treat the identities involved with the same care historians apply to any archive
+    documenting political repression of named persons.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Methodology &amp; limitations</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Page images are transcribed and translated (Ukrainian → English, and Portuguese where the
+    original is already in Portuguese) using Gemini 2.5 Flash vision OCR. The model flags
+    tokens it is not confident about; these appear on each issue page as
+    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
+    padding:0 2px">highlighted words</mark> with the reason for the flag, so uncertain readings
+    stay visible rather than silently smoothed over. No independent human-transcription accuracy
+    study has been run yet on this pilot corpus — the highlighting is a transparency mechanism,
+    not a validated error rate. Machine translation of 1920s diaspora Ukrainian and period
+    Portuguese carries the usual risks of idiom loss and anachronistic phrasing; researchers
+    doing close reading should treat the English/Portuguese columns as a navigation aid and
+    verify against the Ukrainian original (or the page scan) before quoting.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Each digitized page has an IIIF Presentation 3.0 manifest (linked from its issue page) so
+    the scans can be opened in Mirador, Universal Viewer, or any other IIIF-compatible tool.
+    Metadata for all issues is also published as a Dublin Core /
+    <a href="../oai-pmh.xml" target="_blank" rel="noopener">OAI-PMH-format static export</a> —
+    a snapshot rather than a live query endpoint, since the site itself is static-hosted, but
+    structured for reuse by aggregators such as Europeana or the Deutsche Digitale Bibliothek.
+    TEI, ALTO, and METS XML are also generated per page by the pipeline.
+  </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The pipeline</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
@@ -65,7 +109,7 @@
     and bilingual (Ukrainian/English) transcription, stored permanently on IPFS via
     Pinata, and cryptographically anchored on the Polygon blockchain. The pipeline
     source code is available at
-    <a href="https://github.com/yourusername/khliborob-pipeline" target="_blank"
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank"
        rel="noopener">GitHub</a>.
   </p>
 
@@ -79,10 +123,10 @@
   </p>
 
   <p style="font-size:12px;color:var(--muted);margin-top:2rem">
-    All digitized materials are deposited in the
-    <a href="https://archive.org" target="_blank" rel="noopener">Internet Archive</a>
-    for permanent preservation. Blockchain provenance is anchored on the Polygon
-    mainnet. This archive is free and open access.
+    Digitized page scans are anchored on the Polygon mainnet (blockchain transaction hash
+    shown on each issue page) and stored on IPFS via Pinata. Deposit of the full corpus with
+    the Internet Archive is planned once digitization moves beyond the pilot stage. This
+    archive is free and open access.
   </p>
 </div>
 <footer>

@@ -31,6 +31,7 @@
       <button class="lang-btn" data-lang="uk">УКР</button>
       <button class="lang-btn active" data-lang="en">ENG</button>
       <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
     </div>
   </div>
 </nav>
@@ -79,6 +80,11 @@ function closeBanner(){
 <div class="hero">
   <h1>Хлібороб · O Lavrador</h1>
   <p data-i18n="hero_subtitle">Digital archive of Khliborob / O Lavrador — the Ukrainian diaspora newspaper in Brazil (1924–present)</p>
+  <p data-i18n="pilot_notice" style="font-size:12px;color:var(--muted);background:var(--card-bg);
+     border:1px solid var(--border);border-radius:var(--radius);padding:.5rem .8rem;
+     display:inline-block;margin:.3rem 0 .8rem">Pilot corpus: this demo currently contains 2 of an
+     estimated 14,000+ pages held by SUBRAS, digitized to demonstrate the pipeline as part of a
+     grant application.</p>
   <div class="search-box">
     <input type="search" data-i18n="search_placeholder" placeholder="Search all pages — e.g. Holodomor, Istanbul, 1932" id="q" />
     <button onclick="doSearch()" data-i18n="search_btn">Search</button>
