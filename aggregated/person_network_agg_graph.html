@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Person Co-mention Network</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#f5f4f0;font-family:'Segoe UI',system-ui,sans-serif;color:#1a1a1a;
+         display:flex;flex-direction:column;height:100vh;overflow:hidden}
+
+    /* ── top bar ── */
+    #topbar{background:#fff;border-bottom:1px solid #ddd;padding:8px 14px;flex-shrink:0;
+             display:flex;align-items:center;gap:12px;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    #topbar h2{font-size:.9rem;font-weight:700;color:#1a1a1a;white-space:nowrap}
+    #topbar .sub{font-size:.72rem;color:#888;white-space:nowrap}
+    #search{flex:1;min-width:140px;max-width:200px;border:1px solid #ccc;border-radius:6px;
+             padding:4px 9px;font-size:.8rem;outline:none}
+    #search:focus{border-color:#2b6cb0;box-shadow:0 0 0 2px rgba(43,108,176,.2)}
+    .ctrl{display:flex;align-items:center;gap:6px;font-size:.76rem;color:#555;white-space:nowrap}
+    .ctrl label{color:#555}
+    #min-mentions{width:100px;accent-color:#2b6cb0}
+    #node-count{font-size:.72rem;color:#888}
+    #toggle-pages{font-size:.76rem;padding:3px 10px;border:1px solid #ccc;border-radius:5px;
+                   cursor:pointer;background:#fff;color:#333}
+    #toggle-pages.active{background:#2b6cb0;color:#fff;border-color:#2b6cb0}
+
+    /* ── main area ── */
+    #main{display:flex;flex:1;overflow:hidden}
+    #cy{flex:1;background:#f5f4f0}
+
+    /* ── detail panel ── */
+    #detail{width:260px;background:#fff;border-left:1px solid #e0e0e0;
+             padding:14px;font-size:.8rem;overflow-y:auto;flex-shrink:0;
+             box-shadow:-2px 0 6px rgba(0,0,0,.04)}
+    #detail h3{font-size:.95rem;font-weight:700;color:#1a1a1a;margin-bottom:4px;line-height:1.3}
+    #detail .badge{display:inline-block;border-radius:99px;padding:2px 10px;
+                    font-size:.68rem;font-weight:600;text-transform:uppercase;
+                    letter-spacing:.04em;margin-bottom:10px}
+    .badge-person{background:#dbeafe;color:#1e40af}
+    .badge-location{background:#d1fae5;color:#065f46}
+    .badge-page{background:#fef3c7;color:#92400e}
+    #detail .field{margin-bottom:10px}
+    #detail .field b{display:block;font-size:.68rem;text-transform:uppercase;
+                      letter-spacing:.05em;color:#aaa;margin-bottom:4px}
+    #detail a{color:#2b6cb0;text-decoration:none}
+    #detail a:hover{text-decoration:underline}
+    #detail ul{list-style:none;padding:0}
+    #detail li{padding:4px 0;border-bottom:1px solid #f0f0f0;font-size:.78rem}
+    #detail li:last-child{border-bottom:none}
+    .snippet{background:#f8f8f8;border-left:3px solid #ccc;padding:4px 8px;
+              margin-top:3px;font-size:.74rem;font-style:italic;color:#555;
+              border-radius:0 4px 4px 0}
+    .snippet.uk{border-color:#2b6cb0}
+    .snippet.en{border-color:#059669}
+    #detail .hint{color:#bbb;font-size:.78rem;margin-top:20px;line-height:1.6;text-align:center}
+
+    /* ── legend ── */
+    #legend{position:absolute;bottom:12px;left:12px;background:rgba(255,255,255,.92);
+             padding:7px 12px;border-radius:8px;font-size:.72rem;color:#444;
+             border:1px solid #e0e0e0;backdrop-filter:blur(4px);display:flex;gap:14px}
+    .dot{display:inline-block;width:10px;height:10px;border-radius:50%;
+          margin-right:4px;vertical-align:middle}
+
+    /* ── loading overlay ── */
+    #loading{position:absolute;inset:0;background:#f5f4f0;display:flex;
+              align-items:center;justify-content:center;font-size:.85rem;
+              color:#888;z-index:10;pointer-events:none}
+  </style>
+</head>
+<body>
+  <div id="topbar">
+    <div>
+      <h2>🧠 Person Co-mention Network</h2>
+      <span class="sub">42 persons across 2 issues &nbsp;·&nbsp; Scroll to zoom · Drag to pan · Click for details</span>
+    </div>
+    <input id="search" type="search" placeholder="Search person or place…" autocomplete="off"/>
+    <div class="ctrl">
+      <label for="min-mentions">Min. mentions</label>
+      <input type="range" id="min-mentions" min="1" max="1" value="1" step="1"/>
+      <span id="filter-val">1</span>
+      <span id="node-count"></span>
+    </div>
+    <button id="toggle-pages">Show issue nodes</button>
+  </div>
+  <div id="main" style="position:relative">
+    <div id="cy"></div>
+    <div id="loading">Building graph…</div>
+    <div id="legend">
+      <span><span class="dot" style="background:#3b82f6"></span>Person</span>
+      <span><span class="dot" style="background:#10b981"></span>Location</span>
+      <span><span class="dot" style="background:#f59e0b" id="legend-page"></span>Issue</span>
+    </div>
+  </div>
+  <div id="detail"><p class="hint">Click any node<br>to see details.</p></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+  <script>
+  // ── iframe redirect ──
+  if (window.self !== window.top) {
+    document.body.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
+                  height:100vh;background:#f5f4f0;font-family:sans-serif;gap:16px;padding:20px;text-align:center">
+        <p style="font-size:.9rem;color:#666">The Knowledge Graph needs its own tab to be fully interactive.</p>
+        <a href="${window.location.href}" target="_blank"
+           style="background:#2b6cb0;color:#fff;padding:12px 28px;border-radius:8px;
+                  text-decoration:none;font-size:.9rem;font-weight:600">
+          🧠 Open Knowledge Graph ↗
+        </a>
+      </div>`;
+  }
+
+  const SITE_BASE = "https://hochheim.github.io/Khliborob/";
+  const rawNodes  = [{"id": "V. Moroz", "type": "person", "label": "V. Moroz", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Maciej Rataj", "type": "person", "label": "Maciej Rataj", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "David Ward", "type": "person", "label": "David Ward", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Austen Chamberlain", "type": "person", "label": "Austen Chamberlain", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Yosyp Khomyshyn", "type": "person", "label": "Yosyp Khomyshyn", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Benker", "type": "person", "label": "Benker", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "I. Moroz", "type": "person", "label": "I. Moroz", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Serhii Tymoshenko", "type": "person", "label": "Serhii Tymoshenko", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Stanisław Wojciechowski", "type": "person", "label": "Stanisław Wojciechowski", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Benito Mussolini", "type": "person", "label": "Benito Mussolini", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Hryts Kosak", "type": "person", "label": "Hryts Kosak", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Andriy Voinarovsky", "type": "person", "label": "Andriy Voinarovsky", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Basilio Muchar", "type": "person", "label": "Basilio Muchar", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Andriy Sheptytsky", "type": "person", "label": "Andriy Sheptytsky", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Hans Koch", "type": "person", "label": "Hans Koch", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Eleftherios Venizelos", "type": "person", "label": "Eleftherios Venizelos", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Muravyov-Vishatel", "type": "person", "label": "Muravyov-Vishatel", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "P. Alegre", "type": "person", "label": "P. Alegre", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Stepan Radić", "type": "person", "label": "Stepan Radić", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Władysław Grabski", "type": "person", "label": "Władysław Grabski", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "V. Hnatiuk", "type": "person", "label": "V. Hnatiuk", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Bartlya", "type": "person", "label": "Bartlya", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Bachynsky", "type": "person", "label": "Bachynsky", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Kipnik", "type": "person", "label": "Kipnik", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Józef Piłsudski", "type": "person", "label": "Józef Piłsudski", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Pasternak", "type": "person", "label": "Pasternak", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Hnat Volovych", "type": "person", "label": "Hnat Volovych", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Z. Dorozhnyi", "type": "person", "label": "Z. Dorozhnyi", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Charles XII of Sweden", "type": "person", "label": "Charles XII of Sweden", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Sterdo Gofort", "type": "person", "label": "Sterdo Gofort", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Pylyp Orlyk", "type": "person", "label": "Pylyp Orlyk", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Pedro Mazurechen", "type": "person", "label": "Pedro Mazurechen", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Ivan Mazepa", "type": "person", "label": "Ivan Mazepa", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "A. Buriak", "type": "person", "label": "A. Buriak", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Ilko Borshchak", "type": "person", "label": "Ilko Borshchak", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Ya. R. T. Moroz", "type": "person", "label": "Ya. R. T. Moroz", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "S. Shavryn", "type": "person", "label": "S. Shavryn", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "I. Lukashenko", "type": "person", "label": "I. Lukashenko", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Gregori Prechlak", "type": "person", "label": "Gregori Prechlak", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "V. Kukhar", "type": "person", "label": "V. Kukhar", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Aleksander Skrzyński", "type": "person", "label": "Aleksander Skrzyński", "pages": [], "snippets_uk": {}, "snippets_en": {}}, {"id": "Pope Pius XI", "type": "person", "label": "Pope Pius XI", "pages": [], "snippets_uk": {}, "snippets_en": {}}];
+  const rawEdges  = [{"source": "A. Buriak", "target": "Aleksander Skrzyński", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Andriy Voinarovsky", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Austen Chamberlain", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Bachynsky", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Bartlya", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Basilio Muchar", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Benito Mussolini", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "A. Buriak", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Andriy Voinarovsky", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Austen Chamberlain", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Bachynsky", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Bartlya", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Basilio Muchar", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Benito Mussolini", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Aleksander Skrzyński", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Austen Chamberlain", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Bachynsky", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Bartlya", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Basilio Muchar", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Benito Mussolini", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Andriy Voinarovsky", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Bachynsky", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Bartlya", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Basilio Muchar", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Benito Mussolini", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Austen Chamberlain", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Bartlya", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Basilio Muchar", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Benito Mussolini", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Bachynsky", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Basilio Muchar", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Benito Mussolini", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Bartlya", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Benito Mussolini", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Basilio Muchar", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Charles XII of Sweden", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Benito Mussolini", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "David Ward", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Charles XII of Sweden", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Hnat Volovych", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "David Ward", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "I. Lukashenko", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Hnat Volovych", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "I. Moroz", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "I. Lukashenko", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Ilko Borshchak", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "I. Moroz", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Ivan Mazepa", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Ilko Borshchak", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Józef Piłsudski", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Ivan Mazepa", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Maciej Rataj", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Józef Piłsudski", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Muravyov-Vishatel", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Maciej Rataj", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "P. Alegre", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Muravyov-Vishatel", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "P. Alegre", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Pope Pius XI", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "Pylyp Orlyk", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Pope Pius XI", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "S. Shavryn", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Pylyp Orlyk", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "Stanisław Wojciechowski", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "S. Shavryn", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Stanisław Wojciechowski", "target": "Sterdo Gofort", "label": "co-mentioned 1x"}, {"source": "Stanisław Wojciechowski", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Stanisław Wojciechowski", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Stanisław Wojciechowski", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Stanisław Wojciechowski", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Stanisław Wojciechowski", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Stanisław Wojciechowski", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Sterdo Gofort", "target": "V. Hnatiuk", "label": "co-mentioned 1x"}, {"source": "Sterdo Gofort", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "Sterdo Gofort", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "Sterdo Gofort", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "Sterdo Gofort", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Sterdo Gofort", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "V. Hnatiuk", "target": "V. Kukhar", "label": "co-mentioned 1x"}, {"source": "V. Hnatiuk", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "V. Hnatiuk", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "V. Hnatiuk", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "V. Hnatiuk", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "V. Kukhar", "target": "V. Moroz", "label": "co-mentioned 1x"}, {"source": "V. Kukhar", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "V. Kukhar", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "V. Kukhar", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "V. Moroz", "target": "Władysław Grabski", "label": "co-mentioned 1x"}, {"source": "V. Moroz", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "V. Moroz", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Władysław Grabski", "target": "Ya. R. T. Moroz", "label": "co-mentioned 1x"}, {"source": "Władysław Grabski", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Ya. R. T. Moroz", "target": "Z. Dorozhnyi", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Benker", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Eleftherios Venizelos", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Gregori Prechlak", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Hans Koch", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Hryts Kosak", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Kipnik", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Pasternak", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Andriy Sheptytsky", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Eleftherios Venizelos", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Gregori Prechlak", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Hans Koch", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Hryts Kosak", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Kipnik", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Pasternak", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Benker", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Gregori Prechlak", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Hans Koch", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Hryts Kosak", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Kipnik", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Pasternak", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Eleftherios Venizelos", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Hans Koch", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Hryts Kosak", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Kipnik", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Pasternak", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Gregori Prechlak", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Hans Koch", "target": "Hryts Kosak", "label": "co-mentioned 1x"}, {"source": "Hans Koch", "target": "Kipnik", "label": "co-mentioned 1x"}, {"source": "Hans Koch", "target": "Pasternak", "label": "co-mentioned 1x"}, {"source": "Hans Koch", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Hans Koch", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Hans Koch", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Hans Koch", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Hryts Kosak", "target": "Kipnik", "label": "co-mentioned 1x"}, {"source": "Hryts Kosak", "target": "Pasternak", "label": "co-mentioned 1x"}, {"source": "Hryts Kosak", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Hryts Kosak", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Hryts Kosak", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Hryts Kosak", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Kipnik", "target": "Pasternak", "label": "co-mentioned 1x"}, {"source": "Kipnik", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Kipnik", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Kipnik", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Kipnik", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Pasternak", "target": "Pedro Mazurechen", "label": "co-mentioned 1x"}, {"source": "Pasternak", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Pasternak", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Pasternak", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Serhii Tymoshenko", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Pedro Mazurechen", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Serhii Tymoshenko", "target": "Stepan Radić", "label": "co-mentioned 1x"}, {"source": "Serhii Tymoshenko", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}, {"source": "Stepan Radić", "target": "Yosyp Khomyshyn", "label": "co-mentioned 1x"}];
+
+  function nodeId(x) { return (x && typeof x === "object") ? x.id : String(x); }
+
+  // ── mention counts ──
+  const pageIds = new Set(rawNodes.filter(n => n.type === "page").map(n => n.id));
+  const mentionCount = {};
+  rawEdges.forEach(e => {
+    const s = nodeId(e.source), t = nodeId(e.target);
+    if (pageIds.has(s)) mentionCount[t] = (mentionCount[t]||0)+1;
+    if (pageIds.has(t)) mentionCount[s] = (mentionCount[s]||0)+1;
+  });
+
+  // ── co-occurrence edges (entity ↔ entity sharing a page) ──
+  const pageToEntities = {};
+  rawEdges.forEach(e => {
+    const s = nodeId(e.source), t = nodeId(e.target);
+    const pg = pageIds.has(s) ? s : (pageIds.has(t) ? t : null);
+    const en = pg === s ? t : s;
+    if (pg) { pageToEntities[pg] = pageToEntities[pg] || []; pageToEntities[pg].push(en); }
+  });
+  const coEdges = [];
+  const coSeen  = new Set();
+  Object.values(pageToEntities).forEach(ents => {
+    for (let i = 0; i < ents.length; i++)
+      for (let j = i+1; j < ents.length; j++) {
+        const key = [ents[i],ents[j]].sort().join("|");
+        if (!coSeen.has(key)) { coSeen.add(key); coEdges.push({source:ents[i],target:ents[j]}); }
+      }
+  });
+
+  // ── node size: 28-70px proportional to mention count ──
+  function nodeSize(n) {
+    const mc = mentionCount[n.id] || 0;
+    const max = 1;
+    return max <= 1 ? 32 : 28 + Math.round((mc / max) * 16);
+  }
+
+  // ── build Cytoscape elements ──
+  let showPages = false;
+  function buildElements(minM) {
+    const vis = new Set(
+      rawNodes.filter(n => n.type==="page" || (mentionCount[n.id]||0) >= minM).map(n => n.id)
+    );
+    const nodes = rawNodes
+      .filter(n => vis.has(n.id) && (showPages || n.type !== "page"))
+      .map(n => ({ data:{
+        id: n.id, label: n.label || n.id, type: n.type,
+        pages: (n.pages||[]).join(","),
+        mentions: mentionCount[n.id]||0,
+        size: nodeSize(n),
+        snippets_uk: JSON.stringify(n.snippets_uk||{}),
+        snippets_en: JSON.stringify(n.snippets_en||{}),
+      } }));
+    const visIds = new Set(nodes.map(n => n.data.id));
+
+    let edgeSource = showPages ? rawEdges : coEdges;
+    const edges = edgeSource
+      .filter(e => visIds.has(nodeId(e.source)) && visIds.has(nodeId(e.target)))
+      .map((e,i) => ({ data:{ id:"e"+i, source:nodeId(e.source), target:nodeId(e.target) } }));
+    return [...nodes, ...edges];
+  }
+
+  function updateCount(min) {
+    const n = rawNodes.filter(r => r.type!=="page" && (mentionCount[r.id]||0)>=min).length;
+    document.getElementById("node-count").textContent = "(" + n + " entities)";
+  }
+
+  // ── Cytoscape styles ──
+  const STYLES = [
+    { selector:"node[type='person']", style:{
+        "background-color":"#3b82f6","border-color":"#1d4ed8","border-width":2,
+        "width":"data(size)","height":"data(size)",
+        "label":"data(label)","color":"#1e3a5f","font-size":13,"font-weight":600,
+        "text-valign":"bottom","text-halign":"center","text-margin-y":5,
+        "text-background-color":"#fff","text-background-opacity":1,
+        "text-background-padding":"3px","text-background-shape":"roundrectangle",
+        "text-max-width":"140px","text-wrap":"ellipsis",
+    } },
+    { selector:"node[type='location']", style:{
+        "background-color":"#10b981","border-color":"#065f46","border-width":2,
+        "width":"data(size)","height":"data(size)",
+        "label":"data(label)","color":"#064e3b","font-size":13,"font-weight":600,
+        "text-valign":"bottom","text-halign":"center","text-margin-y":5,
+        "text-background-color":"#fff","text-background-opacity":1,
+        "text-background-padding":"3px","text-background-shape":"roundrectangle",
+        "text-max-width":"140px","text-wrap":"ellipsis",
+    } },
+    { selector:"node[type='page']", style:{
+        "background-color":"#f59e0b","border-color":"#b45309","border-width":1.5,
+        "width":22,"height":22,"shape":"rectangle",
+        "label":"data(label)","color":"#78350f","font-size":10,
+        "text-valign":"bottom","text-halign":"center","text-margin-y":4,
+        "text-background-color":"#fff","text-background-opacity":1,
+        "text-background-padding":"2px","text-background-shape":"roundrectangle",
+        "text-max-width":"110px","text-wrap":"ellipsis",
+    } },
+    { selector:"node:selected", style:{
+        "border-color":"#e11d48","border-width":4,"overlay-opacity":0,
+    } },
+    { selector:"node.dimmed", style:{"opacity":0.12} },
+    { selector:"node.highlighted", style:{"border-color":"#e11d48","border-width":3} },
+    { selector:"edge", style:{
+        "line-color":"#cbd5e1","opacity":0.7,"width":1.5,
+        "curve-style":"bezier","target-arrow-shape":"none",
+    } },
+    { selector:"edge.dimmed", style:{"opacity":0.04} },
+    { selector:"edge.highlighted", style:{
+        "line-color":"#e11d48","opacity":1,"width":2.5,
+    } },
+  ];
+
+  const LAYOUT_OPTS = {
+    name:"cose", animate:false, padding:80,
+    nodeRepulsion:28000, idealEdgeLength:160, edgeElasticity:0.3,
+    gravity:0.08, numIter:1200, nodeDimensionsIncludeLabels:true,
+    randomize:true,
+  };
+
+  const cy = cytoscape({
+    container: document.getElementById("cy"),
+    elements: buildElements(1),
+    style: STYLES,
+    layout: LAYOUT_OPTS,
+    userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
+  });
+
+  document.getElementById("loading").style.display = "none";
+  updateCount(1);
+
+  // ── search ──
+  document.getElementById("search").addEventListener("input", function() {
+    const q = this.value.trim().toLowerCase();
+    if (!q) { cy.elements().removeClass("dimmed highlighted"); return; }
+    cy.elements().addClass("dimmed");
+    cy.nodes().filter(n => n.data("label").toLowerCase().includes(q))
+      .removeClass("dimmed").addClass("highlighted")
+      .neighborhood().removeClass("dimmed");
+  });
+
+  // ── min-mentions slider ──
+  const slider = document.getElementById("min-mentions");
+  slider.addEventListener("input", function() {
+    const min = parseInt(this.value);
+    document.getElementById("filter-val").textContent = min;
+    updateCount(min);
+    cy.elements().remove();
+    cy.add(buildElements(min));
+    cy.layout(Object.assign({}, LAYOUT_OPTS, {animate:true,animationDuration:500})).run();
+    resetDetail();
+  });
+
+  // ── toggle issue nodes ──
+  document.getElementById("toggle-pages").addEventListener("click", function() {
+    showPages = !showPages;
+    this.classList.toggle("active", showPages);
+    document.getElementById("legend-page").parentElement.style.opacity = showPages ? "1" : "0.3";
+    const min = parseInt(slider.value);
+    cy.elements().remove();
+    cy.add(buildElements(min));
+    cy.layout(Object.assign({}, LAYOUT_OPTS, {animate:true,animationDuration:500})).run();
+    resetDetail();
+  });
+
+  // ── hover: dim/highlight ──
+  cy.on("mouseover", "node", function(e) {
+    const hood = e.target.closedNeighborhood();
+    cy.elements().not(hood).addClass("dimmed");
+    hood.removeClass("dimmed");
+    hood.edges().addClass("highlighted");
+    e.target.addClass("highlighted");
+    cy.container().style.cursor = "pointer";
+  });
+  cy.on("mouseout", "node", function() {
+    cy.elements().removeClass("dimmed highlighted");
+    cy.container().style.cursor = "";
+  });
+
+  // ── helpers ──
+  function resetDetail() {
+    document.getElementById("detail").innerHTML = "<p class='hint'>Click any node<br>to see details.</p>";
+  }
+
+  function formatPageId(pid) {
+    const mo = ["","January","February","March","April","May","June",
+                "July","August","September","October","November","December"];
+    const m = pid.match(/([a-z]+)_([0-9]{4})([0-9]{2})([0-9]{2})_([^_]+)(?:_page([0-9]+))?/i);
+    if (!m) return pid;
+    const paper = m[1].charAt(0).toUpperCase()+m[1].slice(1);
+    const mon = mo[parseInt(m[3],10)]||m[3];
+    const iss = m[5].replace(/^no/i,"No. ");
+    const pg  = m[6] ? ", p. "+parseInt(m[6],10) : "";
+    return paper+", "+parseInt(m[4],10)+" "+mon+" "+m[2]+", "+iss+pg;
+  }
+
+  // ── click: detail panel ──
+  cy.on("tap", "node", function(e) {
+    const d = e.target.data();
+    const badgeClass = "badge badge-" + d.type;
+    const typeLabel  = d.type === "page" ? "Issue" : d.type.charAt(0).toUpperCase()+d.type.slice(1);
+
+    let body = "";
+    if (d.type === "page") {
+      const ents = e.target.neighborhood("node")
+        .map(n => `<li>${n.data("label")} <span style="color:#aaa;font-size:.7rem">[${n.data("type")}]</span></li>`)
+        .join("");
+      body = `<div class="field"><b>Entities mentioned</b><ul>${ents||"<li>—</li>"}</ul></div>`;
+    } else {
+      const snUk = JSON.parse(d.snippets_uk||"{}");
+      const snEn = JSON.parse(d.snippets_en||"{}");
+      const pages = d.pages ? d.pages.split(",").filter(Boolean) : [];
+
+      const items = pages.map(p => {
+        const cite    = formatPageId(p);
+        const issueId = p.includes("_page") ? p.substring(0,p.lastIndexOf("_page")) : p;
+        const url     = SITE_BASE ? SITE_BASE+"issues/"+issueId+"/" : "";
+        const link    = url
+          ? `<a href="${url}" target="_blank">📰 ${cite} ↗</a>`
+          : `<span style="font-weight:600">${cite}</span>`;
+        const uk = snUk[p] ? `<div class="snippet uk">🇺🇦 "${snUk[p]}"</div>` : "";
+        const en = snEn[p] ? `<div class="snippet en">🇬🇧 "${snEn[p]}"</div>` : "";
+        return `<li>${link}${uk}${en}</li>`;
+      }).join("")||"<li>—</li>";
+
+      const connectedTo = e.target.neighborhood("node")
+        .filter(n => n.data("type") !== "page")
+        .map(n => `<li>${n.data("label")}</li>`).join("");
+
+      body = `
+        <div class="field"><b>Mentioned in</b><ul>${items}</ul></div>
+        ${connectedTo ? `<div class="field"><b>Co-occurs with</b><ul>${connectedTo}</ul></div>` : ""}
+      `;
+    }
+
+    document.getElementById("detail").innerHTML = `
+      <h3>${d.label}</h3>
+      <span class="${badgeClass}">${typeLabel}</span>
+      ${d.mentions ? `<div style="font-size:.72rem;color:#888;margin-bottom:8px">${d.mentions} mention${d.mentions>1?"s":""}</div>` : ""}
+      ${body}`;
+  });
+
+  cy.on("tap", function(e) {
+    if (e.target === cy) { resetDetail(); cy.elements().removeClass("dimmed highlighted"); }
+  });
+  </script>
+</body>
+</html>

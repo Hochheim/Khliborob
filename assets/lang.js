@@ -11,6 +11,34 @@ function toggleIpfs(id){
   if(e) e.style.display=e.style.display==='none'?'block':'none';
 }
 
+function dlBibtex(btn) {
+  var id = btn.dataset.id, year = btn.dataset.year,
+      issue = btn.dataset.issue, pages = btn.dataset.pages;
+  var bib = '@article{khliborob_' + id + ',
+'
+    + '  author = {Editorial Board},
+'
+    + '  title  = {Khliborob / O Lavrador},
+'
+    + '  year   = {' + year + '},
+'
+    + '  note   = {Issue No. ' + issue + ', ' + pages + ' pages. Digitized via Khliborob Digital Archive.},
+'
+    + '  url    = {https://hochheim.github.io/Khliborob/issues/' + id + '/}
+'
+    + '}';
+  var blob = new Blob([bib], {type: 'text/plain'});
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'khliborob_' + id + '.bib';
+  a.click();
+}
+
+function toggleChicago(id) {
+  var popup = document.getElementById('chicago-popup-' + id);
+  if (popup) popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+}
+
 function applyLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
