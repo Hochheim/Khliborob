@@ -418,16 +418,11 @@
 
   // ── click: detail panel + lock highlight ──
   cy.on("tap", "node", function(e) {
-    // Lock the highlight so mouseout doesn't clear it
     tappedNode = e.target;
-    const hood = e.target.closedNeighborhood();
+    // On click: clear any hover-dimming, then highlight this node and its edges only.
+    // We deliberately do NOT dim other nodes — dimming makes the graph appear to vanish.
     cy.elements().removeClass("dimmed highlighted");
-    // Only dim other nodes when this node actually has neighbors — otherwise
-    // dimming everything makes the graph appear to vanish.
-    if (e.target.degree() > 0) {
-      cy.elements().not(hood).addClass("dimmed");
-      e.target.connectedEdges().addClass("highlighted");
-    }
+    e.target.connectedEdges().addClass("highlighted");
     e.target.addClass("highlighted");
     const d = e.target.data();
     const badgeClass = "badge badge-" + d.type;
