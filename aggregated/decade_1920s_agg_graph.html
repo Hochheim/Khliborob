@@ -77,7 +77,7 @@
     <input id="search" type="search" placeholder="Search person or place…" autocomplete="off"/>
     <div class="ctrl">
       <label for="min-mentions">Min. mentions</label>
-      <input type="range" id="min-mentions" min="1" max="2" value="1" step="1"/>
+      <input type="range" id="min-mentions" min="0" max="2" value="0" step="1"/>
       <span id="filter-val">1</span>
       <span id="node-count"></span>
     </div>
@@ -225,22 +225,32 @@
   ];
 
   const LAYOUT_OPTS = {
-    name:"cose", animate:false, padding:80,
-    nodeRepulsion:28000, idealEdgeLength:160, edgeElasticity:0.3,
-    gravity:0.08, numIter:1200, nodeDimensionsIncludeLabels:true,
-    randomize:true,
+    name:"cose", animate:false, padding:120,
+    nodeRepulsion:90000, idealEdgeLength:220, edgeElasticity:0.15,
+    gravity:0.03, numIter:2000, nodeDimensionsIncludeLabels:true,
+    randomize:true, componentSpacing:120,
   };
 
+  // For person-only networks (no page nodes), use edge-degree as mention count
+  const hasPageNodes = rawNodes.some(n => n.type === "page");
+  if (!hasPageNodes) {
+    rawNodes.forEach(n => {
+      const deg = rawEdges.filter(e => e.source === n.id || e.target === n.id).length;
+      mentionCount[n.id] = deg;
+    });
+  }
+
+  const initMin = hasPageNodes ? 1 : 0;
   const cy = cytoscape({
     container: document.getElementById("cy"),
-    elements: buildElements(1),
+    elements: buildElements(initMin),
     style: STYLES,
     layout: LAYOUT_OPTS,
     userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
   });
 
   document.getElementById("loading").style.display = "none";
-  updateCount(1);
+  updateCount(initMin);
 
   // ── search ──
   document.getElementById("search").addEventListener("input", function() {
