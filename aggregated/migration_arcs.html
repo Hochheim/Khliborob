@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Migration Arc Map â€” Khliborob</title>
+<title>Migration Arc Map — Khliborob</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
@@ -16,10 +16,10 @@
 </style>
 </head><body>
 <div id="legend">
-  <span><span class=”ldot” style=”background:#005BBB”></span>Eastern Europe / Ukraine</span>
-  <span><span class=”ldot” style=”background:#e63946”></span>Brazil / South America</span>
-  <span style=”color:#FFD500”>&#8212; Arc (click to open issues)</span>
-  <span style=”color:#aaa;font-size:11px”>Hover a city to isolate its connections</span>
+  <span><span class=�ldot� style=�background:#005BBB�></span>Eastern Europe / Ukraine</span>
+  <span><span class=�ldot� style=�background:#e63946�></span>Brazil / South America</span>
+  <span style=�color:#FFD500�>&#8212; Arc (click to open issues)</span>
+  <span style=�color:#aaa;font-size:11px�>Hover a city to isolate its connections</span>
 </div>
 <div id="map"></div>
 <script>
@@ -48,10 +48,10 @@ arcs.forEach(function(arc, idx){
   }
 
   var issueLinks = (arc.issues||[]).map(function(x){
-    return '<a href=”'+x.url+'” target=”_blank” style=”color:#FFD500;font-weight:600;text-decoration:underline”>'+x.label+'</a>';
+    return '<a href=�'+x.url+'� target=�_blank� style=�color:#FFD500;font-weight:600;text-decoration:underline�>'+x.label+'</a>';
   }).join('<br>');
-  var popHtml = '<strong style=”font-size:13px”>'+ul.name+' ↔ '+bl.name+'</strong>'
-    + (issueLinks ? '<br><small style=”color:#aaa;font-size:11px”>Click issue to open:</small><br>'+issueLinks : '');
+  var popHtml = '<strong style=�font-size:13px�>'+ul.name+' ? '+bl.name+'</strong>'
+    + (issueLinks ? '<br><small style=�color:#aaa;font-size:11px�>Click issue to open:</small><br>'+issueLinks : '');
 
   var cnt = (arc.issues||[]).length;
   var weight = Math.min(1 + cnt, 5);
@@ -85,18 +85,27 @@ function restoreAll(){
 
 function makeMarker(loc, color, side){
   var issueLinks = (loc.issues||[]).map(function(x){
-    return '<a href=”'+x.url+'” target=”_blank” style=”color:#FFD500;font-weight:600;text-decoration:underline”>'+x.label+'</a>';
+    return '<a href=�'+x.url+'� target=�_blank� style=�color:#FFD500;font-weight:600;text-decoration:underline�>'+x.label+'</a>';
   }).join('<br>');
-  var popHtml = '<strong style=”font-size:13px”>'+loc.name+'</strong>'
-    + (issueLinks ? '<br><small style=”color:#aaa;font-size:11px”>Click issue to open:</small><br>'+issueLinks : '');
+  var popHtml = '<strong style=�font-size:13px�>'+loc.name+'</strong>'
+    + (issueLinks ? '<br><small style=�color:#aaa;font-size:11px�>Click issue to open:</small><br>'+issueLinks : '');
   var m = L.circleMarker([loc.lat,loc.lon],{
     radius:6,color:color,fillColor:color,fillOpacity:.9,weight:2
   }).addTo(map);
   m.bindTooltip('<b>'+loc.name+'</b><br><small>Hover to highlight connections</small>',
     {permanent:false,direction:'top',offset:[0,-8]});
   m.bindPopup(popHtml,{maxWidth:260});
-  m.on('mouseover', function(){ dimAllExcept(new Set([loc.name]), side); });
-  m.on('mouseout',  function(){ restoreAll(); });
+  var active = false;
+  m.on('click', function(){
+    if (active) {
+      active = false;
+      restoreAll();
+      map.closePopup();
+    } else {
+      active = true;
+      dimAllExcept(new Set([loc.name]), side);
+    }
+  });
   return m;
 }
 

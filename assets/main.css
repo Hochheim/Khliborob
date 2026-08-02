@@ -101,7 +101,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
            padding:.15rem .6rem;border-radius:4px;text-decoration:none}
 .year-link:hover{background:var(--blue-lt);color:var(--blue)}
 .year-link.active{background:var(--blue);color:#fff;font-weight:500}
-.year-link.has-gpu::after{content:" â—";color:var(--gpu-bd);font-size:9px}
+.year-link.has-gpu::after{content:" ●";color:var(--gpu-bd);font-size:9px}
 
 .main-content{padding:1.5rem}
 .main-content h2{font-size:18px;font-weight:500;margin-bottom:1rem}

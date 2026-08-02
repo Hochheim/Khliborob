@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Search â€” Khliborob Digital Archive</title>
+<title>Search — Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/main.css">
@@ -28,7 +28,7 @@
     <a href="../persons/">Persons</a>
     <a href="../locations/">Locations</a>
     <div class="lang-switcher">
-      <button class="lang-btn" data-lang="uk">Ð£ÐšÐ </button>
+      <button class="lang-btn" data-lang="uk">УКР</button>
       <button class="lang-btn active" data-lang="en">ENG</button>
       <button class="lang-btn" data-lang="pt">PT-BR</button>
     </div>
@@ -51,7 +51,7 @@ function doSearch() {
   const q = document.getElementById('q').value.trim();
   if (!q) return;
   window.history.replaceState({},'','/search/?q='+encodeURIComponent(q));
-  document.getElementById('results').innerHTML = '<p style="font-size:13px;color:var(--muted)">Searchingâ€¦</p>';
+  document.getElementById('results').innerHTML = '<p style="font-size:13px;color:var(--muted)">Searching…</p>';
   if (window.pagefind) {
     pagefind.search(q).then(r => {
       if (!r.results.length) {
@@ -82,7 +82,7 @@ document.getElementById('q').addEventListener('keydown', e => {
 </script>
 <script src="../pagefind/pagefind.js" type="module"></script>
 <footer>
-  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of MÃ¼nster.</span>
+  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
 <script src="../assets/lang.js"></script>
 </body>
