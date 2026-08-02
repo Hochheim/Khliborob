@@ -119,13 +119,25 @@
   function nodeId(x) { return (x && typeof x === "object") ? x.id : String(x); }
 
   // ── mention counts ──
+  // Graphs come in two shapes: page-based (edges run page→entity, and
+  // entity-entity links are derived from co-occurrence on shared pages)
+  // and direct (edges already run entity→entity, e.g. the person
+  // co-mention network, which has no page nodes at all). In direct mode
+  // the co-occurrence derivation would find nothing and blank the graph,
+  // so edges are used as-is and "mentions" means node degree.
   const pageIds = new Set(rawNodes.filter(n => n.type === "page").map(n => n.id));
   const hasPageNodes = rawNodes.some(n => n.type === "page");
+  const directMode = !hasPageNodes;
   const mentionCount = {};
   rawEdges.forEach(e => {
     const s = nodeId(e.source), t = nodeId(e.target);
-    if (pageIds.has(s)) mentionCount[t] = (mentionCount[t]||0)+1;
-    if (pageIds.has(t)) mentionCount[s] = (mentionCount[s]||0)+1;
+    if (directMode) {
+      mentionCount[s] = (mentionCount[s]||0)+1;
+      mentionCount[t] = (mentionCount[t]||0)+1;
+    } else {
+      if (pageIds.has(s)) mentionCount[t] = (mentionCount[t]||0)+1;
+      if (pageIds.has(t)) mentionCount[s] = (mentionCount[s]||0)+1;
+    }
   });
 
   // ── co-occurrence edges: only pairs that share 2+ pages ──
@@ -151,15 +163,17 @@
   // For mixed graphs with many issues, threshold=2 avoids near-complete graphs.
   const totalIssues = new Set(rawNodes.filter(n=>n.type==="page").map(n=>n.id)).size;
   const CO_THRESHOLD = (!hasPageNodes || totalIssues <= 3) ? 1 : 2;
-  const coEdges = Object.entries(coPairCount)
-    .filter(([,cnt]) => cnt >= CO_THRESHOLD)
-    .map(([key]) => { const [a,b]=key.split("|"); return {source:a,target:b}; });
+  const coEdges = directMode
+    ? rawEdges.map(e => ({source: nodeId(e.source), target: nodeId(e.target)}))
+    : Object.entries(coPairCount)
+        .filter(([,cnt]) => cnt >= CO_THRESHOLD)
+        .map(([key]) => { const [a,b]=key.split("|"); return {source:a,target:b}; });
 
   // ── node size: 24-72px proportional to mention count ──
+  const MAX_MENTIONS = Math.max(2, ...Object.values(mentionCount), 1);
   function nodeSize(n) {
     const mc = mentionCount[n.id] || 0;
-    const max = 2;
-    return max <= 1 ? 32 : 24 + Math.round((mc / max) * 48);
+    return MAX_MENTIONS <= 1 ? 32 : 24 + Math.round((mc / MAX_MENTIONS) * 48);
   }
 
   // ── build Cytoscape elements ──
