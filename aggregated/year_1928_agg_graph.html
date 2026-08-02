@@ -189,8 +189,8 @@
     return [...nodes, ...edges];
   }
 
-  function updateCount(min) {
-    const n = rawNodes.filter(r => r.type!=="page" && (mentionCount[r.id]||0)>=min).length;
+  function updateCount() {
+    const n = cy.nodes().filter(n => n.data("type") !== "page").length;
     document.getElementById("node-count").textContent = "(" + n + " entities)";
   }
 
@@ -226,13 +226,13 @@
     { selector:"node:selected", style:{
         "border-color":"#e11d48","border-width":4,"overlay-opacity":0,
     } },
-    { selector:"node.dimmed", style:{"opacity":0.12} },
+    { selector:"node.dimmed", style:{"opacity":0.25} },
     { selector:"node.highlighted", style:{"border-color":"#e11d48","border-width":3} },
     { selector:"edge", style:{
-        "line-color":"#cbd5e1","opacity":0.7,"width":1.5,
+        "line-color":"#cbd5e1","opacity":0.6,"width":1.5,
         "curve-style":"bezier","target-arrow-shape":"none",
     } },
-    { selector:"edge.dimmed", style:{"opacity":0.04} },
+    { selector:"edge.dimmed", style:{"opacity":0.12} },
     { selector:"edge.highlighted", style:{
         "line-color":"#e11d48","opacity":1,"width":2.5,
     } },
@@ -345,7 +345,7 @@
   requestAnimationFrame(() => { presetLayout(cy); });
 
   document.getElementById("loading").style.display = "none";
-  updateCount(initMin);
+  updateCount();
 
   // ── search ──
   document.getElementById("search").addEventListener("input", function() {
@@ -362,11 +362,11 @@
   slider.addEventListener("input", function() {
     const min = parseInt(this.value);
     document.getElementById("filter-val").textContent = min;
-    updateCount(min);
     cy.elements().remove();
     cy.add(buildElements(min));
     presetLayout(cy);
     resetDetail();
+    updateCount();
   });
 
   // ── toggle issue nodes ──
@@ -379,16 +379,17 @@
     cy.add(buildElements(min));
     presetLayout(cy);
     resetDetail();
+    updateCount();
   });
 
   // ── hover highlight (never clears a tap-locked selection) ──
   let tappedNode = null;
   cy.on("mouseover", "node", function(e) {
-    if (tappedNode) return;  // don't interfere with a click-locked selection
+    if (tappedNode) return;
+    cy.elements().removeClass("dimmed highlighted");
     const hood = e.target.closedNeighborhood();
     cy.elements().not(hood).addClass("dimmed");
-    hood.removeClass("dimmed");
-    hood.edges().addClass("highlighted");
+    e.target.connectedEdges().addClass("highlighted");
     e.target.addClass("highlighted");
     cy.container().style.cursor = "pointer";
   });
@@ -425,7 +426,7 @@
     // dimming everything makes the graph appear to vanish.
     if (e.target.degree() > 0) {
       cy.elements().not(hood).addClass("dimmed");
-      hood.edges().addClass("highlighted");
+      e.target.connectedEdges().addClass("highlighted");
     }
     e.target.addClass("highlighted");
     const d = e.target.data();
