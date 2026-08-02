@@ -344,8 +344,22 @@
     userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
   });
 
-  // Apply positions after Cytoscape finishes mounting
-  requestAnimationFrame(() => { cy.resize(); runLayout(cy); });
+  // Apply positions after Cytoscape finishes mounting. Never rely solely on
+  // requestAnimationFrame here: rAF does not fire while the page is not being
+  // composited (background tab, prerender, hidden pane), which left the graph
+  // permanently stacked at (0,0). Run synchronously, then re-run once shortly
+  // after and on visibility change as belt-and-braces.
+  function kickoffLayout() {
+    try { cy.resize(); runLayout(cy); } catch (e) { /* container not ready yet */ }
+  }
+  kickoffLayout();
+  setTimeout(kickoffLayout, 250);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) {
+      const p = cy.nodes().length ? cy.nodes()[0].position() : null;
+      if (p && p.x === 0 && p.y === 0) kickoffLayout();
+    }
+  });
 
   document.getElementById("loading").style.display = "none";
   updateCount();
