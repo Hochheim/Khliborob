@@ -272,19 +272,24 @@
       return Math.max(1, Math.floor(usableW / avgW));
     }
 
-    function placeMultiRow(list, topY, rowH, downward) {
-      if (!list.length) return;
+    // Returns the number of rows placed * rowH (total height consumed)
+    function placeMultiRow(list, topY, rowH) {
+      if (!list.length) return 0;
       const perRow = perRowFor(list);
       const rows = [];
       for (let i = 0; i < list.length; i += perRow) rows.push(list.slice(i, i+perRow));
-      rows.forEach((row, ri) => placeRow(row, topY + (downward?1:-1) * ri * rowH));
+      rows.forEach((row, ri) => placeRow(row, topY + ri * rowH));
+      return rows.length * rowH;
     }
 
-    const ROW_H = 100;  // fixed row height with room for node + label
-    placeMultiRow(persons,   PAD + 50, ROW_H, true);
-    placeMultiRow(locations, H - PAD - 50, ROW_H, false);
+    const ROW_H = 110;
+    const GAP   = 60;   // vertical gap between person section and location section
+    let curY = PAD + 50;
+    curY += placeMultiRow(persons, curY, ROW_H);
+    if (persons.length && locations.length) curY += GAP;
+    placeMultiRow(locations, curY, ROW_H);
 
-    // Scatter any page nodes across the middle band
+    // Scatter any page nodes after the locations section
     if (pages.length) {
       const pPerRow = Math.max(1, Math.floor(usableW / 100));
       pages.forEach((n, i) => {
@@ -292,7 +297,7 @@
         const row = Math.floor(i / pPerRow);
         pos[n.data("id")] = {
           x: PAD + (col + 0.5) * (usableW / pPerRow),
-          y: H * 0.45 + row * 50
+          y: curY + row * 50
         };
       });
     }
