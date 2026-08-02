@@ -347,7 +347,7 @@
   });
 
   // Apply positions after Cytoscape finishes mounting
-  requestAnimationFrame(() => { presetLayout(cy); });
+  requestAnimationFrame(() => { cy.resize(); presetLayout(cy); });
 
   document.getElementById("loading").style.display = "none";
   updateCount();
