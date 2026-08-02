@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transcript Review — Khliborob Digital Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css">
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="../index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <a href="../search/" data-i18n="nav_search">Search</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../persons/">Persons</a>
+    <a href="../locations/">Locations</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
+    </div>
+  </div>
+</nav>
+
+
+<div id="review-lock" style="max-width:400px;margin:5rem auto;padding:2rem;
+  background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
+  <h1 style="font-size:18px;font-weight:600;margin-bottom:.5rem">Transcript Review</h1>
+  <p style="font-size:13px;color:var(--muted);margin-bottom:1.5rem">
+    Enter the reviewer password to access flagged tokens.
+  </p>
+  <input id="pw-input" type="password" placeholder="Password"
+    style="width:100%;font-size:14px;padding:.5rem .8rem;border:1px solid var(--border);
+           border-radius:var(--radius);background:var(--bg);color:var(--text);margin-bottom:.8rem">
+  <button onclick="checkPassword()"
+    style="width:100%;font-size:14px;padding:.55rem;border-radius:var(--radius);
+           background:var(--blue);color:#fff;border:none;cursor:pointer;font-weight:500">
+    Enter
+  </button>
+  <p id="pw-error" style="font-size:12px;color:#ef4444;margin-top:.5rem;display:none">
+    Incorrect password.
+  </p>
+</div>
+
+<div id="review-app" style="display:none;max-width:900px;margin:2rem auto;padding:0 1.5rem">
+  <div style="display:flex;align-items:baseline;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap">
+    <h1 style="font-size:20px;font-weight:600">Transcript Review</h1>
+    <span id="token-counter" style="font-size:13px;color:var(--muted)"></span>
+  </div>
+
+  <div id="reviewer-info" style="margin-bottom:1.5rem;padding:1rem;background:var(--card-bg);
+    border:1px solid var(--border);border-radius:var(--radius)">
+    <label style="font-size:13px;font-weight:500;display:block;margin-bottom:.4rem">Your name</label>
+    <input id="reviewer-name" type="text" placeholder="e.g. Maria Silva"
+      style="font-size:13px;padding:.4rem .7rem;border:1px solid var(--border);border-radius:4px;
+             background:var(--bg);color:var(--text);width:100%;max-width:300px">
+  </div>
+
+  <div id="token-list"></div>
+
+  <p id="all-done" style="display:none;text-align:center;font-size:14px;
+    color:var(--muted);padding:3rem">
+    ✅ All flagged tokens have been reviewed. Thank you!
+  </p>
+</div>
+
+<script>
+const PASSWORD_HASH = "9f1cd63dd1b49b3e718f3da667f057a5349f3bf485e1bfbca4b9b6c6a266cf53";
+const TOKENS = [];
+const REPO_OWNER  = "Hochheim";
+const REPO_NAME   = "Khliborob";
+const WORKFLOW_ID = "apply_correction.yml";
+
+// GitHub fine-grained PAT — workflow_dispatch only on this repo
+// Replace with a real token after creating it in GitHub Settings → Developer settings
+// → Fine-grained tokens → New token → Repository: Khliborob → Permissions: Actions (write)
+const GH_TOKEN = "REPLACE_WITH_GITHUB_ACTIONS_WRITE_TOKEN";
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,"0")).join("");
+}
+
+async function checkPassword() {
+  const pw = document.getElementById("pw-input").value;
+  const hash = await sha256(pw);
+  if (hash === PASSWORD_HASH) {
+    document.getElementById("review-lock").style.display = "none";
+    document.getElementById("review-app").style.display  = "block";
+    renderTokens();
+  } else {
+    document.getElementById("pw-error").style.display = "block";
+  }
+}
+document.getElementById("pw-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") checkPassword();
+});
+
+function renderTokens() {
+  const pending = TOKENS.filter(t => !localStorage.getItem("reviewed_" + t.page_id + "_" + t.word));
+  document.getElementById("token-counter").textContent =
+    pending.length + " token" + (pending.length !== 1 ? "s" : "") + " awaiting review";
+  const list = document.getElementById("token-list");
+  list.innerHTML = "";
+  if (pending.length === 0) {
+    document.getElementById("all-done").style.display = "block";
+    return;
+  }
+  pending.forEach((tok, i) => {
+    const card = document.createElement("div");
+    card.style.cssText = "margin-bottom:1.2rem;padding:1rem;background:var(--card-bg);" +
+      "border:1px solid var(--border);border-radius:var(--radius)";
+    const ctx = tok.context.replace(
+      new RegExp('(?<!\\w)' + tok.word.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '(?!\\w)', 'i'),
+      '<mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;padding:0 2px">$&</mark>'
+    );
+    card.innerHTML = `
+      <div style="display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.5rem">
+        <span style="font-size:11px;padding:2px 7px;border-radius:3px;background:var(--blue-lt);color:var(--blue)">
+          ${tok.issue_label}</span>
+        <span style="font-size:11px;color:var(--muted)">Page ${tok.page_number}</span>
+        <span style="font-size:11px;color:var(--muted)">${tok.location}</span>
+      </div>
+      <p style="font-size:13px;margin-bottom:.4rem;line-height:1.6">${ctx}</p>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:.8rem">
+        ⚠ <em>${tok.reason}</em></p>
+      <div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap">
+        <input id="corr-${i}" type="text" value="${tok.word}"
+          style="font-size:13px;padding:.35rem .7rem;border:1px solid var(--border);
+                 border-radius:4px;background:var(--bg);color:var(--text);min-width:180px">
+        <button onclick="submitCorrection(${i}, this)"
+          data-issue="${tok.issue_id}" data-page="${tok.page_id}" data-word="${tok.word}"
+          style="font-size:12px;padding:5px 14px;border-radius:4px;background:var(--blue);
+                 color:#fff;border:none;cursor:pointer">Submit</button>
+        <button onclick="skipToken(${i}, '${tok.page_id}', '${tok.word}')"
+          style="font-size:12px;padding:5px 10px;border-radius:4px;background:var(--card-bg);
+                 color:var(--muted);border:1px solid var(--border);cursor:pointer">Skip</button>
+      </div>
+      <p id="status-${i}" style="font-size:12px;margin-top:.5rem;display:none"></p>
+    `;
+    list.appendChild(card);
+  });
+}
+
+async function submitCorrection(i, btn) {
+  const reviewerName = document.getElementById("reviewer-name").value.trim();
+  if (!reviewerName) {
+    alert("Please enter your name before submitting.");
+    return;
+  }
+  const corrected = document.getElementById("corr-" + i).value.trim();
+  if (!corrected) return;
+  btn.disabled = true;
+  btn.textContent = "Submitting…";
+  const status = document.getElementById("status-" + i);
+  status.style.display = "block";
+  status.style.color = "var(--muted)";
+  status.textContent = "Sending to archive…";
+  try {
+    const resp = await fetch(
+      `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/actions/workflows/${WORKFLOW_ID}/dispatches`,
+      {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer " + GH_TOKEN,
+          "Accept": "application/vnd.github+json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ref: "source",
+          inputs: {
+            issue_id:       btn.dataset.issue,
+            page_id:        btn.dataset.page,
+            original_word:  btn.dataset.word,
+            corrected_word: corrected,
+            reviewer_name:  reviewerName
+          }
+        })
+      }
+    );
+    if (resp.status === 204) {
+      status.style.color = "#16a34a";
+      status.textContent = "✅ Correction submitted. The archive will update in ~3 minutes.";
+      localStorage.setItem("reviewed_" + btn.dataset.page + "_" + btn.dataset.word, "1");
+      setTimeout(renderTokens, 1500);
+    } else {
+      const err = await resp.json().catch(() => ({}));
+      status.style.color = "#ef4444";
+      status.textContent = "Error " + resp.status + ": " + (err.message || "unknown error");
+      btn.disabled = false;
+      btn.textContent = "Submit";
+    }
+  } catch(e) {
+    status.style.color = "#ef4444";
+    status.textContent = "Network error. Please try again.";
+    btn.disabled = false;
+    btn.textContent = "Submit";
+  }
+}
+
+function skipToken(i, pageId, word) {
+  localStorage.setItem("reviewed_" + pageId + "_" + word, "1");
+  renderTokens();
+}
+</script>
+<footer>
+  <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
+</footer>
+<script src="../assets/lang.js"></script>
+</body>
+</html>
