@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Khliborob Digital Archive</title>
+<meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608022311">
+<link rel="stylesheet" href="../assets/main.css?v=202608022341">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
 <body>
@@ -25,6 +27,7 @@
     <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
     <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
     <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../research-questions/" data-i18n="nav_questions">Research Questions</a>
     <a href="../persons/">Persons</a>
     <a href="../locations/">Locations</a>
     <div class="lang-switcher">
@@ -84,12 +87,19 @@
     tokens it is not confident about; these appear on each issue page as
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">highlighted words</mark> with the reason for the flag, so uncertain readings
-    stay visible rather than silently smoothed over. No independent human-transcription accuracy
-    study has been run yet on this pilot corpus — the highlighting is a transparency mechanism,
-    not a validated error rate. Machine translation of 1920s diaspora Ukrainian and period
-    Portuguese carries the usual risks of idiom loss and anachronistic phrasing; researchers
-    doing close reading should treat the English/Portuguese columns as a navigation aid and
-    verify against the Ukrainian original (or the page scan) before quoting.
+    stay visible rather than silently smoothed over. A manual spot-check comparing two full pages
+    (one per issue) against the original scans found no errors on the words the model had flagged
+    — but did find errors the flagging missed entirely: text merged from separate masthead lines
+    into a word that appears nowhere on the page, a dropped personal-name letter, an omitted place
+    name in a list of several, and a tendency to render Latin-script place names (kept in
+    Portuguese in the original) in Ukrainian transliteration instead of verbatim. None of this was
+    flagged, because the flagging mechanism catches uncertain character-level reads, not omissions
+    or substitutions — it is a partial signal, not a validated error rate, and a systematic
+    accuracy study remains a planned next step (see Roadmap below). Machine translation of 1920s
+    diaspora Ukrainian and period Portuguese carries the usual risks
+    of idiom loss and anachronistic phrasing; researchers doing close reading should treat the
+    English/Portuguese columns as a navigation aid and verify against the Ukrainian original (or
+    the page scan) before quoting.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
@@ -112,6 +122,17 @@
     source code is available at
     <a href="https://github.com/Hochheim/Khliborob" target="_blank"
        rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Roadmap</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    This pilot corpus (2 issues, 8 pages) exists to demonstrate the pipeline end-to-end for a
+    funding application. If funded, the next phases are: (1) full digitization of SUBRAS's
+    physical archive — an estimated 14,000+ pages spanning 1924 to the present; (2) a formal
+    accuracy evaluation of the OCR/translation pipeline against a sampled set of pages; (3)
+    deposit of the complete corpus with the Internet Archive and a DOI-bearing dataset record
+    (e.g. via Zenodo) for permanent citability; (4) migration of the Research Agent to a hosted
+    backend so AI-assisted queries do not require visitors to supply their own API key.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Partners</h2>
@@ -176,9 +197,17 @@
     кожній сторінці випуску як
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">позначені слова</mark> із зазначенням причини сумніву — щоб непевні прочитання
-    залишалися видимими, а не згладжувалися непомітно. Незалежного дослідження точності
-    транскрибування для цього пілотного корпусу ще не проводилося — виділення слугує механізмом
-    прозорості, а не підтвердженою оцінкою похибки. Машинний переклад української мови діаспори
+    залишалися видимими, а не згладжувалися непомітно. Ручна вибіркова перевірка двох повних
+    сторінок (по одній з кожного випуску) супроти оригінальних сканів не виявила помилок у
+    словах, які модель позначила, — але виявила помилки, яких позначення взагалі не вловило:
+    текст, склеєний з окремих рядків шапки видання в слово, якого немає на сторінці, пропущену
+    літеру в особовому імені, пропущену назву місця в переліку кількох назв і схильність
+    передавати латинописні географічні назви (в оригіналі — португальською) українською
+    транслітерацією замість дослівного відтворення. Жодну з цих помилок не було позначено, тому
+    що механізм позначення вловлює непевні прочитання на рівні символів, а не пропуски чи
+    підміни, — це частковий сигнал, а не підтверджена оцінка похибки, і систематичне дослідження
+    точності залишається запланованим наступним кроком (див. розділ «Дорожня карта» нижче).
+    Машинний переклад української мови діаспори
     1920-х років і тогочасної португальської несе звичні ризики втрати ідіом і анахронічних
     формулювань; дослідникам, які працюють із текстом на рівні деталей, варто розглядати
     англійську та португальську колонки як допоміжний навігаційний інструмент і звірятися з
@@ -205,6 +234,18 @@
     зберігаються на IPFS через Pinata та криптографічно закріплюються в блокчейні Polygon.
     Вихідний код конвеєра доступний на
     <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Дорожня карта</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Цей пілотний корпус (2 випуски, 8 сторінок) створений, щоб продемонструвати конвеєр
+    повністю в рамках заявки на фінансування. У разі отримання фінансування наступні етапи:
+    (1) повне оцифрування фізичного архіву SUBRAS — приблизно 14 000+ сторінок за період з 1924
+    року дотепер; (2) формальна оцінка точності конвеєра розпізнавання й перекладу на вибірці
+    сторінок; (3) депонування повного корпусу в Internet Archive та створення запису набору
+    даних із DOI (наприклад, через Zenodo) для постійного цитування; (4) перенесення
+    Дослідницького агента на розміщений на сервері бекенд, щоб запити зі штучним інтелектом не
+    вимагали від відвідувачів надання власного ключа API.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Партнери</h2>
@@ -270,10 +311,18 @@
     eles aparecem em cada página da edição como
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">palavras destacadas</mark>, junto com o motivo da sinalização, para que
-    leituras incertas permaneçam visíveis em vez de serem silenciosamente suavizadas. Ainda não
-    foi realizado um estudo independente de precisão de transcrição humana para este corpus
-    piloto — o destaque é um mecanismo de transparência, não uma taxa de erro validada. A
-    tradução automática do ucraniano da diáspora dos anos 1920 e do português da época carrega os
+    leituras incertas permaneçam visíveis em vez de serem silenciosamente suavizadas. Uma
+    verificação manual comparando duas páginas completas (uma de cada edição) com as
+    digitalizações originais não encontrou erros nas palavras que o modelo havia sinalizado —
+    mas encontrou erros que a sinalização não captou de forma alguma: texto fundido de linhas
+    separadas do cabeçalho em uma palavra que não aparece em lugar nenhum da página, uma letra
+    omitida em um nome próprio, um topônimo omitido em uma lista de vários e uma tendência a
+    renderizar topônimos em escrita latina (mantidos em português no original) em translitera-
+    ção ucraniana em vez de literalmente. Nada disso foi sinalizado, porque o mecanismo de
+    sinalização capta leituras incertas em nível de caractere, não omissões ou substituições —
+    é um sinal parcial, não uma taxa de erro validada, e um estudo sistemático de precisão
+    continua sendo um próximo passo planejado (veja o Roteiro abaixo). A tradução automática do
+    ucraniano da diáspora dos anos 1920 e do português da época carrega os
     riscos habituais de perda de idiomatismos e formulações anacrônicas; pesquisadores que
     fizerem leitura atenta devem tratar as colunas em inglês/português como um auxílio de
     navegação e verificar o original em ucraniano (ou a digitalização da página) antes de citar.
@@ -300,6 +349,18 @@
     ancoradas criptograficamente na blockchain Polygon. O código-fonte do pipeline está
     disponível no
     <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Roteiro</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Este corpus piloto (2 edições, 8 páginas) existe para demonstrar o pipeline de ponta a ponta
+    para um pedido de financiamento. Se financiado, as próximas fases são: (1) digitalização
+    completa do acervo físico da SUBRAS — cerca de 14.000+ páginas, de 1924 até o presente; (2)
+    uma avaliação formal de precisão do pipeline de OCR/tradução sobre uma amostra de páginas;
+    (3) depósito do corpus completo no Internet Archive e um registro de conjunto de dados com
+    DOI (por exemplo, via Zenodo) para citabilidade permanente; (4) migração do Agente de
+    Pesquisa para um backend hospedado, para que consultas assistidas por IA não exijam que os
+    visitantes forneçam sua própria chave de API.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Parceiros</h2>
@@ -365,10 +426,19 @@
     auf jeder Ausgabenseite als
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">hervorgehobene Wörter</mark> samt Begründung der Markierung, damit unsichere
-    Lesarten sichtbar bleiben, statt stillschweigend geglättet zu werden. Für diesen Pilotkorpus
-    wurde noch keine unabhängige Studie zur Genauigkeit der menschlichen Transkription
-    durchgeführt — die Hervorhebung ist ein Transparenzmechanismus, keine validierte Fehlerquote.
-    Die maschinelle Übersetzung des ukrainischen Diaspora-Dialekts der 1920er Jahre sowie des
+    Lesarten sichtbar bleiben, statt stillschweigend geglättet zu werden. Eine manuelle
+    Stichprobenprüfung, bei der zwei vollständige Seiten (eine je Ausgabe) mit den
+    Originalscans verglichen wurden, fand keine Fehler bei den vom Modell markierten Wörtern —
+    fand jedoch Fehler, die die Markierung vollständig übersah: Text, der aus getrennten
+    Kopfzeilen zu einem Wort verschmolzen wurde, das nirgends auf der Seite vorkommt, einen
+    fehlenden Buchstaben in einem Personennamen, einen ausgelassenen Ortsnamen in einer Liste
+    mehrerer Namen sowie eine Tendenz, lateinschriftliche Ortsnamen (im Original auf
+    Portugiesisch) in ukrainischer Transliteration statt wörtlich wiederzugeben. Nichts davon
+    wurde markiert, da der Markierungsmechanismus unsichere Lesarten auf Zeichenebene erfasst,
+    nicht Auslassungen oder Ersetzungen — er ist ein partielles Signal, keine validierte
+    Fehlerquote, und eine systematische Genauigkeitsstudie bleibt ein geplanter nächster Schritt
+    (siehe Fahrplan unten). Die maschinelle Übersetzung des ukrainischen Diaspora-Dialekts der
+    1920er Jahre sowie des
     zeitgenössischen Portugiesisch birgt die üblichen Risiken von Idiomverlust und
     anachronistischer Formulierung; Forschende, die eine genaue Lektüre durchführen, sollten die
     englische/portugiesische Spalte als Orientierungshilfe betrachten und vor einem Zitat mit dem
@@ -398,6 +468,18 @@
     verfügbar.
   </p>
 
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Fahrplan</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Dieser Pilotkorpus (2 Ausgaben, 8 Seiten) dient dazu, die Pipeline für einen Förderantrag
+    vollständig zu demonstrieren. Im Falle einer Förderung sind die nächsten Phasen: (1)
+    vollständige Digitalisierung des physischen Bestands von SUBRAS — schätzungsweise über
+    14.000 Seiten von 1924 bis heute; (2) eine formale Genauigkeitsbewertung der OCR-/
+    Übersetzungs-Pipeline anhand einer Stichprobe von Seiten; (3) Hinterlegung des vollständigen
+    Korpus beim Internet Archive sowie ein DOI-tragender Datensatzeintrag (z. B. über Zenodo)
+    für dauerhafte Zitierbarkeit; (4) Migration des Forschungsassistenten auf ein gehostetes
+    Backend, damit KI-gestützte Anfragen keinen eigenen API-Schlüssel der Besucher erfordern.
+  </p>
+
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Partner</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     <strong>SUBRAS</strong> (Sociedade Ucraniana do Brasil) — institutioneller Partner und Hüter
@@ -413,10 +495,36 @@
     Hinterlegung des vollständigen Korpus beim Internet Archive ist geplant, sobald die
     Digitalisierung über die Pilotphase hinausgeht. Dieses Archiv ist frei und offen zugänglich.
   </p></div>
+  
+<div style="margin-top:1.6rem;padding:1rem;background:var(--card-bg);
+     border:1px solid var(--border);border-radius:var(--radius)">
+  <h3 style="font-size:12px;font-weight:500;color:var(--muted);text-transform:uppercase;
+      letter-spacing:.05em;margin-bottom:.7rem">Cite this archive</h3>
+  <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+    <button onclick="toggleBibtex('archive')"
+      style="font-size:12px;padding:5px 12px;border-radius:4px;background:var(--blue-lt);
+      color:var(--blue);cursor:pointer;border:1px solid var(--blue)">BibTeX</button>
+    <button onclick="toggleChicago('archive')"
+      style="font-size:12px;padding:5px 12px;border-radius:4px;background:var(--blue-lt);
+      color:var(--blue);cursor:pointer;border:1px solid var(--blue)">Chicago</button>
+  </div>
+  <pre id="bibtex-popup-archive" style="display:none;margin-top:.8rem;font-size:11px;font-family:monospace;white-space:pre-wrap;color:var(--text);background:var(--bg);padding:.7rem;border-radius:4px;border:1px solid var(--border);user-select:all;cursor:text">@misc{khliborob_archive,
+  author = {University of M\"unster},
+  title  = {Khliborob Digital Archive},
+  note   = {Digital archive of Khliborob / O Lavrador, in partnership with SUBRAS},
+  url    = {https://hochheim.github.io/Khliborob/},
+  urldate = {2026-08-02}
+}</pre>
+  <div id="chicago-popup-archive" style="display:none;margin-top:.8rem;font-size:12px;
+       color:var(--text);background:var(--bg);padding:.7rem;border-radius:4px;
+       border:1px solid var(--border);user-select:all;cursor:text;font-style:italic">
+    Khliborob Digital Archive. University of Münster, in partnership with SUBRAS (Sociedade Ucraniana do Brasil). Accessed 2026-08-02. https://hochheim.github.io/Khliborob/
+  </div>
+</div>
 </div>
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608022311"></script>
+<script src="../assets/lang.js?v=202608022341"></script>
 </body>
 </html>

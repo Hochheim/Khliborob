@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Search — Khliborob Digital Archive</title>
+<meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608022311">
+<link rel="stylesheet" href="../assets/main.css?v=202608022341">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
 <body>
@@ -25,6 +27,7 @@
     <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
     <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
     <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../research-questions/" data-i18n="nav_questions">Research Questions</a>
     <a href="../persons/">Persons</a>
     <a href="../locations/">Locations</a>
     <div class="lang-switcher">
@@ -48,31 +51,58 @@
   <div id="results"></div>
 </div>
 <script>
-function doSearch() {
+// Pagefind's module does not expose a `window.pagefind` global on its own —
+// it must be dynamically imported and initialized. This previously checked
+// `window.pagefind` directly, which was always undefined, so every search
+// silently fell through to "index not built" regardless of whether the
+// index existed. Dynamic import() works from a plain script, so no separate
+// type="module" tag is needed.
+window.pagefindReady = (async () => {
+  try {
+    // Pagefind derives its own basePath from this module's resolved URL
+    // (import.meta.url), so a relative dynamic import is enough for it to
+    // find its index and produce correctly-prefixed result URLs even when
+    // the site is deployed under a subpath like hochheim.github.io/Khliborob/.
+    // Do not pass an explicit basePath override here — it expects the path
+    // to the pagefind/ directory itself, not the site root, and got it
+    // wrong when guessed from the page URL instead of left to auto-detect.
+    const pf = await import('../pagefind/pagefind.js');
+    await pf.init();
+    return pf;
+  } catch (e) {
+    console.warn('Pagefind unavailable:', e);
+    return null;
+  }
+})();
+
+async function doSearch() {
   const q = document.getElementById('q').value.trim();
   if (!q) return;
-  window.history.replaceState({},'','/search/?q='+encodeURIComponent(q));
+  // Relative, not "/search/?q=..." — an absolute path breaks under the
+  // GitHub Pages subpath (hochheim.github.io/Khliborob/), sending the
+  // address bar to the wrong URL.
+  window.history.replaceState({}, '', location.pathname + '?q=' + encodeURIComponent(q));
   document.getElementById('results').innerHTML = '<p style="font-size:13px;color:var(--muted)">Searching…</p>';
-  if (window.pagefind) {
-    pagefind.search(q).then(r => {
-      if (!r.results.length) {
-        document.getElementById('results').innerHTML =
-          '<p style="font-size:13px;color:var(--muted)">No results found.</p>';
-        return;
-      }
-      Promise.all(r.results.slice(0,20).map(x => x.data())).then(data => {
-        document.getElementById('results').innerHTML = data.map(d => `
-          <div class="result-card">
-            <div class="result-date">${d.meta?.date||''} ${d.meta?.issue||''}</div>
-            <div class="result-title"><a href="${d.url}">${d.meta?.title||d.url}</a></div>
-            <div class="result-snippet">${d.excerpt}</div>
-          </div>`).join('');
-      });
-    });
-  } else {
+  const pf = await window.pagefindReady;
+  if (!pf) {
     document.getElementById('results').innerHTML =
-      '<p style="font-size:13px;color:var(--muted)">Search index not built yet. Run: <code>pagefind --site output_site</code></p>';
+      '<p style="font-size:13px;color:var(--muted)">Full-text search index is unavailable right now. ' +
+      'Try the <a href="../chat/">Research Agent</a> instead, or browse by year.</p>';
+    return;
   }
+  const search = await pf.search(q);
+  if (!search.results.length) {
+    document.getElementById('results').innerHTML =
+      '<p style="font-size:13px;color:var(--muted)">No results found.</p>';
+    return;
+  }
+  const data = await Promise.all(search.results.slice(0, 20).map(x => x.data()));
+  document.getElementById('results').innerHTML = data.map(d => `
+    <div class="result-card">
+      <div class="result-date">${d.meta?.date||''} ${d.meta?.issue||''}</div>
+      <div class="result-title"><a href="${d.url}">${d.meta?.title||d.url}</a></div>
+      <div class="result-snippet">${d.excerpt}</div>
+    </div>`).join('');
 }
 const params = new URLSearchParams(window.location.search);
 const q = params.get('q');
@@ -81,10 +111,9 @@ document.getElementById('q').addEventListener('keydown', e => {
   if (e.key === 'Enter') doSearch();
 });
 </script>
-<script src="../pagefind/pagefind.js" type="module"></script>
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608022311"></script>
+<script src="../assets/lang.js?v=202608022341"></script>
 </body>
 </html>
