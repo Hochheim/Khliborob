@@ -224,20 +224,74 @@
     } },
   ];
 
-  const LAYOUT_OPTS = {
-    name: "concentric",
-    animate: false,
-    padding: 80,
-    minNodeSpacing: 50,
-    concentric: function(node) {
-      // Most-mentioned entities go to center; page nodes stay on outer ring
-      if (node.data("type") === "page") return 1;
-      return (node.data("mentions") || 0) + 2;
-    },
-    levelWidth: function(nodes) { return Math.max(3, Math.ceil(nodes.length / 10)); },
-    nodeDimensionsIncludeLabels: true,
-    startAngle: Math.PI * 1.5,
-  };
+  // Deterministic multi-row preset layout: persons sorted by mentions on top rows,
+  // locations sorted by mentions on bottom rows. Mirrors the per-page graph approach.
+  function computePresetPositions(nodeElements) {
+    const W = document.getElementById("cy").clientWidth  || 1200;
+    const H = document.getElementById("cy").clientHeight || 700;
+    const PAD = 60;
+    const usableW = W - PAD * 2;
+    const pos = {};
+
+    const persons   = nodeElements.filter(n => n.data("type")==="person")
+                                  .sort((a,b) => (b.data("mentions")||0)-(a.data("mentions")||0));
+    const locations = nodeElements.filter(n => n.data("type")==="location")
+                                  .sort((a,b) => (b.data("mentions")||0)-(a.data("mentions")||0));
+    const pages     = nodeElements.filter(n => n.data("type")==="page");
+
+    function placeRow(list, y) {
+      if (!list.length) return;
+      const widths = list.map(n => Math.max(120, n.data("label").length * 8 + 60));
+      const total  = widths.reduce((s,w)=>s+w, 0);
+      const scale  = total > usableW ? usableW / total : 1;
+      let x = PAD + (usableW - total*scale) / 2 + widths[0]*scale/2;
+      list.forEach((n, i) => {
+        pos[n.data("id")] = {x, y};
+        if (i < list.length - 1)
+          x += widths[i]*scale/2 + widths[i+1]*scale/2;
+      });
+    }
+
+    function placeMultiRow(list, topY, rowH, downward) {
+      if (!list.length) return;
+      const perRow = Math.max(1, Math.floor(usableW / 130));
+      const rows = [];
+      for (let i = 0; i < list.length; i += perRow) rows.push(list.slice(i, i+perRow));
+      rows.forEach((row, ri) => placeRow(row, topY + (downward?1:-1) * ri * rowH));
+    }
+
+    const nRows = Math.ceil(persons.length   / Math.max(1, Math.floor(usableW/130)));
+    const lRows = Math.ceil(locations.length / Math.max(1, Math.floor(usableW/130)));
+    const rowH  = Math.min(90, (H * 0.4) / Math.max(nRows, lRows, 1));
+
+    placeMultiRow(persons,   PAD + 30, rowH, true);
+    placeMultiRow(locations, H - PAD - 30, rowH, false);
+
+    // Scatter any page nodes across the middle band
+    if (pages.length) {
+      const pPerRow = Math.max(1, Math.floor(usableW / 100));
+      pages.forEach((n, i) => {
+        const col = i % pPerRow;
+        const row = Math.floor(i / pPerRow);
+        pos[n.data("id")] = {
+          x: PAD + (col + 0.5) * (usableW / pPerRow),
+          y: H * 0.45 + row * 50
+        };
+      });
+    }
+    return pos;
+  }
+
+  function presetLayout(cy) {
+    const pos = computePresetPositions(cy.nodes().toArray());
+    cy.nodes().forEach(n => {
+      if (pos[n.data("id")]) n.position(pos[n.data("id")]);
+    });
+    cy.fit(cy.elements(), 60);
+  }
+
+  // Fallback LAYOUT_OPTS used only when re-running layout after filter changes
+  const LAYOUT_OPTS = {name:"preset", fit:true, padding:60};
 
   // For person-only networks (no page nodes), use edge-degree as mention count
   const hasPageNodes = rawNodes.some(n => n.type === "page");
@@ -253,9 +307,12 @@
     container: document.getElementById("cy"),
     elements: buildElements(initMin),
     style: STYLES,
-    layout: LAYOUT_OPTS,
+    layout: {name:"preset"},
     userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
   });
+
+  // Apply positions after Cytoscape finishes mounting
+  requestAnimationFrame(() => { presetLayout(cy); });
 
   document.getElementById("loading").style.display = "none";
   updateCount(initMin);
@@ -278,7 +335,7 @@
     updateCount(min);
     cy.elements().remove();
     cy.add(buildElements(min));
-    cy.layout(Object.assign({}, LAYOUT_OPTS, {animate:true,animationDuration:500})).run();
+    presetLayout(cy);
     resetDetail();
   });
 
@@ -290,7 +347,7 @@
     const min = parseInt(slider.value);
     cy.elements().remove();
     cy.add(buildElements(min));
-    cy.layout(Object.assign({}, LAYOUT_OPTS, {animate:true,animationDuration:500})).run();
+    presetLayout(cy);
     resetDetail();
   });
 

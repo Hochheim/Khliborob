@@ -94,7 +94,7 @@
         {
           label: 'Romance loanwords per 1,000 words',
           data: romVals,
-          borderColor: '#e63946',
+          borderColor: '#22c55e',
           backgroundColor: 'transparent',
           tension: 0.3,
           pointRadius: 3,
@@ -110,13 +110,13 @@
         x: { ticks: { color: fontColor, maxTicksLimit: 12 }, grid: { color: gridColor } },
         y: { type:'linear', position:'left', ticks:{ color:'#005BBB' }, grid:{ color: gridColor },
               title:{ display:true, text:'Cyrillic ratio', color:fontColor } },
-        y1: { type:'linear', position:'right', ticks:{ color:'#e63946' }, grid:{ drawOnChartArea:false },
+        y1: { type:'linear', position:'right', ticks:{ color:'#22c55e' }, grid:{ drawOnChartArea:false },
                title:{ display:true, text:'Romance / 1k words', color:fontColor } },
       }
     }
   });
 
-  var kwData = [{"label": "Ukraine / Ucrânia (Україна)", "data": [0.152, 0.358], "borderColor": "#FFD500", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Brazil / Brasil (Бразилія)", "data": [0.0, 0.0], "borderColor": "#e63946", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Church / Igreja (церква)", "data": [0.0, 0.239], "borderColor": "#2a9d8f", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Famine / Fome (голод)", "data": [0.152, 0.239], "borderColor": "#e9c46a", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Labour / Trabalho (праця)", "data": [0.455, 0.239], "borderColor": "#a8dadc", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}];
+  var kwData = [{"label": "Ukraine / Ucrânia (Україна)", "data": [0.152, 0.358], "borderColor": "#FFD500", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Brazil / Brasil (Бразилія)", "data": [0.0, 0.0], "borderColor": "#22c55e", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Church / Igreja (церква)", "data": [0.0, 0.239], "borderColor": "#2a9d8f", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Famine / Fome (голод)", "data": [0.152, 0.239], "borderColor": "#e9c46a", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}, {"label": "Labour / Trabalho (праця)", "data": [0.455, 0.239], "borderColor": "#a8dadc", "backgroundColor": "transparent", "tension": 0.3, "pointRadius": 3}];
   new Chart(document.getElementById('kwChart'), {
     type: 'line',
     data: { labels: years, datasets: kwData },

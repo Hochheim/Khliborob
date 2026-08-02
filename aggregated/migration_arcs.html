@@ -17,7 +17,7 @@
 </head><body>
 <div id="legend">
   <span><span class=�ldot� style=�background:#005BBB�></span>Eastern Europe / Ukraine</span>
-  <span><span class=�ldot� style=�background:#e63946�></span>Brazil / South America</span>
+  <span><span class=�ldot� style=�background:#22c55e�></span>Brazil / South America</span>
   <span style=�color:#FFD500�>&#8212; Arc (click to open issues)</span>
   <span style=�color:#aaa;font-size:11px�>Hover a city to isolate its connections</span>
 </div>
@@ -112,6 +112,6 @@ function makeMarker(loc, color, side){
 var seenUl={}, seenBl={};
 arcs.forEach(function(arc){
   if(!seenUl[arc.ul.name]){ makeMarker(arc.ul,'#005BBB','ul'); seenUl[arc.ul.name]=1; }
-  if(!seenBl[arc.bl.name]){ makeMarker(arc.bl,'#e63946','bl'); seenBl[arc.bl.name]=1; }
+  if(!seenBl[arc.bl.name]){ makeMarker(arc.bl,'#22c55e','bl'); seenBl[arc.bl.name]=1; }
 });
 </script></body></html>
