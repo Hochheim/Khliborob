@@ -6,7 +6,7 @@
 <title>Research Agent — Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css">
+<link rel="stylesheet" href="../assets/main.css?v=202608022112">
 
 </head>
 <body>
@@ -41,11 +41,11 @@
   <div style="margin-bottom:1rem">
     <h1 style="font-size:20px;font-weight:500;margin-bottom:.3rem" data-i18n="nav_chat">Research Agent</h1>
     <p style="font-size:13px;color:var(--muted)">
-      Ask questions about the archive in Ukrainian, English, or Brazilian Portuguese. This
-      runs entirely in your browser: it matches your question against the digitized corpus
-      and returns the original passages verbatim, with full citations — no server, no AI
-      paraphrasing, nothing that can hallucinate a source. It only covers the
-      <a href="../about/">pilot corpus</a> currently on this site (2 issues).
+      Ask questions about the archive in Ukrainian, English, or Brazilian Portuguese.
+      The agent retrieves the relevant passages from the digitized corpus and — when AI
+      synthesis is enabled below — writes a grounded answer with inline citations.
+      Without it, matching passages are quoted verbatim. Either way, every claim links
+      to its source. Covers the <a href="../about/">pilot corpus</a> (2 issues) only.
     </p>
   </div>
 
@@ -56,8 +56,8 @@
       <div class="msg-bubble msg-bubble-system">
         👋 Welcome to the Khliborob Research Agent. Ask about people, places, or events
         mentioned in the digitized issues of <em>Хлібороб / O Lavrador</em> — e.g. "Mazepa",
-        "American consulate", "Bachynsky". This searches the original transcripts directly
-        and quotes them back to you with a source citation.
+        "American consulate", "Bachynsky". Answers are grounded in the corpus and cite
+        their sources.
       </div>
     </div>
   </div>
@@ -73,9 +73,17 @@
     </button>
   </div>
 
-  <p style="font-size:11px;color:var(--muted);margin-top:.5rem;text-align:center">
-    Answers are generated from the digitized corpus only. All claims cite their source.
-  </p>
+  <div id="key-bar" style="font-size:11px;color:var(--muted);margin-top:.5rem;text-align:center"></div>
+  <div id="key-form" style="display:none;margin-top:.4rem;text-align:center">
+    <input id="key-input" type="password" placeholder="Paste your Gemini API key"
+           style="font-size:12px;padding:.35rem .6rem;border:1px solid var(--border);
+                  border-radius:var(--radius);background:var(--card-bg);color:var(--text);width:260px" />
+    <button onclick="saveKey()" style="font-size:12px;padding:.35rem .8rem;border:1px solid var(--blue);
+            border-radius:var(--radius);background:var(--blue-lt,#e8f0fb);color:var(--blue);cursor:pointer">Save</button>
+    <div style="font-size:10px;color:var(--muted);margin-top:.3rem">
+      The key is stored only in this browser (localStorage) and sent only to Google's API — never to this site.
+    </div>
+  </div>
 </div>
 
 <style>
@@ -199,6 +207,117 @@ function bestSnippet(weightedTokens, record) {
   return { label: "English translation", snippet: fallback.slice(0, 240) + (fallback.length > 240 ? "…" : "") };
 }
 
+// ---- BYOK (bring your own key) AI synthesis ------------------------------
+// A static site cannot hide a server-side API key, so synthesized answers use
+// a key the visitor supplies. It lives in localStorage and is sent only to
+// Google's Gemini API from this browser. Without a key the agent falls back
+// to extractive mode (verbatim quoted passages).
+function getKey() { return localStorage.getItem("gemini_key") || ""; }
+
+function renderKeyBar() {
+  const bar = document.getElementById("key-bar");
+  const form = document.getElementById("key-form");
+  if (getKey()) {
+    bar.innerHTML = '🤖 AI synthesis <strong>enabled</strong> (Gemini) — grounded answers with citations. '
+      + '<a href="#" onclick="clearKey();return false">Remove key</a>';
+    form.style.display = "none";
+  } else {
+    bar.innerHTML = '💬 Currently in <strong>quote mode</strong> (verbatim passages). For synthesized AI answers, '
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">add a free Gemini API key</a> '
+      + '(<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">get one here</a>).';
+  }
+}
+
+function saveKey() {
+  const v = document.getElementById("key-input").value.trim();
+  if (v) { localStorage.setItem("gemini_key", v); document.getElementById("key-input").value = ""; }
+  renderKeyBar();
+}
+
+function clearKey() { localStorage.removeItem("gemini_key"); renderKeyBar(); }
+
+// Builds one context window per matching page, centered on the most
+// informative matched term, in the field where it matched.
+function buildContexts(weightedTokens, scored) {
+  return scored.map((s, i) => {
+    const r = s.record;
+    const fields = [["English translation", r.text_en], ["Ukrainian original", r.text_uk], ["Portuguese", r.text_pt]];
+    let excerpt = "", fieldLabel = "";
+    outer:
+    for (const { tok, stem } of weightedTokens) {
+      for (const [label, text] of fields) {
+        if (!text) continue;
+        const lower = text.toLowerCase();
+        let idx = lower.indexOf(tok);
+        if (idx === -1 && stem.length >= 3) idx = lower.indexOf(stem);
+        if (idx === -1) continue;
+        const start = Math.max(0, idx - 900);
+        const end = Math.min(text.length, idx + 1100);
+        excerpt = (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "");
+        fieldLabel = label;
+        break outer;
+      }
+    }
+    if (!excerpt) { excerpt = (r.text_en || r.text_uk || "").slice(0, 1500); fieldLabel = "English translation"; }
+    return { num: i + 1, record: r, fieldLabel, excerpt };
+  });
+}
+
+function buildPrompt(question, contexts) {
+  let p = 'You are a Digital Humanities research assistant for the digitized archive of ' +
+    '"Khliborob / O Lavrador" (Хлібороб), a Ukrainian-language diaspora newspaper published in Brazil since 1924.\n\n' +
+    'STRICT RULES:\n' +
+    '1. Answer EXCLUSIVELY from the SOURCE EXCERPTS below. Use no outside knowledge.\n' +
+    '2. Follow every factual claim with its citation marker, e.g. [1] or [1][3].\n' +
+    '3. If the excerpts do not contain enough information to answer, say so explicitly.\n' +
+    '4. Do not speculate or extrapolate beyond what the excerpts state.\n' +
+    '5. When quoting Ukrainian text, give the original followed by a translation in parentheses.\n' +
+    "6. Respond in the same language as the researcher's question.\n" +
+    '7. Be concise: a short paragraph or two, not an essay.\n\nSOURCE EXCERPTS:\n';
+  for (const c of contexts) {
+    p += `\n[${c.num}] Khliborob / O Lavrador, ${c.record.date}, No. ${c.record.issue_number}, ` +
+      `page ${c.record.page_number} (${c.fieldLabel}):\n"${c.excerpt}"\n`;
+  }
+  p += `\nRESEARCHER QUESTION:\n${question}`;
+  return p;
+}
+
+async function askGemini(prompt, key) {
+  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key);
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { temperature: 0.2, maxOutputTokens: 2048, thinkingConfig: { thinkingBudget: 0 } },
+    }),
+  });
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({}));
+    throw new Error((err.error && err.error.message) || ("HTTP " + resp.status));
+  }
+  const data = await resp.json();
+  const parts = (((data.candidates || [])[0] || {}).content || {}).parts || [];
+  const text = parts.filter(p => !p.thought).map(p => p.text || "").join("");
+  if (!text) throw new Error("Empty response from the model");
+  return text;
+}
+
+function citationsHtml(contexts) {
+  let citBlock = '<div class="citations-block"><strong>Sources:</strong><br>';
+  for (const c of contexts) {
+    const r = c.record;
+    const links = [
+      `<a href="${r.issue_url}" target="_blank" rel="noopener">issue page</a>`,
+      r.ipfs_url ? `<a href="${r.ipfs_url}" target="_blank" rel="noopener">IPFS scan</a>` : "",
+      r.tx_url ? `<a href="${r.tx_url}" target="_blank" rel="noopener">blockchain</a>` : "",
+    ].filter(Boolean).join(" · ");
+    citBlock += `<div class="citation-item">[${c.num}] Khliborob / O Lavrador, ${escHtml(r.date)}, `
+      + `No. ${escHtml(String(r.issue_number))}, page ${escHtml(String(r.page_number))} — ${links}</div>`;
+  }
+  return citBlock + "</div>";
+}
+
 async function sendQuestion() {
   const input = document.getElementById("chat-input");
   const q = input.value.trim();
@@ -230,7 +349,7 @@ async function sendQuestion() {
       .map(r => ({ record: r, score: scoreRecord(weightedTokens, r) }))
       .filter(r => r.score > 0)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 5);
+      .slice(0, 4);
 
     if (scored.length === 0) {
       replaceMsg(typingId, "assistant",
@@ -240,27 +359,28 @@ async function sendQuestion() {
       return;
     }
 
-    let answer = `Found ${scored.length} matching passage(s) in the pilot corpus:
+    const contexts = buildContexts(weightedTokens, scored);
+    const key = getKey();
 
-`;
-    let citBlock = '<div class="citations-block"><strong>Sources:</strong><br>';
-    scored.forEach((s, i) => {
-      const r = s.record;
-      const { label, snippet } = bestSnippet(weightedTokens, r);
-      answer += `[${i+1}] (${label}) "${snippet}"
+    if (key) {
+      replaceMsg(typingId, "assistant", "Reading " + contexts.length + " passage(s) and composing an answer…", "typing");
+      try {
+        const answer = await askGemini(buildPrompt(q, contexts), key);
+        replaceMsg(typingId, "assistant", answer.trim(), "", citationsHtml(contexts));
+        return;
+      } catch (llmErr) {
+        appendMsg("system", "⚠️ AI synthesis failed (" + llmErr.message + ") — showing matching passages instead.");
+      }
+    }
 
-`;
-      const links = [
-        `<a href="${r.issue_url}" target="_blank" rel="noopener">issue page</a>`,
-        r.ipfs_url ? `<a href="${r.ipfs_url}" target="_blank" rel="noopener">IPFS scan</a>` : "",
-        r.tx_url ? `<a href="${r.tx_url}" target="_blank" rel="noopener">blockchain</a>` : "",
-      ].filter(Boolean).join(" · ");
-      citBlock += `<div class="citation-item">[${i+1}] Khliborob / O Lavrador, ${escHtml(r.date)}, `
-        + `No. ${escHtml(String(r.issue_number))}, page ${escHtml(String(r.page_number))} — ${links}</div>`;
-    });
-    citBlock += "</div>";
-
-    replaceMsg(typingId, "assistant", answer.trim(), "", citBlock);
+    // Extractive fallback: quote the top passages verbatim.
+    const top = contexts.slice(0, 3);
+    let answer = "Matching passage(s) from the corpus:\n\n";
+    for (const c of top) {
+      const { label, snippet } = bestSnippet(weightedTokens, c.record);
+      answer += `[${c.num}] (${label}) "${snippet}"\n\n`;
+    }
+    replaceMsg(typingId, "assistant", answer.trim(), "", citationsHtml(top));
 
   } catch (err) {
     replaceMsg(typingId, "error", "⚠️ Could not load the search index: " + err.message);
@@ -302,11 +422,12 @@ function escHtml(t) {
 document.getElementById("chat-input").addEventListener("keydown", e => {
   if (e.key === "Enter") sendQuestion();
 });
+renderKeyBar();
 loadIndex();
 </script>
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js"></script>
+<script src="../assets/lang.js?v=202608022112"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 <title>Home — Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/main.css">
+<link rel="stylesheet" href="assets/main.css?v=202608022112">
 
 </head>
 <body>
@@ -62,31 +62,32 @@ function closeBanner(){
 </script>
 
 <div class="hero">
-  <h1>Хлібороб · O Lavrador</h1>
-  <p data-i18n="hero_subtitle">Digital archive of Khliborob / O Lavrador — the Ukrainian diaspora newspaper in Brazil (1924–present)</p>
-  <p data-i18n="pilot_notice" style="font-size:12px;color:var(--muted);background:var(--card-bg);
-     border:1px solid var(--border);border-radius:var(--radius);padding:.5rem .8rem;
-     display:inline-block;margin:.3rem 0 .8rem">Pilot corpus: this demo currently contains 2 of an
-     estimated 14,000+ pages held by SUBRAS, digitized to demonstrate the pipeline as part of a
-     grant application.</p>
-  <div class="search-box">
-    <input type="search" data-i18n="search_placeholder" placeholder="Search all pages — e.g. Holodomor, Istanbul, 1932" id="q" />
-    <button onclick="doSearch()" data-i18n="search_btn">Search</button>
+  <div style="display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap;max-width:1100px">
+    <div style="flex:1 1 420px;min-width:300px">
+      <h1>Хлібороб · O Lavrador</h1>
+      <p data-i18n="hero_subtitle">Digital archive of Khliborob / O Lavrador — the Ukrainian diaspora newspaper in Brazil (1924–present)</p>
+      <div class="search-box">
+        <input type="search" data-i18n="search_placeholder" placeholder="Search all pages — e.g. Holodomor, Istanbul, 1932" id="q" />
+        <button onclick="doSearch()" data-i18n="search_btn">Search</button>
+      </div>
+      <p data-i18n="pilot_notice" style="font-size:11px;opacity:.7;max-width:520px;margin-top:.9rem;
+         margin-bottom:0;line-height:1.5">Pilot corpus: this demo currently contains 2 of an
+         estimated 14,000+ pages held by SUBRAS, digitized to demonstrate the pipeline as part of a
+         grant application.</p>
+    </div>
+    <p data-i18n="site_intro" style="flex:1 1 380px;min-width:280px;font-size:12.5px;line-height:1.65;
+       opacity:.9;margin:0;max-width:520px">
+      Khliborob (Хлібороб, 'The Farmer'), founded in Porto União, Paraná in 1924 and published
+      as O Lavrador since the 1940s, is one of the longest-running Ukrainian diaspora newspapers
+      in the world. For a century it has chronicled the life of the Ukrainian community in
+      Brazil — its parishes and schools, its politics, and its ties to Ukraine through war,
+      famine, and independence. This archive presents digitized issues with searchable Ukrainian
+      transcripts, English and Portuguese translations, and indices of the people and places
+      they mention. Every page scan is preserved on IPFS and anchored on the Polygon blockchain,
+      alongside declassified Soviet intelligence files documenting the newspaper's surveillance
+      during the Holodomor.
+    </p>
   </div>
-</div>
-
-<div style="max-width:760px;margin:1.5rem auto 0;padding:0 1.5rem">
-  <p data-i18n="site_intro" style="font-size:14px;line-height:1.7;color:var(--text)">
-    Khliborob (Хлібороб, "The Farmer"), founded in Porto União, Paraná in 1924 and published
-    as O Lavrador since the 1940s, is one of the longest-running Ukrainian diaspora newspapers
-    in the world. For a century it has chronicled the life of the Ukrainian community in
-    Brazil — its parishes and schools, its politics, and its ties to Ukraine through war,
-    famine, and independence. This archive presents digitized issues with searchable Ukrainian
-    transcripts, English and Portuguese translations, and indices of the people and places
-    they mention. Every page scan is preserved on IPFS and anchored on the Polygon blockchain,
-    alongside declassified Soviet intelligence files documenting the newspaper's surveillance
-    during the Holodomor.
-  </p>
 </div>
 
 <div class="stats">
@@ -157,6 +158,6 @@ document.getElementById('q').addEventListener('keydown', e => {
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="assets/lang.js"></script>
+<script src="assets/lang.js?v=202608022112"></script>
 </body>
 </html>
