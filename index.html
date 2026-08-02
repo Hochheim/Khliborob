@@ -6,7 +6,7 @@
 <title>Home — Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/main.css?v=202608022215">
+<link rel="stylesheet" href="assets/main.css?v=202608022219">
 
 </head>
 <body>
@@ -106,7 +106,7 @@ function closeBanner(){
 </div>
 
 <div style="padding:2.5rem;max-width:1100px;margin:0 auto">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-bottom:1.8rem">
+  <div style="max-width:560px;margin:0 auto 1.8rem">
 
     <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
          transition:box-shadow .15s;cursor:pointer" onclick="location.href='browse/'"
@@ -127,25 +127,6 @@ function closeBanner(){
       </div>
     </div>
 
-    <div style="background:var(--gpu-bg);border:1px solid var(--gpu-bd);border-radius:var(--radius);overflow:hidden;
-         transition:box-shadow .15s;cursor:pointer" onclick="location.href='gpu-documents/'" 
-         onmouseover="this.style.boxShadow='0 4px 12px rgba(200,168,0,.2)'" 
-         onmouseout="this.style.boxShadow='none'">
-      <div style="background:linear-gradient(135deg,#1a4a8a,#c8a800);height:140px;
-           display:flex;align-items:center;justify-content:center;font-size:48px">🔍</div>
-      <div style="padding:1rem">
-        <h3 style="font-size:15px;font-weight:500;margin-bottom:.3rem;color:var(--gpu-tx)">GPU Documents</h3>
-        <p style="font-size:12px;color:var(--gpu-tx);margin-bottom:.8rem;line-height:1.5;opacity:.8">
-          Declassified Soviet intelligence files linking Khliborob to the Holodomor period.
-        </p>
-        <span style="display:inline-flex;align-items:center;gap:.4rem;
-          background:var(--gpu-bd);color:#fff;padding:.5rem 1rem;border-radius:var(--radius);
-          font-size:13px;font-weight:500">
-          🔍 View documents →
-        </span>
-      </div>
-    </div>
-
 <script>
 function doSearch() {
   const q = document.getElementById('q').value.trim();
@@ -158,6 +139,6 @@ document.getElementById('q').addEventListener('keydown', e => {
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="assets/lang.js?v=202608022215"></script>
+<script src="assets/lang.js?v=202608022219"></script>
 </body>
 </html>
