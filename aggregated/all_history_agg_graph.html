@@ -386,16 +386,14 @@
   let tappedNode = null;
   cy.on("mouseover", "node", function(e) {
     if (tappedNode) return;
-    cy.elements().removeClass("dimmed highlighted");
-    const hood = e.target.closedNeighborhood();
-    cy.elements().not(hood).addClass("dimmed");
+    // Highlight only — do NOT dim anything. Dimming makes the graph look empty.
     e.target.connectedEdges().addClass("highlighted");
     e.target.addClass("highlighted");
     cy.container().style.cursor = "pointer";
   });
   cy.on("mouseout", "node", function() {
     if (tappedNode) return;
-    cy.elements().removeClass("dimmed highlighted");
+    cy.elements().removeClass("highlighted");
     cy.container().style.cursor = "";
   });
 
