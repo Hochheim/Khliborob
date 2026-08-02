@@ -120,6 +120,7 @@
 
   // ── mention counts ──
   const pageIds = new Set(rawNodes.filter(n => n.type === "page").map(n => n.id));
+  const hasPageNodes = rawNodes.some(n => n.type === "page");
   const mentionCount = {};
   rawEdges.forEach(e => {
     const s = nodeId(e.source), t = nodeId(e.target);
@@ -329,7 +330,6 @@
   const LAYOUT_OPTS = {name:"preset", fit:true, padding:60};
 
   // For person-only networks (no page nodes), use edge-degree as mention count
-  const hasPageNodes = rawNodes.some(n => n.type === "page");
   if (!hasPageNodes) {
     rawNodes.forEach(n => {
       const deg = rawEdges.filter(e => e.source === n.id || e.target === n.id).length;
