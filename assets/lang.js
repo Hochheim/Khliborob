@@ -46,6 +46,10 @@ function applyLang(lang) {
       el.style.display = (l === dataLangKey) ? '' : 'none';
     });
   });
+
+  // Let page-specific scripts (e.g. the aggregated-views charts) react to a
+  // language switch without lang.js needing to know about them.
+  document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
