@@ -133,43 +133,67 @@ function stemOf(tok) {
   return tok.length >= 6 ? tok.slice(0, tok.length - 2) : (tok.length >= 4 ? tok.slice(0, tok.length - 1) : tok);
 }
 
-function scoreRecord(queryTokens, record) {
-  const hay = ((record.text_en||"") + " " + (record.text_uk||"") + " " + (record.text_pt||"")).toLowerCase();
-  let score = 0;
-  for (const tok of queryTokens) {
-    const fullMatches = hay.match(new RegExp(escapeRe(tok), "g"));
-    if (fullMatches) { score += fullMatches.length * 3; continue; }
+function recordHay(record) {
+  return ((record.text_en||"") + " " + (record.text_uk||"") + " " + (record.text_pt||"")).toLowerCase();
+}
+
+// Natural-language questions ("what does the newspaper say about Lukashenko")
+// are mostly filler words that occur on every page; counting their matches
+// drowns out the one informative term. Instead of a per-language stop-word
+// list, weight each query token by inverse document frequency across the
+// corpus: a token found on (nearly) every page gets ~zero weight, a rare
+// name dominates. Tokens are dropped entirely when uninformative so the
+// snippet picker can't anchor on them either.
+function weighQueryTokens(queryTokens, index) {
+  const N = index.length;
+  const hays = index.map(recordHay);
+  const weighted = [];
+  for (const tok of [...new Set(queryTokens)]) {
     const stem = stemOf(tok);
+    const probe = stem.length >= 3 ? stem : tok;
+    const df = hays.reduce((n, hay) => n + (hay.includes(probe) ? 1 : 0), 0);
+    const idf = Math.log((N + 1) / (df + 1));
+    if (df > 0 && idf < 0.2) continue;   // appears on ~every page — filler
+    weighted.push({ tok, stem, weight: Math.max(idf, 0.2) });
+  }
+  // Rarest first, so snippet anchoring prefers the informative term
+  weighted.sort((a, b) => b.weight - a.weight);
+  return weighted;
+}
+
+function scoreRecord(weightedTokens, record) {
+  const hay = recordHay(record);
+  let score = 0;
+  for (const { tok, stem, weight } of weightedTokens) {
+    const fullMatches = hay.match(new RegExp(escapeRe(tok), "g"));
+    if (fullMatches) { score += fullMatches.length * 3 * weight; continue; }
     if (stem.length < 3) continue;
     const stemMatches = hay.match(new RegExp(escapeRe(stem), "g"));
-    if (stemMatches) score += stemMatches.length;
+    if (stemMatches) score += stemMatches.length * weight;
   }
   return score;
 }
 
-function bestSnippet(queryTokens, record) {
+function bestSnippet(weightedTokens, record) {
   const fields = [
     ["English translation", record.text_en],
     ["Ukrainian original", record.text_uk],
     ["Portuguese translation", record.text_pt],
   ];
-  for (const [label, text] of fields) {
-    if (!text) continue;
-    const lower = text.toLowerCase();
-    let hitIdx = -1;
-    for (const tok of queryTokens) {
+  // Tokens are pre-sorted rarest-first, so the first hit found is the most
+  // informative match, not just the first word of the question.
+  for (const { tok, stem } of weightedTokens) {
+    for (const [label, text] of fields) {
+      if (!text) continue;
+      const lower = text.toLowerCase();
       let idx = lower.indexOf(tok);
-      if (idx === -1) {
-        const stem = stemOf(tok);
-        if (stem.length >= 3) idx = lower.indexOf(stem);
-      }
-      if (idx !== -1) { hitIdx = idx; break; }
+      if (idx === -1 && stem.length >= 3) idx = lower.indexOf(stem);
+      if (idx === -1) continue;
+      const start = Math.max(0, idx - 140);
+      const end = Math.min(text.length, idx + 200);
+      const snippet = (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "");
+      return { label, snippet };
     }
-    if (hitIdx === -1) continue;
-    const start = Math.max(0, hitIdx - 140);
-    const end = Math.min(text.length, hitIdx + 200);
-    const snippet = (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "");
-    return { label, snippet };
   }
   const fallback = record.text_en || record.text_uk || record.text_pt || "";
   return { label: "English translation", snippet: fallback.slice(0, 240) + (fallback.length > 240 ? "…" : "") };
@@ -193,8 +217,17 @@ async function sendQuestion() {
       return;
     }
 
+    const weightedTokens = weighQueryTokens(queryTokens, index);
+    if (weightedTokens.length === 0) {
+      replaceMsg(typingId, "assistant",
+        "Your question contains only very common words, so no specific passage can be " +
+        "pinpointed. Try including a distinctive name or term — e.g. a person, place, " +
+        "or event from the Persons and Locations index.");
+      return;
+    }
+
     const scored = index
-      .map(r => ({ record: r, score: scoreRecord(queryTokens, r) }))
+      .map(r => ({ record: r, score: scoreRecord(weightedTokens, r) }))
       .filter(r => r.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 5);
@@ -213,7 +246,7 @@ async function sendQuestion() {
     let citBlock = '<div class="citations-block"><strong>Sources:</strong><br>';
     scored.forEach((s, i) => {
       const r = s.record;
-      const { label, snippet } = bestSnippet(queryTokens, r);
+      const { label, snippet } = bestSnippet(weightedTokens, r);
       answer += `[${i+1}] (${label}) "${snippet}"
 
 `;
