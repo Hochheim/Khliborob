@@ -6,7 +6,7 @@
 <title>About — Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608022301">
+<link rel="stylesheet" href="../assets/main.css?v=202608022311">
 
 </head>
 <body>
@@ -38,6 +38,7 @@
 
 
 <div style="max-width:720px;margin:2rem auto;padding:0 1.5rem">
+  <div data-lang-en>
   <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">About this archive</h1>
 
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
@@ -127,11 +128,295 @@
     shown on each issue page) and stored on IPFS via Pinata. Deposit of the full corpus with
     the Internet Archive is planned once digitization moves beyond the pilot stage. This
     archive is free and open access.
+  </p></div><div data-lang-uk style='display:none'>
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Про цей архів</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Пілотний корпус.</strong> Цей сайт наразі демонструє 2 повністю оцифровані випуски
+    (8 сторінок) з приблизно 14 000+ сторінок, що зберігаються в SUBRAS і охоплюють період з 1924
+    року дотепер. Він створений, щоб продемонструвати повний цикл роботи конвеєра оцифрування —
+    розпізнавання тексту, переклад, виділення сутностей, закріплення походження, експорт у
+    стандартизованих форматах — перед поданням заявки на фінансування оцифрування повного архіву.
+    Показники на цьому сайті (кількість випусків, покажчики осіб і місць) стосуються пілотного
+    корпусу, а не повного архіву газети.
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Газета</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Газету «Хлібороб» засновано в Порто-Уніоні, штат Парана, Бразилія, 1924 року українським
+    поетом Петром Карманським. Це одне з найдовговічніших видань української діаспори у світі —
+    виходить безперервно й донині (з 1940–46 рр., після примусового переходу на португальську
+    мову за часів Варгаса, під назвою O Lavrador). Видає газету SUBRAS (Українське товариство
+    Бразилії) в Курітибі.
   </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Відкриття документів ГПУ</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Чотири розсекречені документи з Галузевого державного архіву Служби зовнішньої розвідки
+    України (СЗРУ) свідчать, що «Хлібороб» перебував у полі зору транснаціональної української
+    політичної мережі, яка з'єднувала Курітибу, Сан-Паулу та Стамбул у період Голодомору
+    (1929–1933). Розвідувальні зведення ГПУ, складені для японської дипломатичної служби в
+    листопаді 1932 року, цитують газету як джерело інформації про страти голодуючих селян у
+    радянській Україні.
+  </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    Ці документи називають реальних осіб, які перебували під наглядом у період політичних
+    переслідувань. Вони відтворені тут як розсекречені історичні розвідувальні матеріали,
+    оприлюднені СЗРУ (опубліковано 23 листопада 2025 року) для наукових досліджень; читачам варто
+    ставитися до згаданих осіб з такою ж обережністю, яку історики застосовують до будь-якого
+    архіву, що документує політичні репресії проти конкретних людей.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Методологія та обмеження</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Зображення сторінок розпізнаються й перекладаються (з української на англійську, а також
+    португальською — якщо оригінал уже португальською) за допомогою візуального розпізнавання
+    тексту Gemini 2.5 Flash. Модель позначає токени, у яких не впевнена; вони виділяються на
+    кожній сторінці випуску як
+    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
+    padding:0 2px">позначені слова</mark> із зазначенням причини сумніву — щоб непевні прочитання
+    залишалися видимими, а не згладжувалися непомітно. Незалежного дослідження точності
+    транскрибування для цього пілотного корпусу ще не проводилося — виділення слугує механізмом
+    прозорості, а не підтвердженою оцінкою похибки. Машинний переклад української мови діаспори
+    1920-х років і тогочасної португальської несе звичні ризики втрати ідіом і анахронічних
+    формулювань; дослідникам, які працюють із текстом на рівні деталей, варто розглядати
+    англійську та португальську колонки як допоміжний навігаційний інструмент і звірятися з
+    українським оригіналом (або сканом сторінки) перед цитуванням.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Стандарти та сумісність</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Кожна оцифрована сторінка має маніфест IIIF Presentation 3.0 (посилання на нього — на
+    сторінці випуску), тож скани можна відкривати в Mirador, Universal Viewer чи будь-якому
+    іншому інструменті, сумісному з IIIF. Метадані всіх випусків також публікуються у форматі
+    Dublin Core / <a href="../oai-pmh.xml" target="_blank" rel="noopener">статичного експорту
+    OAI-PMH</a> — це знімок стану, а не активна кінцева точка запитів, оскільки сам сайт є
+    статичним, але структурований для повторного використання агрегаторами, такими як Europeana
+    чи Deutsche Digitale Bibliothek. Конвеєр також генерує для кожної сторінки файли TEI, ALTO
+    та METS XML.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Конвеєр</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Цей архів створено за допомогою відкритого конвеєра оцифрування, розробленого в
+    Мюнстерському університеті. Випуски обробляються за допомогою Gemini 2.5 Flash для
+    розпізнавання тексту й двомовної (українсько-англійської) транскрипції, постійно
+    зберігаються на IPFS через Pinata та криптографічно закріплюються в блокчейні Polygon.
+    Вихідний код конвеєра доступний на
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Партнери</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>SUBRAS</strong> (Українське товариство Бразилії) — інституційний партнер і зберігач
+    фізичного архіву.<br>
+    <strong>Мюнстерський університет</strong> — Інститут східноєвропейської історії.<br>
+    <strong>СЗРУ</strong> (Служба зовнішньої розвідки України) — надала розсекречені архівні
+    документи.
+  </p>
+
+  <p style="font-size:12px;color:var(--muted);margin-top:2rem">
+    Скани оцифрованих сторінок закріплені в основній мережі Polygon (хеш транзакції в блокчейні
+    наведено на сторінці кожного випуску) і зберігаються на IPFS через Pinata. Депонування
+    повного корпусу в Internet Archive заплановано після завершення пілотного етапу оцифрування.
+    Цей архів є безкоштовним і перебуває у відкритому доступі.
+  </p></div><div data-lang-pt style='display:none'>
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Sobre este arquivo</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Corpus piloto.</strong> Este site apresenta atualmente 2 edições totalmente
+    digitalizadas (8 páginas) de um total estimado de mais de 14.000 páginas mantidas pela
+    SUBRAS, abrangendo o período de 1924 até o presente. Ele existe para demonstrar todo o
+    pipeline de digitalização — OCR, tradução, extração de entidades, ancoragem de proveniência,
+    exportação em formatos padronizados — antes de um pedido de financiamento para digitalizar a
+    coleção completa. Os números apresentados neste site (número de edições, índices de
+    pessoas/locais) referem-se ao corpus piloto, não ao arquivo completo do jornal.
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">O jornal</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    O Khliborob (Хлібороб, "O Lavrador") foi fundado em Porto União, Paraná, em 1924 pelo poeta
+    ucraniano Petro Karmansky. É um dos jornais da diáspora ucraniana mais antigos em circulação
+    contínua no mundo, publicado ininterruptamente até hoje (sob o nome O Lavrador desde a
+    transição forçada para o português na era Vargas, 1940–46). É publicado pela SUBRAS
+    (Sociedade Ucraniana do Brasil), em Curitiba.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">A descoberta dos documentos da GPU</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Quatro documentos desclassificados dos Arquivos Estaduais Regionais do Serviço de
+    Inteligência Externa da Ucrânia (SZRU) demonstram que o Khliborob circulava dentro de uma
+    rede política ucraniana transnacional que conectava Curitiba, São Paulo e Istambul durante o
+    período do Holodomor (1929–1933). Resumos de inteligência da GPU, compilados para os serviços
+    diplomáticos japoneses em novembro de 1932, citam o jornal como fonte de informações sobre
+    execuções de camponeses famintos na Ucrânia soviética.
+  </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    Esses documentos citam nominalmente indivíduos reais que estavam sob vigilância durante um
+    período de perseguição política. Eles são reproduzidos aqui como registros de inteligência
+    histórica desclassificados, divulgados pelo SZRU (publicados em 23 de novembro de 2025) para
+    fins de pesquisa acadêmica; os leitores devem tratar as identidades envolvidas com o mesmo
+    cuidado que historiadores aplicam a qualquer arquivo que documente repressão política contra
+    pessoas nomeadas.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Metodologia e limitações</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    As imagens das páginas são transcritas e traduzidas (do ucraniano para o inglês, e para o
+    português nos casos em que o original já está em português) usando o OCR de visão
+    computacional Gemini 2.5 Flash. O modelo sinaliza os termos sobre os quais não tem certeza;
+    eles aparecem em cada página da edição como
+    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
+    padding:0 2px">palavras destacadas</mark>, junto com o motivo da sinalização, para que
+    leituras incertas permaneçam visíveis em vez de serem silenciosamente suavizadas. Ainda não
+    foi realizado um estudo independente de precisão de transcrição humana para este corpus
+    piloto — o destaque é um mecanismo de transparência, não uma taxa de erro validada. A
+    tradução automática do ucraniano da diáspora dos anos 1920 e do português da época carrega os
+    riscos habituais de perda de idiomatismos e formulações anacrônicas; pesquisadores que
+    fizerem leitura atenta devem tratar as colunas em inglês/português como um auxílio de
+    navegação e verificar o original em ucraniano (ou a digitalização da página) antes de citar.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Padrões e interoperabilidade</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Cada página digitalizada possui um manifesto IIIF Presentation 3.0 (vinculado a partir da
+    página da edição), de modo que as digitalizações podem ser abertas no Mirador, Universal
+    Viewer ou qualquer outra ferramenta compatível com IIIF. Os metadados de todas as edições
+    também são publicados como uma
+    <a href="../oai-pmh.xml" target="_blank" rel="noopener">exportação estática em Dublin Core /
+    formato OAI-PMH</a> — um instantâneo, não um ponto de consulta ativo, já que o próprio site é
+    hospedado de forma estática, mas estruturado para reutilização por agregadores como a
+    Europeana ou a Deutsche Digitale Bibliothek. TEI, ALTO e METS XML também são gerados por
+    página pelo pipeline.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">O pipeline</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Este arquivo foi construído usando um pipeline de digitalização de código aberto desenvolvido
+    na Universidade de Münster. As edições são processadas usando o Gemini 2.5 Flash para OCR e
+    transcrição bilíngue (ucraniano/inglês), armazenadas permanentemente no IPFS via Pinata e
+    ancoradas criptograficamente na blockchain Polygon. O código-fonte do pipeline está
+    disponível no
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Parceiros</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>SUBRAS</strong> (Sociedade Ucraniana do Brasil) — parceiro institucional e guardião
+    do arquivo físico.<br>
+    <strong>Universidade de Münster</strong> — Instituto de História da Europa Oriental.<br>
+    <strong>SZRU</strong> (Serviço de Inteligência Externa da Ucrânia) — forneceu os documentos
+    de arquivo desclassificados.
+  </p>
+
+  <p style="font-size:12px;color:var(--muted);margin-top:2rem">
+    As digitalizações das páginas são ancoradas na rede principal da Polygon (o hash da
+    transação na blockchain é exibido em cada página de edição) e armazenadas no IPFS via
+    Pinata. O depósito do corpus completo no Internet Archive está planejado assim que a
+    digitalização avançar além da fase piloto. Este arquivo é gratuito e de acesso aberto.
+  </p></div><div data-lang-de style='display:none'>
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Über dieses Archiv</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Pilotkorpus.</strong> Diese Website zeigt derzeit 2 vollständig digitalisierte
+    Ausgaben (8 Seiten) von schätzungsweise über 14.000 Seiten im Bestand von SUBRAS aus der Zeit
+    von 1924 bis heute. Sie dient dazu, die gesamte Digitalisierungs-Pipeline zu demonstrieren —
+    OCR, Übersetzung, Entitätenextraktion, Provenienzverankerung, standardkonformer Export — vor
+    einem Förderantrag zur Digitalisierung des vollständigen Bestands. Die Zahlen auf dieser
+    Website (Ausgabenanzahl, Personen-/Ortsregister) beziehen sich auf den Pilotkorpus, nicht auf
+    das vollständige Zeitungsarchiv.
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Die Zeitung</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Chliborob (Хлібороб, „Der Landwirt") wurde 1924 in Porto União, Paraná, von dem ukrainischen
+    Dichter Petro Karmansky gegründet. Sie ist eine der am längsten ununterbrochen erscheinenden
+    Zeitungen der ukrainischen Diaspora weltweit und wird bis heute fortlaufend veröffentlicht
+    (seit dem erzwungenen Übergang zur portugiesischen Sprache in der Vargas-Ära 1940–46 unter
+    dem Namen O Lavrador). Herausgeber ist SUBRAS (Sociedade Ucraniana do Brasil) in Curitiba.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Die GPU-Entdeckung</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Vier freigegebene Dokumente aus den Regionalen Staatsarchiven des Auslandsnachrichtendienstes
+    der Ukraine (SZRU) belegen, dass Chliborob innerhalb eines transnationalen ukrainischen
+    politischen Netzwerks zirkulierte, das Curitiba, São Paulo und Istanbul während der Zeit des
+    Holodomor (1929–1933) verband. GPU-Geheimdienstberichte, die im November 1932 für den
+    japanischen diplomatischen Dienst zusammengestellt wurden, zitieren die Zeitung als Quelle
+    für Informationen über die Hinrichtung hungernder Bauern in der Sowjetukraine.
+  </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    Diese Dokumente nennen reale Personen, die während einer Periode politischer Verfolgung
+    überwacht wurden. Sie werden hier als freigegebene historische Geheimdienstunterlagen
+    wiedergegeben, veröffentlicht vom SZRU (erschienen am 23. November 2025) zu
+    wissenschaftlichen Forschungszwecken; Leserinnen und Leser sollten die betroffenen Personen
+    mit derselben Sorgfalt behandeln, die Historiker jedem Archiv entgegenbringen, das politische
+    Verfolgung namentlich genannter Personen dokumentiert.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Methodik und Grenzen</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Seitenbilder werden mittels der Bild-OCR von Gemini 2.5 Flash transkribiert und übersetzt
+    (Ukrainisch → Englisch sowie Portugiesisch, sofern das Original bereits auf Portugiesisch
+    vorliegt). Das Modell markiert Textstellen, bei denen es sich unsicher ist; diese erscheinen
+    auf jeder Ausgabenseite als
+    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
+    padding:0 2px">hervorgehobene Wörter</mark> samt Begründung der Markierung, damit unsichere
+    Lesarten sichtbar bleiben, statt stillschweigend geglättet zu werden. Für diesen Pilotkorpus
+    wurde noch keine unabhängige Studie zur Genauigkeit der menschlichen Transkription
+    durchgeführt — die Hervorhebung ist ein Transparenzmechanismus, keine validierte Fehlerquote.
+    Die maschinelle Übersetzung des ukrainischen Diaspora-Dialekts der 1920er Jahre sowie des
+    zeitgenössischen Portugiesisch birgt die üblichen Risiken von Idiomverlust und
+    anachronistischer Formulierung; Forschende, die eine genaue Lektüre durchführen, sollten die
+    englische/portugiesische Spalte als Orientierungshilfe betrachten und vor einem Zitat mit dem
+    ukrainischen Original (oder dem Seitenscan) abgleichen.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards und Interoperabilität</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Jede digitalisierte Seite verfügt über ein IIIF-Presentation-3.0-Manifest (verlinkt von der
+    jeweiligen Ausgabenseite), sodass die Scans in Mirador, Universal Viewer oder jedem anderen
+    IIIF-kompatiblen Tool geöffnet werden können. Die Metadaten aller Ausgaben werden zudem als
+    <a href="../oai-pmh.xml" target="_blank" rel="noopener">statischer Dublin-Core-/OAI-PMH-
+    Export</a> veröffentlicht — ein Schnappschuss statt eines aktiven Abfrage-Endpunkts, da die
+    Website selbst statisch gehostet wird, jedoch strukturiert für die Weiterverwendung durch
+    Aggregatoren wie Europeana oder die Deutsche Digitale Bibliothek. TEI-, ALTO- und METS-XML
+    werden von der Pipeline ebenfalls pro Seite erzeugt.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Die Pipeline</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Dieses Archiv wurde mit einer Open-Source-Digitalisierungs-Pipeline erstellt, die an der
+    Universität Münster entwickelt wurde. Die Ausgaben werden mit Gemini 2.5 Flash für OCR und
+    zweisprachige (ukrainisch/englische) Transkription verarbeitet, dauerhaft über Pinata auf
+    IPFS gespeichert und kryptografisch in der Polygon-Blockchain verankert. Der Quellcode der
+    Pipeline ist auf
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>
+    verfügbar.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Partner</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>SUBRAS</strong> (Sociedade Ucraniana do Brasil) — institutioneller Partner und Hüter
+    des physischen Archivs.<br>
+    <strong>Universität Münster</strong> — Institut für Osteuropäische Geschichte.<br>
+    <strong>SZRU</strong> (Auslandsnachrichtendienst der Ukraine) — stellte die freigegebenen
+    Archivdokumente zur Verfügung.
+  </p>
+
+  <p style="font-size:12px;color:var(--muted);margin-top:2rem">
+    Digitalisierte Seitenscans sind im Polygon-Mainnet verankert (der Transaktions-Hash der
+    Blockchain wird auf jeder Ausgabenseite angezeigt) und über Pinata auf IPFS gespeichert. Die
+    Hinterlegung des vollständigen Korpus beim Internet Archive ist geplant, sobald die
+    Digitalisierung über die Pilotphase hinausgeht. Dieses Archiv ist frei und offen zugänglich.
+  </p></div>
 </div>
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608022301"></script>
+<script src="../assets/lang.js?v=202608022311"></script>
 </body>
 </html>
