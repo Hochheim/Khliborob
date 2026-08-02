@@ -146,7 +146,10 @@
         coPairCount[key] = (coPairCount[key]||0) + 1;
       }
   });
-  const CO_THRESHOLD = 2;  // must share at least 2 pages to draw an edge
+  // For person-only networks or small archives, threshold=1 (any shared issue).
+  // For mixed graphs with many issues, threshold=2 avoids near-complete graphs.
+  const totalIssues = new Set(rawNodes.filter(n=>n.type==="page").map(n=>n.id)).size;
+  const CO_THRESHOLD = (!hasPageNodes || totalIssues <= 3) ? 1 : 2;
   const coEdges = Object.entries(coPairCount)
     .filter(([,cnt]) => cnt >= CO_THRESHOLD)
     .map(([key]) => { const [a,b]=key.split("|"); return {source:a,target:b}; });
