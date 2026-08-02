@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
-  <responseDate>2026-08-02T18:28:25Z</responseDate>
+  <responseDate>2026-08-02T18:54:08Z</responseDate>
   <request verb="ListRecords" metadataPrefix="oai_dc">https://hochheim.github.io/Khliborob/oai-pmh.xml</request>
   <!-- Static snapshot export, not a live OAI-PMH verb endpoint. See /about/ for details. -->
   <ListRecords>
@@ -22,7 +22,7 @@
           <dc:language>eng</dc:language>
           <dc:coverage>Porto União / União da Vitória, Paraná, Brazil</dc:coverage>
           <dc:identifier>https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/</dc:identifier>
-          <dc:relation>https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/khliborob_19270316_no11_page01.json</dc:relation>
+          <dc:relation>https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/manifest.json</dc:relation>
           <dc:rights>Free and open access. Preserved by SUBRAS; digitized as part of a research project at the University of Münster.</dc:rights>
           <dc:description>The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of trade and illiteracy. Ukrainian affairs include protests by scholars against the oppression of Belarusians and Ukrainians in Poland, the discovery of historical documents related to Hetman Mazepa in Par</dc:description>
         </oai_dc:dc>
@@ -46,7 +46,7 @@
           <dc:language>eng</dc:language>
           <dc:coverage>Porto União / União da Vitória, Paraná, Brazil</dc:coverage>
           <dc:identifier>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/</dc:identifier>
-          <dc:relation>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/iiif/khliborob_19280926_no30_page01.json</dc:relation>
+          <dc:relation>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/iiif/manifest.json</dc:relation>
           <dc:rights>Free and open access. Preserved by SUBRAS; digitized as part of a research project at the University of Münster.</dc:rights>
           <dc:description>This page features international news from Brazil, the USSR, Spain, Yugoslavia, China, and the USA. Key topics include the formation of a match syndicate in Brazil, the conscription law in the USSR, a theater fire in Madrid, a plague outbreak in Manchuria, widespread famine in China, and hurricane devastation in the Antilles and the Southern USA. Ukrainian news covers a lecture by German scholar Dr. Koch on Ukrainian identity, the expansion of the All-National Library of Ukraine, the restoration</dc:description>
         </oai_dc:dc>

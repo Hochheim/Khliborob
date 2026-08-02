@@ -1,0 +1,196 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/manifest.json",
+  "type": "Manifest",
+  "label": {
+    "uk": [
+      "Хлібороб — 1927-03-16, Ч. № 11 (139)"
+    ],
+    "en": [
+      "Khliborob / O Lavrador — 1927-03-16, No. № 11 (139)"
+    ]
+  },
+  "behavior": [
+    "paged"
+  ],
+  "metadata": [
+    {
+      "label": {
+        "en": [
+          "Date"
+        ]
+      },
+      "value": {
+        "en": [
+          "1927-03-16"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Issue"
+        ]
+      },
+      "value": {
+        "en": [
+          "№ 11 (139)"
+        ]
+      }
+    },
+    {
+      "label": {
+        "en": [
+          "Publisher"
+        ]
+      },
+      "value": {
+        "en": [
+          "SUBRAS (Sociedade Ucraniana do Brasil)"
+        ]
+      }
+    }
+  ],
+  "homepage": [
+    {
+      "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/",
+      "type": "Text",
+      "label": {
+        "en": [
+          "Issue page in the Khliborob Digital Archive"
+        ]
+      },
+      "format": "text/html"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page01",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Page 01"
+        ]
+      },
+      "width": 3182,
+      "height": 4516,
+      "items": [
+        {
+          "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page01/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page01/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page01",
+              "body": {
+                "id": "https://gateway.pinata.cloud/ipfs/QmRfnxksdFnofDD6mMgAA2zcsf5bN3o4HbS6qXthUHVGUW",
+                "type": "Image",
+                "format": "image/png",
+                "width": 3182,
+                "height": 4516
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page02",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Page 02"
+        ]
+      },
+      "width": 3182,
+      "height": 4516,
+      "items": [
+        {
+          "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page02/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page02/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page02",
+              "body": {
+                "id": "https://gateway.pinata.cloud/ipfs/QmX46QR2yFfH393H7cFoWpAyutbxWEnnQ7Y73E8ENvtpKy",
+                "type": "Image",
+                "format": "image/png",
+                "width": 3182,
+                "height": 4516
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page03",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Page 03"
+        ]
+      },
+      "width": 3182,
+      "height": 4516,
+      "items": [
+        {
+          "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page03/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page03/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page03",
+              "body": {
+                "id": "https://gateway.pinata.cloud/ipfs/QmSoJU5SFZvintgniszZHQTc2jmcRoWXJ8oNV4bv5me5Q8",
+                "type": "Image",
+                "format": "image/png",
+                "width": 3182,
+                "height": 4516
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page04",
+      "type": "Canvas",
+      "label": {
+        "en": [
+          "Page 04"
+        ]
+      },
+      "width": 3182,
+      "height": 4516,
+      "items": [
+        {
+          "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page04/page",
+          "type": "AnnotationPage",
+          "items": [
+            {
+              "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page04/annotation",
+              "type": "Annotation",
+              "motivation": "painting",
+              "target": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/canvas/khliborob_19270316_no11_page04",
+              "body": {
+                "id": "https://gateway.pinata.cloud/ipfs/QmQFxnNB3UxLpb84zzLUvADNT8KMbwjk9sfC7tg1TjfYNq",
+                "type": "Image",
+                "format": "image/png",
+                "width": 3182,
+                "height": 4516
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
