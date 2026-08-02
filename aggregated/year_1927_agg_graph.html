@@ -26,8 +26,8 @@
     #toggle-pages.active{background:#2b6cb0;color:#fff;border-color:#2b6cb0}
 
     /* ── main area ── */
-    #main{display:flex;flex:1;overflow:hidden}
-    #cy{flex:1;background:#f5f4f0}
+    #main{display:flex;flex:1;overflow:hidden;flex-direction:row}
+    #cy{width:100%;height:100%;background:#f5f4f0}
 
     /* ── detail panel ── */
     #detail{width:260px;background:#fff;border-left:1px solid #e0e0e0;
@@ -83,16 +83,18 @@
     </div>
     <button id="toggle-pages">Show issue nodes</button>
   </div>
-  <div id="main" style="position:relative">
-    <div id="cy"></div>
-    <div id="loading">Building graph…</div>
-    <div id="legend">
-      <span><span class="dot" style="background:#3b82f6"></span>Person</span>
-      <span><span class="dot" style="background:#10b981"></span>Location</span>
-      <span><span class="dot" style="background:#f59e0b" id="legend-page"></span>Issue</span>
+  <div id="main">
+    <div id="cy-wrap" style="position:relative;flex:1;overflow:hidden">
+      <div id="cy"></div>
+      <div id="loading">Building graph…</div>
+      <div id="legend">
+        <span><span class="dot" style="background:#3b82f6"></span>Person</span>
+        <span><span class="dot" style="background:#10b981"></span>Location</span>
+        <span><span class="dot" style="background:#f59e0b" id="legend-page"></span>Issue</span>
+      </div>
     </div>
+    <div id="detail"><p class="hint">Click any node<br>to see details.</p></div>
   </div>
-  <div id="detail"><p class="hint">Click any node<br>to see details.</p></div>
 
   <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
   <script>
