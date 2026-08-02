@@ -155,11 +155,11 @@
     .filter(([,cnt]) => cnt >= CO_THRESHOLD)
     .map(([key]) => { const [a,b]=key.split("|"); return {source:a,target:b}; });
 
-  // ── node size: 28-70px proportional to mention count ──
+  // ── node size: 24-72px proportional to mention count ──
   function nodeSize(n) {
     const mc = mentionCount[n.id] || 0;
     const max = 2;
-    return max <= 1 ? 32 : 28 + Math.round((mc / max) * 16);
+    return max <= 1 ? 32 : 24 + Math.round((mc / max) * 48);
   }
 
   // ── build Cytoscape elements ──
@@ -244,29 +244,73 @@
     } },
   ];
 
-  // Force-directed layout: highly-mentioned nodes gravitate to the centre,
-  // lesser-mentioned nodes drift to the edges, creating a natural importance hierarchy.
+  // Row layout sorted by mentions — persons top, locations bottom.
+  // Importance hierarchy comes from node size + opacity: most-mentioned nodes
+  // are larger and fully opaque, lesser-mentioned fade slightly.
+  function computePositions(nodeElements) {
+    const W = document.getElementById("cy").clientWidth  || 1200;
+    const PAD = 60;
+    const usableW = W - PAD * 2;
+    const pos = {};
+
+    const byMentions = (a,b) => (b.data("mentions")||0) - (a.data("mentions")||0);
+    const persons   = nodeElements.filter(n => n.data("type")==="person").sort(byMentions);
+    const locations = nodeElements.filter(n => n.data("type")==="location").sort(byMentions);
+    const pages     = nodeElements.filter(n => n.data("type")==="page");
+
+    function itemWidth(n) {
+      const sz = n.data("size") || 36;
+      return Math.max(sz + 16, (n.data("label")||"").length * 7 + sz + 20);
+    }
+    function placeRow(list, y) {
+      if (!list.length) return;
+      const widths = list.map(itemWidth);
+      const total  = widths.reduce((s,w)=>s+w, 0);
+      const scale  = total > usableW ? usableW / total : 1;
+      let x = PAD + (usableW - total*scale)/2 + widths[0]*scale/2;
+      list.forEach((n,i) => {
+        pos[n.data("id")] = {x, y};
+        if (i < list.length-1) x += widths[i]*scale/2 + widths[i+1]*scale/2;
+      });
+    }
+    function placeGroup(list, startY, rowH) {
+      if (!list.length) return 0;
+      const avgW = list.reduce((s,n)=>s+itemWidth(n),0)/list.length;
+      const perRow = Math.max(1, Math.floor(usableW/avgW));
+      let rows = [];
+      for (let i=0; i<list.length; i+=perRow) rows.push(list.slice(i,i+perRow));
+      rows.forEach((row,ri) => placeRow(row, startY + ri*rowH));
+      return rows.length * rowH;
+    }
+
+    let y = PAD + 50;
+    y += placeGroup(persons,   y, 110);
+    if (persons.length && locations.length) y += 50;
+    y += placeGroup(locations, y, 110);
+    if (pages.length) {
+      const pPerRow = Math.max(1, Math.floor(usableW/100));
+      pages.forEach((n,i) => {
+        pos[n.data("id")] = {
+          x: PAD + (i%pPerRow+0.5)*(usableW/pPerRow),
+          y: y + Math.floor(i/pPerRow)*50
+        };
+      });
+    }
+    return pos;
+  }
+
   function runLayout(cy) {
-    const n = cy.nodes().length;
-    cy.layout({
-      name: "cose",
-      animate: n < 60,          // animate only for smaller graphs (looks nice)
-      animationDuration: 600,
-      fit: true,
-      padding: 60,
-      // Node repulsion scales with size so big nodes claim more space
-      nodeRepulsion: function(node) {
-        return 8000 + (node.data("mentions") || 1) * 2000;
-      },
-      idealEdgeLength: function(edge) { return 120; },
-      edgeElasticity: function(edge) { return 100; },
-      gravity: 1.2,
-      numIter: 1000,
-      initialTemp: 200,
-      coolingFactor: 0.95,
-      minTemp: 1.0,
-      randomize: false,        // deterministic start keeps layout stable on reload
-    }).run();
+    // Apply importance-scaled opacity BEFORE positioning
+    const maxM = Math.max(1, ...cy.nodes().map(n => n.data("mentions")||0));
+    cy.nodes().forEach(n => {
+      const ratio = (n.data("mentions")||1) / maxM;
+      // opacity: 0.45 for min-mentioned → 1.0 for max-mentioned
+      n.style("opacity", 0.45 + ratio * 0.55);
+    });
+
+    const pos = computePositions(cy.nodes().toArray());
+    cy.nodes().forEach(n => { if (pos[n.data("id")]) n.position(pos[n.data("id")]); });
+    cy.fit(cy.elements(), 60);
   }
 
   // For person-only networks (no page nodes), use edge-degree as mention count
