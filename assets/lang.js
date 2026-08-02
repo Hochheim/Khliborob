@@ -36,11 +36,12 @@ function applyLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
-  // Show/hide data-lang-* elements. Per-issue transcripts/abstracts are only
-  // authored in uk/en/pt; German falls back to the English block since no
-  // German translation of the corpus itself exists yet.
-  const dataLangKey = (lang === 'de') ? 'en' : lang;
-  ['en','uk','pt'].forEach(l => {
+  // Show/hide data-lang-* elements. If the page has no block for the chosen
+  // language (older pages, or content not yet translated), fall back to the
+  // English block rather than hiding everything.
+  const hasBlock = document.querySelector('[data-lang-' + lang + ']');
+  const dataLangKey = hasBlock ? lang : 'en';
+  ['en','uk','pt','de'].forEach(l => {
     document.querySelectorAll('[data-lang-' + l + ']').forEach(el => {
       el.style.display = (l === dataLangKey) ? '' : 'none';
     });
