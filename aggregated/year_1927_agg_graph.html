@@ -162,8 +162,22 @@
     const vis = new Set(
       rawNodes.filter(n => n.type==="page" || (mentionCount[n.id]||0) >= minM).map(n => n.id)
     );
+    const candidateIds = new Set(
+      rawNodes.filter(n => vis.has(n.id) && (showPages || n.type !== "page")).map(n => n.id)
+    );
+
+    // Build edges first so we can filter out isolated nodes
+    let edgeSource = showPages ? rawEdges : coEdges;
+    const edges = edgeSource
+      .filter(e => candidateIds.has(nodeId(e.source)) && candidateIds.has(nodeId(e.target)))
+      .map((e,i) => ({ data:{ id:"e"+i, source:nodeId(e.source), target:nodeId(e.target) } }));
+
+    // Only keep nodes that have at least one edge (isolated nodes add clutter, not insight)
+    const connectedIds = new Set();
+    edges.forEach(e => { connectedIds.add(e.data.source); connectedIds.add(e.data.target); });
+
     const nodes = rawNodes
-      .filter(n => vis.has(n.id) && (showPages || n.type !== "page"))
+      .filter(n => candidateIds.has(n.id) && connectedIds.has(n.id))
       .map(n => ({ data:{
         id: n.id, label: n.label || n.id, type: n.type,
         pages: (n.pages||[]).join(","),
@@ -172,12 +186,6 @@
         snippets_uk: JSON.stringify(n.snippets_uk||{}),
         snippets_en: JSON.stringify(n.snippets_en||{}),
       } }));
-    const visIds = new Set(nodes.map(n => n.data.id));
-
-    let edgeSource = showPages ? rawEdges : coEdges;
-    const edges = edgeSource
-      .filter(e => visIds.has(nodeId(e.source)) && visIds.has(nodeId(e.target)))
-      .map((e,i) => ({ data:{ id:"e"+i, source:nodeId(e.source), target:nodeId(e.target) } }));
     return [...nodes, ...edges];
   }
 
@@ -413,8 +421,12 @@
     tappedNode = e.target;
     const hood = e.target.closedNeighborhood();
     cy.elements().removeClass("dimmed highlighted");
-    cy.elements().not(hood).addClass("dimmed");
-    hood.edges().addClass("highlighted");
+    // Only dim other nodes when this node actually has neighbors — otherwise
+    // dimming everything makes the graph appear to vanish.
+    if (e.target.degree() > 0) {
+      cy.elements().not(hood).addClass("dimmed");
+      hood.edges().addClass("highlighted");
+    }
     e.target.addClass("highlighted");
     const d = e.target.data();
     const badgeClass = "badge badge-" + d.type;
