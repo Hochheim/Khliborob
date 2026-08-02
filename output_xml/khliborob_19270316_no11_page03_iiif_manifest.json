@@ -1,0 +1,45 @@
+{
+    "@context": "http://iiif.io/api/presentation/3/context.json",
+    "id": "https://gateway.pinata.cloud/ipfs/item_khliborob_19270316_no11_page03_manifest.json",
+    "type": "Manifest",
+    "label": {
+        "uk": [
+            "Новий Шлях — Сторінка khliborob_19270316_no11_page03"
+        ],
+        "en": [
+            "New Path — Page khliborob_19270316_no11_page03"
+        ]
+    },
+    "behavior": [
+        "paged"
+    ],
+    "items": [
+        {
+            "id": "https://gateway.pinata.cloud/ipfs/khliborob_19270316_no11_page03/canvas/p1",
+            "type": "Canvas",
+            "width": 2400,
+            "height": 3600,
+            "items": [
+                {
+                    "id": "https://gateway.pinata.cloud/ipfs/khliborob_19270316_no11_page03/page/p1/1",
+                    "type": "AnnotationPage",
+                    "items": [
+                        {
+                            "id": "https://gateway.pinata.cloud/ipfs/khliborob_19270316_no11_page03/annotation/p1-image",
+                            "type": "Annotation",
+                            "motivation": "painting",
+                            "target": "https://gateway.pinata.cloud/ipfs/khliborob_19270316_no11_page03/canvas/p1",
+                            "body": {
+                                "id": "https://gateway.pinata.cloud/ipfs/QmSoJU5SFZvintgniszZHQTc2jmcRoWXJ8oNV4bv5me5Q8",
+                                "type": "Image",
+                                "format": "image/jpeg",
+                                "width": 2400,
+                                "height": 3600
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

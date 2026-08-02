@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>1928 — Location Map</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    body { margin:0; font-family:sans-serif; }
+    #header { background:#2c3e50; color:#fff; padding:10px 16px;
+               display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+    #header h2 { margin:0; font-size:1rem; flex-shrink:0; }
+    #header p  { margin:0; font-size:0.8rem; opacity:0.7; }
+    #filter-bar { margin-left:auto; display:flex; align-items:center; gap:8px;
+                   font-size:0.78rem; background:rgba(255,255,255,0.1);
+                   padding:4px 12px; border-radius:5px; }
+    #min-pages { width:110px; accent-color:#f39c12; }
+    #map { width:100%; height:calc(100vh - 56px); }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <div>
+      <h2>📍 1928 — Location Map</h2>
+      <p id="loc-count">1 issue(s)</p>
+    </div>
+    <div id="filter-bar">
+      <label for="min-pages">Min. page mentions:</label>
+      <input type="range" id="min-pages" min="1" max="1" value="1" step="1"/>
+      <span id="filter-val">1</span>
+    </div>
+  </div>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map');
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+
+    const allLocations = [{"label": "Porto União (Порто Уніон)", "lat": -26.2415, "lon": -50.9388, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Brazil (Бразилія)", "lat": -14.235, "lon": -51.9253, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Rio de Janeiro (Ріо-де-Жанейро)", "lat": -22.9068, "lon": -43.1729, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "São Paulo (Сан-Паулу)", "lat": -23.5505, "lon": -46.6333, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Santa Catarina (Санта-Катаріна)", "lat": -27.2185, "lon": -50.2003, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Soviet Union (Радянський Союз)", "lat": 61.524, "lon": 105.3188, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Madrid (Мадрид)", "lat": 40.4168, "lon": -3.7038, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Spain (Іспанія)", "lat": 40.4637, "lon": -3.7492, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Ukraine (Україна)", "lat": 48.3794, "lon": 31.1656, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Caucasus (Кавказ)", "lat": 42.0, "lon": 45.0, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Kharkiv (Харків)", "lat": 49.9935, "lon": 36.2304, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Yugoslavia (Югославія)", "lat": 44.0, "lon": 21.0, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Manchuria (Манджурія)", "lat": 47.0, "lon": 125.0, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "China (Китай)", "lat": 35.8617, "lon": 104.1954, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "New York City (Нью-Йорк)", "lat": 40.7128, "lon": -74.006, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "United States (USA) (Сполучені Держави (США))", "lat": 37.0902, "lon": -95.7129, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Greece (Греція)", "lat": 39.0742, "lon": 21.8243, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Romania (Румунія)", "lat": 45.9432, "lon": 24.9668, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Volhynia (Волинь)", "lat": 50.73, "lon": 25.1, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Galicia (Галичина)", "lat": 49.76, "lon": 24.98, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Russia (Росія)", "lat": 61.524, "lon": 105.3188, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Prague (Прага)", "lat": 50.0755, "lon": 14.4378, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Lviv (Львів)", "lat": 49.8397, "lon": 24.0297, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Poland (Польща)", "lat": 51.9194, "lon": 19.1451, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Tukhlya (Тухля)", "lat": 48.9194, "lon": 23.3644, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Przemyśl (Перемишль)", "lat": 49.7828, "lon": 22.775, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Tukholshchyna (Тухольщина)", "lat": 48.8, "lon": 23.5, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Muscovy (Московщина)", "lat": 55.7558, "lon": 37.6173, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Doryzoni (Доризоні)", "lat": 48.0125, "lon": 25.9922, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Rome (Рим)", "lat": 41.902782, "lon": 12.496366, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Nicaea (Нікея)", "lat": 40.4287, "lon": 29.5054, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Southern Germany (Південна Німеччина)", "lat": 48.0, "lon": 10.0, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Canada (Канада)", "lat": 56.1304, "lon": -106.3468, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Kitsman (Кіцмані)", "lat": 48.4253, "lon": 25.7539, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Bukovyna (Буковина)", "lat": 48.25, "lon": 25.5, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Bessarabia (Бессарабія)", "lat": 46.9, "lon": 29.0, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Trento (Тридент)", "lat": 46.066667, "lon": 11.116667, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Europe (Європа)", "lat": 48.69096, "lon": 19.14514, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Baltic Sea (Балтійське море)", "lat": 56.0, "lon": 18.0, "is_region": false, "is_waterway": true, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Sea of Azov (Азовське море)", "lat": 46.196729, "lon": 36.7357066, "is_region": false, "is_waterway": true, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Kronstadt (Кронштадт)", "lat": 59.99139, "lon": 29.77444, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Gulf of Finland (Фінська затока)", "lat": 59.8737114, "lon": 26.3229884, "is_region": false, "is_waterway": true, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Leningrad (Ленінград)", "lat": 59.93428, "lon": 30.3351, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Curitiba (Куритиба)", "lat": -25.4296, "lon": -49.2718, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Stanislaviv (Ivano-Frankivsk) (Станіславів)", "lat": 48.92263, "lon": 24.71043, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Hryby (Lviv Oblast) (Гриби)", "lat": 49.9733, "lon": 24.2381, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Paraná (Парана)", "lat": -24.89311, "lon": -51.55462, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Vitória (Brazil) (Вікторія)", "lat": -20.27833, "lon": -40.30833, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Rio Grande (Brazil) (Ріо Гранде)", "lat": -32.03603, "lon": -52.09675, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Antônio Cândido (Paraná, Brazil) (Антоніо Кандідо)", "lat": -24.08333, "lon": -50.91667, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Dorizon (Ponta Grossa, Brazil) (Доризон)", "lat": -25.04868, "lon": -50.08985, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Ponta Grossa (Понта Гросса)", "lat": -25.09347, "lon": -50.16333, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}, {"label": "Argentina (Аргентина)", "lat": -34.0, "lon": -64.0, "is_region": false, "is_waterway": false, "polygon": null, "pages": ["khliborob_19280926_no30"], "omeka_urls": {}, "count": 1}];
+    var layerGroup = L.layerGroup().addTo(map);
+
+    var MONTHS = ["","January","February","March","April","May","June",
+                  "July","August","September","October","November","December"];
+    var SITE_BASE = "https://hochheim.github.io/Khliborob/";
+
+    function formatIssueId(pid) {
+      // Matches both issue IDs (khliborob_19270316_no11) and page IDs (_page01 suffix)
+      var m = pid.match(/[a-z]+_([0-9]{4})([0-9]{2})([0-9]{2})_([^_]+)/i);
+      if (!m) return pid;
+      var year  = m[1], mon = MONTHS[parseInt(m[2],10)] || m[2], day = parseInt(m[3],10);
+      var issue = m[4].replace(/^no/i,"No. ").replace(/^ch/i,"Ch. ");
+      return day + " " + mon + " " + year + ", " + issue;
+    }
+
+    function renderMarkers(minPages) {
+      layerGroup.clearLayers();
+      var visible = 0;
+      allLocations.forEach(function(loc) {
+        if (loc.count < minPages) return;
+        visible++;
+          var citedIn = loc.pages.map(function(p) {
+          // Strip _pageNN suffix to get the issue ID for the link
+          var issueId = p.includes("_page") ? p.substring(0, p.lastIndexOf("_page")) : p;
+          var url = (loc.omeka_urls && loc.omeka_urls[p]) ? loc.omeka_urls[p]
+                    : (SITE_BASE ? SITE_BASE + "issues/" + issueId + "/" : "");
+          var cite = formatIssueId(p);
+          return url
+            ? '<a href="' + url + '" target="_blank" style="color:#2980b9">' + cite + ' ↗</a>'
+            : cite;
+        }).join("<br>");
+        var popup = loc.label + "<br><small><b>Cited in:</b><br>" + citedIn + "</small>";
+
+        if ((loc.is_waterway || loc.is_region) && loc.polygon) {
+          var color = loc.is_waterway ? "#2980b9" : "#e67e22";
+          var fill  = loc.is_waterway ? "#3498db" : "#f39c12";
+          L.geoJSON(JSON.parse(loc.polygon), {
+            style: {color: color, fillColor: fill, fillOpacity: 0.15, weight: loc.is_waterway ? 3 : 2}
+          }).addTo(layerGroup).bindPopup(popup);
+        } else if (loc.is_waterway) {
+          L.circleMarker([loc.lat, loc.lon], {radius:8, color:"#2980b9", fillColor:"#3498db", fillOpacity:0.8})
+           .addTo(layerGroup).bindPopup("💧 " + popup);
+        } else if (loc.is_region) {
+          L.circleMarker([loc.lat, loc.lon], {radius:10, color:"#e67e22", fillColor:"#f39c12", fillOpacity:0.8})
+           .addTo(layerGroup).bindPopup("⚠️ " + popup + "<br><small><em>Approximate centroid.</em></small>");
+        } else {
+          L.marker([loc.lat, loc.lon]).addTo(layerGroup).bindPopup(popup);
+        }
+      });
+      document.getElementById("loc-count").textContent =
+        visible + " location(s) visible of " + allLocations.length + " total";
+    }
+
+    renderMarkers(1);
+    map.fitBounds([[-26.2415, -50.9388], [-14.235, -51.9253], [-22.9068, -43.1729], [-23.5505, -46.6333], [-27.2185, -50.2003], [61.524, 105.3188], [40.4168, -3.7038], [40.4637, -3.7492], [48.3794, 31.1656], [42.0, 45.0], [49.9935, 36.2304], [44.0, 21.0], [47.0, 125.0], [35.8617, 104.1954], [40.7128, -74.006], [37.0902, -95.7129], [39.0742, 21.8243], [45.9432, 24.9668], [50.73, 25.1], [49.76, 24.98], [61.524, 105.3188], [50.0755, 14.4378], [49.8397, 24.0297], [51.9194, 19.1451], [48.9194, 23.3644], [49.7828, 22.775], [48.8, 23.5], [55.7558, 37.6173], [48.0125, 25.9922], [41.902782, 12.496366], [40.4287, 29.5054], [48.0, 10.0], [56.1304, -106.3468], [48.4253, 25.7539], [48.25, 25.5], [46.9, 29.0], [46.066667, 11.116667], [48.69096, 19.14514], [56.0, 18.0], [46.196729, 36.7357066], [59.99139, 29.77444], [59.8737114, 26.3229884], [59.93428, 30.3351], [-25.4296, -49.2718], [48.92263, 24.71043], [49.9733, 24.2381], [-24.89311, -51.55462], [-20.27833, -40.30833], [-32.03603, -52.09675], [-24.08333, -50.91667], [-25.04868, -50.08985], [-25.09347, -50.16333], [-34.0, -64.0]], {padding: [40, 40]});
+
+    document.getElementById("min-pages").addEventListener("input", function() {
+      document.getElementById("filter-val").textContent = this.value;
+      renderMarkers(parseInt(this.value));
+    });
+  </script>
+</body>
+</html>

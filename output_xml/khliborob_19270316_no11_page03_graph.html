@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knowledge Graph — khliborob_19270316_no11_page03</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:#f5f4f0;font-family:'Segoe UI',system-ui,sans-serif;color:#1a1a1a;
+         display:flex;flex-direction:column;height:100vh;overflow:hidden}
+    #topbar{background:#fff;border-bottom:1px solid #ddd;padding:8px 16px;flex-shrink:0;
+             display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+             box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    #topbar h2{font-size:.88rem;font-weight:700;color:#1a1a1a}
+    #topbar .sub{font-size:.7rem;color:#999}
+    #topbar .issue-link{font-size:.78rem;color:#2b6cb0;text-decoration:none;
+                         border:1px solid #bfdbfe;border-radius:5px;padding:3px 9px;white-space:nowrap}
+    #topbar .issue-link:hover{background:#eff6ff}
+    #search{flex:1;min-width:130px;max-width:200px;border:1px solid #ccc;
+             border-radius:6px;padding:4px 9px;font-size:.8rem;outline:none}
+    #search:focus{border-color:#2b6cb0;box-shadow:0 0 0 2px rgba(43,108,176,.15)}
+    #layout{display:flex;flex:1;overflow:hidden}
+    #cy{flex:1;background:#f5f4f0}
+    #panel{width:250px;background:#fff;border-left:1px solid #e0e0e0;padding:14px;
+            font-size:.8rem;overflow-y:auto;flex-shrink:0;
+            box-shadow:-2px 0 6px rgba(0,0,0,.04)}
+    #panel h3{font-size:.9rem;font-weight:700;margin-bottom:4px;line-height:1.3}
+    .badge{display:inline-block;border-radius:99px;padding:2px 10px;margin-bottom:8px;
+            font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+    .bp{background:#dbeafe;color:#1e40af}
+    .bl{background:#d1fae5;color:#065f46}
+    .field{margin-bottom:9px}
+    .field b{display:block;font-size:.65rem;text-transform:uppercase;
+              letter-spacing:.06em;color:#bbb;margin-bottom:3px}
+    .field a{color:#2b6cb0;text-decoration:none;font-size:.78rem}
+    .field a:hover{text-decoration:underline}
+    .field ul{list-style:none;padding:0}
+    .field li{padding:2px 0;border-bottom:1px solid #f0f0f0;font-size:.76rem}
+    .field li:last-child{border-bottom:none}
+    .snip{border-left:3px solid #ccc;padding:3px 8px;margin:4px 0;
+           font-size:.73rem;font-style:italic;color:#555;background:#fafafa;
+           border-radius:0 3px 3px 0;line-height:1.5}
+    .snip.uk{border-color:#3b82f6}
+    .snip.en{border-color:#10b981}
+    .hint{color:#ccc;font-size:.78rem;margin-top:24px;text-align:center;line-height:1.7}
+    #legend{position:absolute;bottom:10px;left:10px;background:rgba(255,255,255,.93);
+             padding:6px 12px;border-radius:8px;font-size:.7rem;color:#555;
+             border:1px solid #e0e0e0;display:flex;gap:12px;pointer-events:none}
+    .dot{display:inline-block;width:9px;height:9px;border-radius:50%;
+          margin-right:4px;vertical-align:middle}
+    .dia{display:inline-block;width:9px;height:9px;background:#10b981;
+          margin-right:4px;vertical-align:middle;transform:rotate(45deg)}
+    #fitbtn{margin-left:auto;background:#f3f4f6;border:1px solid #d1d5db;
+             border-radius:5px;padding:3px 10px;font-size:.75rem;cursor:pointer}
+    #fitbtn:hover{background:#e5e7eb}
+  </style>
+</head>
+<body>
+  <div id="topbar">
+    <div>
+      <h2>🧠 Ukrainian Farmer · 1927-03-16 · No. № 11 (139)</h2>
+      <span class="sub">Nodes = entities on this page · Edges = mentioned near each other · Click for details</span>
+    </div>
+    <input id="search" type="search" placeholder="Search…" autocomplete="off"/>
+    <a class="issue-link" href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/" target="_blank">↗ Open issue page</a>
+    <button id="fitbtn">⊡ Fit</button>
+  </div>
+  <div id="layout">
+    <div style="position:relative;flex:1;display:flex">
+      <div id="cy"></div>
+      <div id="legend">
+        <span><span class="dot" style="background:#f59e0b"></span>Issue</span>
+        <span><span class="dot" style="background:#3b82f6"></span>Person</span>
+        <span><span class="dia"></span>Location</span>
+        <span style="color:#94a3b8">— typed relation</span>
+      </div>
+    </div>
+    <div id="panel"><p class="hint">Click any node<br>to see details.</p></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.26.0/dist/cytoscape.min.js"></script>
+  <script>
+  if (window.self !== window.top) {
+    document.body.innerHTML = `
+      <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
+                  height:100vh;background:#f5f4f0;font-family:sans-serif;gap:16px;padding:20px;text-align:center">
+        <p style="font-size:.9rem;color:#666">The Knowledge Graph needs its own tab to be fully interactive.</p>
+        <a href="${window.location.href}" target="_blank"
+           style="background:#2b6cb0;color:#fff;padding:12px 28px;border-radius:8px;
+                  text-decoration:none;font-size:.9rem;font-weight:600">
+          🧠 Open Knowledge Graph ↗
+        </a>
+      </div>`;
+  }
+
+  const RAW = [{"id": "__page__", "type": "page", "label": "Ukrainian Farmer\\n1927-03-16\\nNo. № 11 (139)"}, {"id": "В. Кухар", "type": "person", "label": "В. Кухар / V. Kukhar", "snippet_uk": "… також 4 льоти в тім же містечку. Negocio urgente! За інформаціями звертатись до власника В. Кухара (Ред. „Укр. Хліб.'), або до п. Якима Шастала в Marechal Mallet. КОРИСТАЙТЕ З ОКАЗІЇ! Заплатіть! 12$0…", "snippet_en": "", "name_uk": "В. Кухар"}, {"id": "União da Vitória", "type": "location", "label": "União da Vitória", "snippet_uk": "… всяку діяльність в С. Пауло, 4-III-1927. До Хвальної Редакції „Українського Хлібороба' В Уніон да Вікторія. В розписаній анкеті „Укр. Хлібороба' в ч. 8, позволяю і я собі забрати голос мимо того, що …", "snippet_en": "…ties in S. Paulo, 4-III-1927. To the Honored Editorial Board of 'Ukrayinsky Khliborob' in União da Vitória. In the filled questionnaire of 'Ukr. Khliborob' in no. 8, I also allow myself to speak out, …", "lat": -26.23, "lon": -50.93, "name_uk": "Уніон да Вікторія"}, {"id": "Brazil", "type": "location", "label": "Brazil", "snippet_uk": "…озписаній анкеті „Укр. Хлібороба' в ч. 8, позволяю і я собі забрати голос мимо того, що в Бразилії я щойно шестий місяць і вимог тут. української кольонії не знаю, щоби читаючий загал раціонально дома…", "snippet_en": "…re of 'Ukr. Khliborob' in no. 8, I also allow myself to speak out, despite having been in Brazil for only six months and not knowing the demands of the local Ukrainian colony, so that the reading publ…", "lat": -14.23, "lon": -51.92, "name_uk": "Бразилія"}, {"id": "Curitiba", "type": "location", "label": "Curitiba", "snippet_uk": "… книжки, а в кінци, треба видавати його в Порті, ...— і то не зле! — Цікаве, чи коли наша куритибська громада перестане грати ролю трутів? Чи ще трафиться хтось новий, що потрафить сподобатись своїми …", "snippet_en": "… Papanduva 8/3/1927 B. HEVKO. was opened anew to everyone with new information. Thanks in Curitiba, it is necessary to practice in a way that is also useful for the Ukrainian community. 2) I believe t…", "lat": -25.42, "lon": -49.27, "name_uk": "Куритибська"}, {"id": "Rome", "type": "location", "label": "Rome", "snippet_uk": "…. не довідавсіям, але мені сі 'зляками же за те, що дурні, що не є „елементари', а що не тримаються гурту, і не читають поучаючі книжки і „Українського Хлібороба' „Укр. Хл.' жалували по а в „Івановій …", "snippet_en": "", "lat": 41.9, "lon": 12.45, "name_uk": "Рим"}, {"id": "Galicia", "type": "location", "label": "Galicia", "snippet_uk": "", "snippet_en": "…this is not due to a bad religion, but rather to the extent that it is now carried out in Galicia. I think it will continue as it is now with an important goal. [Regarding] any kind of writing, to pla…", "lat": 49.5, "lon": 24.5, "name_uk": "Галичина"}, {"id": "Rus'", "type": "location", "label": "Rus'", "snippet_uk": "…ш мені за сі крайцарі у аптиці „нікс'. „Коли я, мамо, забуду, як то оно зветься', каже Андрусь крізь плач, „від нас до міста дві милі, а ви знаєте, мамо, який я дурний; доки зайду до міста, доки те — …", "snippet_en": "…Niks! — so loudly that the whole village could hear. The German listened — listened to Andrus's 'Niks', and then shouts to the lads: 'Hey, lads, give that stupid fellow a good thrashing there, so he r…", "lat": 50.0, "lon": 40.0, "name_uk": "Русь"}, {"id": "Mallet", "type": "location", "label": "Mallet", "snippet_uk": "…А!!! ОКАЗІЯ! Продасться цілком нова хата, положена в українській дільниці міста. точка М. Малєт (проти школи С.С. і близько нової української церкви, яка незадовго почне будуватися) Величина хати – 8 …", "snippet_en": "…out his grandmother, so he took them out to have peace from her. After coffee, we went to Mallet to collect money for the days I worked, as I didn't know, and there I learned about new things that hap…", "lat": -25.8653, "lon": -50.8406, "name_uk": "Малєт"}, {"id": "Porto", "type": "location", "label": "Porto", "snippet_uk": "…ть черенки, відтак вже їх нема, треба спродавати книжки, а в кінци, треба видавати його в Порті, ...— і то не зле! — Цікаве, чи коли наша куритибська громада перестане грати ролю трутів? Чи ще трафить…", "snippet_en": "…ere were none, it's necessary to sell books, and finally, it's necessary to publish it in Porto... — and that's not bad! — It's interesting if our Curitiba community will stop playing the role of pois…", "lat": 41.1579, "lon": -8.6291, "name_uk": "Порто"}, {"id": "Czechoslovakia", "type": "location", "label": "Czechoslovakia", "snippet_uk": "…ибі місячник „Життя“. Що він до тепер не появився, то тому, що гроші зібрали і вислані до Чехословаччини „експресом'. Але, і як траплялось се вже нераз з нашими і між другими, що коли висилається", "snippet_en": "…to appear here. The reason it hasn't appeared yet is that the money collected was sent to Czechoslovakia by 'express'. But, as has happened many times with us and with others, when money is sent", "lat": 49.8175, "lon": 15.473, "name_uk": "Чехословаччина"}, {"id": "Rus", "type": "location", "label": "Rus", "snippet_uk": "…ш мені за сі крайцарі у аптиці „нікс'. „Коли я, мамо, забуду, як то оно зветься', каже Андрусь крізь плач, „від нас до міста дві милі, а ви знаєте, мамо, який я дурний; доки зайду до міста, доки те — …", "snippet_en": "…And grandmother Perynukha's eyes hurt, so she took four kreutzers, and says to her son Andrus: 'Go, son, to town, and buy me for these kreutzers in the pharmacy 'niks'. 'Mom, if I forget what it's cal…", "lat": 50.45, "lon": 30.52, "name_uk": "Русь"}];
+  const EDGES = [{"source": "__page__", "target": "В. Кухар"}, {"source": "__page__", "target": "União da Vitória"}, {"source": "__page__", "target": "Brazil"}, {"source": "__page__", "target": "Curitiba"}, {"source": "__page__", "target": "Rome"}, {"source": "__page__", "target": "Galicia"}, {"source": "__page__", "target": "Rus'"}, {"source": "__page__", "target": "Mallet"}, {"source": "__page__", "target": "Porto"}, {"source": "__page__", "target": "Czechoslovakia"}, {"source": "__page__", "target": "Rus"}];
+  function nid(x) { return typeof x==="object"?x.id:String(x); }
+
+  // Layout: page hub at centre, persons top, locations bottom.
+  // Horizontal spacing is proportional to label length — not equidistant.
+  function twoRowPositions() {
+    const persons   = RAW.filter(n => n.type==="person");
+    const locations = RAW.filter(n => n.type==="location");
+    const W = document.getElementById("cy").clientWidth  || 900;
+    const H = document.getElementById("cy").clientHeight || 620;
+    const PAD = 70;
+    const usableW = W - PAD * 2;
+    const pos = {};
+
+    // Centre: page hub node
+    pos["__page__"] = {x: W / 2, y: H / 2};
+
+    function placeRow(list, y, minSpacing) {
+      if (!list.length) return;
+      const widths = list.map(n => Math.max(minSpacing, n.label.length * 7 + 70));
+      const total  = widths.reduce((s,w) => s+w, 0);
+      const scale  = total > usableW ? usableW / total : 1;
+      let x = PAD + (usableW - total * scale) / 2 + widths[0] * scale / 2;
+      list.forEach((n,i) => {
+        pos[n.id] = {x, y};
+        x += (widths[i] * scale / 2) + (widths[i+1] ? widths[i+1] * scale / 2 : 0);
+      });
+    }
+
+    // Persons top; locations bottom (1 or 2 rows)
+    if (persons.length)   placeRow(persons,   H * 0.14, 160);
+    if (locations.length) {
+      if (locations.length <= 8) {
+        placeRow(locations, H * 0.80, 140);
+      } else {
+        const mid  = Math.ceil(locations.length / 2);
+        placeRow(locations.slice(0, mid), H * 0.70, 130);
+        placeRow(locations.slice(mid),    H * 0.90, 130);
+      }
+    }
+    // single-type fallback
+    if (!persons.length)   placeRow(locations, H * 0.20, 140);
+    if (!locations.length) placeRow(persons,   H * 0.80, 160);
+
+    return pos;
+  }
+
+  const pos = twoRowPositions();
+
+  const cy = cytoscape({
+    container: document.getElementById("cy"),
+    elements: [
+      ...RAW.map(n => ({ data:{
+          id:n.id, label:n.label, type:n.type,
+          lat:n.lat||0, lon:n.lon||0, name_uk:n.name_uk||"",
+          snippet_uk:n.snippet_uk||"", snippet_en:n.snippet_en||""
+      }, position: pos[n.id] || {x:400,y:300} })),
+      ...EDGES.map((e,i) => ({ data:{ id:"e"+i, source:nid(e.source), target:nid(e.target),
+          label:e.label||"", evidence:e.evidence||"" } }))
+    ],
+    style:[
+      { selector:"node[type='page']", style:{
+        "background-color":"#f59e0b","border-color":"#b45309","border-width":2,
+        "width":60,"height":60,"shape":"ellipse",
+        "label":"data(label)","color":"#78350f","font-size":11,"font-weight":700,
+        "text-valign":"center","text-halign":"center","text-wrap":"wrap","text-max-width":"90px",
+        "text-background-color":"rgba(255,255,255,.0)","text-background-opacity":0,
+      } },
+      { selector:"node[type='person']", style:{
+        "background-color":"#3b82f6","border-color":"#1d4ed8","border-width":2,
+        "width":46,"height":46,
+        "label":"data(label)","color":"#1e3a5f","font-size":12,"font-weight":600,
+        "text-valign":"bottom","text-halign":"center","text-margin-y":8,
+        "text-background-color":"rgba(255,255,255,.85)","text-background-opacity":1,
+        "text-background-padding":"2px","text-background-shape":"roundrectangle",
+        "text-max-width":"150px","text-wrap":"wrap",
+      } },
+      { selector:"node[type='location']", style:{
+        "background-color":"#10b981","border-color":"#047857","border-width":2,
+        "width":42,"height":42,"shape":"diamond",
+        "label":"data(label)","color":"#064e3b","font-size":12,"font-weight":600,
+        "text-valign":"bottom","text-halign":"center","text-margin-y":12,
+        "text-background-color":"rgba(255,255,255,.85)","text-background-opacity":1,
+        "text-background-padding":"2px","text-background-shape":"roundrectangle",
+        "text-max-width":"150px","text-wrap":"wrap",
+      } },
+      { selector:"node.dim",  style:{"opacity":0.15} },
+      { selector:"node.hi",   style:{"border-color":"#e11d48","border-width":4} },
+      { selector:"edge", style:{
+        "line-color":"#94a3b8","opacity":0.55,"width":2,"curve-style":"bezier",
+        "label":"data(label)","font-size":9,"color":"#6b7280",
+        "text-background-color":"rgba(255,255,255,.8)","text-background-opacity":1,
+        "text-background-padding":"1px","text-rotation":"autorotate",
+      } },
+      { selector:"edge.dim",  style:{"opacity":0.04} },
+      { selector:"edge.hi",   style:{"line-color":"#e11d48","opacity":1,"width":3} },
+    ],
+    layout:{ name:"preset" },
+    userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
+  });
+  cy.fit(cy.elements(), 60);
+
+  document.getElementById("fitbtn").onclick = () => cy.fit(cy.elements(), 60);
+
+  document.getElementById("search").addEventListener("input", function(){
+    const q = this.value.trim().toLowerCase();
+    if (!q) { cy.elements().removeClass("dim hi"); return; }
+    cy.elements().addClass("dim");
+    cy.nodes().filter(n => n.data("label").toLowerCase().includes(q))
+      .removeClass("dim").addClass("hi").neighborhood().removeClass("dim");
+  });
+
+  cy.on("mouseover","node", e => {
+    const h = e.target.closedNeighborhood();
+    cy.elements().not(h).addClass("dim");
+    h.removeClass("dim"); h.edges().addClass("hi"); e.target.addClass("hi");
+    cy.container().style.cursor="pointer";
+  });
+  cy.on("mouseout","node", () => {
+    cy.elements().removeClass("dim hi");
+    cy.container().style.cursor="";
+  });
+
+  cy.on("tap","node", e => {
+    const d = e.target.data();
+    const uk = d.snippet_uk ? `<div class="snip uk">🇺🇦 ${d.snippet_uk}</div>` : "";
+    const en = d.snippet_en ? `<div class="snip en">🇬🇧 ${d.snippet_en}</div>` : "";
+    const conn = e.target.neighborhood("node")
+      .map(n=>`<li>${n.data("label")} <span style="color:#aaa;font-size:.68rem">[${n.data("type")}]</span></li>`).join("");
+    let extra = "";
+    if (d.type==="location" && (d.lat||d.lon)) {
+      const url=`https://www.openstreetmap.org/?mlat=${d.lat}&mlon=${d.lon}&zoom=8`;
+      extra = `<div class="field"><b>Map</b><a href="${url}" target="_blank">Open in OpenStreetMap ↗</a></div>`;
+      if (d.name_uk) extra += `<div class="field"><b>Ukrainian</b><p style="font-size:.78rem">${d.name_uk}</p></div>`;
+    }
+    document.getElementById("panel").innerHTML = `
+      <h3>${d.label}</h3>
+      <span class="badge ${d.type==="person"?"bp":"bl"}">${d.type}</span>
+      ${uk}${en}${extra}
+      ${conn?`<div class="field"><b>Connected to</b><ul>${conn}</ul></div>`:""}`;
+  });
+  cy.on("tap", e => {
+    if (e.target===cy) {
+      cy.elements().removeClass("dim hi");
+      document.getElementById("panel").innerHTML="<p class='hint'>Click any node<br>to see details.</p>";
+    }
+  });
+  </script>
+</body>
+</html>

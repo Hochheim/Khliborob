@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Location Map — khliborob_19270316_no11_page03</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #header { background: #2c3e50; color: #fff; padding: 10px 16px; }
+    #header h2 { margin: 0; font-size: 1rem; }
+    #header p  { margin: 2px 0 0; font-size: 0.8rem; opacity: 0.7; }
+    #map { width: 100%; height: calc(100vh - 60px); }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2>📍 Location Map — khliborob_19270316_no11_page03</h2>
+    <p>Khliborob &nbsp;·&nbsp; 1927-03-16 &nbsp;·&nbsp; no11
+       &nbsp;·&nbsp; 8 geocoded, 0 without coordinates
+       &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;border-radius:50%;vertical-align:middle"></span> = large region (approximate)</p>
+  </div>
+  
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map');
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+    L.circleMarker([-14.235, -51.9253], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Brazil (Бразилія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-26.2239, -50.2742]).addTo(map).bindPopup('União da Vitória (Уніон да Вікторія)');
+    L.circleMarker([49.5, 24.5], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Galicia (Галичина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-25.429, -49.2713]).addTo(map).bindPopup('Curitiba (Куритиба)');
+    L.marker([-25.8653, -50.8406]).addTo(map).bindPopup('Mallet (Малєт)');
+    L.circleMarker([51.1657, 10.4515], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Germany (Німеччина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([41.1579, -8.6291]).addTo(map).bindPopup('Porto (Порто)');
+    L.circleMarker([49.8175, 15.473], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Czechoslovakia (Чехословаччина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+
+    map.fitBounds([[-14.235, -51.9253], [-26.2239, -50.2742], [49.5, 24.5], [-25.429, -49.2713], [-25.8653, -50.8406], [51.1657, 10.4515], [41.1579, -8.6291], [49.8175, 15.473]], {padding: [40, 40]});
+  </script>
+</body>
+</html>

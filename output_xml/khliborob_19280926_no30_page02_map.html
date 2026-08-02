@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Location Map — khliborob_19280926_no30_page02</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #header { background: #2c3e50; color: #fff; padding: 10px 16px; }
+    #header h2 { margin: 0; font-size: 1rem; }
+    #header p  { margin: 2px 0 0; font-size: 0.8rem; opacity: 0.7; }
+    #map { width: 100%; height: calc(100vh - 60px); }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2>📍 Location Map — khliborob_19280926_no30_page02</h2>
+    <p>Ukrainian Farmer &nbsp;·&nbsp; 1928-09-26 &nbsp;·&nbsp; V. 30. (207)
+       &nbsp;·&nbsp; 10 geocoded, 0 without coordinates
+       &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;border-radius:50%;vertical-align:middle"></span> = large region (approximate)</p>
+  </div>
+  
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map');
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+    L.circleMarker([61.524, 105.3188], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Russia (Росія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([-14.235, -51.925], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Brazil (Бразилія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([50.0755, 14.4378]).addTo(map).bindPopup('Prague (Прага)');
+    L.marker([49.8397, 24.0297]).addTo(map).bindPopup('Lviv (Львів)');
+    L.circleMarker([48.3794, 31.1656], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Ukraine (Україна)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([51.9194, 19.1451], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Poland (Польща)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([48.9194, 23.3644]).addTo(map).bindPopup('Tukhlya (Тухля)');
+    L.marker([49.7828, 22.775]).addTo(map).bindPopup('Przemyśl (Перемишль)');
+    L.circleMarker([48.8, 23.5], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Tukholshchyna (Тухольщина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([55.7558, 37.6173], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Muscovy (Московщина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+
+    map.fitBounds([[61.524, 105.3188], [-14.235, -51.925], [50.0755, 14.4378], [49.8397, 24.0297], [48.3794, 31.1656], [51.9194, 19.1451], [48.9194, 23.3644], [49.7828, 22.775], [48.8, 23.5], [55.7558, 37.6173]], {padding: [40, 40]});
+  </script>
+</body>
+</html>

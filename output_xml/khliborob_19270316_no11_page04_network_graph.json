@@ -1,0 +1,220 @@
+{
+    "edges": [
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Василь Литвинський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Олекси Шаравара",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Антоніо Кандідо",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Педро Мазуречен",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Карлос Пратер",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Едгард де Олівейра Круз",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Стефан Володимир Кобилянський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Ніколао Печух",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Август Борогоський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Генріке Бурместер",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "М. Шаравара",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "С. Савицький",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Лікар Турней",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Петро Карманський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Василь Павло Сух",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Леонардо Тармоллі",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Жозе Конопа",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Грітіус Павло",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Rus",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "União da Vitória",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Paraná",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Santa Catarina",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Porto União",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Curitiba",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Brazil",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "North America",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Canada",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Europe",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "São Paulo",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Rancharia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Presidente Bernardes",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Santo Anastácio",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Presidente Wenceslau",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Sorocabana (Region)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Iraty",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page04",
+            "target": "Jangada",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        }
+    ]
+}

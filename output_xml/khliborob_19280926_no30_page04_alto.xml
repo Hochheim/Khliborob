@@ -1,0 +1,3079 @@
+<?xml version="1.0" ?>
+<alto xmlns="http://www.loc.gov/standards/alto/ns-v4#" SCHEMAVERSION="4.2">
+  <Description>
+    <MeasurementUnit>pixel</MeasurementUnit>
+    <sourceImageInformation>
+      <fileName>khliborob_19280926_no30_page04.jpg</fileName>
+    </sourceImageInformation>
+  </Description>
+  <Layout>
+    <Page ID="P0" PHYSICAL_IMG_NR="1" WIDTH="2400" HEIGHT="3600">
+      <PrintSpace HPOS="50" VPOS="50" WIDTH="2300" HEIGHT="3500">
+        <TextBlock ID="TXT_BLOCK_01" HPOS="100" VPOS="1400" WIDTH="2200" HEIGHT="1800">
+          <TextLine ID="LINE_01" HPOS="120" VPOS="1510" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_1_0" CONTENT="4" HPOS="120" VPOS="1510" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_02" HPOS="120" VPOS="1570" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_2_0" CONTENT="ПРАВДОЮ" HPOS="120" VPOS="1570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_2_1" CONTENT="БРЕХУНО-" HPOS="230" VPOS="1570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_2_2" CONTENT="Заповідають" HPOS="340" VPOS="1570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_2_3" CONTENT="гаряче" HPOS="450" VPOS="1570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_2_4" CONTENT="підсоння" HPOS="560" VPOS="1570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_2_5" CONTENT="в" HPOS="670" VPOS="1570" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_03" HPOS="120" VPOS="1630" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_3_0" CONTENT="БІ" HPOS="120" VPOS="1630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_3_1" CONTENT="В" HPOS="230" VPOS="1630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_3_2" CONTENT="ОЧІ." HPOS="340" VPOS="1630" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_04" HPOS="120" VPOS="1690" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_4_0" CONTENT="Європі." HPOS="120" VPOS="1690" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_05" HPOS="120" VPOS="1750" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_5_0" CONTENT="пер" HPOS="120" VPOS="1750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_5_1" CONTENT="у" HPOS="230" VPOS="1750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_5_2" CONTENT="нас" HPOS="340" VPOS="1750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_5_3" CONTENT="всюди" HPOS="450" VPOS="1750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_5_4" CONTENT="сего" HPOS="560" VPOS="1750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_5_5" CONTENT="свідоцтва" HPOS="670" VPOS="1750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_5_6" CONTENT="приналежно-" HPOS="780" VPOS="1750" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_06" HPOS="120" VPOS="1810" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_6_0" CONTENT="сти," HPOS="120" VPOS="1810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_6_1" CONTENT="инакше" HPOS="230" VPOS="1810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_6_2" CONTENT="не" HPOS="340" VPOS="1810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_6_3" CONTENT="вільно" HPOS="450" VPOS="1810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_6_4" CONTENT="ані" HPOS="560" VPOS="1810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_6_5" CONTENT="підписати" HPOS="670" VPOS="1810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_6_6" CONTENT="контракт," HPOS="780" VPOS="1810" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_07" HPOS="120" VPOS="1870" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_7_0" CONTENT="ані" HPOS="120" VPOS="1870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_7_1" CONTENT="його" HPOS="230" VPOS="1870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_7_2" CONTENT="інтабулювати." HPOS="340" VPOS="1870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_7_3" CONTENT="Всякі" HPOS="450" VPOS="1870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_7_4" CONTENT="обходження" HPOS="560" VPOS="1870" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_08" HPOS="120" VPOS="1930" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_8_0" CONTENT="сего" HPOS="120" VPOS="1930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_8_1" CONTENT="закона" HPOS="230" VPOS="1930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_8_2" CONTENT="є" HPOS="340" VPOS="1930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_8_3" CONTENT="дуже" HPOS="450" VPOS="1930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_8_4" CONTENT="строго" HPOS="560" VPOS="1930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_8_5" CONTENT="карані." HPOS="670" VPOS="1930" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_09" HPOS="120" VPOS="1990" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_9_0" CONTENT="Два" HPOS="120" VPOS="1990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_9_1" CONTENT="учениі," HPOS="230" VPOS="1990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_9_2" CONTENT="Вельше" HPOS="340" VPOS="1990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_9_3" CONTENT="і" HPOS="450" VPOS="1990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_9_4" CONTENT="Бендон" HPOS="560" VPOS="1990" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_10" HPOS="120" VPOS="2050" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_10_0" CONTENT="ють," HPOS="120" VPOS="2050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_10_1" CONTENT="що" HPOS="230" VPOS="2050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_10_2" CONTENT="в" HPOS="340" VPOS="2050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_10_3" CONTENT="цілій" HPOS="450" VPOS="2050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_10_4" CONTENT="Европі" HPOS="560" VPOS="2050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_10_5" CONTENT="наступить" HPOS="670" VPOS="2050" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_11" HPOS="120" VPOS="2110" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_11_0" CONTENT="кій" HPOS="120" VPOS="2110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_11_1" CONTENT="будучности" HPOS="230" VPOS="2110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_11_2" CONTENT="великі" HPOS="340" VPOS="2110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_11_3" CONTENT="зміни." HPOS="450" VPOS="2110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_11_4" CONTENT="Означа-" HPOS="560" VPOS="2110" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_12" HPOS="120" VPOS="2170" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_12_0" CONTENT="Підводний" HPOS="120" VPOS="2170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_12_1" CONTENT="човен" HPOS="230" VPOS="2170" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_13" HPOS="120" VPOS="2230" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_13_0" CONTENT="змін" HPOS="120" VPOS="2230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_13_1" CONTENT="є" HPOS="230" VPOS="2230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_13_2" CONTENT="ті" HPOS="340" VPOS="2230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_13_3" CONTENT="численні" HPOS="450" VPOS="2230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_13_4" CONTENT="землетруси," HPOS="560" VPOS="2230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_13_5" CONTENT="по-" HPOS="670" VPOS="2230" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_14" HPOS="120" VPOS="2290" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_14_0" CONTENT="вулканів," HPOS="120" VPOS="2290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_14_1" CONTENT="величезні" HPOS="230" VPOS="2290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_14_2" CONTENT="опади" HPOS="340" VPOS="2290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_14_3" CONTENT="снігів" HPOS="450" VPOS="2290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_14_4" CONTENT="і" HPOS="560" VPOS="2290" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_15" HPOS="120" VPOS="2350" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_15_0" CONTENT="світ" HPOS="120" VPOS="2350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_15_1" CONTENT="навідають" HPOS="230" VPOS="2350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_15_2" CONTENT="від" HPOS="340" VPOS="2350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_15_3" CONTENT="недавного" HPOS="450" VPOS="2350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_15_4" CONTENT="час" HPOS="560" VPOS="2350" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_16" HPOS="120" VPOS="2410" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_16_0" CONTENT="домовиною." HPOS="120" VPOS="2410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_16_1" CONTENT="Через" HPOS="230" VPOS="2410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_16_2" CONTENT="ті" HPOS="340" VPOS="2410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_16_3" CONTENT="потрясення" HPOS="450" VPOS="2410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_16_4" CONTENT="землі" HPOS="560" VPOS="2410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_16_5" CONTENT="і" HPOS="670" VPOS="2410" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_17" HPOS="120" VPOS="2470" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_17_0" CONTENT="По" HPOS="120" VPOS="2470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_17_1" CONTENT="довгих" HPOS="230" VPOS="2470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_17_2" CONTENT="зусиллях" HPOS="340" VPOS="2470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_17_3" CONTENT="вдалося" HPOS="450" VPOS="2470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_17_4" CONTENT="балтійській" HPOS="560" VPOS="2470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_17_5" CONTENT="фанатики" HPOS="670" VPOS="2470" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_18" HPOS="120" VPOS="2530" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_18_0" CONTENT="радянській" HPOS="120" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_1" CONTENT="фльоті" HPOS="230" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_2" CONTENT="витягнути" HPOS="340" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_3" CONTENT="з" HPOS="450" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_4" CONTENT="дна" HPOS="560" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_5" CONTENT="Азорсько-" HPOS="670" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_6" CONTENT="те," HPOS="780" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_7" CONTENT="що" HPOS="890" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_18_8" CONTENT="по" HPOS="1000" VPOS="2530" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_19" HPOS="120" VPOS="2590" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_19_0" CONTENT="го" HPOS="120" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_1" CONTENT="заливу" HPOS="230" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_2" CONTENT="англійський" HPOS="340" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_3" CONTENT="підводний" HPOS="450" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_4" CONTENT="човен" HPOS="560" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_5" CONTENT="(лод-" HPOS="670" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_6" CONTENT="Чи" HPOS="780" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_7" CONTENT="за" HPOS="890" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_19_8" CONTENT="те," HPOS="1000" VPOS="2590" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_20" HPOS="120" VPOS="2650" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_20_0" CONTENT="ку)," HPOS="120" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_20_1" CONTENT="затоплений" HPOS="230" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_20_2" CONTENT="там" HPOS="340" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_20_3" CONTENT="рад." HPOS="450" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_20_4" CONTENT="воєнними" HPOS="560" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_20_5" CONTENT="корабле-" HPOS="670" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_20_6" CONTENT="громада" HPOS="780" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_20_7" CONTENT="н" HPOS="890" VPOS="2650" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_21" HPOS="120" VPOS="2710" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_21_0" CONTENT="ми." HPOS="120" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_1" CONTENT="Витягнений" HPOS="230" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_2" CONTENT="з" HPOS="340" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_3" CONTENT="води" HPOS="450" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_4" CONTENT="підводний" HPOS="560" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_5" CONTENT="човен" HPOS="670" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_6" CONTENT="затя-" HPOS="780" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_7" CONTENT="мовляв," HPOS="890" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_21_8" CONTENT="з" HPOS="1000" VPOS="2710" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_22" HPOS="120" VPOS="2770" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_22_0" CONTENT="гнули" HPOS="120" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_22_1" CONTENT="до" HPOS="230" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_22_2" CONTENT="Кронштадту" HPOS="340" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_22_3" CONTENT="і" HPOS="450" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_22_4" CONTENT="помістили" HPOS="560" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_22_5" CONTENT="в" HPOS="670" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_22_6" CONTENT="заливі." HPOS="780" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_22_7" CONTENT="расолею" HPOS="890" VPOS="2770" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_23" HPOS="120" VPOS="2830" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_23_0" CONTENT="Човен" HPOS="120" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_1" CONTENT="пробув" HPOS="230" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_2" CONTENT="під" HPOS="340" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_3" CONTENT="водою" HPOS="450" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_4" CONTENT="майже" HPOS="560" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_5" CONTENT="9" HPOS="670" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_6" CONTENT="років" HPOS="780" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_7" CONTENT="що" HPOS="890" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_23_8" CONTENT="говори" HPOS="1000" VPOS="2830" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_24" HPOS="120" VPOS="2890" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_24_0" CONTENT="і" HPOS="120" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_1" CONTENT="його" HPOS="230" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_2" CONTENT="товсто" HPOS="340" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_3" CONTENT="покрила" HPOS="450" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_4" CONTENT="іржа." HPOS="560" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_5" CONTENT="Це" HPOS="670" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_6" CONTENT="одно" HPOS="780" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_7" CONTENT="з" HPOS="890" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_8" CONTENT="наймо-" HPOS="1000" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_9" CONTENT="А" HPOS="1110" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_24_10" CONTENT="те" HPOS="1220" VPOS="2890" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_25" HPOS="120" VPOS="2950" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_25_0" CONTENT="гутніших" HPOS="120" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_25_1" CONTENT="суден" HPOS="230" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_25_2" CONTENT="цього" HPOS="340" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_25_3" CONTENT="типу." HPOS="450" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_25_4" CONTENT="Закінчили" HPOS="560" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_25_5" CONTENT="буду-" HPOS="670" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_25_6" CONTENT="дручки" HPOS="780" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_25_7" CONTENT="с" HPOS="890" VPOS="2950" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_26" HPOS="120" VPOS="3010" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_26_0" CONTENT="вати" HPOS="120" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_26_1" CONTENT="його" HPOS="230" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_26_2" CONTENT="1919" HPOS="340" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_26_3" CONTENT="року." HPOS="450" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_26_4" CONTENT="Вмістимість" HPOS="560" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_26_5" CONTENT="його" HPOS="670" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_26_6" CONTENT="1150" HPOS="780" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_26_7" CONTENT="ріовання" HPOS="890" VPOS="3010" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_27" HPOS="120" VPOS="3070" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_27_0" CONTENT="тон." HPOS="120" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_1" CONTENT="На" HPOS="230" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_2" CONTENT="ньому" HPOS="340" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_3" CONTENT="6" HPOS="450" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_4" CONTENT="торпедних" HPOS="560" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_5" CONTENT="апаратів" HPOS="670" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_6" CONTENT="і" HPOS="780" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_7" CONTENT="6" HPOS="890" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_8" CONTENT="ско-" HPOS="1000" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_27_9" CONTENT="ну-католи" HPOS="1110" VPOS="3070" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_28" HPOS="120" VPOS="3130" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_28_0" CONTENT="рострільних" HPOS="120" VPOS="3130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_28_1" CONTENT="гармат." HPOS="230" VPOS="3130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_28_2" CONTENT="У" HPOS="340" VPOS="3130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_28_3" CONTENT="внутрішніх" HPOS="450" VPOS="3130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_28_4" CONTENT="приміщен-" HPOS="560" VPOS="3130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_28_5" CONTENT="помішалося" HPOS="670" VPOS="3130" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_29" HPOS="120" VPOS="3190" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_29_0" CONTENT="нях" HPOS="120" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_1" CONTENT="човна" HPOS="230" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_2" CONTENT="кістяки" HPOS="340" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_3" CONTENT="англійських" HPOS="450" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_4" CONTENT="моряків." HPOS="560" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_5" CONTENT="Вва-" HPOS="670" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_6" CONTENT="був," HPOS="780" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_7" CONTENT="яке" HPOS="890" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_29_8" CONTENT="с" HPOS="1000" VPOS="3190" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_30" HPOS="120" VPOS="3250" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_30_0" CONTENT="жають," HPOS="120" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_1" CONTENT="що" HPOS="230" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_2" CONTENT="на" HPOS="340" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_3" CONTENT="човні" HPOS="450" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_4" CONTENT="загинуло" HPOS="560" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_5" CONTENT="щось" HPOS="670" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_6" CONTENT="із" HPOS="780" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_7" CONTENT="40" HPOS="890" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_8" CONTENT="душ." HPOS="1000" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_9" CONTENT="нути" HPOS="1110" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_30_10" CONTENT="прав" HPOS="1220" VPOS="3250" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_31" HPOS="120" VPOS="3310" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_31_0" CONTENT="На" HPOS="120" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_31_1" CONTENT="верхій" HPOS="230" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_31_2" CONTENT="палубі" HPOS="340" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_31_3" CONTENT="підводного" HPOS="450" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_31_4" CONTENT="човна" HPOS="560" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_31_5" CONTENT="видно" HPOS="670" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_31_6" CONTENT="слід," HPOS="780" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_31_7" CONTENT="даними" HPOS="890" VPOS="3310" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_32" HPOS="120" VPOS="3370" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_32_0" CONTENT="що" HPOS="120" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_1" CONTENT="його" HPOS="230" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_2" CONTENT="пробила" HPOS="340" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_3" CONTENT="гармата." HPOS="450" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_4" CONTENT="Дальше" HPOS="560" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_5" CONTENT="дослідження" HPOS="670" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_6" CONTENT="—" HPOS="780" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_7" CONTENT="що" HPOS="890" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_8" CONTENT="він" HPOS="1000" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_32_9" CONTENT="так" HPOS="1110" VPOS="3370" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_33" HPOS="120" VPOS="3430" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_33_0" CONTENT="ня" HPOS="120" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_33_1" CONTENT="з'ясує" HPOS="230" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_33_2" CONTENT="остаточне" HPOS="340" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_33_3" CONTENT="й" HPOS="450" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_33_4" CONTENT="инші" HPOS="560" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_33_5" CONTENT="пошкодження" HPOS="670" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_33_6" CONTENT="й" HPOS="780" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_33_7" CONTENT="Препільн" HPOS="890" VPOS="3430" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_34" HPOS="120" VPOS="3490" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_34_0" CONTENT="причини" HPOS="120" VPOS="3490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_34_1" CONTENT="загибели." HPOS="230" VPOS="3490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_34_2" CONTENT="Процьом" HPOS="340" VPOS="3490" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_35" HPOS="120" VPOS="3550" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_35_0" CONTENT="В" HPOS="120" VPOS="3550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_35_1" CONTENT="„Прав-" HPOS="230" VPOS="3550" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_36" HPOS="120" VPOS="3610" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_36_0" CONTENT="тора" HPOS="120" VPOS="3610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_36_1" CONTENT="стовб" HPOS="230" VPOS="3610" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_37" HPOS="120" VPOS="3670" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_37_0" CONTENT="лендаря“," HPOS="120" VPOS="3670" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_38" HPOS="120" VPOS="3730" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_38_0" CONTENT="невіч," HPOS="120" VPOS="3730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_38_1" CONTENT="наки" HPOS="230" VPOS="3730" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_39" HPOS="120" VPOS="3790" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_39_0" CONTENT="Гваран" HPOS="120" VPOS="3790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_39_1" CONTENT="і" HPOS="230" VPOS="3790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_39_2" CONTENT="та" HPOS="340" VPOS="3790" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_40" HPOS="120" VPOS="3850" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_40_0" CONTENT="ти," HPOS="120" VPOS="3850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_40_1" CONTENT="темні," HPOS="230" VPOS="3850" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_41" HPOS="120" VPOS="3910" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_41_0" CONTENT="свічайні" HPOS="120" VPOS="3910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_41_1" CONTENT="випадки" HPOS="230" VPOS="3910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_41_2" CONTENT="зачнуть" HPOS="340" VPOS="3910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_41_3" CONTENT="топити" HPOS="450" VPOS="3910" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_42" HPOS="120" VPOS="3970" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_42_0" CONTENT="які" HPOS="120" VPOS="3970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_42_1" CONTENT="грубою" HPOS="230" VPOS="3970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_42_2" CONTENT="корою" HPOS="340" VPOS="3970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_42_3" CONTENT="вкривають" HPOS="450" VPOS="3970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_42_4" CONTENT="у" HPOS="560" VPOS="3970" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_43" HPOS="120" VPOS="4030" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_43_0" CONTENT="бігун" HPOS="120" VPOS="4030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_43_1" CONTENT="і" HPOS="230" VPOS="4030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_43_2" CONTENT="підбігуновиі" HPOS="340" VPOS="4030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_43_3" CONTENT="околиці." HPOS="450" VPOS="4030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_43_4" CONTENT="Зем-" HPOS="560" VPOS="4030" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_44" HPOS="120" VPOS="4090" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_44_0" CONTENT="гарячий" HPOS="120" VPOS="4090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_44_1" CONTENT="період" HPOS="230" VPOS="4090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_44_2" CONTENT="свого" HPOS="340" VPOS="4090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_44_3" CONTENT="життя." HPOS="450" VPOS="4090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_44_4" CONTENT="Тем-" HPOS="560" VPOS="4090" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_45" HPOS="120" VPOS="4150" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_45_0" CONTENT="чне" HPOS="120" VPOS="4150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_45_1" CONTENT="рости," HPOS="230" VPOS="4150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_45_2" CONTENT="буде" HPOS="340" VPOS="4150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_45_3" CONTENT="чим" HPOS="450" VPOS="4150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_45_4" CONTENT="раз" HPOS="560" VPOS="4150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_45_5" CONTENT="теплішою" HPOS="670" VPOS="4150" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_46" HPOS="120" VPOS="4210" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_46_0" CONTENT="Там" HPOS="120" VPOS="4210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_46_1" CONTENT="на" HPOS="230" VPOS="4210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_46_2" CONTENT="півночі," HPOS="340" VPOS="4210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_46_3" CONTENT="де" HPOS="450" VPOS="4210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_46_4" CONTENT="топляться" HPOS="560" VPOS="4210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_46_5" CONTENT="ле-" HPOS="670" VPOS="4210" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_47" HPOS="120" VPOS="4270" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_47_0" CONTENT="чне" HPOS="120" VPOS="4270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_47_1" CONTENT="родити" HPOS="230" VPOS="4270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_47_2" CONTENT="і" HPOS="340" VPOS="4270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_47_3" CONTENT="зможе" HPOS="450" VPOS="4270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_47_4" CONTENT="виживити" HPOS="560" VPOS="4270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_47_5" CONTENT="ба" HPOS="670" VPOS="4270" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_48" HPOS="120" VPOS="4330" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_48_0" CONTENT="ці" HPOS="120" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_48_1" CONTENT="кі" HPOS="230" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_48_2" CONTENT="будуть" HPOS="340" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_48_3" CONTENT="емігрувати" HPOS="450" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_48_4" CONTENT="туди" HPOS="560" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_48_5" CONTENT="з" HPOS="670" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_48_6" CONTENT="полудневих" HPOS="780" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_48_7" CONTENT="загу-" HPOS="890" VPOS="4330" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_49" HPOS="120" VPOS="4390" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_49_0" CONTENT="сто" HPOS="120" VPOS="4390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_49_1" CONTENT="заселених" HPOS="230" VPOS="4390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_49_2" CONTENT="країв." HPOS="340" VPOS="4390" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_50" HPOS="120" VPOS="4450" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_50_0" CONTENT="Умірковане" HPOS="120" VPOS="4450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_50_1" CONTENT="підсоння" HPOS="230" VPOS="4450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_50_2" CONTENT="пересунеться" HPOS="340" VPOS="4450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_50_3" CONTENT="вла-" HPOS="450" VPOS="4450" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_51" HPOS="120" VPOS="4510" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_51_0" CONTENT="сне" HPOS="120" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_1" CONTENT="туди" HPOS="230" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_2" CONTENT="на" HPOS="340" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_3" CONTENT="північ," HPOS="450" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_4" CONTENT="де" HPOS="560" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_5" CONTENT="тепер" HPOS="670" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_6" CONTENT="вічна" HPOS="780" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_7" CONTENT="зима," HPOS="890" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_8" CONTENT="а" HPOS="1000" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_51_9" CONTENT="на" HPOS="1110" VPOS="4510" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_52" HPOS="120" VPOS="4570" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_52_0" CONTENT="це" HPOS="120" VPOS="4570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_52_1" CONTENT="місце" HPOS="230" VPOS="4570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_52_2" CONTENT="прийде" HPOS="340" VPOS="4570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_52_3" CONTENT="з" HPOS="450" VPOS="4570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_52_4" CONTENT="полудня" HPOS="560" VPOS="4570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_52_5" CONTENT="гаряче" HPOS="670" VPOS="4570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_52_6" CONTENT="підсоння." HPOS="780" VPOS="4570" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_53" HPOS="120" VPOS="4630" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_53_0" CONTENT="Цьогорічні" HPOS="120" VPOS="4630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_53_1" CONTENT="спеки" HPOS="230" VPOS="4630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_53_2" CONTENT="мають" HPOS="340" VPOS="4630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_53_3" CONTENT="показувати," HPOS="450" VPOS="4630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_53_4" CONTENT="на" HPOS="560" VPOS="4630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_53_5" CONTENT="думку" HPOS="670" VPOS="4630" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_54" HPOS="120" VPOS="4690" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_54_0" CONTENT="цих" HPOS="120" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_1" CONTENT="тих" HPOS="230" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_2" CONTENT="учених," HPOS="340" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_3" CONTENT="що" HPOS="450" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_4" CONTENT="той" HPOS="560" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_5" CONTENT="час" HPOS="670" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_6" CONTENT="уже" HPOS="780" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_7" CONTENT="не" HPOS="890" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_54_8" CONTENT="далеко." HPOS="1000" VPOS="4690" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_55" HPOS="120" VPOS="4750" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_55_0" CONTENT="Цікаво" HPOS="120" VPOS="4750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_55_1" CONTENT="знати," HPOS="230" VPOS="4750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_55_2" CONTENT="яке" HPOS="340" VPOS="4750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_55_3" CONTENT="підсоння" HPOS="450" VPOS="4750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_55_4" CONTENT="буде" HPOS="560" VPOS="4750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_55_5" CONTENT="мати" HPOS="670" VPOS="4750" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_56" HPOS="120" VPOS="4810" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_56_0" CONTENT="в" HPOS="120" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_56_1" CONTENT="Бразилії," HPOS="230" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_56_2" CONTENT="коли" HPOS="340" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_56_3" CONTENT="тепло" HPOS="450" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_56_4" CONTENT="втіче" HPOS="560" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_56_5" CONTENT="нам" HPOS="670" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_56_6" CONTENT="на" HPOS="780" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_56_7" CONTENT="північ?" HPOS="890" VPOS="4810" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_57" HPOS="120" VPOS="4870" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_57_0" CONTENT="Пошукування." HPOS="120" VPOS="4870" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_58" HPOS="120" VPOS="4930" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_58_0" CONTENT="Припускаючи," HPOS="120" VPOS="4930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_58_1" CONTENT="що" HPOS="230" VPOS="4930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_58_2" CONTENT="це" HPOS="340" VPOS="4930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_58_3" CONTENT="відноситься" HPOS="450" VPOS="4930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_58_4" CONTENT="до" HPOS="560" VPOS="4930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_58_5" CONTENT="п." HPOS="670" VPOS="4930" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_59" HPOS="120" VPOS="4990" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_59_0" CONTENT="Семена" HPOS="120" VPOS="4990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_59_1" CONTENT="Кравченка" HPOS="230" VPOS="4990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_59_2" CONTENT="з" HPOS="340" VPOS="4990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_59_3" CONTENT="Порто" HPOS="450" VPOS="4990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_59_4" CONTENT="Уніон," HPOS="560" VPOS="4990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_59_5" CONTENT="подаємо" HPOS="670" VPOS="4990" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_60" HPOS="120" VPOS="5050" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_60_0" CONTENT="слідуюче" HPOS="120" VPOS="5050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_60_1" CONTENT="оголошення" HPOS="230" VPOS="5050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_60_2" CONTENT="польського" HPOS="340" VPOS="5050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_60_3" CONTENT="консуляту" HPOS="450" VPOS="5050" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_61" HPOS="120" VPOS="5110" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_61_0" CONTENT="в" HPOS="120" VPOS="5110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_61_1" CONTENT="Куритибі," HPOS="230" VPOS="5110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_61_2" CONTENT="поміщене" HPOS="340" VPOS="5110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_61_3" CONTENT="у" HPOS="450" VPOS="5110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_61_4" CONTENT="ч." HPOS="560" VPOS="5110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_61_5" CONTENT="66" HPOS="670" VPOS="5110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_61_6" CONTENT="паранського" HPOS="780" VPOS="5110" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_62" HPOS="120" VPOS="5170" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_62_0" CONTENT="польського" HPOS="120" VPOS="5170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_62_1" CONTENT="часопису" HPOS="230" VPOS="5170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_62_2" CONTENT="„Люд“" HPOS="340" VPOS="5170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_62_3" CONTENT="з" HPOS="450" VPOS="5170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_62_4" CONTENT="22" HPOS="560" VPOS="5170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_62_5" CONTENT="Вересня:" HPOS="670" VPOS="5170" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_63" HPOS="120" VPOS="5230" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_63_0" CONTENT="„Олена" HPOS="120" VPOS="5230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_63_1" CONTENT="Кравченко" HPOS="230" VPOS="5230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_63_2" CONTENT="(Helena" HPOS="340" VPOS="5230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_63_3" CONTENT="Krawcienko)" HPOS="450" VPOS="5230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_63_4" CONTENT="зі" HPOS="560" VPOS="5230" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_64" HPOS="120" VPOS="5290" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_64_0" CONTENT="Станішевських," HPOS="120" VPOS="5290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_64_1" CONTENT="замешкала" HPOS="230" VPOS="5290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_64_2" CONTENT="в" HPOS="340" VPOS="5290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_64_3" CONTENT="селі" HPOS="450" VPOS="5290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_64_4" CONTENT="Грибів" HPOS="560" VPOS="5290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_64_5" CONTENT="пов." HPOS="670" VPOS="5290" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_65" HPOS="120" VPOS="5350" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_65_0" CONTENT="Гостинський," HPOS="120" VPOS="5350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_65_1" CONTENT="пошукує" HPOS="230" VPOS="5350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_65_2" CONTENT="свого" HPOS="340" VPOS="5350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_65_3" CONTENT="мужа" HPOS="450" VPOS="5350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_65_4" CONTENT="Семена" HPOS="560" VPOS="5350" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_66" HPOS="120" VPOS="5410" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_66_0" CONTENT="Кравченка" HPOS="120" VPOS="5410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_66_1" CONTENT="(Szymona" HPOS="230" VPOS="5410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_66_2" CONTENT="Krawcienko)," HPOS="340" VPOS="5410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_66_3" CONTENT="котрий" HPOS="450" VPOS="5410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_66_4" CONTENT="ви-" HPOS="560" VPOS="5410" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_67" HPOS="120" VPOS="5470" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_67_0" CONTENT="емігрував" HPOS="120" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_67_1" CONTENT="до" HPOS="230" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_67_2" CONTENT="Бразилії" HPOS="340" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_67_3" CONTENT="в" HPOS="450" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_67_4" CONTENT="році" HPOS="560" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_67_5" CONTENT="1925" HPOS="670" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_67_6" CONTENT="і" HPOS="780" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_67_7" CONTENT="замешку-" HPOS="890" VPOS="5470" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_68" HPOS="120" VPOS="5530" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_68_0" CONTENT="вав" HPOS="120" VPOS="5530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_68_1" CONTENT="в" HPOS="230" VPOS="5530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_68_2" CONTENT="уніон" HPOS="340" VPOS="5530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_68_3" CONTENT="да" HPOS="450" VPOS="5530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_68_4" CONTENT="Вікторія" HPOS="560" VPOS="5530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_68_5" CONTENT="(Парана)." HPOS="670" VPOS="5530" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_69" HPOS="120" VPOS="5590" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_69_0" CONTENT="Купуйте" HPOS="120" VPOS="5590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_69_1" CONTENT="шакер!" HPOS="230" VPOS="5590" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_70" HPOS="120" VPOS="5650" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_70_0" CONTENT="Продаю" HPOS="120" VPOS="5650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_70_1" CONTENT="10" HPOS="230" VPOS="5650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_70_2" CONTENT="алькейрів" HPOS="340" VPOS="5650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_70_3" CONTENT="доброї" HPOS="450" VPOS="5650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_70_4" CONTENT="землі," HPOS="560" VPOS="5650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_70_5" CONTENT="в" HPOS="670" VPOS="5650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_70_6" CONTENT="тім" HPOS="780" VPOS="5650" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_71" HPOS="120" VPOS="5710" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_71_0" CONTENT="6" HPOS="120" VPOS="5710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_71_1" CONTENT="алькейрів" HPOS="230" VPOS="5710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_71_2" CONTENT="ліса" HPOS="340" VPOS="5710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_71_3" CONTENT="і" HPOS="450" VPOS="5710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_71_4" CONTENT="4" HPOS="560" VPOS="5710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_71_5" CONTENT="капсейри," HPOS="670" VPOS="5710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_71_6" CONTENT="положеної" HPOS="780" VPOS="5710" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_72" HPOS="120" VPOS="5770" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_72_0" CONTENT="U" HPOS="120" VPOS="5770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_72_1" CONTENT="КРАЇНСЬКИЙ" HPOS="230" VPOS="5770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_72_2" CONTENT="ХЛІБОРОБ" HPOS="340" VPOS="5770" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_73" HPOS="120" VPOS="5830" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_73_0" CONTENT="U" HPOS="120" VPOS="5830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_73_1" CONTENT="Ч" HPOS="230" VPOS="5830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_73_2" CONTENT="30" HPOS="340" VPOS="5830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_73_3" CONTENT="(207)" HPOS="450" VPOS="5830" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_74" HPOS="120" VPOS="5890" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_74_0" CONTENT="При" HPOS="120" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_74_1" CONTENT="збоду" HPOS="230" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_74_2" CONTENT="підняття" HPOS="340" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_74_3" CONTENT="англійського" HPOS="450" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_74_4" CONTENT="підвод-" HPOS="560" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_74_5" CONTENT="за" HPOS="670" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_74_6" CONTENT="ваші" HPOS="780" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_74_7" CONTENT="д" HPOS="890" VPOS="5890" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_75" HPOS="120" VPOS="5950" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_75_0" CONTENT="ного" HPOS="120" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_1" CONTENT="човна" HPOS="230" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_2" CONTENT="„Л" HPOS="340" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_3" CONTENT="55“" HPOS="450" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_4" CONTENT="з" HPOS="560" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_5" CONTENT="дна" HPOS="670" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_6" CONTENT="затоки," HPOS="780" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_7" CONTENT="начальник" HPOS="890" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_75_8" CONTENT="відгадали" HPOS="1000" VPOS="5950" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_76" HPOS="120" VPOS="6010" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_76_0" CONTENT="військово-морських" HPOS="120" VPOS="6010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_76_1" CONTENT="сил" HPOS="230" VPOS="6010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_76_2" CONTENT="СРСР" HPOS="340" VPOS="6010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_76_3" CONTENT="Мукевич" HPOS="450" VPOS="6010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_76_4" CONTENT="го-" HPOS="560" VPOS="6010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_76_5" CONTENT="зборів?" HPOS="670" VPOS="6010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_76_6" CONTENT="Д" HPOS="780" VPOS="6010" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_77" HPOS="120" VPOS="6070" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_77_0" CONTENT="ворить:" HPOS="120" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_77_1" CONTENT="„Човен" HPOS="230" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_77_2" CONTENT="„Л" HPOS="340" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_77_3" CONTENT="55“" HPOS="450" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_77_4" CONTENT="потопив" HPOS="560" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_77_5" CONTENT="міноносець" HPOS="670" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_77_6" CONTENT="Ніколи" HPOS="780" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_77_7" CONTENT="в" HPOS="890" VPOS="6070" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_78" HPOS="120" VPOS="6130" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_78_0" CONTENT="„Азард“" HPOS="120" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_1" CONTENT="у" HPOS="230" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_2" CONTENT="бою" HPOS="340" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_3" CONTENT="4-го" HPOS="450" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_4" CONTENT="червня" HPOS="560" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_5" CONTENT="1919" HPOS="670" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_6" CONTENT="року" HPOS="780" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_7" CONTENT="в" HPOS="890" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_8" CONTENT="Азор-" HPOS="1000" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_9" CONTENT="жадних" HPOS="1110" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_78_10" CONTENT="за" HPOS="1220" VPOS="6130" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_79" HPOS="120" VPOS="6190" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_79_0" CONTENT="ській" HPOS="120" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_79_1" CONTENT="затоці" HPOS="230" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_79_2" CONTENT="недалеко" HPOS="340" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_79_3" CONTENT="Кронштадту." HPOS="450" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_79_4" CONTENT="Човен" HPOS="560" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_79_5" CONTENT="„Л" HPOS="670" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_79_6" CONTENT="гроші" HPOS="780" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_79_7" CONTENT="куп" HPOS="890" VPOS="6190" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_80" HPOS="120" VPOS="6250" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_80_0" CONTENT="55“" HPOS="120" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_1" CONTENT="що" HPOS="230" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_2" CONTENT="був" HPOS="340" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_3" CONTENT="один" HPOS="450" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_4" CONTENT="з" HPOS="560" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_5" CONTENT="удосконаленіших" HPOS="670" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_6" CONTENT="та" HPOS="780" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_7" CONTENT="силь-" HPOS="890" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_8" CONTENT="ном," HPOS="1000" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_80_9" CONTENT="пла" HPOS="1110" VPOS="6250" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_81" HPOS="120" VPOS="6310" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_81_0" CONTENT="ніших" HPOS="120" VPOS="6310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_81_1" CONTENT="англійських" HPOS="230" VPOS="6310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_81_2" CONTENT="підводних" HPOS="340" VPOS="6310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_81_3" CONTENT="човнів," HPOS="450" VPOS="6310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_81_4" CONTENT="входив" HPOS="560" VPOS="6310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_81_5" CONTENT="громадою" HPOS="670" VPOS="6310" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_82" HPOS="120" VPOS="6370" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_82_0" CONTENT="до" HPOS="120" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_82_1" CONTENT="складу" HPOS="230" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_82_2" CONTENT="англійського" HPOS="340" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_82_3" CONTENT="загону" HPOS="450" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_82_4" CONTENT="суден," HPOS="560" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_82_5" CONTENT="які" HPOS="670" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_82_6" CONTENT="бу-" HPOS="780" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_82_7" CONTENT="Так" HPOS="890" VPOS="6370" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_83" HPOS="120" VPOS="6430" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_83_0" CONTENT="ли" HPOS="120" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_1" CONTENT="у" HPOS="230" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_2" CONTENT="Фінській" HPOS="340" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_3" CONTENT="затоці" HPOS="450" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_4" CONTENT="за" HPOS="560" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_5" CONTENT="командою" HPOS="670" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_6" CONTENT="контр-адмі-" HPOS="780" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_7" CONTENT="булоб" HPOS="890" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_83_8" CONTENT="в" HPOS="1000" VPOS="6430" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_84" HPOS="120" VPOS="6490" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_84_0" CONTENT="рала" HPOS="120" VPOS="6490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_84_1" CONTENT="Коуена." HPOS="230" VPOS="6490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_84_2" CONTENT="Загін" HPOS="340" VPOS="6490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_84_3" CONTENT="мав" HPOS="450" VPOS="6490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_84_4" CONTENT="завдання:" HPOS="560" VPOS="6490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_84_5" CONTENT="захопити" HPOS="670" VPOS="6490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_84_6" CONTENT="свято-віра" HPOS="780" VPOS="6490" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_85" HPOS="120" VPOS="6550" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_85_0" CONTENT="Кронштадт," HPOS="120" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_1" CONTENT="знищити" HPOS="230" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_2" CONTENT="рад." HPOS="340" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_3" CONTENT="лінійні" HPOS="450" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_4" CONTENT="кораблі," HPOS="560" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_5" CONTENT="а" HPOS="670" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_6" CONTENT="да-" HPOS="780" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_7" CONTENT="слова" HPOS="890" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_8" CONTENT="і" HPOS="1000" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_85_9" CONTENT="в" HPOS="1110" VPOS="6550" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_86" HPOS="120" VPOS="6610" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_86_0" CONTENT="лі" HPOS="120" VPOS="6610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_86_1" CONTENT="допомагати" HPOS="230" VPOS="6610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_86_2" CONTENT="білим" HPOS="340" VPOS="6610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_86_3" CONTENT="захопити" HPOS="450" VPOS="6610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_86_4" CONTENT="Ленінград." HPOS="560" VPOS="6610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_86_5" CONTENT="Ан-" HPOS="670" VPOS="6610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_86_6" CONTENT="Гадаю," HPOS="780" VPOS="6610" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_87" HPOS="120" VPOS="6670" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_87_0" CONTENT="глійська" HPOS="120" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_87_1" CONTENT="фльота" HPOS="230" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_87_2" CONTENT="кілька" HPOS="340" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_87_3" CONTENT="разів" HPOS="450" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_87_4" CONTENT="намагалася" HPOS="560" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_87_5" CONTENT="здій-" HPOS="670" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_87_6" CONTENT="чайно" HPOS="780" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_87_7" CONTENT="з" HPOS="890" VPOS="6670" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_88" HPOS="120" VPOS="6730" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_88_0" CONTENT="снити" HPOS="120" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_1" CONTENT="свій" HPOS="230" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_2" CONTENT="намір," HPOS="340" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_3" CONTENT="але" HPOS="450" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_4" CONTENT="з" HPOS="560" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_5" CONTENT="цього" HPOS="670" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_6" CONTENT="нічого" HPOS="780" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_7" CONTENT="не" HPOS="890" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_8" CONTENT="вийшло." HPOS="1000" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_88_9" CONTENT="добре," HPOS="1110" VPOS="6730" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_89" HPOS="120" VPOS="6790" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_89_0" CONTENT="Міноносцем" HPOS="120" VPOS="6790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_89_1" CONTENT="„Азар“" HPOS="230" VPOS="6790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_89_2" CONTENT="(нині" HPOS="340" VPOS="6790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_89_3" CONTENT="„Зінов'єв“)" HPOS="450" VPOS="6790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_89_4" CONTENT="ко-" HPOS="560" VPOS="6790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_89_5" CONTENT="Отже" HPOS="670" VPOS="6790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_89_6" CONTENT="тем" HPOS="780" VPOS="6790" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_90" HPOS="120" VPOS="6850" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_90_0" CONTENT="мандував" HPOS="120" VPOS="6850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_90_1" CONTENT="тоді" HPOS="230" VPOS="6850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_90_2" CONTENT="Новицький," HPOS="340" VPOS="6850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_90_3" CONTENT="теперішний" HPOS="450" VPOS="6850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_90_4" CONTENT="коман-" HPOS="560" VPOS="6850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_90_5" CONTENT="раз" HPOS="670" VPOS="6850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_90_6" CONTENT="відби" HPOS="780" VPOS="6850" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_91" HPOS="120" VPOS="6910" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_91_0" CONTENT="дант" HPOS="120" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_91_1" CONTENT="кружляка" HPOS="230" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_91_2" CONTENT="„Червона" HPOS="340" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_91_3" CONTENT="Україна“." HPOS="450" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_91_4" CONTENT="Піднятий" HPOS="560" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_91_5" CONTENT="що" HPOS="670" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_91_6" CONTENT="ви" HPOS="780" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_91_7" CONTENT="св" HPOS="890" VPOS="6910" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_92" HPOS="120" VPOS="6970" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_92_0" CONTENT="човен" HPOS="120" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_1" CONTENT="є" HPOS="230" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_2" CONTENT="німий" HPOS="340" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_3" CONTENT="свідок" HPOS="450" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_4" CONTENT="сміливої" HPOS="560" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_5" CONTENT="атаки" HPOS="670" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_6" CONTENT="„Азарда“." HPOS="780" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_7" CONTENT="до" HPOS="890" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_92_8" CONTENT="свідом" HPOS="1000" VPOS="6970" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_93" HPOS="120" VPOS="7030" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_93_0" CONTENT="Новицький" HPOS="120" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_93_1" CONTENT="не" HPOS="230" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_93_2" CONTENT="дав" HPOS="340" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_93_3" CONTENT="човну" HPOS="450" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_93_4" CONTENT="використати" HPOS="560" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_93_5" CONTENT="свою" HPOS="670" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_93_6" CONTENT="А" HPOS="780" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_93_7" CONTENT="що" HPOS="890" VPOS="7030" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_94" HPOS="120" VPOS="7090" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_94_0" CONTENT="сильну" HPOS="120" VPOS="7090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_94_1" CONTENT="зброю" HPOS="230" VPOS="7090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_94_2" CONTENT="три" HPOS="340" VPOS="7090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_94_3" CONTENT="міни," HPOS="450" VPOS="7090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_94_4" CONTENT="що" HPOS="560" VPOS="7090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_94_5" CONTENT="залишилися" HPOS="670" VPOS="7090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_94_6" CONTENT="учасникій" HPOS="780" VPOS="7090" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_95" HPOS="120" VPOS="7150" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_95_0" CONTENT="в" HPOS="120" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_1" CONTENT="нитіних" HPOS="230" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_2" CONTENT="апаратах." HPOS="340" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_3" CONTENT="Човен" HPOS="450" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_4" CONTENT="не" HPOS="560" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_5" CONTENT="встиг" HPOS="670" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_6" CONTENT="піти" HPOS="780" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_7" CONTENT="під" HPOS="890" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_8" CONTENT="ду" HPOS="1000" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_95_9" CONTENT="говори" HPOS="1110" VPOS="7150" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_96" HPOS="120" VPOS="7210" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_96_0" CONTENT="воду," HPOS="120" VPOS="7210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_96_1" CONTENT="хоча" HPOS="230" VPOS="7210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_96_2" CONTENT="й" HPOS="340" VPOS="7210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_96_3" CONTENT="поклав" HPOS="450" VPOS="7210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_96_4" CONTENT="для" HPOS="560" VPOS="7210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_96_5" CONTENT="цього" HPOS="670" VPOS="7210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_96_6" CONTENT="рулі." HPOS="780" VPOS="7210" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_97" HPOS="120" VPOS="7270" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_97_0" CONTENT="добрі" HPOS="120" VPOS="7270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_97_1" CONTENT="діла." HPOS="230" VPOS="7270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_97_2" CONTENT="Не" HPOS="340" VPOS="7270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_97_3" CONTENT="так?" HPOS="450" VPOS="7270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_97_4" CONTENT="Тільки" HPOS="560" VPOS="7270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_97_5" CONTENT="ви" HPOS="670" VPOS="7270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_97_6" CONTENT="зле" HPOS="780" VPOS="7270" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_98" HPOS="120" VPOS="7330" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_98_0" CONTENT="це" HPOS="120" VPOS="7330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_98_1" CONTENT="пояснення." HPOS="230" VPOS="7330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_98_2" CONTENT="Пощож" HPOS="340" VPOS="7330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_98_3" CONTENT="треба" HPOS="450" VPOS="7330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_98_4" CONTENT="було" HPOS="560" VPOS="7330" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_99" HPOS="120" VPOS="7390" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_99_0" CONTENT="для" HPOS="120" VPOS="7390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_99_1" CONTENT="темного" HPOS="230" VPOS="7390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_99_2" CONTENT="неграмотного" HPOS="340" VPOS="7390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_99_3" CONTENT="народа?" HPOS="450" VPOS="7390" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_100" HPOS="120" VPOS="7450" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_100_0" CONTENT="світі" HPOS="120" VPOS="7450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_100_1" CONTENT="цего" HPOS="230" VPOS="7450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_100_2" CONTENT="не" HPOS="340" VPOS="7450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_100_3" CONTENT="потрібло" HPOS="450" VPOS="7450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_100_4" CONTENT="було." HPOS="560" VPOS="7450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_100_5" CONTENT="Без" HPOS="670" VPOS="7450" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_101" HPOS="120" VPOS="7510" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_101_0" CONTENT="борієв" HPOS="120" VPOS="7510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_101_1" CONTENT="і" HPOS="230" VPOS="7510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_101_2" CONTENT="рад" HPOS="340" VPOS="7510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_101_3" CONTENT="гандлює" HPOS="450" VPOS="7510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_101_4" CONTENT="за" HPOS="560" VPOS="7510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_101_5" CONTENT="громадські" HPOS="670" VPOS="7510" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_102" HPOS="120" VPOS="7570" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_102_0" CONTENT="денними" HPOS="120" VPOS="7570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_102_1" CONTENT="церковними" HPOS="230" VPOS="7570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_102_2" CONTENT="річами" HPOS="340" VPOS="7570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_102_3" CONTENT="як:" HPOS="450" VPOS="7570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_102_4" CONTENT="дзво-" HPOS="560" VPOS="7570" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_103" HPOS="120" VPOS="7630" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_103_0" CONTENT="зцівницею," HPOS="120" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_103_1" CONTENT="і" HPOS="230" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_103_2" CONTENT="т." HPOS="340" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_103_3" CONTENT="д." HPOS="450" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_103_4" CONTENT="і" HPOS="560" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_103_5" CONTENT="не" HPOS="670" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_103_6" CONTENT="числитеся" HPOS="780" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_103_7" CONTENT="з" HPOS="890" VPOS="7630" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_104" HPOS="120" VPOS="7690" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_104_0" CONTENT="з" HPOS="120" VPOS="7690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_104_1" CONTENT="реформою" HPOS="230" VPOS="7690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_104_2" CONTENT="було" HPOS="340" VPOS="7690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_104_3" CONTENT="зробити." HPOS="450" VPOS="7690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_104_4" CONTENT="Чи" HPOS="560" VPOS="7690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_104_5" CONTENT="не" HPOS="670" VPOS="7690" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_105" HPOS="120" VPOS="7750" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_105_0" CONTENT="защіу" HPOS="120" VPOS="7750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_105_1" CONTENT="користь?" HPOS="230" VPOS="7750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_105_2" CONTENT="Хоч" HPOS="340" VPOS="7750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_105_3" CONTENT="би" HPOS="450" VPOS="7750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_105_4" CONTENT="ті" HPOS="560" VPOS="7750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_105_5" CONTENT="в" HPOS="670" VPOS="7750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_105_6" CONTENT="вас" HPOS="780" VPOS="7750" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_106" HPOS="120" VPOS="7810" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_106_0" CONTENT="поючі" HPOS="120" VPOS="7810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_106_1" CONTENT="не" HPOS="230" VPOS="7810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_106_2" CONTENT="були" HPOS="340" VPOS="7810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_106_3" CONTENT="єще" HPOS="450" VPOS="7810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_106_4" CONTENT="знали," HPOS="560" VPOS="7810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_106_5" CONTENT="що" HPOS="670" VPOS="7810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_106_6" CONTENT="ваші" HPOS="780" VPOS="7810" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_107" HPOS="120" VPOS="7870" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_107_0" CONTENT="поля" HPOS="120" VPOS="7870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_107_1" CONTENT="не" HPOS="230" VPOS="7870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_107_2" CONTENT="є" HPOS="340" VPOS="7870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_107_3" CONTENT="з" HPOS="450" VPOS="7870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_107_4" CONTENT="такими" HPOS="560" VPOS="7870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_107_5" CONTENT="самого" HPOS="670" VPOS="7870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_107_6" CONTENT="Бог." HPOS="780" VPOS="7870" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_108" HPOS="120" VPOS="7930" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_108_0" CONTENT="зо" HPOS="120" VPOS="7930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_108_1" CONTENT="ні." HPOS="230" VPOS="7930" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_109" HPOS="120" VPOS="7990" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_109_0" CONTENT="і" HPOS="120" VPOS="7990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_109_1" CONTENT="неграмотнії" HPOS="230" VPOS="7990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_109_2" CONTENT="люди," HPOS="340" VPOS="7990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_109_3" CONTENT="яких" HPOS="450" VPOS="7990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_109_4" CONTENT="ви" HPOS="560" VPOS="7990" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_109_5" CONTENT="зви-" HPOS="670" VPOS="7990" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_110" HPOS="120" VPOS="8050" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_110_0" CONTENT="домвони" HPOS="120" VPOS="8050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_110_1" CONTENT="звете" HPOS="230" VPOS="8050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_110_2" CONTENT="худобою," HPOS="340" VPOS="8050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_110_3" CONTENT="розпізнали" HPOS="450" VPOS="8050" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_111" HPOS="120" VPOS="8110" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_111_0" CONTENT="пі" HPOS="120" VPOS="8110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_111_1" CONTENT="під" HPOS="230" VPOS="8110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_111_2" CONTENT="вашими" HPOS="340" VPOS="8110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_111_3" CONTENT="реверенлами" HPOS="450" VPOS="8110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_111_4" CONTENT="криєсь." HPOS="560" VPOS="8110" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_112" HPOS="120" VPOS="8170" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_112_0" CONTENT="оти" HPOS="120" VPOS="8170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_112_1" CONTENT="і" HPOS="230" VPOS="8170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_112_2" CONTENT="неграмотність" HPOS="340" VPOS="8170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_112_3" CONTENT="мусить" HPOS="450" VPOS="8170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_112_4" CONTENT="як" HPOS="560" VPOS="8170" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_113" HPOS="120" VPOS="8230" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_113_0" CONTENT="тись" HPOS="120" VPOS="8230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_113_1" CONTENT="на" HPOS="230" VPOS="8230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_113_2" CONTENT="вас" HPOS="340" VPOS="8230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_113_3" CONTENT="усіх" HPOS="450" VPOS="8230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_113_4" CONTENT="преосвячених," HPOS="560" VPOS="8230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_113_5" CONTENT="тому," HPOS="670" VPOS="8230" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_114" HPOS="120" VPOS="8290" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_114_0" CONTENT="оїми" HPOS="120" VPOS="8290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_114_1" CONTENT="реверенлами" HPOS="230" VPOS="8290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_114_2" CONTENT="заступаєте" HPOS="340" VPOS="8290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_114_3" CONTENT="шлях" HPOS="450" VPOS="8290" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_115" HPOS="120" VPOS="8350" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_115_0" CONTENT="тости." HPOS="120" VPOS="8350" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_116" HPOS="120" VPOS="8410" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_116_0" CONTENT="оби" HPOS="120" VPOS="8410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_116_1" CONTENT="закінчити," HPOS="230" VPOS="8410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_116_2" CONTENT="то" HPOS="340" VPOS="8410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_116_3" CONTENT="свідчусь" HPOS="450" VPOS="8410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_116_4" CONTENT="тоюбою" HPOS="560" VPOS="8410" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_117" HPOS="120" VPOS="8470" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_117_0" CONTENT="зборів" HPOS="120" VPOS="8470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_117_1" CONTENT="і" HPOS="230" VPOS="8470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_117_2" CONTENT="кажу" HPOS="340" VPOS="8470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_117_3" CONTENT="виразно," HPOS="450" VPOS="8470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_117_4" CONTENT="що" HPOS="560" VPOS="8470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_117_5" CONTENT="неправ-" HPOS="670" VPOS="8470" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_118" HPOS="120" VPOS="8530" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_118_0" CONTENT="реформаторе." HPOS="120" VPOS="8530" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_119" HPOS="120" VPOS="8590" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_119_0" CONTENT="Неграмотний." HPOS="120" VPOS="8590" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_120" HPOS="120" VPOS="8650" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_120_0" CONTENT="В." HPOS="120" VPOS="8650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_120_1" CONTENT="Гарані," HPOS="230" VPOS="8650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_120_2" CONTENT="20-9-1928." HPOS="340" VPOS="8650" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_121" HPOS="120" VPOS="8710" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_121_0" CONTENT="Той" HPOS="120" VPOS="8710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_121_1" CONTENT="самий." HPOS="230" VPOS="8710" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_122" HPOS="120" VPOS="8770" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_122_0" CONTENT="блазько" HPOS="120" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_122_1" CONTENT="станції" HPOS="230" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_122_2" CONTENT="Легру" HPOS="340" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_122_3" CONTENT="С." HPOS="450" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_122_4" CONTENT="Катаріна" HPOS="560" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_122_5" CONTENT="на" HPOS="670" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_122_6" CONTENT="182" HPOS="780" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_122_7" CONTENT="кі-" HPOS="890" VPOS="8770" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_123" HPOS="120" VPOS="8830" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_123_0" CONTENT="льометрі." HPOS="120" VPOS="8830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_123_1" CONTENT="Земля" HPOS="230" VPOS="8830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_123_2" CONTENT="віддалена" HPOS="340" VPOS="8830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_123_3" CONTENT="від" HPOS="450" VPOS="8830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_123_4" CONTENT="залізничної" HPOS="560" VPOS="8830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_123_5" CONTENT="лі-" HPOS="670" VPOS="8830" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_124" HPOS="120" VPOS="8890" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_124_0" CONTENT="нії" HPOS="120" VPOS="8890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_124_1" CONTENT="250" HPOS="230" VPOS="8890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_124_2" CONTENT="метрів." HPOS="340" VPOS="8890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_124_3" CONTENT="Ціна" HPOS="450" VPOS="8890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_124_4" CONTENT="2:5000$000" HPOS="560" VPOS="8890" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_125" HPOS="120" VPOS="8950" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_125_0" CONTENT="Користайте" HPOS="120" VPOS="8950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_125_1" CONTENT="з" HPOS="230" VPOS="8950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_125_2" CONTENT="нагоди!" HPOS="340" VPOS="8950" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_126" HPOS="120" VPOS="9010" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_126_0" CONTENT="Зголошуватись" HPOS="120" VPOS="9010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_126_1" CONTENT="на" HPOS="230" VPOS="9010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_126_2" CONTENT="мою" HPOS="340" VPOS="9010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_126_3" CONTENT="адресу:" HPOS="450" VPOS="9010" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_127" HPOS="120" VPOS="9070" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_127_0" CONTENT="Іван" HPOS="120" VPOS="9070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_127_1" CONTENT="Могильський" HPOS="230" VPOS="9070" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_128" HPOS="120" VPOS="9130" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_128_0" CONTENT="Dorizon" HPOS="120" VPOS="9130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_128_1" CONTENT="–" HPOS="230" VPOS="9130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_128_2" CONTENT="Serra" HPOS="340" VPOS="9130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_128_3" CONTENT="de" HPOS="450" VPOS="9130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_128_4" CONTENT="Tigre" HPOS="560" VPOS="9130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_128_5" CONTENT="–" HPOS="670" VPOS="9130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_128_6" CONTENT="Paraná" HPOS="780" VPOS="9130" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_129" HPOS="120" VPOS="9190" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_129_0" CONTENT="„" HPOS="120" VPOS="9190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_129_1" CONTENT="1925" HPOS="230" VPOS="9190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_129_2" CONTENT="&quot;" HPOS="340" VPOS="9190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_129_3" CONTENT="1," HPOS="450" VPOS="9190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_129_4" CONTENT="24," HPOS="560" VPOS="9190" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_130" HPOS="120" VPOS="9250" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_130_0" CONTENT="„" HPOS="120" VPOS="9250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_130_1" CONTENT="1926" HPOS="230" VPOS="9250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_130_2" CONTENT="&quot;" HPOS="340" VPOS="9250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_130_3" CONTENT="14," HPOS="450" VPOS="9250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_130_4" CONTENT="21," HPOS="560" VPOS="9250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_130_5" CONTENT="23," HPOS="670" VPOS="9250" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_131" HPOS="120" VPOS="9310" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_131_0" CONTENT="&quot;" HPOS="120" VPOS="9310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_131_1" CONTENT="37," HPOS="230" VPOS="9310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_131_2" CONTENT="41" HPOS="340" VPOS="9310" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_132" HPOS="120" VPOS="9370" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_132_0" CONTENT="„" HPOS="120" VPOS="9370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_132_1" CONTENT="1927" HPOS="230" VPOS="9370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_132_2" CONTENT="&quot;" HPOS="340" VPOS="9370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_132_3" CONTENT="1," HPOS="450" VPOS="9370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_132_4" CONTENT="17," HPOS="560" VPOS="9370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_132_5" CONTENT="19," HPOS="670" VPOS="9370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_132_6" CONTENT="20," HPOS="780" VPOS="9370" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_133" HPOS="120" VPOS="9430" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_133_0" CONTENT="„" HPOS="120" VPOS="9430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_133_1" CONTENT="1928" HPOS="230" VPOS="9430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_133_2" CONTENT="&quot;" HPOS="340" VPOS="9430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_133_3" CONTENT="1," HPOS="450" VPOS="9430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_133_4" CONTENT="2." HPOS="560" VPOS="9430" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_134" HPOS="120" VPOS="9490" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_134_0" CONTENT="Видавництво" HPOS="120" VPOS="9490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_134_1" CONTENT="„У." HPOS="230" VPOS="9490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_134_2" CONTENT="Хлібороба“." HPOS="340" VPOS="9490" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_135" HPOS="120" VPOS="9550" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_135_0" CONTENT="–0–" HPOS="120" VPOS="9550" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_136" HPOS="120" VPOS="9610" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_136_0" CONTENT="Календар" HPOS="120" VPOS="9610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_136_1" CONTENT="„У." HPOS="230" VPOS="9610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_136_2" CONTENT="Хлібороба“" HPOS="340" VPOS="9610" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_137" HPOS="120" VPOS="9670" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_137_0" CONTENT="ба" HPOS="120" VPOS="9670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_137_1" CONTENT="на" HPOS="230" VPOS="9670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_137_2" CONTENT="1928" HPOS="340" VPOS="9670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_137_3" CONTENT="рік." HPOS="450" VPOS="9670" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_138" HPOS="120" VPOS="9730" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_138_0" CONTENT="Попри" HPOS="120" VPOS="9730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_138_1" CONTENT="календарну" HPOS="230" VPOS="9730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_138_2" CONTENT="і" HPOS="340" VPOS="9730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_138_3" CONTENT="інформацій" HPOS="450" VPOS="9730" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_139" HPOS="120" VPOS="9790" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_139_0" CONTENT="в" HPOS="120" VPOS="9790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_139_1" CONTENT="календарі" HPOS="230" VPOS="9790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_139_2" CONTENT="міститься:" HPOS="340" VPOS="9790" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_140" HPOS="120" VPOS="9850" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_140_0" CONTENT="1." HPOS="120" VPOS="9850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_140_1" CONTENT="П." HPOS="230" VPOS="9850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_140_2" CONTENT="Карманський:" HPOS="340" VPOS="9850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_140_3" CONTENT="Пять" HPOS="450" VPOS="9850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_140_4" CONTENT="літ." HPOS="560" VPOS="9850" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_141" HPOS="120" VPOS="9910" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_141_0" CONTENT="2." HPOS="120" VPOS="9910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_141_1" CONTENT="Ольга" HPOS="230" VPOS="9910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_141_2" CONTENT="Олександра" HPOS="340" VPOS="9910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_141_3" CONTENT="Думині" HPOS="450" VPOS="9910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_141_4" CONTENT="-" HPOS="560" VPOS="9910" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_142" HPOS="120" VPOS="9970" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_142_0" CONTENT="поет." HPOS="120" VPOS="9970" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_143" HPOS="120" VPOS="10030" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_143_0" CONTENT="3." HPOS="120" VPOS="10030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_143_1" CONTENT="О." HPOS="230" VPOS="10030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_143_2" CONTENT="Олесь:" HPOS="340" VPOS="10030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_143_3" CONTENT="Коли-б" HPOS="450" VPOS="10030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_143_4" CONTENT="ми" HPOS="560" VPOS="10030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_143_5" CONTENT="плакали." HPOS="670" VPOS="10030" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_144" HPOS="120" VPOS="10090" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_144_0" CONTENT="4" HPOS="120" VPOS="10090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_144_1" CONTENT="Гастон" HPOS="230" VPOS="10090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_144_2" CONTENT="Пеняльва:" HPOS="340" VPOS="10090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_144_3" CONTENT="Легенда" HPOS="450" VPOS="10090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_144_4" CONTENT="по" HPOS="560" VPOS="10090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_144_5" CONTENT="-" HPOS="670" VPOS="10090" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_145" HPOS="120" VPOS="10150" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_145_0" CONTENT="(переклад" HPOS="120" VPOS="10150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_145_1" CONTENT="з" HPOS="230" VPOS="10150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_145_2" CONTENT="португал." HPOS="340" VPOS="10150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_145_3" CONTENT="П." HPOS="450" VPOS="10150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_145_4" CONTENT="Карман" HPOS="560" VPOS="10150" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_146" HPOS="120" VPOS="10210" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_146_0" CONTENT="5." HPOS="120" VPOS="10210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_146_1" CONTENT="М." HPOS="230" VPOS="10210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_146_2" CONTENT="Старицький:" HPOS="340" VPOS="10210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_146_3" CONTENT="До" HPOS="450" VPOS="10210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_146_4" CONTENT="україн" HPOS="560" VPOS="10210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_146_5" CONTENT="-" HPOS="670" VPOS="10210" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_147" HPOS="120" VPOS="10270" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_147_0" CONTENT="6." HPOS="120" VPOS="10270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_147_1" CONTENT="Коельйо" HPOS="230" VPOS="10270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_147_2" CONTENT="Нетто:" HPOS="340" VPOS="10270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_147_3" CONTENT="Любов" HPOS="450" VPOS="10270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_147_4" CONTENT="(пере" HPOS="560" VPOS="10270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_147_5" CONTENT="-" HPOS="670" VPOS="10270" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_148" HPOS="120" VPOS="10330" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_148_0" CONTENT="мови" HPOS="120" VPOS="10330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_148_1" CONTENT="П." HPOS="230" VPOS="10330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_148_2" CONTENT="Карманського)." HPOS="340" VPOS="10330" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_149" HPOS="120" VPOS="10390" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_149_0" CONTENT="7." HPOS="120" VPOS="10390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_149_1" CONTENT="І." HPOS="230" VPOS="10390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_149_2" CONTENT="Франко:" HPOS="340" VPOS="10390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_149_3" CONTENT="Грицева" HPOS="450" VPOS="10390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_149_4" CONTENT="шкіль" HPOS="560" VPOS="10390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_149_5" CONTENT="-" HPOS="670" VPOS="10390" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_150" HPOS="120" VPOS="10450" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_150_0" CONTENT="8." HPOS="120" VPOS="10450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_150_1" CONTENT="І." HPOS="230" VPOS="10450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_150_2" CONTENT="Франко:" HPOS="340" VPOS="10450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_150_3" CONTENT="Блажен" HPOS="450" VPOS="10450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_150_4" CONTENT="муж." HPOS="560" VPOS="10450" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_151" HPOS="120" VPOS="10510" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_151_0" CONTENT="9." HPOS="120" VPOS="10510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_151_1" CONTENT="Віріято" HPOS="230" VPOS="10510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_151_2" CONTENT="Коррея:" HPOS="340" VPOS="10510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_151_3" CONTENT="Сікіня" HPOS="450" VPOS="10510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_151_4" CONTENT="(пе" HPOS="560" VPOS="10510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_151_5" CONTENT="-" HPOS="670" VPOS="10510" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_152" HPOS="120" VPOS="10570" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_152_0" CONTENT="туг." HPOS="120" VPOS="10570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_152_1" CONTENT="мови" HPOS="230" VPOS="10570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_152_2" CONTENT="П." HPOS="340" VPOS="10570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_152_3" CONTENT="Карманського)." HPOS="450" VPOS="10570" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_153" HPOS="120" VPOS="10630" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_153_0" CONTENT="10." HPOS="120" VPOS="10630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_153_1" CONTENT="Борис" HPOS="230" VPOS="10630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_153_2" CONTENT="Грінченко:" HPOS="340" VPOS="10630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_153_3" CONTENT="Хлібороб" HPOS="450" VPOS="10630" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_154" HPOS="120" VPOS="10690" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_154_0" CONTENT="11." HPOS="120" VPOS="10690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_154_1" CONTENT="П." HPOS="230" VPOS="10690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_154_2" CONTENT="Карманський:" HPOS="340" VPOS="10690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_154_3" CONTENT="1000" HPOS="450" VPOS="10690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_154_4" CONTENT="літ." HPOS="560" VPOS="10690" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_155" HPOS="120" VPOS="10750" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_155_0" CONTENT="12." HPOS="120" VPOS="10750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_155_1" CONTENT="І." HPOS="230" VPOS="10750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_155_2" CONTENT="Франко:" HPOS="340" VPOS="10750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_155_3" CONTENT="Як" HPOS="450" VPOS="10750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_155_4" CONTENT="трапиться" HPOS="560" VPOS="10750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_155_5" CONTENT="з" HPOS="670" VPOS="10750" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_156" HPOS="120" VPOS="10810" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_156_0" CONTENT="ським" HPOS="120" VPOS="10810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_156_1" CONTENT="ділі" HPOS="230" VPOS="10810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_156_2" CONTENT="(вірш)." HPOS="340" VPOS="10810" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_157" HPOS="120" VPOS="10870" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_157_0" CONTENT="13." HPOS="120" VPOS="10870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_157_1" CONTENT="О." HPOS="230" VPOS="10870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_157_2" CONTENT="Маковей:" HPOS="340" VPOS="10870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_157_3" CONTENT="Молдний" HPOS="450" VPOS="10870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_157_4" CONTENT="плуг." HPOS="560" VPOS="10870" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_158" HPOS="120" VPOS="10930" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_158_0" CONTENT="14." HPOS="120" VPOS="10930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_158_1" CONTENT="А." HPOS="230" VPOS="10930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_158_2" CONTENT="Корніївський:" HPOS="340" VPOS="10930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_158_3" CONTENT="Фізичне" HPOS="450" VPOS="10930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_158_4" CONTENT="виховання" HPOS="560" VPOS="10930" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_159" HPOS="120" VPOS="10990" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_159_0" CONTENT="людини." HPOS="120" VPOS="10990" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_160" HPOS="120" VPOS="11050" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_160_0" CONTENT="Панове" HPOS="120" VPOS="11050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_160_1" CONTENT="Купці." HPOS="230" VPOS="11050" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_161" HPOS="120" VPOS="11110" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_161_0" CONTENT="Хто" HPOS="120" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_161_1" CONTENT="з" HPOS="230" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_161_2" CONTENT="Вас" HPOS="340" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_161_3" CONTENT="хоче" HPOS="450" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_161_4" CONTENT="продати" HPOS="560" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_161_5" CONTENT="добре" HPOS="670" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_161_6" CONTENT="і" HPOS="780" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_161_7" CONTENT="солідно" HPOS="890" VPOS="11110" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_162" HPOS="120" VPOS="11170" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_162_0" CONTENT="свої" HPOS="120" VPOS="11170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_162_1" CONTENT="продукти," HPOS="230" VPOS="11170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_162_2" CONTENT="прошу" HPOS="340" VPOS="11170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_162_3" CONTENT="сейчас" HPOS="450" VPOS="11170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_162_4" CONTENT="звертатись" HPOS="560" VPOS="11170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_162_5" CONTENT="за" HPOS="670" VPOS="11170" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_163" HPOS="120" VPOS="11230" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_163_0" CONTENT="інформаціями" HPOS="120" VPOS="11230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_163_1" CONTENT="до:" HPOS="230" VPOS="11230" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_164" HPOS="120" VPOS="11290" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_164_0" CONTENT="Basilio" HPOS="120" VPOS="11290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_164_1" CONTENT="Yavorsky" HPOS="230" VPOS="11290" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_165" HPOS="120" VPOS="11350" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_165_0" CONTENT="Rua" HPOS="120" VPOS="11350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_165_1" CONTENT="Julio" HPOS="230" VPOS="11350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_165_2" CONTENT="Conceção," HPOS="340" VPOS="11350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_165_3" CONTENT="106" HPOS="450" VPOS="11350" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_166" HPOS="120" VPOS="11410" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_166_0" CONTENT="SOA" HPOS="120" VPOS="11410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_166_1" CONTENT="PAULO." HPOS="230" VPOS="11410" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_167" HPOS="120" VPOS="11470" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_167_0" CONTENT="Українська" HPOS="120" VPOS="11470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_167_1" CONTENT="столярська" HPOS="230" VPOS="11470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_167_2" CONTENT="робітня" HPOS="340" VPOS="11470" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_168" HPOS="120" VPOS="11530" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_168_0" CONTENT="в" HPOS="120" VPOS="11530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_168_1" CONTENT="Порто" HPOS="230" VPOS="11530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_168_2" CONTENT="Уніон." HPOS="340" VPOS="11530" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_169" HPOS="120" VPOS="11590" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_169_0" CONTENT="Повідомляю" HPOS="120" VPOS="11590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_169_1" CONTENT="усіх" HPOS="230" VPOS="11590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_169_2" CONTENT="Шанов." HPOS="340" VPOS="11590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_169_3" CONTENT="Земляків" HPOS="450" VPOS="11590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_169_4" CONTENT="про-" HPOS="560" VPOS="11590" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_170" HPOS="120" VPOS="11650" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_170_0" CONTENT="відкриття" HPOS="120" VPOS="11650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_170_1" CONTENT="нової" HPOS="230" VPOS="11650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_170_2" CONTENT="столярської" HPOS="340" VPOS="11650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_170_3" CONTENT="робітні" HPOS="450" VPOS="11650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_170_4" CONTENT="::" HPOS="560" VPOS="11650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_170_5" CONTENT="Ви-" HPOS="670" VPOS="11650" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_171" HPOS="120" VPOS="11710" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_171_0" CONTENT="конує" HPOS="120" VPOS="11710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_171_1" CONTENT="солідно" HPOS="230" VPOS="11710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_171_2" CONTENT="і" HPOS="340" VPOS="11710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_171_3" CONTENT="дешево" HPOS="450" VPOS="11710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_171_4" CONTENT="всякі" HPOS="560" VPOS="11710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_171_5" CONTENT="роботи" HPOS="670" VPOS="11710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_171_6" CONTENT="вхо-" HPOS="780" VPOS="11710" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_172" HPOS="120" VPOS="11770" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_172_0" CONTENT="дячі" HPOS="120" VPOS="11770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_172_1" CONTENT="в" HPOS="230" VPOS="11770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_172_2" CONTENT="обсяг" HPOS="340" VPOS="11770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_172_3" CONTENT="столярського" HPOS="450" VPOS="11770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_172_4" CONTENT="звання," HPOS="560" VPOS="11770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_172_5" CONTENT="як:" HPOS="670" VPOS="11770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_172_6" CONTENT="ша-" HPOS="780" VPOS="11770" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_173" HPOS="120" VPOS="11830" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_173_0" CONTENT="фи" HPOS="120" VPOS="11830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_173_1" CONTENT="ліжка" HPOS="230" VPOS="11830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_173_2" CONTENT="і" HPOS="340" VPOS="11830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_173_3" CONTENT="всякого" HPOS="450" VPOS="11830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_173_4" CONTENT="рода" HPOS="560" VPOS="11830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_173_5" CONTENT="меблі." HPOS="670" VPOS="11830" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_174" HPOS="120" VPOS="11890" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_174_0" CONTENT="СВІЙ" HPOS="120" VPOS="11890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_174_1" CONTENT="ДО" HPOS="230" VPOS="11890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_174_2" CONTENT="СВОГО!!!" HPOS="340" VPOS="11890" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_175" HPOS="120" VPOS="11950" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_175_0" CONTENT="„Marcenaria" HPOS="120" VPOS="11950" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_175_1" CONTENT="Progresso“" HPOS="230" VPOS="11950" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_176" HPOS="120" VPOS="12010" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_176_0" CONTENT="Porto" HPOS="120" VPOS="12010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_176_1" CONTENT="União," HPOS="230" VPOS="12010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_176_2" CONTENT="Rua" HPOS="340" VPOS="12010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_176_3" CONTENT="Mattos" HPOS="450" VPOS="12010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_176_4" CONTENT="Costa," HPOS="560" VPOS="12010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_176_5" CONTENT="5" HPOS="670" VPOS="12010" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_177" HPOS="120" VPOS="12070" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_177_0" CONTENT="Семен" HPOS="120" VPOS="12070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_177_1" CONTENT="Мирошниченко." HPOS="230" VPOS="12070" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_178" HPOS="120" VPOS="12130" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_178_0" CONTENT="Р." HPOS="120" VPOS="12130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_178_1" CONTENT="S." HPOS="230" VPOS="12130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_178_2" CONTENT="Сумський." HPOS="340" VPOS="12130" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_179" HPOS="120" VPOS="12190" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_179_0" CONTENT="Для" HPOS="120" VPOS="12190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_179_1" CONTENT="влекчення" HPOS="230" VPOS="12190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_179_2" CONTENT="нам" HPOS="340" VPOS="12190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_179_3" CONTENT="відбору" HPOS="450" VPOS="12190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_179_4" CONTENT="грошей" HPOS="560" VPOS="12190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_179_5" CONTENT="на" HPOS="670" VPOS="12190" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_180" HPOS="120" VPOS="12250" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_180_0" CONTENT="посипати" HPOS="120" VPOS="12250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_180_1" CONTENT="гроші" HPOS="230" VPOS="12250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_180_2" CONTENT="в" HPOS="340" VPOS="12250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_180_3" CONTENT="листах" HPOS="450" VPOS="12250" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_181" HPOS="120" VPOS="12310" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_181_0" CONTENT="Lavrador" HPOS="120" VPOS="12310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_181_1" CONTENT="Ukraino“" HPOS="230" VPOS="12310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_181_2" CONTENT="Uniao" HPOS="340" VPOS="12310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_181_3" CONTENT="da" HPOS="450" VPOS="12310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_181_4" CONTENT="Vic-" HPOS="560" VPOS="12310" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_182" HPOS="120" VPOS="12370" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_182_0" CONTENT="toria" HPOS="120" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_1" CONTENT="–" HPOS="230" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_2" CONTENT="Caixa" HPOS="340" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_3" CONTENT="postal" HPOS="450" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_4" CONTENT="No" HPOS="560" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_5" CONTENT="3" HPOS="670" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_6" CONTENT="–" HPOS="780" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_7" CONTENT="Paraná" HPOS="890" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_8" CONTENT="–" HPOS="1000" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_182_9" CONTENT="Brazil." HPOS="1110" VPOS="12370" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_183" HPOS="120" VPOS="12430" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_183_0" CONTENT="15." HPOS="120" VPOS="12430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_183_1" CONTENT="П." HPOS="230" VPOS="12430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_183_2" CONTENT="Карманський:" HPOS="340" VPOS="12430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_183_3" CONTENT="*" HPOS="450" VPOS="12430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_183_4" CONTENT="*" HPOS="560" VPOS="12430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_183_5" CONTENT="(вірш)." HPOS="670" VPOS="12430" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_184" HPOS="120" VPOS="12490" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_184_0" CONTENT="16." HPOS="120" VPOS="12490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_184_1" CONTENT="П." HPOS="230" VPOS="12490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_184_2" CONTENT="Карманський:" HPOS="340" VPOS="12490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_184_3" CONTENT="Як" HPOS="450" VPOS="12490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_184_4" CONTENT="заснував" HPOS="560" VPOS="12490" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_185" HPOS="120" VPOS="12550" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_185_0" CONTENT="їнський" HPOS="120" VPOS="12550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_185_1" CONTENT="Союз" HPOS="230" VPOS="12550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_185_2" CONTENT="в" HPOS="340" VPOS="12550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_185_3" CONTENT="Бразилії." HPOS="450" VPOS="12550" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_186" HPOS="120" VPOS="12610" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_186_0" CONTENT="17." HPOS="120" VPOS="12610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_186_1" CONTENT="Др." HPOS="230" VPOS="12610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_186_2" CONTENT="В." HPOS="340" VPOS="12610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_186_3" CONTENT="Ганківський:" HPOS="450" VPOS="12610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_186_4" CONTENT="Домашня" HPOS="560" VPOS="12610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_186_5" CONTENT="аптика." HPOS="670" VPOS="12610" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_187" HPOS="120" VPOS="12670" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_187_0" CONTENT="Календар" HPOS="120" VPOS="12670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_187_1" CONTENT="обемом" HPOS="230" VPOS="12670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_187_2" CONTENT="понад" HPOS="340" VPOS="12670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_187_3" CONTENT="100" HPOS="450" VPOS="12670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_187_4" CONTENT="стор." HPOS="560" VPOS="12670" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_188" HPOS="120" VPOS="12730" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_188_0" CONTENT="містить" HPOS="120" VPOS="12730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_188_1" CONTENT="ілюстрації" HPOS="230" VPOS="12730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_188_2" CONTENT="Україн.-Бразильсь." HPOS="340" VPOS="12730" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_189" HPOS="120" VPOS="12790" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_189_0" CONTENT="з" HPOS="120" VPOS="12790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_189_1" CONTENT="фронту" HPOS="230" VPOS="12790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_189_2" CONTENT="і" HPOS="340" VPOS="12790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_189_3" CONTENT="ззаду" HPOS="450" VPOS="12790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_189_4" CONTENT="і" HPOS="560" VPOS="12790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_189_5" CONTENT="знимку" HPOS="670" VPOS="12790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_189_6" CONTENT="сьогодняшн." HPOS="780" VPOS="12790" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_190" HPOS="120" VPOS="12850" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_190_0" CONTENT="Колегії." HPOS="120" VPOS="12850" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_191" HPOS="120" VPOS="12910" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_191_0" CONTENT="Ціна" HPOS="120" VPOS="12910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_191_1" CONTENT="2$500" HPOS="230" VPOS="12910" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_192" HPOS="120" VPOS="12970" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_192_0" CONTENT="Попри" HPOS="120" VPOS="12970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_192_1" CONTENT="це" HPOS="230" VPOS="12970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_192_2" CONTENT="з" HPOS="340" VPOS="12970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_192_3" CONTENT="друкарні" HPOS="450" VPOS="12970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_192_4" CONTENT="„Лідія“" HPOS="560" VPOS="12970" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_192_5" CONTENT="до" HPOS="670" VPOS="12970" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_193" HPOS="120" VPOS="13030" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_193_0" CONTENT="му" HPOS="120" VPOS="13030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_193_1" CONTENT="півріччу" HPOS="230" VPOS="13030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_193_2" CONTENT="вийшли:" HPOS="340" VPOS="13030" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_194" HPOS="120" VPOS="13090" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_194_0" CONTENT="1." HPOS="120" VPOS="13090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_194_1" CONTENT="В." HPOS="230" VPOS="13090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_194_2" CONTENT="Кущ:" HPOS="340" VPOS="13090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_194_3" CONTENT="Мойсей" HPOS="450" VPOS="13090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_194_4" CONTENT="(поема)." HPOS="560" VPOS="13090" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_195" HPOS="120" VPOS="13150" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_195_0" CONTENT="Відбитка" HPOS="120" VPOS="13150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_195_1" CONTENT="з" HPOS="230" VPOS="13150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_195_2" CONTENT="„У." HPOS="340" VPOS="13150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_195_3" CONTENT="Хлібороба“." HPOS="450" VPOS="13150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_195_4" CONTENT="Ціна" HPOS="560" VPOS="13150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_195_5" CONTENT="2$000." HPOS="670" VPOS="13150" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_196" HPOS="120" VPOS="13210" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_196_0" CONTENT="бороба“." HPOS="120" VPOS="13210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_196_1" CONTENT="Ціна" HPOS="230" VPOS="13210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_196_2" CONTENT="1$000." HPOS="340" VPOS="13210" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_197" HPOS="120" VPOS="13270" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_197_0" CONTENT="3." HPOS="120" VPOS="13270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_197_1" CONTENT="С." HPOS="230" VPOS="13270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_197_2" CONTENT="Савицький:" HPOS="340" VPOS="13270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_197_3" CONTENT="Бандура" HPOS="450" VPOS="13270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_197_4" CONTENT="(повість)" HPOS="560" VPOS="13270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_197_5" CONTENT="—" HPOS="670" VPOS="13270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_197_6" CONTENT="96" HPOS="780" VPOS="13270" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_198" HPOS="120" VPOS="13330" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_198_0" CONTENT="стор." HPOS="120" VPOS="13330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_198_1" CONTENT="Ціна" HPOS="230" VPOS="13330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_198_2" CONTENT="–" HPOS="340" VPOS="13330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_198_3" CONTENT="1$000" HPOS="450" VPOS="13330" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_199" HPOS="120" VPOS="13390" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_199_0" CONTENT="ВІДОМА" HPOS="120" VPOS="13390" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_200" HPOS="120" VPOS="13450" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_200_0" CONTENT="Шевська" HPOS="120" VPOS="13450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_200_1" CONTENT="Робітня" HPOS="230" VPOS="13450" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_201" HPOS="120" VPOS="13510" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_201_0" CONTENT="ВАСИЛЯ" HPOS="120" VPOS="13510" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_201_1" CONTENT="ЛИТВИНСЬКОГО." HPOS="230" VPOS="13510" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_202" HPOS="120" VPOS="13570" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_202_0" CONTENT="Приймає" HPOS="120" VPOS="13570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_202_1" CONTENT="і" HPOS="230" VPOS="13570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_202_2" CONTENT="виконує" HPOS="340" VPOS="13570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_202_3" CONTENT="дешево," HPOS="450" VPOS="13570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_202_4" CONTENT="солідно" HPOS="560" VPOS="13570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_202_5" CONTENT="і" HPOS="670" VPOS="13570" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_202_6" CONTENT="ско-" HPOS="780" VPOS="13570" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_203" HPOS="120" VPOS="13630" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_203_0" CONTENT="ро" HPOS="120" VPOS="13630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_203_1" CONTENT="всі" HPOS="230" VPOS="13630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_203_2" CONTENT="заявлення" HPOS="340" VPOS="13630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_203_3" CONTENT="входячі" HPOS="450" VPOS="13630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_203_4" CONTENT="в" HPOS="560" VPOS="13630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_203_5" CONTENT="обсяг" HPOS="670" VPOS="13630" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_203_6" CONTENT="шев-" HPOS="780" VPOS="13630" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_204" HPOS="120" VPOS="13690" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_204_0" CONTENT="ства." HPOS="120" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_204_1" CONTENT="–" HPOS="230" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_204_2" CONTENT="Має" HPOS="340" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_204_3" CONTENT="на" HPOS="450" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_204_4" CONTENT="складі" HPOS="560" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_204_5" CONTENT="все" HPOS="670" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_204_6" CONTENT="більшу" HPOS="780" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_204_7" CONTENT="кіль-" HPOS="890" VPOS="13690" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_205" HPOS="120" VPOS="13750" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_205_0" CONTENT="кість" HPOS="120" VPOS="13750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_205_1" CONTENT="готового" HPOS="230" VPOS="13750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_205_2" CONTENT="товару" HPOS="340" VPOS="13750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_205_3" CONTENT="для" HPOS="450" VPOS="13750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_205_4" CONTENT="замовляючих" HPOS="560" VPOS="13750" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_206" HPOS="120" VPOS="13810" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_206_0" CONTENT="з" HPOS="120" VPOS="13810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_206_1" CONTENT="кольоній" HPOS="230" VPOS="13810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_206_2" CONTENT="купців." HPOS="340" VPOS="13810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_206_3" CONTENT="Завертайтеся" HPOS="450" VPOS="13810" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_206_4" CONTENT="до:" HPOS="560" VPOS="13810" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_207" HPOS="120" VPOS="13870" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_207_0" CONTENT="Basilio" HPOS="120" VPOS="13870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_207_1" CONTENT="Litvinsky" HPOS="230" VPOS="13870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_207_2" CONTENT="–" HPOS="340" VPOS="13870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_207_3" CONTENT="União" HPOS="450" VPOS="13870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_207_4" CONTENT="da" HPOS="560" VPOS="13870" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_207_5" CONTENT="Victoria," HPOS="670" VPOS="13870" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_208" HPOS="120" VPOS="13930" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_208_0" CONTENT="Rua" HPOS="120" VPOS="13930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_208_1" CONTENT="Visconde" HPOS="230" VPOS="13930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_208_2" CONTENT="de" HPOS="340" VPOS="13930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_208_3" CONTENT="Nacar" HPOS="450" VPOS="13930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_208_4" CONTENT="–" HPOS="560" VPOS="13930" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_208_5" CONTENT="Paraná." HPOS="670" VPOS="13930" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_209" HPOS="120" VPOS="13990" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_209_0" CONTENT="Оголошення." HPOS="120" VPOS="13990" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_210" HPOS="120" VPOS="14050" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_210_0" CONTENT="(За" HPOS="120" VPOS="14050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_210_1" CONTENT="оголошення" HPOS="230" VPOS="14050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_210_2" CONTENT="редакція" HPOS="340" VPOS="14050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_210_3" CONTENT="не" HPOS="450" VPOS="14050" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_210_4" CONTENT="відповідає.)" HPOS="560" VPOS="14050" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_211" HPOS="120" VPOS="14110" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_211_0" CONTENT="CORTUME" HPOS="120" VPOS="14110" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_212" HPOS="120" VPOS="14170" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_212_0" CONTENT="Гарбарня" HPOS="120" VPOS="14170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_212_1" CONTENT="АЦОЦЕ" HPOS="230" VPOS="14170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_212_2" CONTENT="МОДЕЛО" HPOS="340" VPOS="14170" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_213" HPOS="120" VPOS="14230" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_213_0" CONTENT="Андрія" HPOS="120" VPOS="14230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_213_1" CONTENT="Любця" HPOS="230" VPOS="14230" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_214" HPOS="120" VPOS="14290" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_214_0" CONTENT="Різна" HPOS="120" VPOS="14290" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_215" HPOS="120" VPOS="14350" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_215_0" CONTENT="при" HPOS="120" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_1" CONTENT="дорозі" HPOS="230" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_2" CONTENT="до" HPOS="340" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_3" CONTENT="Антоніо" HPOS="450" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_4" CONTENT="Кандідо" HPOS="560" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_5" CONTENT="в" HPOS="670" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_6" CONTENT="Парані." HPOS="780" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_7" CONTENT="Купує" HPOS="890" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_215_8" CONTENT="без" HPOS="1000" VPOS="14350" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_216" HPOS="120" VPOS="14410" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_216_0" CONTENT="Виконує" HPOS="120" VPOS="14410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_216_1" CONTENT="всякі" HPOS="230" VPOS="14410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_216_2" CONTENT="замовлення" HPOS="340" VPOS="14410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_216_3" CONTENT="входячі" HPOS="450" VPOS="14410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_216_4" CONTENT="в" HPOS="560" VPOS="14410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_216_5" CONTENT="обсяг" HPOS="670" VPOS="14410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_216_6" CONTENT="мовлення" HPOS="780" VPOS="14410" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_217" HPOS="120" VPOS="14470" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_217_0" CONTENT="гарбарства," HPOS="120" VPOS="14470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_217_1" CONTENT="солідно," HPOS="230" VPOS="14470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_217_2" CONTENT="дешево" HPOS="340" VPOS="14470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_217_3" CONTENT="і" HPOS="450" VPOS="14470" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_217_4" CONTENT="скоро." HPOS="560" VPOS="14470" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_218" HPOS="120" VPOS="14530" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_218_0" CONTENT="ше" HPOS="120" VPOS="14530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_218_1" CONTENT="на" HPOS="230" VPOS="14530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_218_2" CONTENT="п." HPOS="340" VPOS="14530" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_219" HPOS="120" VPOS="14590" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_219_0" CONTENT="::" HPOS="120" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_1" CONTENT="::" HPOS="230" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_2" CONTENT="::" HPOS="340" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_3" CONTENT="::" HPOS="450" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_4" CONTENT="::" HPOS="560" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_5" CONTENT="::" HPOS="670" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_6" CONTENT="::" HPOS="780" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_7" CONTENT="::" HPOS="890" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_8" CONTENT="::" HPOS="1000" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_219_9" CONTENT="смалець," HPOS="1110" VPOS="14590" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_220" HPOS="120" VPOS="14650" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_220_0" CONTENT="ANDRÉ" HPOS="120" VPOS="14650" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_220_1" CONTENT="LUBEC" HPOS="230" VPOS="14650" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_221" HPOS="120" VPOS="14710" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_221_0" CONTENT="Porto" HPOS="120" VPOS="14710" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_221_1" CONTENT="União" HPOS="230" VPOS="14710" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_222" HPOS="120" VPOS="14770" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_222_0" CONTENT="Rua" HPOS="120" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_222_1" CONTENT="7" HPOS="230" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_222_2" CONTENT="de" HPOS="340" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_222_3" CONTENT="Setembro" HPOS="450" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_222_4" CONTENT="N." HPOS="560" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_222_5" CONTENT="19" HPOS="670" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_222_6" CONTENT="S." HPOS="780" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_222_7" CONTENT="Catharina." HPOS="890" VPOS="14770" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_223" HPOS="120" VPOS="14830" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_223_0" CONTENT="Rua" HPOS="120" VPOS="14830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_223_1" CONTENT="7" HPOS="230" VPOS="14830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_223_2" CONTENT="de" HPOS="340" VPOS="14830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_223_3" CONTENT="Setembro" HPOS="450" VPOS="14830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_223_4" CONTENT="N." HPOS="560" VPOS="14830" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_223_5" CONTENT="4" HPOS="670" VPOS="14830" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_224" HPOS="120" VPOS="14890" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_224_0" CONTENT="–" HPOS="120" VPOS="14890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_224_1" CONTENT="DE" HPOS="230" VPOS="14890" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_224_2" CONTENT="–" HPOS="340" VPOS="14890" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_225" HPOS="120" VPOS="14950" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_225_0" CONTENT="XARQUEADA" HPOS="120" VPOS="14950" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_226" HPOS="120" VPOS="15010" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_226_0" CONTENT="de" HPOS="120" VPOS="15010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_226_1" CONTENT="CARLOS" HPOS="230" VPOS="15010" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_226_2" CONTENT="PRATER" HPOS="340" VPOS="15010" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_227" HPOS="120" VPOS="15070" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_227_0" CONTENT="A" HPOS="120" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_1" CONTENT="maior" HPOS="230" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_2" CONTENT="xarqueada" HPOS="340" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_3" CONTENT="em" HPOS="450" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_4" CONTENT="Porto" HPOS="560" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_5" CONTENT="União," HPOS="670" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_6" CONTENT="premiada" HPOS="780" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_7" CONTENT="na" HPOS="890" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_8" CONTENT="exposição" HPOS="1000" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_9" CONTENT="do" HPOS="1110" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_227_10" CONTENT="centenário," HPOS="1220" VPOS="15070" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_228" HPOS="120" VPOS="15130" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_228_0" CONTENT="POSSUE" HPOS="120" VPOS="15130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_228_1" CONTENT="SEMPRE" HPOS="230" VPOS="15130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_228_2" CONTENT="GRANDE" HPOS="340" VPOS="15130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_228_3" CONTENT="STOCK" HPOS="450" VPOS="15130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_228_4" CONTENT="DE" HPOS="560" VPOS="15130" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_228_5" CONTENT="XARQUE." HPOS="670" VPOS="15130" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_229" HPOS="120" VPOS="15190" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_229_0" CONTENT="Endereço:" HPOS="120" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_1" CONTENT="Porto" HPOS="230" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_2" CONTENT="União," HPOS="340" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_3" CONTENT="Rua" HPOS="450" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_4" CONTENT="Coronel" HPOS="560" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_5" CONTENT="Amazonas" HPOS="670" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_6" CONTENT="–" HPOS="780" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_7" CONTENT="Telephone" HPOS="890" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_8" CONTENT="N°" HPOS="1000" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_9" CONTENT="88," HPOS="1110" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_229_10" CONTENT="(Xarqueada" HPOS="1220" VPOS="15190" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_230" HPOS="120" VPOS="15250" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_230_0" CONTENT="N°" HPOS="120" VPOS="15250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_230_1" CONTENT="7)" HPOS="230" VPOS="15250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_230_2" CONTENT="–" HPOS="340" VPOS="15250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_230_3" CONTENT="Sta." HPOS="450" VPOS="15250" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_230_4" CONTENT="Catharina." HPOS="560" VPOS="15250" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_231" HPOS="120" VPOS="15310" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_231_0" CONTENT="PADARIA" HPOS="120" VPOS="15310" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_231_1" CONTENT="PΟΝΤΑ-GROSSENSE" HPOS="230" VPOS="15310" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_232" HPOS="120" VPOS="15370" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_232_0" CONTENT="Augusto" HPOS="120" VPOS="15370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_232_1" CONTENT="Bahry" HPOS="230" VPOS="15370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_232_2" CONTENT="&amp;" HPOS="340" VPOS="15370" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_232_3" CONTENT="Irmão" HPOS="450" VPOS="15370" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_233" HPOS="120" VPOS="15430" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_233_0" CONTENT="Перша" HPOS="120" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_1" CONTENT="і" HPOS="230" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_2" CONTENT="одинока" HPOS="340" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_3" CONTENT="українська" HPOS="450" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_4" CONTENT="пекарня" HPOS="560" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_5" CONTENT="в" HPOS="670" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_6" CONTENT="цьому" HPOS="780" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_7" CONTENT="місті," HPOS="890" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_8" CONTENT="котра" HPOS="1000" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_9" CONTENT="завше" HPOS="1110" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_10" CONTENT="має" HPOS="1220" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_11" CONTENT="на" HPOS="1330" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_12" CONTENT="складі" HPOS="1440" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_233_13" CONTENT="свіжі" HPOS="1550" VPOS="15430" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_234" HPOS="120" VPOS="15490" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_234_0" CONTENT="булки," HPOS="120" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_234_1" CONTENT="боляші," HPOS="230" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_234_2" CONTENT="роски," HPOS="340" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_234_3" CONTENT="біскоїти," HPOS="450" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_234_4" CONTENT="секілі," HPOS="560" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_234_5" CONTENT="тісточка" HPOS="670" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_234_6" CONTENT="з" HPOS="780" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_234_7" CONTENT="на" HPOS="890" VPOS="15490" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_235" HPOS="120" VPOS="15550" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_235_0" CONTENT="Цукорки" HPOS="120" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_235_1" CONTENT="всякого" HPOS="230" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_235_2" CONTENT="рода" HPOS="340" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_235_3" CONTENT="і" HPOS="450" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_235_4" CONTENT="чеколяди" HPOS="560" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_235_5" CONTENT="з" HPOS="670" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_235_6" CONTENT="найлутших" HPOS="780" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_235_7" CONTENT="сандвичів" HPOS="890" VPOS="15550" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_236" HPOS="120" VPOS="15610" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_236_0" CONTENT="АВГУСТ" HPOS="120" VPOS="15610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_236_1" CONTENT="БАГРІЙ" HPOS="230" VPOS="15610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_236_2" CONTENT="&amp;" HPOS="340" VPOS="15610" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_236_3" CONTENT="БРАТ" HPOS="450" VPOS="15610" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_237" HPOS="120" VPOS="15670" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_237_0" CONTENT="Rua" HPOS="120" VPOS="15670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_237_1" CONTENT="General" HPOS="230" VPOS="15670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_237_2" CONTENT="Carneiro," HPOS="340" VPOS="15670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_237_3" CONTENT="N°" HPOS="450" VPOS="15670" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_237_4" CONTENT="74" HPOS="560" VPOS="15670" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_238" HPOS="120" VPOS="15730" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_238_0" CONTENT="Ponta" HPOS="120" VPOS="15730" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_238_1" CONTENT="Grossa" HPOS="230" VPOS="15730" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_239" HPOS="120" VPOS="15790" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_239_0" CONTENT="ZBIYMA" HPOS="120" VPOS="15790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_239_1" CONTENT="YKPAЇHCLKA" HPOS="230" VPOS="15790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_239_2" CONTENT="KPAВЕЦЬКА" HPOS="340" VPOS="15790" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_239_3" CONTENT="РОБІТНЯ" HPOS="450" VPOS="15790" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_240" HPOS="120" VPOS="15850" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_240_0" CONTENT="українська" HPOS="120" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_1" CONTENT="кравецька" HPOS="230" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_2" CONTENT="робітня" HPOS="340" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_3" CONTENT="виконує" HPOS="450" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_4" CONTENT="скоро," HPOS="560" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_5" CONTENT="солідно" HPOS="670" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_6" CONTENT="і" HPOS="780" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_7" CONTENT="дешево" HPOS="890" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_8" CONTENT="всякі" HPOS="1000" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_9" CONTENT="роботи" HPOS="1110" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_240_10" CONTENT="вхо-" HPOS="1220" VPOS="15850" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_241" HPOS="120" VPOS="15910" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_241_0" CONTENT="чі" HPOS="120" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_1" CONTENT="в" HPOS="230" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_2" CONTENT="обсяг" HPOS="340" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_3" CONTENT="кравецького" HPOS="450" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_4" CONTENT="звання." HPOS="560" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_5" CONTENT="Має" HPOS="670" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_6" CONTENT="великий" HPOS="780" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_7" CONTENT="склад" HPOS="890" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_8" CONTENT="каземір" HPOS="1000" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_9" CONTENT="і" HPOS="1110" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_10" CONTENT="бринію" HPOS="1220" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_11" CONTENT="краєвих" HPOS="1330" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_241_12" CONTENT="і" HPOS="1440" VPOS="15910" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_242" HPOS="120" VPOS="15970" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_242_0" CONTENT="заграничних." HPOS="120" VPOS="15970" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_243" HPOS="120" VPOS="16030" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_243_0" CONTENT="Поручає" HPOS="120" VPOS="16030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_243_1" CONTENT="Шан." HPOS="230" VPOS="16030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_243_2" CONTENT="Клієнтелеі" HPOS="340" VPOS="16030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_243_3" CONTENT="великий" HPOS="450" VPOS="16030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_243_4" CONTENT="вибір" HPOS="560" VPOS="16030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_243_5" CONTENT="мужської" HPOS="670" VPOS="16030" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_243_6" CONTENT="конфекції." HPOS="780" VPOS="16030" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_244" HPOS="120" VPOS="16090" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_244_0" CONTENT="СВІЙ" HPOS="120" VPOS="16090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_244_1" CONTENT="ДО" HPOS="230" VPOS="16090" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_244_2" CONTENT="СВОГО!!!" HPOS="340" VPOS="16090" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_245" HPOS="120" VPOS="16150" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_245_0" CONTENT="Pastuch" HPOS="120" VPOS="16150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_245_1" CONTENT="&amp;" HPOS="230" VPOS="16150" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_245_2" CONTENT="Cia." HPOS="340" VPOS="16150" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_246" HPOS="120" VPOS="16210" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_246_0" CONTENT="Caixa" HPOS="120" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_246_1" CONTENT="postal" HPOS="230" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_246_2" CONTENT="N." HPOS="340" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_246_3" CONTENT="23." HPOS="450" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_246_4" CONTENT="União" HPOS="560" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_246_5" CONTENT="da" HPOS="670" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_246_6" CONTENT="Victoria." HPOS="780" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_246_7" CONTENT="Paraná." HPOS="890" VPOS="16210" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_247" HPOS="120" VPOS="16270" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_247_0" CONTENT="фармелядою," HPOS="120" VPOS="16270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_247_1" CONTENT="гоябадою," HPOS="230" VPOS="16270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_247_2" CONTENT="коко" HPOS="340" VPOS="16270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_247_3" CONTENT="і" HPOS="450" VPOS="16270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_247_4" CONTENT="т." HPOS="560" VPOS="16270" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_247_5" CONTENT="д." HPOS="670" VPOS="16270" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_248" HPOS="120" VPOS="16330" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_248_0" CONTENT="ріпавських" HPOS="120" VPOS="16330" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_248_1" CONTENT="фабрик." HPOS="230" VPOS="16330" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_249" HPOS="120" VPOS="16390" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_249_0" CONTENT="CERVEJARIA" HPOS="120" VPOS="16390" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_249_1" CONTENT="„CRUZEIRO“" HPOS="230" VPOS="16390" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_250" HPOS="120" VPOS="16450" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_250_0" CONTENT="CRUZEIRO" HPOS="120" VPOS="16450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_250_1" CONTENT="Pilsen," HPOS="230" VPOS="16450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_250_2" CONTENT="Пийте" HPOS="340" VPOS="16450" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_250_3" CONTENT="„Крузейро“" HPOS="450" VPOS="16450" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_251" HPOS="120" VPOS="16510" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_251_0" CONTENT="Найнліпші" HPOS="120" VPOS="16510" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_252" HPOS="120" VPOS="16570" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_252_0" CONTENT="пива" HPOS="120" VPOS="16570" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_253" HPOS="120" VPOS="16630" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_253_0" CONTENT="„CRUZEIRO“" HPOS="120" VPOS="16630" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_254" HPOS="120" VPOS="16690" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_254_0" CONTENT="„COMETA“" HPOS="120" VPOS="16690" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_255" HPOS="120" VPOS="16750" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_255_0" CONTENT="A" HPOS="120" VPOS="16750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_255_1" CONTENT="melhor" HPOS="230" VPOS="16750" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_255_2" CONTENT="Cerveja" HPOS="340" VPOS="16750" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_256" HPOS="120" VPOS="16810" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_256_0" CONTENT="„РОМБА“" HPOS="120" VPOS="16810" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_257" HPOS="120" VPOS="16870" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_257_0" CONTENT="У" HPOS="120" VPOS="16870" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_258" HPOS="120" VPOS="16930" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_258_0" CONTENT="Б" HPOS="120" VPOS="16930" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_259" HPOS="120" VPOS="16990" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_259_0" CONTENT="А" HPOS="120" VPOS="16990" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_260" HPOS="120" VPOS="17050" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_260_0" CONTENT="Р" HPOS="120" VPOS="17050" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_261" HPOS="120" VPOS="17110" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_261_0" CONTENT="А" HPOS="120" VPOS="17110" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_262" HPOS="120" VPOS="17170" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_262_0" CONTENT="До" HPOS="120" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_262_1" CONTENT="солодовні" HPOS="230" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_262_2" CONTENT="викупє" HPOS="340" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_262_3" CONTENT="ЯЧМІНЬ" HPOS="450" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_262_4" CONTENT="і" HPOS="560" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_262_5" CONTENT="платить" HPOS="670" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_262_6" CONTENT="найвищі" HPOS="780" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_262_7" CONTENT="ціни." HPOS="890" VPOS="17170" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_263" HPOS="120" VPOS="17230" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_263_0" CONTENT="CURIТYBA," HPOS="120" VPOS="17230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_263_1" CONTENT="Caixa" HPOS="230" VPOS="17230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_263_2" CONTENT="postal" HPOS="340" VPOS="17230" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_263_3" CONTENT="1880." HPOS="450" VPOS="17230" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_264" HPOS="120" VPOS="17290" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_264_0" CONTENT="З" HPOS="120" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_1" CONTENT="друкарні" HPOS="230" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_2" CONTENT="„Укр." HPOS="340" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_3" CONTENT="Сіонів“" HPOS="450" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_4" CONTENT="в" HPOS="560" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_5" CONTENT="Бразилії" HPOS="670" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_6" CONTENT="„ЛІДІЯ“" HPOS="780" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_7" CONTENT="Портс" HPOS="890" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_264_8" CONTENT="Уніон" HPOS="1000" VPOS="17290" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_265" HPOS="120" VPOS="17350" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_265_0" CONTENT="В" HPOS="120" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_1" CONTENT="друковані:" HPOS="230" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_2" CONTENT="Українського" HPOS="340" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_3" CONTENT="союзу" HPOS="450" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_4" CONTENT="в" HPOS="560" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_5" CONTENT="Бразилії" HPOS="670" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_6" CONTENT="„Порто" HPOS="780" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_7" CONTENT="Уніон," HPOS="890" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_8" CONTENT="С." HPOS="1000" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_265_9" CONTENT="Катаріна" HPOS="1110" VPOS="17350" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_266" HPOS="120" VPOS="17410" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_266_0" CONTENT="П." HPOS="120" VPOS="17410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_266_1" CONTENT="С." HPOS="230" VPOS="17410" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_266_2" CONTENT="Сумський" HPOS="340" VPOS="17410" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_267" HPOS="120" VPOS="17470" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_267_0" CONTENT="3" HPOS="120" VPOS="17470" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+          <TextLine ID="LINE_268" HPOS="120" VPOS="17530" WIDTH="2160" HEIGHT="50">
+            <String ID="STR_268_0" CONTENT="Р." HPOS="120" VPOS="17530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_268_1" CONTENT="С." HPOS="230" VPOS="17530" WIDTH="100" HEIGHT="45"/>
+            <SP/>
+            <String ID="STR_268_2" CONTENT="Сумський" HPOS="340" VPOS="17530" WIDTH="100" HEIGHT="45"/>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

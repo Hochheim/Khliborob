@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Location Map — khliborob_19270316_no11_page04</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #header { background: #2c3e50; color: #fff; padding: 10px 16px; }
+    #header h2 { margin: 0; font-size: 1rem; }
+    #header p  { margin: 2px 0 0; font-size: 0.8rem; opacity: 0.7; }
+    #map { width: 100%; height: calc(100vh - 60px); }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2>📍 Location Map — khliborob_19270316_no11_page04</h2>
+    <p>Khliborob &nbsp;·&nbsp; 1927-03-16 &nbsp;·&nbsp; no11
+       &nbsp;·&nbsp; 18 geocoded, 0 without coordinates
+       &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;border-radius:50%;vertical-align:middle"></span> = large region (approximate)</p>
+  </div>
+  
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map');
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+    L.circleMarker([50.45, 30.52], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Rus (Русь)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-26.2292, -50.9392]).addTo(map).bindPopup('União da Vitória (Уніан да Віторія)');
+    L.circleMarker([-25.25, -51.55], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Paraná (Парана)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([-27.21, -50.11], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Santa Catarina (Санта Катаріна)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-26.2411, -50.9392]).addTo(map).bindPopup('Porto União (Порто Уніон)');
+    L.marker([-25.4284, -49.2733]).addTo(map).bindPopup('Curitiba (Курітиба)');
+    L.circleMarker([-14.235, -51.925], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Brazil (Бразілія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([54.52, -105.25], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ North America (Північна Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([56.13, -106.34], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Canada (Канада)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([48.69, 9.14], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Europe (Європа)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([-22.19, -48.79], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ São Paulo (Сан Пауло)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-22.22, -50.88]).addTo(map).bindPopup('Rancharia (Ранчарія)');
+    L.marker([-22.17, -51.6]).addTo(map).bindPopup('Presidente Bernardes (Презіденте Бернардес)');
+    L.marker([-21.65, -51.17]).addTo(map).bindPopup('Santo Anastácio (Санто Анастасіо)');
+    L.marker([-21.78, -51.81]).addTo(map).bindPopup('Presidente Wenceslau (Презіденте Венцеслау)');
+    L.circleMarker([-23.49, -47.45], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Sorocabana (Region) (Сорокабана)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-25.478, -50.658]).addTo(map).bindPopup('Iraty (Іраті)');
+    L.marker([-16.03, -55.06]).addTo(map).bindPopup('Jangada (Жангаді)');
+
+    map.fitBounds([[50.45, 30.52], [-26.2292, -50.9392], [-25.25, -51.55], [-27.21, -50.11], [-26.2411, -50.9392], [-25.4284, -49.2733], [-14.235, -51.925], [54.52, -105.25], [56.13, -106.34], [48.69, 9.14], [-22.19, -48.79], [-22.22, -50.88], [-22.17, -51.6], [-21.65, -51.17], [-21.78, -51.81], [-23.49, -47.45], [-25.478, -50.658], [-16.03, -55.06]], {padding: [40, 40]});
+  </script>
+</body>
+</html>

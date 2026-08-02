@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Location Map — khliborob_19270316_no11_page02</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+    #header { background: #2c3e50; color: #fff; padding: 10px 16px; }
+    #header h2 { margin: 0; font-size: 1rem; }
+    #header p  { margin: 2px 0 0; font-size: 0.8rem; opacity: 0.7; }
+    #map { width: 100%; height: calc(100vh - 60px); }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2>📍 Location Map — khliborob_19270316_no11_page02</h2>
+    <p>Ukrainian Farmer &nbsp;·&nbsp; 1927-03-16 &nbsp;·&nbsp; № 11 (139)
+       &nbsp;·&nbsp; 12 geocoded, 0 without coordinates
+       &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;border-radius:50%;vertical-align:middle"></span> = large region (approximate)</p>
+  </div>
+  
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    var map = L.map('map');
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+      subdomains: 'abcd', maxZoom: 19
+    }).addTo(map);
+    L.circleMarker([39.82, -98.58], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ America (Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([48.69, 9.14], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Europe (Европа)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([49.0, 32.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Ukraine (Україна)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([51.92, 19.15], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Poland (Польща)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([49.5, 24.5], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Galicia (Галичина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([49.0, 33.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Dnieper Ukraine (Наддніпрянщина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-25.21, -50.96]).addTo(map).bindPopup('Prudentópolis (Прудентополіс)');
+    L.circleMarker([-23.44, -58.44], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Paraguay (Парагвай)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([-14.24, -53.18], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Brazil (Бразилія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([36.2, 138.25], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Japan (Японія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([51.25, -100.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ North America (Північна Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([50.0, 40.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Rus\' (Русь)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+
+    map.fitBounds([[39.82, -98.58], [48.69, 9.14], [49.0, 32.0], [51.92, 19.15], [49.5, 24.5], [49.0, 33.0], [-25.21, -50.96], [-23.44, -58.44], [-14.24, -53.18], [36.2, 138.25], [51.25, -100.0], [50.0, 40.0]], {padding: [40, 40]});
+  </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main" xml:lang="uk">УКРАЇНСЬКИЙ ХЛІБОРОБ — khliborob_19270316_no11_page01</title>
+        <title type="main" xml:lang="en">Ukrainian Farmer — khliborob_19270316_no11_page01</title>
+        <respStmt>
+          <resp>Digitization and transcription</resp>
+          <name>Ukrainian Diaspora Press Digital Archive Pipeline</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Ukrainian Diaspora Press Digital Archive</publisher>
+        <date when="1927-03-16">1927-03-16</date>
+        <idno type="IPFS">ipfs://QmRfnxksdFnofDD6mMgAA2zcsf5bN3o4HbS6qXthUHVGUW</idno>
+        <idno type="blockchain-tx">0x7e1360a8308f73b3dad7818dee0dd490ed7b8f5ebb91fba716cc4d5c55b82577</idno>
+        <idno type="page-id">khliborob_19270316_no11_page01</idno>
+        <availability status="free">
+          <p>Freely available under open access for non-commercial scholarly use.</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title xml:lang="uk">УКРАЇНСЬКИЙ ХЛІБОРОБ</title>
+          <title xml:lang="en">Ukrainian Farmer</title>
+          <date when="1927-03-16">1927-03-16</date>
+          <idno type="issue">№ 11 (139)</idno>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <p>Transcribed using Google Gemini 2.5 Flash (vision-language model) from a
+      digitized newspaper scan. Named entities (persons, locations) automatically
+      extracted and linked to Wikidata identifiers where available. Manual
+      correction by native-speaker volunteers is recorded in the version history.</p>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="uk">Ukrainian</language>
+        <language ident="en">English (translation)</language>
+      </langUsage>
+      <textClass>
+        <keywords>
+          <list>
+            <item xml:lang="uk">Українська діаспора</item>
+            <item xml:lang="uk">Бразилія</item>
+            <item xml:lang="uk">Сан-Паулу</item>
+            <item xml:lang="uk">еміграція</item>
+            <item xml:lang="uk">Польща</item>
+            <item xml:lang="uk">українські вчені</item>
+            <item xml:lang="uk">гетьман Мазепа</item>
+            <item xml:lang="uk">Войнаровський</item>
+            <item xml:lang="uk">Пільсудський</item>
+            <item xml:lang="uk">Югославія</item>
+            <item xml:lang="uk">Ліга Націй</item>
+            <item xml:lang="uk">Папа Пій ХІ</item>
+            <item xml:lang="uk">Шлеськ</item>
+            <item xml:lang="uk">Полісся</item>
+            <item xml:lang="uk">фінансові збори</item>
+            <item xml:lang="uk">хроніка</item>
+            <item xml:lang="uk">політика</item>
+            <item xml:lang="uk">національні меншини</item>
+
+          </list>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <front>
+      <div type="abstract" xml:lang="uk">
+        <p>Газета 'Український Хлібороб', випуск 11 (139) від 16 березня 1927 року, містить різноманітні новини з Бразилії, України та світу. З Бразилії повідомляється про приїзд іспанських та майбутній приїзд польських емігрантів до Сан-Паулу, криваву сцену в американському консуляті, та загальні проблеми торгівлі та неписьменності. Українські справи включають протести вчених проти утисків білорусів та українців у Польщі, викриття історичних документів гетьмана Мазепи у Парижі, а також ліквідацію 'хрунівства' Бачинського. Міжнародні новини охоплюють політичну ізоляцію Югославії, роль Англії на Балканах, діяльність Папи Пія ХІ щодо нагородження польських діячів, а також ситуацію в Горішньому Шлеську. Також присутні хроніка життя в Бразилії, фінансові звіти та редакційна переписка.</p>
+      </div>
+      <div type="abstract" xml:lang="en">
+        <p>The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of trade and illiteracy. Ukrainian affairs include protests by scholars against the oppression of Belarusians and Ukrainians in Poland, the discovery of historical documents related to Hetman Mazepa in Paris, and the liquidation of 'khrunivstvo' (a political movement) by Bachynsky. International news covers the political isolation of Yugoslavia, England's role in the Balkans, Pope Pius XI's awards to Polish figures, and the situation in Upper Silesia. The issue also includes a chronicle of life in Brazil, financial reports, and editorial correspondence.</p>
+      </div>
+    </front>
+    <body>
+      <div type="page" xml:lang="uk" n="khliborob_19270316_no11_page01">
+        <p>Ч. 11 (139). <placeName ref="https://www.wikidata.org/entity/Q1784679">Порто Уніон</placeName>, середа 16. марта 1927. Рік видання IV</p>
+        <p>O LAVRADOR UKRAINO</p>
+        <p>УКРАЇНСЬКИЙ ХЛІБОРОБ</p>
+        <p>Добути, або дома не бути!</p>
+        <p>O Lavrador Ukraino. Jornal semanal, orgão da «União da Ukraina no Brasil». Director: Basilio Muchar. Gerente: Pedro Mazurechen. Typographia da União da Ukraina no Brasil «Lydia», com séde em Porto, União da Victoria, Paraná. ENDEREÇO da REDACÇÃO: União da Victoria – Caixa postal N93-Paraná.</p>
+        <p>НЕЗАЛЕЖНИЙ ТИЖНЕВИК. ОРГАН «УКРАЇНСЬКОГО СОЮЗУ В БРАЗИЛІЇ». ВИХОДИТЬ КОЖДОЇ СЕРЕДИ І КОШТУЄ НА РІК 12$000, В АРГЕНТИНІ 5 ПЕЗІВ, В ІНШ. КРАЯХ 2 ДОЛ. ПЕР. ПЕРЕДПЛАТА 7$000. ЦІНА ОБІСНОГО ЧИСЛА 400 Rs. ЦІНИ ОГОЛОШЕНЬ: 200 Рс. ЗА РЯДОК НА ПОЛОВИНУ САНТІМЕТРА ШИРИНИ В ДОВЖИНУ ОДНОГО СТОВПЦЯ, ЗА ОДИН РАЗ ОГОЛОШЕННЯ.</p>
+        <p>З Бразилії.</p>
+        <p>Емігранти на плянтації кави виборів, кожди в <placeName ref="https://www.wikidata.org/entity/Q174">С. Паулї</placeName>. Весь час приїзджають емігранти до С. Паулї. 11-го ц. м. приїхало 698 емігрантів-іспанців, які будуть вислані на фазенди кави, щоби спробу вали там не лише пити її, а, найголовнїше, щоби попрацювали коло неї під договором фазендарського „енкарегада“ або „фейтора“.</p>
+        <p>Незадоволено, як повідомляють с. паулські газети, мають приїхати перші емігранти з Польщі.</p>
+        <p>Просимо наших сан-паулських українців слідити за газетами, щоби відвідати тих емігрантів і повідомити о результатах тих відвідин Ред. „Укр. Хл.“</p>
+        <p>В С. Паулї 11-го, в американськім консуляті розігралася кривава сцена, жертвою якої впав американський консуль <persName>Стердо Ґофорт</persName>, получивший 4 тяжких рани від американського ж таки горожанина Давида Ворда.</p>
+        <p>Причиною цієї сцени були формальности при виїмці паспорта.</p>
+        <p>Містерія. <placeName ref="https://www.wikidata.org/entity/Q4361">Куритибська</placeName> філія „Банко до Brasil“ недавно вислала до <placeName ref="https://www.wikidata.org/entity/Q8678">Ріо</placeName> в навчити 600 контів. В Ріо відкрили ту пачку і о, диво... грошей в пачці не було. Вернули ту пачку назад до Куритиби і тепер шукають ті гроші.</p>
+        <p>Поліція перепитала вже багатих осіб, шукає, думає, відгадає, але за грішми й слід простиг.</p>
+        <p>Шукай тепер вітра в полі!</p>
+        <p>Кваліфікація „елейторів“. Після виборів 24-го м. м. на яких Демократична Партія <placeName ref="https://www.wikidata.org/entity/Q15499">Парані</placeName> неждано навіть для себе виявила досить потужну силу, осіб параноської партії: Республіканська (урядова) і Демократична (опозиційна) почали лихорадочно готовитися до найближчих виборів муніципальні і ес-ляти. Тут було би цікавіше, що опозиція розвинула широкі і, використовуючи в про-тесті неурядиці і легковаженню зростає в силі. В тій партії відомі кваліфікації. Якщо хто в ній є, або хоче бути елейтором, нехай заявить про це.</p>
+        <p>Розглядаючи справу торговельного бюро в Бразилії можна на більше елементів навести. Тут не вистачає торговельного бюро, яке займеться обміном товару, а також інше, яке б зайнялось торговельними відносинами. За бразилійським законом можна було б зробити торговий обмін, а це: дерево, герба, та інше. Крім того, дуже багато неписьменних людей. Це одна з причин того, що бразилійський уряд не сприяє еміграції до Бразилії. Незважаючи на багацтво Бразилії, не розвивається торговельний обмін. Крім того, дуже багато неписьменних людей. Це одна з причин того, що бразилійський уряд не сприяє еміграції до Бразилії. Незважаючи на багацтво Бразилії, не розвивається торговельний обмін.</p>
+        <p>З українських справ.</p>
+        <p>Матеріяли з історії гетьманщини. Науковий співробітник Академії Наук у <placeName ref="https://www.wikidata.org/entity/Q90">Парїжі</placeName> <persName ref="https://www.wikidata.org/entity/Q12084287">Ілько Борщак</persName>, що редагує також „Український вістник“ в Парїжі, повідомив Академію, що найшов у парижському національному музеї невідомий досі документ нового писаря гетьмана Мазепи та його небожа Войнаровського. Документ стосуєть ся часів походу Мазепи на бік шведського <persName ref="https://www.wikidata.org/entity/Q140298926">Карла</persName>, коли велися переговори з Швецією про перехід України під незалежність від Росії. В історичних колах Академії Наук у Парїжі підготовили вже працю про історію російської політичної думки.</p>
+        <p>Українські вчені протестують проти утисків білорусів та українців в Польщі. 2-й Всєукраїнський з'їзд на-укових робітників від імени 4 тис. професорів і викладачів та робітників науково-дослідчих установ України ухвалив піднести перед науковими робітниками <persName ref="https://www.wikidata.org/entity/Q966936">Орлик</persName>а цілого світу свій голос, обурення й протесту з приводу варшавських утисків пере-польського уряду Пільсудського проти нечуваного соціяльного та національного пригнічення білорусів. Ці утиски повинні викликати тим більше обурення, що тільки переможна революція, що розбила тюрму народів і відновила незалежність українського народу, може дати йому можливість свободно розвиватися. Урядові кола на Польських землях продовжують практику переслідувань українців, білорусів та інших національних меншостей. Уряд Пільсудського відродив методи того самого <persName>Мурав'єва-Вішателя</persName> та інших царських катів, що їх руками свого часу царизм намагався задушити польський нарід.</p>
+        <p>Ліквідація хрунівства Бачинського. Недавно відбув д-р <persName ref="https://www.wikidata.org/entity/Q53462791">Бачинський</persName> останню попомницю до Варшави, але тут з уст віцепрем'єра <persName>Бартля</persName> почув, що дальші пертрактації з ним є зайві, бо він остав сам і нікого не репрезентує. Бачинський все таки не думає резигнувати з дальшого поборювання УНДО і приготовляє брошуру з компромітуючими матеріялами проти його провідників.</p>
+        <p>Рівнож і польські землевласники чиновники робили все для того, щоби українське населення ворожим до польської державної думки. „Тому теперішнє залицяння до українських політиків до Більшовицьких зумілим. Зліпшення відносин до націй в Польщі є зараз утруднене еміграцією українських по.</p>
+        <p>КУРС ГРОШЕЙ.</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q21">Англія</placeName> 41$560</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q38">Італія</placeName> $387</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q142">Франція</placeName> $339</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q183">Німеччина</placeName> 8$540</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q29">Іспанія</placeName> 1$486</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q36">Польща</placeName> 2$030</p>
+        <p>$780</p>
+        <p>З цілого світу.</p>
+        <p>Політична ізоляція Югославії. <placeName ref="https://www.wikidata.org/entity/Q1741">Відень</placeName>. — „Викриття „Матен“ про ролю Англії в складанні італо-албанської угоди викликали серед белградських політичних кол велике незадоволення з Англії. Де-які газети констатують, що після побачення <persName ref="https://www.wikidata.org/entity/Q188999">Чемберлейн</persName>а з <persName ref="https://www.wikidata.org/entity/Q23559">Муссоліні</persName> в <placeName ref="https://www.wikidata.org/entity/Q6761">Ліворно</placeName>, Англія дала Італії свободу на <placeName ref="https://www.wikidata.org/entity/Q23522">Балканах</placeName>, і очевидно поклала на неї завдання паралізувати вплив <placeName ref="https://www.wikidata.org/entity/Q15180">СРСР</placeName> на Балканах. Тому опозиційна преса Югославії проводить далі кампанію за відновленням зносин з СРСР, підкреслюючи цілковиту ізольованість Югославії.</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q220">Рим</placeName> 10-3. <persName ref="https://www.wikidata.org/entity/Q42323">Римський Папа Пій ХІ</persName> давно закінчив нагородив бувшого президента Польщі Войцеховського орденом золотої остроги, а бувших міністрів Ґрабського, Ратая і Скринського орденами великого Хреста. (Ну, як же українцям католикам не тїшитися цею вісткою? Сам папа надгородив Ґрабського за те, що закрив в Галичині понад 2000 укр. шкіл – Прим. Редакції). Ліга Націй. Очередне засідання Ліги Націй розпочалося дня 7 ц. м. В роботі приймає участь як рівноправний член Німеччина, яка вже поставила як одну з головних точок до вирішення справу <placeName ref="https://www.wikidata.org/entity/Q81011">Ґорішнього Шлеску</placeName>, де на недавних виборах до місцевого сойму німці піднесли рішучу побіду над поляками, заявляючи що холери бурувала їх проти польських „шльохті“. До цього часу це не мало щось подібного. Ця шляхта дуже добре розуміла значення цього питання для своїх громадян. Це свідчить про глибоке розуміння політичного життя. Українського політичного життя і виживання. На думку більшовиків уся ця справа тільки тепер набуває політичного значіння. „Передовсім треба дати відповідь на питання: Чи можна буде створити сильну і впливову Україну за кордоном. Але польська суспільність мусить з цим не погоджуватись. Бо вона дуже добре знає, що український народ не має шансів на існування. Якщо вона буде погоджуватись з цим, то це примусить її вороже відноситись до польської нації. Тому не можна допустити, щоб більшовицькі агітатори поширювали русофільство серед українського населення. Поки <placeName ref="https://www.wikidata.org/entity/Q212">Україна</placeName> не буде самостійною, сорока-мільйонова українська нація не з'єднається і не відновить її старі державні традиції. П'ять білоруських політичних в'язнів в <placeName>Лукішській тюрмі</placeName>, АЛЕ БЕЗ ГРОШЕЙ. Гроші треба висилати почтовими переказами, або, в крайнім разі, в листах реєстрованих, але в добре заліплених кувертах, добре заліплених між собою, бо амбасадорам на чужі гроші є багато. ЗА СТРАТУ ГРОШЕЙ НА ПОЧТІ АДМІНІСТРАЦІЯ НЕ ВІДПОВІДАЄ.</p>
+        <p>КРОВАВА РОЗПРАВА. В містечкові, на <placeName ref="https://www.wikidata.org/entity/Q208987">Поліссі</placeName>, устроїли білоруси дня 3 лютого сего р. в час демонстрацію, домагаючись увільнення арештованих білоруських послів. На зазив поліції демонстранти не шлисься, відділ поліції дав з тоб сальви. На місці упало трох убитих, померло від одержаних ран, шість тяжко ранених і значне число легіонерів. По тій масакрі поліція арештувала ряд осіб.</p>
+        <p>ВІД АДМІНІСТРАЦІЇ</p>
+        <p>Адміністрація „Українського Хлібороба“ звертається до всіх зацінтересованих, щоби на далі не слали грошей в листах звичайних, але реєстрованих. Або подвійний переказ. Це, або не писати нічого, або писати лише ті імена, хто надсилає гроші. Адміністрація не відповідає за страту грошей на пошті. Це робиться на користь самих надсилаючих і щоб уникнути непорозумінь. Повідомте про це Ваших знайомих.</p>
+        <p>З ХРОНІКИ НАШОГО ЖИТТЯ В БРАЗИЛІЇ</p>
+        <p>ЖЕРТВИ НА ПРЕСОВИЙ ФОНД „УКР. ХЛ.“</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q414">Аргентина</placeName>: П.п. <persName ref="https://www.wikidata.org/entity/Q138600698">І. Мороз</persName>, <persName>В. Мороз</persName>, <persName>З. Дорожний</persName>, <persName ref="https://www.wikidata.org/entity/Q2978364">В. Гнатюк</persName> по 5 пезів арг.; <persName>Я. Р. Т. Мороз</persName> 1 і 1/2 пеза, п. <persName>Гнат Волович</persName> 1 і 1/2 пеза. Разом 22 і 1/2 пезів.</p>
+        <p>ЖЕРТВИ НА СПЛАЧЕННЯ УКР.-БР. КОЛЕПІ.</p>
+        <p>П.п. Колентоліс: п.п. <persName>С. Шаврин</persName> і <persName>І. Лукашенко</persName> по 10$000. Разом 20$000.</p>
+        <p>ВІД СЕКРЕТАРЯ У. С.</p>
+        <p>Сим запрошую всіх виділових прибути на Зас. Гол. Виділу У.С., яке має відбутися дня 22-го марта. Початок о 10-й год.</p>
+        <p>ПРОГРАМА:</p>
+        <p>1. Звіт виділових з місць.</p>
+        <p>2. Справа довгів.</p>
+        <p>3. Справа Видавництва і Редакції „Українського Хлібороба“.</p>
+        <p>4. Біжучі справи.</p>
+        <p>П р и м. Осібних запрошень висилатися не буде.</p>
+        <p>Порт, 22 лютого 1927</p>
+        <p>Секретар У. С. <persName>В. Кухар</persName>.</p>
+        <p>Переписка Редакції.</p>
+        <p><persName>А. Буряк</persName> — <persName>П. Алєгрє</persName>. — Грошей в листі не оказалось. Книжок на разі нема.</p>
+        <p>Гт. Волович — Аргентина. — Гроші отримали. Дякуємо. Ширіть „Укр. Хлібороб“.</p>
+        <p>Ощадність.</p>
+        <p>— Защо тебе, Іване, зі спілки викинули?</p>
+        <p>— За режім ощадностн, братїку, пять місяців членських вкладок не платив</p>
+        <p>* * *</p>
+        <p>— Помилку може зробити кожний, але тільки дурень може її обстоювати.</p>
+        <p>* * *</p>
+        <p>— І в холодному помешканні може робота кипіти!</p>
+      </div>
+      <div type="translation" xml:lang="en" n="khliborob_19270316_no11_page01">
+        <p>No. 11 (139). Porto União, Wednesday, March 16, 1927. Year of publication IV</p>
+        <p>O LAVRADOR UKRAINO</p>
+        <p>UKRAINIAN FARMER</p>
+        <p>To obtain, or not to be at home!</p>
+        <p>O Lavrador Ukraino. Weekly journal, organ of the 'Ukrainian Union in Brazil'. Director: Basilio Muchar. Manager: Pedro Mazurechen. Typography of the Ukrainian Union in Brazil 'Lydia', with headquarters in Porto, União da Vitória, Paraná. ADDRESS of the EDITORIAL OFFICE: União da Vitória – Post box No. 93 – Paraná.</p>
+        <p>INDEPENDENT WEEKLY. ORGAN OF THE 'UKRAINIAN UNION IN BRAZIL'. PUBLISHED EVERY WEDNESDAY AND COSTS PER YEAR $12,000, IN ARGENTINA 5 PESOS, IN OTHER COUNTRIES 2 DOLLARS. SUBSCRIPTION $7,000. PRICE OF A SINGLE ISSUE 400 Rs. ADVERTISEMENT PRICES: 200 Rs. PER LINE FOR HALF A CENTIMETER WIDTH ALONG THE LENGTH OF ONE COLUMN, FOR ONE TIME ADVERTISEMENT.</p>
+        <p>From Brazil.</p>
+        <p>Emigrants on coffee plantations of electors, each in São Paulo. Spanish emigrants keep arriving in São Paulo. On the 11th of this month, 698 Spanish emigrants arrived, who will be sent to coffee fazendas to try not only to drink it, but, most importantly, to work around it under the agreement of the fazenda 'encarregado' or 'feitor'.</p>
+        <p>Dissatisfied, as reported by São Paulo newspapers, the first emigrants from Poland are expected to arrive.</p>
+        <p>We ask our São Paulo Ukrainians to follow the newspapers, to visit those emigrants and inform us of the results of those visits, Editorial Office 'Ukr. Khl.'</p>
+        <p>On the 11th, in São Paulo, a bloody scene unfolded in the American consulate, the victim of which was the American consul Sterdo Gofort, who received 4 serious wounds from another American citizen, David Ward.</p>
+        <p>The reason for this scene was formalities when obtaining a passport.</p>
+        <p>Mystery. The Curitiba branch of 'Banco do Brasil' recently sent 600 contos to Rio to teach. In Rio, that package was opened and, oh, wonder... there was no money in the package. They returned that package to Curitiba and are now looking for the money.</p>
+        <p>The police have already questioned many people, looking, thinking, guessing, but the money trail is gone.</p>
+        <p>Look for wind in the field now!</p>
+        <p>Qualification of 'electors'. After the elections on the 24th of this month, in which the Democratic Party of Paraná unexpectedly showed considerable strength for itself, the people of the Paraná party: Republican (governing) and Democratic (opposition) began frantically preparing for the upcoming municipal elections and others. It would be interesting here that the opposition developed widely and, using the unrest and laxity, is growing in strength. Qualified people are known in this party. If anyone is in it, or wants to be an elector, let them declare it.</p>
+        <p>Considering the issue of the trade bureau in Brazil, more elements can be brought in. There is a lack of a trade bureau here that would deal with commodity exchange, as well as another that would deal with trade relations. According to Brazilian law, it would be possible to conduct commodity exchange, namely: wood, yerba, and other things. In addition, there are many illiterate people. This is one of the reasons why the Brazilian government does not promote emigration to Brazil. Despite Brazil's wealth, trade exchange is not developing. In addition, there are many illiterate people. This is one of the reasons why the Brazilian government does not promote emigration to Brazil. Despite Brazil's wealth, trade exchange is not developing.</p>
+        <p>On Ukrainian affairs.</p>
+        <p>Materials on the history of the Hetmanate. Research associate of the Academy of Sciences in Paris, Ilko Borshchak, who also edits 'Ukrainian Herald' in Paris, informed the Academy that he found a hitherto unknown document of the new scribe of Hetman Mazepa and his nephew Voinarovsky in the Paris National Museum. The document concerns the times of Mazepa's march to the side of Charles of Sweden, when negotiations were underway with Sweden for Ukraine's transition to independence from Russia. In historical circles of the Academy of Sciences in Paris, work has already been prepared on the history of Russian political thought.</p>
+        <p>Ukrainian scholars protest against the oppression of Belarusians and Ukrainians in Poland. The 2nd All-Ukrainian Congress of Scientific Workers, on behalf of 4 thousand professors and lecturers and workers of scientific research institutions of Ukraine, decided to raise the voice of indignation and protest to scientific workers worldwide against the Warsaw oppressions of the Polish government of Piłsudski, against the unprecedented social and national oppression of Belarusians. These oppressions should provoke even greater indignation, as only a victorious revolution that broke the prison of nations and restored the independence of the Ukrainian people can give them the opportunity to develop freely. Government circles in Polish territories continue the practice of persecuting Ukrainians, Belarusians, and other national minorities. The Piłsudski government revived the methods of the same Muravyov-Vishatel and other tsarist executioners, whose hands tsarism once tried to strangle the Polish people.</p>
+        <p>Liquidation of Bachynsky's 'khrunivstvo'. Recently, Dr. Bachynsky made his last pilgrimage to Warsaw, but there, from the mouth of Vice-Premier Bartlya, he heard that further negotiations with him were futile, as he remained alone and represented no one. Bachynsky still does not intend to resign from further support of UNDO and is preparing a brochure with compromising materials against its leaders.</p>
+        <p>Also, Polish landowners and officials did everything to make the Ukrainian population hostile to Polish state thought. 'Therefore, the current courtship of Ukrainian politicians to the Bolsheviks is clever. The improvement of relations with nations in Poland is now complicated by the emigration of Ukrainians. '</p>
+        <p>EXCHANGE RATES.</p>
+        <p>England 41$560</p>
+        <p>Italy $387</p>
+        <p>France $339</p>
+        <p>Germany 8$540</p>
+        <p>Spain 1$486</p>
+        <p>Poland 2$030</p>
+        <p>$780</p>
+        <p>From around the world.</p>
+        <p>Political isolation of Yugoslavia. Vienna. — 'Matin's' exposé on England's role in the formation of the Italo-Albanian agreement caused great dissatisfaction among Belgrade political circles with England. Some newspapers state that after the meeting between Chamberlain and Mussolini in Livorno, England gave Italy freedom in the Balkans, and evidently tasked it with paralyzing the influence of the USSR in the Balkans. Therefore, the opposition press in Yugoslavia continues the campaign for the restoration of relations with the USSR, emphasizing Yugoslavia's complete isolation.</p>
+        <p>Rome 10-3. Pope Pius XI long ago completed the awarding of the former President of Poland, Wojciechowski, with the Order of the Golden Spur, and former ministers Grabski, Rataj, and Skrzyński with the Orders of the Great Cross. (Well, how can Ukrainian Catholics not rejoice at this news? The Pope himself rewarded Grabski for closing over 2000 Ukrainian schools in Galicia – Ed. Note). League of Nations. The regular meeting of the League of Nations began on the 7th of this month. Germany participates as an equal member and has already raised the issue of Upper Silesia as one of the main points for resolution, where in recent elections to the local council, the Germans achieved a decisive victory over the Poles, declaring that cholera had brewed them against the Polish 'szlachta'. Until now, there was nothing similar. This szlachta understood very well the significance of this issue for its citizens. This testifies to a deep understanding of political life. Ukrainian political life and survival. According to the Bolsheviks, this whole matter is only now acquiring political significance. 'First of all, we must answer the question: Is it possible to create a strong and influential Ukraine abroad. But Polish society must not agree with this. Because it knows very well that the Ukrainian people have no chance of existence. If it agrees with this, it will force it to be hostile to the Polish nation. Therefore, it is impossible to allow Bolshevik agitators to spread Russophilia among the Ukrainian population. Until Ukraine is independent, the forty-million-strong Ukrainian nation will not unite and will not restore its old state traditions. Five Belarusian political prisoners in Lukiškės prison, BUT WITHOUT MONEY. Money should be sent by postal orders, or, in extreme cases, in registered letters, but in well-sealed envelopes, well-sealed among themselves, because ambassadors have plenty of foreign money. THE ADMINISTRATION IS NOT RESPONSIBLE FOR LOSS OF MONEY IN THE POST.</p>
+        <p>BLOODY REPRISAL. In a town in Polissia, on February 3rd of this year, Belarusians staged a demonstration, demanding the release of arrested Belarusian envoys. At the police's call, the demonstrators did not disperse, the police department gave volleys from them. On the spot, three people were killed, six were seriously wounded and a significant number of legionaries died from their wounds. After that massacre, the police arrested a number of people.</p>
+        <p>FROM THE ADMINISTRATION</p>
+        <p>The Administration of 'Ukrainian Farmer' appeals to all interested parties not to send money in ordinary letters, but registered ones. Or a double transfer. Either write nothing, or write only the names of those who send money. The Administration is not responsible for money loss in the mail. This is done for the benefit of the senders themselves and to avoid misunderstandings. Inform your acquaintances about this.</p>
+        <p>FROM THE CHRONICLE OF OUR LIFE IN BRAZIL</p>
+        <p>DONATIONS TO THE PRESS FUND 'UKR. KHL.'</p>
+        <p>Argentina: Mr. I. Moroz, V. Moroz, Z. Dorozhnyi, V. Hnatiuk, 5 Argentine pesos each; Ya. R. T. Moroz 1 and 1/2 pesos, Mr. Hnat Volovych 1 and 1/2 pesos. Total 22 and 1/2 pesos.</p>
+        <p>DONATIONS FOR THE PAYMENT OF UKR.-BR. COLLECTIONS.</p>
+        <p>Mr. Kolentolis: Mr. S. Shavryn and I. Lukashenko for $10,000. Total $20,000.</p>
+        <p>FROM THE SECRETARY OF THE U. S.</p>
+        <p>Hereby I invite all executive members to attend the General Executive Board meeting of the U.S., which is to take place on March 22nd. Start at 10:00 AM.</p>
+        <p>AGENDA:</p>
+        <p>1. Report of executives from localities.</p>
+        <p>2. Matter of debts.</p>
+        <p>3. Matter of the Publishing House and Editorial Office of 'Ukrainian Farmer'.</p>
+        <p>4. Current affairs.</p>
+        <p>Note. Individual invitations will not be sent.</p>
+        <p>Porto, February 22, 1927</p>
+        <p>Secretary of the U.S. V. Kukhar.</p>
+        <p>Editorial Correspondence.</p>
+        <p>A. Buriak — P. Alegre. — Money was not found in the letter. No books for now.</p>
+        <p>Ht. Volovych — Argentina. — Money received. Thank you. Spread 'Ukr. Khliborob'.</p>
+        <p>Frugality.</p>
+        <p>— Why were you, Ivan, expelled from the union?</p>
+        <p>— For frugality, brother, didn't pay five months of membership fees</p>
+        <p>***</p>
+        <p>— Anyone can make a mistake, but only a fool can insist on it.</p>
+        <p>***</p>
+        <p>— Even in a cold dwelling, work can boil!</p>
+      </div>
+    </body>
+  </text>
+</TEI>

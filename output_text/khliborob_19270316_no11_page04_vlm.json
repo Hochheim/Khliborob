@@ -1,0 +1,480 @@
+{
+  "page_metadata": {
+    "newspaper_name_uk": "Буковина",
+    "newspaper_name_en": "Khliborob",
+    "publication_date": "1927-03-16",
+    "issue_number": "no11",
+    "width_pixels": 2400,
+    "height_pixels": 3600,
+    "page_id": "khliborob_19270316_no11_page04"
+  },
+  "entities": {
+    "persons": [
+      {
+        "name_uk": "Василь Литвинський",
+        "name_en": "Vasyl Lytvynskyi"
+      },
+      {
+        "name_uk": "Олекси Шаравара",
+        "name_en": "Oleksy Sharavara"
+      },
+      {
+        "name_uk": "Антоніо Кандідо",
+        "name_en": "Antonio Candido",
+        "wikidata_id": "Q1139047",
+        "wikidata_url": "https://www.wikidata.org/entity/Q1139047"
+      },
+      {
+        "name_uk": "Педро Мазуречен",
+        "name_en": "Pedro Mazurechen"
+      },
+      {
+        "name_uk": "Карлос Пратер",
+        "name_en": "Carlos Prater"
+      },
+      {
+        "name_uk": "Едгард де Олівейра Круз",
+        "name_en": "Edgard de Oliveira Cruz"
+      },
+      {
+        "name_uk": "Стефан Володимир Кобилянський",
+        "name_en": "Stefan Volodymyr Kobylyanskyi"
+      },
+      {
+        "name_uk": "Ніколао Печух",
+        "name_en": "Nicolao Pecuch"
+      },
+      {
+        "name_uk": "Август Борогоський",
+        "name_en": "August Borogoski"
+      },
+      {
+        "name_uk": "Генріке Бурместер",
+        "name_en": "Henrique Burmester"
+      },
+      {
+        "name_uk": "М. Шаравара",
+        "name_en": "M. Sharavara"
+      },
+      {
+        "name_uk": "С. Савицький",
+        "name_en": "S. Savytskyi"
+      },
+      {
+        "name_uk": "Лікар Турней",
+        "name_en": "Doctor Tourney"
+      },
+      {
+        "name_uk": "Петро Карманський",
+        "name_en": "Petro Karmanskyi",
+        "wikidata_id": "Q11815999",
+        "wikidata_url": "https://www.wikidata.org/entity/Q11815999"
+      },
+      {
+        "name_uk": "Василь Павло Сух",
+        "name_en": "Vasyl Pavlo Sukh"
+      },
+      {
+        "name_uk": "Леонардо Тармоллі",
+        "name_en": "Leonardo Tarmolli"
+      },
+      {
+        "name_uk": "Жозе Конопа",
+        "name_en": "José Konopa"
+      },
+      {
+        "name_uk": "Грітіус Павло",
+        "name_en": "Gritius Pavlo"
+      }
+    ],
+    "locations": [
+      {
+        "name_uk": "Русь",
+        "name_en": "Rus",
+        "lat": 50.45,
+        "lon": 30.52,
+        "is_region": true,
+        "wikidata_id": "Q7737",
+        "wikidata_url": "https://www.wikidata.org/entity/Q7737"
+      },
+      {
+        "name_uk": "Уніан да Віторія",
+        "name_en": "União da Vitória",
+        "lat": -26.2292,
+        "lon": -50.9392,
+        "is_region": false,
+        "wikidata_id": "Q988869",
+        "wikidata_url": "https://www.wikidata.org/entity/Q988869"
+      },
+      {
+        "name_uk": "Парана",
+        "name_en": "Paraná",
+        "lat": -25.25,
+        "lon": -51.55,
+        "is_region": true,
+        "wikidata_id": "Q15499",
+        "wikidata_url": "https://www.wikidata.org/entity/Q15499"
+      },
+      {
+        "name_uk": "Санта Катаріна",
+        "name_en": "Santa Catarina",
+        "lat": -27.21,
+        "lon": -50.11,
+        "is_region": true,
+        "wikidata_id": "Q41115",
+        "wikidata_url": "https://www.wikidata.org/entity/Q41115"
+      },
+      {
+        "name_uk": "Порто Уніон",
+        "name_en": "Porto União",
+        "lat": -26.2411,
+        "lon": -50.9392,
+        "is_region": false,
+        "wikidata_id": "Q1784679",
+        "wikidata_url": "https://www.wikidata.org/entity/Q1784679"
+      },
+      {
+        "name_uk": "Курітиба",
+        "name_en": "Curitiba",
+        "lat": -25.4284,
+        "lon": -49.2733,
+        "is_region": false,
+        "wikidata_id": "Q4361",
+        "wikidata_url": "https://www.wikidata.org/entity/Q4361"
+      },
+      {
+        "name_uk": "Бразілія",
+        "name_en": "Brazil",
+        "lat": -14.235,
+        "lon": -51.925,
+        "is_region": true,
+        "wikidata_id": "Q155",
+        "wikidata_url": "https://www.wikidata.org/entity/Q155"
+      },
+      {
+        "name_uk": "Північна Америка",
+        "name_en": "North America",
+        "lat": 54.52,
+        "lon": -105.25,
+        "is_region": true,
+        "wikidata_id": "Q49",
+        "wikidata_url": "https://www.wikidata.org/entity/Q49"
+      },
+      {
+        "name_uk": "Канада",
+        "name_en": "Canada",
+        "lat": 56.13,
+        "lon": -106.34,
+        "is_region": true,
+        "wikidata_id": "Q16",
+        "wikidata_url": "https://www.wikidata.org/entity/Q16"
+      },
+      {
+        "name_uk": "Європа",
+        "name_en": "Europe",
+        "lat": 48.69,
+        "lon": 9.14,
+        "is_region": true,
+        "wikidata_id": "Q5412157",
+        "wikidata_url": "https://www.wikidata.org/entity/Q5412157"
+      },
+      {
+        "name_uk": "Сан Пауло",
+        "name_en": "São Paulo",
+        "lat": -22.19,
+        "lon": -48.79,
+        "is_region": true,
+        "wikidata_id": "Q174",
+        "wikidata_url": "https://www.wikidata.org/entity/Q174"
+      },
+      {
+        "name_uk": "Ранчарія",
+        "name_en": "Rancharia",
+        "lat": -22.22,
+        "lon": -50.88,
+        "is_region": false,
+        "wikidata_id": "Q1760603",
+        "wikidata_url": "https://www.wikidata.org/entity/Q1760603"
+      },
+      {
+        "name_uk": "Презіденте Бернардес",
+        "name_en": "Presidente Bernardes",
+        "lat": -22.17,
+        "lon": -51.6,
+        "is_region": false,
+        "wikidata_id": "Q1816203",
+        "wikidata_url": "https://www.wikidata.org/entity/Q1816203"
+      },
+      {
+        "name_uk": "Санто Анастасіо",
+        "name_en": "Santo Anastácio",
+        "lat": -21.65,
+        "lon": -51.17,
+        "is_region": false,
+        "wikidata_id": "Q1800625",
+        "wikidata_url": "https://www.wikidata.org/entity/Q1800625"
+      },
+      {
+        "name_uk": "Презіденте Венцеслау",
+        "name_en": "Presidente Wenceslau",
+        "lat": -21.78,
+        "lon": -51.81,
+        "is_region": false
+      },
+      {
+        "name_uk": "Сорокабана",
+        "name_en": "Sorocabana (Region)",
+        "lat": -23.49,
+        "lon": -47.45,
+        "is_region": true
+      },
+      {
+        "name_uk": "Іраті",
+        "name_en": "Iraty",
+        "lat": -25.478,
+        "lon": -50.658,
+        "is_region": false,
+        "wikidata_id": "Q2668213",
+        "wikidata_url": "https://www.wikidata.org/entity/Q2668213"
+      },
+      {
+        "name_uk": "Жангаді",
+        "name_en": "Jangada",
+        "lat": -16.03,
+        "lon": -55.06,
+        "is_region": false,
+        "wikidata_id": "Q678587",
+        "wikidata_url": "https://www.wikidata.org/entity/Q678587"
+      }
+    ]
+  },
+  "illustrations": [],
+  "translations": {
+    "abstract_uk": "Ця сторінка містить довгу моралізаторську оповідь про Андруся, який стикається з різними ситуаціями, пов'язаними з пияцтвом та народними віруваннями, і навчається правильній поведінці та молитві. Решта сторінки складається з численних оголошень та реклам, що відображають життя української діаспори в Бразилії. Серед них реклама шевських майстерень, парової гарбарні, м'ясопереробного заводу (xarqueada), адвокатської контори з українським відділом, що надає послуги іммігрантам у Бразилії, Північній Америці та Канаді. Також є оголошення земельно-колонізаційного товариства, яке продає ділянки для поселення в різних регіонах Бразилії, з деталями про якість ґрунту, рослинність та умови продажу. Присутня реклама товарів, мате та нафтопродуктів. Окремі короткі розділи включають новину про протест у Жангаді проти греко-католицького консула та церкви, а також рубрики 'Всячина' (про вплив тютюну на здоров'я) і 'З Мудрих Гадок' (з народними прислів'ями).",
+    "abstract_en": "This page features a long moralistic narrative about Andrus, who encounters various situations related to drunkenness and popular beliefs, learning proper conduct and prayer. The remainder of the page consists of numerous advertisements reflecting the life of the Ukrainian diaspora in Brazil. These include ads for shoemaking workshops, a steam tannery, a jerked beef processing plant (xarqueada), and a law office with a Ukrainian department offering services to immigrants in Brazil, North America, and Canada. There is also an announcement from a land and colonization company selling plots for settlement in various regions of Brazil, detailing soil quality, vegetation, and sales conditions. Advertisements for general goods, yerba mate, and petroleum products are present. Separate short sections include a news item about a protest in Jangada against a Greek-Catholic consul and church, as well as 'Miscellany' (on the health effects of tobacco) and 'From Wise Thoughts' (featuring folk proverbs).",
+    "keywords_uk": [
+      "Українська діаспора",
+      "Бразилія",
+      "Історична газета",
+      "Оголошення",
+      "Реклама",
+      "Земельні ділянки",
+      "Колонізація",
+      "Адвокатські послуги",
+      "Моральна оповідь",
+      "Релігійний протест",
+      "Тютюн",
+      "Прислів'я"
+    ],
+    "keywords_en": [
+      "Ukrainian diaspora",
+      "Brazil",
+      "Historical newspaper",
+      "Advertisements",
+      "Marketing",
+      "Land plots",
+      "Colonization",
+      "Legal services",
+      "Moral narrative",
+      "Religious protest",
+      "Tobacco",
+      "Proverbs"
+    ]
+  },
+  "text_flow": "4 Ч. 11 (139)\nеш з моєї пригоди щой єи кепи бити? упокой, що не дока-зав гідніша річ на світі, і що кождий пяни-ця робить з себе скота, і не то, що ско-та, але грішного діявола, котрий дар духа святого, то є: розум під ноги то-лочить? – За для того, хлопче, як уз-риш дрищ де пяниць, а ти не кажи їм інак, як лиш так:\n„Агі на вас та цур на вас, та у ка-міне з вами та шкрепіттє, де кури не допівають та дзвони не доглашають, без-встидники та безбожники ви одні! Бог дай на наші Руси такого вже більше ні чувати та ні видати!“ – Люди лише виливали очи, а далі як стануть на-шого Андруся бучками обертати!... А то так, що отець дитини ледви його вир-вав підпитим кумам з рук, тай каже до него: „А ти що хлопче отсе, чи з розу-му зійшов, чи що? Таже як тобі таке лучиться, а ти не кажи так погано, але кужи: „дай Боже таке і чувати і видати у каждім селіз по сто і по двісті на рік а у каждій хаті по двоє, по троє на раз!“ Оттак маєш казати, дурню, а те-пер забирайся до дітчої матери, аби то-бі і по паху тут не було!“\nПішов наш Андрусь далі, чухаючи собі накулаковану потилицю, аж тут іде громада людей від хресту, отець на-перед, моша з дитинов за ним, а далі, куми, роди, сусіди, гості, а Андрушко до них: Агі на вас та цур на вас, та у ка-міне з вами та в шкрепітте, де кури не допівають та дзвони не доглашають без-встидники та безбожники ви одні! Бог дай на наші Руси такого вже біль-ше ні чувати та ні видати!“ Люди лише виливали очи, а далі як стануть на-шого Андруся бучками обертати!... А то так, що отець дитини ледви його вир-вав підпитим кумам з рук, тай каже до него: „А ти що хлопче отсе, чи з розу-му зійшов, чи що? Таже як тобі таке лучиться, а ти не кажи так погано, але кужи: „дай Боже таке і чувати і видати у каждім селі по сто і по двісті на рік а у каждій хаті по двоє, по троє на раз!“ Оттак маєш казати, дурню, а те-пер забирайся до дітчої матери, аби то-бі і по паху тут не було!“\nПішов наш Андрусь далі, та вже не чухаючись, бо не було де вже йому і чухатися, такий то оббитий сіромаха, аж тут несуть мерця, а Андрусько ще з далека до них: „Дай Боже таке і чувати і видати, у каждім селі по сто і по двісті на рік, а у каждій хаті по двоє по троє на раз!“ Люди зупинились та тільки що хотіли нашому Андрусови но-ву халазію дати, але панотець не дали та й кажуть до него: А ти що отсе не-боже наговорив? – Другий раз, як то-бі таке лучиться, а ти скинь капелю-шину, перехрестись, та й скажи:\n„Со духи праведними Христе Боже і вірний упокой до раю світлого, до покою віч-ного, де ангели співають, де Святі про-бувають!“ – так синку, маєш казати, а не таке плести, що аж сором слухати. Заберайся!“\nПішов наш Андрусь плачучи далі, аж тут сидять дві бабі на присіпї, та обіс-каюються, а Андрусько скинув зараз ка-пелюшину, перехрестився, та на весь рот: „Со духи праведними Христе Боже і вірний упокой до раю світлого, до покою віч-ного, де ангели співають, де Святі про-бувають!“ – так синку, маєш казати, а не таке плести, що аж сором слухати. Заберайся!“\n\nВІДОМА\nШведська Робітня Василя Литвинського\nПриймає і виконує дешево, солідно і ско-ро всі замовлення входячі в обсяг шев-ства. Має на складі все більшу кількість готового товару для замовлень з кольоній купців. Звертайтесь до: Basilio Litvinsky – Uniao da Victoria, Parana – Rua Visconde de Nacar No 43.\n\nОГОЛОШЕННЯ.\n(За оголошення Редакція не відповідає).\n\nШевська Робітня ОЛЕКСИ ШАРАВАРА\nВ АНТОНІО КАНДІДО\nМає все готові і в кождому часі, прий-має замовлення на всі роди обуви, вико-нуючи роботу скоро, солідно і по деше-вих цінах.\n\nПарова ГАРБАРНЯ CORTUME a vapor\nde Pedro Mazurechen\nОна з найбильших гарбарень в цему стані, под умілим і старанним зарядом влас-ника виробляє всїлякі, в обсягу гарбарства входячі робити, скоро і солідно. ЗАДОВОЛЬ-НЯ Є ПОРУКА.\nДоставляє вироби у всїлякій кількости. СКУПОВУЄ ВІВСІ СИРІ І СУХІ, ПО НАЙВИЩИХ ЦІНАХ. У всяких справах пишіть на адресу:\nPedro Mazurechen — Porto União (Tocós), Sta Catharina, Parana.\n\nXARQUEADA –\nde CARLOS PRATER\nA maior xarqueada em Porto União, premiada na exposição do centenario, POSSUE SEMPRE GRANDE STOCK de XARQUE.\nEndereço: Porto União, Rua Coronel Amazonas — Telephone No 88, (Xarqueada N° 7) — Sta Catharina.\n\nАдвокатська Канцелярія з Українським відділом\nДр-а Едгарда де Олівейра Круз і Стефан Володимир Кобилянський\nВ Курітібі переводять усі процеси у справах тор-говельних, карних та цивільних, а також усі процеси о відшкодованню за шкоди, в спра-вах усякі справи земельні, військові і спадкові. Переводять процеси звільнення з військової служби та нещасні случаї. Полагоджує в компетентних устано-вах діла звязані з одержанню »titulos« на земельні посї-ди за право власности реквірованих та приватно куплених земель. Полагоджує »inventarios«, полагоджує справи військо-ві, переводить звільнення з військової служби в судах всіх країн Європи.\nПерекладає також документи з усіх європейських мов та виробляє позволен-ня на виїзд до Бразілії з Пів. Америки та Канади. Управи-ління канцелярії є п. Стефан Володимир Кобилянський.\nНа непотрібні поїздки, а в усіх справах звертайтеся і одержите відповідь) на адресу:\nAdvogado Dr. Edgard de Oliveira Cruz\nCuritiba – Parana – Rua Aquidaban N. 70.\n\nЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО\n(SOCIEDADE TERRITORIAL E COLONISADORA)\nTEXEIRA, STAUT & CIA.\nESCRIPTORIO B С. ПАВЛЬО – R. COUTO DE MAGALHÄES, 24 – А – SALA, 3\nESQUINA DA R. WASHINGTON LUIZ.\nESCRITORIO Estação Rancharia — Estr. de Ferro Sorocabana.\nТовариство має честь сповістити Вас, що продає найкращі частки зе-млі під управу при стаціях Rancharia, Presidente Bernardes (Guarucaia), Santo Anastacio і President Wenceslau при залізниці Сорокабана в С. Павльо, льотами від 5 алькей-рів вгору по вподобі купуючого.\nУсі наші землі є найкращої якости, з буй-ною рослинністю дерев, які свідчать про їх родючість, з деревами: Pau d'alho, Figueira, Branca, Jangada і т. др., а поруч-ними з великою кількістю шляхотних дерев, чимало хоровим кліматом.\nВсі ті землі лежать біля повище пере-роблених стацій при залізниці Со-рокабана в С. Павльо. З усіх тих земель звертаємо у-вагу на увагу на землі Rancharia, що відрізняються не тількою своєю якістю, високим положеннєм, а й тому, що сі землі віддалені від стації усього вісім кілометрів, і від залізничною дорогою на просторі 12 кільометрів. Наші авто-буси для автомобілів, щоб нашим покупцям облегчити перевіз автомобілі до цеї цілі, зовсім безплатні.\nТреба Вам знати, що землі Rancharia лучшають ся як вже заселеною, яка має знамениту торговлю, готелї і т. др.\nУсі наші землі надаються під яку б то не було культуру. А ви можете бачити поля з кавою (яка тут росте дивно скоро), кукурудзою і з бавов-ною (algodão) і др. Приносячи в протязі усього 3 років стали-ми і творчими рівночасно дійсні осе-лі, лікарні і др.\nДрібні поселенці японські, італійські і др. вста-новили собі тут осілі, на ноги дякуючи обильним живам збіжа і бавовни, а по-над лю тим, що засадили кілька тисяч корчів кави.\nУсі поселенці, малі і великі, живуть в добро-буті і достатках при залізниці Сорокабана, де земля в ро-ках ніколи не терпіла від шкоди спричиненої приморозками, і бачучи зріст своєї кави, Порто Павльо.\nВідвідуючи нас, Ви особисто можете пересвідчитись про все те, що кажемо.\nВідвідайте нас, а ми зробимо все можливе, щоб Ви мали гарно жити.\nЗемля лежить на віддаль 93 кільометрів. від північного краю штату Парана.\nУ нас закупили вже землі отсї панове з Picadas, S. Кляро: п. Ст. Павлів 100 alq., Василь Павло Сух 10 alq., Петро Карманського до Сух 38 1/2 alq., Leonardo Tarmolli alq., 95 José Конопа, Gritius Павло alq.\nЦіна землі від 200 до 500$ алькейрів.\nПять алькейрів вистарчає вповні, щоб з них добре жити.\nЗа блищими інформаціями зголошуватися до проф. П. Карманського.\nTEXEIRA, STAUT & CIA.\nОфіціяльний представник Українського Союзу в Бразілії „ЛІДІЇ“ Порто Уніон, С. Катаріна.\n\nЧитайте! NICOLAO PECUCH\nCOM CASA DE FAZENDAS E ARMARINHO\nRUA 15 de NOVEMBRO\nПовідомляю земляків з околиці Іраті, що я отримав прямо з фабрики сілякі товари доброї якости і спродаю по низькій ціні. І так: зефіри по ціні від 1$300, шіту по 1$300, »alvejada« (1 мет.) по 12$500 і т. д.\nОтже хто бажав-би купити добрий товар і дешево, нехай зайде до торгові:\nNICOLAO PECUCH\n(Давнійше: AUGUST BOROGOSKI).\n\nHENRIQUE BURMESTER\ncompra Herva matte e outros productos do paiz.\nREPRESENTANTE DE „STANDARD OIL COMPANY“.\nSempre um grande stock de gazolina e kerosene.\nEscriptorio e Deposito:\nUnião da Victoria, Rua Dr. Cruz Machado\nE. Paraná.\nDeposito:\nPorto União, Rua Prudente de Moraes\nE. Sta Catharina.\n\nПРОТЕСТ В ЖАНГАДІ.\n(З Бр.)\nПовідомляє ім. Т. Шевченка (Ф. У.) в Жангаді для 27 лютого с.р. в надзвичайних зборах винес-ло проти запросин О.О. Василя-греко-католицького консуля на свято зало-ження основного каменя під будову греко-католицької церкви в...\nЗаст. Голови М. ШАРАВАРА\nСекретар: С. САВИЦЬКИЙ\n\nВСЯЧИНА.\nТютюн і здоровля.\nКажуть лікарі, що тютюн ослаблює память о 10 до 33% і сон не відсвіжує. Куряча так, як не курить. Лікар Турней зау-важує, беручи загалом, курці скоро-біджуються.\n\nЗ МУДРИХ ГАДОК.\nОдно неосторожно сказане слово є цілий секрет.\nХто не відчув жалю, той ніколе не любив.\nПерший показчиш домашнього ща-стя – любов до своєї хати.",
+  "text_flow_en": "4 Ch. 11 (139)\ndid I ever make a fool of myself? peace, which did not prove that the most wretched thing in the world is drunkenness, and that every drunkard makes a beast of himself, and not only a beast, but a sinful devil, who tramples the gift of the Holy Spirit, that is: reason, underfoot? – For that, boy, when you see a gathering of drunkards, do not tell them differently, but just say:\n'Oh, curses on you, and shame on you, and may stones be with you and rattling, where chickens do not crow and bells do not clang, you shameless and godless ones! May God grant that such a thing never again be seen or heard in our Rus!' – People only shed tears, and then they started turning our Andrus into a target!... And it was so that the child's father barely pulled him out of the hands of the drunken godfathers, and said to him: 'What, boy, are you, out of your mind, or what? If such a thing happens to you, do not speak so badly, but say: 'God grant that such a thing be seen and heard in every village a hundred and two hundred times a year, and in every house two or three times!' That's what you should say, fool, and now go to your mother, so that there's no stench here!'\nOur Andrus went on, scratching his clenched head, and suddenly a crowd of people came from a funeral, the father in front, a woman with a child behind him, and then godparents, relatives, neighbors, guests, and little Andrus to them: Oh, curses on you, and shame on you, and may stones be with you and rattling, where chickens do not crow and bells do not clang, you shameless and godless ones! May God grant that such a thing never again be seen or heard in our Rus!' – People only shed tears, and then they started turning our Andrus into a target!... And it was so that the child's father barely pulled him out of the hands of the drunken godfathers, and said to him: 'What, boy, are you, out of your mind, or what? If such a thing happens to you, do not speak so badly, but say: 'God grant that such a thing be seen and heard in every village a hundred and two hundred times a year, and in every house two or three times!' That's what you should say, fool, and now go to your mother, so that there's no stench here!'\nOur Andrus went on, and no longer scratching, because there was nothing left for him to scratch, such a battered wretch he was, and then they carry a corpse, and Andrus from afar to them: 'God grant that such a thing be seen and heard, in every village a hundred and two hundred times a year, and in every house two or three times!' People stopped and just wanted to give our Andrus a new scolding, but the priest did not let them and said to him: 'What is it, poor soul, that you have said? – The second time, if such a thing happens to you, take off your hat, cross yourself, and say:\n'With the righteous spirits, Christ God, and faithful rest in bright paradise, in eternal peace, where angels sing, where the Saints abide!' – that's what you should say, son, and not babble such things that it's shameful to listen to. Get out!'\nOur Andrus went on weeping, and then two old women sat on the porch, lamenting, and Andrus immediately took off his hat, crossed himself, and with a full mouth: 'With the righteous spirits, Christ God, and faithful rest in bright paradise, in eternal peace, where angels sing, where the Saints abide!' – that's what you should say, son, and not babble such things that it's shameful to listen to. Get out!'\n\nINFORMATION\nSwedish Workshop of Vasyl Lytvynskyi\nAccepts and performs cheaply, solidly and quickly all orders within the scope of shoemaking. Has in stock an ever-increasing quantity of ready-made goods for orders from colonial buyers. Contact: Basilio Litvinsky – Uniao da Victoria, Parana – Rua Visconde de Nacar No 43.\n\nANNOUNCEMENTS.\n(The editorial office is not responsible for advertisements).\n\nShoe Workshop OLEKSY SHARAVARA\nIN ANTONIO CANDIDO\nHas everything ready and at all times, accepts orders for all types of footwear, performing work quickly, solidly and at low prices.\n\nSteam TANNERY CORTUME a vapor\nby Pedro Mazurechen\nOne of the largest tanneries in this state, under the skillful and diligent management of the owner, produces all kinds of work included in the scope of tanning, quickly and solidly. SATISFACTION IS GUARANTEED.\nSupplies products in any quantity. BUYS ALL RAW AND DRY SHEEPSKINS AT THE HIGHEST PRICES. For all inquiries, write to:\nPedro Mazurechen — Porto União (Tocós), Sta Catharina, Parana.\n\nXARQUEADA –\nof CARLOS PRATER\nA major xarqueada in Porto União, awarded at the centennial exhibition, ALWAYS HAS A LARGE STOCK of JERKED BEEF.\nAddress: Porto União, Rua Coronel Amazonas — Telephone No 88, (Xarqueada N° 7) — Sta Catharina.\n\nLaw Office with Ukrainian Department\nDr. Edgard de Oliveira Cruz and Stefan Volodymyr Kobylyanskyi\nIn Curitiba, they handle all processes in commercial, criminal and civil matters, as well as all processes concerning compensation for damages, and all kinds of land, military and inheritance cases. They handle processes for exemption from military service and unfortunate incidents. They settle matters related to obtaining 'titulos' for land plots based on the right of ownership of requisitioned and privately purchased lands in competent institutions. They handle 'inventarios', military cases, and transfers of exemption from military service in the courts of all European countries.\nThey also translate documents from all European languages and arrange permission to travel to Brazil from North America and Canada. The administration of the office is Mr. Stefan Volodymyr Kobylyanskyi.\nFor unnecessary trips, and for all matters, please contact and you will receive a reply) at the address:\nLawyer Dr. Edgard de Oliveira Cruz\nCuritiba – Parana – Rua Aquidaban N. 70.\n\nLAND AND COLONIZATION COMPANY\n(SOCIEDADE TERRITORIAL E COLONISADORA)\nTEXEIRA, STAUT & CIA.\nOFFICE B S. PAULO – R. COUTO DE MAGALHÃES, 24 – A – ROOM, 3\nCORNER OF R. WASHINGTON LUIZ.\nOFFICE Rancharia Station — Sorocabana Railway.\nThe company is pleased to inform you that it sells the best parts of land for cultivation at the stations of Rancharia, Presidente Bernardes (Guarucaia), Santo Anastacio and Presidente Wenceslau along the Sorocabana railway in S. Paulo, in lots of 5 alqueires upwards, according to the buyer's preference.\nAll our lands are of the highest quality, with lush tree vegetation, which testifies to their fertility, with trees such as: Pau d'alho, Figueira, Branca, Jangada, etc., and alongside them, with a large number of noble trees, a quite good climate.\nAll these lands lie above the processed stations along the Sorocabana railway in S. Paulo. Of all these lands, we draw attention to the Rancharia lands, which are distinguished not only by their quality, high elevation, but also by the fact that these lands are only eight kilometers from the station, and 12 kilometers from the railway. Our buses for automobiles, to facilitate the transportation of automobiles for our buyers to this destination, are completely free.\nYou should know that the Rancharia lands are improving as they are already settled, having famous commerce, hotels, etc.\nAll our lands are suitable for any crop. And you can see fields with coffee (which grows surprisingly fast here), corn and cotton (algodão), etc. Within 3 years, they produce stable and creative effective settlements, hospitals, etc.\nJapanese, Italian, and other small settlers have established themselves here, standing on their own feet thanks to abundant grain and cotton harvests, and, moreover, they have planted several thousand coffee bushes.\nAll settlers, small and large, live in prosperity and plenty along the Sorocabana railway, where the land has never suffered from frost damage, and seeing the growth of their coffee, Porto Pavlio.\nBy visiting us, you can personally verify everything we say.\nVisit us, and we will do everything possible to ensure you live well.\nThe land is located 93 kilometers from the northern border of Paraná state.\nThe following gentlemen have already purchased land from us in Picadas, S. Klyaro: Mr. St. Pavliv 100 alq., Vasyl Pavlo Sukh 10 alq., Petro Karmanskyi to Sukh 38 1/2 alq., Leonardo Tarmolli alq., 95 José Konopa, Gritius Pavlo alq.\nLand price from 200 to 500$ alqueires.\nFive alqueires are enough to live well.\nFor further information, please contact Prof. P. Karmanskyi.\nTEXEIRA, STAUT & CIA.\nOfficial representative of the Ukrainian Union in Brazil 'LIDII' Porto União, S. Catarina.\n\nRead! NICOLAO PECUCH\nWITH A HOUSE OF FARMS AND GENERAL STORE\nRUA 15 de NOVEMBRO\nI inform my countrymen from the Iraty area that I have received directly from the factory all kinds of good quality goods and sell them at a low price. For example: marshmallows at a price of 1$300, pieces at 1$300, 'alvejada' (1 meter) at 12$500, etc.\nSo, whoever wishes to buy good and cheap goods, should visit the store:\nNICOLAO PECUCH\n(Formerly: AUGUST BOROGOSKI).\n\nHENRIQUE BURMESTER\nbuy Yerba mate and other products from the country.\nREPRESENTATIVE OF 'STANDARD OIL COMPANY'.\nAlways a large stock of gasoline and kerosene.\nOffice and Deposit:\nUnião da Victoria, Rua Dr. Cruz Machado\nE. Paraná.\nDeposit:\nPorto União, Rua Prudente de Moraes\nE. Sta Catharina.\n\nPROTEST IN JANGADA.\n(From Brazil)\nInforms the T. Shevchenko (F.U.) society in Jangada that on February 27 of this year, at an extraordinary meeting, a protest was raised against the invitation of O.O. Vasyl, a Greek-Catholic consul, to the ceremony of laying the cornerstone for the construction of a Greek-Catholic church in...\nDeputy Head M. SHARAVARA\nSecretary: S. SAVYTSKYI\n\nMISCELLANY.\nTobacco and health.\nDoctors say that tobacco weakens memory by 10 to 33% and does not refresh sleep. Smokers quickly get poor, generally speaking, notes Doctor Tourney.\n\nFROM WISE THOUGHTS.\nA carelessly spoken word is a complete secret.\nHe who has not felt pity has never loved.\nThe first indicator of domestic happiness is love for one's home.",
+  "low_confidence_tokens": [
+    {
+      "original_word": "єи",
+      "context": "пригоди щой єи кепи бити?",
+      "reason_flagged": "Possible ink-bleed or stylized font leading to 'єи' instead of 'є' or 'і'.",
+      "visual_location_descriptor": "Upper left column, first paragraph"
+    },
+    {
+      "original_word": "пяинство",
+      "context": "що пяинство є най-гидніша річ",
+      "reason_flagged": "Possible old spelling variant or mutation of 'п'янство'.",
+      "visual_location_descriptor": "Upper left column, first paragraph"
+    },
+    {
+      "original_word": "дрищ",
+      "context": "як узриш дрищ де пяниць",
+      "reason_flagged": "Uncommon word in context, possibly a mutation of 'дриг' or 'дриж' (trembling/crowd) or a specific dialectal term.",
+      "visual_location_descriptor": "Upper left column, first paragraph"
+    },
+    {
+      "original_word": "шкрепіттє",
+      "context": "та шкрепіттє, де кури не допівають",
+      "reason_flagged": "Uncommon word, possibly a dialectal variant or mutation of 'скрекіт' (shrieking/creaking) or similar.",
+      "visual_location_descriptor": "Upper left column, second paragraph"
+    },
+    {
+      "original_word": "селіз",
+      "context": "у каждім селіз по сто і по двісті",
+      "reason_flagged": "Likely a mutation or misprint of 'селі' (in a village) or 'сіл' (of villages), with an added 'з'.",
+      "visual_location_descriptor": "Upper left column, third paragraph"
+    },
+    {
+      "original_word": "присіпї",
+      "context": "дві бабі на присіпї",
+      "reason_flagged": "Old spelling variant or mutation of 'призьбі' (on the porch/platform). The 'пї' ending is uncommon.",
+      "visual_location_descriptor": "Lower left column, last paragraph"
+    },
+    {
+      "original_word": "обіскаюються",
+      "context": "дві бабі на присіпї, та обіскаюються",
+      "reason_flagged": "Highly unusual word, likely a dialectal term, misprint, or degradation of a verb like 'обговорюються' (discussing) or 'обвішуються' (hanging around).",
+      "visual_location_descriptor": "Lower left column, last paragraph"
+    },
+    {
+      "original_word": "вірний",
+      "context": "Христе Боже і вірний упокой",
+      "reason_flagged": "Possible mutation or old spelling variant of 'вічний' (eternal), which would fit the context 'вічний упокій' (eternal rest) better.",
+      "visual_location_descriptor": "Lower left column, second to last paragraph"
+    },
+    {
+      "original_word": "ВІВСІ",
+      "context": "СКУПОВУЄ ВІВСІ СИРІ І СУХІ",
+      "reason_flagged": "Almost certainly a misprint or old spelling of 'вівці' (sheepskins), given the context of a tannery buying raw and dry materials. 'Вівсі' means 'oats'.",
+      "visual_location_descriptor": "Right column, 'Парова ГАРБАРНЯ' advertisement, second paragraph"
+    },
+    {
+      "original_word": "Др-а",
+      "context": "Др-а Едгарда де Олівейра Круз",
+      "reason_flagged": "Hyphen instead of a period after 'Др' (Dr.). Possible stylistic choice or slight visual anomaly.",
+      "visual_location_descriptor": "Right column, 'Адвокатська Канцелярія' section, first line"
+    },
+    {
+      "original_word": "одсержите",
+      "context": "звертайтеся і одсержите відповідь)",
+      "reason_flagged": "Likely a misprint or degradation of 'одержите' (you will receive). 'Одсержите' is not a standard word.",
+      "visual_location_descriptor": "Right column, 'Адвокатська Канцелярія' section, address block"
+    },
+    {
+      "original_word": "КОЛЬОНІЗАЦІЙНЕ",
+      "context": "І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО",
+      "reason_flagged": "Old spelling variant of 'КОЛОНІЗАЦІЙНЕ' (colonization). The 'ьо' is common in older Ukrainian.",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' header"
+    },
+    {
+      "original_word": "ПАВЛЬО",
+      "context": "B С. ПАВЛЬО",
+      "reason_flagged": "Old spelling or variant of 'Павлю' (Pauliu, i.e. São Paulo in dative case). 'ьо' instead of 'ю'.",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, first address"
+    },
+    {
+      "original_word": "MAGALHÄES",
+      "context": "R. COUTO DE MAGALHÄES",
+      "reason_flagged": "Typo in Portuguese name, should be 'MAGALHÃES' (tilde over 'A'). 'Ä' is not standard here.",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, first address"
+    },
+    {
+      "original_word": "хоровим",
+      "context": "чимало хоровим кліматом.",
+      "reason_flagged": "Possible degradation or misprint. 'Хоровим' (choir-like, cholera-related) does not fit. Likely 'хорошим' (good) or 'здоровим' (healthy).",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, near end of 1st large paragraph"
+    },
+    {
+      "original_word": "у-вагу на увагу на землі",
+      "context": "звертаємо у-вагу на увагу на землі Rancharia",
+      "reason_flagged": "Redundant repetition of 'на увагу на'. Likely a transcription error from the original type-setting, should be 'на увагу на землі'.",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, middle paragraph"
+    },
+    {
+      "original_word": "авто-буси для автомобілів",
+      "context": "Наші авто-буси для автомобілів, щоб нашим покупцям облегчити перевіз автомобілі до цеї цілі, зовсім безплатні.",
+      "reason_flagged": "Unusual phrasing. Likely 'автобуси та автомобілі' (buses and cars) or referring to vehicles in general, rather than 'buses for cars'.",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, middle paragraph"
+    },
+    {
+      "original_word": "по-над лю тим",
+      "context": "по-над лю тим, що засадили кілька тисяч корчів кави.",
+      "reason_flagged": "Unclear phrase, likely a degradation or very specific dialectal phrasing. 'Понад тим' (moreover) would make sense, but 'лю тим' is obscure.",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, 3rd from last paragraph"
+    },
+    {
+      "original_word": "Порто Павльо",
+      "context": "зріст своєї кави, Порто Павльо.",
+      "reason_flagged": "Unusual name combining Portuguese 'Porto' with Ukrainianized 'Pavlio'. Could be a specific place name, but might also be 'Порто Пауліста' (Porto Paulista) or a direct reference to São Paulo, given its coffee context.",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, 2nd from last paragraph"
+    },
+    {
+      "original_word": "Павлів",
+      "context": "п. Ст. Павлів 100 alq.",
+      "reason_flagged": "Could be a surname in genitive plural or a misrendering of 'S. Paulo' (São Paulo).",
+      "visual_location_descriptor": "Right column, 'ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО' section, list of buyers"
+    },
+    {
+      "original_word": "шіту",
+      "context": "шіту по 1$300",
+      "reason_flagged": "Likely a misprint or old spelling of 'штуку' (piece), referring to a unit of quantity.",
+      "visual_location_descriptor": "Right column, 'NICOLAO PECUCH' advertisement, second paragraph"
+    },
+    {
+      "original_word": "торгові",
+      "context": "хай зайде до торгові:",
+      "reason_flagged": "Likely an old spelling variant of 'торгівлі' (trade/shop). The 'ві' ending is unusual for this context.",
+      "visual_location_descriptor": "Right column, 'NICOLAO PECUCH' advertisement, last sentence before name"
+    },
+    {
+      "original_word": "Давнійше",
+      "context": "(Давнійше: AUGUST BOROGOSKI).",
+      "reason_flagged": "Old spelling variant of 'давніше' or 'давнішнє' (formerly). The 'ій' vs 'і' is a common old vs modern spelling difference.",
+      "visual_location_descriptor": "Right column, 'NICOLAO PECUCH' advertisement, below name"
+    },
+    {
+      "original_word": "paiz",
+      "context": "productos do paiz.",
+      "reason_flagged": "Old Portuguese spelling of 'país' (country). Not a character mutation, but an archaic spelling.",
+      "visual_location_descriptor": "Right column, 'HENRIQUE BURMESTER' advertisement, first line"
+    },
+    {
+      "original_word": "консуля",
+      "context": "О.О. Василя-греко-католицького консуля",
+      "reason_flagged": "Likely a misprint or old spelling of 'консула' (consul), with an extra 'л'.",
+      "visual_location_descriptor": "Lower right column, 'ПРОТЕСТ В ЖАНГАДІ' section"
+    },
+    {
+      "original_word": "зало-ження",
+      "context": "на свято зало-ження основного каменя",
+      "reason_flagged": "Hyphenated word across a line, common in printing but flagged as a potential break point.",
+      "visual_location_descriptor": "Lower right column, 'ПРОТЕСТ В ЖАНГАДІ' section"
+    },
+    {
+      "original_word": "память",
+      "context": "ослаблює память о 10 до 33%",
+      "reason_flagged": "Old spelling variant of 'пам'ять' (memory). The soft sign ('ь') is omitted.",
+      "visual_location_descriptor": "Lower right column, 'ВСЯЧИНА' section, second paragraph"
+    },
+    {
+      "original_word": "відсвіжує",
+      "context": "і сон не відсвіжує.",
+      "reason_flagged": "Old spelling variant or possible mutation of 'освіжує' (refreshes). 'Відсвіжує' is less common.",
+      "visual_location_descriptor": "Lower right column, 'ВСЯЧИНА' section, second paragraph"
+    },
+    {
+      "original_word": "зау-важує",
+      "context": "Лікар Турней зау-важує, беручи загалом,",
+      "reason_flagged": "Hyphenated word across a line, common in printing but flagged as a potential break point.",
+      "visual_location_descriptor": "Lower right column, 'ВСЯЧИНА' section, second paragraph"
+    },
+    {
+      "original_word": "скоро-біджуються",
+      "context": "курці скоро-біджуються.",
+      "reason_flagged": "Hyphenated compound word, 'скоробіджуються' (become poor quickly). Unusual compound, flagged for review.",
+      "visual_location_descriptor": "Lower right column, 'ВСЯЧИНА' section, second paragraph"
+    },
+    {
+      "original_word": "ніколе",
+      "context": "той ніколе не любив.",
+      "reason_flagged": "Old spelling variant or misprint of 'ніколи' (never). Missing 'и'.",
+      "visual_location_descriptor": "Lower right column, 'З МУДРИХ ГАДОК' section"
+    },
+    {
+      "original_word": "показчиш",
+      "context": "Перший показчиш домашнього ща-стя",
+      "reason_flagged": "Old spelling variant or misprint of 'показник' (indicator). 'Показчиш' is not standard.",
+      "visual_location_descriptor": "Lower right column, 'З МУДРИХ ГАДОК' section"
+    }
+  ]
+}

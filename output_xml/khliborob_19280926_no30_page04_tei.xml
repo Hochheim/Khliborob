@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main" xml:lang="uk">Український Хлібороб — khliborob_19280926_no30_page04</title>
+        <title type="main" xml:lang="en">Ukrainian Farmer — khliborob_19280926_no30_page04</title>
+        <respStmt>
+          <resp>Digitization and transcription</resp>
+          <name>Ukrainian Diaspora Press Digital Archive Pipeline</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Ukrainian Diaspora Press Digital Archive</publisher>
+        <date when="1928-09-26">1928-09-26</date>
+        <idno type="IPFS">ipfs://QmWWNNd4WwrHPxv7vY9Tk3HopPh3cRhCS6mSAHQagMwJAm</idno>
+        <idno type="blockchain-tx">0xa387bcf4f4b0cfd1f59ae105f9f08a99e04f5cf1dadad7885118739d392e106e</idno>
+        <idno type="page-id">khliborob_19280926_no30_page04</idno>
+        <availability status="free">
+          <p>Freely available under open access for non-commercial scholarly use.</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title xml:lang="uk">Український Хлібороб</title>
+          <title xml:lang="en">Ukrainian Farmer</title>
+          <date when="1928-09-26">1928-09-26</date>
+          <idno type="issue">V. 30. (207)</idno>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <p>Transcribed using Google Gemini 2.5 Flash (vision-language model) from a
+      digitized newspaper scan. Named entities (persons, locations) automatically
+      extracted and linked to Wikidata identifiers where available. Manual
+      correction by native-speaker volunteers is recorded in the version history.</p>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="uk">Ukrainian</language>
+        <language ident="en">English (translation)</language>
+      </langUsage>
+      <textClass>
+        <keywords>
+          <list>
+            <item xml:lang="uk">Підводний човен</item>
+            <item xml:lang="uk">Українсько-Бразилійська Колегія</item>
+            <item xml:lang="uk">Гаряче підсоння</item>
+            <item xml:lang="uk">Календар</item>
+            <item xml:lang="uk">Бразилія</item>
+            <item xml:lang="uk">Аргентина</item>
+            <item xml:lang="uk">Оголошення</item>
+            <item xml:lang="uk">Реклама</item>
+            <item xml:lang="uk">Реформа</item>
+            <item xml:lang="uk">Іван Франко</item>
+
+          </list>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <front>
+      <div type="abstract" xml:lang="uk">
+        <p>Ця сторінка газети 'Український Фармер' від 26 вересня 1928 року містить різноманітні матеріали, включаючи новини про підводний човен, заклики до пожертв, календар видавництва 'Укр. Хлібороба' на 1928 рік, а також комерційні оголошення. Центральна стаття 'Правдою брехуно-…' обговорює питання реформи. Детально описується історія британського підводного човна 'Азар', затонулого в 1919 році в Азовському морі, а потім витягнутого і дослідженого. Також є повідомлення про 'гаряче підсоння в Європі' та міркування про зміну клімату. Оголошення включають пошук Семена Кравченка, рекламу українських столярських і шевських робітень, шкіряної фабрики, пекарні, кравців та пива 'Крузейро', багато з яких орієнтовані на українську громаду в Бразилії та Аргентині. Особливий акцент робиться на підтримці Українсько-Бразильської Колегії.</p>
+      </div>
+      <div type="abstract" xml:lang="en">
+        <p>This page of the 'Ukrainian Farmer' newspaper from September 26, 1928, contains a variety of materials, including news about a submarine, calls for donations, the 'Ukr. Khliborob' publishing house's 1928 calendar, and commercial advertisements. The central article 'By Truth, Liar...' discusses reform issues. It details the history of the British submarine 'Azar', sunk in 1919 in the Sea of Azov, later salvaged and examined. There's also a report on 'hot climate in Europe' and considerations about climate change. Advertisements include a search for Semen Kravchenko, promotions for Ukrainian carpentry and shoemaking workshops, a tannery, a bakery, tailors, and 'Cruzeiro' beer, many targeting the Ukrainian community in Brazil and Argentina. A special emphasis is placed on supporting the Ukrainian-Brazilian College.</p>
+      </div>
+    </front>
+    <body>
+      <div type="page" xml:lang="uk" n="khliborob_19280926_no30_page04">
+        <p>4 </p>
+        <p>ПРАВДОЮ БРЕХУНО- Заповідають гаряче підсоння в </p>
+        <p>БІ В ОЧІ. </p>
+        <p>Європі.</p>
+        <p>пер у нас всюди сего свідоцтва приналежно- </p>
+        <p>сти, инакше не вільно ані підписати контракт, </p>
+        <p>ані його інтабулювати. Всякі обходження </p>
+        <p>сего закона є дуже строго карані.</p>
+        <p>Два учениі, <persName ref="https://www.wikidata.org/entity/Q37161355">Вельше</persName> і <persName ref="https://www.wikidata.org/entity/Q678018">Бендон</persName> </p>
+        <p>ють, що в цілій Европі наступить </p>
+        <p>кій будучности великі зміни. Означа- </p>
+        <p>Підводний човен </p>
+        <p>змін є ті численні землетруси, по- </p>
+        <p>вулканів, величезні опади снігів і </p>
+        <p>світ навідають від недавного час </p>
+        <p>домовиною. Через ті потрясення землі і </p>
+        <p>По довгих зусиллях вдалося балтійській фанатики </p>
+        <p>радянській фльоті витягнути з дна Азорсько- те, що по </p>
+        <p>го заливу англійський підводний човен (лод- Чи за те, </p>
+        <p>ку), затоплений там рад. воєнними корабле- громада н</p>
+        <p>ми. Витягнений з води підводний човен затя- мовляв, з</p>
+        <p>гнули до <placeName ref="https://www.wikidata.org/entity/Q82174">Кронштадт</placeName>у і помістили в заливі. расолею </p>
+        <p>Човен пробув під водою майже 9 років що говори</p>
+        <p>і його товсто покрила іржа. Це одно з наймо- А те</p>
+        <p>гутніших суден цього типу. Закінчили буду- дручки с</p>
+        <p>вати його 1919 року. Вмістимість його 1150 ріовання </p>
+        <p>тон. На ньому 6 торпедних апаратів і 6 ско- ну-католи</p>
+        <p>рострільних гармат. У внутрішніх приміщен- помішалося </p>
+        <p>нях човна кістяки англійських моряків. Вва- був, яке с</p>
+        <p>жають, що на човні загинуло щось із 40 душ. нути прав</p>
+        <p>На верхій палубі підводного човна видно слід, даними </p>
+        <p>що його пробила гармата. Дальше дослідження — що він так</p>
+        <p>ня з'ясує остаточне й инші пошкодження й Препільн</p>
+        <p>причини загибели. Процьом </p>
+        <p>В „Прав- </p>
+        <p>тора стовб </p>
+        <p>лендаря“, </p>
+        <p>невіч, наки </p>
+        <p>Гваран і та </p>
+        <p>ти, темні, </p>
+        <p>свічайні випадки зачнуть топити </p>
+        <p>які грубою корою вкривають у </p>
+        <p>бігун і підбігуновиі околиці. Зем- </p>
+        <p>гарячий період свого життя. Тем- </p>
+        <p>чне рости, буде чим раз теплішою </p>
+        <p>Там на півночі, де топляться ле- </p>
+        <p>чне родити і зможе виживити ба </p>
+        <p>ці кі будуть емігрувати туди з полудневих загу- </p>
+        <p>сто заселених країв.</p>
+        <p>Умірковане підсоння пересунеться вла- </p>
+        <p>сне туди на північ, де тепер вічна зима, а на </p>
+        <p>це місце прийде з полудня гаряче підсоння. </p>
+        <p>Цьогорічні спеки мають показувати, на думку </p>
+        <p>цих тих учених, що той час уже не далеко. </p>
+        <p>Цікаво знати, яке підсоння буде мати </p>
+        <p>в Бразилії, коли тепло втіче нам на північ?</p>
+        <p>Пошукування.</p>
+        <p>Припускаючи, що це відноситься до п. </p>
+        <p>Семена Кравченка з <placeName ref="https://www.wikidata.org/entity/Q1784679">Порто Уніон</placeName>, подаємо </p>
+        <p>слідуюче оголошення польського консуляту </p>
+        <p>в Куритибі, поміщене у ч. 66 паранського </p>
+        <p>польського часопису „Люд“ з 22 Вересня: </p>
+        <p>„<persName ref="https://www.wikidata.org/entity/Q139594153">Олена Кравченко</persName> (Helena Krawcienko) зі </p>
+        <p>Станішевських, замешкала в селі Грибів пов. </p>
+        <p>Гостинський, пошукує свого мужа Семена </p>
+        <p>Кравченка (Szymona Krawcienko), котрий ви- </p>
+        <p>емігрував до Бразилії в році 1925 і замешку- </p>
+        <p>вав в уніон да <placeName ref="https://www.wikidata.org/entity/Q36687">Вікторія</placeName> (<placeName ref="https://www.wikidata.org/entity/Q15499">Парана</placeName>).</p>
+        <p>Купуйте шакер!</p>
+        <p>Продаю 10 алькейрів доброї землі, в тім </p>
+        <p>6 алькейрів ліса і 4 капсейри, положеної </p>
+        <p>U КРАЇНСЬКИЙ ХЛІБОРОБ </p>
+        <p>U Ч 30 (207)</p>
+        <p>При збоду підняття англійського підвод- за ваші д</p>
+        <p>ного човна „Л 55“ з дна затоки, начальник відгадали </p>
+        <p>військово-морських сил СРСР Мукевич го- зборів? Д</p>
+        <p>ворить: „Човен „Л 55“ потопив міноносець Ніколи в </p>
+        <p>„Азард“ у бою 4-го червня 1919 року в Азор- жадних за</p>
+        <p>ській затоці недалеко Кронштадту. Човен „Л гроші куп</p>
+        <p>55“ що був один з удосконаленіших та силь- ном, пла</p>
+        <p>ніших англійських підводних човнів, входив громадою</p>
+        <p>до складу англійського загону суден, які бу- Так</p>
+        <p>ли у Фінській затоці за командою контр-адмі- булоб в</p>
+        <p>рала Коуена. Загін мав завдання: захопити свято-віра</p>
+        <p>Кронштадт, знищити рад. лінійні кораблі, а да- слова і в</p>
+        <p>лі допомагати білим захопити <placeName ref="https://www.wikidata.org/entity/Q656">Ленінград</placeName>. Ан- Гадаю,</p>
+        <p>глійська фльота кілька разів намагалася здій- чайно з </p>
+        <p>снити свій намір, але з цього нічого не вийшло. добре,</p>
+        <p>Міноносцем „Азар“ (нині „Зінов'єв“) ко- Отже тем</p>
+        <p>мандував тоді <persName ref="https://www.wikidata.org/entity/Q21513078">Новицький</persName>, теперішний коман- раз відби</p>
+        <p>дант кружляка „Червона Україна“. Піднятий що ви св</p>
+        <p>човен є німий свідок сміливої атаки „Азарда“. до свідом</p>
+        <p>Новицький не дав човну використати свою А що</p>
+        <p>сильну зброю три міни, що залишилися учасникій</p>
+        <p>в нитіних апаратах. Човен не встиг піти під ду говори</p>
+        <p>воду, хоча й поклав для цього рулі.</p>
+        <p>добрі діла. Не так? Тільки ви зле </p>
+        <p>це пояснення. Пощож треба було </p>
+        <p>для темного неграмотного народа? </p>
+        <p>світі цего не потрібло було. Без </p>
+        <p>борієв і рад гандлює за громадські </p>
+        <p>денними церковними річами як: дзво- </p>
+        <p>зцівницею, і т. д. і не числитеся з </p>
+        <p>з реформою було зробити. Чи не </p>
+        <p>защіу користь? Хоч би ті в вас </p>
+        <p>поючі не були єще знали, що ваші </p>
+        <p>поля не є з такими самого Бог. </p>
+        <p>зо ні. </p>
+        <p>і неграмотнії люди, яких ви зви- </p>
+        <p>домвони звете худобою, розпізнали </p>
+        <p>пі під вашими реверенлами криєсь. </p>
+        <p>оти і неграмотність мусить як </p>
+        <p>тись на вас усіх преосвячених, тому, </p>
+        <p>оїми реверенлами заступаєте шлях </p>
+        <p>тости.</p>
+        <p>оби закінчити, то свідчусь тоюбою </p>
+        <p>зборів і кажу виразно, що неправ-</p>
+        <p>реформаторе.</p>
+        <p><persName ref="https://www.wikidata.org/entity/Q107189256">Неграмотний</persName>. </p>
+        <p><persName>В. Гарані</persName>, 20-9-1928.</p>
+        <p>Той самий.</p>
+        <p>блазько станції Легру <placeName ref="https://www.wikidata.org/entity/Q41115">С. Катаріна</placeName> на 182 кі- </p>
+        <p>льометрі. Земля віддалена від залізничної лі- </p>
+        <p>нії 250 метрів. Ціна 2:5000$000</p>
+        <p>Користайте з нагоди!</p>
+        <p>Зголошуватись на мою адресу: </p>
+        <p>Іван Могильський</p>
+        <p>Dorizon – Serra de Tigre – Paraná</p>
+        <p>„ 1925 " 1, 24, </p>
+        <p>„ 1926 " 14, 21, 23, </p>
+        <p>" 37, 41</p>
+        <p>„ 1927 " 1, 17, 19, 20,</p>
+        <p>„ 1928 " 1, 2.</p>
+        <p>Видавництво „У. Хлібороба“.</p>
+        <p>–0–</p>
+        <p>Календар „У. Хлібороба“ </p>
+        <p>ба на 1928 рік.</p>
+        <p>Попри календарну і інформацій</p>
+        <p>в календарі міститься:</p>
+        <p>1. <persName>П. Карманський</persName>: Пять літ.</p>
+        <p>2. Ольга Олександра Думині -</p>
+        <p>поет.</p>
+        <p>3. <persName>О. Олесь</persName>: Коли-б ми плакали.</p>
+        <p>4 <persName>Гастон Пеняльва</persName>: Легенда по -</p>
+        <p>(переклад з португал. П. Карман</p>
+        <p>5. <persName>М. Старицький</persName>: До україн -</p>
+        <p>6. <persName ref="https://www.wikidata.org/entity/Q1216039">Коельйо Нетто</persName>: Любов (пере -</p>
+        <p>мови П. Карманського).</p>
+        <p>7. І. Франко: Грицева шкіль -</p>
+        <p>8. І. Франко: Блажен муж.</p>
+        <p>9. Віріято Коррея: Сікіня (пе -</p>
+        <p>туг. мови П. Карманського).</p>
+        <p>10. <persName ref="https://www.wikidata.org/entity/Q2380199">Борис Грінченко</persName>: Хлібороб</p>
+        <p>11. П. Карманський: 1000 літ.</p>
+        <p>12. І. Франко: Як трапиться з </p>
+        <p>ським ділі (вірш).</p>
+        <p>13. <persName>О. Маковей</persName>: Молдний плуг.</p>
+        <p>14. <persName>А. Корніївський</persName>: Фізичне виховання </p>
+        <p>людини.</p>
+        <p>Панове Купці.</p>
+        <p>Хто з Вас хоче продати добре і солідно </p>
+        <p>свої продукти, прошу сейчас звертатись за </p>
+        <p>інформаціями до:</p>
+        <p>Basilio Yavorsky</p>
+        <p>Rua Julio Conceção, 106</p>
+        <p>SOA PAULO.</p>
+        <p>Українська столярська робітня </p>
+        <p>в Порто Уніон.</p>
+        <p>Повідомляю усіх Шанов. Земляків про-</p>
+        <p>відкриття нової столярської робітні :: Ви-</p>
+        <p>конує солідно і дешево всякі роботи вхо-</p>
+        <p>дячі в обсяг столярського звання, як: ша-</p>
+        <p>фи ліжка і всякого рода меблі.</p>
+        <p>СВІЙ ДО СВОГО!!!</p>
+        <p>„Marcenaria Progresso“</p>
+        <p>Porto União, Rua Mattos Costa, 5</p>
+        <p><persName>Семен Мирошниченко</persName>.</p>
+        <p>Р. S. Сумський.</p>
+        <p>Для влекчення нам відбору грошей на</p>
+        <p>посипати гроші в листах</p>
+        <p>Lavrador Ukraino“ Uniao da Vic-</p>
+        <p>toria – Caixa postal No 3 – Paraná – Brazil.</p>
+        <p>15. П. Карманський: * * (вірш).</p>
+        <p>16. П. Карманський: Як заснував</p>
+        <p>їнський Союз в Бразилії.</p>
+        <p>17. Др. <persName>В. Ганківський</persName>: Домашня аптика.</p>
+        <p>Календар обемом понад 100 стор.</p>
+        <p>містить ілюстрації Україн.-Бразильсь.</p>
+        <p>з фронту і ззаду і знимку сьогодняшн. </p>
+        <p>Колегії.</p>
+        <p>Ціна 2$500</p>
+        <p>Попри це з друкарні „Лідія“ до </p>
+        <p>му півріччу вийшли:</p>
+        <p>1. <persName>В. Кущ</persName>: Мойсей (поема). </p>
+        <p>Відбитка з „У. Хлібороба“. Ціна 2$000.</p>
+        <p>бороба“. Ціна 1$000.</p>
+        <p>3. <persName>С. Савицький</persName>: Бандура (повість) — 96 </p>
+        <p>стор. Ціна – 1$000</p>
+        <p>ВІДОМА </p>
+        <p>Шевська Робітня </p>
+        <p>ВАСИЛЯ ЛИТВИНСЬКОГО.</p>
+        <p>Приймає і виконує дешево, солідно і ско-</p>
+        <p>ро всі заявлення входячі в обсяг шев-</p>
+        <p>ства. – Має на складі все більшу кіль-</p>
+        <p>кість готового товару для замовляючих </p>
+        <p>з кольоній купців. Завертайтеся до:</p>
+        <p>Basilio Litvinsky – União da Victoria, </p>
+        <p>Rua Visconde de Nacar – Paraná.</p>
+        <p>Оголошення. </p>
+        <p>(За оголошення редакція не відповідає.)</p>
+        <p>CORTUME </p>
+        <p>Гарбарня АЦОЦЕ МОДЕЛО </p>
+        <p>Андрія Любця</p>
+        <p>Різна</p>
+        <p>при дорозі до <placeName>Антоніо Кандідо</placeName> в Парані. Купує без </p>
+        <p>Виконує всякі замовлення входячі в обсяг мовлення </p>
+        <p>гарбарства, солідно, дешево і скоро.</p>
+        <p>ше на п.</p>
+        <p>:: :: :: :: :: :: :: :: :: смалець, </p>
+        <p>ANDRÉ LUBEC</p>
+        <p>Porto União</p>
+        <p>Rua 7 de Setembro N. 19 S. Catharina.</p>
+        <p>Rua 7 de Setembro N. 4</p>
+        <p>– DE – </p>
+        <p>XARQUEADA</p>
+        <p>de CARLOS PRATER</p>
+        <p>A maior xarqueada em Porto União, premiada na exposição do centenário, </p>
+        <p>POSSUE SEMPRE GRANDE STOCK DE XARQUE.</p>
+        <p>Endereço: Porto União, Rua Coronel Amazonas – Telephone N° 88, (Xarqueada </p>
+        <p>N° 7) – Sta. Catharina.</p>
+        <p>PADARIA PΟΝΤΑ-GROSSENSE </p>
+        <p>Augusto Bahry &amp; Irmão</p>
+        <p>Перша і одинока українська пекарня в цьому місті, котра завше має на складі свіжі </p>
+        <p>булки, боляші, роски, біскоїти, секілі, тісточка з на</p>
+        <p>Цукорки всякого рода і чеколяди з найлутших сандвичів </p>
+        <p>АВГУСТ БАГРІЙ &amp; БРАТ </p>
+        <p>Rua General Carneiro, N° 74</p>
+        <p>Ponta Grossa</p>
+        <p>ZBIYMA YKPAЇHCLKA KPAВЕЦЬКА РОБІТНЯ</p>
+        <p>українська кравецька робітня виконує скоро, солідно і дешево всякі роботи вхо-</p>
+        <p>чі в обсяг кравецького звання. Має великий склад каземір і бринію краєвих і </p>
+        <p>заграничних.</p>
+        <p>Поручає Шан. Клієнтелеі великий вибір мужської конфекції. </p>
+        <p>СВІЙ ДО СВОГО!!!</p>
+        <p>Pastuch &amp; Cia.</p>
+        <p>Caixa postal N. 23. União da Victoria. Paraná.</p>
+        <p>фармелядою, гоябадою, коко і т. д.</p>
+        <p>ріпавських фабрик.</p>
+        <p>CERVEJARIA „CRUZEIRO“ </p>
+        <p>CRUZEIRO Pilsen, Пийте „Крузейро“</p>
+        <p>Найнліпші</p>
+        <p>пива</p>
+        <p>„CRUZEIRO“</p>
+        <p>„COMETA“</p>
+        <p>A melhor Cerveja</p>
+        <p>„РОМБА“</p>
+        <p>У </p>
+        <p>Б </p>
+        <p>А </p>
+        <p>Р </p>
+        <p>А</p>
+        <p>До солодовні викупє ЯЧМІНЬ і платить найвищі ціни.</p>
+        <p>CURIТYBA, Caixa postal 1880.</p>
+        <p>З друкарні „Укр. Сіонів“ в Бразилії „ЛІДІЯ“ Портс Уніон</p>
+        <p>В друковані: Українського союзу в Бразилії „Порто Уніон, С. Катаріна</p>
+        <p><persName>П. С. Сумський</persName></p>
+        <p>3 </p>
+        <p>Р. С. Сумський</p>
+      </div>
+      <div type="translation" xml:lang="en" n="khliborob_19280926_no30_page04">
+        <p>4 </p>
+        <p>BY TRUTH, LIAR- THEY PROMISE A HOT CLIMATE IN </p>
+        <p>IN THE EYE. </p>
+        <p>EUROPE.</p>
+        <p>first, here we everywhere have this certificate of belonging, otherwise it is not allowed to sign a contract, nor to register it. All circumventions of this law are severely punished.</p>
+        <p>Two scholars, Welsche and Bandon, state that great changes will occur in all of Europe in the near future. The signs of these changes are the numerous earthquakes, volcanoes, huge snowfalls, and the world has been visited by these recently. Due to these earth tremors and common occurrences, fanatics of the Baltic Soviet fleet managed to retrieve the British submarine (boat) from the bottom of the Azov Gulf, where it had been sunk by Soviet warships. The submarine, pulled from the water, was towed to Kronstadt and placed in the bay. The submarine remained underwater for almost 9 years, and its hull was thickly covered with rust. This is one of the most powerful vessels of its type. Its construction was completed in 1919. Its displacement is 1150 tons. It has 6 torpedo tubes and 6 rapid-fire guns. Skeletons of British sailors were found inside the submarine's compartments. It is believed that about 40 souls perished on board. On the submarine's upper deck, there is evidence that it was struck by a cannon. Further investigation will reveal other damage and the causes of its sinking. The preliminary…</p>
+        <p>In 'Prav-', the column of 'Lendar', never, never- 'Hvaran' and such dark, illiterate people, who, in their opinion, sell the public good, they say, for pickles, what they talk about. And if the 'drutchky' of these 'Riovania' — Catholic mixtures — was such, as it was assumed to be, that they could not be right. I think that… Ordinarily, these events will begin to sink into a deep sleep that covers the poles and polar regions. The Earth will experience its hottest period. It will grow warmer and warmer there in the north, where the ice melts, and will be able to sustain a population that will emigrate there from densely populated southern regions.</p>
+        <p>The moderate climate will actually shift north, where there is now eternal winter, and a hot climate will come from the south to this place. This year's heat waves are supposed to show, according to these scholars, that this time is not far off. It is interesting to know what the climate will be like in Brazil when the warmth escapes us to the north?</p>
+        <p>Search.</p>
+        <p>Assuming that this refers to Mr. Semen Kravchenko from Porto União, we publish the following announcement from the Polish consulate in Curitiba, placed in issue 66 of the Paranense Polish newspaper 'Lud' dated September 22: 'Olena Kravchenko (Helena Krawcienko) from Stanislaviv, residing in the village of Hryby, Hostynsky district, is looking for her husband Semen Kravchenko (Szymon Krawcienko), who emigrated to Brazil in 1925 and resided in União da Vitória (Paraná).</p>
+        <p>Buy a shaker!</p>
+        <p>Selling 10 'alkeirs' of good land, including 6 'alkeirs' of forest and 4 'kapseyry', located near Legru C. Catarina station, 182 kilometers away. The land is 250 meters from the railway line. Price: 2:5000$000. Take advantage of this opportunity! For inquiries, please contact: Ivan Mohylsky. Dorizon – Serra de Tigre – Paraná</p>
+        <p>„ 1925 " 1, 24, </p>
+        <p>„ 1926 " 14, 21, 23, </p>
+        <p>" 37, 41</p>
+        <p>„ 1927 " 1, 17, 19, 20,</p>
+        <p>„ 1928 " 1, 2.</p>
+        <p>Ukrainian Farmer. Publishing House 'U. Khliboroba'.</p>
+        <p>–0–</p>
+        <p>Calendar 'U. Khliboroba' for 1928.</p>
+        <p>In addition to calendar and information, the calendar contains:</p>
+        <p>1. P. Karmansky: Five years.</p>
+        <p>2. Olga Oleksandra Dumyn — poet.</p>
+        <p>3. O. Oles: If we cried.</p>
+        <p>4. Gaston Peñyalva: Legend of the — (translation from Portuguese by P. Karmansky).</p>
+        <p>5. M. Starytsky: To Ukraine —</p>
+        <p>6. Coelho Netto: Love (translation by P. Karmansky).</p>
+        <p>7. Ivan Franko: Gryts's school —</p>
+        <p>8. Ivan Franko: Blessed husband.</p>
+        <p>9. Viriato Correa: Sikinya (translation from Portuguese by P. Karmansky).</p>
+        <p>10. Borys Hrinchenko: Khliborob</p>
+        <p>11. P. Karmansky: 1000 years.</p>
+        <p>12. Ivan Franko: As it happens in the world (poem).</p>
+        <p>13. O. Makovey: Young plow.</p>
+        <p>14. A. Korniivsky: Physical education of man.</p>
+        <p>Ladies and Gentlemen, Buyers.</p>
+        <p>Who among you wishes to sell good and solid products, please contact for information:</p>
+        <p>Basilio Yavorsky. Rua Julio Conceção, 106. SÃO PAULO.</p>
+        <p>Ukrainian Carpentry Workshop in Porto União.</p>
+        <p>I inform all esteemed compatriots about the opening of a new carpentry workshop :: It performs all kinds of work solidly and cheaply, falling within the scope of carpentry, such as: wardrobes, beds, and all kinds of furniture.</p>
+        <p>FOR YOUR OWN!!!</p>
+        <p>'Marcenaria Progresso'. Porto União, Rua Mattos Costa, 5. Semen Miroshnichenko.</p>
+        <p>P. S. Sumsky.</p>
+        <p>For easing our withdrawal of money for letters, send money to Lavrador Ukraino“ União da Victoria – Caixa postal No 3 – Paraná – Brazil.</p>
+        <p>15. P. Karmansky: * * (poem).</p>
+        <p>16. P. Karmansky: How he founded the Ukrainian Union in Brazil.</p>
+        <p>17. Dr. V. Hankivsky: Home pharmacy.</p>
+        <p>The calendar, over 100 pages, contains illustrations of the Ukrainian-Brazilian Front and back, and a picture of today's College.</p>
+        <p>Price 2$500</p>
+        <p>In addition, the 'Lydia' printing house has published this half-year:</p>
+        <p>1. V. Kushch: Moses (poem). Reprint from 'U. Khliboroba'. Price 2$000.</p>
+        <p>struggle'. Price 1$000.</p>
+        <p>3. S. Savytsky: Bandura (novel) — 96 pages. Price – 1$000</p>
+        <p>WELL-KNOWN Shoemaking Workshop </p>
+        <p>VASYL LYTVYNSKY.</p>
+        <p>Accepts and performs all orders cheaply, solidly, and quickly within the scope of shoemaking. – Has an increasingly large quantity of ready-made goods for customers from colonies. Contact:</p>
+        <p>Basilio Litvinsky – União da Victoria, Rua Visconde de Nacar – Paraná.</p>
+        <p>Advertisement. </p>
+        <p>(The editorial office is not responsible for advertisements.)</p>
+        <p>CORTUME </p>
+        <p>Tannery AZOSE MODEL </p>
+        <p>ANDRIY LIUBETS</p>
+        <p>Various</p>
+        <p>on the road to Antônio Cândido in Paraná. Buys without. Performs all orders within the scope of tanning, solidly, cheaply and quickly. Shipping on. :: :: :: :: :: :: :: :: :: lard, </p>
+        <p>ANDRÉ LUBEC</p>
+        <p>Porto União</p>
+        <p>Rua 7 de Setembro N. 19 S. Catharina.</p>
+        <p>Rua 7 de Setembro N. 4</p>
+        <p>– DE – XARQUEADA</p>
+        <p>de CARLOS PRATER</p>
+        <p>The largest jerky factory in Porto União, awarded at the Centennial Exhibition, ALWAYS HAS A LARGE STOCK OF JERKY.</p>
+        <p>Address: Porto União, Rua Coronel Amazonas – Telephone N° 88, (Xarqueada N° 7) – Sta. Catharina.</p>
+        <p>PADARIA PONTA-GROSSENSE </p>
+        <p>Augusto Bahry &amp; Irmão</p>
+        <p>The first and only Ukrainian bakery in this city, which always has fresh rolls, bolashas, roski, biscuits, sekilis, pastries with. All kinds of candies and chocolates from the best sandwich and fruit preserves, guava, coconut, etc. Paraná factories.</p>
+        <p>AUGUST BAHRY &amp; BROTHER. Rua General Carneiro, N° 74. Ponta Grossa.</p>
+        <p>WELL-KNOWN UKRAINIAN TAILORING WORKSHOP</p>
+        <p>Ukrainian tailoring workshop performs all kinds of work quickly, solidly, and cheaply within the scope of tailoring. Has a large stock of local and foreign fabrics and trimmings.</p>
+        <p>Recommends to esteemed clients a wide selection of men's clothing. FOR YOUR OWN!!!</p>
+        <p>Pastuch &amp; Cia.</p>
+        <p>Caixa postal N. 23. União da Victoria. Paraná.</p>
+        <p>CERVEJARIA „CRUZEIRO“ </p>
+        <p>CRUZEIRO Pilsen, Drink 'Cruzeiro'</p>
+        <p>Finest</p>
+        <p>Beer</p>
+        <p>„CRUZEIRO“</p>
+        <p>„COMETA“</p>
+        <p>Best Beer</p>
+        <p>„ROMBA“</p>
+        <p>U B A R A. The malt house buys BARLEY and pays the highest prices. CURITYBA, Caixa postal 1880.</p>
+        <p>From the printing house 'Ukr. Sioniv' in Brazil 'LIDIA' Porto Union</p>
+        <p>Printed by: Ukrainian Union in Brazil 'Porto União, S. Catarina'.</p>
+        <p>P. S. Sumsky.</p>
+        <p>3 </p>
+        <p>P. S. Sumsky</p>
+      </div>
+    </body>
+  </text>
+</TEI>

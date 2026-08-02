@@ -1,0 +1,52 @@
+# Secrets — never commit
+config.py
+
+# Local pipeline tools (run locally only)
+pipeline.py
+vlm.py
+aggregate.py
+geocoder.py
+wikidata.py
+geocache.db
+wikidata_cache.db
+rag_indexer.py
+rag_query.py
+rag_index/
+intake_server.py
+omeka.py
+web3_layer.py
+language_drift.py
+correct_transcript.py
+fix_transcript.py
+reset_page.py
+setup_oaipmh.py
+pdf_to_pages.py
+create_json_from_existing.py
+pin_existing_pdfs.py
+pyrightconfig.json
+
+# Raw scan input (too large for git)
+input_pages/
+input_pdfs/
+issue_pdfs/
+Backup Images/
+output_maps/
+output_metadata/
+output_site/
+rag_index/
+node_modules/
+New Codes/
+Old Codes/
+NewspaperPageSchema/
+
+# Generated caches and binaries
+__pycache__/
+*.pyc
+*.db
+*.zip
+*.pdf
+*.txt.bak
+
+# Local IDE
+.vscode/
+.idea/

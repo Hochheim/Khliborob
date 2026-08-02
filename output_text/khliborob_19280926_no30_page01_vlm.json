@@ -1,0 +1,514 @@
+{
+  "page_metadata": {
+    "newspaper_name_uk": "Український Хлібороб",
+    "newspaper_name_en": "Ukrainian Farmer",
+    "publication_date": "1928-09-26",
+    "issue_number": "V. 30. (207)",
+    "width_pixels": 2400,
+    "height_pixels": 3600,
+    "page_id": "khliborob_19280926_no30_page01"
+  },
+  "entities": {
+    "persons": [
+      {
+        "name_uk": "Григорій Прехляк",
+        "name_en": "Gregori Prechlak"
+      },
+      {
+        "name_uk": "Петро Мазуречен",
+        "name_en": "Pedro Mazurechen"
+      },
+      {
+        "name_uk": "Степан Радіч",
+        "name_en": "Stepan Radić",
+        "wikidata_id": "Q347471",
+        "wikidata_url": "https://www.wikidata.org/entity/Q347471"
+      },
+      {
+        "name_uk": "Бенкер",
+        "name_en": "Benker",
+        "wikidata_id": "Q37571752",
+        "wikidata_url": "https://www.wikidata.org/entity/Q37571752"
+      },
+      {
+        "name_uk": "Елефтеріос Бенізельос",
+        "name_en": "Eleftherios Venizelos",
+        "wikidata_id": "Q205545",
+        "wikidata_url": "https://www.wikidata.org/entity/Q205545"
+      },
+      {
+        "name_uk": "Ганс Кох",
+        "name_en": "Hans Koch",
+        "wikidata_id": "Q11088813",
+        "wikidata_url": "https://www.wikidata.org/entity/Q11088813"
+      },
+      {
+        "name_uk": "Пастернак",
+        "name_en": "Pasternak",
+        "wikidata_id": "Q63945155",
+        "wikidata_url": "https://www.wikidata.org/entity/Q63945155"
+      },
+      {
+        "name_uk": "Кіпнік",
+        "name_en": "Kipnik",
+        "wikidata_id": "Q22427783",
+        "wikidata_url": "https://www.wikidata.org/entity/Q22427783"
+      },
+      {
+        "name_uk": "Сергій Тимошенко",
+        "name_en": "Serhii Tymoshenko",
+        "wikidata_id": "Q9335552",
+        "wikidata_url": "https://www.wikidata.org/entity/Q9335552"
+      },
+      {
+        "name_uk": "Андрій Щептицький",
+        "name_en": "Andriy Sheptytsky",
+        "wikidata_id": "Q24194",
+        "wikidata_url": "https://www.wikidata.org/entity/Q24194"
+      },
+      {
+        "name_uk": "Йосип Хомишин",
+        "name_en": "Yosyp Khomyshyn"
+      },
+      {
+        "name_uk": "Гриць Косак",
+        "name_en": "Hryts Kosak"
+      }
+    ],
+    "locations": [
+      {
+        "name_uk": "Порто Уніон",
+        "name_en": "Porto União",
+        "lat": -26.2415,
+        "lon": -50.9388,
+        "is_region": false,
+        "wikidata_id": "Q1784679",
+        "wikidata_url": "https://www.wikidata.org/entity/Q1784679"
+      },
+      {
+        "name_uk": "Бразилія",
+        "name_en": "Brazil",
+        "lat": -14.235,
+        "lon": -51.9253,
+        "is_region": true,
+        "wikidata_id": "Q155",
+        "wikidata_url": "https://www.wikidata.org/entity/Q155"
+      },
+      {
+        "name_uk": "Ріо-де-Жанейро",
+        "name_en": "Rio de Janeiro",
+        "lat": -22.9068,
+        "lon": -43.1729,
+        "is_region": false,
+        "wikidata_id": "Q8678",
+        "wikidata_url": "https://www.wikidata.org/entity/Q8678"
+      },
+      {
+        "name_uk": "Сан-Паулу",
+        "name_en": "São Paulo",
+        "lat": -23.5505,
+        "lon": -46.6333,
+        "is_region": false,
+        "wikidata_id": "Q174",
+        "wikidata_url": "https://www.wikidata.org/entity/Q174"
+      },
+      {
+        "name_uk": "Санта-Катаріна",
+        "name_en": "Santa Catarina",
+        "lat": -27.2185,
+        "lon": -50.2003,
+        "is_region": true,
+        "wikidata_id": "Q41115",
+        "wikidata_url": "https://www.wikidata.org/entity/Q41115"
+      },
+      {
+        "name_uk": "Радянський Союз",
+        "name_en": "Soviet Union",
+        "lat": 61.524,
+        "lon": 105.3188,
+        "is_region": true,
+        "wikidata_id": "Q15180",
+        "wikidata_url": "https://www.wikidata.org/entity/Q15180"
+      },
+      {
+        "name_uk": "Мадрид",
+        "name_en": "Madrid",
+        "lat": 40.4168,
+        "lon": -3.7038,
+        "is_region": false,
+        "wikidata_id": "Q2807",
+        "wikidata_url": "https://www.wikidata.org/entity/Q2807"
+      },
+      {
+        "name_uk": "Іспанія",
+        "name_en": "Spain",
+        "lat": 40.4637,
+        "lon": -3.7492,
+        "is_region": true,
+        "wikidata_id": "Q29",
+        "wikidata_url": "https://www.wikidata.org/entity/Q29"
+      },
+      {
+        "name_uk": "Україна",
+        "name_en": "Ukraine",
+        "lat": 48.3794,
+        "lon": 31.1656,
+        "is_region": true,
+        "wikidata_id": "Q212",
+        "wikidata_url": "https://www.wikidata.org/entity/Q212"
+      },
+      {
+        "name_uk": "Кавказ",
+        "name_en": "Caucasus",
+        "lat": 42.0,
+        "lon": 45.0,
+        "is_region": true,
+        "wikidata_id": "Q18869",
+        "wikidata_url": "https://www.wikidata.org/entity/Q18869"
+      },
+      {
+        "name_uk": "Харків",
+        "name_en": "Kharkiv",
+        "lat": 49.9935,
+        "lon": 36.2304,
+        "is_region": false,
+        "wikidata_id": "Q42308",
+        "wikidata_url": "https://www.wikidata.org/entity/Q42308"
+      },
+      {
+        "name_uk": "Югославія",
+        "name_en": "Yugoslavia",
+        "lat": 44.0,
+        "lon": 21.0,
+        "is_region": true,
+        "wikidata_id": "Q83286",
+        "wikidata_url": "https://www.wikidata.org/entity/Q83286"
+      },
+      {
+        "name_uk": "Манджурія",
+        "name_en": "Manchuria",
+        "lat": 47.0,
+        "lon": 125.0,
+        "is_region": true,
+        "wikidata_id": "Q30623",
+        "wikidata_url": "https://www.wikidata.org/entity/Q30623"
+      },
+      {
+        "name_uk": "Китай",
+        "name_en": "China",
+        "lat": 35.8617,
+        "lon": 104.1954,
+        "is_region": true,
+        "wikidata_id": "Q148",
+        "wikidata_url": "https://www.wikidata.org/entity/Q148"
+      },
+      {
+        "name_uk": "Нью-Йорк",
+        "name_en": "New York City",
+        "lat": 40.7128,
+        "lon": -74.006,
+        "is_region": false,
+        "wikidata_id": "Q60",
+        "wikidata_url": "https://www.wikidata.org/entity/Q60"
+      },
+      {
+        "name_uk": "Сполучені Держави (США)",
+        "name_en": "United States (USA)",
+        "lat": 37.0902,
+        "lon": -95.7129,
+        "is_region": true
+      },
+      {
+        "name_uk": "Греція",
+        "name_en": "Greece",
+        "lat": 39.0742,
+        "lon": 21.8243,
+        "is_region": true,
+        "wikidata_id": "Q41",
+        "wikidata_url": "https://www.wikidata.org/entity/Q41"
+      },
+      {
+        "name_uk": "Румунія",
+        "name_en": "Romania",
+        "lat": 45.9432,
+        "lon": 24.9668,
+        "is_region": true,
+        "wikidata_id": "Q218",
+        "wikidata_url": "https://www.wikidata.org/entity/Q218"
+      },
+      {
+        "name_uk": "Волинь",
+        "name_en": "Volhynia",
+        "lat": 50.73,
+        "lon": 25.1,
+        "is_region": true,
+        "wikidata_id": "Q7530",
+        "wikidata_url": "https://www.wikidata.org/entity/Q7530"
+      },
+      {
+        "name_uk": "Галичина",
+        "name_en": "Galicia",
+        "lat": 49.76,
+        "lon": 24.98,
+        "is_region": true,
+        "wikidata_id": "Q3908",
+        "wikidata_url": "https://www.wikidata.org/entity/Q3908"
+      }
+    ]
+  },
+  "illustrations": [],
+  "translations": {
+    "abstract_uk": "Ця сторінка містить міжнародні новини з Бразилії, СРСР, Іспанії, Югославії, Китаю та США. Основні теми включають створення синдикату сірників у Бразилії, закон про військову службу в СРСР, пожежу в театрі Мадрида, чуму в Маньчжурії, голод у Китаї та ураганні руйнування на Антильських островах та півдні США. Українські новини охоплюють виклад німецького вченого доктора Коха про українську ідентичність, розширення Всенародної Бібліотеки України, реставрацію Софійського Собору, подальше закриття читалень 'Просвіти' на Волині та повідомлення про градові бурі на Галичині. Також згадується, що митрополит Андрей Шептицький іменується кардиналом у Римі та призначено нового ректора Української Господарської Академії в Подебрадах.",
+    "abstract_en": "This page features international news from Brazil, the USSR, Spain, Yugoslavia, China, and the USA. Key topics include the formation of a match syndicate in Brazil, the conscription law in the USSR, a theater fire in Madrid, a plague outbreak in Manchuria, widespread famine in China, and hurricane devastation in the Antilles and the Southern USA. Ukrainian news covers a lecture by German scholar Dr. Koch on Ukrainian identity, the expansion of the All-National Library of Ukraine, the restoration of St. Sophia Cathedral, the continued closure of 'Prosvita' reading rooms in Volhynia, and reports of hailstorms in Galicia. It also mentions Metropolitan Andriy Sheptytsky being referred to as a cardinal in Rome and the appointment of a new rector for the Ukrainian Economic Academy in Poděbrady.",
+    "keywords_uk": [
+      "Бразилія",
+      "Україна",
+      "СРСР",
+      "Іспанія",
+      "Югославія",
+      "Китай",
+      "США",
+      "Манджурія",
+      "Голод",
+      "Буревії",
+      "Світові новини",
+      "Українські справи",
+      "Просвіта",
+      "Шептицький",
+      "Галичина",
+      "Волинь",
+      "Освіта",
+      "Бібліотека",
+      "Матчі"
+    ],
+    "keywords_en": [
+      "Brazil",
+      "Ukraine",
+      "USSR",
+      "Spain",
+      "Yugoslavia",
+      "China",
+      "USA",
+      "Manchuria",
+      "Famine",
+      "Hurricanes",
+      "World news",
+      "Ukrainian affairs",
+      "Prosvita",
+      "Sheptytsky",
+      "Galicia",
+      "Volhynia",
+      "Education",
+      "Library",
+      "Matches"
+    ]
+  },
+  "text_flow": "30. (207) Порто Уніон, середа 26 вересня 1928. Рік видання V.\nО LAVRADOR UKRAINSKÝ ХЛІБОРОБ\nНЕЗАЛЕЖНИЙ ТИЖНЕВИК\nОРГАН 'УКРАЇНСЬКОГО СОЮЗУ В БРАЗИЛІЇ' виходить КОЖНОГО ЧЕТВЕРГА І КОШТУЄ НА РІК 12 $000, В АРГЕНТИНІ 5 ПЕЗІВ, В ІНШ. КРАЯХ 2 ДОЛ., ПІВР. ПЕРЕДПЛАТА 7$000\nЦіна осібного числа 400 Rs.\nЦІНИ ОГОЛОШЕНЬ: 200 Рс. ЗА РЯДОК НА ПОЛОВИНУ САНТІМЕТРА ШИРИНИ В ДОВЖИНУ ОДНОГО СТОВПЦЯ, ЗА ОДИН РАЗ\nОГОЛОШЕННЯ.\nO Lavrador Ukraino\nJornal semanal, organo da União Ukraino no Brasil.\nDirector: Gregori Prechlak.\nGerente: Pedro Mazurechen.\nTypographia da União Ukraino com séde em Porto União.\nENDEREÇO da Redacção: União da Victoria - Caixa postal N°3 - Paranà.\nДобути, або дома не бути!\nЗ Бразилії.\nТрест фабрик сірників?\nЧасописи з Ріо та С. Павле подають, що американські капіталісти, заснувавши синдикат 'Companhia Brasileira de Phosphoros', закуповують всі фабрики сірників, щоб таким способом змонополізувати продажу сірників в своїх руках.\nПоки що їм стоїть на заваді найбільша бразилійська фабрика 'Fiat Lux' з малою скількістю другорядних фабрик. Чи довго вона буде боротись не знати, бо компанія за всяку ціну хоче й цю фабрику купити, та вже давала за нею 28 міліонів.\nУже тепер часописи пишуть, що ця компанія має намір підвищити ціну сірників зі сто на 200 рейсів.\nЗалізна дорога через зону ріки Тібагу.\nНедавно ми подавали про переговори представника француської компанії в справі будови нової залізниці. Тепер маємо змогу подати трохи більше подробиць в цій справі. Під назвою 'А Com. Agricola Florestal e Estrada de Alegre', котре купило 60 тисяч землі між ріками Тібагу, і Фасквейра. Управа цеї компанії має намір побудувати на своїх землях тартак, фабрики паперу та фанери, дров’яного шовку, а крім цього фабрику штучного льоду, бавовну та тютюн. Щоб мати достатню скільність робітників, дирекція зробить заходи для спровадження іммігрантів, а також має обітницю федеральному урядови на себе половину видатків по спровадженню.\nВ короткому часі зачнеться будова залізниці, що получить землі компанії з залізницею S. Paulo Rio Grande до Ігуаріягива, перетинаючи усю зону S. Jeronymo і Ribeirão Verde. Звідти потягне залізниця S. Francisco, P. на 65 кілометрів, допоки на залізничою S. Francisco, P. Porto Grande 50.272.000, недалеко Jaguaryahva. За перевіз транспорту платитимуть компанії з залізницею S. Paulo Rio Grande 1.304.000$000 заного піньора. В 1926 році засновано в С. Павло заплачено цю суму з власних фондів.\nВисвіз зі С. Катаріна.\nВ часі від січня до серпня ц. р. експортовано на 1.304.000$000 піньйонів до-1 го товару. Компаніям Uniao та S. Paulo Rio Grande 50.272.000 кілограмів матері ялів, виплачуваних ратами, в так, як буде видно, що уряд сповнює на існуючі банки усьлівя.\nC.P.C.P.\nВ Радянському Союзі видано новий закон про військову службу. До підготовки до військової служби в полі є обовязані вибух підчас товчої служби у війську є обовязані всі ті, яким брак технічної освіти не дозволяє виконувати відповідної праці в радянському воєнному промислі, а саме всі між 19 і 40 роком життя. Вся військова служба триватиме 5 літ, з чого 2 роки припадає на відпустки.\nЗ українських справ.\nНімці про Україну.\nМолодий німецький учений др. Ганс Кох виголосив недавно в радіо незвичайний виклад на тему „Україна в очах Німця“. Подавши загальні дані про Україна та підкреснув др. Кох обставину, яка мусить вдаряти кожного, а саме бездержавність українського народу.\nПояснивши причини цього розчленування української етнографічної території, д-р Кох завважує, що ідея закріплення української етнографічної території сильнішими сусідами ослаблює українську державно-національну ідею (Галич, Богдан Хмельницький). Тут знов він підкріпив свою тезу порівнанням між слов’янських і німецьких окраїн виявив велику відпорність на чужі завоювання. Дальше освітлив Др. Кох справжню ролю укр. селянства, яке не тільки завше зберегло, але й збільшило удвоє укр. етнографічну територію.\nПоширення Всенародньої Бібліотеки України.\nЯк видно з доповіди директора Бібліотеки Пастернака на засіданню НКО, значного стану, чінння ВБУ, за 10 літ існуванна сягнуло і навіть поза межі цілого Союзу, і тепер вона стоїть поруч з найкращими європейськими бібліотеками. За цей час ВБУ зібрала й упорядкувала 2 міліони книжок, розгорнула широко науково-дослідну й науково-педагогічну роботу в книгознавстві і бібліотекознавстві і всебічно обслуговувала науковою книжкою широкі кадри наукових робітників та студентів.\nРеставрують Софійський Собор.\nНародний Комісаріят Освіти асигнував київській краєвій інспектурі гроші на реставрацію Софійського Собору. Вже почалися роботи під проводом ленінградського професора Кіпніка.\nДальше замкнення „Просвіт“ на Волині.\nНа Волині польська влада позачинала та опечатала читальні в Почаєві, Вишнівці, Рахманові, Савчинцях, Комнаці, Попівцях, Боданках, Лозах, Вишнівці, Ланівцях, Грабовичах, Коворові і Краснолуці Кременецького повіту.\nТакож не дозволяється там на урядування яких не будь збірок. Причиною закриття „Просвіт“ – „непорядки“ в читальняному діловодстві.\nНовий ректор Української Господарської Академії.\nПрофесорська рада Української Господарської Академії в Подебрадах (Чехословаччина) вибрала ректором на слідуючий рік проф. Сергія Тимошенка.\nНове нещастя.\nЗ Галичини приходять відомости про градові тучі. Град винищив засіви в Самбірському повіті на просторі 1500 тяжкої моргів. Доходив він до величини курячого яйця, та важив 150 грамів. Також в старосамбірському повіті знищив град збіжжа в кількох селах.\nМитрополит Щептицький кардиналом.\nЧасописи подають вістки, що греко-католицький митрополит Андрій Щептицький має вступити, та осісти на стале в Римі, де його іменують кардиналом. Його наслідником мавби бути станиславівський епископ Хомишин.\nЗ цілого світу.\nЮгославія.\nЖінка недавно помершого хорватського провідника Степана Радіча вислала до Ліги Націй просьбу о виданна контролі, яка малаби контролювати поступовання сербських судових властей в процесі над убийником і спільниками її мужа.\nБеоградська поліція сконфіскувала часописи, котрі цього листа оголосили.\nЧума в Манджурії.\nВ північно західній частині Манджурії шаліє чума. 60 сіл вже вимерло на цю страшну хворобу.\nФранцуські священики проти целібату.\nГрупа француських священиків почала агітацію проти целібату.\nГолод в Китаю.\nВ Півн. Америці на зазив Ньюйоркського Рятункового Комітету для допомоги китайцям розпочато кампанію за зібранням 10 міліонів долярів на допомогу голодуючим китайцям в части провінції Шілі і Шантунг. Голодом загрожений простір 100 миль довгий і 30 миль широкий.\nСекретар комітету Бенкер, що приїхав з Китаю до Америки каже, що 1.500.000 китайцям грозить вже тепер смерть з голоду.\nБуревій на Антільських островах та в південній части Злуч. Держав.\nСтрашний цикльон навистив антільські острови. Найбільше потерпіли острови Порто Ріко, Мартініка і Гвадалопе. Більшість населення осталося без даху над головою, бо доми буря знесла.\nЛиш в місті Поінте і Пітре Гвадалопе мало стратити на 300 осіб, на острови Порто Ріко число жертв подають 2000 осіб.\nБуревій також через штати Флорида, Небраска, Ілінойс та др. Злуч. Держав.\nЕпідемія грипи в Греції.\nВ Афінах і та дальших околицях Греції вибухла епідемія грипи. Вона дуже поширилася. До тепер було 300.000 хворих. Захорілих також і президент грецької ради міністрів Бенізельос.\nРумуни і позичка.\nУряд звернувся до Ліги Націй з просьбою о поміч.\nВ короткому часі румунський уряд старався дістати позичку в заграничних банках. Старання на кінець увінчались успіхом; Румунія дістала позичку, але під дуже важкими умовами.\nВсі доходи і розходи мають бути під контролею чужоземного фінансіста. Цей контролЬор буде мати право рішати, скільки уряд зможе збирати податків і на що їх видавати.\nНе люблять тяжкої праці.\nСто комуністів жидів покинули роботу в копальні вугілля в Донецькому районі.\nЖидівська телеграф. агенція.\nЩо вони не могли витримати роботи в копальнях та анти-відношення адміністрації.\nГриць Косак-червоним.\nБувшого команданта 1-ої української армії і полковника Української Галицької Армії (УГА) Гриця Косака іменувала більшовицька влада генералом червоної армії. Його приділено до штабу Кавказького повстанського загону атакованого.\nРозстріл повстанців.\nРадянський суд в Умані засудив на кару смерти 11 повстанців.\nЦентральний виконавчий комітет відкинув прохання о помилування.\nЗасуджених розстріляно.\nЕспанія.\nВ Мадриті згорів театр Ногостей. Пожар стратило життя 425 осіб, є багато тяжче або лекше ранених.\"",
+  "text_flow_en": "30. (207) Porto União, Wednesday, September 26, 1928. Year of publication V.\nO LAVRADOR UKRAINSKÝ KHLIBOROB\nINDEPENDENT WEEKLY\nORGAN OF 'UKRAINIAN UNION IN BRAZIL' published EVERY THURSDAY AND COSTS PER YEAR 12 $000, IN ARGENTINA 5 PESOS, IN OTHER COUNTRIES 2 DOLLARS, HALF-YEAR SUBSCRIPTION 7$000\nPrice of a single issue 400 Rs.\nADVERTISEMENT PRICES: 200 Rs. PER LINE FOR HALF A CENTIMETER WIDTH IN THE LENGTH OF ONE COLUMN, FOR ONE TIME\nADVERTISEMENT.\nO Lavrador Ukraino\nWeekly newspaper, organ of the Ukrainian Union in Brazil.\nDirector: Gregori Prechlak.\nManager: Pedro Mazurechen.\nTypographia da União Ukraino with its headquarters in Porto União.\nADDRESS of the Editorial Board: União da Victoria - Post office box N°3 - Paraná.\nTo get it, or not to be home!\nFrom Brazil.\nMatch factory trust?\nNewspapers from Rio and S. Paulo report that American capitalists, having founded the syndicate 'Companhia Brasileira de Phosphoros', are buying up all match factories to monopolize the sale of matches in their hands.\nFor now, the largest Brazilian factory 'Fiat Lux' with a small number of minor factories stands in their way. It is unknown how long it will fight, because the company wants to buy this factory at any price and has already offered 28 million for it.\nNewspapers now write that this company intends to raise the price of matches from one hundred to 200 reis.\nRailway through the Tibagy river zone.\nWe recently reported on negotiations by a representative of a French company regarding the construction of a new railway. Now we are able to provide a little more detail on this matter. Under the name 'A Com. Agricola Florestal e Estrada de Alegre', which bought 60 thousand hectares of land between the Tibagy and Faisqueira rivers. The management of this company intends to build on its lands a sawmill, paper and plywood factories, wood pulp, and in addition, an artificial ice factory, cotton and tobacco. In order to have enough workers, the management will take measures to bring in immigrants, and also has a promise from the federal government to cover half of the expenses for their repatriation.\nIn a short time, the construction of a railway will begin, which will connect the company's lands with the S. Paulo Rio Grande railway to Iguariaíva, crossing the entire S. Jeronymo and Ribeirão Verde zone. From there, the S. Francisco, P. railway will extend for 65 kilometers, until the S. Francisco, P. Porto Grande railway 50,272,000, near Jaguaryahva. For the transportation of goods, companies with the S. Paulo Rio Grande railway will pay 1,304,000$000 per year. In 1926, this amount was established in S. Paulo and paid from own funds.\nExports from S. Catarina.\nFrom January to August of this year, 1,304,000$000 of goods were exported. To the companies União and S. Paulo Rio Grande, 50,272,000 kilograms of materials are being paid in installments, in such a way that it will be seen that the government fulfills its conditions to the existing banks.\nC.P.C.P.\nIn the Soviet Union, a new law on military service has been issued. For preparation for military service in the field, all those between 19 and 40 years of age are obligated to serve, as well as all those who, due to a lack of technical education, are unable to perform appropriate work in the Soviet military industry. The entire military service will last 5 years, of which 2 years are spent on leave.\nFrom Ukrainian affairs.\nGermans about Ukraine.\nA young German scholar, Dr. Hans Koch, recently delivered an unusual radio lecture on the topic 'Ukraine in the Eyes of a German'. After presenting general data on Ukraine, Dr. Koch emphasized a circumstance that must strike everyone, namely the statelessness of the Ukrainian people.\nExplaining the reasons for this fragmentation of Ukrainian ethnographic territory, Dr. Koch notes that the idea of consolidating Ukrainian ethnographic territory by stronger neighbors weakens the Ukrainian state-national idea (Galicia, Bohdan Khmelnytsky). Here again, he supported his thesis by comparing how the Slavic and German borderlands showed great resistance to foreign conquests. Further, Dr. Koch illuminated the true role of the Ukrainian peasantry, which not only always preserved but also doubled the Ukrainian ethnographic territory.\nExpansion of the All-National Library of Ukraine.\nAs seen from the report of the director of the Pasternak Library at the NKO meeting, the significant status and activity of the VBU, in 10 years of existence, has reached even beyond the borders of the entire Union, and now it stands alongside the best European libraries. During this time, the VBU collected and organized 2 million books, launched extensive research and pedagogical work in bibliography and library science, and comprehensively served with scientific literature broad cadres of scientific workers and students.\nSt. Sophia Cathedral is being restored.\nThe People's Commissariat of Education allocated funds to the Kyiv regional inspection for the restoration of St. Sophia Cathedral. Work has already begun under the guidance of the Leningrad professor Kipnik.\nFurther closure of 'Prosvita' in Volhynia.\nIn Volhynia, the Polish authorities began to close and seal reading rooms in Pochaiv, Vyshnivtsi, Rakhmaniv, Savchyntsi, Komnachi, Popivtsi, Bodanky, Lozova, Vyshnivtsi, Lanivtsi, Hrabovychi, Kovorovy and Krasnoluka of Kremenets district.\nAlso, no collections are allowed there. The reason for the closure of 'Prosvita' is 'disorders' in the reading room's paperwork.\nNew Rector of the Ukrainian Economic Academy.\nThe professorial council of the Ukrainian Economic Academy in Poděbrady (Czechoslovakia) elected Professor Serhii Tymoshenko as rector for the following year.\nNew misfortune.\nFrom Galicia come reports of hailstorms. Hail destroyed crops in Sambir district over an area of 1500 'morh' (approx. 0.5-0.7 hectares each). It reached the size of a chicken egg and weighed 150 grams. Also in Starosambirsky district, hail destroyed crops in several villages.\nMetropolitan Sheptytsky as Cardinal.\nNewspapers report that the Greek-Catholic Metropolitan Andriy Sheptytsky is to join and settle permanently in Rome, where he will be named a cardinal. His successor is to be the Stanislaviv bishop Khomyshyn.\nFrom around the world.\nYugoslavia.\nThe wife of the recently deceased Croatian leader Stepan Radić sent a request to the League of Nations for the issuance of a control, which would oversee the actions of the Serbian judicial authorities in the process against her husband's murderer and accomplices.\nBelgrade police confiscated the newspapers that published this letter.\nPlague in Manchuria.\\In the northwestern part of Manchuria, the plague is raging. 60 villages have already died out from this terrible disease.\nFrench priests against celibacy.\nA group of French priests began an agitation against celibacy.\nFamine in China.\nIn North America, at the call of the New York Rescue Committee for aid to the Chinese, a campaign has been launched to raise 10 million dollars to help the starving Chinese in parts of Shili and Shandong provinces. A hunger-stricken area 100 miles long and 30 miles wide.\nThe secretary of the Benker committee, who came from China to America, says that 1,500,000 Chinese are now threatened with death from hunger.\nHurricane in the Antilles and in the southern part of the United States.\nA terrible cyclone hit the Antilles islands. The islands of Puerto Rico, Martinique, and Guadeloupe suffered the most. Most of the population was left homeless because the storm destroyed their houses.\nIn the cities of Pointe and Pitre, Guadeloupe, about 300 people died, on the islands of Puerto Rico, the number of victims is reported to be 2000 people.\nThe hurricane also passed through the states of Florida, Nebraska, Illinois, and others in the United States.\nFlu epidemic in Greece.\nIn Athens and its surroundings in Greece, a flu epidemic broke out. It spread widely. So far, there have been 300,000 cases. Among the sick are also President of the Greek Council of Ministers Venizelos.\nDiseases also among people of other nations.\nRomanians and a loan.\nThe government appealed to the League of Nations for help.\nIn a short time, the Romanian government tried to get a loan from foreign banks. The efforts were eventually successful; Romania received a loan, but under very difficult conditions.\nAll income and expenses must be under the control of a foreign financier. This controller will have the right to decide how much the government can collect in taxes and for what to spend them.\nThey don't like hard work.\nOne hundred communist Jews left work in the coal mine in Donetsk district.\nJewish telegraph agency.\nThat they could not endure work in the mines and anti-administration attitude.\nHryts Kosak-red.\nThe former commander of the 1st Ukrainian army and colonel of the Ukrainian Galician Army (UHA), Hryts Kosak, was appointed by the Bolshevik authorities as a general of the Red Army. He was assigned to the staff of the Caucasian rebel detachment under attack.\nExecution of rebels.\nThe Soviet court in Uman sentenced 11 rebels to death.\nThe Central Executive Committee rejected the appeal for clemency.\nThe condemned were executed.\nSpain.\nIn Madrid, the 'Nogostei' theater burned down. The fire claimed the lives of 425 people; many are seriously or lightly wounded.",
+  "low_confidence_tokens": [
+    {
+      "original_word": "30.",
+      "context": "30. (207) Порто Уніон",
+      "reason_flagged": "Number '3' is smudged and ink-bled, making it slightly unclear.",
+      "visual_location_descriptor": "Upper left, part of issue number."
+    },
+    {
+      "original_word": "V.",
+      "context": "Рік видання V.",
+      "reason_flagged": "Letter 'V' is very bold and thick, likely due to ink bleed or heavy impression, affecting clarity.",
+      "visual_location_descriptor": "Upper right, part of publication year."
+    },
+    {
+      "original_word": "LAVRADOR",
+      "context": "О LAVRADOR UKRAINSKÝ",
+      "reason_flagged": "Letters are very bold and closely spaced, with some ink spread, making individual characters (like 'A' and 'V') less distinct.",
+      "visual_location_descriptor": "Newspaper title, first line, middle-left."
+    },
+    {
+      "original_word": "UKRAINSKÝ",
+      "context": "О LAVRADOR UKRAINSKÝ",
+      "reason_flagged": "Letters are bold and tightly packed; 'K' and 'S' show some ink bleed, and the accent on 'Ý' is faded.",
+      "visual_location_descriptor": "Newspaper title, second line, middle-left."
+    },
+    {
+      "original_word": "ХЛІБОРОБ",
+      "context": "ХЛІБОРОБ",
+      "reason_flagged": "Large stylized font; 'Х' has a slightly smudged left vertical stroke, and 'Л' shows minor ink irregularities on the crossbar.",
+      "visual_location_descriptor": "Newspaper title, third line, middle-left."
+    },
+    {
+      "original_word": "синдикат",
+      "context": "заснувавши синдикат 'Companhia Brasileira",
+      "reason_flagged": "The letters 'с' and 'н' are very close and slightly smudged, reducing individual character clarity.",
+      "visual_location_descriptor": "First column, first article, first paragraph, fourth line."
+    },
+    {
+      "original_word": "Companhia",
+      "context": "'Companhia Brasileira de Phosphoros'",
+      "reason_flagged": "The initial 'C' is smudged and ink-bled, making its shape less distinct.",
+      "visual_location_descriptor": "First column, first article, first paragraph, fourth line, within quotes."
+    },
+    {
+      "original_word": "Brasileira",
+      "context": "'Companhia Brasileira de Phosphoros'",
+      "reason_flagged": "The initial 'B' is smudged and slightly obscured by ink bleed.",
+      "visual_location_descriptor": "First column, first article, first paragraph, fourth line, within quotes."
+    },
+    {
+      "original_word": "Fiat Lux",
+      "context": "фабрика 'Fiat Lux' з малою",
+      "reason_flagged": "The stylized font makes 'F' and 'i' tightly connected, and 'u' is very close to 'x', impacting legibility.",
+      "visual_location_descriptor": "First column, first article, second paragraph, second line, within quotes."
+    },
+    {
+      "original_word": "купити",
+      "context": "хоче й цю фабрику купити, та вже",
+      "reason_flagged": "The letters 'к' and 'у' are very close, and 'т' is bolded, reducing overall sharpness.",
+      "visual_location_descriptor": "First column, first article, second paragraph, fourth line."
+    },
+    {
+      "original_word": "міліонів",
+      "context": "28 міліонів.",
+      "reason_flagged": "The letter 'і' appears somewhat distorted, resembling 'ї' due to ink anomalies.",
+      "visual_location_descriptor": "First column, first article, second paragraph, fifth line."
+    },
+    {
+      "original_word": "Ігуаріягива",
+      "context": "Rio Grande до Ігуаріягива, перетинаючи",
+      "reason_flagged": "The 'І' is bold and slightly smudged, and the sequence 'ія' and 'ги' are tightly packed, reducing distinctness.",
+      "visual_location_descriptor": "Second column, first article, fifth paragraph, third line."
+    },
+    {
+      "original_word": "Jaguaryahva",
+      "context": "50.272.000, недалеко Jaguaryahva.",
+      "reason_flagged": "The letter 'J' is somewhat stylized, and 'ah' sequence is tight, potentially leading to misreading.",
+      "visual_location_descriptor": "Second column, first article, fifth paragraph, sixth line."
+    },
+    {
+      "original_word": "піньора",
+      "context": "1.304.000$000 заного піньора. В 1926",
+      "reason_flagged": "The letter 'о' is somewhat faded, and the word structure might be unfamiliar, making it prone to misinterpretation.",
+      "visual_location_descriptor": "Second column, first article, fifth paragraph, seventh line."
+    },
+    {
+      "original_word": "Висвіз",
+      "context": "Висвіз зі С. Катаріна.",
+      "reason_flagged": "The letter 'В' is smudged and somewhat indistinct, potentially obscuring its exact form ('В' vs 'Б').",
+      "visual_location_descriptor": "Subheading, first column, bottom."
+    },
+    {
+      "original_word": "Національну",
+      "context": "державно-національну ідею (Галич, Богдан Хмельницький).",
+      "reason_flagged": "The initial 'Н' is smudged, and the 'а' appears somewhat blurry due to ink spread.",
+      "visual_location_descriptor": "Third column, second article, second paragraph, fifth line."
+    },
+    {
+      "original_word": "Хмельницький",
+      "context": "Богдан Хмельницький). Тут знов він",
+      "reason_flagged": "The initial 'Х' is smudged, and the letters 'ськ' are tightly packed, reducing individual character clarity.",
+      "visual_location_descriptor": "Third column, second article, second paragraph, fifth line."
+    },
+    {
+      "original_word": "Просвіт",
+      "context": "Дальше замкнення „Просвіт“ на Волині.",
+      "reason_flagged": "The letter 'П' is thick and somewhat blurred, and 'с' is smudged, affecting legibility within the stylized quotes.",
+      "visual_location_descriptor": "Subheading, third column, second article, fifth sub-section."
+    },
+    {
+      "original_word": "Савчинцях",
+      "context": "Рахманові, Савчинцях, Комнаці, Попівцях,",
+      "reason_flagged": "The initial 'С' is smudged and has slight ink bleed, making its form less clear.",
+      "visual_location_descriptor": "Third column, second article, fifth sub-section, first paragraph, third line."
+    },
+    {
+      "original_word": "Комнаці",
+      "context": "Савчинцях, Комнаці, Попівцях, Боданках,",
+      "reason_flagged": "This word is transcribed as it appears, but 'м' and 'н' are very close, and it might be a rare or historical spelling for a known place, or a slight typo in the original print.",
+      "visual_location_descriptor": "Third column, second article, fifth sub-section, first paragraph, third line."
+    },
+    {
+      "original_word": "Грабовичах",
+      "context": "Ланівцях, Грабовичах, Коворові і",
+      "reason_flagged": "The initial 'Г' is smudged and appears somewhat indistinct due to ink spread.",
+      "visual_location_descriptor": "Fourth column, second article, fifth sub-section, first paragraph, second line."
+    },
+    {
+      "original_word": "Коворові",
+      "context": "Грабовичах, Коворові і Краснолуці",
+      "reason_flagged": "The initial 'К' is thick and slightly blurred, and the word itself is less common for a place name, suggesting potential print issues.",
+      "visual_location_descriptor": "Fourth column, second article, fifth sub-section, first paragraph, second line."
+    },
+    {
+      "original_word": "непорядки",
+      "context": "„Просвіт“ – „непорядки“ в читальняному",
+      "reason_flagged": "The letter 'н' is smudged and 'я' is blurry, affecting overall readability within the quotes.",
+      "visual_location_descriptor": "Fourth column, second article, fifth sub-section, second paragraph, second line."
+    },
+    {
+      "original_word": "Тимошенка",
+      "context": "проф. Сергія Тимошенка.",
+      "reason_flagged": "The initial 'Т' is bold and slightly smudged, making its form less sharp.",
+      "visual_location_descriptor": "Fourth column, second article, sixth sub-section, second paragraph, second line."
+    },
+    {
+      "original_word": "курячого",
+      "context": "величини курячого яйця, та важив",
+      "reason_flagged": "The initial 'к' is smudged and has minor ink bleed, affecting its distinctness.",
+      "visual_location_descriptor": "Fourth column, second article, seventh sub-section, second paragraph, third line."
+    },
+    {
+      "original_word": "збіжжа",
+      "context": "знищив град збіжжа в кількох селах.",
+      "reason_flagged": "The initial 'з' is smudged and slightly indistinct due to ink bleed.",
+      "visual_location_descriptor": "Fourth column, second article, seventh sub-section, second paragraph, fifth line."
+    },
+    {
+      "original_word": "Митрополит",
+      "context": "Митрополит Щептицький кардиналом.",
+      "reason_flagged": "The initial 'М' is smudged and indistinct, and subsequent letters are somewhat blurred.",
+      "visual_location_descriptor": "Subheading, fourth column, second article, eighth sub-section."
+    },
+    {
+      "original_word": "Щептицький",
+      "context": "Андрій Щептицький має вступити, та",
+      "reason_flagged": "The letters 'Щ' and 'п' are tightly packed, and 'цьк' sequence shows slight blurring, impacting clarity.",
+      "visual_location_descriptor": "Fourth column, second article, eighth sub-section, first paragraph, third line."
+    },
+    {
+      "original_word": "кардиналом",
+      "context": "його іменують кардиналом. Його наслідником",
+      "reason_flagged": "The initial 'к' and 'а' are tightly joined, and some letters are slightly smudged.",
+      "visual_location_descriptor": "Fourth column, second article, eighth sub-section, first paragraph, fifth line."
+    },
+    {
+      "original_word": "епископ",
+      "context": "станиславівський епископ Хомишин.",
+      "reason_flagged": "The letters 'е' and 'п' are tightly joined, and the word could be slightly blurred.",
+      "visual_location_descriptor": "Fourth column, second article, eighth sub-section, second paragraph, first line."
+    },
+    {
+      "original_word": "Бенкер",
+      "context": "Секретар комітету Бенкер, що приїхав з",
+      "reason_flagged": "The initial 'Б' is smudged and has minor ink bleed, affecting its distinctness.",
+      "visual_location_descriptor": "Third column, third article, fourth sub-section, second paragraph, first line."
+    },
+    {
+      "original_word": "хворих",
+      "context": "було 300.000 хворих. Захорілих також і",
+      "reason_flagged": "The initial 'х' is smudged and has minor ink bleed, affecting its distinctness.",
+      "visual_location_descriptor": "Fifth column, third article, sixth sub-section, first paragraph, fifth line."
+    },
+    {
+      "original_word": "Косака",
+      "context": "УГА) Гриця Косака іменувала більшовицька",
+      "reason_flagged": "The initial 'К' is smudged and has minor ink bleed, affecting its distinctness.",
+      "visual_location_descriptor": "Sixth column, third article, tenth sub-section, second paragraph, third line."
+    },
+    {
+      "original_word": "Ногостей",
+      "context": "згорів театр Ногостей. Пожар стратило",
+      "reason_flagged": "This appears to be 'Новостей' (News) but the 'в' is heavily smudged or printed as 'г', making it 'Ногостей'. Likely a printing error or poor scan artifact.",
+      "visual_location_descriptor": "Fifth column, third article, second paragraph, first line."
+    }
+  ]
+}

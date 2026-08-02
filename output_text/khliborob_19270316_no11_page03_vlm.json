@@ -1,0 +1,948 @@
+{
+  "page_metadata": {
+    "newspaper_name_uk": "Буковина",
+    "newspaper_name_en": "Khliborob",
+    "publication_date": "1927-03-16",
+    "issue_number": "no11",
+    "width_pixels": 2400,
+    "height_pixels": 3600,
+    "page_id": "khliborob_19270316_no11_page03"
+  },
+  "entities": {
+    "persons": [
+      {
+        "name_uk": "В. Гевко",
+        "name_en": "V. Gevko",
+        "wikidata_id": "Q66916453",
+        "wikidata_url": "https://www.wikidata.org/entity/Q66916453"
+      },
+      {
+        "name_uk": "С. Пауло",
+        "name_en": "S. Paulo",
+        "wikidata_id": "Q49903525",
+        "wikidata_url": "https://www.wikidata.org/entity/Q49903525"
+      },
+      {
+        "name_uk": "Володимир Маклович",
+        "name_en": "Volodymyr Maklovych"
+      },
+      {
+        "name_uk": "В. Кухар",
+        "name_en": "V. Kukhar"
+      },
+      {
+        "name_uk": "Яким Шастала",
+        "name_en": "Yakym Shastala"
+      },
+      {
+        "name_uk": "В. Самойлович",
+        "name_en": "V. Samoilovich",
+        "wikidata_id": "Q7017910",
+        "wikidata_url": "https://www.wikidata.org/entity/Q7017910"
+      },
+      {
+        "name_uk": "Панько Бадлюк",
+        "name_en": "Panko Badliuk"
+      },
+      {
+        "name_uk": "Федькович",
+        "name_en": "Fedkovych",
+        "wikidata_id": "Q123926952",
+        "wikidata_url": "https://www.wikidata.org/entity/Q123926952"
+      },
+      {
+        "name_uk": "Андрусь",
+        "name_en": "Andrus",
+        "wikidata_id": "Q21155605",
+        "wikidata_url": "https://www.wikidata.org/entity/Q21155605"
+      },
+      {
+        "name_uk": "Перинуха",
+        "name_en": "Perynukha"
+      },
+      {
+        "name_uk": "Ісус Христос",
+        "name_en": "Jesus Christ",
+        "wikidata_id": "Q302",
+        "wikidata_url": "https://www.wikidata.org/entity/Q302"
+      },
+      {
+        "name_uk": "П. Карманський",
+        "name_en": "P. Karmansky"
+      }
+    ],
+    "locations": [
+      {
+        "name_uk": "Бразилія",
+        "name_en": "Brazil",
+        "lat": -14.235,
+        "lon": -51.9253,
+        "is_region": true,
+        "wikidata_id": "Q155",
+        "wikidata_url": "https://www.wikidata.org/entity/Q155"
+      },
+      {
+        "name_uk": "Уніон да Вікторія",
+        "name_en": "União da Vitória",
+        "lat": -26.2239,
+        "lon": -50.2742,
+        "is_region": false,
+        "wikidata_id": "Q988869",
+        "wikidata_url": "https://www.wikidata.org/entity/Q988869"
+      },
+      {
+        "name_uk": "Галичина",
+        "name_en": "Galicia",
+        "lat": 49.5,
+        "lon": 24.5,
+        "is_region": true,
+        "wikidata_id": "Q3908",
+        "wikidata_url": "https://www.wikidata.org/entity/Q3908"
+      },
+      {
+        "name_uk": "Куритиба",
+        "name_en": "Curitiba",
+        "lat": -25.429,
+        "lon": -49.2713,
+        "is_region": false,
+        "wikidata_id": "Q4361",
+        "wikidata_url": "https://www.wikidata.org/entity/Q4361"
+      },
+      {
+        "name_uk": "Малєт",
+        "name_en": "Mallet",
+        "lat": -25.8653,
+        "lon": -50.8406,
+        "is_region": false,
+        "wikidata_id": "Q16876324",
+        "wikidata_url": "https://www.wikidata.org/entity/Q16876324"
+      },
+      {
+        "name_uk": "Німеччина",
+        "name_en": "Germany",
+        "lat": 51.1657,
+        "lon": 10.4515,
+        "is_region": true,
+        "wikidata_id": "Q183",
+        "wikidata_url": "https://www.wikidata.org/entity/Q183"
+      },
+      {
+        "name_uk": "Порто",
+        "name_en": "Porto",
+        "lat": 41.1579,
+        "lon": -8.6291,
+        "is_region": false,
+        "wikidata_id": "Q36433",
+        "wikidata_url": "https://www.wikidata.org/entity/Q36433"
+      },
+      {
+        "name_uk": "Чехословаччина",
+        "name_en": "Czechoslovakia",
+        "lat": 49.8175,
+        "lon": 15.473,
+        "is_region": true,
+        "wikidata_id": "Q33946",
+        "wikidata_url": "https://www.wikidata.org/entity/Q33946"
+      }
+    ]
+  },
+  "illustrations": [],
+  "translations": {
+    "abstract_uk": "Ця сторінка газети «Хлібороб» містить різноманітні матеріали, що відображають життя української громади в Бразилії у 1927 році. Головні теми включають: звернення читача з Уніон да Вікторії, який обговорює роль газети у висвітленні національних питань, критикує відсутність вичерпних відомостей з України та наголошує на важливості сільськогосподарської інформації для місцевих хліборобів. Присутня також фрагментована полеміка, що стосується внутрішніх справ громади в Куритибі та збору коштів. Окремо подано народну казку «Нікс» (переписану Федьковичем), що є повчальною історією про пам'ять та наслідки необережності. Розміщено оголошення про продаж нерухомості (хати та ділянок) у Малєті, Бразилія, орієнтоване на українських емігрантів. Важливе місце займає стаття з агрономічними порадами щодо відбору кукурудзяного насіння. Розділ «Куток наших читачів» містить листи з Малєта та Куритиби, які торкаються фінансових проблем видавництва, збору коштів для іншого періодичного видання «Життя» та міжособистісних конфліктів у громаді. Сторінка ілюструє виклики та побут української діаспори в Південній Америці.",
+    "abstract_en": "This page of 'Khliborob' newspaper contains a variety of materials reflecting the life of the Ukrainian community in Brazil in 1927. Key themes include: a letter from a reader in União da Vitória discussing the newspaper's role in covering national issues, criticizing the lack of comprehensive news from Ukraine, and emphasizing the importance of agricultural information for local farmers. There is also a fragmented polemic related to internal community affairs in Curitiba and fundraising. A separate section presents the folk tale 'Niks' (retold by Fedkovych), which is a didactic story about memory and the consequences of carelessness. An advertisement (ОКАЗІЯ) for real estate (a house and plots of land) in Mallet, Brazil, is targeted at Ukrainian immigrants. An important article provides agronomic advice on selecting corn seeds. The 'Readers' Corner' section features letters from Mallet and Curitiba, addressing publishing financial issues, fundraising for another periodical 'Zhyttia,' and interpersonal conflicts within the community. The page illustrates the challenges and daily life of the Ukrainian diaspora in South America.",
+    "keywords_uk": [
+      "Українська діаспора",
+      "Бразилія",
+      "Хлібороб (газета)",
+      "Сільське господарство",
+      "Народні казки",
+      "Нерухомість",
+      "Громада",
+      "Куритиба",
+      "Малєт",
+      "Уніон да Вікторія",
+      "Періодичні видання",
+      "1927"
+    ],
+    "keywords_en": [
+      "Ukrainian diaspora",
+      "Brazil",
+      "Khliborob (newspaper)",
+      "Agricultural advice",
+      "Folk tales",
+      "Real estate",
+      "Community",
+      "Curitiba",
+      "Mallet",
+      "União da Vitória",
+      "Periodicals",
+      "1927"
+    ]
+  },
+  "text_flow": "лоситься много до 30-го Квітня, а тоді бачим як рішить більшість.\nНа всякі уїдання „Праці\" українці не повинні зважати. Не дивно, всякі „відпадки\" від українства мусять мати своє прибіжище. „Який пан, такий і його крам\"—кіже народна приказка.\nПапандува 8/3/1927\nВ. ГЕВКО.\nПО- було отворене новокожному новою інформації.\nподяки в Куритис мається по трібни можна би дорогою практикується у Укр. громадянство помочию на так\n2) Уважаю\nоскільки мають як пр. критика Духовенства, як ську роботу, то вати так, щоби ності по сей і то бистого погляду ти борбу з дотеп личині і то з успі Василіян тут? Та їхні захоронки, щоби вони по ють тих самих каменя. „Укр. Хл трy борбу з підн дор поміж тут.\n3) „Укр. Х вичерпуючою інфор всяку діяльність в\nС. Пауло, 4-III-1927.\nДо Хвальної Редакції „Українського Хлібороба\" В Уніон да Вікторія.\nВ розписаній анкеті „Укр. Хлібороба\" в ч. 8, позволяю і я собі забрати голос мимо того, що в Бразилії я щойно шестий місяць і вимог тут. української кольонії не знаю, щоби читаючий загал раціонально домагання свої ставить.\n1) Уважаю, що „Укр. Хлібороб\" як одна одинока часопись, яка йде шляхом правди і боронить справу національну, не домагає в тім, що не подає точно і вичерпуючо вістей з українських земель. Дальше, тутешна кольонія складається переважно з хліборобів, яким придалися сільськогосподарські і країнській бюрі моГли виривушому уділити потрібні Щocь подібного маюті. Можливо, що на те не ривійною релігією а шири що це ведеться тепер в Галіціі. Думаю, що ж так, як і тепер піде з важуну ціль.\nщо дописі всякого роду цьому, поміщувати. духовенства і учительства. ведучи страшно хруйну як не критикувати, а пятьбо вигнала і там довідавім про нові ціла суспіль-ності по сей і то бистого погляду ти борбу з дотеп личині і то з успі Василіян тут? Та їхні захоронки, щоби вони по ють тих самих каменя. „Укр. Хл трy борбу з підн дор поміж тут.\n3) „Укр. Х вичерпуючою інфор всяку діяльність в\nПідголився як Бог прикази зора в нас Свята Неділенька була баба 'кричить.— „Не голено, не го Ти, старий піяку, засліп від тої горя. Не бачиш вон там під бородою є три лосинки.\"\nСпочатку кричав, а врешті побажив же бабу не перекричу, взяв і висмикнув їх, аби мати спокій від баби.\nПо каві поїхаїм на Малє відібра гроші за ті дні, що робив як мене не і там довідавсіям про нові які сталися в остатних днях.\nПовідають люде, же в пятницю го два салдати забрали з Хомової яська Беднарчука і Делика з 3-ої Хоми. нії до „Іванової Хати\" і там їм дали так вечори, же будуть довго памятали.\nЗа що їх забрали і так говорив, що не знав. не довідавсіям, але мені сі 'зляками же за те, що дурні, що не є „елементари\", а що не тримаються гурту, і не читають поучаючі книжки і „Українського Хлібороба\"\n„Укр. Хл.\" жалували по а в „Івановій Хаті\" за „готель\" за Ч. 11 (139)\n(бо спресом, они тобі тоді як на злість ідуть і не вихвалиш ніколи!), а нехай, але вже зайшли! А чехи, чи Бог їх там знає хто, як на злість взяли і спродали черенки, а за те обіцяли давати нам прислати лише „заголовок\".\n— А як не буде заголовка, то, казали, що пришлють книжок таки вже готових! Од же, Панове Куритибці, не журіться, оно щось вийде! Або цап, або „дзіка\" коза!.. Головна стаття що мала міститися в „Життю\" вже вийшла, себ-то — Гумористична, і чисто гумористична! Се чисто так, як робота молодого ковальського челядника, — котрому дали велику желізну шину щоби з неї щось зробив, і показав що знає своє ремесло:\nВін вложив її в огонь, а коли добре розпеклась почав клепати... На перший раз виїшло щось ніби так, потому щось ніби плуг, а відтак щось ніби швайка, дальше зі швайки голка, а в кінци, коли вже спалилось желізо, вийшов пшик!\nТаке саме з нашим місячником „Життя\". З початку ось-ось, вже надійдуть черенки, відтак вже їх нема, треба спродавати книжки, а в кінци, треба видавати його в Порті, ...— і то не зле! — Цікаве, чи\nколи наша куритибська громада перестане грати ролю трутів? Чи ще трафиться хтось новий, що потрафить сподобатись своїми гарними словами, чи се вже останок? Як, Панове, думаєте?\nБажаючи як найкращих успіхів, тили далеко більше, ще й вечеру до ливалися, з яких кача-достали і цілий день носили воду з „Правди\" насіння.\nзаварила, то бисьте лиш носом покри-ваше добро. ли і не хвалили бисьте її, а дали бисте її насіння. пару імухів по мягкому місці і пригадали бисте їй слова Ісуса Христа: — ,Не вигонить душу бо — лили мене в темниці, а не просітіли мене'.\nУВАГА!!!\nОКАЗІЯ!\nПродасться цілком нова хата, положена в українській дільниці міста.\nточка М. Малєт (проти школи С.С. і близько нової української церкви, яка незадовго почне будуватися)\nВеличина хати – 8 м. на 8 м.; вдолі: саля 5 м. на 5 м. з 3 вікнами (спеціяльна для кравецької, шевської, або столярської майстерні), кухня 3 м. на 4 м. і дві кімнати: 3 м. на 4 м. і 3 м. на 5 м. і 4 м. на 5 м. кожна. 6 піч, студня і курник.\nЛьота має 20 метрів фронту до одної з головних вулиць, вулиці Ма-решал Флоріяно і 50 метрів глибини.\nПродається також 4 льоти в тім же містечку.\nNegocio urgente!\nЗа інформаціями звертатись до власника В. Кухара (Ред. „Укр. Хліб.\"), або до п. Якима Шастала в Marechal Mallet.\nКОРИСТАЙТЕ З ОКАЗІЇ!\nЗаплатіть! 12$000 не є гроші, не порівняти з тим, що наші люди видаю-чим, щоби читати. через свій дурний розум!\nНа „Іванову Хату\" гроші є, і то далеко більші, а „Укр. Хл.“ хочуть чита-ти даром!\nХто дає читати „У.Х.“ непередплачений, той робить шкоду „Укр. Хл.\" і Укр. Союзови.\nЧитайте і переплачуйте „Укр. Хл.\"!\nДо Дідуся „Канадського Українця\"!\nОй Дідусю, Дідусю!\nЯк то я ся втішив, що Ви ще не метаєте про бразилійських українців!\nАле, здається, що Ви не любите хліборобів, та ще накивуєте Цибухві на проф. П. Карманського, бо Вас так поінформували.\nЗа се, Дідусю, будете мати перед Богом, бо та славна „Праця\", Ви так хвалите, завела нас в темниці, нічого не бачили і нічого не чули.\nІ в тій темниці нас побачив проф. Карманський і просвітив нас.\nНІКС.\nНародня казка.\n(Переписав Федькович).\nТак називається у Німців „нічо\", а ні — у аптиці така сіль, що її мішають з рожевою водою, і закапують очи, як кого болять.\nІ бабу Перинуху очи боліли, отже — неї і взяла она чотири крайцарі, та й каже до свого сина Андруся: „Біжи, синку в місто, та купиш мені за сі крайцарі у аптиці „нікс\".\n„Коли я, мамо, забуду, як то оно зветься\", каже Андрусь крізь плач, „від нас до міста дві милі, а ви знаєте, мамо, який я дурний; доки зайду до міста, доки те — а то вже і тепер забув, як оно зветься, — 'аптика, чи як там...\n„Нікс! синку, Нікс!\" каже стара, погладивши свого пестюха по голові, — говоря цілою дорогою, як меш іти, голосно собі: Нікс! Нікс! Нікс! Нікс! то да — вже безпечно не забудеш. Іди-ж тепер, Андрусь, у добрий час, та все собі голосно: Нікс! Нікс! Нікс! Нікс!\n„Нікс! Нікс! Нікс! Нікс!\" зачав Андрусь і ко і собі на ввесь рот репетувати, та й помчав у місто\nІде Андрусько гостинцем — аж тут ріжуть у одного богатого шваба на подвірю пацюка, а Андруська закортіло подивитись. Отже-ж і сперся він на пліт, але своє усе не забуває та в одно репетує: Нікс! Нікс! Нікс! Нікс! що'го ціле село чути. Шваб слухав — слухав Андруськового „Нікс\", а далі як крикне нз парубків:\n„Нуте-ко хлопці, та дайте оттому зле там дурневи такого прочухана, аби тя-мив аж до нових вінків! Що він має гріх мені в одно своє Нікс репетувати, коли яку у мене сегодня не Нікс, але благодать цю, Божа, якої дай Господи кождому доброї дошки в му господареви“. — А парубки як імуть не нашого Андруся, та як стануть парити! Забув неборак і за нікс, і за все, та — лиш проситься у старого шваба. Помилуйте доброту, та не вигонить душу бо „А ти, сикий такий сину, ти як смі-\nПРО БІБІР КУКУРУЗИ НА НАСІННЯ.\nПершим заходом хлібороба при плеканні кукурузи — підбір відповідних качанів, а з тих качанів — належного зерна на насіння. Добрий і старанний вибір качанів на насіння є справово дуже важливиою і про це ми в цій статті і розкажемо.\nКоли придивитися до качанів, то побачимо, що одні з них рівні, непокривлені. Ось такі рівні треба відібрати з купи, а покривлені ні в якому разі на насіння не брати. Коли знову будемо розглядати далі відібрані рівні качани, то побачимо, що одні з них від долішнього до горішнього краю, майже, однакової грубости і від одного до другого краю густо вкриті насінням, а другі до горішнього кінця тоншають і, або зовсім не мають зерна, або мають його щупле, недорозвинене. Зновуж на насіння візберераємо тільки перші качани, густо набиті зерном. А відібравши, приступаємо до одного перегляду їх, а саме, — дивимося, чи не ушкоджене зерно на качані і з качанів з цілим зерном відбираємо тільки такі, в яких зерно довге. Це має значення тому, що тоді більший відсоток (%) зерна буде в качані чи, иншими словами, більше вродить кукурузяного зерна з кожного морга.\nКоли закінчено вибір качанів, то це ще не кінець справі; ще не можна пу-щити зерно з качана, ще треба випробувати кожний качан на силу кільчення зерна, щоб на посів взяти лишень ті качани, зерно яких росте жваво, не хвороїє, а значить, передасть цю жвавість і цілій стеблині в потомство. Для того качани, відібрані на насіння, розкладають в порядку і виймають, починаючи з першого, з кожного качана по 6 зерен. Виимають так: кінцем маленького ножи-ка виймають одно зерно з горішньої частини качана, потім повертають качан на половину його і з середньої частини літ виймають одно зерно, потім знову по-вертають на одну третину і знову виймають одно зерно, але вже з долішньої частини качана.\nЗерна вилущені і уложені на клітинку під ч. 1, на полотні. Так само на клітинку ч. 3. і т. д. і пізніше не сплутатися качани.\nвилущені й уложені на то, його вкладають в бляшанку з 3 бляшанку води з цілою, доки дійшла до зерен, наповнено. Також зливають і став-дощиною та став-де підтримується рівнею.\nзерно кукурудзи покіль-довгий корінець. Та\nКоли так налущать зерно тілько потрібне, а долішнє, вивідкидаючого зерна з першого і другого кінця.\nСюди таким чином виходить, що зерно мати певний, зрілий, повний, здоровий розвиток.\n(За „Сільським Світом\".)\nВ. Самойлович.\nКУТОК НАШИХ ЧИТАЧІВ.\nМ. Малєт, 14 Марця.\n„Добрий день шановному „Хліборобови!\"\nТрудно, щоби витримати з бабою!\n— Чи ми вже не мали досвіду аж надто про те, що вона обіцяла нам золоті гори, а відтак зробили з нас лижево?! Кому та Куритиба вже не посміховище? Хто нас тут вже не виставляв як малих дітей, показуючи дурненькі забавки?.. Ну, та годі, стало для всіх, чому не має статися ще і цей Кобилянському? Та він також наш!\nАле життя!... Silencio!\nКуритиба 8-3-1927\nТАДРА.\nКуритибський місячник „Життя“\nВ недовгім часі має появитись в нас Куритибі місячник „Життя“. Що він до тепер не появився, то тому, що гроші зібрали і вислані до Чехословаччини „експресом\". Але, і як траплялось се вже нераз з нашими і між другими, що коли висилається",
+  "text_flow_en": "a lot until April 30th, and then we'll see what the majority decides.\nUkrainians should not pay attention to any accusations from 'Pratsia'. It's not surprising that all 'deviations' from Ukrainianism must have their refuge. 'As the master, so his wares'—as the folk saying goes.\nPapanduva 8/3/1927\nB. HEVKO.\nwas opened anew to everyone with new information.\nThanks in Curitiba, it is necessary to practice in a way that is also useful for the Ukrainian community.\n2) I believe that criticism of the Clergy, for example, and their work, should not be ignored, so that one can have a clear view on this and that, to fight with wit and success. Are there Basilians here? And their shelters, so that they do not use the same stone. 'Ukr. Khlib' fights against the invasion here.\n3) 'Ukr. Khlib' provides comprehensive information and any activities in\nS. Paulo, 4-III-1927.\nTo the Honored Editorial Board of 'Ukrayinsky Khliborob' in União da Vitória.\nIn the filled questionnaire of 'Ukr. Khliborob' in no. 8, I also allow myself to speak out, despite having been in Brazil for only six months and not knowing the demands of the local Ukrainian colony, so that the reading public rationally expresses its demands.\n1) I believe that 'Ukr. Khliborob', as the only newspaper that follows the path of truth and defends the national cause, falls short in not providing accurate and comprehensive news from Ukrainian lands. Furthermore, the local colony consists mainly of farmers, for whom agricultural [advice] was useful in the Ukrainian office, they were able to give a lot of the necessary [information]. Something similar must exist. It is possible that this is not due to a bad religion, but rather to the extent that it is now carried out in Galicia. I think it will continue as it is now with an important goal.\n[Regarding] any kind of writing, to place it here. Of the clergy and teachers. Leading terribly rough, if not criticizing, but rather five-fold, they drove out and there we learned about new, whole society. [Similar to] the conditions on this and that, clear view, you fight with wit and cunning. Are there Basilians here? And their shelters, so that they do not use the same stone. 'Ukr. Khlib' fights against the invasion here.\n3) 'Ukr. Khlib' provides comprehensive information and any activities in\nHe shaved as God commanded. Yesterday, at our place, on Holy Sunday, grandmother 'screams':— 'Not shaved, not shaved! You, old drunkard, blind from that heat. Don't you see there are three hairs under your beard.'\nFirst he shouted, but finally he decided he couldn't outshout his grandmother, so he took them out to have peace from her.\nAfter coffee, we went to Mallet to collect money for the days I worked, as I didn't know, and there I learned about new things that happened in recent days.\nPeople say that on Friday, two soldiers took from Khomova, Yas'ka Bednarchuk and Delyka from Khoma's third (house?). They were given such evenings at 'Ivanova Khata' that they will be remembered for a long time.\nWhat they were taken for, he said he didn't know. I didn't find out, but I was scared because of it, that they are fools, not 'elementary', and do not stick together, and do not read edifying books and 'Ukrayinsky Khliborob'.\n'Ukr. Khlib' complained about it, and at 'Ivanova Khata' for the 'hotel' for No. 11 (139)\n(because with the press, they get on your nerves then, and you'll never praise them!), but never mind, they've already come! And the Czechs, God knows who, as if on purpose, took and sold the cuttings, and for that they promised to send us only 'a title'.\n— And if there's no title, they said, they'll send books already made! So, Gentlemen of Curitiba, don't worry, something will come out! Either a ram, or a 'wild' goat!.. The main article that was supposed to be in 'Zhyttya' has already come out, namely — Humorous, and purely humorous! It's just like the work of a young blacksmith's apprentice, — who was given a large iron bar to make something out of it, and show that he knows his trade:\nHe put it in the fire, and when it got hot, he began to hammer... The first time something like this came out, then something like a plow, and then something like an awl, then from the awl a needle, and finally, when the iron was already cold, a 'poof' came out!\nThe same with our monthly 'Zhyttya'. At first, it was about to arrive, the cuttings would come, then there were none, it's necessary to sell books, and finally, it's necessary to publish it in Porto... — and that's not bad! — It's interesting if\nour Curitiba community will stop playing the role of poisons? Will someone new come who can please with their beautiful words, or is this the end? What do you think, Gentlemen?\nWishing you the best success, they received much more, and in the evening they even brought water from 'Pravda' seeds.\nIt boiled, then you would only cover your nose with good. And you would not praise it, but you would give it some hits on the soft spot and remind it of the words of Jesus Christ: — 'Do not cast out my soul, for they threw me into prison, and did not visit me'.\nATTENTION!!!\nOPPORTUNITY!\nA completely new house is for sale, located in the Ukrainian district of the city.\npoint M. Mallet (opposite S.S. school and near the new Ukrainian church, which will soon be built)\nHouse size – 8 m by 8 m; downstairs: living room 5 m by 5 m with 3 windows (special for tailor's, shoemaker's, or carpenter's workshop), kitchen 3 m by 4 m and two rooms: 3 m by 4 m and 3 m by 5 m and 4 m by 5 m each. 6 stove, well and chicken coop.\nThe plot has 20 meters of frontage to one of the main streets, Marechal Floriano street, and 50 meters of depth.\nAlso for sale are 4 plots in the same town.\nUrgent business!\nFor information, contact the owner V. Kukhar (Ed. 'Ukr. Khlib.'), or Mr. Yakym Shastala in Marechal Mallet.\nTAKE ADVANTAGE OF THE OPPORTUNITY!\nPay! $12,000 is not money, compared to what our people publish through their foolish minds!\n'Ivanova Khata' has money, and much more, and 'Ukr. Khlib' they want to read for free!\nHe who allows 'U.Kh.' to be read without subscription harms 'Ukr. Khlib' and the Ukrainian Union.\nRead and subscribe to 'Ukr. Khlib'!\nTo Grandfather, the 'Canadian Ukrainian'!\nOh Grandfather, Grandfather!\nHow glad I was that you no longer meddle with Brazilian Ukrainians!\nBut, it seems, you don't like farmers, and you're still instigating Tsybukh against Prof. P. Karmansky, because you were informed that way.\nFor this, Grandfather, you will have [to answer] before God, because that glorious 'Pratsia', which you praise so much, led us into darkness, we saw nothing and heard nothing.\nAnd in that darkness, Prof. Karmansky saw and enlightened us.\nNIKS.\nA folk tale.\n(Retold by Fedkovych).\nThat is what Germans call 'nicho', and 'ni' is a salt in the pharmacy that is mixed with rose water, and dropped into the eyes when they hurt.\nAnd grandmother Perynukha's eyes hurt, so she took four kreutzers, and says to her son Andrus: 'Go, son, to town, and buy me for these kreutzers in the pharmacy 'niks'.\n'Mom, if I forget what it's called,' says Andrus, crying, 'it's two miles from us to town, and you know, Mom, how silly I am; by the time I get to town, by then — and now I've forgotten what it's called — 'apteka', or whatever it is...\n'Niks! Son, Niks!' says the old woman, stroking his hair, 'say it all the way as you go, loudly to yourself: Niks! Niks! Niks! Niks! Then you won't forget it for sure. Go now, Andrus, in good time, and say to yourself loudly: Niks! Niks! Niks! Niks!'\n'Niks! Niks! Niks! Niks!' began Andrus, and shouted it at the top of his lungs, and rushed into town.\nAndrus goes along the road — just then they are slaughtering a fat pig in a rich German's yard, and Andrus felt like watching. So he leaned on the fence, but he doesn't forget his own thing and shouts in one breath: Niks! Niks! Niks! Niks! — so loudly that the whole village could hear. The German listened — listened to Andrus's 'Niks', and then shouts to the lads:\n'Hey, lads, give that stupid fellow a good thrashing there, so he remembers it till new brooms! Why is he shouting his 'Niks' to me in one breath, when I have no 'Niks' today, but grace, God, give every good thing to my master.' — And the lads, as if they were not our Andrus, but started to steam! The poor fellow forgot both 'niks' and everything, and — only asks the old German. 'Have mercy, goodness, and don't drive out the soul, because 'You, such a son, how dare you —'\nABOUT CORN SEED SELECTION.\nThe first step for a farmer in cultivating corn is to select suitable cobs, and from those cobs — the proper grain for seed. Good and careful selection of cobs for seed is practically very important, and we will discuss this in this article.\nWhen you look at the cobs, you will see that some of them are even, not twisted. Such even ones should be selected from the pile, and twisted ones should not be taken for seed under any circumstances. When we further examine the selected even cobs, we will see that some of them, from the bottom to the top, are almost uniformly thick and densely covered with seeds from one end to the other, while others thin towards the top and either have no seeds at all, or their seeds are shriveled, underdeveloped. Again, for seed, we will only take the first cobs, densely packed with grain. And having selected them, we proceed to one review of them, namely, — we examine whether the grain on the cob is not damaged, and from the cobs with whole grain, we select only those where the grain is long. This is important because then a larger percentage (%) of grain will be on the cob, or in other words, more corn grain will yield from each morgen.\nWhen the selection of cobs is finished, this is not the end of the matter; it is not yet possible to remove the grain from the cob; it is still necessary to test each cob for germination strength, so that for sowing only those cobs are taken whose grain grows vigorously, does not get sick, and therefore, will transmit this vigor to the entire stem in posterity. For this purpose, the cobs selected for seed are arranged in order and the grains are removed, starting from the first, 6 grains from each cob. They are removed as follows: with the tip of a small knife, one grain is removed from the upper part of the cob, then the cob is turned halfway, and one grain is removed from the middle part, then again turned to one-third and again one grain is removed, but this time from the lower part of the cob.\nShelled and placed grains on cell no. 1, on the canvas. The same on cell no. 3, etc. and later so that the cobs do not get mixed up.\nShelled and placed, then it is put into a jar with 3 jars of water until it reaches the grains, filled. Also pour off and place with a small board, and keep it level.\ncorn grain, long root. This way, they will shell only the necessary amount of grain, and the lower, discarded grain from the first and second ends.\nThis way, the grain comes out with a certain, mature, full, healthy development.\n(From 'Silsʹky Svit').\nV. Samoilovich.\nREADERS' CORNER.\nM. Mallet, March 14.\n'Good day, esteemed 'Khliborob'!'\nIt's hard to deal with grandma!\n— Haven't we had enough experience about how she promised us golden mountains, and then made a mockery of us?! Who in Curitiba doesn't find this ridiculous anymore? Who hasn't she exhibited here like small children, showing off silly toys?.. Well, enough, everyone understands why this Kobyliansky should not be here? He is also ours!\nBut life!... Silence!\nCuritiba 8-3-1927\nTADRA.\nCuritiba monthly 'Zhyttia'\nIn due time, the Curitiba monthly 'Zhyttia' is to appear here. The reason it hasn't appeared yet is that the money collected was sent to Czechoslovakia by 'express'. But, as has happened many times with us and with others, when money is sent",
+  "low_confidence_tokens": [
+    {
+      "original_word": "уїдання",
+      "context": "На всякі уїдання „Праці\" українці не повинні зважати.",
+      "reason_flagged": "Uncommon word, possibly archaic spelling or typo for 'увідання' (fading) or 'звинувачення' (accusations) depending on context. Transcribed as seen.",
+      "visual_location_descriptor": "Top left column, 2nd paragraph, line 1"
+    },
+    {
+      "original_word": "кіже",
+      "context": "„Який пан, такий і його крам\"—кіже народна приказка.",
+      "reason_flagged": "Likely a typo or archaic spelling for 'каже' (says).",
+      "visual_location_descriptor": "Top left column, 3rd paragraph, line 1"
+    },
+    {
+      "original_word": "новокожному",
+      "context": "було отворене новокожному новою інформації.",
+      "reason_flagged": "Seems like two words merged: 'ново кожному' (new to everyone).",
+      "visual_location_descriptor": "Top right column, 1st fragment, line 1"
+    },
+    {
+      "original_word": "Куритис",
+      "context": "подяки в Куритис мається по трібни",
+      "reason_flagged": "Likely a spelling variation or partial word for 'Куритибі' (in Curitiba), dative case.",
+      "visual_location_descriptor": "Top right column, 2nd fragment, line 1"
+    },
+    {
+      "original_word": "трібни",
+      "context": "мається по трібни",
+      "reason_flagged": "Likely a spelling variation for 'потрібно' (necessary).",
+      "visual_location_descriptor": "Top right column, 2nd fragment, line 2"
+    },
+    {
+      "original_word": "помочию",
+      "context": "Укр. громадянство помочию на так",
+      "reason_flagged": "Archaic spelling, likely 'поміччю' (with help).",
+      "visual_location_descriptor": "Top right column, 3rd fragment, line 2"
+    },
+    {
+      "original_word": "якську",
+      "context": "Духовенства, як ську роботу, то вати так",
+      "reason_flagged": "Fragmented word, part of 'якську' (which kind of). Likely OCR error combined with fragmented text.",
+      "visual_location_descriptor": "Top right column, 5th fragment, line 2"
+    },
+    {
+      "original_word": "бістого",
+      "context": "ності по сей і то бистого погляду",
+      "reason_flagged": "Likely 'чистого' (clear) or 'виразного' (distinct) depending on full context; 'бистого' itself is not a common word.",
+      "visual_location_descriptor": "Top right column, 5th fragment, line 4"
+    },
+    {
+      "original_word": "личені",
+      "context": "ти борбу з дотеп личині і то з успі Василіян тут?",
+      "reason_flagged": "Fragmented word, possibly 'площині' (plane/field) or similar, dative case.",
+      "visual_location_descriptor": "Top right column, 6th fragment, line 2"
+    },
+    {
+      "original_word": "трy",
+      "context": "„Укр. Хл трy борбу з підн дор поміж тут.",
+      "reason_flagged": "Fragmented word, likely part of 'треба' (should) or 'ведучи' (leading) in context of 'боротьбу' (struggle).",
+      "visual_location_descriptor": "Top right column, 8th fragment, line 1"
+    },
+    {
+      "original_word": "кольонії",
+      "context": "тут. української кольонії не знаю,",
+      "reason_flagged": "Archaic spelling for 'колонії' (colony).",
+      "visual_location_descriptor": "Left column, main article, 3rd paragraph, line 3"
+    },
+    {
+      "original_word": "домагання",
+      "context": "загал раціонально домагання свої ставить.",
+      "reason_flagged": "Archaic grammatical construction, 'вимоги свої ставить' (expresses its demands) is more common.",
+      "visual_location_descriptor": "Left column, main article, 3rd paragraph, line 4"
+    },
+    {
+      "original_word": "виривушому",
+      "context": "країнській бюрі моГли виривушому уділити потрібні Щocь",
+      "reason_flagged": "Fragmented word and likely OCR error. Could be 'вириваючому' (emerging) or 'вирішальному' (decisive).",
+      "visual_location_descriptor": "Middle column, fragmented text, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "моГли",
+      "context": "країнській бюрі моГли виривушому уділити потрібні",
+      "reason_flagged": "Likely 'могли' (could) with a capital 'Г' due to font or damage.",
+      "visual_location_descriptor": "Middle column, fragmented text, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "Щocь",
+      "context": "уділити потрібні Щocь подібного маюті.",
+      "reason_flagged": "Likely 'Щось' (something) with a deformed 'с'.",
+      "visual_location_descriptor": "Middle column, fragmented text, 1st paragraph, line 2"
+    },
+    {
+      "original_word": "маюті",
+      "context": "подібного маюті. Можливо, що на те не",
+      "reason_flagged": "Likely 'маємо' (we have) or 'мати' (to have). Grammatically awkward.",
+      "visual_location_descriptor": "Middle column, fragmented text, 1st paragraph, line 2"
+    },
+    {
+      "original_word": "ривійною",
+      "context": "на те не ривійною релігією а шири що це",
+      "reason_flagged": "Fragmented and unclear. Could be 'сприятливою' (favorable) or related to 'рівень' (level).",
+      "visual_location_descriptor": "Middle column, fragmented text, 2nd paragraph, line 2"
+    },
+    {
+      "original_word": "шири",
+      "context": "релігією а шири що це ведеться тепер в Галіціі.",
+      "reason_flagged": "Fragmented and unclear. Could be 'ширшою' (wider).",
+      "visual_location_descriptor": "Middle column, fragmented text, 2nd paragraph, line 2"
+    },
+    {
+      "original_word": "важуну",
+      "context": "піде з важуну ціль.",
+      "reason_flagged": "Typo or archaic spelling for 'зважну' (important).",
+      "visual_location_descriptor": "Middle column, fragmented text, 3rd paragraph, line 2"
+    },
+    {
+      "original_word": "Підголився",
+      "context": "Підголився як Бог прикази зора в нас Свята Неділенька",
+      "reason_flagged": "Unusual word in context of 'Бог прикази'. More likely 'Підготувався' (prepared himself) or part of a phrase.",
+      "visual_location_descriptor": "Middle column, folk tale, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "прикази",
+      "context": "як Бог прикази зора в нас Свята Неділенька",
+      "reason_flagged": "Likely 'приказує' (commands) or 'приказав' (commanded).",
+      "visual_location_descriptor": "Middle column, folk tale, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "зоpa",
+      "context": "Бог прикази зора в нас Свята Неділенька",
+      "reason_flagged": "Likely 'вчора' (yesterday) with blurred 'вч' or 'з' mutation.",
+      "visual_location_descriptor": "Middle column, folk tale, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "побажив",
+      "context": "Спочатку кричав, а врешті побажив же бабу не перекричу",
+      "reason_flagged": "Likely 'побачив' (saw) or 'вирішив' (decided).",
+      "visual_location_descriptor": "Middle column, folk tale, 3rd paragraph, line 1"
+    },
+    {
+      "original_word": "поїхаїм",
+      "context": "По каві поїхаїм на Малє відібра гроші",
+      "reason_flagged": "Likely 'поїхали' (we went).",
+      "visual_location_descriptor": "Middle column, folk tale, 4th paragraph, line 1"
+    },
+    {
+      "original_word": "Малє",
+      "context": "поїхаїм на Малє відібра гроші за ті дні",
+      "reason_flagged": "Likely 'Маллєт' or 'Малет' (Mallet).",
+      "visual_location_descriptor": "Middle column, folk tale, 4th paragraph, line 1"
+    },
+    {
+      "original_word": "відібра",
+      "context": "на Малє відібра гроші за ті дні",
+      "reason_flagged": "Likely 'відібрати' (to collect).",
+      "visual_location_descriptor": "Middle column, folk tale, 4th paragraph, line 1"
+    },
+    {
+      "original_word": "довідавім",
+      "context": "робив як мене не і там довідавім про нові",
+      "reason_flagged": "Likely 'довідався' (I learned) or 'довідався' (learned).",
+      "visual_location_descriptor": "Middle column, folk tale, 4th paragraph, line 2"
+    },
+    {
+      "original_word": "пятницю",
+      "context": "Повідають люде, же в пятницю го два салдати забрали",
+      "reason_flagged": "Archaic spelling for 'п'ятницю' (Friday).",
+      "visual_location_descriptor": "Middle column, folk tale, 5th paragraph, line 1"
+    },
+    {
+      "original_word": "Хомової",
+      "context": "салдати забрали з Хомової яська Беднарчука і Делика з 3-ої Хоми.",
+      "reason_flagged": "Likely 'Хоми' (Khom's, genitive) or 'Хоми's', referring to a person or household. Transcribed as seen.",
+      "visual_location_descriptor": "Middle column, folk tale, 5th paragraph, line 1"
+    },
+    {
+      "original_word": "яська",
+      "context": "Хомової яська Беднарчука і Делика з 3-ої Хоми.",
+      "reason_flagged": "Likely 'Яська' (Yas'ka, diminutive of Yakiv) or similar name. Lowercase 'я' could be a mutation.",
+      "visual_location_descriptor": "Middle column, folk tale, 5th paragraph, line 1"
+    },
+    {
+      "original_word": "Делика",
+      "context": "Беднарчука і Делика з 3-ої Хоми.",
+      "reason_flagged": "Proper name 'Делик' (Delyk) or 'Делика' (Delyka). Transcribed as seen.",
+      "visual_location_descriptor": "Middle column, folk tale, 5th paragraph, line 2"
+    },
+    {
+      "original_word": "3-ої",
+      "context": "Делика з 3-ої Хоми. нії до „Іванової Хати\"",
+      "reason_flagged": "Could be 'з трьох' (from three) or 'з 3-ї' (from the 3rd).",
+      "visual_location_descriptor": "Middle column, folk tale, 5th paragraph, line 2"
+    },
+    {
+      "original_word": "памятали",
+      "context": "вечори, же будуть довго памятали.",
+      "reason_flagged": "Archaic spelling for 'пам'ятали' (remembered).",
+      "visual_location_descriptor": "Middle column, folk tale, 6th paragraph, line 2"
+    },
+    {
+      "original_word": "говорив",
+      "context": "За що їх забрали і так говорив, що не знав.",
+      "reason_flagged": "Unclear subject for 'говорив' (said). Appears to be a fragmented sentence.",
+      "visual_location_descriptor": "Middle column, folk tale, 7th paragraph, line 1"
+    },
+    {
+      "original_word": "довідавсіям",
+      "context": "не знав. не довідавсіям, але мені сі 'зляками",
+      "reason_flagged": "Likely 'довідався' (I learned) or 'довідався' (learned).",
+      "visual_location_descriptor": "Middle column, folk tale, 7th paragraph, line 2"
+    },
+    {
+      "original_word": "сі",
+      "context": "але мені сі 'зляками же за те, що дурні",
+      "reason_flagged": "Likely 'ці' (these) or 'зі' (with).",
+      "visual_location_descriptor": "Middle column, folk tale, 7th paragraph, line 2"
+    },
+    {
+      "original_word": "зляками",
+      "context": "мені сі 'зляками же за те, що дурні",
+      "reason_flagged": "Likely 'зляком' (fright/scare).",
+      "visual_location_descriptor": "Middle column, folk tale, 7th paragraph, line 2"
+    },
+    {
+      "original_word": "елементари",
+      "context": "що не є „елементари\", а що не тримаються гурту",
+      "reason_flagged": "Likely 'елементарні' (elementary/basic). Archaic or partial word.",
+      "visual_location_descriptor": "Middle column, folk tale, 7th paragraph, line 3"
+    },
+    {
+      "original_word": "поучаючі",
+      "context": "не читають поучаючі книжки і „Українського Хлібороба\"",
+      "reason_flagged": "Likely 'повчальні' (edifying). Archaic spelling.",
+      "visual_location_descriptor": "Middle column, folk tale, 7th paragraph, line 4"
+    },
+    {
+      "original_word": "спресом",
+      "context": "(бо спресом, они тобі тоді як на злість ідуть",
+      "reason_flagged": "Likely 'з пресом' (with the press).",
+      "visual_location_descriptor": "Right column, main article, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "они",
+      "context": "спресом, они тобі тоді як на злість ідуть",
+      "reason_flagged": "Archaic spelling for 'вони' (they).",
+      "visual_location_descriptor": "Right column, main article, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "вихвалиш",
+      "context": "і не вихвалиш ніколи!), а нехай, але вже зайшли!",
+      "reason_flagged": "Likely 'вихвалишся' (you will praise yourself).",
+      "visual_location_descriptor": "Right column, main article, 1st paragraph, line 2"
+    },
+    {
+      "original_word": "чехи",
+      "context": "А чехи, чи Бог їх там знає хто, як на злість",
+      "reason_flagged": "Likely 'Чехи' (Czechs), capitalized as a nationality.",
+      "visual_location_descriptor": "Right column, main article, 1st paragraph, line 3"
+    },
+    {
+      "original_word": "дзіка",
+      "context": "Або цап, або „дзіка\" коза!..",
+      "reason_flagged": "Archaic spelling or dialectal for 'дика' (wild).",
+      "visual_location_descriptor": "Right column, main article, 4th paragraph, line 2"
+    },
+    {
+      "original_word": "желізну",
+      "context": "дали велику желізну шину щоби з неї щось",
+      "reason_flagged": "Archaic spelling for 'залізну' (iron).",
+      "visual_location_descriptor": "Right column, main article, 4th paragraph, line 4"
+    },
+    {
+      "original_word": "виїшло",
+      "context": "На перший раз виїшло щось ніби так, потому щось ніби",
+      "reason_flagged": "Archaic spelling for 'вийшло' (came out, resulted).",
+      "visual_location_descriptor": "Right column, main article, 5th paragraph, line 2"
+    },
+    {
+      "original_word": "кінци",
+      "context": "голка, а в кінци, коли вже спалилось желізо",
+      "reason_flagged": "Archaic spelling for 'кінці' (end).",
+      "visual_location_descriptor": "Right column, main article, 5th paragraph, line 4"
+    },
+    {
+      "original_word": "спалилось",
+      "context": "коли вже спалилось желізо, вийшов пшик!",
+      "reason_flagged": "Typo or archaic spelling for 'схололось' (cooled down) if referring to iron, or 'спалилося' (burned out). Context implies cooling.",
+      "visual_location_descriptor": "Right column, main article, 5th paragraph, line 4"
+    },
+    {
+      "original_word": "трафиться",
+      "context": "Чи ще трафиться хтось новий, що потрафить сподобатись",
+      "reason_flagged": "Archaic spelling for 'трапиться' (will happen/appear).",
+      "visual_location_descriptor": "Right column, main article, 6th paragraph, line 2"
+    },
+    {
+      "original_word": "потрафить",
+      "context": "новий, що потрафить сподобатись своїми гарними",
+      "reason_flagged": "Archaic spelling for 'потрапить' (will manage).",
+      "visual_location_descriptor": "Right column, main article, 6th paragraph, line 2"
+    },
+    {
+      "original_word": "тили",
+      "context": "успіхів, тили далеко більше, ще й вечеру до ливалися",
+      "reason_flagged": "Fragmented and unclear. Could be 'мали' (had) or part of another word.",
+      "visual_location_descriptor": "Middle column, fragmented text, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "ливалися",
+      "context": "вечеру до ливалися, з яких кача-достали і цілий день",
+      "reason_flagged": "Fragmented and unclear. Could be 'наповнювалися' (were filled).",
+      "visual_location_descriptor": "Middle column, fragmented text, 1st paragraph, line 2"
+    },
+    {
+      "original_word": "насіння",
+      "context": "„Правди\" насіння. заварила, то бисьте лиш носом покри-",
+      "reason_flagged": "This word 'насіння' (seeds) seems misplaced in the current context, potentially a layout error or text merge.",
+      "visual_location_descriptor": "Middle column, fragmented text, 2nd paragraph, line 1"
+    },
+    {
+      "original_word": "покри-ваше",
+      "context": "носом покри-ваше добро. ли і не хвалили бисьте її",
+      "reason_flagged": "Fragmented word, likely 'покриватиме' (will cover) or 'покривати' (to cover).",
+      "visual_location_descriptor": "Middle column, fragmented text, 2nd paragraph, line 1"
+    },
+    {
+      "original_word": "ли",
+      "context": "добро. ли і не хвалили бисьте її, а дали бисте її",
+      "reason_flagged": "Fragmented and unclear. Could be part of a verb or preposition.",
+      "visual_location_descriptor": "Middle column, fragmented text, 2nd paragraph, line 2"
+    },
+    {
+      "original_word": "імухів",
+      "context": "пару імухів по мягкому місці і пригадали бисте їй",
+      "reason_flagged": "Uncommon word, possibly 'ударів' (hits) or 'стусанів' (shoves) with poor legibility.",
+      "visual_location_descriptor": "Middle column, fragmented text, 2nd paragraph, line 3"
+    },
+    {
+      "original_word": "мягкому",
+      "context": "імухів по мягкому місці і пригадали бисте їй",
+      "reason_flagged": "Archaic spelling for 'м'якому' (soft).",
+      "visual_location_descriptor": "Middle column, fragmented text, 2nd paragraph, line 3"
+    },
+    {
+      "original_word": "просітіли",
+      "context": "темниці, а не просітіли мене'.",
+      "reason_flagged": "Uncommon word, possibly 'відвідали' (visited) or 'пожаліли' (pitied).",
+      "visual_location_descriptor": "Middle column, fragmented text, 3rd paragraph, line 2"
+    },
+    {
+      "original_word": "Малєт",
+      "context": "точка М. Малєт (проти школи С.С. і близько нової",
+      "reason_flagged": "Possible spelling variation for 'Mallet' in English, 'Малет' in Ukrainian.",
+      "visual_location_descriptor": "Left column, ОКАЗІЯ, 3rd paragraph, line 1"
+    },
+    {
+      "original_word": "спеціяльна",
+      "context": "3 вікнами (спеціяльна для кравецької, шевської, або столярської",
+      "reason_flagged": "Archaic spelling for 'спеціальна' (special).",
+      "visual_location_descriptor": "Left column, ОКАЗІЯ, 5th paragraph, line 2"
+    },
+    {
+      "original_word": "льота",
+      "context": "Льота має 20 метрів фронту до одної з головних",
+      "reason_flagged": "Archaic spelling for 'лота' (plot of land).",
+      "visual_location_descriptor": "Left column, ОКАЗІЯ, 7th paragraph, line 1"
+    },
+    {
+      "original_word": "Марешал",
+      "context": "вулиць, вулиці Ма-решал Флоріяно і 50 метрів глибини.",
+      "reason_flagged": "Spelling variation for 'Маршал' (Marshal).",
+      "visual_location_descriptor": "Left column, ОКАЗІЯ, 7th paragraph, line 2"
+    },
+    {
+      "original_word": "Marechal",
+      "context": "п. Якима Шастала в Marechal Mallet.",
+      "reason_flagged": "English/Portuguese place name, but appears in Ukrainian text flow, suggesting direct transcription.",
+      "visual_location_descriptor": "Left column, ОКАЗІЯ, 10th paragraph, line 2"
+    },
+    {
+      "original_word": "метаєте",
+      "context": "Ви ще не метаєте про бразилійських українців!",
+      "reason_flagged": "Likely 'метаєтеся' (you meddle) or 'дбаєте' (you care).",
+      "visual_location_descriptor": "Middle column, До Дідуся, 3rd paragraph, line 1"
+    },
+    {
+      "original_word": "Цибухві",
+      "context": "ще накивуєте Цибухві на проф. П. Карманського",
+      "reason_flagged": "Likely a name, 'Цибуху' (Tsybukh, dative case), with 'ві' ending instead of 'у'.",
+      "visual_location_descriptor": "Middle column, До Дідуся, 4th paragraph, line 2"
+    },
+    {
+      "original_word": "Німців",
+      "context": "Так називається у Німців „нічо\", а ні — у аптиці",
+      "reason_flagged": "Likely 'німців' (Germans), not capitalized.",
+      "visual_location_descriptor": "Middle column, НІКС, 3rd paragraph, line 1"
+    },
+    {
+      "original_word": "нічо",
+      "context": "у Німців „нічо\", а ні — у аптиці така сіль",
+      "reason_flagged": "Archaic spelling or dialectal for 'нічого' (nothing).",
+      "visual_location_descriptor": "Middle column, НІКС, 3rd paragraph, line 1"
+    },
+    {
+      "original_word": "аптиці",
+      "context": "нічо\", а ні — у аптиці така сіль, що її мішають",
+      "reason_flagged": "Archaic spelling for 'аптеці' (pharmacy).",
+      "visual_location_descriptor": "Middle column, НІКС, 3rd paragraph, line 2"
+    },
+    {
+      "original_word": "мішають",
+      "context": "така сіль, що її мішають з рожевою водою",
+      "reason_flagged": "Archaic spelling for 'змішують' (mix).",
+      "visual_location_descriptor": "Middle column, НІКС, 3rd paragraph, line 2"
+    },
+    {
+      "original_word": "очи",
+      "context": "закапують очи, як кого болять.",
+      "reason_flagged": "Archaic spelling for 'очі' (eyes).",
+      "visual_location_descriptor": "Middle column, НІКС, 3rd paragraph, line 3"
+    },
+    {
+      "original_word": "Перинуху",
+      "context": "І бабу Перинуху очи боліли, отже — неї і взяла",
+      "reason_flagged": "Archaic spelling for 'Периниху' (Perynykhi, accusative).",
+      "visual_location_descriptor": "Middle column, НІКС, 4th paragraph, line 1"
+    },
+    {
+      "original_word": "она",
+      "context": "боліли, отже — неї і взяла она чотири крайцарі",
+      "reason_flagged": "Archaic spelling for 'вона' (she).",
+      "visual_location_descriptor": "Middle column, НІКС, 4th paragraph, line 2"
+    },
+    {
+      "original_word": "крайцарі",
+      "context": "взяла она чотири крайцарі, та й каже до свого",
+      "reason_flagged": "Archaic spelling for 'крейцарі' (kreutzers, an old currency).",
+      "visual_location_descriptor": "Middle column, НІКС, 4th paragraph, line 2"
+    },
+    {
+      "original_word": "сі",
+      "context": "купиш мені за сі крайцарі у аптиці „нікс\".",
+      "reason_flagged": "Archaic spelling for 'ці' (these).",
+      "visual_location_descriptor": "Middle column, НІКС, 4th paragraph, line 4"
+    },
+    {
+      "original_word": "оно",
+      "context": "забуду, як то оно зветься\", каже Андрусь крізь плач,",
+      "reason_flagged": "Archaic spelling for 'воно' (it).",
+      "visual_location_descriptor": "Middle column, НІКС, 5th paragraph, line 1"
+    },
+    {
+      "original_word": "зветься",
+      "context": "як то оно зветься\", каже Андрусь крізь плач,",
+      "reason_flagged": "Archaic spelling for 'зветься' (is called).",
+      "visual_location_descriptor": "Middle column, НІКС, 5th paragraph, line 1"
+    },
+    {
+      "original_word": "аптика",
+      "context": "як оно зветься, — 'аптика, чи як там...",
+      "reason_flagged": "Archaic spelling for 'аптека' (pharmacy).",
+      "visual_location_descriptor": "Middle column, НІКС, 6th paragraph, line 3"
+    },
+    {
+      "original_word": "пестюха",
+      "context": "погладивши свого пестюха по голові, — говоря цілою",
+      "reason_flagged": "Archaic or diminutive for 'пестунчика' (little darling) or 'пестуна' (darling).",
+      "visual_location_descriptor": "Middle column, НІКС, 7th paragraph, line 1"
+    },
+    {
+      "original_word": "говоря",
+      "context": "по голові, — говоря цілою дорогою, як меш іти,",
+      "reason_flagged": "Archaic spelling for 'говори' (say, imperative).",
+      "visual_location_descriptor": "Middle column, НІКС, 7th paragraph, line 2"
+    },
+    {
+      "original_word": "меш",
+      "context": "цілою дорогою, як меш іти, голосно собі:",
+      "reason_flagged": "Archaic or dialectal for 'будеш' (you will).",
+      "visual_location_descriptor": "Middle column, НІКС, 7th paragraph, line 2"
+    },
+    {
+      "original_word": "Іди-ж",
+      "context": "не забудеш. Іди-ж тепер, Андрусь, у добрий час,",
+      "reason_flagged": "Archaic spelling for 'Іди ж' (Go then).",
+      "visual_location_descriptor": "Middle column, НІКС, 7th paragraph, line 4"
+    },
+    {
+      "original_word": "ко",
+      "context": "Андрусь і ко і собі на ввесь рот репетувати",
+      "reason_flagged": "Fragmented word, possibly 'все' (all) or 'що' (that). Seems like an error.",
+      "visual_location_descriptor": "Middle column, НІКС, 8th paragraph, line 2"
+    },
+    {
+      "original_word": "репетувати",
+      "context": "на ввесь рот репетувати, та й помчав у місто",
+      "reason_flagged": "Archaic/dialectal for 'викрикувати' (shout out loud).",
+      "visual_location_descriptor": "Middle column, НІКС, 8th paragraph, line 2"
+    },
+    {
+      "original_word": "Андрусько",
+      "context": "Іде Андрусько гостинцем — аж тут ріжуть",
+      "reason_flagged": "Diminutive or archaic form of 'Андрус'.",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 1"
+    },
+    {
+      "original_word": "шваба",
+      "context": "ріжуть у одного богатого шваба на подвірю пацюка",
+      "reason_flagged": "Archaic/dialectal for 'німця' (German).",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 2"
+    },
+    {
+      "original_word": "подвірю",
+      "context": "богатого шваба на подвірю пацюка, а Андруська закортіло",
+      "reason_flagged": "Archaic spelling for 'подвір'ї' (in the yard).",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 2"
+    },
+    {
+      "original_word": "пацюка",
+      "context": "на подвірю пацюка, а Андруська закортіло подивитись.",
+      "reason_flagged": "Usually means 'rat'. In context of 'slaughtering', might be 'piglet' or some other animal, but 'пацюк' is typically 'rat'.",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 2"
+    },
+    {
+      "original_word": "закортіло",
+      "context": "Андруська закортіло подивитись. Отже-ж і сперся він на",
+      "reason_flagged": "Archaic or dialectal for 'захотілося' (wanted to).",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 3"
+    },
+    {
+      "original_word": "Отже-ж",
+      "context": "закортіло подивитись. Отже-ж і сперся він на пліт",
+      "reason_flagged": "Archaic spelling for 'Отже ж' (So then).",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 3"
+    },
+    {
+      "original_word": "пліт",
+      "context": "сперся він на пліт, але своє усе не забуває",
+      "reason_flagged": "Archaic spelling for 'паркан' (fence).",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 4"
+    },
+    {
+      "original_word": "що'го",
+      "context": "Нікс! Нікс! Нікс! Нікс! що'го ціле село чути. Шваб",
+      "reason_flagged": "Likely 'що його' (that his).",
+      "visual_location_descriptor": "Middle column, НІКС, 9th paragraph, line 5"
+    },
+    {
+      "original_word": "нз",
+      "context": "Шваб слухав — слухав Андруськового „Нікс\", а далі як крикне нз парубків:",
+      "reason_flagged": "Likely 'на' (on/at) with blurred character.",
+      "visual_location_descriptor": "Middle column, НІКС, 10th paragraph, line 2"
+    },
+    {
+      "original_word": "дурневи",
+      "context": "та дайте оттому зле там дурневи такого прочухана",
+      "reason_flagged": "Likely 'дурневі' (to the fool).",
+      "visual_location_descriptor": "Middle column, НІКС, 11th paragraph, line 2"
+    },
+    {
+      "original_word": "тя-мив",
+      "context": "прочухана, аби тя-мив аж до нових вінків!",
+      "reason_flagged": "Fragmented word, likely 'тямив' (remembered).",
+      "visual_location_descriptor": "Middle column, НІКС, 11th paragraph, line 2"
+    },
+    {
+      "original_word": "одно",
+      "context": "він має гріх мені в одно своє Нікс репетувати",
+      "reason_flagged": "Likely 'одне' (one).",
+      "visual_location_descriptor": "Middle column, НІКС, 11th paragraph, line 3"
+    },
+    {
+      "original_word": "корої",
+      "context": "Божа, якої дай Господи кождому доброї дошки в му господареви",
+      "reason_flagged": "Likely a typo or mutation for 'кожної' (every).",
+      "visual_location_descriptor": "Middle column, НІКС, 12th paragraph, line 2"
+    },
+    {
+      "original_word": "парити",
+      "context": "не нашого Андруся, та як стануть парити!",
+      "reason_flagged": "Uncommon use. Could mean 'steam/punish' or 'bother'.",
+      "visual_location_descriptor": "Middle column, НІКС, 12th paragraph, line 4"
+    },
+    {
+      "original_word": "доброту",
+      "context": "старого шваба. Помилуйте доброту, та не вигонить душу бо",
+      "reason_flagged": "Grammatically awkward. Likely 'Помилуйте' (Have mercy) as an interjection.",
+      "visual_location_descriptor": "Middle column, НІКС, 13th paragraph, line 2"
+    },
+    {
+      "original_word": "сикий",
+      "context": "„А ти, сикий такий сину, ти як смі-",
+      "reason_flagged": "Likely a typo or dialectal for 'який' (what kind of).",
+      "visual_location_descriptor": "Middle column, НІКС, 14th paragraph, line 1"
+    },
+    {
+      "original_word": "бібір",
+      "context": "ПРО БІБІР КУКУРУЗИ НА НАСІННЯ.",
+      "reason_flagged": "Likely 'вибір' (selection). Common OCR error for 'б' and 'в'.",
+      "visual_location_descriptor": "Left column, article title, line 1"
+    },
+    {
+      "original_word": "плеканні",
+      "context": "хлібороба при плеканні кукурузи — підбір відповідних",
+      "reason_flagged": "Archaic spelling for 'плеканні' (cultivation, caring).",
+      "visual_location_descriptor": "Left column, article, 2nd paragraph, line 1"
+    },
+    {
+      "original_word": "кукурузи",
+      "context": "при плеканні кукурузи — підбір відповідних качанів",
+      "reason_flagged": "Archaic spelling for 'кукурудзи' (corn).",
+      "visual_location_descriptor": "Left column, article, 2nd paragraph, line 1"
+    },
+    {
+      "original_word": "справово",
+      "context": "насіння є справово дуже важливиою і про це ми",
+      "reason_flagged": "Archaic spelling for 'справді' (in fact) or 'справедливо' (justly).",
+      "visual_location_descriptor": "Left column, article, 2nd paragraph, line 3"
+    },
+    {
+      "original_word": "важливиою",
+      "context": "справово дуже важливиою і про це ми в цій статті",
+      "reason_flagged": "Typo or archaic spelling for 'важливою' (important).",
+      "visual_location_descriptor": "Left column, article, 2nd paragraph, line 3"
+    },
+    {
+      "original_word": "непокривлені",
+      "context": "що одні з них рівні, непокривлені. Ось такі рівні треба",
+      "reason_flagged": "Archaic spelling for 'непокривлені' (not covered/twisted).",
+      "visual_location_descriptor": "Left column, article, 4th paragraph, line 1"
+    },
+    {
+      "original_word": "грубости",
+      "context": "однакової грубости і від одного до другого краю",
+      "reason_flagged": "Archaic spelling for 'грубості' (thickness).",
+      "visual_location_descriptor": "Left column, article, 5th paragraph, line 3"
+    },
+    {
+      "original_word": "иншими",
+      "context": "чи, иншими словами, більше вродить кукурузяного зерна",
+      "reason_flagged": "Archaic spelling for 'іншими' (other).",
+      "visual_location_descriptor": "Left column, article, 6th paragraph, line 4"
+    },
+    {
+      "original_word": "кукурузяного",
+      "context": "більше вродить кукурузяного зерна з кожного морга.",
+      "reason_flagged": "Archaic spelling for 'кукурудзяного' (corn-).",
+      "visual_location_descriptor": "Left column, article, 6th paragraph, line 4"
+    },
+    {
+      "original_word": "хвороїє",
+      "context": "зерно яких росте жваво, не хвороїє, а значить",
+      "reason_flagged": "Archaic spelling for 'хворіє' (gets sick).",
+      "visual_location_descriptor": "Left column, article, 8th paragraph, line 3"
+    },
+    {
+      "original_word": "цілій",
+      "context": "цю жвавість і цілій стеблині в потомство.",
+      "reason_flagged": "Archaic spelling for 'цілій' (entire).",
+      "visual_location_descriptor": "Left column, article, 8th paragraph, line 4"
+    },
+    {
+      "original_word": "Виимають",
+      "context": "по 6 зерен. Виимають так: кінцем маленького ножи-ка",
+      "reason_flagged": "Typo for 'Виймають' (remove).",
+      "visual_location_descriptor": "Left column, article, 9th paragraph, line 2"
+    },
+    {
+      "original_word": "горішньої",
+      "context": "одно зерно з горішньої частини качана, потім повертають",
+      "reason_flagged": "Archaic spelling for 'горішньої' (upper).",
+      "visual_location_descriptor": "Left column, article, 9th paragraph, line 4"
+    },
+    {
+      "original_word": "частини літ",
+      "context": "на половину його і з середньої частини літ виймають одно зерно",
+      "reason_flagged": "Likely an OCR error, 'лі' might be part of 'потім' (then) or 'і' (and). The phrase 'з середньої частини літ' is ungrammatical. Should be 'із середньої частини' (from the middle part).",
+      "visual_location_descriptor": "Left column, article, 9th paragraph, line 5"
+    },
+    {
+      "original_word": "уложені",
+      "context": "Зерна вилущені і уложені на клітинку під ч. 1, на полотні.",
+      "reason_flagged": "Archaic spelling for 'укладені' (placed).",
+      "visual_location_descriptor": "Middle column, article, 2nd paragraph, line 1"
+    },
+    {
+      "original_word": "сплутатися",
+      "context": "і т. д. і пізніше не сплутатися качани.",
+      "reason_flagged": "Likely 'сплутались' (got mixed up) or 'сплутувати' (to mix up).",
+      "visual_location_descriptor": "Middle column, article, 3rd paragraph, line 2"
+    },
+    {
+      "original_word": "з 3 бляшанку",
+      "context": "в бляшанку з 3 бляшанку води з цілою, доки дійшла",
+      "reason_flagged": "Likely a repetition or error: 'в бляшанку з водою' (into a jar with water). '3 бляшанку' seems like a typo.",
+      "visual_location_descriptor": "Middle column, article, 5th paragraph, line 1"
+    },
+    {
+      "original_word": "дощиною",
+      "context": "Також зливають і став-дощиною та став-де підтримується рівнею.",
+      "reason_flagged": "Fragmented and unclear. 'дощиною' means 'with a board'. The sentence structure is garbled.",
+      "visual_location_descriptor": "Middle column, article, 6th paragraph, line 2"
+    },
+    {
+      "original_word": "став-де",
+      "context": "та став-де підтримується рівнею.",
+      "reason_flagged": "Fragmented. Likely 'ставлять, де' (they place, where).",
+      "visual_location_descriptor": "Middle column, article, 6th paragraph, line 2"
+    },
+    {
+      "original_word": "рівнею",
+      "context": "підтримується рівнею.",
+      "reason_flagged": "Archaic spelling for 'рівно' (evenly) or 'рівня' (level).",
+      "visual_location_descriptor": "Middle column, article, 6th paragraph, line 3"
+    },
+    {
+      "original_word": "покіль-довгий",
+      "context": "зерно кукурудзи покіль-довгий корінець.",
+      "reason_flagged": "Fragmented word. Likely 'покіль-довгий' (as long as). Or 'покірний, довгий'. Seems like 'поки довгий корінець'.",
+      "visual_location_descriptor": "Middle column, article, 7th paragraph, line 1"
+    },
+    {
+      "original_word": "налущать",
+      "context": "Коли так налущать зерно тілько потрібне, а долішнє,",
+      "reason_flagged": "Archaic/dialectal for 'налущать' (shell/thresh).",
+      "visual_location_descriptor": "Right column, article, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "тілько",
+      "context": "налущать зерно тілько потрібне, а долішнє, вивідкидаючого",
+      "reason_flagged": "Archaic spelling for 'тільки' (only).",
+      "visual_location_descriptor": "Right column, article, 1st paragraph, line 1"
+    },
+    {
+      "original_word": "вивідкидаючого",
+      "context": "потрібне, а долішнє, вивідкидаючого зерна з першого і другого",
+      "reason_flagged": "Likely 'відкидаючого' (discarded/thrown away).",
+      "visual_location_descriptor": "Right column, article, 1st paragraph, line 2"
+    },
+    {
+      "original_word": "Сюди",
+      "context": "Сюди таким чином виходить, що зерно мати певний",
+      "reason_flagged": "Archaic spelling for 'Сюди' (Here).",
+      "visual_location_descriptor": "Right column, article, 2nd paragraph, line 1"
+    },
+    {
+      "original_word": "Хліборобови",
+      "context": "шановному „Хліборобови!\" Трудно, щоби витримати з бабою!",
+      "reason_flagged": "Archaic spelling for 'Хліборобові' (to Khliborob, dative).",
+      "visual_location_descriptor": "Right column, Readers' Corner, 3rd paragraph, line 1"
+    },
+    {
+      "original_word": "лижево",
+      "context": "золоті гори, а відтак зробили з нас лижево?!",
+      "reason_flagged": "Uncommon word, possibly 'лицемірство' (hypocrisy) or 'глузування' (mockery).",
+      "visual_location_descriptor": "Right column, Readers' Corner, 5th paragraph, line 2"
+    },
+    {
+      "original_word": "Кобилянському",
+      "context": "не має статися ще і цей Кобилянському?",
+      "reason_flagged": "Grammatically refers to a person (dative case of 'Кобилянський'), not a place, despite location context elsewhere.",
+      "visual_location_descriptor": "Right column, Readers' Corner, 5th paragraph, line 4"
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+    "edges": [
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Базиліо Мухар",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Педро Мазуречен",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Стердо Ґофорт",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Давид Ворд",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Ілько Борщак",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Мазепа",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Войнаровський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Орлик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Пільсудський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Мурав'єва-Вішателя",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Бачинський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Бартля",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Чемберлейн",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Муссоліні",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Римський Папа Пій ХІ",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Войцеховський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Ґрабський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Ратай",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Скринський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "І. Мороз",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "В. Мороз",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "З. Дорожний",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "В. Гнатюк",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Я. Р. Т. Мороз",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Гнат Волович",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "С. Шаврин",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "І. Лукашенко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "В. Кухар",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "А. Буряк",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "П. Алєгрє",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Карла",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Porto União",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "União da Vitória",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Paraná",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Brazil",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Argentina",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "São Paulo",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Poland",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Curitiba",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Rio de Janeiro",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Paris",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Ukraine",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Russia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Warsaw",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "England",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Italy",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "France",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Germany",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Spain",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Yugoslavia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Vienna",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Albania",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Belgrade",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Livorno",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Balkans",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "USSR",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Rome",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Galicia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Upper Silesia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Lukiškės Prison (Vilnius)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19270316_no11_page01",
+            "target": "Polissia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        }
+    ]
+}

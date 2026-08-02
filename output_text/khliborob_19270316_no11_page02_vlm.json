@@ -1,0 +1,195 @@
+{
+  "page_metadata": {
+    "newspaper_name_uk": "УКРАЇНСЬКИЙ ХЛІБОРОБ",
+    "newspaper_name_en": "Ukrainian Farmer",
+    "publication_date": "1927-03-16",
+    "issue_number": "№ 11 (139)",
+    "width_pixels": 2400,
+    "height_pixels": 3600,
+    "page_id": "khliborob_19270316_no11_page02"
+  },
+  "entities": {
+    "persons": [
+      {
+        "name_uk": "Федя Русина",
+        "name_en": "Fedya Rusyna"
+      },
+      {
+        "name_uk": "Пр. Склад.",
+        "name_en": "Pr. Sklad."
+      },
+      {
+        "name_uk": "Ганна",
+        "name_en": "Hanna",
+        "wikidata_id": "Q15729076",
+        "wikidata_url": "https://www.wikidata.org/entity/Q15729076"
+      },
+      {
+        "name_uk": "В. Кухар",
+        "name_en": "V. Kukhar"
+      }
+    ],
+    "locations": [
+      {
+        "name_uk": "Америка",
+        "name_en": "America",
+        "lat": 39.82,
+        "lon": -98.58,
+        "is_region": true,
+        "wikidata_id": "Q30",
+        "wikidata_url": "https://www.wikidata.org/entity/Q30"
+      },
+      {
+        "name_uk": "Европа",
+        "name_en": "Europe",
+        "lat": 48.69,
+        "lon": 9.14,
+        "is_region": true,
+        "wikidata_id": "Q5412157",
+        "wikidata_url": "https://www.wikidata.org/entity/Q5412157"
+      },
+      {
+        "name_uk": "Україна",
+        "name_en": "Ukraine",
+        "lat": 49.0,
+        "lon": 32.0,
+        "is_region": true,
+        "wikidata_id": "Q212",
+        "wikidata_url": "https://www.wikidata.org/entity/Q212"
+      },
+      {
+        "name_uk": "Польща",
+        "name_en": "Poland",
+        "lat": 51.92,
+        "lon": 19.15,
+        "is_region": true,
+        "wikidata_id": "Q36",
+        "wikidata_url": "https://www.wikidata.org/entity/Q36"
+      },
+      {
+        "name_uk": "Галичина",
+        "name_en": "Galicia",
+        "lat": 49.5,
+        "lon": 24.5,
+        "is_region": true,
+        "wikidata_id": "Q3908",
+        "wikidata_url": "https://www.wikidata.org/entity/Q3908"
+      },
+      {
+        "name_uk": "Наддніпрянщина",
+        "name_en": "Dnieper Ukraine",
+        "lat": 49.0,
+        "lon": 33.0,
+        "is_region": true,
+        "wikidata_id": "Q1322328",
+        "wikidata_url": "https://www.wikidata.org/entity/Q1322328"
+      },
+      {
+        "name_uk": "Прудентополіс",
+        "name_en": "Prudentópolis",
+        "lat": -25.21,
+        "lon": -50.96,
+        "is_region": false,
+        "wikidata_id": "Q751491",
+        "wikidata_url": "https://www.wikidata.org/entity/Q751491"
+      },
+      {
+        "name_uk": "Парагвай",
+        "name_en": "Paraguay",
+        "lat": -23.44,
+        "lon": -58.44,
+        "is_region": true,
+        "wikidata_id": "Q733",
+        "wikidata_url": "https://www.wikidata.org/entity/Q733"
+      },
+      {
+        "name_uk": "Бразилія",
+        "name_en": "Brazil",
+        "lat": -14.24,
+        "lon": -53.18,
+        "is_region": true,
+        "wikidata_id": "Q155",
+        "wikidata_url": "https://www.wikidata.org/entity/Q155"
+      },
+      {
+        "name_uk": "Японія",
+        "name_en": "Japan",
+        "lat": 36.2,
+        "lon": 138.25,
+        "is_region": true,
+        "wikidata_id": "Q17",
+        "wikidata_url": "https://www.wikidata.org/entity/Q17"
+      },
+      {
+        "name_uk": "Північна Америка",
+        "name_en": "North America",
+        "lat": 51.25,
+        "lon": -100.0,
+        "is_region": true,
+        "wikidata_id": "Q49",
+        "wikidata_url": "https://www.wikidata.org/entity/Q49"
+      },
+      {
+        "name_uk": "Русь",
+        "name_en": "Rus'",
+        "lat": 50.0,
+        "lon": 40.0,
+        "is_region": true,
+        "wikidata_id": "Q609850",
+        "wikidata_url": "https://www.wikidata.org/entity/Q609850"
+      }
+    ]
+  },
+  "illustrations": [],
+  "translations": {
+    "abstract_uk": "Ця сторінка газети «Український Хлібороб» містить кілька статей. Головна стаття «Шляхом Праці» обговорює внутрішній стан Українського Союзу, його виклики та підтримку серед колоній, відзначаючи психологічний перелом у ставленні до роботи та збільшення передплатників газети. Також є статті про історію картоплі («Ювілей Бараболі»), сатиричний огляд інших публікацій («Мимоходом»), який критикує газету «Праця» за її позицію щодо українсько-польських відносин та подій у Прудентополісі (Бразилія), пов’язаних з «католицьким вихованням» та насильством. У нижній частині сторінки розглядається питання ведення господарських записів хліборобами та даються поради щодо майбутнього вигляду газети «Український Хлібороб» та її тематики, зокрема згадуючи «Історію України» Федя Русина та заклики до більшої кількості дописів з українських колоній.",
+    "abstract_en": "This newspaper page from 'Ukrainian Farmer' contains several articles. The main article, 'Path of Labor,' discusses the internal state of the Ukrainian Union, its challenges, and support among colonies, noting a psychological shift in attitude towards work and an increase in newspaper subscribers. There are also articles on the history of the potato ('Potato Jubilee'), a satirical review of other publications ('By the Way') that criticizes the newspaper 'Pratsia' (Labor) for its stance on Ukrainian-Polish relations and events in Prudentópolis, Brazil, linked to 'Catholic upbringing' and violence. The bottom section of the page addresses the issue of farmers keeping farm records and offers advice on the future appearance and themes of 'Ukrainian Farmer,' including mentions of 'History of Ukraine' by Fedya Rusyna and calls for more contributions from Ukrainian colonies.",
+    "keywords_uk": [
+      "Український Союз",
+      "Український Хлібороб",
+      "преса",
+      "колонії",
+      "Прудентополіс",
+      "Бараболя",
+      "Федя Русина",
+      "історія",
+      "анекдоти",
+      "господарювання"
+    ],
+    "keywords_en": [
+      "Ukrainian Union",
+      "Ukrainian Farmer",
+      "press",
+      "colonies",
+      "Prudentópolis",
+      "Potato",
+      "Fedya Rusyna",
+      "history",
+      "anecdotes",
+      "farming",
+      "agriculture"
+    ]
+  },
+  "text_flow": "21 БЕРЕЗНЯ\nЧ. 11 (139)\nШЛЯХОМ ПРАЦІ.\n(Психічний перелом).\nВислід грудневих Заг. Зб. У. С. зробив на де-які наші колонії гнітуще вражіння.\nВсім є в памяти організація „Зорі“, організація „Народної Ради“ з „Україною“, всім є в памяти не лише розцвіт, а й їхній кінець, і тому багато людей думало, що з Українським Союзом починається стара історія, що він починає клонитися до упадку.\nЦе вражіння використала, як і треба було ждати, „Праця“ з її співробітниками сипнувши повною пригоршною найрізнородніші слухи, надіючись, що їм удасться розвалити так ненависний Адміністративний Орган У. С., бо як вони думали, прийшов силу часу, що треба було розбити „націоналістичні вигадки“ і очистити Український Союз, як вони висловлювались, „з барикад“ і всіх прихильників ідей „націоналістичного руху“.\nЗ другого боку вони сподівались, що їм легко вдасться змінити напрямок Українського Союзу на комуністичний.\nЧерез своїх активних одиниць на колоніях, насамперед через своїх читачів і поширювачів „Праці“, що на нарадах, при зустрічах з людьми і в різних дописках до газет, а головно в письмах, з розрахунком на те, що редакція „У. Х.“ не відповідає на таку літературу, а отже мовчанка зі сторони „У. Х.“ є ознакою згоди на їхні гадки, що вони розсівали між своїми читачами і поширювачами, а потім між широкими масами українського населення.\nНавіть у близьких кругах союзу з цих читачів найшлися одиниці, які помагали розсівати ти такі слухи і підсилювали вражіння, що все валилось, все йде до нічого, що жаден чесний чоловік не може ангажуватися з У. С., ані помагати йому, бо і мусить наступити крах всім нашим надбанням і т. д. і т. д.\nНа якийсь час де-які колонії завмерли: сподівалися чогось надзвичайного, а тому вичікували який оборот прийме ціла справа.\nТак минув Січень і початки Лютого. За цей час нічого надзвичайного не сталося, бо й не могло статися: „У.Х.“ нарікати виходив як і попереднє не зважаючи на ніякі цькування „Праці“ і инших його „приятелів“ і хоч в ньому находилися деякі вади, загад наш є вже настільки вирозумілий, що-би їх пробачити, бо ж вони обясняються непрактичністю нового редактора, який ніколи не мав з цим до діла, який став на це місце лише виповнивши свій громадський обовязок.\nНа місце одних знеохочених кольоній прийшли другі повні активности і цією активністю не лише прикрили знеохочених, але дали й надвишку сил. Тоді як намносився рахувати нові передплатники.\nТа як скрізь ведеться і у нас так є і може бути. Це так званий психічний перелом у признанні до праці, що від більшости відбувся у нас в проміжку між Січнем і Лютого, бо меншість за цей час, нарешті, переконалася, що праця йде, що вона (меншість) виносить те, чи инче рішення, буде діяти на добро Українського Союзу. Подібного зламу і з половини Лютого почалося оживлення і рух по всіх колоніях. Що оживилося життя видно з того, що „Український Хлібороб“ має певних 712 передплатників і 140 читачам з 10 числом його часопис „Укр. Хл.“ стримала випередплатників.\nТа як було згадано, тих 712 передплатників та 140 читачів – це не всі. До них треба додати тих, що вже давно переплатили на 1927 рік, а число їх не є менше, як 500, так що „Укр. Хл.“ має більше 1300 передплатників та 200 читачів. І це за короткий час (за 2 ½ місяця).\nАле це не тільки що ні, а й бувають такі непевні. За останній рік, в якому Український Союз діяв так, як йому хотілося, без провини він зробив дуже багато шкоди, бо не провів тої активної роботи, що мала б дати йому більше, як 1000 передплатників і 200 читачів, що дало би йому змогу видавати часопис „Укр. Хл.“ тричі на місяць. І тоді б ніхто не міг говорити, що ні, буваючи з насінням.\nНа що й були нарікання, що від Адміністрації „У. Хл.“ за стримання їм „У. Хл.“ бо він так звик до нього, що він їм є той дорогий гість-порадник і розскаже як живуть люди в світі, і поучить як треба жити і яким шляхом треба йти, плило весело, радісно і гарно разом з читачами і по сумі перемодолею і разом з ними по нашими здобутками. Річ у тім, що вони будуть нарікати і втрати, але нехай спочатку чи над тим на кого треба чи чи не на себе самих? Ведеться шляхом тихої, негаласливої автономної праці, бо знаємо, що лише єдина з недолі вирве, що праця коштує і напій сил і... грошей. „Укр. Хлібороб“ також їх потрібує і себе не може роздавати. Хто з передплат лишиться якась то вона буде для нас всіх і буде роздати, або дешево своїм читачам а як забракне, справа гірша: ніхто не хоче.\nЮБИЛЕЙ БАРАБОЛІ.\nВ цьому році припадає 360 років від часу, коли з Америки привезено до Европи, де вона цілком прийшла в вжиток і поширилася. До того часу, хоч як вона була заведена і в інші країни, але вживали її дуже мало. Через 250 років, тобто до другої половини XVIII ст. бараболя була тільки на стільниці монархів і для їхньої потіхи, і її вважали за рослину здатну для вживання тільки в час голоду.\nАле після того часу бараболя швидко стала поширюватися, а в XVIII столітті дійсно шла вже й на Україну.\nТепер управа бараболі має в господарстві величезне значіння, що розуміє кожний з нас. Бараболя — це важний продукт поживи для людини й для господарських тварин.\n(За „Сільським Світом“).\nМІМОХОДОМ.\n„Праця“ в своїм 10 ч. розкукуд-калася на редактора „Укр. Хл.“ за те, що осмілився написати „Українці і Польща.“ Де ж пак, ображення гідности!\nЩоби не лишитися в довгу пусти-ню на його адресу де-кілька стрілів, називаючи одним із тих „Наддніпрянців“ запродали Галичину Польщі (попапів в небо пальцем, ковиряйте дальше!) і який, будучи вихований „на азійській культурі“, не може зрозуміти „такі примітивні річи“, як „уміти по культурному знайти???“ Пр. Склад. (заховатись, може? Пр. Склад.) про посвяченнях і подібних парадах“. (Культури „Польща“ де кум, де коровай! буде вести Пр. Склад.).\nДорогі колеги по перу! Азійська культура є низька, то правда, але тисячу разів є вища від плазунської, якою ви хочете прикритися, це одно, а друге (що-до вашої оборони): „ми добре знаємо, що є Польща“? Чи не нагадує вам анекдот про того піяка, який, лежачи під плотом, муркав собі під носом: — „Я добре знаю ту горілку, шкодить проклятуща!“ — а на другий день знову йшов до шинку.\nЧи нема між вами й ним сходства?\nКриваві вибори в Прудентополіс і „католицьке“ виховання.\nВ тім же числі „Праця“ пишучи про „Криваві вибори в Прудентополіс“ скає всю вину на „карманчиків“. (Ще лад не так давно, (в 3-4), вона писала, що „карманчиків“ в Прудентополіс цілком нема, а тепер, як сталася там кривава подія, вони зразу ж найшлися, і то, ніби, бо вони причинилися до неї.\nДивна є та „католицька“ (в лапках) совість: вигинається на всі боки, аби лиш було вигідно.\nВиною не лише цієї крівавої події, в Америці і инчих в Прудентополіс (де є найбільш ший %. убийств всіх муніціпів Парагвай Звари-ни) є не „карманчиків“, які, ми знаємо, є там є і то всі найповажніші і найсвідоміші викнути міці українці, а „католицьке“ (католицьке висмикував ке в лапках) виховання, яке від довших літ плекають там О.О. Василіяни.\nЧому на инчих кольоніях, де О.О. Василіяни не доїжають, нема стільки розумів, що убийств? Чи остановилася „Праця“ над цим фактом?\nВарта застановитися!\nЧИ ХЛІБОРОБОВІ ТРЕБА ВЕСТИ РАХУНКИ ТА ГОСПОДАРСЬКІ ЗАПИСИ.\nГромадянство, що хоче мати підставу для свого економічного існування мусить мати ясно означену мету, до якої стремить; мусить мати вироблений план, нен би воно згине в боротьбі за існування. Здорове громадянство мусить складатися з таких у сильних одиниць, до яких зачисляється так поодиноких горожан, як і ріжні стани та верстви, між ними й хліборобів, на яких операються у нас усі інші верстви.\nКожний робітник, здібний і нелінивий, нелегкодушний, зможе все тільки заробити, що виживить себе й родину, виховає і виведе в люде своїх дітей. Хтось може зауважити, що нині для робітника і його праці, а вимоги його зросли незмірно високо.\nКожний робітник, що має лише свою працю зможе якось прожити, то це легше проживе той, що має ще кусник поля і інший маєток. Чим більше чи майна, тим ліпше повинен жити. Коли, наприклад, хлібороб менший, чи більший, а нас 97% всього населення зі своїм завданням, це значить господарює, то його основний принесе йому напевно 10-15%. Але він не хоче навчитися, то не має ні риску, а в кінці з’їдає капітал і.\nЯК МАЄ ВИГЛЯДАТИ „УКРАЇНСЬКИЙ ХЛІБОРОБ“?\nПеречитавши повищий заголовок в 8-м числі „У. Хлібороба“, хочу поділитися з моїми гадками що до змісту нашого часопису. Виходить, що часопис „У. Х.“ кожному до смаку, єсли редакція розмаїтої протести що до змісту дописів і статей.\nА особливо когось дуже боліло – „Історія України“ Федя Русина.\nДумаю, що українця це не може боліти, а русином що нас можуть обозвати, а вже хто має страх як Ганна (чи то, що звикли нарікати на Адміністрацію „У. Хл.“ за стримання їм „У. Хл.“ бо він так звик до нього, що він їм є той дорогий гість-порадник і розскаже як живуть люди в світі, і поучить як треба жити і яким шляхом треба йти, плило весело, радісно і гарно разом з читачами і по сумі перемодолею і разом з ними по нашими здобутками. Річ у тім, що вони будуть нарікати і втрати, але нехай спочатку чи над тим на кого треба чи чи не на себе самих? Ведеться шляхом тихої, негаласливої автономної праці, бо знаємо, що лише єдина з недолі вирве, що праця коштує і напій сил і... грошей. „Укр. Хлібороб“ також їх потрібує і себе не може роздавати. Хто з передплат лишиться якась то вона буде для нас всіх і буде роздати, або дешево своїм читачам а як забракне, справа гірша: ніхто не хоче бути українцями.\nІсторія Федя Русина (мається на увазі як подія).\nОповідають, як анекдот, що вперше посадили привезену до нас бараболю – то не могли зрозуміти, чому так вихваляють цю рослину. Що посадив бараболю, спробувати та їсти бараболяне насіння. Було несмачне й він наказав геть кущі бараболі. Слуга поніс кущі та кинув їх у рородиць час. Господар побачив, що ці бульби, від яких йшов розсадив їх, скоштував і прийшов до того, що їсти треба бульби, що в землі.\n1. Історія Федя Русина. мається на увазі як подія.\n2. Пятнувати безусловно всяких хрущих зрадників Українського Народа, чи він крикнув буде в „реверенди“ чи ні. А особливо наших проводників духовних, котрі живуть кервавицею над самого нашого народа, а цофають цей нарід в середновіче. Чортисько.\n3. Поміщувати більше вістей з Бразилії під себе. Ми живем і будем надальше в нашій прибраній жінці Бразилії, отже для кожного неправда. кольоніста цікавіше знати, що діється кругом де сідати нього, ніж там якісь неспокої революції, що було на русинах, чи Японії, і інших краях, котрі зовсім вига- не цікавлять наших людей. Хто хоче більше знати, нехай собі спровадить „Народне Слово“ з Північної Америки, або инші заграничні що кождий ні час.\n4. Давати як найбільше дописів з котрі за ніяку льоні – розуміємо, що особисті справи, редакція не може поміщувати, а лише справи то не загальні. Таким чином ми найскорше пізнаємо, десь котра оселя поступає вперед, а котра тягне до середньовічча.\nОтце моя ідея. Чи оно добре – не знаю. Я не кажу що так мусить бути, як тут пишу; Більше на цю тему сподіюся що зго.",
+  "text_flow_en": "March 21\nNo. 11 (139)\nTHE PATH OF LABOR.\n(A psychological turning point).\nThe outcome of the December General Meeting of the Ukrainian Union had a depressing effect on some of our colonies.\nEveryone remembers the organization 'Zori' (Stars), the organization 'Narodna Rada' (People's Council) with 'Ukraina' (Ukraine), everyone remembers not only the flourishing, but also their end, and therefore many people thought that with the Ukrainian Union, the old story begins, that it is starting to decline.\nThis impression was exploited, as was to be expected, by 'Pratsia' (Labor) and its collaborators, who spread a handful of the most diverse rumors, hoping to overthrow the hated Administrative Body of the Ukrainian Union, because, as they thought, the time had come to break the 'nationalist fictions' and cleanse the Ukrainian Union, as they put it, 'of barricades' and all adherents of 'nationalist movement' ideas.\nOn the other hand, they hoped that it would be easy for them to change the direction of the Ukrainian Union towards communism.\nThrough its active units in the colonies, primarily through its readers and distributors of 'Pratsia', who at meetings, during encounters with people, and in various newspaper articles, and especially in letters, calculating that the editorial board of 'U. Kh.' (Ukrainian Farmer) does not respond to such literature, and therefore the silence from 'U. Kh.' is a sign of agreement with their ideas, which they disseminated among their readers and distributors, and then among the broad masses of the Ukrainian population.\nEven in close circles of the union, among these readers, units were found who helped to spread such rumors and reinforced the impression that everything was falling apart, everything was going nowhere, that no honest person could engage with the Ukrainian Union, nor help it, because a collapse of all our achievements, etc., etc., must happen.\nFor some time, some colonies froze: they expected something extraordinary, and therefore waited to see what turn the whole matter would take.\nSo January passed, and the beginning of February. During this time, nothing extraordinary happened, nor could it have happened: 'U. Kh.' continued to be published as before, regardless of any harassment from 'Pratsia' and its other 'friends,' and although there were some flaws in it, our secret is already so understandable that they can be forgiven, because they are explained by the inexperience of the new editor, who never had anything to do with this before, who took this position only by fulfilling his civic duty.\nIn place of some discouraged colonies, others full of activity came, and this activity not only covered the discouraged, but also provided an excess of strength. While we had to count new subscribers.\nAnd as is happening everywhere, so it is with us and can be. This is the so-called psychological turning point in the recognition of work, which occurred among the majority in the period between January and February, because the minority, during this time, finally became convinced that work is progressing, that it (the minority) will support whatever decision is made, and will act for the good of the Ukrainian Union. A similar break and from the second half of February, revival and movement began in all colonies. The revival of life is evident from the fact that 'Ukrainian Farmer' has 712 certain subscribers and 140 readers, with issue No. 10 of its periodical 'Ukr. Kh.' held back from subscribers.\nAnd as it was mentioned, those 712 subscribers and 140 readers are not all. To them must be added those who have already paid for 1927, and their number is no less than 500, so 'Ukr. Kh.' has more than 1300 subscribers and 200 readers. And this in a short time (in 2 ½ months).\nBut not only that, there are also unreliable ones. In the last year, in which the Ukrainian Union acted as it pleased, it did a lot of damage without fault, because it did not carry out that active work that should have given it more than 1000 subscribers and 200 readers, which would have enabled it to publish the periodical 'Ukr. Kh.' three times a month. And then no one could say no, being with the seeds.\nAnd there were complaints that the administration of 'Ukr. Kh.' withheld 'Ukr. Kh.' from them, because he was so used to it that he is their dear guest-advisor and will tell how people live in the world, and will teach how to live and what path to follow, it flowed cheerfully, joyfully and beautifully together with the readers and by the sum of 'victory-fate' and together with them by our achievements. The thing is, they will complain and lose, but let it be at first, or over whom, or not over themselves? It is conducted by a quiet, unhurried autonomous work, because we know that only one thing will save us from trouble, that work costs both strength and... money. 'Ukr. Khliborob' (Ukrainian Farmer) also needs them and cannot give itself away. Whoever remains from the subscribers, that will be for all of us and will be distributed, or cheaply to its readers, and if it runs out, the situation is worse: no one wants to.\nPOTATO JUBILEE.\nThis year marks 360 years since the potato was brought from America to Europe, where it became fully adopted and widespread. Until then, although it had been introduced to other countries, it was used very little. For 250 years, that is, until the second half of the 18th century, the potato was only on the tables of monarchs and for their pleasure, and it was considered a plant suitable for consumption only in times of famine.\nBut after that time, the potato quickly spread, and in the 18th century it really came to Ukraine.\nNow, potato cultivation has great significance in agriculture, which each of us understands. The potato is an important food product for humans and for farm animals.\n(From 'Silsʹkyy Svit' - Rural World).\nBY THE WAY.\n'Pratsia' in its 10th issue 'clucked' at the editor of 'Ukr. Kh.' for daring to write 'Ukrainians and Poland.' What audacity, an insult to dignity!\nSo as not to remain silent, a few arrows were shot at him, calling one of those 'Naddnipriantsi' (Dnieper Ukrainians) who sold Galicia to Poland (poked the sky with a finger, keep digging!) and who, being raised 'in an Asian culture,' cannot understand 'such primitive things' as 'how to find it culturally??? P. Sklad. (hide, maybe? P. Sklad.) about dedications and similar parades.' (Culture 'Poland,' where is the godfather, where is the wedding bread! P. Sklad. will lead.).\nDear colleagues! Asian culture is low, that's true, but it's a thousand times higher than the reptilian one you want to cover yourselves with, that's one thing, and the second (regarding your defense): 'we know well that Poland exists'? Doesn't that remind you of the anecdote about that drunkard who, lying under a fence, purred to himself: — 'I know that vodka well, it's accursed and harmful!' — and the next day he went to the tavern again.\nIs there no similarity between you and him?\nBloody elections in Prudentópolis and 'Catholic' upbringing.\nIn the same issue, 'Pratsia', writing about 'Bloody elections in Prudentópolis', blames the 'pocket people' entirely. (Not so long ago, (in 3-4), it wrote that there were no 'pocket people' in Prudentópolis at all, and now, when a bloody incident happened there, they immediately appeared, and it seems, because they contributed to it.\nStrange is that 'Catholic' (in quotation marks) conscience: it bends in all directions, just to be profitable.\nThe cause of this bloody event, in America and other places in Prudentópolis (where the highest % of murders occur in all municipalities of Paraguay Zvary-ny), is not the 'pocket people,' whom we know are there, and among them are all the most respected and conscious Ukrainians, but 'Catholic' (Catholic, in quotation marks) upbringing, which has been cultivated there for many years by the Basilian Fathers (O.O. Basyliyany).\nWhy, in other colonies, where the Basilian Fathers do not go, are there not so many reasons for murders? Has 'Pratsia' stopped at this fact?\nIt's worth considering!\nSHOULD THE FARMER KEEP ACCOUNTS AND FARM RECORDS?\nA community that wants to have a basis for its economic existence must have a clearly defined goal towards which it strives; it must have a developed plan, otherwise it will perish in the struggle for existence. A healthy community must consist of strong units, to which individual citizens, as well as various classes and strata, including farmers, belong, on whom all other strata among us rely.\nEvery worker, capable and diligent, not faint-hearted, will be able to earn enough to support himself and his family, raise and bring up his children. Someone may point out that today for a worker and his labor, and his demands have grown immensely high.\nEvery worker who only has his labor will somehow be able to live, but it will be easier for the one who also has a plot of land and other property. The more land or property, the better he should live. When, for example, a farmer, whether smaller or larger, and 97% of our entire population is engaged in this task, meaning farming, his main income will certainly be 10-15%. But he does not want to learn, he has no risk, and in the end, he consumes capital and.\nHOW SHOULD 'UKRAINIAN FARMER' LOOK?\nHaving reread the above heading in the 8th issue of 'U. Khliborob', I want to share my thoughts on the content of our newspaper. It turns out that the newspaper 'U. Kh.' is to everyone's liking, if the editorial board diversifies protests regarding the content of articles and features.\nAnd something bothered someone very much – 'History of Ukraine' by Fedya Rusyna.\nI think that a Ukrainian cannot be bothered by this, but a Rusyn may call us names, and whoever is afraid like Hanna (or rather, those who used to complain to the Administration of 'U. Kh.' for withholding 'U. Kh.' from them, because he was so used to it that he is their dear guest-advisor and will tell how people live in the world, and will teach how to live and what path to follow, it flowed cheerfully, joyfully and beautifully together with the readers and by the sum of 'victory-fate' and together with them by our achievements. The thing is, they will complain and lose, but let it be at first, or over whom, or not over themselves? It is conducted by a quiet, unhurried autonomous work, because we know that only one thing will save us from trouble, that work costs both strength and... money. 'Ukr. Khliborob' also needs them and cannot give itself away. Whoever remains from the subscribers, that will be for all of us and will be distributed, or cheaply to its readers, and if it runs out, the situation is worse: no one wants to be Ukrainians.\nHistory of Fedya Rusyna (understood as an event).\nThey tell, as an anecdote, that when the potato was first planted here – they couldn't understand why this plant was so praised. Someone planted potatoes, tried to eat potato seeds. It was tasteless and he ordered the potato bushes to be thrown away. A servant took the bushes and threw them away near the relatives' place. The owner saw the tubers, from which something was growing, replanted them, tasted them, and came to the conclusion that one should eat the tubers that are in the ground.\n1. History of Fedya Rusyna. understood as an event.\n2. Absolutely denounce all wicked traitors of the Ukrainian Nation, whether he shouted 'reverence' or not. And especially our spiritual leaders, who live by the blood of our own people, and drag this nation back into the Middle Ages. Devilish.\n3. Include more news from Brazil. We live and will continue to live in our adopted country Brazil, so for everyone it's not true. A colonist is more interested in knowing what is happening around where he lives, than some unrest or revolutions that happened among Russians, or in Japan, and other countries, which completely fail to interest our people. Whoever wants to know more, let him get 'Narodne Slovo' (People's Word) from North America, or other foreign news, which is not available to everyone at any time.\n4. Give as many contributions as possible from those who for no 'laziness' – we understand that personal matters, the editorial board cannot accommodate, but only matters that are not general. Thus, we will most quickly learn which settlement is moving forward, and which is lagging behind in the Middle Ages.\nThis is my idea. Whether it's good – I don't know. I'm not saying it has to be as written here; I hope more on this topic will be.",
+  "low_confidence_tokens": [
+    {
+      "original_word": "перемодолею",
+      "context": "...разом з читачами і по сумі перемодолею і разом з ними по нашими здобутками.",
+      "reason_flagged": "Unusual compound word, possibly a typo or archaic/dialectal form. Meaning ambiguous in context ('sum of victory-fate'?).",
+      "visual_location_descriptor": "У першому великому розділі, у частині, що була візуально у другому стовпці, ближче до кінця тексту про читачів та здобутки."
+    },
+    {
+      "original_word": "напій сил",
+      "context": "...що праця коштує і напій сил і... грошей.",
+      "reason_flagged": "The word 'напій' (drink) does not semantically fit the context of 'cost of labor, strength, and money'. Likely a misreading or very archaic/unusual idiom.",
+      "visual_location_descriptor": "У першому великому розділі, у частині, що була візуально у другому стовпці, ближче до кінця тексту про працю та кошти."
+    },
+    {
+      "original_word": "прибраній жінці",
+      "context": "...Ми живем і будем надальше в нашій прибраній жінці Бразилії...",
+      "reason_flagged": "Unusual metaphorical phrase 'adopted/dressed up woman' to refer to a country (Brazil). Possibly an idiom, a misreading, or an archaic usage.",
+      "visual_location_descriptor": "У пункті 3 внизу сторінки, у розділі „ЯК МАЄ ВИГЛЯДАТИ „УКРАЇНСЬКИЙ ХЛІБОРОБ“?"
+    }
+  ]
+}

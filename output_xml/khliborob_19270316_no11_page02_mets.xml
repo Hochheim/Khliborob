@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<mets xmlns="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" OBJID="khliborob_19270316_no11_page02" TYPE="newspaper" LABEL="Ukrainian Farmer — khliborob_19270316_no11_page02">
+  <metsHdr CREATEDATE="2026-07-26T19:54:08Z">
+    <agent ROLE="CREATOR" TYPE="ORGANIZATION">
+      <name>Ukrainian Diaspora Press Digital Archive Pipeline</name>
+    </agent>
+  </metsHdr>
+  <dmdSec ID="DMD_PAGE">
+    <mdWrap MDTYPE="MODS">
+      <xmlData>
+        <mods:mods>
+          <mods:titleInfo lang="uk">
+            <mods:title>УКРАЇНСЬКИЙ ХЛІБОРОБ — khliborob_19270316_no11_page02</mods:title>
+          </mods:titleInfo>
+          <mods:titleInfo lang="en">
+            <mods:title>Ukrainian Farmer — khliborob_19270316_no11_page02</mods:title>
+          </mods:titleInfo>
+          <mods:genre authority="marcgt">newspaper</mods:genre>
+          <mods:originInfo>
+            <mods:dateIssued encoding="iso8601">1927-03-16</mods:dateIssued>
+          </mods:originInfo>
+          <mods:language>
+            <mods:languageTerm type="code" authority="iso639-2b">ukr</mods:languageTerm>
+          </mods:language>
+          <mods:part>
+            <mods:detail type="issue">
+              <mods:number>№ 11 (139)</mods:number>
+            </mods:detail>
+          </mods:part>
+          <mods:physicalDescription>
+            <mods:extent>2400x3600px</mods:extent>
+          </mods:physicalDescription>
+          <mods:identifier type="local">khliborob_19270316_no11_page02</mods:identifier>
+        </mods:mods>
+      </xmlData>
+    </mdWrap>
+  </dmdSec>
+  <fileSec>
+    <fileGrp USE="DEFAULT">
+      <file ID="FILE_DEFAULT_01" MIMETYPE="image/jpeg">
+        <FLocat LOCTYPE="URL" xlink:href="https://gateway.pinata.cloud/ipfs/QmX46QR2yFfH393H7cFoWpAyutbxWEnnQ7Y73E8ENvtpKy"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="MAX">
+      <file ID="FILE_MAX_01" MIMETYPE="image/jpeg">
+        <FLocat LOCTYPE="URL" xlink:href="https://gateway.pinata.cloud/ipfs/QmX46QR2yFfH393H7cFoWpAyutbxWEnnQ7Y73E8ENvtpKy"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="FULLTEXT">
+      <file ID="FILE_FULLTEXT_01" MIMETYPE="text/xml">
+        <FLocat LOCTYPE="URL" xlink:href="https://gateway.pinata.cloud/ipfs/QmWZMsHerwUtdujh9qPz5PvNaWEAdALpQW8FtXhHaHC16a"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="TRANSCRIPT">
+      <file ID="FILE_TRANSCRIPT_01" MIMETYPE="text/plain">
+        <FLocat LOCTYPE="URL" xlink:href="https://gateway.pinata.cloud/ipfs/Qmb6Lb4LrxmCHhCHLm78TMt4QGR23mY2cgw8Vake3QR4fY"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="ALTO">
+      <file ID="FILE_ALTO_01" MIMETYPE="text/xml">
+        <FLocat LOCTYPE="URL" xlink:href="https://gateway.pinata.cloud/ipfs/QmWZMsHerwUtdujh9qPz5PvNaWEAdALpQW8FtXhHaHC16a"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="IIIF">
+      <file ID="FILE_IIIF_01" MIMETYPE="application/json">
+        <FLocat LOCTYPE="URL" xlink:href="https://gateway.pinata.cloud/ipfs/QmXMqoLaGrwYw9fodW1wVMhdfTMC6nF7pMM7XKzbKKPSsG"/>
+      </file>
+    </fileGrp>
+    <fileGrp USE="NETWORK">
+      <file ID="FILE_NET_01" MIMETYPE="application/json">
+        <FLocat LOCTYPE="URL" xlink:href="https://gateway.pinata.cloud/ipfs/QmaqLWRY2QUGhUPLSgAHUY6zRJU65tT64vvFDx6twPKAUi"/>
+      </file>
+    </fileGrp>
+  </fileSec>
+  <structMap TYPE="LOGICAL">
+    <div ID="LOG_NEWSPAPER" TYPE="newspaper" LABEL="Ukrainian Farmer">
+      <div ID="LOG_ISSUE" TYPE="newspaper_issue" LABEL="Ukrainian Farmer № 11 (139) (1927-03-16)" DMDID="DMD_PAGE">
+        <div ID="LOG_PAGE" TYPE="newspaper_page" LABEL="Page 1"/>
+      </div>
+    </div>
+  </structMap>
+  <structMap TYPE="PHYSICAL">
+    <div ID="PHYS_ROOT" TYPE="physSequence">
+      <div ID="PHYS_PAGE" TYPE="page" ORDER="1" ORDERLABEL="1" LABEL="Page 1">
+        <fptr FILEID="FILE_DEFAULT_01"/>
+        <fptr FILEID="FILE_MAX_01"/>
+        <fptr FILEID="FILE_FULLTEXT_01"/>
+        <fptr FILEID="FILE_TRANSCRIPT_01"/>
+        <fptr FILEID="FILE_ALTO_01"/>
+        <fptr FILEID="FILE_IIIF_01"/>
+        <fptr FILEID="FILE_NET_01"/>
+      </div>
+    </div>
+  </structMap>
+  <structLink>
+    <smLink xlink:from="LOG_PAGE" xlink:to="PHYS_PAGE"/>
+  </structLink>
+</mets>

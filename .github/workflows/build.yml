@@ -1,0 +1,47 @@
+name: Build & Deploy Site
+
+on:
+  push:
+    branches: [source]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+        with:
+          ref: source
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Create CI config
+        run: cp config_ci.py config.py
+
+      - name: Build site
+        env:
+          PROJECT_FOLDER: ${{ github.workspace }}
+          DATA_DIR:        ${{ github.workspace }}/output_data
+          OUTPUT_XML:      ${{ github.workspace }}/output_xml
+          SITE_DIR:        ${{ github.workspace }}/_site
+        run: python build_site.py
+
+      - name: Deploy to main branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir:  ./_site
+          publish_branch: main
+          force_orphan: false
+          keep_files: false
+          commit_message: "Deploy ${{ github.sha }}"

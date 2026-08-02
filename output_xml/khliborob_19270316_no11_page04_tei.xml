@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main" xml:lang="uk">Буковина — khliborob_19270316_no11_page04</title>
+        <title type="main" xml:lang="en">Khliborob — khliborob_19270316_no11_page04</title>
+        <respStmt>
+          <resp>Digitization and transcription</resp>
+          <name>Ukrainian Diaspora Press Digital Archive Pipeline</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Ukrainian Diaspora Press Digital Archive</publisher>
+        <date when="1927-03-16">1927-03-16</date>
+        <idno type="IPFS">ipfs://QmQFxnNB3UxLpb84zzLUvADNT8KMbwjk9sfC7tg1TjfYNq</idno>
+        <idno type="blockchain-tx">0x91f6a8394977dab13d7fe1cbeeacef4238b1f54cb082b380d2b00f7af0752eca</idno>
+        <idno type="page-id">khliborob_19270316_no11_page04</idno>
+        <availability status="free">
+          <p>Freely available under open access for non-commercial scholarly use.</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title xml:lang="uk">Буковина</title>
+          <title xml:lang="en">Khliborob</title>
+          <date when="1927-03-16">1927-03-16</date>
+          <idno type="issue">no11</idno>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <p>Transcribed using Google Gemini 2.5 Flash (vision-language model) from a
+      digitized newspaper scan. Named entities (persons, locations) automatically
+      extracted and linked to Wikidata identifiers where available. Manual
+      correction by native-speaker volunteers is recorded in the version history.</p>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="uk">Ukrainian</language>
+        <language ident="en">English (translation)</language>
+      </langUsage>
+      <textClass>
+        <keywords>
+          <list>
+            <item xml:lang="uk">Українська діаспора</item>
+            <item xml:lang="uk">Бразилія</item>
+            <item xml:lang="uk">Історична газета</item>
+            <item xml:lang="uk">Оголошення</item>
+            <item xml:lang="uk">Реклама</item>
+            <item xml:lang="uk">Земельні ділянки</item>
+            <item xml:lang="uk">Колонізація</item>
+            <item xml:lang="uk">Адвокатські послуги</item>
+            <item xml:lang="uk">Моральна оповідь</item>
+            <item xml:lang="uk">Релігійний протест</item>
+            <item xml:lang="uk">Тютюн</item>
+            <item xml:lang="uk">Прислів'я</item>
+
+          </list>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <front>
+      <div type="abstract" xml:lang="uk">
+        <p>Ця сторінка містить довгу моралізаторську оповідь про Андруся, який стикається з різними ситуаціями, пов'язаними з пияцтвом та народними віруваннями, і навчається правильній поведінці та молитві. Решта сторінки складається з численних оголошень та реклам, що відображають життя української діаспори в Бразилії. Серед них реклама шевських майстерень, парової гарбарні, м'ясопереробного заводу (xarqueada), адвокатської контори з українським відділом, що надає послуги іммігрантам у Бразилії, Північній Америці та Канаді. Також є оголошення земельно-колонізаційного товариства, яке продає ділянки для поселення в різних регіонах Бразилії, з деталями про якість ґрунту, рослинність та умови продажу. Присутня реклама товарів, мате та нафтопродуктів. Окремі короткі розділи включають новину про протест у Жангаді проти греко-католицького консула та церкви, а також рубрики 'Всячина' (про вплив тютюну на здоров'я) і 'З Мудрих Гадок' (з народними прислів'ями).</p>
+      </div>
+      <div type="abstract" xml:lang="en">
+        <p>This page features a long moralistic narrative about Andrus, who encounters various situations related to drunkenness and popular beliefs, learning proper conduct and prayer. The remainder of the page consists of numerous advertisements reflecting the life of the Ukrainian diaspora in Brazil. These include ads for shoemaking workshops, a steam tannery, a jerked beef processing plant (xarqueada), and a law office with a Ukrainian department offering services to immigrants in Brazil, North America, and Canada. There is also an announcement from a land and colonization company selling plots for settlement in various regions of Brazil, detailing soil quality, vegetation, and sales conditions. Advertisements for general goods, yerba mate, and petroleum products are present. Separate short sections include a news item about a protest in Jangada against a Greek-Catholic consul and church, as well as 'Miscellany' (on the health effects of tobacco) and 'From Wise Thoughts' (featuring folk proverbs).</p>
+      </div>
+    </front>
+    <body>
+      <div type="page" xml:lang="uk" n="khliborob_19270316_no11_page04">
+        <p>4 Ч. 11 (139)</p>
+        <p>еш з моєї пригоди щой єи кепи бити? упокой, що не дока-зав гідніша річ на світі, і що кождий пяни-ця робить з себе скота, і не то, що ско-та, але грішного діявола, котрий дар духа святого, то є: розум під ноги то-лочить? – За для того, хлопче, як уз-риш дрищ де пяниць, а ти не кажи їм інак, як лиш так:</p>
+        <p>„Агі на вас та цур на вас, та у ка-міне з вами та шкрепіттє, де кури не допівають та дзвони не доглашають, без-встидники та безбожники ви одні! Бог дай на наші Руси такого вже більше ні чувати та ні видати!“ – Люди лише виливали очи, а далі як стануть на-шого Андруся бучками обертати!... А то так, що отець дитини ледви його вир-вав підпитим кумам з рук, тай каже до него: „А ти що хлопче отсе, чи з розу-му зійшов, чи що? Таже як тобі таке лучиться, а ти не кажи так погано, але кужи: „дай Боже таке і чувати і видати у каждім селіз по сто і по двісті на рік а у каждій хаті по двоє, по троє на раз!“ Оттак маєш казати, дурню, а те-пер забирайся до дітчої матери, аби то-бі і по паху тут не було!“</p>
+        <p>Пішов наш Андрусь далі, чухаючи собі накулаковану потилицю, аж тут іде громада людей від хресту, отець на-перед, моша з дитинов за ним, а далі, куми, роди, сусіди, гості, а Андрушко до них: Агі на вас та цур на вас, та у ка-міне з вами та в шкрепітте, де кури не допівають та дзвони не доглашають без-встидники та безбожники ви одні! Бог дай на наші Руси такого вже біль-ше ні чувати та ні видати!“ Люди лише виливали очи, а далі як стануть на-шого Андруся бучками обертати!... А то так, що отець дитини ледви його вир-вав підпитим кумам з рук, тай каже до него: „А ти що хлопче отсе, чи з розу-му зійшов, чи що? Таже як тобі таке лучиться, а ти не кажи так погано, але кужи: „дай Боже таке і чувати і видати у каждім селі по сто і по двісті на рік а у каждій хаті по двоє, по троє на раз!“ Оттак маєш казати, дурню, а те-пер забирайся до дітчої матери, аби то-бі і по паху тут не було!“</p>
+        <p>Пішов наш Андрусь далі, та вже не чухаючись, бо не було де вже йому і чухатися, такий то оббитий сіромаха, аж тут несуть мерця, а Андрусько ще з далека до них: „Дай Боже таке і чувати і видати, у каждім селі по сто і по двісті на рік, а у каждій хаті по двоє по троє на раз!“ Люди зупинились та тільки що хотіли нашому Андрусови но-ву халазію дати, але панотець не дали та й кажуть до него: А ти що отсе не-боже наговорив? – Другий раз, як то-бі таке лучиться, а ти скинь капелю-шину, перехрестись, та й скажи:</p>
+        <p>„Со духи праведними Христе Боже і вірний упокой до раю світлого, до покою віч-ного, де ангели співають, де Святі про-бувають!“ – так синку, маєш казати, а не таке плести, що аж сором слухати. Заберайся!“</p>
+        <p>Пішов наш Андрусь плачучи далі, аж тут сидять дві бабі на присіпї, та обіс-каюються, а Андрусько скинув зараз ка-пелюшину, перехрестився, та на весь рот: „Со духи праведними Христе Боже і вірний упокой до раю світлого, до покою віч-ного, де ангели співають, де Святі про-бувають!“ – так синку, маєш казати, а не таке плести, що аж сором слухати. Заберайся!“</p>
+        <p>ВІДОМА</p>
+        <p>Шведська Робітня Василя Литвинського</p>
+        <p>Приймає і виконує дешево, солідно і ско-ро всі замовлення входячі в обсяг шев-ства. Має на складі все більшу кількість готового товару для замовлень з кольоній купців. Звертайтесь до: Basilio Litvinsky – Uniao da Victoria, Parana – Rua Visconde de Nacar No 43.</p>
+        <p>ОГОЛОШЕННЯ.</p>
+        <p>(За оголошення Редакція не відповідає).</p>
+        <p>Шевська Робітня ОЛЕКСИ ШАРАВАРА</p>
+        <p>В АНТОНІО КАНДІДО</p>
+        <p>Має все готові і в кождому часі, прий-має замовлення на всі роди обуви, вико-нуючи роботу скоро, солідно і по деше-вих цінах.</p>
+        <p>Парова ГАРБАРНЯ CORTUME a vapor</p>
+        <p>de Pedro Mazurechen</p>
+        <p>Она з найбильших гарбарень в цему стані, под умілим і старанним зарядом влас-ника виробляє всїлякі, в обсягу гарбарства входячі робити, скоро і солідно. ЗАДОВОЛЬ-НЯ Є ПОРУКА.</p>
+        <p>Доставляє вироби у всїлякій кількости. СКУПОВУЄ ВІВСІ СИРІ І СУХІ, ПО НАЙВИЩИХ ЦІНАХ. У всяких справах пишіть на адресу:</p>
+        <p>Pedro Mazurechen — Porto União (Tocós), Sta Catharina, Parana.</p>
+        <p>XARQUEADA –</p>
+        <p>de CARLOS PRATER</p>
+        <p>A maior xarqueada em Porto União, premiada na exposição do centenario, POSSUE SEMPRE GRANDE STOCK de XARQUE.</p>
+        <p>Endereço: Porto União, Rua Coronel Amazonas — Telephone No 88, (Xarqueada N° 7) — Sta Catharina.</p>
+        <p>Адвокатська Канцелярія з Українським відділом</p>
+        <p>Др-а Едгарда де Олівейра Круз і <persName>Стефан Володимир Кобилянський</persName></p>
+        <p>В Курітібі переводять усі процеси у справах тор-говельних, карних та цивільних, а також усі процеси о відшкодованню за шкоди, в спра-вах усякі справи земельні, військові і спадкові. Переводять процеси звільнення з військової служби та нещасні случаї. Полагоджує в компетентних устано-вах діла звязані з одержанню »titulos« на земельні посї-ди за право власности реквірованих та приватно куплених земель. Полагоджує »inventarios«, полагоджує справи військо-ві, переводить звільнення з військової служби в судах всіх країн Європи.</p>
+        <p>Перекладає також документи з усіх європейських мов та виробляє позволен-ня на виїзд до Бразілії з Пів. Америки та Канади. Управи-ління канцелярії є п. Стефан Володимир Кобилянський.</p>
+        <p>На непотрібні поїздки, а в усіх справах звертайтеся і одержите відповідь) на адресу:</p>
+        <p>Advogado Dr. Edgard de Oliveira Cruz</p>
+        <p>Curitiba – Parana – Rua Aquidaban N. 70.</p>
+        <p>ЗЕМЕЛЬНЕ І КОЛЬОНІЗАЦІЙНЕ ТОВАРИСТВО</p>
+        <p>(SOCIEDADE TERRITORIAL E COLONISADORA)</p>
+        <p>TEXEIRA, STAUT &amp; CIA.</p>
+        <p>ESCRIPTORIO B С. ПАВЛЬО – R. COUTO DE MAGALHÄES, 24 – А – SALA, 3</p>
+        <p>ESQUINA DA R. WASHINGTON LUIZ.</p>
+        <p>ESCRITORIO Estação Rancharia — Estr. de Ferro Sorocabana.</p>
+        <p>Товариство має честь сповістити Вас, що продає найкращі частки зе-млі під управу при стаціях Rancharia, Presidente Bernardes (Guarucaia), Santo Anastacio і President Wenceslau при залізниці <placeName>Сорокабана</placeName> в С. Павльо, льотами від 5 алькей-рів вгору по вподобі купуючого.</p>
+        <p>Усі наші землі є найкращої якости, з буй-ною рослинністю дерев, які свідчать про їх родючість, з деревами: Pau d'alho, Figueira, Branca, Jangada і т. др., а поруч-ними з великою кількістю шляхотних дерев, чимало хоровим кліматом.</p>
+        <p>Всі ті землі лежать біля повище пере-роблених стацій при залізниці Со-рокабана в С. Павльо. З усіх тих земель звертаємо у-вагу на увагу на землі Rancharia, що відрізняються не тількою своєю якістю, високим положеннєм, а й тому, що сі землі віддалені від стації усього вісім кілометрів, і від залізничною дорогою на просторі 12 кільометрів. Наші авто-буси для автомобілів, щоб нашим покупцям облегчити перевіз автомобілі до цеї цілі, зовсім безплатні.</p>
+        <p>Треба Вам знати, що землі Rancharia лучшають ся як вже заселеною, яка має знамениту торговлю, готелї і т. др.</p>
+        <p>Усі наші землі надаються під яку б то не було культуру. А ви можете бачити поля з кавою (яка тут росте дивно скоро), кукурудзою і з бавов-ною (algodão) і др. Приносячи в протязі усього 3 років стали-ми і творчими рівночасно дійсні осе-лі, лікарні і др.</p>
+        <p>Дрібні поселенці японські, італійські і др. вста-новили собі тут осілі, на ноги дякуючи обильним живам збіжа і бавовни, а по-над лю тим, що засадили кілька тисяч корчів кави.</p>
+        <p>Усі поселенці, малі і великі, живуть в добро-буті і достатках при залізниці Сорокабана, де земля в ро-ках ніколи не терпіла від шкоди спричиненої приморозками, і бачучи зріст своєї кави, Порто Павльо.</p>
+        <p>Відвідуючи нас, Ви особисто можете пересвідчитись про все те, що кажемо.</p>
+        <p>Відвідайте нас, а ми зробимо все можливе, щоб Ви мали гарно жити.</p>
+        <p>Земля лежить на віддаль 93 кільометрів. від північного краю штату <placeName ref="https://www.wikidata.org/entity/Q15499">Парана</placeName>.</p>
+        <p>У нас закупили вже землі отсї панове з Picadas, S. Кляро: п. Ст. Павлів 100 alq., <persName>Василь Павло Сух</persName> 10 alq., Петро Карманського до Сух 38 1/2 alq., Leonardo Tarmolli alq., 95 José Конопа, Gritius Павло alq.</p>
+        <p>Ціна землі від 200 до 500$ алькейрів.</p>
+        <p>Пять алькейрів вистарчає вповні, щоб з них добре жити.</p>
+        <p>За блищими інформаціями зголошуватися до проф. П. Карманського.</p>
+        <p>TEXEIRA, STAUT &amp; CIA.</p>
+        <p>Офіціяльний представник Українського Союзу в Бразілії „ЛІДІЇ“ <placeName ref="https://www.wikidata.org/entity/Q1784679">Порто Уніон</placeName>, С. Катаріна.</p>
+        <p>Читайте! NICOLAO PECUCH</p>
+        <p>COM CASA DE FAZENDAS E ARMARINHO</p>
+        <p>RUA 15 de NOVEMBRO</p>
+        <p>Повідомляю земляків з околиці <placeName ref="https://www.wikidata.org/entity/Q2668213">Іраті</placeName>, що я отримав прямо з фабрики сілякі товари доброї якости і спродаю по низькій ціні. І так: зефіри по ціні від 1$300, шіту по 1$300, »alvejada« (1 мет.) по 12$500 і т. д.</p>
+        <p>Отже хто бажав-би купити добрий товар і дешево, нехай зайде до торгові:</p>
+        <p>NICOLAO PECUCH</p>
+        <p>(Давнійше: AUGUST BOROGOSKI).</p>
+        <p>HENRIQUE BURMESTER</p>
+        <p>compra Herva matte e outros productos do paiz.</p>
+        <p>REPRESENTANTE DE „STANDARD OIL COMPANY“.</p>
+        <p>Sempre um grande stock de gazolina e kerosene.</p>
+        <p>Escriptorio e Deposito:</p>
+        <p>União da Victoria, Rua Dr. Cruz Machado</p>
+        <p>E. Paraná.</p>
+        <p>Deposito:</p>
+        <p>Porto União, Rua Prudente de Moraes</p>
+        <p>E. Sta Catharina.</p>
+        <p>ПРОТЕСТ В ЖАНГАДІ.</p>
+        <p>(З Бр.)</p>
+        <p>Повідомляє ім. Т. Шевченка (Ф. У.) в <placeName ref="https://www.wikidata.org/entity/Q678587">Жангаді</placeName> для 27 лютого с.р. в надзвичайних зборах винес-ло проти запросин О.О. Василя-греко-католицького консуля на свято зало-ження основного каменя під будову греко-католицької церкви в...</p>
+        <p>Заст. Голови М. ШАРАВАРА</p>
+        <p>Секретар: С. САВИЦЬКИЙ</p>
+        <p>ВСЯЧИНА.</p>
+        <p>Тютюн і здоровля.</p>
+        <p>Кажуть лікарі, що тютюн ослаблює память о 10 до 33% і сон не відсвіжує. Куряча так, як не курить. <persName>Лікар Турней</persName> зау-важує, беручи загалом, курці скоро-біджуються.</p>
+        <p>З МУДРИХ ГАДОК.</p>
+        <p>Одно неосторожно сказане слово є цілий секрет.</p>
+        <p>Хто не відчув жалю, той ніколе не любив.</p>
+        <p>Перший показчиш домашнього ща-стя – любов до своєї хати.</p>
+      </div>
+      <div type="translation" xml:lang="en" n="khliborob_19270316_no11_page04">
+        <p>4 Ch. 11 (139)</p>
+        <p>did I ever make a fool of myself? peace, which did not prove that the most wretched thing in the world is drunkenness, and that every drunkard makes a beast of himself, and not only a beast, but a sinful devil, who tramples the gift of the Holy Spirit, that is: reason, underfoot? – For that, boy, when you see a gathering of drunkards, do not tell them differently, but just say:</p>
+        <p>'Oh, curses on you, and shame on you, and may stones be with you and rattling, where chickens do not crow and bells do not clang, you shameless and godless ones! May God grant that such a thing never again be seen or heard in our Rus!' – People only shed tears, and then they started turning our Andrus into a target!... And it was so that the child's father barely pulled him out of the hands of the drunken godfathers, and said to him: 'What, boy, are you, out of your mind, or what? If such a thing happens to you, do not speak so badly, but say: 'God grant that such a thing be seen and heard in every village a hundred and two hundred times a year, and in every house two or three times!' That's what you should say, fool, and now go to your mother, so that there's no stench here!'</p>
+        <p>Our Andrus went on, scratching his clenched head, and suddenly a crowd of people came from a funeral, the father in front, a woman with a child behind him, and then godparents, relatives, neighbors, guests, and little Andrus to them: Oh, curses on you, and shame on you, and may stones be with you and rattling, where chickens do not crow and bells do not clang, you shameless and godless ones! May God grant that such a thing never again be seen or heard in our Rus!' – People only shed tears, and then they started turning our Andrus into a target!... And it was so that the child's father barely pulled him out of the hands of the drunken godfathers, and said to him: 'What, boy, are you, out of your mind, or what? If such a thing happens to you, do not speak so badly, but say: 'God grant that such a thing be seen and heard in every village a hundred and two hundred times a year, and in every house two or three times!' That's what you should say, fool, and now go to your mother, so that there's no stench here!'</p>
+        <p>Our Andrus went on, and no longer scratching, because there was nothing left for him to scratch, such a battered wretch he was, and then they carry a corpse, and Andrus from afar to them: 'God grant that such a thing be seen and heard, in every village a hundred and two hundred times a year, and in every house two or three times!' People stopped and just wanted to give our Andrus a new scolding, but the priest did not let them and said to him: 'What is it, poor soul, that you have said? – The second time, if such a thing happens to you, take off your hat, cross yourself, and say:</p>
+        <p>'With the righteous spirits, Christ God, and faithful rest in bright paradise, in eternal peace, where angels sing, where the Saints abide!' – that's what you should say, son, and not babble such things that it's shameful to listen to. Get out!'</p>
+        <p>Our Andrus went on weeping, and then two old women sat on the porch, lamenting, and Andrus immediately took off his hat, crossed himself, and with a full mouth: 'With the righteous spirits, Christ God, and faithful rest in bright paradise, in eternal peace, where angels sing, where the Saints abide!' – that's what you should say, son, and not babble such things that it's shameful to listen to. Get out!'</p>
+        <p>INFORMATION</p>
+        <p>Swedish Workshop of Vasyl Lytvynskyi</p>
+        <p>Accepts and performs cheaply, solidly and quickly all orders within the scope of shoemaking. Has in stock an ever-increasing quantity of ready-made goods for orders from colonial buyers. Contact: Basilio Litvinsky – Uniao da Victoria, Parana – Rua Visconde de Nacar No 43.</p>
+        <p>ANNOUNCEMENTS.</p>
+        <p>(The editorial office is not responsible for advertisements).</p>
+        <p>Shoe Workshop OLEKSY SHARAVARA</p>
+        <p>IN ANTONIO CANDIDO</p>
+        <p>Has everything ready and at all times, accepts orders for all types of footwear, performing work quickly, solidly and at low prices.</p>
+        <p>Steam TANNERY CORTUME a vapor</p>
+        <p>by Pedro Mazurechen</p>
+        <p>One of the largest tanneries in this state, under the skillful and diligent management of the owner, produces all kinds of work included in the scope of tanning, quickly and solidly. SATISFACTION IS GUARANTEED.</p>
+        <p>Supplies products in any quantity. BUYS ALL RAW AND DRY SHEEPSKINS AT THE HIGHEST PRICES. For all inquiries, write to:</p>
+        <p>Pedro Mazurechen — Porto União (Tocós), Sta Catharina, Parana.</p>
+        <p>XARQUEADA –</p>
+        <p>of CARLOS PRATER</p>
+        <p>A major xarqueada in Porto União, awarded at the centennial exhibition, ALWAYS HAS A LARGE STOCK of JERKED BEEF.</p>
+        <p>Address: Porto União, Rua Coronel Amazonas — Telephone No 88, (Xarqueada N° 7) — Sta Catharina.</p>
+        <p>Law Office with Ukrainian Department</p>
+        <p>Dr. Edgard de Oliveira Cruz and Stefan Volodymyr Kobylyanskyi</p>
+        <p>In Curitiba, they handle all processes in commercial, criminal and civil matters, as well as all processes concerning compensation for damages, and all kinds of land, military and inheritance cases. They handle processes for exemption from military service and unfortunate incidents. They settle matters related to obtaining 'titulos' for land plots based on the right of ownership of requisitioned and privately purchased lands in competent institutions. They handle 'inventarios', military cases, and transfers of exemption from military service in the courts of all European countries.</p>
+        <p>They also translate documents from all European languages and arrange permission to travel to Brazil from North America and Canada. The administration of the office is Mr. Stefan Volodymyr Kobylyanskyi.</p>
+        <p>For unnecessary trips, and for all matters, please contact and you will receive a reply) at the address:</p>
+        <p>Lawyer Dr. Edgard de Oliveira Cruz</p>
+        <p>Curitiba – Parana – Rua Aquidaban N. 70.</p>
+        <p>LAND AND COLONIZATION COMPANY</p>
+        <p>(SOCIEDADE TERRITORIAL E COLONISADORA)</p>
+        <p>TEXEIRA, STAUT &amp; CIA.</p>
+        <p>OFFICE B S. PAULO – R. COUTO DE MAGALHÃES, 24 – A – ROOM, 3</p>
+        <p>CORNER OF R. WASHINGTON LUIZ.</p>
+        <p>OFFICE Rancharia Station — Sorocabana Railway.</p>
+        <p>The company is pleased to inform you that it sells the best parts of land for cultivation at the stations of Rancharia, Presidente Bernardes (Guarucaia), Santo Anastacio and Presidente Wenceslau along the Sorocabana railway in S. Paulo, in lots of 5 alqueires upwards, according to the buyer's preference.</p>
+        <p>All our lands are of the highest quality, with lush tree vegetation, which testifies to their fertility, with trees such as: Pau d'alho, Figueira, Branca, Jangada, etc., and alongside them, with a large number of noble trees, a quite good climate.</p>
+        <p>All these lands lie above the processed stations along the Sorocabana railway in S. Paulo. Of all these lands, we draw attention to the Rancharia lands, which are distinguished not only by their quality, high elevation, but also by the fact that these lands are only eight kilometers from the station, and 12 kilometers from the railway. Our buses for automobiles, to facilitate the transportation of automobiles for our buyers to this destination, are completely free.</p>
+        <p>You should know that the Rancharia lands are improving as they are already settled, having famous commerce, hotels, etc.</p>
+        <p>All our lands are suitable for any crop. And you can see fields with coffee (which grows surprisingly fast here), corn and cotton (algodão), etc. Within 3 years, they produce stable and creative effective settlements, hospitals, etc.</p>
+        <p>Japanese, Italian, and other small settlers have established themselves here, standing on their own feet thanks to abundant grain and cotton harvests, and, moreover, they have planted several thousand coffee bushes.</p>
+        <p>All settlers, small and large, live in prosperity and plenty along the Sorocabana railway, where the land has never suffered from frost damage, and seeing the growth of their coffee, Porto Pavlio.</p>
+        <p>By visiting us, you can personally verify everything we say.</p>
+        <p>Visit us, and we will do everything possible to ensure you live well.</p>
+        <p>The land is located 93 kilometers from the northern border of Paraná state.</p>
+        <p>The following gentlemen have already purchased land from us in Picadas, S. Klyaro: Mr. St. Pavliv 100 alq., Vasyl Pavlo Sukh 10 alq., Petro Karmanskyi to Sukh 38 1/2 alq., Leonardo Tarmolli alq., 95 José Konopa, Gritius Pavlo alq.</p>
+        <p>Land price from 200 to 500$ alqueires.</p>
+        <p>Five alqueires are enough to live well.</p>
+        <p>For further information, please contact Prof. P. Karmanskyi.</p>
+        <p>TEXEIRA, STAUT &amp; CIA.</p>
+        <p>Official representative of the Ukrainian Union in Brazil 'LIDII' Porto União, S. Catarina.</p>
+        <p>Read! NICOLAO PECUCH</p>
+        <p>WITH A HOUSE OF FARMS AND GENERAL STORE</p>
+        <p>RUA 15 de NOVEMBRO</p>
+        <p>I inform my countrymen from the Iraty area that I have received directly from the factory all kinds of good quality goods and sell them at a low price. For example: marshmallows at a price of 1$300, pieces at 1$300, 'alvejada' (1 meter) at 12$500, etc.</p>
+        <p>So, whoever wishes to buy good and cheap goods, should visit the store:</p>
+        <p>NICOLAO PECUCH</p>
+        <p>(Formerly: AUGUST BOROGOSKI).</p>
+        <p>HENRIQUE BURMESTER</p>
+        <p>buy Yerba mate and other products from the country.</p>
+        <p>REPRESENTATIVE OF 'STANDARD OIL COMPANY'.</p>
+        <p>Always a large stock of gasoline and kerosene.</p>
+        <p>Office and Deposit:</p>
+        <p>União da Victoria, Rua Dr. Cruz Machado</p>
+        <p>E. Paraná.</p>
+        <p>Deposit:</p>
+        <p>Porto União, Rua Prudente de Moraes</p>
+        <p>E. Sta Catharina.</p>
+        <p>PROTEST IN JANGADA.</p>
+        <p>(From Brazil)</p>
+        <p>Informs the T. Shevchenko (F.U.) society in Jangada that on February 27 of this year, at an extraordinary meeting, a protest was raised against the invitation of O.O. Vasyl, a Greek-Catholic consul, to the ceremony of laying the cornerstone for the construction of a Greek-Catholic church in...</p>
+        <p>Deputy Head M. SHARAVARA</p>
+        <p>Secretary: S. SAVYTSKYI</p>
+        <p>MISCELLANY.</p>
+        <p>Tobacco and health.</p>
+        <p>Doctors say that tobacco weakens memory by 10 to 33% and does not refresh sleep. Smokers quickly get poor, generally speaking, notes Doctor Tourney.</p>
+        <p>FROM WISE THOUGHTS.</p>
+        <p>A carelessly spoken word is a complete secret.</p>
+        <p>He who has not felt pity has never loved.</p>
+        <p>The first indicator of domestic happiness is love for one's home.</p>
+      </div>
+    </body>
+  </text>
+</TEI>

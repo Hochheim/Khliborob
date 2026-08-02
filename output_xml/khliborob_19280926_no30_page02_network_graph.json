@@ -1,0 +1,142 @@
+{
+    "edges": [
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "О. Коциловський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Шкірпан",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Йосиф Пільсудський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Мирослав Ординець",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Іван Плахин",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Евген Качмарський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Т. Шевченка",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Мар. Собіна",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Іван Франко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Захар Беркут",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Мирослава",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Максим",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Тугар Вовк",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Russia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Brazil",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Prague",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Lviv",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Ukraine",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Poland",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Tukhlya",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Przemyśl",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Tukholshchyna",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page02",
+            "target": "Muscovy",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        }
+    ]
+}

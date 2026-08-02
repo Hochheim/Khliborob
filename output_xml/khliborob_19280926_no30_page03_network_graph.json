@@ -1,0 +1,436 @@
+{
+    "edges": [
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Шевченко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Петя",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Ґадзімковисць",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Григорій ХIII",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Цезар Юлій",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Христ",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Альзойські",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Антонієві Ліліо",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Глязенай",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Шварцбард",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Олекса Чувай",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Theodoro Ribas",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Максим Шаравара",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Михайло Ониськів",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Антін Андрухів",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Марія Ониськів",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Текля Андрухів",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Павло Мелик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Микола Кухар",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Григорій Чайковський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Іван Жилінський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Francisco Kukol",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Василь Я",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Микола Булик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Кароліна Котвицька",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Іван Кузів",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Pedro Mathias",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Михайло Любий",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Марія Валькович",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Нестор Шабатура",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Анастасія Кусик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Павло Кусик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Наталія Когут",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Олександра Шаравара",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Олекса Накальський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Д. Ільків",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "М. Д. Ільків",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Гр. Гаєвий",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Микола Слобода",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Катерина Мелик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Павло Герелюос",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Євгеній Шаравара",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "М. Зьомбра",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Осип Отниш",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Михайло Чайковський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Андрух Булик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Теодор Накальський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Яків Булик",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Стефан Жуковський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Володимир Чайковський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Михайло Чайковський син",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Марія Чайковська",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Андрух Кухар",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Др. Івана Стрийського",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "О. Процьків",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Шептицький",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "СТЕФАН СОБЕНКО",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "М. Малєт",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "СТЕФАН БУСЬКО",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Lviv",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Doryzoni",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Brazil",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Ukraine",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Rome",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Nicaea",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Southern Germany",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Canada",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Kitsman",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Bukovyna",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Bessarabia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Romania",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page03",
+            "target": "Trento",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        }
+    ]
+}

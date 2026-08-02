@@ -1,0 +1,196 @@
+{
+    "edges": [
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Григорій Прехляк",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Петро Мазуречен",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Степан Радіч",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Бенкер",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Елефтеріос Бенізельос",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Ганс Кох",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Пастернак",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Кіпнік",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Сергій Тимошенко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Андрій Щептицький",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Йосип Хомишин",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Гриць Косак",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Porto União",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Brazil",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Rio de Janeiro",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "São Paulo",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Santa Catarina",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Soviet Union",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Madrid",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Spain",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Ukraine",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Caucasus",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Kharkiv",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Yugoslavia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Manchuria",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "China",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "New York City",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "United States (USA)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Greece",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Romania",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Volhynia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page01",
+            "target": "Galicia",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        }
+    ]
+}

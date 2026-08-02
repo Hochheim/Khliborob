@@ -1,0 +1,133 @@
+name: Apply Transcript Correction
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_id:
+        description: "Issue ID (e.g. khliborob_19270316_no11)"
+        required: true
+      page_id:
+        description: "Page ID (e.g. khliborob_19270316_no11_page01)"
+        required: true
+      original_word:
+        description: "Flagged word as it appears in the transcript"
+        required: true
+      corrected_word:
+        description: "Correct reading of the word"
+        required: true
+      reviewer_name:
+        description: "Name of the reviewer"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          ref: source
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Apply correction to JSON
+        env:
+          ISSUE_ID:       ${{ github.event.inputs.issue_id }}
+          PAGE_ID:        ${{ github.event.inputs.page_id }}
+          ORIGINAL_WORD:  ${{ github.event.inputs.original_word }}
+          CORRECTED_WORD: ${{ github.event.inputs.corrected_word }}
+          REVIEWER_NAME:  ${{ github.event.inputs.reviewer_name }}
+        run: |
+          python - <<'PYEOF'
+          import os, json, re, glob
+          from datetime import datetime, timezone
+
+          issue_id      = os.environ["ISSUE_ID"]
+          page_id       = os.environ["PAGE_ID"]
+          original_word = os.environ["ORIGINAL_WORD"]
+          corrected_word = os.environ["CORRECTED_WORD"]
+          reviewer_name = os.environ["REVIEWER_NAME"]
+
+          json_path = os.path.join("output_data", f"{issue_id}.json")
+          if not os.path.exists(json_path):
+              raise FileNotFoundError(f"JSON not found: {json_path}")
+
+          with open(json_path, "r", encoding="utf-8") as f:
+              data = json.load(f)
+
+          changed = False
+          for page in data.get("pages", []):
+              if page.get("page_id") != page_id:
+                  continue
+
+              # Apply correction to all three transcript variants
+              for field in ("transcript_uk", "transcript_en", "transcript_pt"):
+                  if field == "transcript_uk" and page.get(field):
+                      page[field] = re.sub(
+                          r'(?<!\w)' + re.escape(original_word) + r'(?!\w)',
+                          corrected_word,
+                          page[field]
+                      )
+                      changed = True
+
+              # Mark token as resolved in low_confidence_tokens
+              for tok in page.get("low_confidence_tokens", []):
+                  if tok.get("original_word") == original_word and not tok.get("resolved"):
+                      tok["resolved"] = True
+                      tok["corrected_word"] = corrected_word
+                      tok["reviewed_by"] = reviewer_name
+                      tok["reviewed_at"] = datetime.now(timezone.utc).isoformat()
+
+          if not changed:
+              print(f"WARNING: page_id '{page_id}' not found in {json_path}")
+          else:
+              with open(json_path, "w", encoding="utf-8") as f:
+                  json.dump(data, f, ensure_ascii=False, indent=2)
+              print(f"Correction applied: '{original_word}' → '{corrected_word}' on {page_id}")
+          PYEOF
+
+      - name: Also patch transcript text file
+        env:
+          PAGE_ID:        ${{ github.event.inputs.page_id }}
+          ORIGINAL_WORD:  ${{ github.event.inputs.original_word }}
+          CORRECTED_WORD: ${{ github.event.inputs.corrected_word }}
+        run: |
+          python - <<'PYEOF'
+          import os, re
+          page_id = os.environ["PAGE_ID"]
+          orig    = os.environ["ORIGINAL_WORD"]
+          corr    = os.environ["CORRECTED_WORD"]
+          for suffix in ("_flow.txt", "_flow_en.txt", "_flow_pt.txt"):
+              path = os.path.join("output_text", f"{page_id}{suffix}")
+              if not os.path.exists(path):
+                  continue
+              with open(path, "r", encoding="utf-8") as f:
+                  text = f.read()
+              if suffix == "_flow.txt":
+                  text = re.sub(r'(?<!\w)' + re.escape(orig) + r'(?!\w)', corr, text)
+              with open(path, "w", encoding="utf-8") as f:
+                  f.write(text)
+              print(f"Patched {path}")
+          PYEOF
+
+      - name: Commit correction
+        run: |
+          git config user.name  "Khliborob Review Bot"
+          git config user.email "noreply@github.com"
+          git add output_data/ output_text/
+          git diff --cached --quiet || git commit -m "correction: ${{ github.event.inputs.original_word }} → ${{ github.event.inputs.corrected_word }} on ${{ github.event.inputs.page_id }} (by ${{ github.event.inputs.reviewer_name }})"
+          git push
+
+      - name: Trigger site rebuild
+        uses: benc-uk/workflow-dispatch@v1
+        with:
+          workflow: build.yml
+          ref: source
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc>
+      <titleStmt>
+        <title type="main" xml:lang="uk">Український Хлібороб — khliborob_19280926_no30_page01</title>
+        <title type="main" xml:lang="en">Ukrainian Farmer — khliborob_19280926_no30_page01</title>
+        <respStmt>
+          <resp>Digitization and transcription</resp>
+          <name>Ukrainian Diaspora Press Digital Archive Pipeline</name>
+        </respStmt>
+      </titleStmt>
+      <publicationStmt>
+        <publisher>Ukrainian Diaspora Press Digital Archive</publisher>
+        <date when="1928-09-26">1928-09-26</date>
+        <idno type="IPFS">ipfs://QmNW5w6jFDR1YbSiGXRWvMKdDHsUxnZBcMXVJ9MbvLHPCR</idno>
+        <idno type="blockchain-tx">0x5e5c1d030805a5df00dacfbb87437234da74867a9bceb45ec0b2cdfc3796adbc</idno>
+        <idno type="page-id">khliborob_19280926_no30_page01</idno>
+        <availability status="free">
+          <p>Freely available under open access for non-commercial scholarly use.</p>
+        </availability>
+      </publicationStmt>
+      <sourceDesc>
+        <bibl>
+          <title xml:lang="uk">Український Хлібороб</title>
+          <title xml:lang="en">Ukrainian Farmer</title>
+          <date when="1928-09-26">1928-09-26</date>
+          <idno type="issue">V. 30. (207)</idno>
+        </bibl>
+      </sourceDesc>
+    </fileDesc>
+    <encodingDesc>
+      <p>Transcribed using Google Gemini 2.5 Flash (vision-language model) from a
+      digitized newspaper scan. Named entities (persons, locations) automatically
+      extracted and linked to Wikidata identifiers where available. Manual
+      correction by native-speaker volunteers is recorded in the version history.</p>
+    </encodingDesc>
+    <profileDesc>
+      <langUsage>
+        <language ident="uk">Ukrainian</language>
+        <language ident="en">English (translation)</language>
+      </langUsage>
+      <textClass>
+        <keywords>
+          <list>
+            <item xml:lang="uk">Бразилія</item>
+            <item xml:lang="uk">Україна</item>
+            <item xml:lang="uk">СРСР</item>
+            <item xml:lang="uk">Іспанія</item>
+            <item xml:lang="uk">Югославія</item>
+            <item xml:lang="uk">Китай</item>
+            <item xml:lang="uk">США</item>
+            <item xml:lang="uk">Манджурія</item>
+            <item xml:lang="uk">Голод</item>
+            <item xml:lang="uk">Буревії</item>
+            <item xml:lang="uk">Світові новини</item>
+            <item xml:lang="uk">Українські справи</item>
+            <item xml:lang="uk">Просвіта</item>
+            <item xml:lang="uk">Шептицький</item>
+            <item xml:lang="uk">Галичина</item>
+            <item xml:lang="uk">Волинь</item>
+            <item xml:lang="uk">Освіта</item>
+            <item xml:lang="uk">Бібліотека</item>
+            <item xml:lang="uk">Матчі</item>
+
+          </list>
+        </keywords>
+      </textClass>
+    </profileDesc>
+  </teiHeader>
+  <text>
+    <front>
+      <div type="abstract" xml:lang="uk">
+        <p>Ця сторінка містить міжнародні новини з Бразилії, СРСР, Іспанії, Югославії, Китаю та США. Основні теми включають створення синдикату сірників у Бразилії, закон про військову службу в СРСР, пожежу в театрі Мадрида, чуму в Маньчжурії, голод у Китаї та ураганні руйнування на Антильських островах та півдні США. Українські новини охоплюють виклад німецького вченого доктора Коха про українську ідентичність, розширення Всенародної Бібліотеки України, реставрацію Софійського Собору, подальше закриття читалень 'Просвіти' на Волині та повідомлення про градові бурі на Галичині. Також згадується, що митрополит Андрей Шептицький іменується кардиналом у Римі та призначено нового ректора Української Господарської Академії в Подебрадах.</p>
+      </div>
+      <div type="abstract" xml:lang="en">
+        <p>This page features international news from Brazil, the USSR, Spain, Yugoslavia, China, and the USA. Key topics include the formation of a match syndicate in Brazil, the conscription law in the USSR, a theater fire in Madrid, a plague outbreak in Manchuria, widespread famine in China, and hurricane devastation in the Antilles and the Southern USA. Ukrainian news covers a lecture by German scholar Dr. Koch on Ukrainian identity, the expansion of the All-National Library of Ukraine, the restoration of St. Sophia Cathedral, the continued closure of 'Prosvita' reading rooms in Volhynia, and reports of hailstorms in Galicia. It also mentions Metropolitan Andriy Sheptytsky being referred to as a cardinal in Rome and the appointment of a new rector for the Ukrainian Economic Academy in Poděbrady.</p>
+      </div>
+    </front>
+    <body>
+      <div type="page" xml:lang="uk" n="khliborob_19280926_no30_page01">
+        <p>30. (207) <placeName ref="https://www.wikidata.org/entity/Q1784679">Порто Уніон</placeName>, середа 26 вересня 1928. Рік видання V.</p>
+        <p>О LAVRADOR UKRAINSKÝ ХЛІБОРОБ</p>
+        <p>НЕЗАЛЕЖНИЙ ТИЖНЕВИК</p>
+        <p>ОРГАН 'УКРАЇНСЬКОГО СОЮЗУ В БРАЗИЛІЇ' виходить КОЖНОГО ЧЕТВЕРГА І КОШТУЄ НА РІК 12 $000, В АРГЕНТИНІ 5 ПЕЗІВ, В ІНШ. КРАЯХ 2 ДОЛ., ПІВР. ПЕРЕДПЛАТА 7$000</p>
+        <p>Ціна осібного числа 400 Rs.</p>
+        <p>ЦІНИ ОГОЛОШЕНЬ: 200 Рс. ЗА РЯДОК НА ПОЛОВИНУ САНТІМЕТРА ШИРИНИ В ДОВЖИНУ ОДНОГО СТОВПЦЯ, ЗА ОДИН РАЗ</p>
+        <p>ОГОЛОШЕННЯ.</p>
+        <p>O Lavrador Ukraino</p>
+        <p>Jornal semanal, organo da União Ukraino no Brasil.</p>
+        <p>Director: Gregori Prechlak.</p>
+        <p>Gerente: Pedro Mazurechen.</p>
+        <p>Typographia da União Ukraino com séde em Porto União.</p>
+        <p>ENDEREÇO da Redacção: União da Victoria - Caixa postal N°3 - Paranà.</p>
+        <p>Добути, або дома не бути!</p>
+        <p>З Бразилії.</p>
+        <p>Трест фабрик сірників?</p>
+        <p>Часописи з Ріо та С. Павле подають, що американські капіталісти, заснувавши синдикат 'Companhia Brasileira de Phosphoros', закуповують всі фабрики сірників, щоб таким способом змонополізувати продажу сірників в своїх руках.</p>
+        <p>Поки що їм стоїть на заваді найбільша бразилійська фабрика 'Fiat Lux' з малою скількістю другорядних фабрик. Чи довго вона буде боротись не знати, бо компанія за всяку ціну хоче й цю фабрику купити, та вже давала за нею 28 міліонів.</p>
+        <p>Уже тепер часописи пишуть, що ця компанія має намір підвищити ціну сірників зі сто на 200 рейсів.</p>
+        <p>Залізна дорога через зону ріки Тібагу.</p>
+        <p>Недавно ми подавали про переговори представника француської компанії в справі будови нової залізниці. Тепер маємо змогу подати трохи більше подробиць в цій справі. Під назвою 'А Com. Agricola Florestal e Estrada de Alegre', котре купило 60 тисяч землі між ріками Тібагу, і Фасквейра. Управа цеї компанії має намір побудувати на своїх землях тартак, фабрики паперу та фанери, дров’яного шовку, а крім цього фабрику штучного льоду, бавовну та тютюн. Щоб мати достатню скільність робітників, дирекція зробить заходи для спровадження іммігрантів, а також має обітницю федеральному урядови на себе половину видатків по спровадженню.</p>
+        <p>В короткому часі зачнеться будова залізниці, що получить землі компанії з залізницею S. Paulo Rio Grande до Ігуаріягива, перетинаючи усю зону S. Jeronymo і Ribeirão Verde. Звідти потягне залізниця S. Francisco, P. на 65 кілометрів, допоки на залізничою S. Francisco, P. Porto Grande 50.272.000, недалеко Jaguaryahva. За перевіз транспорту платитимуть компанії з залізницею S. Paulo Rio Grande 1.304.000$000 заного піньора. В 1926 році засновано в С. Павло заплачено цю суму з власних фондів.</p>
+        <p>Висвіз зі С. Катаріна.</p>
+        <p>В часі від січня до серпня ц. р. експортовано на 1.304.000$000 піньйонів до-1 го товару. Компаніям Uniao та S. Paulo Rio Grande 50.272.000 кілограмів матері ялів, виплачуваних ратами, в так, як буде видно, що уряд сповнює на існуючі банки усьлівя.</p>
+        <p>C.P.C.P.</p>
+        <p>В Радянському Союзі видано новий закон про військову службу. До підготовки до військової служби в полі є обовязані вибух підчас товчої служби у війську є обовязані всі ті, яким брак технічної освіти не дозволяє виконувати відповідної праці в радянському воєнному промислі, а саме всі між 19 і 40 роком життя. Вся військова служба триватиме 5 літ, з чого 2 роки припадає на відпустки.</p>
+        <p>З українських справ.</p>
+        <p>Німці про Україну.</p>
+        <p>Молодий німецький учений др. <persName ref="https://www.wikidata.org/entity/Q11088813">Ганс Кох</persName> виголосив недавно в радіо незвичайний виклад на тему „<placeName ref="https://www.wikidata.org/entity/Q212">Україна</placeName> в очах Німця“. Подавши загальні дані про Україна та підкреснув др. Кох обставину, яка мусить вдаряти кожного, а саме бездержавність українського народу.</p>
+        <p>Пояснивши причини цього розчленування української етнографічної території, д-р Кох завважує, що ідея закріплення української етнографічної території сильнішими сусідами ослаблює українську державно-національну ідею (Галич, Богдан Хмельницький). Тут знов він підкріпив свою тезу порівнанням між слов’янських і німецьких окраїн виявив велику відпорність на чужі завоювання. Дальше освітлив Др. Кох справжню ролю укр. селянства, яке не тільки завше зберегло, але й збільшило удвоє укр. етнографічну територію.</p>
+        <p>Поширення Всенародньої Бібліотеки України.</p>
+        <p>Як видно з доповіди директора Бібліотеки <persName ref="https://www.wikidata.org/entity/Q63945155">Пастернак</persName>а на засіданню НКО, значного стану, чінння ВБУ, за 10 літ існуванна сягнуло і навіть поза межі цілого Союзу, і тепер вона стоїть поруч з найкращими європейськими бібліотеками. За цей час ВБУ зібрала й упорядкувала 2 міліони книжок, розгорнула широко науково-дослідну й науково-педагогічну роботу в книгознавстві і бібліотекознавстві і всебічно обслуговувала науковою книжкою широкі кадри наукових робітників та студентів.</p>
+        <p>Реставрують Софійський Собор.</p>
+        <p>Народний Комісаріят Освіти асигнував київській краєвій інспектурі гроші на реставрацію Софійського Собору. Вже почалися роботи під проводом ленінградського професора <persName ref="https://www.wikidata.org/entity/Q22427783">Кіпнік</persName>а.</p>
+        <p>Дальше замкнення „Просвіт“ на Волині.</p>
+        <p>На Волині польська влада позачинала та опечатала читальні в Почаєві, Вишнівці, Рахманові, Савчинцях, Комнаці, Попівцях, Боданках, Лозах, Вишнівці, Ланівцях, Грабовичах, Коворові і Краснолуці Кременецького повіту.</p>
+        <p>Також не дозволяється там на урядування яких не будь збірок. Причиною закриття „Просвіт“ – „непорядки“ в читальняному діловодстві.</p>
+        <p>Новий ректор Української Господарської Академії.</p>
+        <p>Професорська рада Української Господарської Академії в Подебрадах (Чехословаччина) вибрала ректором на слідуючий рік проф. Сергія Тимошенка.</p>
+        <p>Нове нещастя.</p>
+        <p>З Галичини приходять відомости про градові тучі. Град винищив засіви в Самбірському повіті на просторі 1500 тяжкої моргів. Доходив він до величини курячого яйця, та важив 150 грамів. Також в старосамбірському повіті знищив град збіжжа в кількох селах.</p>
+        <p>Митрополит Щептицький кардиналом.</p>
+        <p>Часописи подають вістки, що греко-католицький митрополит <persName ref="https://www.wikidata.org/entity/Q24194">Андрій Щептицький</persName> має вступити, та осісти на стале в Римі, де його іменують кардиналом. Його наслідником мавби бути станиславівський епископ Хомишин.</p>
+        <p>З цілого світу.</p>
+        <p><placeName ref="https://www.wikidata.org/entity/Q83286">Югославія</placeName>.</p>
+        <p>Жінка недавно помершого хорватського провідника Степана Радіча вислала до Ліги Націй просьбу о виданна контролі, яка малаби контролювати поступовання сербських судових властей в процесі над убийником і спільниками її мужа.</p>
+        <p>Београдська поліція сконфіскувала часописи, котрі цього листа оголосили.</p>
+        <p>Чума в Манджурії.</p>
+        <p>В північно західній частині Манджурії шаліє чума. 60 сіл вже вимерло на цю страшну хворобу.</p>
+        <p>Француські священики проти целібату.</p>
+        <p>Група француських священиків почала агітацію проти целібату.</p>
+        <p>Голод в Китаю.</p>
+        <p>В Півн. Америці на зазив Ньюйоркського Рятункового Комітету для допомоги китайцям розпочато кампанію за зібранням 10 міліонів долярів на допомогу голодуючим китайцям в части провінції Шілі і Шантунг. Голодом загрожений простір 100 миль довгий і 30 миль широкий.</p>
+        <p>Секретар комітету <persName ref="https://www.wikidata.org/entity/Q37571752">Бенкер</persName>, що приїхав з Китаю до Америки каже, що 1.500.000 китайцям грозить вже тепер смерть з голоду.</p>
+        <p>Буревій на Антільських островах та в південній части Злуч. Держав.</p>
+        <p>Страшний цикльон навистив антільські острови. Найбільше потерпіли острови Порто Ріко, Мартініка і Гвадалопе. Більшість населення осталося без даху над головою, бо доми буря знесла.</p>
+        <p>Лиш в місті Поінте і Пітре Гвадалопе мало стратити на 300 осіб, на острови Порто Ріко число жертв подають 2000 осіб.</p>
+        <p>Буревій також через штати Флорида, Небраска, Ілінойс та др. Злуч. Держав.</p>
+        <p>Епідемія грипи в Греції.</p>
+        <p>В Афінах і та дальших околицях Греції вибухла епідемія грипи. Вона дуже поширилася. До тепер було 300.000 хворих. Захорілих також і президент грецької ради міністрів Бенізельос.</p>
+        <p>Румуни і позичка.</p>
+        <p>Уряд звернувся до Ліги Націй з просьбою о поміч.</p>
+        <p>В короткому часі румунський уряд старався дістати позичку в заграничних банках. Старання на кінець увінчались успіхом; <placeName ref="https://www.wikidata.org/entity/Q218">Румунія</placeName> дістала позичку, але під дуже важкими умовами.</p>
+        <p>Всі доходи і розходи мають бути під контролею чужоземного фінансіста. Цей контролЬор буде мати право рішати, скільки уряд зможе збирати податків і на що їх видавати.</p>
+        <p>Не люблять тяжкої праці.</p>
+        <p>Сто комуністів жидів покинули роботу в копальні вугілля в Донецькому районі.</p>
+        <p>Жидівська телеграф. агенція.</p>
+        <p>Що вони не могли витримати роботи в копальнях та анти-відношення адміністрації.</p>
+        <p><persName>Гриць Косак</persName>-червоним.</p>
+        <p>Бувшого команданта 1-ої української армії і полковника Української Галицької Армії (УГА) Гриця Косака іменувала більшовицька влада генералом червоної армії. Його приділено до штабу <placeName ref="https://www.wikidata.org/entity/Q18869">Кавказ</placeName>ького повстанського загону атакованого.</p>
+        <p>Розстріл повстанців.</p>
+        <p>Радянський суд в Умані засудив на кару смерти 11 повстанців.</p>
+        <p>Центральний виконавчий комітет відкинув прохання о помилування.</p>
+        <p>Засуджених розстріляно.</p>
+        <p>Еспанія.</p>
+        <p>В Мадриті згорів театр Ногостей. Пожар стратило життя 425 осіб, є багато тяжче або лекше ранених."</p>
+      </div>
+      <div type="translation" xml:lang="en" n="khliborob_19280926_no30_page01">
+        <p>30. (207) Porto União, Wednesday, September 26, 1928. Year of publication V.</p>
+        <p>O LAVRADOR UKRAINSKÝ KHLIBOROB</p>
+        <p>INDEPENDENT WEEKLY</p>
+        <p>ORGAN OF 'UKRAINIAN UNION IN BRAZIL' published EVERY THURSDAY AND COSTS PER YEAR 12 $000, IN ARGENTINA 5 PESOS, IN OTHER COUNTRIES 2 DOLLARS, HALF-YEAR SUBSCRIPTION 7$000</p>
+        <p>Price of a single issue 400 Rs.</p>
+        <p>ADVERTISEMENT PRICES: 200 Rs. PER LINE FOR HALF A CENTIMETER WIDTH IN THE LENGTH OF ONE COLUMN, FOR ONE TIME</p>
+        <p>ADVERTISEMENT.</p>
+        <p>O Lavrador Ukraino</p>
+        <p>Weekly newspaper, organ of the Ukrainian Union in Brazil.</p>
+        <p>Director: Gregori Prechlak.</p>
+        <p>Manager: Pedro Mazurechen.</p>
+        <p>Typographia da União Ukraino with its headquarters in Porto União.</p>
+        <p>ADDRESS of the Editorial Board: União da Victoria - Post office box N°3 - Paraná.</p>
+        <p>To get it, or not to be home!</p>
+        <p>From Brazil.</p>
+        <p>Match factory trust?</p>
+        <p>Newspapers from Rio and S. Paulo report that American capitalists, having founded the syndicate 'Companhia Brasileira de Phosphoros', are buying up all match factories to monopolize the sale of matches in their hands.</p>
+        <p>For now, the largest Brazilian factory 'Fiat Lux' with a small number of minor factories stands in their way. It is unknown how long it will fight, because the company wants to buy this factory at any price and has already offered 28 million for it.</p>
+        <p>Newspapers now write that this company intends to raise the price of matches from one hundred to 200 reis.</p>
+        <p>Railway through the Tibagy river zone.</p>
+        <p>We recently reported on negotiations by a representative of a French company regarding the construction of a new railway. Now we are able to provide a little more detail on this matter. Under the name 'A Com. Agricola Florestal e Estrada de Alegre', which bought 60 thousand hectares of land between the Tibagy and Faisqueira rivers. The management of this company intends to build on its lands a sawmill, paper and plywood factories, wood pulp, and in addition, an artificial ice factory, cotton and tobacco. In order to have enough workers, the management will take measures to bring in immigrants, and also has a promise from the federal government to cover half of the expenses for their repatriation.</p>
+        <p>In a short time, the construction of a railway will begin, which will connect the company's lands with the S. Paulo Rio Grande railway to Iguariaíva, crossing the entire S. Jeronymo and Ribeirão Verde zone. From there, the S. Francisco, P. railway will extend for 65 kilometers, until the S. Francisco, P. Porto Grande railway 50,272,000, near Jaguaryahva. For the transportation of goods, companies with the S. Paulo Rio Grande railway will pay 1,304,000$000 per year. In 1926, this amount was established in S. Paulo and paid from own funds.</p>
+        <p>Exports from S. Catarina.</p>
+        <p>From January to August of this year, 1,304,000$000 of goods were exported. To the companies União and S. Paulo Rio Grande, 50,272,000 kilograms of materials are being paid in installments, in such a way that it will be seen that the government fulfills its conditions to the existing banks.</p>
+        <p>C.P.C.P.</p>
+        <p>In the Soviet Union, a new law on military service has been issued. For preparation for military service in the field, all those between 19 and 40 years of age are obligated to serve, as well as all those who, due to a lack of technical education, are unable to perform appropriate work in the Soviet military industry. The entire military service will last 5 years, of which 2 years are spent on leave.</p>
+        <p>From Ukrainian affairs.</p>
+        <p>Germans about Ukraine.</p>
+        <p>A young German scholar, Dr. Hans Koch, recently delivered an unusual radio lecture on the topic 'Ukraine in the Eyes of a German'. After presenting general data on Ukraine, Dr. Koch emphasized a circumstance that must strike everyone, namely the statelessness of the Ukrainian people.</p>
+        <p>Explaining the reasons for this fragmentation of Ukrainian ethnographic territory, Dr. Koch notes that the idea of consolidating Ukrainian ethnographic territory by stronger neighbors weakens the Ukrainian state-national idea (Galicia, Bohdan Khmelnytsky). Here again, he supported his thesis by comparing how the Slavic and German borderlands showed great resistance to foreign conquests. Further, Dr. Koch illuminated the true role of the Ukrainian peasantry, which not only always preserved but also doubled the Ukrainian ethnographic territory.</p>
+        <p>Expansion of the All-National Library of Ukraine.</p>
+        <p>As seen from the report of the director of the Pasternak Library at the NKO meeting, the significant status and activity of the VBU, in 10 years of existence, has reached even beyond the borders of the entire Union, and now it stands alongside the best European libraries. During this time, the VBU collected and organized 2 million books, launched extensive research and pedagogical work in bibliography and library science, and comprehensively served with scientific literature broad cadres of scientific workers and students.</p>
+        <p>St. Sophia Cathedral is being restored.</p>
+        <p>The People's Commissariat of Education allocated funds to the Kyiv regional inspection for the restoration of St. Sophia Cathedral. Work has already begun under the guidance of the Leningrad professor Kipnik.</p>
+        <p>Further closure of 'Prosvita' in Volhynia.</p>
+        <p>In Volhynia, the Polish authorities began to close and seal reading rooms in Pochaiv, Vyshnivtsi, Rakhmaniv, Savchyntsi, Komnachi, Popivtsi, Bodanky, Lozova, Vyshnivtsi, Lanivtsi, Hrabovychi, Kovorovy and Krasnoluka of Kremenets district.</p>
+        <p>Also, no collections are allowed there. The reason for the closure of 'Prosvita' is 'disorders' in the reading room's paperwork.</p>
+        <p>New Rector of the Ukrainian Economic Academy.</p>
+        <p>The professorial council of the Ukrainian Economic Academy in Poděbrady (Czechoslovakia) elected Professor Serhii Tymoshenko as rector for the following year.</p>
+        <p>New misfortune.</p>
+        <p>From Galicia come reports of hailstorms. Hail destroyed crops in Sambir district over an area of 1500 'morh' (approx. 0.5-0.7 hectares each). It reached the size of a chicken egg and weighed 150 grams. Also in Starosambirsky district, hail destroyed crops in several villages.</p>
+        <p>Metropolitan Sheptytsky as Cardinal.</p>
+        <p>Newspapers report that the Greek-Catholic Metropolitan Andriy Sheptytsky is to join and settle permanently in Rome, where he will be named a cardinal. His successor is to be the Stanislaviv bishop Khomyshyn.</p>
+        <p>From around the world.</p>
+        <p>Yugoslavia.</p>
+        <p>The wife of the recently deceased Croatian leader Stepan Radić sent a request to the League of Nations for the issuance of a control, which would oversee the actions of the Serbian judicial authorities in the process against her husband's murderer and accomplices.</p>
+        <p>Belgrade police confiscated the newspapers that published this letter.</p>
+        <p>Plague in Manchuria.\In the northwestern part of Manchuria, the plague is raging. 60 villages have already died out from this terrible disease.</p>
+        <p>French priests against celibacy.</p>
+        <p>A group of French priests began an agitation against celibacy.</p>
+        <p>Famine in China.</p>
+        <p>In North America, at the call of the New York Rescue Committee for aid to the Chinese, a campaign has been launched to raise 10 million dollars to help the starving Chinese in parts of Shili and Shandong provinces. A hunger-stricken area 100 miles long and 30 miles wide.</p>
+        <p>The secretary of the Benker committee, who came from China to America, says that 1,500,000 Chinese are now threatened with death from hunger.</p>
+        <p>Hurricane in the Antilles and in the southern part of the United States.</p>
+        <p>A terrible cyclone hit the Antilles islands. The islands of Puerto Rico, Martinique, and Guadeloupe suffered the most. Most of the population was left homeless because the storm destroyed their houses.</p>
+        <p>In the cities of Pointe and Pitre, Guadeloupe, about 300 people died, on the islands of Puerto Rico, the number of victims is reported to be 2000 people.</p>
+        <p>The hurricane also passed through the states of Florida, Nebraska, Illinois, and others in the United States.</p>
+        <p>Flu epidemic in Greece.</p>
+        <p>In Athens and its surroundings in Greece, a flu epidemic broke out. It spread widely. So far, there have been 300,000 cases. Among the sick are also President of the Greek Council of Ministers Venizelos.</p>
+        <p>Diseases also among people of other nations.</p>
+        <p>Romanians and a loan.</p>
+        <p>The government appealed to the League of Nations for help.</p>
+        <p>In a short time, the Romanian government tried to get a loan from foreign banks. The efforts were eventually successful; Romania received a loan, but under very difficult conditions.</p>
+        <p>All income and expenses must be under the control of a foreign financier. This controller will have the right to decide how much the government can collect in taxes and for what to spend them.</p>
+        <p>They don't like hard work.</p>
+        <p>One hundred communist Jews left work in the coal mine in Donetsk district.</p>
+        <p>Jewish telegraph agency.</p>
+        <p>That they could not endure work in the mines and anti-administration attitude.</p>
+        <p>Hryts Kosak-red.</p>
+        <p>The former commander of the 1st Ukrainian army and colonel of the Ukrainian Galician Army (UHA), Hryts Kosak, was appointed by the Bolshevik authorities as a general of the Red Army. He was assigned to the staff of the Caucasian rebel detachment under attack.</p>
+        <p>Execution of rebels.</p>
+        <p>The Soviet court in Uman sentenced 11 rebels to death.</p>
+        <p>The Central Executive Committee rejected the appeal for clemency.</p>
+        <p>The condemned were executed.</p>
+        <p>Spain.</p>
+        <p>In Madrid, the 'Nogostei' theater burned down. The fire claimed the lives of 425 people; many are seriously or lightly wounded.</p>
+      </div>
+    </body>
+  </text>
+</TEI>

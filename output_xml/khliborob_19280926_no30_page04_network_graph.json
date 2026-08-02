@@ -1,0 +1,316 @@
+{
+    "edges": [
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Вельше",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Бендон",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Семен Кравченко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Олена Кравченко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Хелена Кравченко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Шимон Кравченко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Міколай Мукевич",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Новицький",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Іван Жорка Породи",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Неграмотний",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "В. Гарані",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Базіліо Яворський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Семен Мирошниченко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Василь Литвинський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Андрій Любець",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Карлос Пратер",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Август Багрій",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Ірм",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "П. Карманський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Ольга Олександра Думанська",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "О. Олесь",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Гастон Пеняльва",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "М. Старицький",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Коельйо Нетто",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Іван Франко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Борис Грінченко",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "В. Ганківський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "В. Кущ",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "С. Савицький",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "О. Маковей",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "А. Корніївський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "П. С. Сумський",
+            "type": "MENTIONS_PERSON",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Europe",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Baltic Sea",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Sea of Azov",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Kronstadt",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Gulf of Finland",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Leningrad",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Brazil",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Porto União",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Curitiba",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Stanislaviv (Ivano-Frankivsk)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Hryby (Lviv Oblast)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Paraná",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Vitória (Brazil)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Rio Grande (Brazil)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Antônio Cândido (Paraná, Brazil)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "São Paulo",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Santa Catarina",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Dorizon (Ponta Grossa, Brazil)",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Ponta Grossa",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        },
+        {
+            "source": "Page_khliborob_19280926_no30_page04",
+            "target": "Argentina",
+            "type": "MENTIONS_LOCATION",
+            "weight": 1.0
+        }
+    ]
+}
