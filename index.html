@@ -6,7 +6,7 @@
 <title>Home — Khliborob Digital Archive</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/main.css?v=202608022210">
+<link rel="stylesheet" href="assets/main.css?v=202608022215">
 
 </head>
 <body>
@@ -62,20 +62,20 @@ function closeBanner(){
 </script>
 
 <div class="hero">
-  <div style="display:flex;gap:2.5rem;align-items:flex-start;flex-wrap:wrap;max-width:1100px">
-    <div style="flex:1 1 420px;min-width:300px">
+  <div style="display:flex;gap:4rem;align-items:center;flex-wrap:wrap;max-width:1100px;margin:0 auto">
+    <div style="flex:1 1 440px;min-width:300px">
       <h1>Хлібороб · O Lavrador</h1>
       <p data-i18n="hero_subtitle">Digital archive of Khliborob / O Lavrador — the Ukrainian diaspora newspaper in Brazil (1924–present)</p>
       <div class="search-box">
         <input type="search" data-i18n="search_placeholder" placeholder="Search all pages — e.g. Holodomor, Istanbul, 1932" id="q" />
         <button onclick="doSearch()" data-i18n="search_btn">Search</button>
       </div>
-      <p data-i18n="pilot_notice" style="font-size:11px;opacity:.7;max-width:520px;margin-top:.9rem;
+      <p data-i18n="pilot_notice" style="font-size:11px;opacity:.7;max-width:520px;margin-top:1.1rem;
          margin-bottom:0;line-height:1.5">Pilot corpus: this demo currently contains 2 of an
          estimated 14,000+ pages held by SUBRAS, digitized to demonstrate the pipeline as part of a
          grant application.</p>
     </div>
-    <p data-i18n="site_intro" style="flex:1 1 380px;min-width:280px;font-size:12.5px;line-height:1.65;
+    <p data-i18n="site_intro" style="flex:1 1 400px;min-width:280px;font-size:13px;line-height:1.7;
        opacity:.9;margin:0;max-width:520px">
       Khliborob (Хлібороб, 'The Farmer'), founded in Porto União, Paraná in 1924 and published
       as O Lavrador since the 1940s, is one of the longest-running Ukrainian diaspora newspapers
@@ -105,8 +105,8 @@ function closeBanner(){
   </div>
 </div>
 
-<div style="padding:1.5rem">
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.2rem">
+<div style="padding:2.5rem;max-width:1100px;margin:0 auto">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.8rem;margin-bottom:1.8rem">
 
     <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
          transition:box-shadow .15s;cursor:pointer" onclick="location.href='browse/'"
@@ -158,6 +158,6 @@ document.getElementById('q').addEventListener('keydown', e => {
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="assets/lang.js?v=202608022210"></script>
+<script src="assets/lang.js?v=202608022215"></script>
 </body>
 </html>
