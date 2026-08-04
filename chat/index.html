@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608042125">
+<link rel="stylesheet" href="../assets/main.css?v=202608042151">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -281,11 +281,20 @@ async function loadAgentData() {
 let SRC = { list: [], byKey: {} };
 function resetSources() { SRC = { list: [], byKey: {} }; }
 
+// Keyed by issue, not by page: citing three pages of the same issue in one
+// answer used to produce three separate numbered sources pointing at the
+// same issue link, which read as cluttered. One issue = one citation number;
+// the individual page scans it drew from are listed inside that entry.
 function registerPageSource(rec) {
-  const k = "pg|" + rec.issue_id + "|" + rec.page_number;
-  if (SRC.byKey[k]) return SRC.byKey[k];
-  const s = { num: SRC.list.length + 1, kind: "page", record: rec };
-  SRC.byKey[k] = s; SRC.list.push(s);
+  const k = "pg|" + rec.issue_id;
+  let s = SRC.byKey[k];
+  if (!s) {
+    s = { num: SRC.list.length + 1, kind: "page", issue: rec, pages: [] };
+    SRC.byKey[k] = s; SRC.list.push(s);
+  }
+  if (!s.pages.some(p => p.page_number === rec.page_number)) {
+    s.pages.push({ page_number: rec.page_number, ipfs_url: rec.ipfs_url });
+  }
   return s;
 }
 
@@ -302,14 +311,20 @@ function sourcesHtml() {
   let h = '<div class="citations-block"><strong>Sources:</strong><br>';
   for (const s of SRC.list) {
     if (s.kind === "page") {
-      const r = s.record;
+      const r = s.issue;
+      const pageScans = s.pages.slice()
+        .sort((a, b) => String(a.page_number).localeCompare(String(b.page_number)))
+        .map(p => p.ipfs_url
+          ? `<a href="${p.ipfs_url}" target="_blank" rel="noopener">p.${escHtml(String(p.page_number))} scan</a>`
+          : `p.${escHtml(String(p.page_number))}`)
+        .join(", ");
       const links = [
         `<a href="${r.issue_url}" target="_blank" rel="noopener">issue page</a>`,
-        r.ipfs_url ? `<a href="${r.ipfs_url}" target="_blank" rel="noopener">IPFS scan</a>` : "",
+        pageScans,
         r.tx_url ? `<a href="${r.tx_url}" target="_blank" rel="noopener">blockchain</a>` : "",
       ].filter(Boolean).join(" · ");
       h += `<div class="citation-item">[${s.num}] Khliborob / O Lavrador, ${escHtml(r.date)}, `
-        + `No. ${escHtml(String(r.issue_number))}, page ${escHtml(String(r.page_number))} — ${links}</div>`;
+        + `No. ${escHtml(String(r.issue_number))} — ${links}</div>`;
     } else {
       h += `<div class="citation-item">[${s.num}] GPU document ${escHtml(s.doc.archive_ref || "")} `
         + `(${escHtml(s.doc.date || "")}) — <a href="../gpu-documents/" target="_blank" rel="noopener">GPU documents</a></div>`;
@@ -384,8 +399,11 @@ const TOOL_DECLS = [{
     },
     {
       name: "get_gpu_documents",
-      description: "The declassified Soviet GPU intelligence documents connected to the newspaper "
-        + "(Holodomor period, 1929-1933): intercepted letters and intelligence summaries.",
+      description: "Declassified Soviet GPU secret-police intelligence documents ABOUT the newspaper's "
+        + "network (Holodomor period, 1929-1933): intercepted letters and intelligence summaries written "
+        + "by Soviet surveillance, not by the newspaper. Never present their contents as something the "
+        + "newspaper itself reported, wrote, or covered — attribute them to the GPU documents explicitly "
+        + "and keep them distinct from newspaper-page claims in the answer.",
       parameters: { type: "object", properties: {} },
     },
   ],
@@ -462,14 +480,20 @@ const AGENT_SYS =
   'when the topic could touch it.\n\n' +
   'STRICT RULES:\n' +
   '1. Base every factual claim EXCLUSIVELY on tool results from this conversation. No outside knowledge about the newspaper\'s content.\n' +
-  '2. Cite claims with [N] markers using the source_number values from tool results, e.g. [1] or [1][3].\n' +
-  '3. If, after the protocol above, the corpus still does not contain the answer, say so explicitly — mention the pilot corpus is only 2 issues.\n' +
-  '4. When quoting Ukrainian text, give the original followed by a translation in parentheses.\n' +
-  '5. LANGUAGE: Write the ENTIRE answer in the language of the researcher\'s latest question. ' +
+  '2. GPU documents are Soviet secret-police intelligence records ABOUT the newspaper\'s network — ' +
+  'they are not the newspaper\'s own content. NEVER describe something a GPU document says as ' +
+  'something Khliborob "reported," "wrote," "covered," or "said." Attribute them explicitly and ' +
+  'separately, e.g. "a GPU intelligence report notes..." or "Soviet surveillance records describe...". ' +
+  'Do not fold GPU-derived claims into a list of what the newspaper itself printed — keep the two ' +
+  'source types in visibly separate sentences or sections.\n' +
+  '3. Cite claims with [N] markers using the source_number values from tool results, e.g. [1] or [1][3].\n' +
+  '4. If, after the protocol above, the corpus still does not contain the answer, say so explicitly — mention the pilot corpus is only 2 issues.\n' +
+  '5. When quoting Ukrainian text, give the original followed by a translation in parentheses.\n' +
+  '6. LANGUAGE: Write the ENTIRE answer in the language of the researcher\'s latest question. ' +
   'A question asked in English gets an English answer, Portuguese gets Portuguese, Ukrainian gets ' +
   'Ukrainian — regardless of the language of the source material. Only verbatim quotes stay in the ' +
   'original (with a translation in parentheses).\n' +
-  '6. Be concise: a focused paragraph or two.';
+  '7. Be concise: a focused paragraph or two.';
 
 let chatHistory = [];
 
@@ -654,6 +678,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608042125"></script>
+<script src="../assets/lang.js?v=202608042151"></script>
 </body>
 </html>
