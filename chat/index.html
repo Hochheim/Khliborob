@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608042056">
+<link rel="stylesheet" href="../assets/main.css?v=202608042108">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -130,6 +130,14 @@
 // scores them against the question by term overlap, then quotes the
 // original passages back verbatim with a citation — extractive, not
 // generative, so it cannot hallucinate a source.
+
+// Set by build_site.py from the AGENT_WORKER_URL env var. When present, AI
+// mode is on for every visitor via a Cloudflare Worker holding the real
+// Gemini key server-side — no visitor key needed. When empty, falls back to
+// the bring-your-own-key flow below.
+const AGENT_WORKER_URL = "";
+function hasWorker() { return !!AGENT_WORKER_URL; }
+
 let SEARCH_INDEX = null;
 
 async function loadIndex() {
@@ -233,7 +241,10 @@ function getKey() { return localStorage.getItem("gemini_key") || ""; }
 function renderKeyBar() {
   const bar = document.getElementById("key-bar");
   const form = document.getElementById("key-form");
-  if (getKey()) {
+  if (hasWorker()) {
+    bar.innerHTML = '🤖 AI agent <strong>enabled</strong> — multi-step research over the corpus, indices, and GPU documents.';
+    form.style.display = "none";
+  } else if (getKey()) {
     bar.innerHTML = '🤖 AI agent <strong>enabled</strong> (Gemini) — multi-step research over the corpus, '
       + 'indices, and GPU documents. <a href="#" onclick="clearKey();return false">Remove key</a>';
     form.style.display = "none";
@@ -463,7 +474,12 @@ const AGENT_SYS =
 let chatHistory = [];
 
 async function geminiTurn(contents, key) {
-  const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key);
+  // Worker mode: the Worker attaches the real key server-side, so nothing
+  // secret goes in this request or URL. BYOK mode: the visitor's own key
+  // goes straight to Google, as before.
+  const url = hasWorker()
+    ? AGENT_WORKER_URL
+    : "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key);
   const resp = await fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -538,7 +554,7 @@ async function sendQuestion() {
 
   try {
     const key = getKey();
-    if (key) {
+    if (hasWorker() || key) {
       resetSources();
       try {
         status("🤖 Planning research…");
@@ -638,6 +654,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608042056"></script>
+<script src="../assets/lang.js?v=202608042108"></script>
 </body>
 </html>
