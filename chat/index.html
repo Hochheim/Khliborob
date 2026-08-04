@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608030102">
+<link rel="stylesheet" href="../assets/main.css?v=202608042056">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -82,13 +82,19 @@
 
   <div id="key-bar" style="font-size:11px;color:var(--muted);margin-top:.5rem;text-align:center"></div>
   <div id="key-form" style="display:none;margin-top:.4rem;text-align:center">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:.4rem;max-width:480px;margin-left:auto;margin-right:auto">
+      Experimental, not required. It connects this page directly to Google's free Gemini API using a key
+      you supply — nothing to install, and it costs nothing at this scale. If you'd rather see it working
+      first, ask the project team for a live demo instead of setting this up yourself.
+    </div>
     <input id="key-input" type="password" placeholder="Paste your Gemini API key"
            style="font-size:12px;padding:.35rem .6rem;border:1px solid var(--border);
                   border-radius:var(--radius);background:var(--card-bg);color:var(--text);width:260px" />
     <button onclick="saveKey()" style="font-size:12px;padding:.35rem .8rem;border:1px solid var(--blue);
             border-radius:var(--radius);background:var(--blue-lt,#e8f0fb);color:var(--blue);cursor:pointer">Save</button>
     <div style="font-size:10px;color:var(--muted);margin-top:.3rem">
-      The key is stored only in this browser (localStorage) and sent only to Google's API — never to this site.
+      <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a free key here</a> —
+      it is stored only in this browser (localStorage) and sent only to Google's API, never to this site.
     </div>
   </div>
 </div>
@@ -232,9 +238,9 @@ function renderKeyBar() {
       + 'indices, and GPU documents. <a href="#" onclick="clearKey();return false">Remove key</a>';
     form.style.display = "none";
   } else {
-    bar.innerHTML = '💬 Currently in <strong>quote mode</strong> (verbatim passages). For a full AI research agent, '
-      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">add a free Gemini API key</a> '
-      + '(<a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">get one here</a>).';
+    bar.innerHTML = '💬 This already works — every answer above quotes the archive directly, with a citation, '
+      + 'no setup needed. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Optional: switch on AI-written answers</a> (technical preview).';
   }
 }
 
@@ -632,6 +638,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608030102"></script>
+<script src="../assets/lang.js?v=202608042056"></script>
 </body>
 </html>

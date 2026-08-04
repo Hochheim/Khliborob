@@ -187,4 +187,16 @@ mark{background:var(--yellow);color:#1a1a1a;border-radius:2px;padding:0 2px}
   .content-grid-4 .content-panel:not(:first-child){margin-top:.8rem}
   .stats{grid-template-columns:1fr}
   .stat{border-right:none;border-bottom:1px solid var(--border)}
+  /* Nav has 8 links + a 4-button language switcher in one unwrapped flex
+     row; on a phone that overflows the page horizontally site-wide since
+     nav is sticky on every page. Let the links scroll horizontally within
+     the nav bar instead, like a tab strip, rather than blowing out the
+     page width. */
+  nav{padding:0 .8rem}
+  .nav-title{max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nav-links{overflow-x:auto;flex-wrap:nowrap;gap:.9rem;-webkit-overflow-scrolling:touch;
+             scrollbar-width:none;padding-bottom:1px}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap}
+  .lang-switcher{flex-shrink:0}
 }
