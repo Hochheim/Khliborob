@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202608042157">
+<link rel="stylesheet" href="../assets/main.css?v=202608042258">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -238,16 +238,26 @@ function bestSnippet(weightedTokens, record) {
 // extractive mode (verbatim quoted passages).
 function getKey() { return localStorage.getItem("gemini_key") || ""; }
 
+// Set once this session if the shared Worker reports its capacity is spent
+// (its own rate limit, or Google's quota rejecting the Worker's key). At
+// that point we stop retrying the Worker and offer BYOK as the way to keep
+// AI mode going, rather than only falling back to quote mode.
+let workerCapacityReached = false;
+
 function renderKeyBar() {
   const bar = document.getElementById("key-bar");
   const form = document.getElementById("key-form");
-  if (hasWorker()) {
+  if (hasWorker() && !workerCapacityReached) {
     bar.innerHTML = '🤖 AI agent <strong>enabled</strong> — multi-step research over the corpus, indices, and GPU documents.';
     form.style.display = "none";
   } else if (getKey()) {
-    bar.innerHTML = '🤖 AI agent <strong>enabled</strong> (Gemini) — multi-step research over the corpus, '
+    bar.innerHTML = '🤖 AI agent <strong>enabled</strong> (your key) — multi-step research over the corpus, '
       + 'indices, and GPU documents. <a href="#" onclick="clearKey();return false">Remove key</a>';
     form.style.display = "none";
+  } else if (workerCapacityReached) {
+    bar.innerHTML = "💬 The shared AI assistant has reached its capacity for now — quote mode above still works fully. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Add your own free Gemini key to keep getting AI-written answers</a>.';
   } else {
     bar.innerHTML = '💬 This already works — every answer above quotes the archive directly, with a citation, '
       + 'no setup needed. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
@@ -497,11 +507,13 @@ const AGENT_SYS =
 
 let chatHistory = [];
 
-async function geminiTurn(contents, key) {
+async function geminiTurn(contents, key, useWorker) {
   // Worker mode: the Worker attaches the real key server-side, so nothing
   // secret goes in this request or URL. BYOK mode: the visitor's own key
-  // goes straight to Google, as before.
-  const url = hasWorker()
+  // goes straight to Google, as before. useWorker is passed explicitly
+  // (rather than read from hasWorker() here) so a capacity-exhausted
+  // session can force BYOK for a retry even while a Worker is configured.
+  const url = useWorker
     ? AGENT_WORKER_URL
     : "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key);
   const resp = await fetch(url, {
@@ -522,13 +534,19 @@ async function geminiTurn(contents, key) {
     // Direct-to-Google errors nest under err.error.message; the Worker's
     // own errors (rate limits, sanitized upstream failures) are flat
     // {error, message} so raw Gemini/billing text never reaches a visitor.
-    throw new Error((err.error && err.error.message) || err.message || ("HTTP " + resp.status));
+    const message = (err.error && err.error.message) || err.message || ("HTTP " + resp.status);
+    const e = new Error(message);
+    // 429 from the Worker means shared capacity is spent — either its own
+    // rate limiter or Google's, both mapped to 429 on that side. Tag it so
+    // the caller can offer BYOK instead of just falling back to quote mode.
+    if (useWorker && resp.status === 429) e.capacityReached = true;
+    throw e;
   }
   const data = await resp.json();
   return (((data.candidates || [])[0] || {}).content) || { parts: [] };
 }
 
-async function runAgent(question, key, status) {
+async function runAgent(question, key, status, useWorker) {
   chatHistory.push({ role: "user", parts: [{ text: question }] });
   // Persistent history keeps only user questions and final answers (so
   // follow-ups like "what else did he do?" resolve); tool traffic stays
@@ -543,7 +561,7 @@ async function runAgent(question, key, status) {
     text: lastTurn.parts[0].text + "\n\n[Answer in the same language this question is written in.]"
   }] };
   for (let step = 0; step < 8; step++) {
-    const content = await geminiTurn(contents, key);
+    const content = await geminiTurn(contents, key, useWorker);
     const parts = content.parts || [];
     const calls = parts.filter(p => p.functionCall);
     if (!calls.length) {
@@ -581,17 +599,42 @@ async function sendQuestion() {
 
   try {
     const key = getKey();
-    if (hasWorker() || key) {
+    // Once the Worker's capacity is known to be spent this session, don't
+    // keep spending a round trip re-discovering that — go straight to
+    // BYOK (if the visitor has a key) or quote mode.
+    const tryWorker = hasWorker() && !workerCapacityReached;
+    if (tryWorker || key) {
       resetSources();
       try {
         status("🤖 Planning research…");
-        const answer = await runAgent(q, key, status);
+        const answer = await runAgent(q, key, status, tryWorker);
         replaceMsg(typingId, "assistant", answer, "", sourcesHtml());
         return;
       } catch (llmErr) {
         // Drop the dangling user turn so a failed run doesn't corrupt history
         if (chatHistory.length && chatHistory[chatHistory.length - 1].role === "user") chatHistory.pop();
-        appendMsg("system", "⚠️ AI agent failed (" + llmErr.message + ") — showing matching passages instead.");
+        if (llmErr.capacityReached) {
+          workerCapacityReached = true;
+          renderKeyBar();
+          if (key) {
+            // Own key already saved — the Worker was only being tried
+            // because it's normally free; fall through to it transparently.
+            try {
+              status("🤖 Shared capacity reached — continuing with your key…");
+              const answer = await runAgent(q, key, status, false);
+              replaceMsg(typingId, "assistant", answer, "", sourcesHtml());
+              return;
+            } catch (retryErr) {
+              if (chatHistory.length && chatHistory[chatHistory.length - 1].role === "user") chatHistory.pop();
+              appendMsg("system", "⚠️ AI agent failed (" + retryErr.message + ") — showing matching passages instead.");
+            }
+          } else {
+            appendMsg("system", "⚠️ The shared AI assistant has reached its capacity for now — showing matching "
+              + "passages instead. Add your own free Gemini key below to keep getting AI-written answers.");
+          }
+        } else {
+          appendMsg("system", "⚠️ AI agent failed (" + llmErr.message + ") — showing matching passages instead.");
+        }
       }
     }
 
@@ -681,6 +724,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202608042157"></script>
+<script src="../assets/lang.js?v=202608042258"></script>
 </body>
 </html>
