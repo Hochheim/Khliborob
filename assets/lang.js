@@ -21,6 +21,27 @@ function toggleChicago(id) {
   if (popup) popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
 }
 
+// Cross-links a translated paragraph back to its source: switches the
+// language switcher to Ukrainian and scrolls/highlights the paragraph at
+// the same index (translations preserve the source's paragraph structure
+// 1:1, so index N in any language is index N in the original).
+function jumpToOriginal(pageId, idx) {
+  applyLang('uk');
+  // Switching language just toggled display:none off the Ukrainian panel;
+  // wait a beat so the browser lays it out before measuring where to
+  // scroll — scrollIntoView on a just-revealed element can otherwise use
+  // stale (zero-height) geometry and land far from the real target.
+  // setTimeout rather than requestAnimationFrame: rAF is paused for
+  // backgrounded/hidden tabs by spec, and this should work regardless.
+  setTimeout(() => {
+    const target = document.getElementById('para-' + pageId + '-' + idx);
+    if (!target) return;
+    target.scrollIntoView({behavior: 'instant', block: 'center'});
+    target.classList.add('xlink-highlight');
+    setTimeout(() => target.classList.remove('xlink-highlight'), 2200);
+  }, 30);
+}
+
 function applyLang(lang) {
   currentLang = lang;
   localStorage.setItem('lang', lang);
