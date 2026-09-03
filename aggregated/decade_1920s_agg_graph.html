@@ -268,63 +268,21 @@
     } },
   ];
 
-  // Row layout sorted by mentions — persons top, locations bottom.
-  // Importance hierarchy comes from node size + opacity: most-mentioned nodes
-  // are larger and fully opaque, lesser-mentioned fade slightly.
-  function computePositions(nodeElements) {
-    const W = document.getElementById("cy").clientWidth  || 1200;
-    const PAD = 60;
-    const usableW = W - PAD * 2;
-    const pos = {};
-
-    const byMentions = (a,b) => (b.data("mentions")||0) - (a.data("mentions")||0);
-    const persons   = nodeElements.filter(n => n.data("type")==="person").sort(byMentions);
-    const locations = nodeElements.filter(n => n.data("type")==="location").sort(byMentions);
-    const pages     = nodeElements.filter(n => n.data("type")==="page");
-
-    function itemWidth(n) {
-      const sz = n.data("size") || 36;
-      return Math.max(sz + 16, (n.data("label")||"").length * 7 + sz + 20);
-    }
-    function placeRow(list, y) {
-      if (!list.length) return;
-      const widths = list.map(itemWidth);
-      const total  = widths.reduce((s,w)=>s+w, 0);
-      const scale  = total > usableW ? usableW / total : 1;
-      let x = PAD + (usableW - total*scale)/2 + widths[0]*scale/2;
-      list.forEach((n,i) => {
-        pos[n.data("id")] = {x, y};
-        if (i < list.length-1) x += widths[i]*scale/2 + widths[i+1]*scale/2;
-      });
-    }
-    function placeGroup(list, startY, rowH) {
-      if (!list.length) return 0;
-      const avgW = list.reduce((s,n)=>s+itemWidth(n),0)/list.length;
-      const perRow = Math.max(1, Math.floor(usableW/avgW));
-      let rows = [];
-      for (let i=0; i<list.length; i+=perRow) rows.push(list.slice(i,i+perRow));
-      rows.forEach((row,ri) => placeRow(row, startY + ri*rowH));
-      return rows.length * rowH;
-    }
-
-    let y = PAD + 50;
-    y += placeGroup(persons,   y, 110);
-    if (persons.length && locations.length) y += 50;
-    y += placeGroup(locations, y, 110);
-    if (pages.length) {
-      const pPerRow = Math.max(1, Math.floor(usableW/100));
-      pages.forEach((n,i) => {
-        pos[n.data("id")] = {
-          x: PAD + (i%pPerRow+0.5)*(usableW/pPerRow),
-          y: y + Math.floor(i/pPerRow)*50
-        };
-      });
-    }
-    return pos;
-  }
-
+  // Importance hierarchy comes from node size + opacity: most-mentioned
+  // nodes are larger and fully opaque, lesser-mentioned fade slightly.
+  //
+  // Position comes from cose, Cytoscape's built-in force-directed layout —
+  // NOT the manual row-by-label-width packer this replaced. That packer
+  // wrapped nodes into rows by dividing container width by average label
+  // width; with 150+ long Cyrillic names in a panel a few hundred px wide,
+  // that division rounded down to 1 item per row, stacking every node in a
+  // single vertical column regardless of the real co-mention edges (which
+  // were computed correctly all along — they just rendered as invisible
+  // segments directly behind the column). cose instead positions nodes by
+  // their actual edge structure, so related people cluster together and
+  // edge presence is finally visible, and it degrades gracefully at any
+  // panel size since it isn't driven by container width at all.
   function runLayout(cy) {
-    // Apply importance-scaled opacity BEFORE positioning
     const maxM = Math.max(1, ...cy.nodes().map(n => n.data("mentions")||0));
     cy.nodes().forEach(n => {
       const ratio = (n.data("mentions")||1) / maxM;
@@ -332,9 +290,18 @@
       n.style("opacity", 0.45 + ratio * 0.55);
     });
 
-    const pos = computePositions(cy.nodes().toArray());
-    cy.nodes().forEach(n => { if (pos[n.data("id")]) n.position(pos[n.data("id")]); });
-    cy.fit(cy.elements(), 60);
+    cy.layout({
+      name: "cose",
+      animate: false,
+      randomize: true,
+      nodeOverlap: 24,
+      idealEdgeLength: () => 90,
+      nodeRepulsion: () => 12000,
+      gravity: 25,
+      numIter: 1500,
+      fit: true,
+      padding: 60,
+    }).run();
   }
 
   const initMin = hasPageNodes ? 1 : 0;
