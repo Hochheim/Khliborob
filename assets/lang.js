@@ -41,21 +41,23 @@ function applyTranscriptLang(lang) {
   });
 }
 
-// Cross-links a translated paragraph back to its source: switches the
-// transcript-local language toggle to Ukrainian and scrolls/highlights
-// the paragraph at the same index (translations preserve the source's
-// paragraph structure 1:1, so index N in any language is index N in the
-// original).
-function jumpToOriginal(pageId, idx) {
-  applyTranscriptLang('uk');
-  // Switching language just toggled display:none off the Ukrainian panel;
+// Cross-links a translated paragraph back to its source (lang='uk', the
+// default) or, from a knowledge-graph node link, to the same language its
+// snippet was shown in: switches the transcript-local language toggle to
+// that language and scrolls/highlights the paragraph at the same index
+// (translations preserve the source's paragraph structure 1:1, so index N
+// in any language is index N in every other language).
+function jumpToOriginal(pageId, idx, lang) {
+  lang = lang || 'uk';
+  applyTranscriptLang(lang);
+  // Switching language just toggled display:none off the target panel;
   // wait a beat so the browser lays it out before measuring where to
   // scroll — scrollIntoView on a just-revealed element can otherwise use
   // stale (zero-height) geometry and land far from the real target.
   // setTimeout rather than requestAnimationFrame: rAF is paused for
   // backgrounded/hidden tabs by spec, and this should work regardless.
   setTimeout(() => {
-    const target = document.getElementById('para-' + pageId + '-' + idx);
+    const target = document.getElementById('para-' + lang + '-' + pageId + '-' + idx);
     if (!target) return;
     target.scrollIntoView({behavior: 'instant', block: 'center'});
     target.classList.add('xlink-highlight');
@@ -102,10 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.querySelector('.tlang-btn')) applyTranscriptLang(currentTranscriptLang);
 
   // A "View paragraph in transcript" link from a knowledge-graph node
-  // (e.g. "#para-khliborob_19280926_no30_page01-5") jumps straight to
-  // that paragraph in the original, the same way clicking a translated
-  // paragraph does — reusing jumpToOriginal rather than duplicating its
+  // (e.g. "#para-en-khliborob_19280926_no30_page01-5") jumps straight to
+  // that paragraph in the same language the snippet was shown in, the
+  // same way clicking a translated paragraph jumps to its Ukrainian
+  // original — reusing jumpToOriginal rather than duplicating its
   // scroll/highlight/layout-timing logic.
-  const hashMatch = location.hash.match(/^#para-(.+)-(\d+)$/);
-  if (hashMatch) jumpToOriginal(hashMatch[1], parseInt(hashMatch[2], 10));
+  const hashMatch = location.hash.match(/^#para-(uk|en|pt|de)-(.+)-(\d+)$/);
+  if (hashMatch) jumpToOriginal(hashMatch[2], parseInt(hashMatch[3], 10), hashMatch[1]);
 });
