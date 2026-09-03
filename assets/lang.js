@@ -100,4 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   applyLang(currentLang);
   if (document.querySelector('.tlang-btn')) applyTranscriptLang(currentTranscriptLang);
+
+  // A "View paragraph in transcript" link from a knowledge-graph node
+  // (e.g. "#para-khliborob_19280926_no30_page01-5") jumps straight to
+  // that paragraph in the original, the same way clicking a translated
+  // paragraph does — reusing jumpToOriginal rather than duplicating its
+  // scroll/highlight/layout-timing logic.
+  const hashMatch = location.hash.match(/^#para-(.+)-(\d+)$/);
+  if (hashMatch) jumpToOriginal(hashMatch[1], parseInt(hashMatch[2], 10));
 });
