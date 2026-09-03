@@ -27,6 +27,28 @@ function toggleChicago(id) {
 // request: reading a translation and checking the site UI in a different
 // language than the source transcript are two separate needs.
 function applyTranscriptLang(lang) {
+  // Each language panel has its own independent scroll position (it's a
+  // separate hidden/shown element, not shared content) — switching used
+  // to always land wherever that panel's scroll last was, which is the
+  // top for any panel not yet scrolled in this session. Find whichever
+  // paragraph is at the top of the currently-visible panel before
+  // switching, then scroll the newly-shown panel to that same paragraph
+  // (same page + index — translations preserve paragraph structure 1:1,
+  // so this lines up even though the wording/length differs).
+  let anchorPageId = null, anchorIdx = null;
+  const oldPanel = document.querySelector('[data-tlang-' + currentTranscriptLang + '] .transcript');
+  if (oldPanel) {
+    const containerTop = oldPanel.getBoundingClientRect().top;
+    const paras = oldPanel.querySelectorAll('p[id^="para-"]');
+    for (const p of paras) {
+      if (p.getBoundingClientRect().top >= containerTop) {
+        const m = p.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+        if (m) { anchorPageId = m[1]; anchorIdx = m[2]; }
+        break;
+      }
+    }
+  }
+
   currentTranscriptLang = lang;
   localStorage.setItem('transcriptLang', lang);
   document.querySelectorAll('.tlang-btn').forEach(btn => {
@@ -39,6 +61,11 @@ function applyTranscriptLang(lang) {
       el.style.display = (l === dataLangKey) ? '' : 'none';
     });
   });
+
+  if (anchorPageId !== null) {
+    const target = document.getElementById('para-' + dataLangKey + '-' + anchorPageId + '-' + anchorIdx);
+    if (target) target.scrollIntoView({behavior: 'instant', block: 'start'});
+  }
 }
 
 // Cross-links a translated paragraph back to its source (lang='uk', the
