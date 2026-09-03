@@ -83,7 +83,7 @@
     <input id="search" type="search" placeholder="Search person or place…" autocomplete="off"/>
     <div class="ctrl">
       <label for="min-mentions">Min. mentions</label>
-      <input type="range" id="min-mentions" min="0" max="1" value="0" step="1"/>
+      <input type="range" id="min-mentions" min="0" max="4" value="0" step="1"/>
       <span id="filter-val">1</span>
       <span id="node-count"></span>
     </div>
@@ -194,7 +194,7 @@
         .map(([key]) => { const [a,b]=key.split("|"); return {source:a,target:b}; });
 
   // ── node size: 24-72px proportional to mention count ──
-  const MAX_MENTIONS = Math.max(1, ...Object.values(mentionCount), 1);
+  const MAX_MENTIONS = Math.max(4, ...Object.values(mentionCount), 1);
   function nodeSize(n) {
     const mc = mentionCount[n.id] || 0;
     return MAX_MENTIONS <= 1 ? 32 : 24 + Math.round((mc / MAX_MENTIONS) * 48);
@@ -307,21 +307,34 @@
       n.style("opacity", 0.45 + ratio * 0.55);
     });
 
+    // Node/label count varies a lot between a single-page graph (~20
+    // nodes) and an aggregated one (still 50-200+ even after the
+    // min-mentions default filter) — scale spacing up for the denser
+    // case rather than using one fixed setting that's fine for the
+    // former and a compressed hairball for the latter.
+    const n = cy.nodes().length;
+    const density = Math.min(1, n / 80);
     cy.layout({
       name: "cose",
       animate: false,
       randomize: true,
-      nodeOverlap: 24,
-      idealEdgeLength: () => 90,
-      nodeRepulsion: () => 12000,
+      nodeOverlap: 24 + density * 26,
+      idealEdgeLength: () => 90 + density * 110,
+      nodeRepulsion: () => 12000 + density * 28000,
       gravity: 25,
       numIter: 1500,
+      componentSpacing: 120,
       fit: true,
       padding: 60,
     }).run();
   }
 
-  const initMin = hasPageNodes ? 1 : 0;
+  // Direct-mode co-mention graphs (no page-hub nodes) can have hundreds
+  // of nodes, most mentioned only once — starting the filter at 0 (show
+  // everyone) buries the graph in one-off entities the layout has no
+  // hope of spacing out legibly. Default to entities mentioned on 2+
+  // pages instead; the slider still goes down to the full set if wanted.
+  const initMin = hasPageNodes ? 1 : Math.min(2, MAX_MENTIONS);
   const cy = cytoscape({
     container: document.getElementById("cy"),
     elements: buildElements(initMin),
@@ -329,6 +342,10 @@
     layout: {name:"preset"},
     userZoomingEnabled:true, userPanningEnabled:true, boxSelectionEnabled:false,
   });
+  // Slider starts at initMin, not the "0"/"1" baked into the static HTML —
+  // keep the handle position and label in sync with what's actually shown.
+  document.getElementById("min-mentions").value = initMin;
+  document.getElementById("filter-val").textContent = initMin;
 
   // Apply positions after Cytoscape finishes mounting. Never rely solely on
   // requestAnimationFrame here: rAF does not fire while the page is not being
