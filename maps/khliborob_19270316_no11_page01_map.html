@@ -16,7 +16,7 @@
 <body>
   <div id="header">
     <h2>📍 Location Map — Ukrainian Farmer · 1927-03-16 · No. № 11 (139)</h2>
-    <p>51 geocoded, 0 without coordinates
+    <p>42 geocoded, 0 without coordinates
        &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;border-radius:50%;vertical-align:middle"></span> = large region (approximate)</p>
   </div>
   
@@ -24,63 +24,54 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     var map = L.map('map');
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
-      subdomains: 'abcd', maxZoom: 19
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      subdomains: 'abc', maxZoom: 19
     }).addTo(map);
-    L.marker([-26.24, -50.93]).addTo(map).bindPopup('Porto União (Порто Уніон)');
-    L.marker([-26.23, -50.93]).addTo(map).bindPopup('União da Vitória (Уніон да Вікторія)');
-    L.circleMarker([-24.89, -51.84], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Paraná (Парані)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([-14.23, -51.92], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Brazil (Бразилія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([-34.0, -64.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Argentina (Аргентина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([-23.55, -46.63]).addTo(map).bindPopup('São Paulo (С. Паулї)');
-    L.circleMarker([52.0, 19.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Poland (Польща)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([-25.42, -49.27]).addTo(map).bindPopup('Curitiba (Куритибська)');
-    L.marker([-22.9, -43.17]).addTo(map).bindPopup('Rio de Janeiro (Ріо)');
-    L.marker([48.85, 2.35]).addTo(map).bindPopup('Paris (Парїжі)');
-    L.circleMarker([49.0, 32.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Ukraine (Україна)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([60.0, 90.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Russia (Росія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([52.22, 21.0]).addTo(map).bindPopup('Warsaw (Варшавських)');
-    L.circleMarker([52.35, -1.17], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ England (Англія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([42.83, 12.83], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Italy (Італія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([46.6, 2.21], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ France (Франція)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([51.0, 10.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Germany (Німеччина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([40.46, -3.74], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Spain (Іспанія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([44.8, 20.46], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Yugoslavia (Югославія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([48.2, 16.37]).addTo(map).bindPopup('Vienna (Відень)');
-    L.circleMarker([41.15, 20.16], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Albania (Албанської)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([44.78, 20.44]).addTo(map).bindPopup('Belgrade (Белградських)');
-    L.marker([43.55, 10.3]).addTo(map).bindPopup('Livorno (Ліворно)');
-    L.circleMarker([43.0, 21.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Balkans (Балканах)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([61.52, 105.31], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ USSR (СРСР)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([41.9, 12.45]).addTo(map).bindPopup('Rome (Рим)');
-    L.circleMarker([49.5, 24.5], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Galicia (Галичина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([50.4, 18.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Upper Silesia (Ґорішнього Шлеску)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([54.68, 25.26]).addTo(map).bindPopup('Lukiškės Prison (Vilnius) (Лукішській тюрмі)');
-    L.circleMarker([51.5, 28.5], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Polissia (Поліссі)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([39.82, -98.58], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ America (Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([48.69, 9.14], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Europe (Европа)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([49.0, 33.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Dnieper Ukraine (Наддніпрянщина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([-25.21, -50.96]).addTo(map).bindPopup('Prudentópolis (Прудентополіс)');
-    L.circleMarker([-23.44, -58.44], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Paraguay (Парагвай)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([36.2, 138.25], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Japan (Японія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([51.25, -100.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ North America (Північна Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([50.0, 40.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Rus\' (Русь)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([-25.8653, -50.8406]).addTo(map).bindPopup('Mallet (Малєт)');
-    L.marker([41.1579, -8.6291]).addTo(map).bindPopup('Porto (Порто)');
+    L.marker([-26.2447, -51.0822]).addTo(map).bindPopup('Porto União (Порто Уніон)');
+    L.circleMarker([-14.235, -51.9253], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Brazil (Бразилія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-23.5505, -46.6333]).addTo(map).bindPopup('São Paulo (Сан-Паулу)');
+    L.circleMarker([-25.252, -52.0211], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Paraná (Парана)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-25.4284, -49.2733]).addTo(map).bindPopup('Curitiba (Куритиба)');
+    L.marker([-22.9068, -43.1729]).addTo(map).bindPopup('Rio de Janeiro (Ріо-де-Жанейро)');
+    L.circleMarker([55.3781, -3.436], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ United Kingdom (Англія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([41.8719, 12.5674], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Italy (Італія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([46.2276, 2.2137], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ France (Франція)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([51.1657, 10.4515], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Germany (Німеччина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([51.9194, 19.1451], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Poland (Польща)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([48.2082, 16.3738]).addTo(map).bindPopup('Vienna (Відень)');
+    L.circleMarker([43.83, 21.05], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Balkans (Балкани)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([44.787, 20.457], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Yugoslavia (Югославія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([41.9028, 12.4964]).addTo(map).bindPopup('Rome (Рим)');
+    L.circleMarker([49.0, 24.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Galicia (Галичина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([50.31, 18.66], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Upper Silesia (Горішній Шлеск)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([52.2297, 21.0122]).addTo(map).bindPopup('Warsaw (Варшава)');
+    L.marker([54.6872, 25.2797]).addTo(map).bindPopup('Vilnius (Вільнюс)');
+    L.circleMarker([48.3794, 31.1656], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Ukraine (Україна)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-26.1114, -50.3792]).addTo(map).bindPopup('Três Barras (Трес Баррас)');
+    L.marker([-25.4746, -50.6409]).addTo(map).bindPopup('Irati Colony (Іраті Кольонія)');
+    L.circleMarker([0.0, -90.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ The Americas (Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([48.69096, 17.58552], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Europe (Европа)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-25.2106, -50.9708]).addTo(map).bindPopup('Prudentópolis (Прудентополіс)');
+    L.circleMarker([35.8617, 104.1954], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ China (Китай)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([36.2048, 138.2529], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Japan (Японія)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([54.526, -105.2551], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ North America (Північна Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-26.2239, -51.0922]).addTo(map).bindPopup('União da Vitória (Уніон да Вікторія)');
+    L.marker([-25.8778, -50.925]).addTo(map).bindPopup('Marechal Mallet (М. Малєт)');
     L.circleMarker([49.8175, 15.473], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Czechoslovakia (Чехословаччина)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([50.45, 30.52], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Rus (Русь)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([-27.21, -50.11], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Santa Catarina (Санта Катаріна)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([56.13, -106.34], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Canada (Канада)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([-22.22, -50.88]).addTo(map).bindPopup('Rancharia (Ранчарія)');
-    L.marker([-22.17, -51.6]).addTo(map).bindPopup('Presidente Bernardes (Презіденте Бернардес)');
-    L.marker([-21.65, -51.17]).addTo(map).bindPopup('Santo Anastácio (Санто Анастасіо)');
-    L.marker([-21.78, -51.81]).addTo(map).bindPopup('Presidente Wenceslau (Презіденте Венцеслау)');
-    L.circleMarker([-23.49, -47.45], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Sorocabana (Region) (Сорокабана)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.marker([-25.478, -50.658]).addTo(map).bindPopup('Iraty (Іраті)');
-    L.marker([-16.03, -55.06]).addTo(map).bindPopup('Jangada (Жангаді)');
+    L.marker([-30.0346, -51.2177]).addTo(map).bindPopup('Porto Alegre (Порті)');
+    L.marker([-25.8778, -50.925]).addTo(map).bindPopup('Ivan\'s House (Іванова Хата)');
+    L.marker([-15.25, -56.483333]).addTo(map).bindPopup('Jangada (Жангаді)');
+    L.marker([-22.21, -50.908333]).addTo(map).bindPopup('Rancharia (Раншарія)');
+    L.marker([-22.181944, -51.879444]).addTo(map).bindPopup('Presidente Bernardes (Президенті Бернардіс)');
+    L.marker([-21.89, -51.173611]).addTo(map).bindPopup('Santo Anastácio (Санту-Анастасіу)');
+    L.marker([-21.872778, -51.986667]).addTo(map).bindPopup('Presidente Wenceslau (Президенті Венсеслау)');
+    L.marker([-22.411667, -47.561111]).addTo(map).bindPopup('Rio Claro (Ріо Кляро)');
+    L.circleMarker([-27.27, -50.22], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Santa Catarina (Санта-Катаріна)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.circleMarker([60.0, -110.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Canada (Канада)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
+    L.marker([-25.474444, -50.640833]).addTo(map).bindPopup('Irati (Іраті)');
 
-    map.fitBounds([[-26.24, -50.93], [-26.23, -50.93], [-24.89, -51.84], [-14.23, -51.92], [-34.0, -64.0], [-23.55, -46.63], [52.0, 19.0], [-25.42, -49.27], [-22.9, -43.17], [48.85, 2.35], [49.0, 32.0], [60.0, 90.0], [52.22, 21.0], [52.35, -1.17], [42.83, 12.83], [46.6, 2.21], [51.0, 10.0], [40.46, -3.74], [44.8, 20.46], [48.2, 16.37], [41.15, 20.16], [44.78, 20.44], [43.55, 10.3], [43.0, 21.0], [61.52, 105.31], [41.9, 12.45], [49.5, 24.5], [50.4, 18.0], [54.68, 25.26], [51.5, 28.5], [39.82, -98.58], [48.69, 9.14], [49.0, 33.0], [-25.21, -50.96], [-23.44, -58.44], [36.2, 138.25], [51.25, -100.0], [50.0, 40.0], [-25.8653, -50.8406], [41.1579, -8.6291], [49.8175, 15.473], [50.45, 30.52], [-27.21, -50.11], [56.13, -106.34], [-22.22, -50.88], [-22.17, -51.6], [-21.65, -51.17], [-21.78, -51.81], [-23.49, -47.45], [-25.478, -50.658], [-16.03, -55.06]], {padding: [40, 40]});
+    map.fitBounds([[-26.2447, -51.0822], [-14.235, -51.9253], [-23.5505, -46.6333], [-25.252, -52.0211], [-25.4284, -49.2733], [-22.9068, -43.1729], [55.3781, -3.436], [41.8719, 12.5674], [46.2276, 2.2137], [51.1657, 10.4515], [51.9194, 19.1451], [48.2082, 16.3738], [43.83, 21.05], [44.787, 20.457], [41.9028, 12.4964], [49.0, 24.0], [50.31, 18.66], [52.2297, 21.0122], [54.6872, 25.2797], [48.3794, 31.1656], [-26.1114, -50.3792], [-25.4746, -50.6409], [0.0, -90.0], [48.69096, 17.58552], [-25.2106, -50.9708], [35.8617, 104.1954], [36.2048, 138.2529], [54.526, -105.2551], [-26.2239, -51.0922], [-25.8778, -50.925], [49.8175, 15.473], [-30.0346, -51.2177], [-25.8778, -50.925], [-15.25, -56.483333], [-22.21, -50.908333], [-22.181944, -51.879444], [-21.89, -51.173611], [-21.872778, -51.986667], [-22.411667, -47.561111], [-27.27, -50.22], [60.0, -110.0], [-25.474444, -50.640833]], {padding: [40, 40]});
   </script>
 </body>
 </html>
