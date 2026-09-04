@@ -81,9 +81,27 @@ function issueListHtml(issueList){
     var url = (x.issue_url||'') + anchor;
     return '<div style="margin-top:6px"><a href="'+url+'" target="_blank" '
       + 'style="color:#FFD500;font-weight:600;text-decoration:underline">'+x.label+' ↗</a>'
-      + (text ? '<br><span style="color:#ccc;font-size:11px;line-height:1.4;font-style:italic">"'+text+'"</span>' : '')
+      + (text ? '<br><span style="color:#444;font-size:11px;line-height:1.4;font-style:italic">"'+text+'"</span>' : '')
       + '</div>';
   }).join('');
+}
+
+// Shared by each arc's own click handler and the "Connected to" list in
+// makeMarker's popup below — a marker-side way to open a specific arc's
+// info reliably, since arcs sharing an endpoint can visually overlap
+// into what looks like one line (see the comment on the fan-out spread
+// further down): clicking a bundle of overlapping lines can land on any
+// one of several different arcs depending on the exact pixel, which
+// isn't a fixable click target no matter how much they're spread out.
+// Listing connections directly in the marker popup sidesteps needing to
+// click a line at all.
+function arcPopHtml(arc){
+  var ul=arc.ul, bl=arc.bl;
+  var ulLabel = ul.wikidata ? '<a href="'+ul.wikidata+'" target="_blank" style="color:#7dd3fc">'+ul.name+' ↗</a>' : ul.name;
+  var blLabel = bl.wikidata ? '<a href="'+bl.wikidata+'" target="_blank" style="color:#7dd3fc">'+bl.name+' ↗</a>' : bl.name;
+  return '<strong style="font-size:13px">'+ulLabel+' &harr; '+blLabel+'</strong><br>'
+    + '<small style="color:#aaa;font-size:11px">Connected via '+(arc.issues||[]).length+' issue(s):</small>'
+    + issueListHtml(arc.issues);
 }
 
 arcs.forEach(function(arc, idx){
@@ -102,15 +120,9 @@ arcs.forEach(function(arc, idx){
     ]);
   }
 
-  var ulLabel = ul.wikidata ? '<a href="'+ul.wikidata+'" target="_blank" style="color:#7dd3fc">'+ul.name+' ↗</a>' : ul.name;
-  var blLabel = bl.wikidata ? '<a href="'+bl.wikidata+'" target="_blank" style="color:#7dd3fc">'+bl.name+' ↗</a>' : bl.name;
   // Rebuilt on each open (not cached once) so it reflects whichever
   // language is currently selected via setMapLang().
-  function buildPopHtml(){
-    return '<strong style="font-size:13px">'+ulLabel+' &harr; '+blLabel+'</strong><br>'
-      + '<small style="color:#aaa;font-size:11px">Connected via '+(arc.issues||[]).length+' issue(s):</small>'
-      + issueListHtml(arc.issues);
-  }
+  function buildPopHtml(){ return arcPopHtml(arc); }
 
   var cnt = (arc.issues||[]).length;
   // Thicker baseline (was 1-5px) so a visible/highlighted arc is an
@@ -151,6 +163,18 @@ function unpin(){
 }
 map.on('click', function(){ unpin(); });
 
+// Opens a specific arc's popup directly by its index in `arcs` (a plain
+// integer needs no escaping in the onclick string, unlike a place name
+// that might contain a quote) — used by the "Connected to" list in a
+// marker's popup, since clicking the rendered line itself is unreliable
+// whenever several arcs share an endpoint and their curves overlap.
+function openArcPopupByIndex(i, lat, lon){
+  var arc = arcs[i];
+  if (!arc) return;
+  currentPopupRebuild = function(){ return arcPopHtml(arc); };
+  L.popup({maxWidth:320,maxHeight:280}).setLatLng([lat,lon]).setContent(arcPopHtml(arc)).openOn(map);
+}
+
 function makeMarker(loc, color, side){
   var wikiLink = loc.wikidata
     ? '<a href="'+loc.wikidata+'" target="_blank" style="color:#7dd3fc">Wikidata ↗</a><br>' : '';
@@ -164,13 +188,33 @@ function makeMarker(loc, color, side){
   // the other location maps.
   var regionNote = loc.is_region
     ? '<br><small style="color:#f39c12">⚠️ Broad region — marker is an approximate centroid, not an exact place.</small>' : '';
+  // Lists every arc touching this marker as its own clickable item,
+  // rather than relying on the rendered line itself as the click target
+  // — arcs sharing an endpoint can fan out so tightly their curves
+  // overlap, so a click on "the line" can land on any one of several
+  // different arcs depending on the exact pixel. This is a reliable way
+  // to reach a specific connection regardless of how the lines overlap.
+  function connectionsHtml(){
+    var items = [];
+    arcs.forEach(function(a, i){
+      var isMatch = side==='ul' ? a.ul.name===loc.name : a.bl.name===loc.name;
+      if (!isMatch) return;
+      var other = side==='ul' ? a.bl : a.ul;
+      items.push('<li style="margin:3px 0"><a href="javascript:void(0)" '
+        + 'onclick="openArcPopupByIndex('+i+','+loc.lat+','+loc.lon+')" '
+        + 'style="color:#FFD500;text-decoration:none">↔ '+other.name+'</a></li>');
+    });
+    if (!items.length) return '';
+    return '<div style="margin-top:8px"><small style="color:#aaa;font-size:11px">Connected to ('+items.length+'):</small>'
+      + '<ul style="list-style:none;padding-left:0;margin:4px 0 0">'+items.join('')+'</ul></div>';
+  }
   // Rebuilt on each open (not cached once) so it reflects whichever
   // language is currently selected via setMapLang().
   function buildPopHtml(){
     return '<strong style="font-size:13px">'+loc.name+(loc.is_region?' <span style="color:#f39c12">(region)</span>':'')+'</strong><br>'
       + wikiLink
       + '<small style="color:#aaa;font-size:11px">Mentioned in '+(loc.issues||[]).length+' issue(s):</small>'
-      + issueListHtml(loc.issues) + regionNote;
+      + issueListHtml(loc.issues) + connectionsHtml() + regionNote;
   }
   var m = loc.is_region
     ? L.circleMarker([loc.lat,loc.lon],{
