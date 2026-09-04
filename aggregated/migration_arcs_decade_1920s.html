@@ -163,14 +163,27 @@ function unpin(){
 }
 map.on('click', function(){ unpin(); });
 
+// Shows just the one arc at index i (hides every other line) — arcLines[i]
+// always corresponds to arcs[i], since both are built by the same
+// single-pass arcs.forEach above.
+function highlightArcByIndex(i){
+  arcLines.forEach(function(a, idx){
+    a.line.setStyle(idx===i
+      ? {color:'#FFD500', weight:a.weight+2, opacity:0.85}
+      : {opacity:0});
+  });
+}
 // Opens a specific arc's popup directly by its index in `arcs` (a plain
 // integer needs no escaping in the onclick string, unlike a place name
 // that might contain a quote) — used by the "Connected to" list in a
 // marker's popup, since clicking the rendered line itself is unreliable
-// whenever several arcs share an endpoint and their curves overlap.
+// whenever several arcs share an endpoint and their curves overlap. Also
+// highlights that one line, since otherwise the popup would describe a
+// connection whose line stays invisible (opacity 0) on the map.
 function openArcPopupByIndex(i, lat, lon){
   var arc = arcs[i];
   if (!arc) return;
+  highlightArcByIndex(i);
   currentPopupRebuild = function(){ return arcPopHtml(arc); };
   L.popup({maxWidth:320,maxHeight:280}).setLatLng([lat,lon]).setContent(arcPopHtml(arc)).openOn(map);
 }
