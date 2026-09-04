@@ -33,6 +33,7 @@
             font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
     .bp{background:#dbeafe;color:#1e40af}
     .bl{background:#d1fae5;color:#065f46}
+    .bo{background:#ede9fe;color:#5b21b6}
     .field{margin-bottom:9px}
     .field b{display:block;font-size:.65rem;text-transform:uppercase;
               letter-spacing:.06em;color:#bbb;margin-bottom:3px}
@@ -80,6 +81,7 @@
       <div id="legend">
         <span><span class="dot" style="background:#3b82f6"></span>Person</span>
         <span><span class="dia"></span>Location</span>
+        <span><span class="dot" style="background:#8b5cf6"></span>Organization</span>
         <span style="color:#94a3b8">— mentioned near each other on this page</span>
       </div>
     </div>
@@ -151,6 +153,15 @@
         "width":"data(size)","height":"data(size)","shape":"diamond",
         "label":"data(label)","color":"#064e3b","font-size":12,"font-weight":600,
         "text-valign":"bottom","text-halign":"center","text-margin-y":12,
+        "text-background-color":"rgba(255,255,255,.85)","text-background-opacity":1,
+        "text-background-padding":"2px","text-background-shape":"roundrectangle",
+        "text-max-width":"150px","text-wrap":"wrap",
+      } },
+      { selector:"node[type='organization']", style:{
+        "background-color":"#8b5cf6","border-color":"#5b21b6","border-width":2,
+        "width":"data(size)","height":"data(size)","shape":"round-rectangle",
+        "label":"data(label)","color":"#4c1d95","font-size":12,"font-weight":600,
+        "text-valign":"bottom","text-halign":"center","text-margin-y":8,
         "text-background-color":"rgba(255,255,255,.85)","text-background-opacity":1,
         "text-background-padding":"2px","text-background-shape":"roundrectangle",
         "text-max-width":"150px","text-wrap":"wrap",
@@ -249,7 +260,7 @@
     }
     document.getElementById("panel-body").innerHTML = `
       <h3>${d.label}</h3>
-      <span class="badge ${d.type==="person"?"bp":"bl"}">${d.type}</span>
+      <span class="badge ${d.type==="person"?"bp":d.type==="organization"?"bo":"bl"}">${d.type}</span>
       ${d.mentions > 1 ? `<div style="font-size:.7rem;color:#999;margin-bottom:4px">${d.mentions} mentions on this page</div>` : ""}
       ${snip}${srcLink}${extra}
       ${conn?`<div class="field"><b>Connected to</b><ul>${conn}</ul></div>`:""}`;
