@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609041413">
+<link rel="stylesheet" href="../assets/main.css?v=202609041424">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -97,12 +97,37 @@ async function doSearch() {
     return;
   }
   const data = await Promise.all(search.results.slice(0, 20).map(x => x.data()));
-  document.getElementById('results').innerHTML = data.map(d => `
+  // Pagefind tracks every element with an id as an "anchor", each carrying
+  // the word-offset location where it starts in the page — including every
+  // transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
+  // closest anchor at or before the first match's location tells us which
+  // paragraph the hit is actually in, and we can link straight to it (the
+  // page already jumps + highlights on that hash on load). Without this, a
+  // result link just drops the reader at the top of a long multi-language
+  // transcript with no way to relocate the passage that matched.
+  const tlang = localStorage.getItem('transcriptLang') || 'en';
+  document.getElementById('results').innerHTML = data.map(d => {
+    let url = d.url;
+    if (d.locations && d.locations.length && d.anchors && d.anchors.length) {
+      const target = d.locations[0];
+      let best = null;
+      for (const a of d.anchors) {
+        if (!a.id || a.id.indexOf('para-') !== 0) continue;
+        if (a.location > target) continue;
+        if (!best || a.location > best.location) best = a;
+      }
+      if (best) {
+        const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+        if (m) url = d.url + '#para-' + tlang + '-' + m[1] + '-' + m[2];
+      }
+    }
+    return `
     <div class="result-card">
       <div class="result-date">${d.meta?.date||''} ${d.meta?.issue||''}</div>
-      <div class="result-title"><a href="${d.url}">${d.meta?.title||d.url}</a></div>
+      <div class="result-title"><a href="${url}">${d.meta?.title||d.url}</a></div>
       <div class="result-snippet">${d.excerpt}</div>
-    </div>`).join('');
+    </div>`;
+  }).join('');
 }
 const params = new URLSearchParams(window.location.search);
 const q = params.get('q');
@@ -114,6 +139,6 @@ document.getElementById('q').addEventListener('keydown', e => {
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609041413"></script>
+<script src="../assets/lang.js?v=202609041424"></script>
 </body>
 </html>
