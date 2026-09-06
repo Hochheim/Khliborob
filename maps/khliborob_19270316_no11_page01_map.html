@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
-    body { margin: 0; font-family: sans-serif; }
-    #header { background: #2c3e50; color: #fff; padding: 10px 16px; }
+    body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; height: 100vh; }
+    #header { background: #2c3e50; color: #fff; padding: 10px 16px; flex-shrink: 0; }
     #header h2 { margin: 0; font-size: 1rem; }
     #header p  { margin: 2px 0 0; font-size: 0.8rem; opacity: 0.7; }
-    #map { width: 100%; height: calc(100vh - 60px); }
+    #map { width: 100%; flex: 1; min-height: 160px; }
   </style>
 </head>
 <body>
@@ -19,8 +19,8 @@
     <p>42 geocoded, 0 without coordinates
        &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;border-radius:50%;vertical-align:middle"></span> = large region (approximate)</p>
   </div>
-  
   <div id="map"></div>
+  
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     var map = L.map('map');
