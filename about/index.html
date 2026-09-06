@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609061433">
+<link rel="stylesheet" href="../assets/main.css?v=202609061448">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -103,6 +103,40 @@
     the page scan) before quoting.
   </p>
 
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Entity linking &amp; data quality</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Every person, organization, and location extracted from the transcribed text is automatically
+    checked against Wikidata and linked where a plausible match exists, giving a path from a name
+    in this archive to the wider web of structured historical data. This step is probabilistic,
+    not exact: Wikidata's search has no confidence threshold and always returns its best guess, so
+    a short or literally-translated name can silently collide with something globally more famous
+    under the same label. A full manual audit of every organization link in this pilot found 15
+    confirmed-wrong matches — among them a Brazilian beer brand linked to a genus of sea snail, and
+    a small Paraná butcher shop linked to an unrelated museum exhibit — all corrected once found.
+    This pilot's 8 pages currently carry Wikidata links for 23 of 70 organizations, 73 of 176
+    persons, and 67 of 83 locations. Independent extraction passes were also found to occasionally
+    render the same original-language name in two different English forms (e.g. "Rural World" and
+    "Silsky Svit (Rural World)" for one publication); these are now merged automatically by the
+    shared Ukrainian original rather than left as unrelated-looking duplicates. This audit covered
+    every organization link that existed in the pilot, not a sample of them — but the pilot itself
+    is only 8 pages from one narrow slice of a century-long run, so the resulting error rate
+    describes what was found here, not a validated prediction of the rate to expect across 14,000
+    pages spanning many more eras, name conventions, and failure modes. It is reported as a
+    demonstrated finding and the reason the monitoring process below now exists, not as a forecast.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Manual review of every match does not scale to 14,000 pages, so the pipeline now includes a
+    standing random-sampling audit instead of a one-time check: after each processing batch, a
+    stratified sample of newly-linked persons, locations, and organizations — drawn separately per
+    category, since error rates differ meaningfully between them — is set aside for a person to
+    confirm or reject, shown next to the actual sentence the name was mentioned in, not the name
+    alone. Rejected matches are stripped immediately and logged. A first, small run of this process
+    against the pilot (24 links sampled) found a 25% error rate among the persons sampled and none
+    among the locations or organizations sampled that batch — too small a sample to generalize
+    from yet, but it establishes the mechanism that will track this rate, batch by batch, as
+    digitization scales, rather than assuming a reliability that has not been measured.
+  </p>
+
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Each digitized page has an IIIF Presentation 3.0 manifest (linked from its issue page) so
@@ -130,7 +164,8 @@
     This pilot corpus (2 issues, 8 pages) exists to demonstrate the pipeline end-to-end for a
     funding application. If funded, the next phases are: (1) full digitization of SUBRAS's
     physical archive — an estimated 14,000+ pages spanning 1924 to the present; (2) a formal
-    accuracy evaluation of the OCR/translation pipeline against a sampled set of pages; (3)
+    accuracy evaluation of the OCR/translation pipeline against a sampled set of pages, extending
+    the entity-linking audit above to transcription and translation quality as well; (3)
     deposit of the complete corpus with the Internet Archive and a DOI-bearing dataset record
     (e.g. via Zenodo) for permanent citability; (4) migration of the Research Agent to a hosted
     backend so AI-assisted queries do not require visitors to supply their own API key.
@@ -208,6 +243,43 @@
     українським оригіналом (або сканом сторінки) перед цитуванням.
   </p>
 
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Пов'язування сутностей і якість даних</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Кожну особу, організацію та місце, виділені з транскрибованого тексту, автоматично звіряють
+    із Вікіданими та зв'язують, якщо є правдоподібний збіг, — це дає шлях від імені в цьому архіві
+    до ширшої мережі структурованих історичних даних. Цей крок імовірнісний, а не точний: пошук
+    Вікіданих не має порогу впевненості й завжди повертає найкращу здогадку, тож коротка або
+    буквально перекладена назва може непомітно збігтися з чимось глобально відомішим під тією ж
+    назвою. Повний ручний аудит усіх зв'язків з організаціями в цьому пілотному корпусі виявив 15
+    підтверджено помилкових збігів — серед них бразильський бренд пива, помилково пов'язаний із
+    родом морських равликів, і невеликий паранський м'ясний магазин, пов'язаний із непричетним
+    музейним експонатом — усі виправлено після виявлення. Наразі 8 сторінок цього пілотного
+    корпусу мають зв'язки з Вікіданими для 23 з 70 організацій, 73 зі 176 осіб і 67 з 83 місць.
+    Також виявлено, що незалежні проходи виділення сутностей іноді подають ту саму назву
+    мовою оригіналу у двох різних англійських формах (наприклад, «Rural World» і «Silsky Svit
+    (Rural World)» для одного видання); тепер їх автоматично об'єднують за спільним українським
+    оригіналом, а не залишають виглядати як непов'язані дублікати. Цей аудит охопив усі зв'язки з
+    організаціями, що існували в пілотному корпусі, а не вибірку з них, — але сам пілотний корпус
+    налічує лише 8 сторінок з одного вузького зрізу столітнього видання, тож отриманий рівень
+    помилок описує те, що виявлено тут, а не перевірений прогноз рівня, якого слід очікувати на
+    14 000 сторінках, що охоплюють значно більше епох, назвотворчих традицій і типів помилок. Це
+    подано як підтверджений результат і причина, з якої тепер існує описаний нижче процес
+    моніторингу, а не як прогноз.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Ручна перевірка кожного збігу не масштабується до 14 000 сторінок, тож конвеєр тепер включає
+    постійний аудит методом випадкової вибірки замість одноразової перевірки: після кожної партії
+    обробки стратифіковану вибірку новостворених зв'язків для осіб, місць і організацій — вибрану
+    окремо для кожної категорії, оскільки рівні помилок суттєво різняться між ними — відкладають
+    для того, щоб людина підтвердила або відхилила її, показуючи поруч реальне речення, у якому
+    згадано назву, а не саму лише назву. Відхилені збіги негайно видаляють і фіксують у журналі.
+    Перший, невеликий запуск цього процесу на пілотному корпусі (вибірка 24 зв'язків) виявив 25%
+    помилок серед вибраних осіб і жодної серед вибраних місць чи організацій у цій партії — вибірка
+    поки що замала для узагальнень, але вона встановлює механізм, який відстежуватиме цей показник
+    від партії до партії в міру масштабування оцифрування, замість того, щоб покладатися на
+    невиміряну надійність.
+  </p>
+
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Стандарти та сумісність</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Кожна оцифрована сторінка має маніфест IIIF Presentation 3.0 (посилання на нього — на
@@ -236,7 +308,8 @@
     повністю в рамках заявки на фінансування. У разі отримання фінансування наступні етапи:
     (1) повне оцифрування фізичного архіву SUBRAS — приблизно 14 000+ сторінок за період з 1924
     року дотепер; (2) формальна оцінка точності конвеєра розпізнавання й перекладу на вибірці
-    сторінок; (3) депонування повного корпусу в Internet Archive та створення запису набору
+    сторінок, поширюючи наведений вище аудит пов'язування сутностей також на якість транскрипції
+    й перекладу; (3) депонування повного корпусу в Internet Archive та створення запису набору
     даних із DOI (наприклад, через Zenodo) для постійного цитування; (4) перенесення
     Дослідницького агента на розміщений на сервері бекенд, щоб запити зі штучним інтелектом не
     вимагали від відвідувачів надання власного ключа API.
@@ -320,6 +393,46 @@
     riscos habituais de perda de idiomatismos e formulações anacrônicas; pesquisadores que
     fizerem leitura atenta devem tratar as colunas em inglês/português como um auxílio de
     navegação e verificar o original em ucraniano (ou a digitalização da página) antes de citar.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Vinculação de entidades e qualidade dos dados</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Cada pessoa, organização e local extraído do texto transcrito é automaticamente verificado
+    no Wikidata e vinculado onde existe uma correspondência plausível, oferecendo um caminho de
+    um nome neste arquivo até a rede mais ampla de dados históricos estruturados. Essa etapa é
+    probabilística, não exata: a busca do Wikidata não tem um limiar de confiança e sempre retorna
+    seu melhor palpite, de modo que um nome curto ou traduzido literalmente pode colidir
+    silenciosamente com algo globalmente mais famoso sob o mesmo rótulo. Uma auditoria manual
+    completa de todos os vínculos de organizações neste piloto encontrou 15 correspondências
+    confirmadamente erradas — entre elas uma marca brasileira de cerveja vinculada a um gênero de
+    caramujo marinho, e um pequeno açougue do Paraná vinculado a um objeto de museu sem relação
+    alguma — todas corrigidas assim que encontradas. As 8 páginas deste piloto atualmente têm
+    vínculos com o Wikidata para 23 das 70 organizações, 73 das 176 pessoas e 67 dos 83 locais.
+    Também se constatou que execuções independentes de extração ocasionalmente geram o mesmo nome
+    no idioma original em duas formas diferentes em inglês (por exemplo, "Rural World" e "Silsky
+    Svit (Rural World)" para uma mesma publicação); agora elas são mescladas automaticamente pelo
+    nome ucraniano compartilhado, em vez de permanecerem como duplicatas aparentemente não
+    relacionadas. Essa auditoria cobriu todos os vínculos de organizações existentes no piloto, não
+    uma amostra deles — mas o próprio piloto tem apenas 8 páginas de um recorte estreito de uma
+    publicação centenária, de modo que a taxa de erro encontrada descreve o que foi observado
+    aqui, não uma previsão validada da taxa a esperar em 14.000 páginas que abrangem muito mais
+    épocas, convenções de nomenclatura e tipos de erro. Ela é apresentada como um resultado
+    demonstrado e o motivo pelo qual o processo de monitoramento abaixo agora existe, não como uma
+    previsão.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    A revisão manual de cada correspondência não é viável em escala para 14.000 páginas, então o
+    pipeline agora inclui uma auditoria permanente por amostragem aleatória, em vez de uma
+    verificação pontual: após cada lote de processamento, uma amostra estratificada de pessoas,
+    locais e organizações recém-vinculados — retirada separadamente por categoria, já que as taxas
+    de erro diferem significativamente entre elas — é reservada para que uma pessoa confirme ou
+    rejeite, exibida junto à frase real em que o nome foi mencionado, não apenas o nome isolado.
+    Correspondências rejeitadas são removidas imediatamente e registradas. Uma primeira execução,
+    ainda pequena, desse processo no corpus piloto (24 vínculos amostrados) encontrou uma taxa de
+    erro de 25% entre as pessoas amostradas e nenhuma entre os locais ou organizações amostrados
+    naquele lote — uma amostra pequena demais para generalizar por enquanto, mas que estabelece o
+    mecanismo que acompanhará essa taxa, lote a lote, à medida que a digitalização for ampliada,
+    em vez de presumir uma confiabilidade que nunca foi medida.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Padrões e interoperabilidade</h2>
@@ -439,6 +552,49 @@
     ukrainischen Original (oder dem Seitenscan) abgleichen.
   </p>
 
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Verknüpfung von Entitäten und Datenqualität</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Jede aus dem transkribierten Text extrahierte Person, Organisation und jeder Ort wird
+    automatisch mit Wikidata abgeglichen und verknüpft, sofern eine plausible Übereinstimmung
+    besteht — das schafft einen Weg von einem Namen in diesem Archiv zum breiteren Netz
+    strukturierter historischer Daten. Dieser Schritt ist probabilistisch, nicht exakt: Die
+    Wikidata-Suche kennt keinen Konfidenzschwellenwert und liefert immer ihre beste Vermutung,
+    sodass ein kurzer oder wörtlich übersetzter Name unbemerkt mit etwas global Bekannterem unter
+    derselben Bezeichnung kollidieren kann. Eine vollständige manuelle Prüfung aller
+    Organisationsverknüpfungen in diesem Pilotprojekt ergab 15 bestätigt falsche Treffer —
+    darunter eine brasilianische Biermarke, die mit einer Meeresschnecken-Gattung verknüpft war,
+    und ein kleines Fleischereigeschäft aus Paraná, das mit einem völlig unabhängigen
+    Museumsexponat verknüpft war — alle wurden nach ihrer Entdeckung korrigiert. Die 8 Seiten
+    dieses Piloten tragen derzeit Wikidata-Verknüpfungen für 23 von 70 Organisationen, 73 von 176
+    Personen und 67 von 83 Orten. Ebenfalls festgestellt wurde, dass unabhängige
+    Extraktionsdurchläufe gelegentlich denselben Namen in der Originalsprache in zwei
+    unterschiedlichen englischen Formen wiedergeben (z. B. "Rural World" und "Silsky Svit (Rural
+    World)" für dieselbe Publikation); diese werden nun automatisch über den gemeinsamen
+    ukrainischen Originalnamen zusammengeführt, statt als scheinbar unabhängige Duplikate stehen
+    zu bleiben. Diese Prüfung erfasste alle im Piloten vorhandenen Organisationsverknüpfungen,
+    nicht nur eine Stichprobe davon — doch der Pilot selbst umfasst lediglich 8 Seiten aus einem
+    schmalen Ausschnitt einer über hundertjährigen Zeitungsgeschichte, sodass die ermittelte
+    Fehlerquote beschreibt, was hier gefunden wurde, und keine validierte Vorhersage der Quote
+    ist, die auf 14.000 Seiten mit weit mehr Epochen, Namenskonventionen und Fehlerarten zu
+    erwarten wäre. Sie wird als belegter Befund und als Grund für den unten beschriebenen
+    Überwachungsprozess dargestellt, nicht als Prognose.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Eine manuelle Prüfung jeder einzelnen Übereinstimmung lässt sich nicht auf 14.000 Seiten
+    skalieren, daher enthält die Pipeline nun statt einer einmaligen Kontrolle eine dauerhafte
+    Stichprobenprüfung: Nach jedem Verarbeitungsdurchlauf wird eine geschichtete Stichprobe neu
+    verknüpfter Personen, Orte und Organisationen — je Kategorie getrennt gezogen, da sich die
+    Fehlerquoten zwischen ihnen deutlich unterscheiden — für eine Person zur Bestätigung oder
+    Ablehnung zurückgestellt, wobei der tatsächliche Satz angezeigt wird, in dem der Name erwähnt
+    wurde, nicht nur der Name allein. Abgelehnte Treffer werden sofort entfernt und protokolliert.
+    Ein erster, noch kleiner Durchlauf dieses Verfahrens am Piloten (24 geprüfte Verknüpfungen)
+    ergab eine Fehlerquote von 25 % bei den geprüften Personen und keine bei den in diesem
+    Durchlauf geprüften Orten oder Organisationen — eine noch zu kleine Stichprobe, um daraus
+    verallgemeinern zu können, doch sie etabliert den Mechanismus, der diese Quote mit
+    zunehmender Digitalisierung durchlaufweise verfolgen wird, statt eine ungeprüfte
+    Zuverlässigkeit einfach anzunehmen.
+  </p>
+
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards und Interoperabilität</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Jede digitalisierte Seite verfügt über ein IIIF-Presentation-3.0-Manifest (verlinkt von der
@@ -468,7 +624,8 @@
     vollständig zu demonstrieren. Im Falle einer Förderung sind die nächsten Phasen: (1)
     vollständige Digitalisierung des physischen Bestands von SUBRAS — schätzungsweise über
     14.000 Seiten von 1924 bis heute; (2) eine formale Genauigkeitsbewertung der OCR-/
-    Übersetzungs-Pipeline anhand einer Stichprobe von Seiten; (3) Hinterlegung des vollständigen
+    Übersetzungs-Pipeline anhand einer Stichprobe von Seiten, die die oben beschriebene
+    Verknüpfungsprüfung auch auf die Transkriptions- und Übersetzungsqualität ausweitet; (3) Hinterlegung des vollständigen
     Korpus beim Internet Archive sowie ein DOI-tragender Datensatzeintrag (z. B. über Zenodo)
     für dauerhafte Zitierbarkeit; (4) Migration des Forschungsassistenten auf ein gehostetes
     Backend, damit KI-gestützte Anfragen keinen eigenen API-Schlüssel der Besucher erfordern.
@@ -519,6 +676,6 @@
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609061433"></script>
+<script src="../assets/lang.js?v=202609061448"></script>
 </body>
 </html>
