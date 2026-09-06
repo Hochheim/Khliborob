@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609061702">
+<link rel="stylesheet" href="../assets/main.css?v=202609061724">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -302,6 +302,9 @@ const KEY_BAR_STRINGS = {
     capacityReached: "💬 The shared AI assistant has reached its capacity for now — quote mode above still works fully. "
       + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Add your own free Gemini key to keep getting AI-written answers</a>.',
+    capacityMsgChat: "⚠️ The shared research assistant has reached today's free capacity — continuing in quote "
+      + "mode, which shows the matching passages from the archive directly, each with its source cited. "
+      + "(Optional: add your own free Gemini key below to keep getting AI-written answers.)",
     default: '💬 This already works — every answer above quotes the archive directly, with a citation, '
       + 'no setup needed. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Optional: switch on AI-written answers</a> (technical preview).',
@@ -313,6 +316,9 @@ const KEY_BAR_STRINGS = {
     capacityReached: "💬 Спільний ШІ-асистент наразі вичерпав свою потужність — режим цитування вище й далі працює повністю. "
       + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Додайте власний безкоштовний ключ Gemini, щоб і далі отримувати відповіді, написані ШІ</a>.',
+    capacityMsgChat: "⚠️ Спільний дослідницький асистент вичерпав сьогоднішню безкоштовну квоту — продовжуємо в "
+      + "режимі цитування, який показує відповідні уривки з архіву напряму, кожен із посиланням на джерело. "
+      + "(Необов'язково: додайте власний безкоштовний ключ Gemini нижче, щоб і далі отримувати відповіді, написані ШІ.)",
     default: '💬 Це вже працює — кожна відповідь вище цитує архів безпосередньо, з посиланням на джерело, '
       + 'без жодних налаштувань. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Необов\'язково: увімкнути відповіді, написані ШІ</a> (технічний препринт).',
@@ -324,6 +330,10 @@ const KEY_BAR_STRINGS = {
     capacityReached: "💬 O assistente de IA compartilhado atingiu sua capacidade por enquanto — o modo de citação acima continua funcionando plenamente. "
       + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Adicione sua própria chave gratuita do Gemini para continuar recebendo respostas escritas por IA</a>.',
+    capacityMsgChat: "⚠️ O assistente de pesquisa compartilhado atingiu a capacidade gratuita de hoje — continuando "
+      + "no modo de citação, que mostra as passagens correspondentes do arquivo diretamente, cada uma com sua "
+      + "fonte citada. (Opcional: adicione sua própria chave gratuita do Gemini abaixo para continuar recebendo "
+      + "respostas escritas por IA.)",
     default: '💬 Isso já funciona — toda resposta acima cita o arquivo diretamente, com uma citação, '
       + 'sem necessidade de configuração. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Opcional: ativar respostas escritas por IA</a> (prévia técnica).',
@@ -335,6 +345,10 @@ const KEY_BAR_STRINGS = {
     capacityReached: "💬 Der gemeinsame KI-Assistent hat vorübergehend seine Kapazität erreicht — der Zitatmodus oben funktioniert weiterhin vollständig. "
       + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Fügen Sie Ihren eigenen kostenlosen Gemini-Schlüssel hinzu, um weiterhin KI-verfasste Antworten zu erhalten</a>.',
+    capacityMsgChat: "⚠️ Der gemeinsame Forschungsassistent hat die heutige kostenlose Kapazität erreicht — es wird "
+      + "im Zitatmodus fortgefahren, der passende Passagen direkt aus dem Archiv anzeigt, jede mit Quellenangabe. "
+      + "(Optional: Fügen Sie unten Ihren eigenen kostenlosen Gemini-Schlüssel hinzu, um weiterhin KI-verfasste "
+      + "Antworten zu erhalten.)",
     default: '💬 Das funktioniert bereits — jede Antwort oben zitiert das Archiv direkt, mit Quellenangabe, '
       + 'keine Einrichtung nötig. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
       + 'Optional: KI-verfasste Antworten aktivieren</a> (technische Vorschau).',
@@ -723,8 +737,7 @@ async function sendQuestion() {
               appendMsg("system", "⚠️ AI agent failed (" + retryErr.message + ") — showing matching passages instead.");
             }
           } else {
-            appendMsg("system", "⚠️ The shared AI assistant has reached its capacity for now — showing matching "
-              + "passages instead. Add your own free Gemini key below to keep getting AI-written answers.");
+            appendMsg("system", (KEY_BAR_STRINGS[currentLang] || KEY_BAR_STRINGS.en).capacityMsgChat);
           }
         } else {
           appendMsg("system", "⚠️ AI agent failed (" + llmErr.message + ") — showing matching passages instead.");
@@ -818,6 +831,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609061702"></script>
+<script src="../assets/lang.js?v=202609061724"></script>
 </body>
 </html>
