@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609061658">
+<link rel="stylesheet" href="../assets/main.css?v=202609061702">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -100,7 +100,7 @@
   </div>
 
   <div style="display:flex;gap:.5rem">
-    <input id="chat-input" type="text" placeholder="Ask a question about the archive…"
+    <input id="chat-input" type="text" placeholder="Ask a question about the archive…" data-i18n="chat_input_placeholder"
            style="flex:1;font-size:14px;padding:.55rem .9rem;border:1px solid var(--border-strong,#ccc);
                   border-radius:var(--radius);background:var(--card-bg);color:var(--text)" />
     <button onclick="sendQuestion()" id="send-btn" data-i18n="ask_btn"
@@ -131,7 +131,7 @@
       Aktion sehen möchten, bitten Sie das Projektteam um eine Live-Demo, statt dies selbst
       einzurichten.</span>
     </div>
-    <input id="key-input" type="password" placeholder="Paste your Gemini API key"
+    <input id="key-input" type="password" placeholder="Paste your Gemini API key" data-i18n="key_input_placeholder"
            style="font-size:12px;padding:.35rem .6rem;border:1px solid var(--border);
                   border-radius:var(--radius);background:var(--card-bg);color:var(--text);width:260px" />
     <button onclick="saveKey()" data-i18n="save_btn" style="font-size:12px;padding:.35rem .8rem;border:1px solid var(--blue);
@@ -294,26 +294,70 @@ function getKey() { return localStorage.getItem("gemini_key") || ""; }
 // AI mode going, rather than only falling back to quote mode.
 let workerCapacityReached = false;
 
+const KEY_BAR_STRINGS = {
+  en: {
+    enabled: '🤖 AI agent <strong>enabled</strong> — multi-step research over the corpus, indices, and GPU documents.',
+    enabledKey: '🤖 AI agent <strong>enabled</strong> (your key) — multi-step research over the corpus, '
+      + 'indices, and GPU documents. <a href="#" onclick="clearKey();return false">Remove key</a>',
+    capacityReached: "💬 The shared AI assistant has reached its capacity for now — quote mode above still works fully. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Add your own free Gemini key to keep getting AI-written answers</a>.',
+    default: '💬 This already works — every answer above quotes the archive directly, with a citation, '
+      + 'no setup needed. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Optional: switch on AI-written answers</a> (technical preview).',
+  },
+  uk: {
+    enabled: '🤖 ШІ-агент <strong>увімкнено</strong> — багатоетапний пошук по корпусу, покажчиках і документах ГПУ.',
+    enabledKey: '🤖 ШІ-агент <strong>увімкнено</strong> (ваш ключ) — багатоетапний пошук по корпусу, '
+      + 'покажчиках і документах ГПУ. <a href="#" onclick="clearKey();return false">Видалити ключ</a>',
+    capacityReached: "💬 Спільний ШІ-асистент наразі вичерпав свою потужність — режим цитування вище й далі працює повністю. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Додайте власний безкоштовний ключ Gemini, щоб і далі отримувати відповіді, написані ШІ</a>.',
+    default: '💬 Це вже працює — кожна відповідь вище цитує архів безпосередньо, з посиланням на джерело, '
+      + 'без жодних налаштувань. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Необов\'язково: увімкнути відповіді, написані ШІ</a> (технічний препринт).',
+  },
+  pt: {
+    enabled: '🤖 Agente de IA <strong>ativado</strong> — pesquisa em múltiplas etapas sobre o corpus, índices e documentos GPU.',
+    enabledKey: '🤖 Agente de IA <strong>ativado</strong> (sua chave) — pesquisa em múltiplas etapas sobre o corpus, '
+      + 'índices e documentos GPU. <a href="#" onclick="clearKey();return false">Remover chave</a>',
+    capacityReached: "💬 O assistente de IA compartilhado atingiu sua capacidade por enquanto — o modo de citação acima continua funcionando plenamente. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Adicione sua própria chave gratuita do Gemini para continuar recebendo respostas escritas por IA</a>.',
+    default: '💬 Isso já funciona — toda resposta acima cita o arquivo diretamente, com uma citação, '
+      + 'sem necessidade de configuração. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Opcional: ativar respostas escritas por IA</a> (prévia técnica).',
+  },
+  de: {
+    enabled: '🤖 KI-Assistent <strong>aktiviert</strong> — mehrstufige Recherche über Korpus, Register und GPU-Dokumente.',
+    enabledKey: '🤖 KI-Assistent <strong>aktiviert</strong> (Ihr Schlüssel) — mehrstufige Recherche über Korpus, '
+      + 'Register und GPU-Dokumente. <a href="#" onclick="clearKey();return false">Schlüssel entfernen</a>',
+    capacityReached: "💬 Der gemeinsame KI-Assistent hat vorübergehend seine Kapazität erreicht — der Zitatmodus oben funktioniert weiterhin vollständig. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Fügen Sie Ihren eigenen kostenlosen Gemini-Schlüssel hinzu, um weiterhin KI-verfasste Antworten zu erhalten</a>.',
+    default: '💬 Das funktioniert bereits — jede Antwort oben zitiert das Archiv direkt, mit Quellenangabe, '
+      + 'keine Einrichtung nötig. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Optional: KI-verfasste Antworten aktivieren</a> (technische Vorschau).',
+  },
+};
+
 function renderKeyBar() {
   const bar = document.getElementById("key-bar");
   const form = document.getElementById("key-form");
+  const t = KEY_BAR_STRINGS[currentLang] || KEY_BAR_STRINGS.en;
   if (hasWorker() && !workerCapacityReached) {
-    bar.innerHTML = '🤖 AI agent <strong>enabled</strong> — multi-step research over the corpus, indices, and GPU documents.';
+    bar.innerHTML = t.enabled;
     form.style.display = "none";
   } else if (getKey()) {
-    bar.innerHTML = '🤖 AI agent <strong>enabled</strong> (your key) — multi-step research over the corpus, '
-      + 'indices, and GPU documents. <a href="#" onclick="clearKey();return false">Remove key</a>';
+    bar.innerHTML = t.enabledKey;
     form.style.display = "none";
   } else if (workerCapacityReached) {
-    bar.innerHTML = "💬 The shared AI assistant has reached its capacity for now — quote mode above still works fully. "
-      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
-      + 'Add your own free Gemini key to keep getting AI-written answers</a>.';
+    bar.innerHTML = t.capacityReached;
   } else {
-    bar.innerHTML = '💬 This already works — every answer above quotes the archive directly, with a citation, '
-      + 'no setup needed. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
-      + 'Optional: switch on AI-written answers</a> (technical preview).';
+    bar.innerHTML = t.default;
   }
 }
+document.addEventListener('langchange', renderKeyBar);
 
 function saveKey() {
   const v = document.getElementById("key-input").value.trim();
@@ -774,6 +818,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609061658"></script>
+<script src="../assets/lang.js?v=202609061702"></script>
 </body>
 </html>
