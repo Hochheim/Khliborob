@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609061724">
+<link rel="stylesheet" href="../assets/main.css?v=202609061727">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -358,7 +358,13 @@ const KEY_BAR_STRINGS = {
 function renderKeyBar() {
   const bar = document.getElementById("key-bar");
   const form = document.getElementById("key-form");
-  const t = KEY_BAR_STRINGS[currentLang] || KEY_BAR_STRINGS.en;
+  // lang.js (which declares currentLang) loads after this inline script, so
+  // the very first call — before lang.js has run — can't reference it yet.
+  // Read the same localStorage key it will end up using instead of relying
+  // on load order; the langchange listener below re-renders correctly once
+  // lang.js's own initial applyLang() call fires anyway.
+  const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+  const t = KEY_BAR_STRINGS[lang] || KEY_BAR_STRINGS.en;
   if (hasWorker() && !workerCapacityReached) {
     bar.innerHTML = t.enabled;
     form.style.display = "none";
@@ -737,7 +743,8 @@ async function sendQuestion() {
               appendMsg("system", "⚠️ AI agent failed (" + retryErr.message + ") — showing matching passages instead.");
             }
           } else {
-            appendMsg("system", (KEY_BAR_STRINGS[currentLang] || KEY_BAR_STRINGS.en).capacityMsgChat);
+            const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+            appendMsg("system", (KEY_BAR_STRINGS[lang] || KEY_BAR_STRINGS.en).capacityMsgChat);
           }
         } else {
           appendMsg("system", "⚠️ AI agent failed (" + llmErr.message + ") — showing matching passages instead.");
@@ -831,6 +838,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609061724"></script>
+<script src="../assets/lang.js?v=202609061727"></script>
 </body>
 </html>
