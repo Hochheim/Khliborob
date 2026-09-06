@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609061631">
+<link rel="stylesheet" href="../assets/main.css?v=202609061658">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -45,11 +45,28 @@
   <div style="margin-bottom:1rem">
     <h1 style="font-size:20px;font-weight:500;margin-bottom:.3rem" data-i18n="nav_chat">Research Agent</h1>
     <p style="font-size:13px;color:var(--muted)">
-      Ask questions about the archive in Ukrainian, English, or Brazilian Portuguese.
+      <span data-lang-en>Ask questions about the archive in Ukrainian, English, or Brazilian Portuguese.
       The agent retrieves the relevant passages from the digitized corpus and — when AI
       synthesis is enabled below — writes a grounded answer with inline citations.
       Without it, matching passages are quoted verbatim. Either way, every claim links
-      to its source. Covers the <a href="../about/">pilot corpus</a> (2 issues) only.
+      to its source. Covers the <a href="../about/">pilot corpus</a> (2 issues) only.</span>
+      <span data-lang-uk style="display:none">Задавайте питання про архів українською, англійською або
+      бразильською португальською. Агент знаходить відповідні уривки в оцифрованому корпусі й —
+      якщо ввімкнено синтез ШІ нижче — формує обґрунтовану відповідь із вбудованими посиланнями.
+      Без цього збіжні уривки цитуються дослівно. У будь-якому разі кожне твердження посилається
+      на джерело. Охоплює лише <a href="../about/">пілотний корпус</a> (2 випуски).</span>
+      <span data-lang-pt style="display:none">Faça perguntas sobre o arquivo em ucraniano, inglês ou
+      português brasileiro. O agente recupera as passagens relevantes do corpus digitalizado e —
+      quando a síntese por IA estiver ativada abaixo — escreve uma resposta fundamentada com
+      citações incorporadas. Sem isso, as passagens correspondentes são citadas literalmente. De
+      qualquer forma, toda afirmação está vinculada à sua fonte. Cobre apenas o
+      <a href="../about/">corpus piloto</a> (2 edições).</span>
+      <span data-lang-de style="display:none">Stellen Sie Fragen zum Archiv auf Ukrainisch, Englisch
+      oder brasilianischem Portugiesisch. Der Assistent ruft die relevanten Passagen aus dem
+      digitalisierten Korpus ab und verfasst — wenn die KI-Synthese unten aktiviert ist — eine
+      belegte Antwort mit eingebetteten Quellenangaben. Ohne diese Funktion werden übereinstimmende
+      Passagen wörtlich zitiert. So oder so verweist jede Aussage auf ihre Quelle. Deckt nur den
+      <a href="../about/">Pilotkorpus</a> (2 Ausgaben) ab.</span>
     </p>
   </div>
 
@@ -58,9 +75,21 @@
        display:flex;flex-direction:column;gap:.8rem">
     <div class="msg msg-system">
       <div class="msg-bubble msg-bubble-system">
-        👋 Welcome to the Khliborob Research Agent. Ask about people, places, or events in
+        <span data-lang-en>👋 Welcome to the Khliborob Research Agent. Ask about people, places, or events in
         <em>Хлібороб / O Lavrador</em> — in Ukrainian, English, or Portuguese. Answers are
-        grounded in the corpus and cite their sources. Try one of these:
+        grounded in the corpus and cite their sources. Try one of these:</span>
+        <span data-lang-uk style="display:none">👋 Ласкаво просимо до Дослідницького агента Khliborob.
+        Запитуйте про людей, місця чи події в <em>Хлібороб / O Lavrador</em> — українською,
+        англійською чи португальською. Відповіді ґрунтуються на корпусі й посилаються на джерела.
+        Спробуйте одне з цих:</span>
+        <span data-lang-pt style="display:none">👋 Bem-vindo ao Agente de Pesquisa do Khliborob.
+        Pergunte sobre pessoas, lugares ou eventos em <em>Хлібороб / O Lavrador</em> — em ucraniano,
+        inglês ou português. As respostas são fundamentadas no corpus e citam suas fontes.
+        Experimente uma destas:</span>
+        <span data-lang-de style="display:none">👋 Willkommen beim Khliborob-Forschungsassistenten.
+        Fragen Sie nach Personen, Orten oder Ereignissen in <em>Хлібороб / O Lavrador</em> — auf
+        Ukrainisch, Englisch oder Portugiesisch. Antworten stützen sich auf den Korpus und
+        belegen ihre Quellen. Probieren Sie eines davon:</span>
         <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem">
           <button class="chip" onclick="askExample(this)">Who is Pedro Mazurechen?</button>
           <button class="chip" onclick="askExample(this)">Що газета писала про Мазепу?</button>
@@ -74,7 +103,7 @@
     <input id="chat-input" type="text" placeholder="Ask a question about the archive…"
            style="flex:1;font-size:14px;padding:.55rem .9rem;border:1px solid var(--border-strong,#ccc);
                   border-radius:var(--radius);background:var(--card-bg);color:var(--text)" />
-    <button onclick="sendQuestion()" id="send-btn"
+    <button onclick="sendQuestion()" id="send-btn" data-i18n="ask_btn"
             style="font-size:13px;padding:.55rem 1.1rem;border:none;border-radius:var(--radius);
                    background:#1a4a8a;color:#fff;font-weight:500;cursor:pointer;white-space:nowrap">
       Ask
@@ -84,18 +113,38 @@
   <div id="key-bar" style="font-size:11px;color:var(--muted);margin-top:.5rem;text-align:center"></div>
   <div id="key-form" style="display:none;margin-top:.4rem;text-align:center">
     <div style="font-size:11px;color:var(--muted);margin-bottom:.4rem;max-width:480px;margin-left:auto;margin-right:auto">
-      Experimental, not required. It connects this page directly to Google's free Gemini API using a key
+      <span data-lang-en>Experimental, not required. It connects this page directly to Google's free Gemini API using a key
       you supply — nothing to install, and it costs nothing at this scale. If you'd rather see it working
-      first, ask the project team for a live demo instead of setting this up yourself.
+      first, ask the project team for a live demo instead of setting this up yourself.</span>
+      <span data-lang-uk style="display:none">Експериментально, не обов'язково. Це з'єднує цю сторінку
+      напряму з безкоштовним Gemini API від Google за допомогою наданого вами ключа — нічого
+      встановлювати не потрібно, і на цьому масштабі це безкоштовно. Якщо ви хочете спершу побачити,
+      як це працює, попросіть команду проєкту про живу демонстрацію, замість того щоб налаштовувати
+      це самостійно.</span>
+      <span data-lang-pt style="display:none">Experimental, não obrigatório. Isso conecta esta página
+      diretamente à API gratuita Gemini do Google usando uma chave fornecida por você — nada para
+      instalar, e não custa nada nessa escala. Se preferir ver funcionando primeiro, peça à equipe
+      do projeto uma demonstração ao vivo em vez de configurar isso você mesmo.</span>
+      <span data-lang-de style="display:none">Experimentell, nicht erforderlich. Dies verbindet diese
+      Seite direkt mit Googles kostenloser Gemini-API über einen von Ihnen bereitgestellten
+      Schlüssel — nichts zu installieren, und in diesem Umfang kostenlos. Wenn Sie es zunächst in
+      Aktion sehen möchten, bitten Sie das Projektteam um eine Live-Demo, statt dies selbst
+      einzurichten.</span>
     </div>
     <input id="key-input" type="password" placeholder="Paste your Gemini API key"
            style="font-size:12px;padding:.35rem .6rem;border:1px solid var(--border);
                   border-radius:var(--radius);background:var(--card-bg);color:var(--text);width:260px" />
-    <button onclick="saveKey()" style="font-size:12px;padding:.35rem .8rem;border:1px solid var(--blue);
+    <button onclick="saveKey()" data-i18n="save_btn" style="font-size:12px;padding:.35rem .8rem;border:1px solid var(--blue);
             border-radius:var(--radius);background:var(--blue-lt,#e8f0fb);color:var(--blue);cursor:pointer">Save</button>
     <div style="font-size:10px;color:var(--muted);margin-top:.3rem">
-      <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a free key here</a> —
-      it is stored only in this browser (localStorage) and sent only to Google's API, never to this site.
+      <span data-lang-en><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a free key here</a> —
+      it is stored only in this browser (localStorage) and sent only to Google's API, never to this site.</span>
+      <span data-lang-uk style="display:none"><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Отримати безкоштовний ключ тут</a> —
+      він зберігається лише в цьому браузері (localStorage) і надсилається лише до API Google, ніколи до цього сайту.</span>
+      <span data-lang-pt style="display:none"><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Obtenha uma chave gratuita aqui</a> —
+      ela é armazenada apenas neste navegador (localStorage) e enviada apenas para a API do Google, nunca para este site.</span>
+      <span data-lang-de style="display:none"><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Hier einen kostenlosen Schlüssel erhalten</a> —
+      er wird nur in diesem Browser (localStorage) gespeichert und nur an die API von Google gesendet, niemals an diese Website.</span>
     </div>
   </div>
 </div>
@@ -725,6 +774,6 @@ loadIndex();
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609061631"></script>
+<script src="../assets/lang.js?v=202609061658"></script>
 </body>
 </html>
