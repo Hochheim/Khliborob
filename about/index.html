@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609061555">
+<link rel="stylesheet" href="../assets/main.css?v=202609061600">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -146,6 +146,30 @@
     among the locations or organizations sampled that batch — too small a sample to generalize
     from yet, but it establishes the mechanism that will track this rate, batch by batch, as
     digitization scales, rather than assuming a reliability that has not been measured.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Sampling alone does not solve the underlying scale problem, though: even reviewing a fixed
+    percentage of new links every batch does not guarantee the rest are ever checked, since most
+    of a 14,000-page archive's persons and organizations are mentioned exactly once — a name in one
+    wedding announcement or obituary, never to reappear. Linking (and therefore reviewing) every
+    such name is not a cost that shrinks with better tooling; it grows in lockstep with the page
+    count. So person and organization linking is now attempted only for names that recur across
+    multiple <em>issues</em> — not pages, since a long article naming someone across three pages of
+    one edition is not more significant than a name mentioned once, but someone who reappears in a
+    later edition genuinely is. A one-off name is left unlinked by design, not queued for later.
+    Locations are exempt from this rule, since they were already shown to be reliable enough not to
+    need it. The current threshold (two issues) is a starting point, not a calibrated figure: this
+    pilot's two issues are 18 months apart with unrelated content, so zero persons and only a
+    handful of organizations recur across both — not because recurrence doesn't happen at real
+    scale, but because two sparse issues cannot demonstrate it either way. A companion script
+    (measure_entity_recurrence.py) reports the actual recurrence distribution and is meant to be
+    re-run once a real, time-spanning batch of issues exists, so the threshold can be set to match
+    whatever review capacity the project actually has, rather than a number picked in advance. Even
+    that measurement has a known limit worth stating plainly: it detects recurrence via the same
+    stemmed name-matching used for co-mention detection elsewhere on the site, which tolerates
+    Ukrainian grammatical case endings but not dialectal spelling variants (e.g. "Ліга"/"Лиги" for
+    "League," differing in a letter no suffix rule can account for) — so it is a floor on true
+    recurrence, not an exact count.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
@@ -299,6 +323,33 @@
     поки що замала для узагальнень, але вона встановлює механізм, який відстежуватиме цей показник
     від партії до партії в міру масштабування оцифрування, замість того, щоб покладатися на
     невиміряну надійність.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Однак сама вибірка не розв'язує основну проблему масштабу: навіть перевірка фіксованого
+    відсотка нових зв'язків у кожній партії не гарантує, що решту колись перевірять, адже
+    більшість осіб і організацій у 14 000-сторінковому архіві згадуються рівно один раз — ім'я в
+    одному весільному оголошенні чи некролозі, яке більше ніколи не з'явиться. Пов'язування (а
+    отже й перевірка) кожного такого імені — це не витрата, яка зменшується з кращими
+    інструментами; вона зростає прямо пропорційно кількості сторінок. Тому пов'язування осіб і
+    організацій тепер намагаються здійснювати лише для назв, що повторюються в кількох
+    <em>випусках</em>, — не сторінках, адже довга стаття, що згадує когось на трьох сторінках
+    одного номера, не важливіша за ім'я, згадане один раз, а от особа, яка знову з'являється в
+    пізнішому номері, — дійсно важливіша. Одноразову назву за задумом залишають без зв'язку, а не
+    ставлять у чергу на потім. На місця це правило не поширюється, оскільки вони вже виявилися
+    достатньо надійними, щоб його не потребувати. Поточний поріг (два випуски) — це відправна
+    точка, а не відкалібрований показник: два випуски цього пілотного корпусу розділяють 18
+    місяців і непов'язаний зміст, тож жодна особа й лише кілька організацій повторюються в обох —
+    не тому, що повторення не трапляється в реальному масштабі, а тому, що два розрізнені випуски
+    не можуть цього продемонструвати в жодний бік. Допоміжний скрипт
+    (measure_entity_recurrence.py) показує реальний розподіл повторюваності, і його призначення —
+    запускати його знову, коли з'явиться реальна партія випусків, що охоплює значний період часу,
+    щоб поріг можна було встановити відповідно до реальної спроможності проєкту до перевірки, а не
+    до числа, обраного заздалегідь. Навіть це вимірювання має відому межу, яку варто зазначити
+    прямо: воно виявляє повторюваність за тим самим стемінговим зіставленням назв, яке
+    використовується для виявлення спільних згадок в інших місцях сайту, — воно враховує
+    українські відмінкові закінчення, але не діалектні орфографічні варіанти (наприклад, «Ліга» і
+    «Лиги» для «Ліги [Націй]» різняться літерою, яку жодне суфіксальне правило не врахує), тож це
+    нижня межа справжньої повторюваності, а не точний підрахунок.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Стандарти та сумісність</h2>
@@ -466,6 +517,33 @@
     naquele lote — uma amostra pequena demais para generalizar por enquanto, mas que estabelece o
     mecanismo que acompanhará essa taxa, lote a lote, à medida que a digitalização for ampliada,
     em vez de presumir uma confiabilidade que nunca foi medida.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Mas a amostragem sozinha não resolve o problema de escala subjacente: mesmo revisando uma
+    porcentagem fixa dos novos vínculos a cada lote, isso não garante que o restante algum dia
+    seja verificado, já que a maioria das pessoas e organizações de um arquivo de 14.000 páginas é
+    mencionada exatamente uma vez — um nome em um anúncio de casamento ou obituário, que nunca mais
+    reaparece. Vincular (e, portanto, revisar) cada nome desses não é um custo que diminui com
+    ferramentas melhores; ele cresce na mesma proporção do número de páginas. Por isso, a
+    vinculação de pessoas e organizações agora só é tentada para nomes que se repetem em várias
+    <em>edições</em> — não páginas, já que um artigo longo que cita alguém em três páginas de uma
+    mesma edição não é mais significativo do que um nome citado uma única vez, mas alguém que
+    reaparece em uma edição posterior genuinamente é. Um nome citado uma única vez fica sem vínculo
+    por definição de escopo, não em espera. Os locais estão isentos dessa regra, pois já se mostraram
+    confiáveis o suficiente para dispensá-la. O limiar atual (duas edições) é um ponto de partida,
+    não um número calibrado: as duas edições deste piloto estão 18 meses distantes uma da outra e
+    têm conteúdo não relacionado, de modo que nenhuma pessoa e apenas um punhado de organizações se
+    repetem entre elas — não porque a recorrência não aconteça em escala real, mas porque duas
+    edições esparsas não conseguem demonstrá-la de nenhuma forma. Um script complementar
+    (measure_entity_recurrence.py) relata a distribuição real de recorrência e deve ser executado
+    novamente quando existir um lote real de edições que abranja um período de tempo significativo,
+    para que o limiar possa ser ajustado à capacidade de revisão que o projeto realmente tiver, em
+    vez de um número escolhido de antemão. Mesmo essa medição tem um limite conhecido que vale a
+    pena declarar abertamente: ela detecta recorrência pelo mesmo casamento de nomes por radical
+    usado para detectar coocorrências em outras partes do site, que tolera terminações de caso
+    gramatical ucraniano, mas não variantes ortográficas dialetais (por exemplo, "Ліга"/"Лиги"
+    para "Liga [das Nações]", que diferem em uma letra que nenhuma regra de sufixo consegue
+    captar) — portanto, é um piso da recorrência real, não uma contagem exata.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Padrões e interoperabilidade</h2>
@@ -640,6 +718,35 @@
     zunehmender Digitalisierung durchlaufweise verfolgen wird, statt eine ungeprüfte
     Zuverlässigkeit einfach anzunehmen.
   </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Stichprobenprüfung allein löst das zugrunde liegende Skalierungsproblem jedoch nicht: Selbst
+    wenn bei jedem Durchlauf ein fester Prozentsatz neuer Verknüpfungen geprüft wird, ist damit
+    nicht garantiert, dass der Rest jemals kontrolliert wird, denn die meisten Personen und
+    Organisationen eines 14.000-seitigen Archivs werden genau einmal erwähnt — ein Name in einer
+    Hochzeitsanzeige oder einem Nachruf, der nie wieder auftaucht. Jeden solchen Namen zu verknüpfen
+    (und damit zu prüfen) ist kein Aufwand, der mit besseren Werkzeugen sinkt; er wächst im
+    Gleichschritt mit der Seitenzahl. Deshalb wird die Verknüpfung von Personen und Organisationen
+    nun nur noch für Namen versucht, die sich über mehrere <em>Ausgaben</em> hinweg wiederholen —
+    nicht Seiten, denn ein langer Artikel, der jemanden über drei Seiten einer Ausgabe hinweg nennt,
+    ist nicht bedeutsamer als ein einmal erwähnter Name, während jemand, der in einer späteren
+    Ausgabe erneut auftaucht, es tatsächlich ist. Ein einmalig genannter Name bleibt absichtlich
+    unverknüpft, statt für später vorgemerkt zu werden. Orte sind von dieser Regel ausgenommen, da
+    sie sich bereits als zuverlässig genug erwiesen haben, um sie nicht zu benötigen. Der aktuelle
+    Schwellenwert (zwei Ausgaben) ist ein Ausgangspunkt, keine kalibrierte Zahl: Die beiden Ausgaben
+    dieses Piloten liegen 18 Monate auseinander und behandeln unabhängige Inhalte, sodass keine
+    Person und nur eine Handvoll Organisationen in beiden vorkommen — nicht weil Wiederkehr im
+    realen Maßstab nicht vorkäme, sondern weil zwei so vereinzelte Ausgaben sie in keine Richtung
+    belegen können. Ein begleitendes Skript (measure_entity_recurrence.py) meldet die tatsächliche
+    Wiederkehr-Verteilung und soll erneut ausgeführt werden, sobald ein echter, zeitlich
+    aussagekräftiger Ausgabenbestand existiert, damit der Schwellenwert an die tatsächlich
+    vorhandene Prüfkapazität angepasst werden kann, statt an eine im Voraus gewählte Zahl. Auch
+    diese Messung hat eine Grenze, die offen benannt werden sollte: Sie erkennt Wiederkehr über
+    denselben stammbasierten Namensabgleich, der auch anderswo auf der Website zur Erkennung
+    gemeinsamer Erwähnungen dient — er verträgt ukrainische Fallendungen, aber keine dialektalen
+    Rechtschreibvarianten (z. B. unterscheiden sich "Ліга" und "Лиги" für "Liga [der Nationen]" in
+    einem Buchstaben, den keine Endungsregel erfassen kann) — es handelt sich also um eine
+    Untergrenze der tatsächlichen Wiederkehr, keine exakte Zählung.
+  </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards und Interoperabilität</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
@@ -722,6 +829,6 @@
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609061555"></script>
+<script src="../assets/lang.js?v=202609061600"></script>
 </body>
 </html>
