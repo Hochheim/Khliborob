@@ -470,6 +470,7 @@
     const typeLabel  = d.type === "page" ? "Issue" : d.type.charAt(0).toUpperCase()+d.type.slice(1);
 
     let body = "";
+    let newspaperAbout = null;
     if (d.type === "page") {
       const ents = node.neighborhood("node")
         .map(n => `<li>${n.data("label")} <span style="color:#aaa;font-size:.7rem">[${n.data("type")}]</span></li>`)
@@ -516,20 +517,54 @@
         <div class="field"><b>Mentioned in</b><ul>${items}</ul></div>
         ${connectedTo ? `<div class="field"><b>Co-occurs with</b><ul>${connectedTo}</ul></div>` : ""}
       `;
+
+      // Newspaper-sourced fallback for the About box: when there's no
+      // Wikidata match, feature the single longest mention instead of
+      // leaving the slot empty. The "Mentioned in" list above already has
+      // every mention, but it's a chronological citation list the reader
+      // has to scan — this picks the one most likely to actually describe
+      // what the organization is, the same way a Wikidata description
+      // would, except sourced from the newspaper itself. That also makes
+      // it strictly more available than Wikidata: the newspaper is the
+      // one source guaranteed to have written about even the smallest
+      // local organization, and quoting it directly can't collide with
+      // an unrelated same-named entity the way a Wikidata search can.
+      if (!d.wikidata_description && d.type === "organization") {
+        let best = null;
+        pages.forEach(p => {
+          const shownLang = snips[detailLang][p] ? detailLang
+            : fallbackOrder.find(l => snips[l][p]) || null;
+          if (!shownLang) return;
+          const text = snips[shownLang][p];
+          if (text && (!best || text.length > best.text.length)) {
+            const paraIdx = pageParaMap[p];
+            const issueId = p.includes("_page") ? p.substring(0,p.lastIndexOf("_page")) : p;
+            const anchor = (paraIdx !== undefined && paraIdx !== null) ? ("#para-" + shownLang + "-" + p + "-" + paraIdx) : "";
+            best = { text, flag: flags[shownLang], url: SITE_BASE ? SITE_BASE+"issues/"+issueId+"/"+anchor : "" };
+          }
+        });
+        newspaperAbout = best;
+      }
     }
 
     // Most organizations here (a tannery, a single bakery, a shoemaking
-    // workshop) simply have no Wikidata entry — the box is omitted rather
-    // than shown empty. When it exists, the description is Wikidata's own
-    // sourced one-liner, not written up by hand for 74 organizations of
-    // wildly uneven documentability.
+    // workshop) simply have no Wikidata entry — the box falls back to a
+    // quote from the newspaper itself (see above), and only goes empty if
+    // neither source has anything. When a Wikidata description exists, it
+    // is Wikidata's own sourced one-liner, not written up by hand for 74
+    // organizations of wildly uneven documentability.
     const aboutLink = d.wikipedia_url || d.wikidata_url;
     const about = d.wikidata_description
       ? `<details class="about-box"><summary>About</summary>
            <p>${d.wikidata_description}</p>
            ${aboutLink ? `<a href="${aboutLink}" target="_blank">${d.wikipedia_url?"Wikipedia ↗":"Wikidata ↗"}</a>` : ""}
          </details>`
-      : "";
+      : (newspaperAbout
+        ? `<details class="about-box"><summary>About — from the newspaper</summary>
+             <p>${newspaperAbout.flag} "${newspaperAbout.text}"</p>
+             ${newspaperAbout.url ? `<a href="${newspaperAbout.url}" target="_blank">View in transcript ↗</a>` : ""}
+           </details>`
+        : "");
     document.getElementById("detail-body").innerHTML = `
       <h3>${d.label}</h3>
       <span class="${badgeClass}">${typeLabel}</span>
