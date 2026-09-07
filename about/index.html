@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609071614">
+<link rel="stylesheet" href="../assets/main.css?v=202609071627">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -116,29 +116,53 @@
     a short or literally-translated name can silently collide with something globally more famous
     under the same label. A full manual audit of every Wikidata link this pilot's extraction had
     produced — persons, locations, and organizations alike, not a sample of any of them — found the
-    three categories fail at very different rates. Organizations: 15 of roughly 38 matches wrong
-    (a Brazilian beer brand linked to a genus of sea snail; a small Paraná butcher shop linked to an
-    unrelated museum exhibit). Persons fared worse: 38 of 73 matches wrong, almost all of the same
-    shape — a name matched to Wikidata's generic placeholder entry for a surname or given name (its
-    own "family name" or "male given name" items exist as concepts, not people) rather than to any
-    actual person, or to a real but historically unrelated person sharing the name in a different
-    country or century (a Brazilian wedding guest matched to a Polish Ottoman-era general; a
-    newborn's father matched to a Soviet Air Force officer). Locations were the most reliable by
-    far: only 2 of 68 wrong (one matched a nearby but wrong Brazilian municipality of the same name;
-    the other matched the abstract "family name" entry again). All wrong matches were corrected once
-    found. This pilot's 8 pages currently carry Wikidata links for 23 of 70 organizations, 35 of 176
-    persons, and 66 of 83 locations. Independent extraction passes were also found to occasionally
-    render the same original-language name in two different English forms (e.g. "Rural World" and
-    "Silsky Svit (Rural World)" for one publication); these are now merged automatically by the
-    shared Ukrainian original rather than left as unrelated-looking duplicates. This audit covered
-    every link that existed in the pilot, not a sample of them — but the pilot itself is only 8
-    pages from one narrow slice of a century-long run, so these error rates describe what was found
-    here, not a validated prediction of the rate to expect across 14,000 pages spanning many more
-    eras, name conventions, and failure modes. They are reported as a demonstrated finding and the
-    reason the monitoring process below now exists, not as a forecast — though the gap between
-    locations (highly reliable) and persons (unreliable) is itself a useful signal for where
-    automated linking can be trusted with less scrutiny at scale, and where it cannot.
+    three categories fail at very different rates:
   </p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Locations wrong<br>(2 of 68)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">most reliable by far</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Organizations wrong<br>(15 of 38)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">real-entity collisions</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Persons wrong<br>(38 of 73)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">least reliable</div>
+    </div>
+  </div>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Persons failed almost entirely in one shape: a name matched to Wikidata's generic placeholder
+    entry for a surname or given name (its own "family name" or "male given name" items exist as
+    concepts, not people) rather than to any actual person, or to a real but historically unrelated
+    person sharing the name in a different country or century (a Brazilian wedding guest matched to
+    a Polish Ottoman-era general; a newborn's father matched to a Soviet Air Force officer).
+    Organization errors were more varied real-entity collisions (a Brazilian beer brand linked to a
+    genus of sea snail; a small Paraná butcher shop linked to an unrelated museum exhibit). The two
+    location errors were a nearby-but-wrong Brazilian municipality of the same name, and the
+    abstract "family name" placeholder again. All wrong matches were corrected once found. This
+    pilot's 8 pages currently carry Wikidata links for 23 of 70 organizations, 35 of 176 persons,
+    and 66 of 83 locations. Independent extraction passes were also found to occasionally render
+    the same original-language name in two different English forms (e.g. "Rural World" and "Silsky
+    Svit (Rural World)" for one publication); these are now merged automatically by the shared
+    Ukrainian original rather than left as unrelated-looking duplicates.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    This audit covered every link that existed in the pilot, not a sample of them — but the pilot
+    itself is only 8 pages from one narrow slice of a century-long run, so these error rates
+    describe what was found here, not a validated prediction of the rate to expect across 14,000
+    pages spanning many more eras, name conventions, and failure modes. They are reported as a
+    demonstrated finding and the reason the monitoring process below now exists, not as a forecast
+    — though the gap between locations (highly reliable) and persons (unreliable) is itself a
+    useful signal for where automated linking can be trusted with less scrutiny at scale, and where
+    it cannot.
+  </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Ongoing QA sampling</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Manual review of every match does not scale to 14,000 pages, so the pipeline now includes a
     standing random-sampling audit instead of a one-time check: after each processing batch, a
@@ -151,6 +175,8 @@
     from yet, but it establishes the mechanism that will track this rate, batch by batch, as
     digitization scales, rather than assuming a reliability that has not been measured.
   </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Why linking is limited to recurring names</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Sampling alone does not solve the underlying scale problem, though: even reviewing a fixed
     percentage of new links every batch does not guarantee the rest are ever checked, since most
@@ -333,30 +359,54 @@
     буквально перекладена назва може непомітно збігтися з чимось глобально відомішим під тією ж
     назвою. Повний ручний аудит усіх зв'язків з Вікіданими, які створило виділення сутностей у
     цьому пілотному корпусі, — для осіб, місць і організацій, а не вибірки з них, — показав, що
-    три категорії помиляються з дуже різною частотою. Організації: 15 помилкових із приблизно 38
-    збігів (бразильський бренд пива, помилково пов'язаний із родом морських равликів; невеликий
-    паранський м'ясний магазин, пов'язаний із непричетним музейним експонатом). Особи виявилися ще
-    гіршими: 38 помилкових зі 73 збігів, майже всі — того самого типу: ім'я збіглося із загальним
-    елементом-заглушкою Вікіданих для прізвища чи імені (в самих Вікіданих такі елементи існують
-    як абстрактні поняття, а не як люди), а не з якоюсь реальною особою, або зі справжньою, але
-    історично непричетною особою з тим самим ім'ям в іншій країні чи столітті (гостя бразильського
-    весілля збіглася з польським генералом османської доби; батька новонародженого збіглося з
-    офіцером радянських ВПС). Місця виявилися найнадійнішими: лише 2 помилкові з 68 (одне збіглося
-    зі схожою, але неправильною бразильською муніципалітетою з тією ж назвою; інше знову збіглося
-    з абстрактним елементом «прізвище»). Усі помилкові збіги виправлено після виявлення. Наразі
-    8 сторінок цього пілотного корпусу мають зв'язки з Вікіданими для 23 з 70 організацій, 35 зі
-    176 осіб і 66 з 83 місць. Також виявлено, що незалежні проходи виділення сутностей іноді подають
-    ту саму назву мовою оригіналу у двох різних англійських формах (наприклад, «Rural World» і
-    «Silsky Svit (Rural World)» для одного видання); тепер їх автоматично об'єднують за спільним
-    українським оригіналом, а не залишають виглядати як непов'язані дублікати. Цей аудит охопив усі
-    зв'язки, що існували в пілотному корпусі, а не вибірку з них, — але сам пілотний корпус налічує
-    лише 8 сторінок з одного вузького зрізу столітнього видання, тож ці рівні помилок описують те,
-    що виявлено тут, а не перевірений прогноз рівня, якого слід очікувати на 14 000 сторінках, що
-    охоплюють значно більше епох, назвотворчих традицій і типів помилок. Це подано як підтверджений
-    результат і причина, з якої тепер існує описаний нижче процес моніторингу, а не як прогноз —
-    хоча різниця між місцями (дуже надійні) та особами (ненадійні) сама собою є корисним сигналом
-    про те, де автоматичному пов'язуванню в масштабі можна довіряти з меншим контролем, а де ні.
+    три категорії помиляються з дуже різною частотою:
   </p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Місця помилкові<br>(2 з 68)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">найнадійніші</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Організації помилкові<br>(15 з 38)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">збіги з реальними сутностями</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Особи помилкові<br>(38 з 73)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">найменш надійні</div>
+    </div>
+  </div>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Особи помилялися майже завжди в один спосіб: ім'я збіглося із загальним елементом-заглушкою
+    Вікіданих для прізвища чи імені (в самих Вікіданих такі елементи існують як абстрактні поняття,
+    а не як люди), а не з якоюсь реальною особою, або зі справжньою, але історично непричетною
+    особою з тим самим ім'ям в іншій країні чи столітті (гостя бразильського весілля збіглася з
+    польським генералом османської доби; батька новонародженого збіглося з офіцером радянських
+    ВПС). Помилки організацій були більш різноманітними збігами з реальними сутностями (бразильський
+    бренд пива, помилково пов'язаний із родом морських равликів; невеликий паранський м'ясний
+    магазин, пов'язаний із непричетним музейним експонатом). Обидві помилки місць — це схожа, але
+    неправильна бразильська муніципалітета з тією ж назвою, і знову абстрактний елемент «прізвище».
+    Усі помилкові збіги виправлено після виявлення. Наразі 8 сторінок цього пілотного корпусу мають
+    зв'язки з Вікіданими для 23 з 70 організацій, 35 зі 176 осіб і 66 з 83 місць. Також виявлено, що
+    незалежні проходи виділення сутностей іноді подають ту саму назву мовою оригіналу у двох різних
+    англійських формах (наприклад, «Rural World» і «Silsky Svit (Rural World)» для одного видання);
+    тепер їх автоматично об'єднують за спільним українським оригіналом, а не залишають виглядати як
+    непов'язані дублікати.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Цей аудит охопив усі зв'язки, що існували в пілотному корпусі, а не вибірку з них, — але сам
+    пілотний корпус налічує лише 8 сторінок з одного вузького зрізу столітнього видання, тож ці
+    рівні помилок описують те, що виявлено тут, а не перевірений прогноз рівня, якого слід
+    очікувати на 14 000 сторінках, що охоплюють значно більше епох, назвотворчих традицій і типів
+    помилок. Це подано як підтверджений результат і причина, з якої тепер існує описаний нижче
+    процес моніторингу, а не як прогноз — хоча різниця між місцями (дуже надійні) та особами
+    (ненадійні) сама собою є корисним сигналом про те, де автоматичному пов'язуванню в масштабі
+    можна довіряти з меншим контролем, а де ні.
+  </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Постійний аудит якості</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Ручна перевірка кожного збігу не масштабується до 14 000 сторінок, тож конвеєр тепер включає
     постійний аудит методом випадкової вибірки замість одноразової перевірки: після кожної партії
@@ -370,6 +420,8 @@
     від партії до партії в міру масштабування оцифрування, замість того, щоб покладатися на
     невиміряну надійність.
   </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Чому пов'язування обмежене лише повторюваними назвами</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Однак сама вибірка не розв'язує основну проблему масштабу: навіть перевірка фіксованого
     відсотка нових зв'язків у кожній партії не гарантує, що решту колись перевірять, адже
@@ -1018,6 +1070,6 @@
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609071614"></script>
+<script src="../assets/lang.js?v=202609071627"></script>
 </body>
 </html>
