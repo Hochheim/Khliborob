@@ -118,13 +118,15 @@ function applyLang(lang) {
     });
   });
 
-  // Entity tags (Persons/Locations/Organizations on an issue page) carry
-  // both names as data attributes and were otherwise stuck showing
-  // English regardless of the language switcher — the extraction schema
-  // only captures name_uk/name_en, so Ukrainian gets its own name and
-  // Portuguese/German fall back to English rather than showing nothing.
+  // Entity tags (Persons/Locations/Organizations, on issue pages and the
+  // index pages) carry every language they have a translation for as data
+  // attributes and were otherwise stuck showing English regardless of the
+  // language switcher. Portuguese/German are translated separately
+  // (translate_entity_names.py, cached — not every name has one yet), so
+  // fall back to English rather than showing nothing for names not yet
+  // translated.
   document.querySelectorAll('[data-en][data-uk]').forEach(el => {
-    el.textContent = (lang === 'uk' ? el.dataset.uk : el.dataset.en) || el.dataset.en;
+    el.textContent = el.dataset[lang] || el.dataset.en;
   });
 
   // Let page-specific scripts (e.g. the aggregated-views charts) react to a
