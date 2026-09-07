@@ -85,11 +85,11 @@
   <div id="topbar">
     <div>
       <h2>🧠 Full Archive — Knowledge Graph</h2>
-      <span class="sub">2 total issues &nbsp;·&nbsp; Scroll to zoom · Drag to pan · Click for details</span>
+      <span class="sub"><span id="topbar-subtitle">2 total issues</span> &nbsp;·&nbsp; <span id="topbar-sub">Scroll to zoom · Drag to pan · Click for details</span></span>
     </div>
     <input id="search" type="search" placeholder="Search person or place…" autocomplete="off"/>
     <div class="ctrl">
-      <label for="min-mentions">Min. mentions</label>
+      <label for="min-mentions" id="min-mentions-label">Min. mentions</label>
       <input type="range" id="min-mentions" min="1" max="8" value="1" step="1"/>
       <span id="filter-val">1</span>
       <span id="node-count"></span>
@@ -101,10 +101,10 @@
       <div id="cy"></div>
       <div id="loading">Building graph…</div>
       <div id="legend">
-        <span><span class="dot" style="background:#3b82f6"></span>Person</span>
-        <span><span class="dot" style="background:#10b981"></span>Location</span>
-        <span><span class="dot" style="background:#8b5cf6"></span>Organization</span>
-        <span><span class="dot" style="background:#f59e0b" id="legend-page"></span>Issue</span>
+        <span><span class="dot" style="background:#3b82f6"></span><span id="legend-person">Person</span></span>
+        <span><span class="dot" style="background:#10b981"></span><span id="legend-location">Location</span></span>
+        <span><span class="dot" style="background:#8b5cf6"></span><span id="legend-org">Organization</span></span>
+        <span><span class="dot" style="background:#f59e0b" id="legend-page"></span><span id="legend-issue">Issue</span></span>
       </div>
     </div>
     <div id="detail">
@@ -114,7 +114,7 @@
         <button class="dlang-btn" data-dlang="pt" onclick="setDetailLang('pt')">PT-BR</button>
         <button class="dlang-btn" data-dlang="de" onclick="setDetailLang('de')">DE</button>
       </div>
-      <div id="detail-body"><p class="hint">Click any node<br>to see details.</p></div>
+      <div id="detail-body"><p class="hint" id="detail-hint">Click any node<br>to see details.</p></div>
     </div>
   </div>
 
@@ -446,7 +446,8 @@
 
   function resetDetail() {
     detailNode = null;
-    document.getElementById("detail-body").innerHTML = "<p class='hint'>Click any node<br>to see details.</p>";
+    const t = UI_STRINGS[detailLang] || UI_STRINGS.en;
+    document.getElementById("detail-body").innerHTML = `<p class="hint" id="detail-hint">${t.hint}</p>`;
   }
 
   // Previously the language buttons only re-rendered the detail panel — the
@@ -460,10 +461,49 @@
     cy.nodes().forEach(n => n.data("label", n.data("label_" + lang) || n.data("label_en")));
   }
 
+  // The topbar/legend/hint chrome around the graph was previously always
+  // English regardless of the language buttons, which only ever touched
+  // the detail panel and (after the label fix above) the node labels —
+  // fixed by reusing the same buttons to drive this UI text too.
+  const UI_STRINGS = {
+    en: { sub: "Scroll to zoom · Drag to pan · Click for details", search: "Search person or place…",
+           minMentions: "Min. mentions", togglePages: "Show issue nodes", loading: "Building graph…",
+           person: "Person", location: "Location", org: "Organization", issue: "Issue",
+           hint: "Click any node<br>to see details." },
+    uk: { sub: "Прокрутіть для масштабу · Перетягніть для панорами · Натисніть для деталей", search: "Пошук особи чи місця…",
+           minMentions: "Мін. згадувань", togglePages: "Показати вузли випусків", loading: "Побудова графа…",
+           person: "Особа", location: "Місце", org: "Організація", issue: "Випуск",
+           hint: "Натисніть на будь-який вузол,<br>щоб побачити деталі." },
+    pt: { sub: "Role para ampliar · Arraste para mover · Clique para detalhes", search: "Buscar pessoa ou lugar…",
+           minMentions: "Mín. de menções", togglePages: "Mostrar nós de edições", loading: "Construindo grafo…",
+           person: "Pessoa", location: "Local", org: "Organização", issue: "Edição",
+           hint: "Clique em qualquer nó<br>para ver detalhes." },
+    de: { sub: "Scrollen zum Zoomen · Ziehen zum Verschieben · Für Details klicken", search: "Person oder Ort suchen…",
+           minMentions: "Min. Erwähnungen", togglePages: "Ausgabenknoten anzeigen", loading: "Graph wird erstellt…",
+           person: "Person", location: "Ort", org: "Organisation", issue: "Ausgabe",
+           hint: "Klicken Sie auf einen Knoten,<br>um Details zu sehen." },
+  };
+
+  function applyUiLang(lang) {
+    const t = UI_STRINGS[lang] || UI_STRINGS.en;
+    document.getElementById("topbar-sub").textContent = t.sub;
+    document.getElementById("search").placeholder = t.search;
+    document.getElementById("min-mentions-label").textContent = t.minMentions;
+    document.getElementById("toggle-pages").textContent = t.togglePages;
+    document.getElementById("loading").textContent = t.loading;
+    document.getElementById("legend-person").textContent = t.person;
+    document.getElementById("legend-location").textContent = t.location;
+    document.getElementById("legend-org").textContent = t.org;
+    document.getElementById("legend-issue").textContent = t.issue;
+    if (!detailNode) document.getElementById("detail-body").innerHTML =
+      `<p class="hint" id="detail-hint">${t.hint}</p>`;
+  }
+
   function setDetailLang(lang) {
     detailLang = lang;
     document.querySelectorAll(".dlang-btn").forEach(b => b.classList.toggle("active", b.dataset.dlang===lang));
     applyGraphLang(lang);
+    applyUiLang(lang);
     if (detailNode) renderDetail(detailNode);
   }
 

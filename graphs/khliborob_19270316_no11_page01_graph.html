@@ -75,20 +75,20 @@
   <div id="topbar">
     <div>
       <h2>🧠 Ukrainian Farmer · 1927-03-16 · No. № 11 (139)</h2>
-      <span class="sub">Nodes = entities on this page · Edges = mentioned near each other · Click for details</span>
+      <span class="sub" id="topbar-sub">Nodes = entities on this page · Edges = mentioned near each other · Click for details</span>
     </div>
     <input id="search" type="search" placeholder="Search…" autocomplete="off"/>
-    <a class="issue-link" href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/" target="_blank">↗ Open issue page</a>
+    <a class="issue-link" id="issue-link" href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/" target="_blank">↗ Open issue page</a>
     <button id="fitbtn">⊡ Fit</button>
   </div>
   <div id="layout">
     <div style="position:relative;flex:1;display:flex">
       <div id="cy"></div>
       <div id="legend">
-        <span><span class="dot" style="background:#3b82f6"></span>Person</span>
-        <span><span class="dia"></span>Location</span>
-        <span><span class="dot" style="background:#8b5cf6"></span>Organization</span>
-        <span style="color:#94a3b8">— mentioned near each other on this page</span>
+        <span><span class="dot" style="background:#3b82f6"></span><span id="legend-person">Person</span></span>
+        <span><span class="dia"></span><span id="legend-location">Location</span></span>
+        <span><span class="dot" style="background:#8b5cf6"></span><span id="legend-org">Organization</span></span>
+        <span style="color:#94a3b8" id="legend-edge">— mentioned near each other on this page</span>
       </div>
     </div>
     <div id="panel">
@@ -98,7 +98,7 @@
         <button class="plang-btn" data-plang="pt" onclick="setPanelLang('pt')">PT-BR</button>
         <button class="plang-btn" data-plang="de" onclick="setPanelLang('de')">DE</button>
       </div>
-      <div id="panel-body"><p class="hint">Click any node<br>to see details.</p></div>
+      <div id="panel-body"><p class="hint" id="panel-hint">Click any node<br>to see details.</p></div>
     </div>
   </div>
 
@@ -287,9 +287,50 @@
       ${conn?`<div class="field"><b>Connected to</b><ul>${conn}</ul></div>`:""}`;
   }
 
+  // The topbar/legend/hint chrome around the graph was previously always
+  // English regardless of the language buttons, which only ever touched
+  // the side panel — fixed alongside the node-label fix above by reusing
+  // the same buttons to drive this UI text too.
+  const UI_STRINGS = {
+    en: { sub: "Nodes = entities on this page · Edges = mentioned near each other · Click for details",
+           search: "Search…", issueLink: "↗ Open issue page", fit: "⊡ Fit",
+           person: "Person", location: "Location", org: "Organization",
+           edge: "— mentioned near each other on this page",
+           hint: "Click any node<br>to see details." },
+    uk: { sub: "Вузли = сутності на цій сторінці · Ребра = згадані поруч · Натисніть для деталей",
+           search: "Пошук…", issueLink: "↗ Відкрити сторінку випуску", fit: "⊡ За розміром",
+           person: "Особа", location: "Місце", org: "Організація",
+           edge: "— згадані поруч на цій сторінці",
+           hint: "Натисніть на будь-який вузол,<br>щоб побачити деталі." },
+    pt: { sub: "Nós = entidades nesta página · Arestas = mencionadas próximas uma da outra · Clique para detalhes",
+           search: "Pesquisar…", issueLink: "↗ Abrir página da edição", fit: "⊡ Ajustar",
+           person: "Pessoa", location: "Local", org: "Organização",
+           edge: "— mencionadas próximas uma da outra nesta página",
+           hint: "Clique em qualquer nó<br>para ver detalhes." },
+    de: { sub: "Knoten = Entitäten auf dieser Seite · Kanten = in der Nähe zueinander erwähnt · Für Details klicken",
+           search: "Suche…", issueLink: "↗ Ausgabenseite öffnen", fit: "⊡ Einpassen",
+           person: "Person", location: "Ort", org: "Organisation",
+           edge: "— auf dieser Seite in der Nähe zueinander erwähnt",
+           hint: "Klicken Sie auf einen Knoten,<br>um Details zu sehen." },
+  };
+
+  function applyUiLang(lang) {
+    const t = UI_STRINGS[lang] || UI_STRINGS.en;
+    document.getElementById("topbar-sub").textContent = t.sub;
+    document.getElementById("search").placeholder = t.search;
+    document.getElementById("issue-link").textContent = t.issueLink;
+    document.getElementById("fitbtn").textContent = t.fit;
+    document.getElementById("legend-person").textContent = t.person;
+    document.getElementById("legend-location").textContent = t.location;
+    document.getElementById("legend-org").textContent = t.org;
+    document.getElementById("legend-edge").textContent = t.edge;
+    if (!selectedNode) document.getElementById("panel-hint").innerHTML = t.hint;
+  }
+
   function setPanelLang(lang) {
     panelLang = lang;
     document.querySelectorAll(".plang-btn").forEach(b => b.classList.toggle("active", b.dataset.plang===lang));
+    applyUiLang(lang);
     // Previously this only re-rendered the side panel — the graph's own node
     // labels were baked in once at build time and never changed, so toggling
     // language visibly did nothing to the graph itself. Each node carries a
@@ -309,7 +350,8 @@
     if (e.target===cy) {
       cy.elements().removeClass("dim hi");
       selectedNode = null;
-      document.getElementById("panel-body").innerHTML="<p class='hint'>Click any node<br>to see details.</p>";
+      document.getElementById("panel-body").innerHTML =
+        `<p class="hint" id="panel-hint">${(UI_STRINGS[panelLang] || UI_STRINGS.en).hint}</p>`;
     }
   });
   </script>
