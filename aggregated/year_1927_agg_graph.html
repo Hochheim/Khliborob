@@ -22,8 +22,25 @@
     #min-mentions{width:100px;accent-color:#2b6cb0}
     #node-count{font-size:.72rem;color:#888}
     #toggle-pages{font-size:.76rem;padding:3px 10px;border:1px solid #ccc;border-radius:5px;
-                   cursor:pointer;background:#fff;color:#333}
+                   cursor:pointer;background:#fff;color:#333;white-space:nowrap}
     #toggle-pages.active{background:#2b6cb0;color:#fff;border-color:#2b6cb0}
+    /* ── filters popover — groups the mention-filter and issue-node
+       toggle out of the topbar's main row, which was wrapping onto a
+       second line once every control (search, slider, button) and their
+       translated labels were all shown inline at once. ── */
+    #filters-wrap{position:relative}
+    #filters-btn{font-size:.76rem;padding:3px 10px;border:1px solid #ccc;border-radius:5px;
+                  cursor:pointer;background:#fff;color:#333;white-space:nowrap;display:flex;
+                  align-items:center;gap:5px}
+    #filters-btn.active{background:#eff6ff;border-color:#2b6cb0;color:#2b6cb0}
+    #filters-badge{background:#2b6cb0;color:#fff;border-radius:99px;font-size:.66rem;
+                    padding:0 6px;line-height:1.5}
+    #filters-panel{display:none;position:absolute;right:0;top:calc(100% + 6px);
+                    background:#fff;border:1px solid #ddd;border-radius:8px;
+                    box-shadow:0 4px 16px rgba(0,0,0,.12);padding:12px 14px;z-index:20;
+                    flex-direction:column;gap:10px;min-width:220px}
+    #filters-panel.open{display:flex}
+    #filters-panel .ctrl{white-space:normal}
 
     /* ── main area ── */
     #main{display:flex;flex:1;overflow:hidden;flex-direction:row}
@@ -88,13 +105,20 @@
       <span class="sub"><span id="topbar-subtitle">1 issue(s)</span> &nbsp;·&nbsp; <span id="topbar-sub">Scroll to zoom · Drag to pan · Click for details</span></span>
     </div>
     <input id="search" type="search" placeholder="Search person or place…" autocomplete="off"/>
-    <div class="ctrl">
-      <label for="min-mentions" id="min-mentions-label">Min. mentions</label>
-      <input type="range" id="min-mentions" min="1" max="4" value="1" step="1"/>
-      <span id="filter-val">1</span>
-      <span id="node-count"></span>
+    <div id="filters-wrap">
+      <button id="filters-btn" onclick="toggleFiltersPanel()">
+        ⚙ <span id="filters-btn-label">Filters</span> <span id="filters-badge">1</span>
+      </button>
+      <div id="filters-panel">
+        <div class="ctrl">
+          <label for="min-mentions" id="min-mentions-label">Min. mentions</label>
+          <input type="range" id="min-mentions" min="1" max="4" value="1" step="1"/>
+          <span id="filter-val">1</span>
+          <span id="node-count"></span>
+        </div>
+        <button id="toggle-pages">Show issue nodes</button>
+      </div>
     </div>
-    <button id="toggle-pages">Show issue nodes</button>
   </div>
   <div id="main">
     <div id="cy-wrap" style="position:relative;flex:1;overflow:hidden">
@@ -367,6 +391,19 @@
   // keep the handle position and label in sync with what's actually shown.
   document.getElementById("min-mentions").value = initMin;
   document.getElementById("filter-val").textContent = initMin;
+  document.getElementById("filters-badge").textContent = initMin;
+
+  function toggleFiltersPanel() {
+    document.getElementById("filters-panel").classList.toggle("open");
+    document.getElementById("filters-btn").classList.toggle("active");
+  }
+  document.addEventListener("click", function(e) {
+    const wrap = document.getElementById("filters-wrap");
+    if (!wrap.contains(e.target)) {
+      document.getElementById("filters-panel").classList.remove("open");
+      document.getElementById("filters-btn").classList.remove("active");
+    }
+  });
 
   // Apply positions after Cytoscape finishes mounting. Never rely solely on
   // requestAnimationFrame here: rAF does not fire while the page is not being
@@ -403,6 +440,7 @@
   slider.addEventListener("input", function() {
     const min = parseInt(this.value);
     document.getElementById("filter-val").textContent = min;
+    document.getElementById("filters-badge").textContent = min;
     cy.elements().remove();
     cy.add(buildElements(min));
     applyGraphLang(detailLang);
@@ -469,18 +507,22 @@
     en: { sub: "Scroll to zoom · Drag to pan · Click for details", search: "Search person or place…",
            minMentions: "Min. mentions", togglePages: "Show issue nodes", loading: "Building graph…",
            person: "Person", location: "Location", org: "Organization", issue: "Issue",
+           filters: "Filters",
            hint: "Click any node<br>to see details." },
     uk: { sub: "Прокрутіть для масштабу · Перетягніть для панорами · Натисніть для деталей", search: "Пошук особи чи місця…",
            minMentions: "Мін. згадувань", togglePages: "Показати вузли випусків", loading: "Побудова графа…",
            person: "Особа", location: "Місце", org: "Організація", issue: "Випуск",
+           filters: "Фільтри",
            hint: "Натисніть на будь-який вузол,<br>щоб побачити деталі." },
     pt: { sub: "Role para ampliar · Arraste para mover · Clique para detalhes", search: "Buscar pessoa ou lugar…",
            minMentions: "Mín. de menções", togglePages: "Mostrar nós de edições", loading: "Construindo grafo…",
            person: "Pessoa", location: "Local", org: "Organização", issue: "Edição",
+           filters: "Filtros",
            hint: "Clique em qualquer nó<br>para ver detalhes." },
     de: { sub: "Scrollen zum Zoomen · Ziehen zum Verschieben · Für Details klicken", search: "Person oder Ort suchen…",
            minMentions: "Min. Erwähnungen", togglePages: "Ausgabenknoten anzeigen", loading: "Graph wird erstellt…",
            person: "Person", location: "Ort", org: "Organisation", issue: "Ausgabe",
+           filters: "Filter",
            hint: "Klicken Sie auf einen Knoten,<br>um Details zu sehen." },
   };
 
@@ -495,6 +537,7 @@
     document.getElementById("legend-location").textContent = t.location;
     document.getElementById("legend-org").textContent = t.org;
     document.getElementById("legend-issue").textContent = t.issue;
+    document.getElementById("filters-btn-label").textContent = t.filters;
     if (!detailNode) document.getElementById("detail-body").innerHTML =
       `<p class="hint" id="detail-hint">${t.hint}</p>`;
   }
