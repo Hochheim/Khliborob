@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609071525">
+<link rel="stylesheet" href="../assets/main.css?v=202609071614">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -105,9 +105,26 @@
         Ukrainisch, Englisch oder Portugiesisch. Antworten stützen sich auf den Korpus und
         belegen ihre Quellen. Probieren Sie eines davon:</span>
         <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem">
-          <button class="chip" onclick="askExample(this)">Who is Pedro Mazurechen?</button>
-          <button class="chip" onclick="askExample(this)">Що газета писала про Мазепу?</button>
-          <button class="chip" onclick="askExample(this)">Which international events of 1927 are covered?</button>
+          <span class="lang-chips" data-lang-en>
+            <button class="chip" onclick="askExample(this)">Who is Pedro Mazurechen?</button>
+            <button class="chip" onclick="askExample(this)">What did the newspaper write about Mazepa?</button>
+            <button class="chip" onclick="askExample(this)">Which international events of 1927 are covered?</button>
+          </span>
+          <span class="lang-chips" data-lang-uk style="display:none">
+            <button class="chip" onclick="askExample(this)">Хто такий Педро Мазуречен?</button>
+            <button class="chip" onclick="askExample(this)">Що газета писала про Мазепу?</button>
+            <button class="chip" onclick="askExample(this)">Які міжнародні події 1927 року висвітлені?</button>
+          </span>
+          <span class="lang-chips" data-lang-pt style="display:none">
+            <button class="chip" onclick="askExample(this)">Quem é Pedro Mazurechen?</button>
+            <button class="chip" onclick="askExample(this)">O que o jornal escreveu sobre Mazepa?</button>
+            <button class="chip" onclick="askExample(this)">Quais eventos internacionais de 1927 são abordados?</button>
+          </span>
+          <span class="lang-chips" data-lang-de style="display:none">
+            <button class="chip" onclick="askExample(this)">Wer ist Pedro Mazurechen?</button>
+            <button class="chip" onclick="askExample(this)">Was schrieb die Zeitung über Mazepa?</button>
+            <button class="chip" onclick="askExample(this)">Welche internationalen Ereignisse von 1927 werden behandelt?</button>
+          </span>
         </div>
       </div>
     </div>
@@ -176,6 +193,14 @@
 </div>
 
 <style>
+/* Wraps each language's set of example-question chips so they lay out as
+   direct flex children of their parent row — a plain inline span would
+   otherwise sit as one flex item containing three buttons stacked inside
+   it, not three flex items. Using a class (not an inline style) here
+   matters: the site-wide language toggle resets hidden languages' style
+   to '' to re-show them, which falls back to whatever the stylesheet
+   says — display:contents — rather than the browser's inline default. */
+.lang-chips { display:contents; }
 .agent-tab {
   font-size:13px; padding:.5rem .9rem; border:none; background:none; cursor:pointer;
   color:var(--muted); border-bottom:2px solid transparent; margin-bottom:-1px;
@@ -969,6 +994,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609071525"></script>
+<script src="../assets/lang.js?v=202609071614"></script>
 </body>
 </html>

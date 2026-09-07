@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609071525">
+<link rel="stylesheet" href="../assets/main.css?v=202609071614">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -198,6 +198,48 @@
        rel="noopener">GitHub</a>.
   </p>
 
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Digital provenance: IPFS and blockchain anchoring</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Every digitized page in this archive is preserved through two complementary technologies
+    designed to make its origin and integrity independently verifiable — not just by this
+    website, but by anyone, using public tools that have nothing to do with this project.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>IPFS (InterPlanetary File System)</strong> addresses files by their content rather
+    than by a location. A normal web link (<code>example.com/page1.png</code>) could point to
+    different content at different times without anyone noticing. Instead, each scanned page
+    gets a unique fingerprint generated directly from its own data — the "Qm…" identifiers used
+    throughout this site. If even a single pixel changed, the fingerprint would change too. That
+    fingerprint is a durable, checkable guarantee that what you're viewing is exactly the file
+    that was originally digitized, not a silently altered or corrupted copy.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Polygon</strong> is a public blockchain — a shared ledger maintained by thousands of
+    independent computers worldwide rather than by any single company or institution. For each
+    digitized page, this project writes a small, permanent record onto that ledger stating, in
+    effect, "this exact file fingerprint, for this exact page, existed at this exact time."
+    <strong>POL</strong> is the token used to pay the small fee for writing that record. Because
+    the ledger is public and decentralized, anyone can independently check that timestamp — for
+    example on <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — and it cannot be altered afterward by this project, by SUBRAS, or by anyone else.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Together, the two cover different risks. IPFS's fingerprint proves a file hasn't been
+    tampered with, provided you have something to compare it against; the blockchain record
+    supplies that permanent, independent point of comparison, plus a trustworthy date — one that
+    would still stand even if the file itself ever became unavailable.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Why not a traditional server instead?</strong> Conventional digital preservation
+    usually means paying for dedicated, redundant infrastructure — storage mirrored across
+    multiple sites for disaster recovery, ongoing hardware and software maintenance, and often a
+    commercial repository platform on top — costs that recur for as long as the archive exists,
+    and add up faster than they might seem once staff time to keep it all running is factored in.
+    IPFS and blockchain anchoring aim for the same core guarantees — content that can be proven
+    unaltered, with a permanent, independently verifiable record of when it existed — through
+    shared, already-existing infrastructure instead.
+  </p>
+
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Roadmap</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     This pilot corpus (2 issues, 8 pages) exists to demonstrate the pipeline end-to-end for a
@@ -376,6 +418,53 @@
     зберігаються на IPFS через Pinata та криптографічно закріплюються в блокчейні Polygon.
     Вихідний код конвеєра доступний на
     <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Цифрове підтвердження походження: IPFS та закріплення в блокчейні</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Кожна оцифрована сторінка цього архіву зберігається за допомогою двох взаємодоповнюючих
+    технологій, покликаних зробити її походження та цілісність незалежно перевірюваними — не
+    лише цим сайтом, а будь-ким, за допомогою публічних інструментів, які не мають жодного
+    стосунку до цього проєкту.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>IPFS (InterPlanetary File System)</strong> адресує файли за їхнім вмістом, а не за
+    місцем розташування. Звичайне вебпосилання (<code>example.com/page1.png</code>) могло б у
+    різний час вказувати на різний вміст, і ніхто б цього не помітив. Натомість кожна відсканована
+    сторінка отримує унікальний відбиток, згенерований безпосередньо з її власних даних —
+    ідентифікатори „Qm…“, що використовуються по всьому цьому сайту. Якби змінився хоча б один
+    піксель, відбиток теж змінився б. Цей відбиток є тривкою, перевірюваною гарантією того, що те,
+    що ви бачите, є саме тим файлом, який було оцифровано спочатку, а не непомітно зміненою чи
+    пошкодженою копією.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Polygon</strong> — це публічний блокчейн: спільний реєстр, який підтримують тисячі
+    незалежних комп'ютерів по всьому світу, а не якась одна компанія чи установа. Для кожної
+    оцифрованої сторінки цей проєкт записує в цей реєстр невеликий, постійний запис, який фактично
+    засвідчує: „цей точний відбиток файлу для цієї точної сторінки існував у цей точний момент
+    часу“. <strong>POL</strong> — це токен, яким сплачується невелика комісія за запис такого
+    запису. Оскільки реєстр публічний і децентралізований, будь-хто може незалежно перевірити цю
+    позначку часу — наприклад, на
+    <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — і жодна зі сторін, включно з цим проєктом, SUBRAS чи будь-ким іншим, не може змінити її
+    заднім числом.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Разом ці дві технології покривають різні ризики. Відбиток IPFS доводить, що файл не було
+    підроблено, за умови, що є з чим його порівняти; запис у блокчейні надає саме цю постійну,
+    незалежну точку порівняння, а також надійну дату — яка залишиться дійсною, навіть якщо сам
+    файл колись стане недоступним.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Чому не звичайний сервер?</strong> Традиційне цифрове збереження зазвичай означає
+    оплату виділеної, резервованої інфраструктури — сховища, дзеркального на кількох майданчиках
+    для аварійного відновлення, постійного обслуговування апаратного й програмного забезпечення, а
+    часто ще й комерційної платформи-репозиторію зверху — витрати, які повторюються, доки існує
+    архів, і накопичуються швидше, ніж здається, якщо врахувати час персоналу, потрібний для
+    підтримання всього цього в робочому стані. IPFS та закріплення в блокчейні прагнуть до тих
+    самих базових гарантій — вмісту, незмінність якого можна довести, з постійним, незалежно
+    перевірюваним записом про те, коли він існував — але за допомогою спільної, вже наявної
+    інфраструктури.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Дорожня карта</h2>
@@ -571,6 +660,53 @@
     ancoradas criptograficamente na blockchain Polygon. O código-fonte do pipeline está
     disponível no
     <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Proveniência digital: IPFS e ancoragem em blockchain</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Cada página digitalizada deste arquivo é preservada por meio de duas tecnologias
+    complementares, projetadas para tornar sua origem e integridade verificáveis de forma
+    independente — não apenas por este site, mas por qualquer pessoa, usando ferramentas públicas
+    que nada têm a ver com este projeto.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    O <strong>IPFS (InterPlanetary File System)</strong> endereça arquivos pelo seu conteúdo, não
+    por uma localização. Um link comum (<code>example.com/page1.png</code>) poderia apontar para
+    conteúdos diferentes em momentos diferentes sem que ninguém percebesse. Em vez disso, cada
+    página escaneada recebe uma impressão digital única, gerada diretamente a partir de seus
+    próprios dados — os identificadores "Qm…" usados em todo este site. Se até um único pixel
+    mudasse, a impressão digital também mudaria. Essa impressão digital é uma garantia duradoura e
+    verificável de que o que você está vendo é exatamente o arquivo que foi originalmente
+    digitalizado, não uma cópia alterada ou corrompida silenciosamente.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    A <strong>Polygon</strong> é uma blockchain pública — um livro-razão compartilhado, mantido
+    por milhares de computadores independentes ao redor do mundo, e não por uma única empresa ou
+    instituição. Para cada página digitalizada, este projeto grava um pequeno registro permanente
+    nesse livro-razão, afirmando, em essência: "esta impressão digital exata, para esta página
+    exata, existia neste momento exato". O <strong>POL</strong> é o token usado para pagar a
+    pequena taxa dessa gravação. Como o livro-razão é público e descentralizado, qualquer pessoa
+    pode verificar essa data de forma independente — por exemplo, em
+    <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — e ela não pode ser alterada posteriormente por este projeto, pela SUBRAS ou por qualquer
+    outra pessoa.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Juntas, as duas tecnologias cobrem riscos diferentes. A impressão digital do IPFS prova que um
+    arquivo não foi adulterado, desde que haja algo com que compará-lo; o registro na blockchain
+    fornece exatamente esse ponto de comparação permanente e independente, além de uma data
+    confiável — que continuaria válida mesmo que o próprio arquivo se tornasse indisponível.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Por que não um servidor tradicional?</strong> A preservação digital convencional
+    geralmente significa pagar por infraestrutura dedicada e redundante — armazenamento espelhado
+    em vários locais para recuperação de desastres, manutenção contínua de hardware e software, e
+    frequentemente uma plataforma de repositório comercial adicional — custos que se repetem
+    enquanto o arquivo existir, e que aumentam mais rápido do que parece quando se considera o
+    tempo de equipe necessário para manter tudo funcionando. O IPFS e a ancoragem em blockchain
+    buscam as mesmas garantias essenciais — conteúdo que pode ser comprovadamente inalterado, com
+    um registro permanente e independentemente verificável de quando existiu — mas por meio de uma
+    infraestrutura compartilhada já existente.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Roteiro</h2>
@@ -775,6 +911,55 @@
     verfügbar.
   </p>
 
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Digitale Herkunftssicherung: IPFS und Blockchain-Verankerung</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Jede digitalisierte Seite dieses Archivs wird durch zwei einander ergänzende Technologien
+    gesichert, die ihre Herkunft und Unversehrtheit unabhängig überprüfbar machen sollen — nicht
+    nur durch diese Website, sondern durch jeden, mit öffentlichen Werkzeugen, die mit diesem
+    Projekt nichts zu tun haben.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>IPFS (InterPlanetary File System)</strong> adressiert Dateien anhand ihres Inhalts,
+    nicht anhand eines Speicherorts. Ein gewöhnlicher Weblink (<code>example.com/page1.png</code>)
+    könnte zu unterschiedlichen Zeitpunkten auf unterschiedliche Inhalte verweisen, ohne dass es
+    jemand bemerkt. Stattdessen erhält jede gescannte Seite einen einzigartigen Fingerabdruck, der
+    direkt aus ihren eigenen Daten erzeugt wird — die auf dieser ganzen Website verwendeten
+    „Qm…“-Kennungen. Würde sich auch nur ein einziges Pixel ändern, würde sich auch der
+    Fingerabdruck ändern. Dieser Fingerabdruck ist eine dauerhafte, überprüfbare Garantie dafür,
+    dass das, was Sie sehen, exakt die ursprünglich digitalisierte Datei ist — und keine
+    unbemerkt veränderte oder beschädigte Kopie.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Polygon</strong> ist eine öffentliche Blockchain — ein gemeinsames Register, das von
+    Tausenden unabhängiger Computer weltweit geführt wird, nicht von einem einzelnen Unternehmen
+    oder einer einzelnen Institution. Für jede digitalisierte Seite schreibt dieses Projekt einen
+    kleinen, dauerhaften Eintrag in dieses Register, der im Kern besagt: „Dieser exakte
+    Datei-Fingerabdruck für diese exakte Seite existierte zu diesem exakten Zeitpunkt.“
+    <strong>POL</strong> ist das Token, mit dem die geringe Gebühr für das Schreiben dieses
+    Eintrags bezahlt wird. Da das Register öffentlich und dezentral ist, kann jeder diesen
+    Zeitstempel unabhängig überprüfen — zum Beispiel auf
+    <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — und weder dieses Projekt noch SUBRAS noch sonst jemand kann ihn nachträglich verändern.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Gemeinsam decken die beiden unterschiedliche Risiken ab. Der IPFS-Fingerabdruck beweist, dass
+    eine Datei nicht manipuliert wurde — vorausgesetzt, man hat etwas, womit man sie vergleichen
+    kann; der Blockchain-Eintrag liefert genau diesen dauerhaften, unabhängigen Vergleichspunkt
+    sowie ein vertrauenswürdiges Datum, das auch dann noch Bestand hätte, wenn die Datei selbst
+    einmal nicht mehr verfügbar wäre.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Warum nicht einfach ein herkömmlicher Server?</strong> Herkömmliche digitale
+    Langzeitarchivierung bedeutet meist, für dedizierte, redundante Infrastruktur zu bezahlen —
+    Speicher, der zur Notfallwiederherstellung an mehreren Standorten gespiegelt wird, laufende
+    Hardware- und Softwarewartung und oft zusätzlich eine kommerzielle Repository-Plattform —
+    Kosten, die anfallen, solange das Archiv besteht, und sich schneller summieren, als es zunächst
+    scheint, sobald man den Personalaufwand für den laufenden Betrieb mit einrechnet. IPFS und
+    Blockchain-Verankerung streben dieselben grundlegenden Garantien an — nachweislich
+    unveränderter Inhalt mit einem dauerhaften, unabhängig überprüfbaren Nachweis darüber, wann er
+    existierte — jedoch über bereits vorhandene, gemeinsam genutzte Infrastruktur.
+  </p>
+
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Fahrplan</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Dieser Pilotkorpus (2 Ausgaben, 8 Seiten) dient dazu, die Pipeline für einen Förderantrag
@@ -833,6 +1018,6 @@
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609071525"></script>
+<script src="../assets/lang.js?v=202609071614"></script>
 </body>
 </html>
