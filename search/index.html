@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609071516">
+<link rel="stylesheet" href="../assets/main.css?v=202609071525">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -23,7 +23,6 @@
   <div class="nav-links">
     <a href="../about/" data-i18n="nav_about">About</a>
     <a href="../browse/" data-i18n="nav_browse">Browse</a>
-    <a href="../search/" data-i18n="nav_search">Search</a>
     <div class="nav-dropdown">
       <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
       <div class="nav-dropdown-menu">
@@ -46,105 +45,17 @@
 </nav>
 
 
-<div id="search-results" style="padding-top:1.5rem">
-  <div style="max-width:560px;margin-bottom:1.5rem">
-    <div class="search-box">
-      <input type="search" id="q" data-i18n="search_placeholder"
-             placeholder="Search all pages" />
-      <button onclick="doSearch()" data-i18n="search_btn">Search</button>
-    </div>
-  </div>
-  <div id="results"></div>
+<div style="padding:3rem 1.5rem;text-align:center;font-size:13px;color:var(--muted)">
+  <p>Redirecting to <a href="../chat/">Research Agent → Search</a>…</p>
 </div>
 <script>
-// Pagefind's module does not expose a `window.pagefind` global on its own —
-// it must be dynamically imported and initialized. This previously checked
-// `window.pagefind` directly, which was always undefined, so every search
-// silently fell through to "index not built" regardless of whether the
-// index existed. Dynamic import() works from a plain script, so no separate
-// type="module" tag is needed.
-window.pagefindReady = (async () => {
-  try {
-    // Pagefind derives its own basePath from this module's resolved URL
-    // (import.meta.url), so a relative dynamic import is enough for it to
-    // find its index and produce correctly-prefixed result URLs even when
-    // the site is deployed under a subpath like hochheim.github.io/Khliborob/.
-    // Do not pass an explicit basePath override here — it expects the path
-    // to the pagefind/ directory itself, not the site root, and got it
-    // wrong when guessed from the page URL instead of left to auto-detect.
-    const pf = await import('../pagefind/pagefind.js');
-    await pf.init();
-    return pf;
-  } catch (e) {
-    console.warn('Pagefind unavailable:', e);
-    return null;
-  }
-})();
-
-async function doSearch() {
-  const q = document.getElementById('q').value.trim();
-  if (!q) return;
-  // Relative, not "/search/?q=..." — an absolute path breaks under the
-  // GitHub Pages subpath (hochheim.github.io/Khliborob/), sending the
-  // address bar to the wrong URL.
-  window.history.replaceState({}, '', location.pathname + '?q=' + encodeURIComponent(q));
-  document.getElementById('results').innerHTML = '<p style="font-size:13px;color:var(--muted)">Searching…</p>';
-  const pf = await window.pagefindReady;
-  if (!pf) {
-    document.getElementById('results').innerHTML =
-      '<p style="font-size:13px;color:var(--muted)">Full-text search index is unavailable right now. ' +
-      'Try the <a href="../chat/">Research Agent</a> instead, or browse by year.</p>';
-    return;
-  }
-  const search = await pf.search(q);
-  if (!search.results.length) {
-    document.getElementById('results').innerHTML =
-      '<p style="font-size:13px;color:var(--muted)">No results found.</p>';
-    return;
-  }
-  const data = await Promise.all(search.results.slice(0, 20).map(x => x.data()));
-  // Pagefind tracks every element with an id as an "anchor", each carrying
-  // the word-offset location where it starts in the page — including every
-  // transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
-  // closest anchor at or before the first match's location tells us which
-  // paragraph the hit is actually in, and we can link straight to it (the
-  // page already jumps + highlights on that hash on load). Without this, a
-  // result link just drops the reader at the top of a long multi-language
-  // transcript with no way to relocate the passage that matched.
-  const tlang = localStorage.getItem('transcriptLang') || 'en';
-  document.getElementById('results').innerHTML = data.map(d => {
-    let url = d.url;
-    if (d.locations && d.locations.length && d.anchors && d.anchors.length) {
-      const target = d.locations[0];
-      let best = null;
-      for (const a of d.anchors) {
-        if (!a.id || a.id.indexOf('para-') !== 0) continue;
-        if (a.location > target) continue;
-        if (!best || a.location > best.location) best = a;
-      }
-      if (best) {
-        const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
-        if (m) url = d.url + '#para-' + tlang + '-' + m[1] + '-' + m[2];
-      }
-    }
-    return `
-    <div class="result-card">
-      <div class="result-date">${d.meta?.date||''} ${d.meta?.issue||''}</div>
-      <div class="result-title"><a href="${url}">${d.meta?.title||d.url}</a></div>
-      <div class="result-snippet">${d.excerpt}</div>
-    </div>`;
-  }).join('');
-}
 const params = new URLSearchParams(window.location.search);
 const q = params.get('q');
-if (q) { document.getElementById('q').value = q; doSearch(); }
-document.getElementById('q').addEventListener('keydown', e => {
-  if (e.key === 'Enter') doSearch();
-});
+window.location.replace('../chat/' + (q ? '?q=' + encodeURIComponent(q) : ''));
 </script>
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609071516"></script>
+<script src="../assets/lang.js?v=202609071525"></script>
 </body>
 </html>

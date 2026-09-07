@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609071516">
+<link rel="stylesheet" href="../assets/main.css?v=202609071525">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -23,7 +23,6 @@
   <div class="nav-links">
     <a href="../about/" data-i18n="nav_about">About</a>
     <a href="../browse/" data-i18n="nav_browse">Browse</a>
-    <a href="../search/" data-i18n="nav_search">Search</a>
     <div class="nav-dropdown">
       <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
       <div class="nav-dropdown-menu">
@@ -75,6 +74,16 @@
     </p>
   </div>
 
+  <div id="agent-tabs" style="display:flex;gap:.4rem;margin-bottom:.9rem;border-bottom:1px solid var(--border)">
+    <button class="agent-tab active" id="tab-btn-ask" onclick="switchAgentTab('ask')">
+      💬 <span data-i18n="tab_ask">Ask</span>
+    </button>
+    <button class="agent-tab" id="tab-btn-search" onclick="switchAgentTab('search')">
+      🔍 <span data-i18n="tab_search">Search all pages</span>
+    </button>
+  </div>
+
+  <div id="agent-panel" style="flex:1;display:flex;flex-direction:column;min-height:0">
   <div id="chat-messages" style="flex:1;overflow-y:auto;border:1px solid var(--border);
        border-radius:var(--radius);padding:1rem;background:var(--card-bg);margin-bottom:1rem;
        display:flex;flex-direction:column;gap:.8rem">
@@ -152,9 +161,27 @@
       er wird nur in diesem Browser (localStorage) gespeichert und nur an die API von Google gesendet, niemals an diese Website.</span>
     </div>
   </div>
+  </div>
+
+  <div id="fulltext-panel" style="display:none;flex:1;flex-direction:column;min-height:0;overflow-y:auto">
+    <div style="max-width:560px;margin-bottom:1rem">
+      <div class="search-box">
+        <input type="search" id="q" data-i18n="search_placeholder"
+               placeholder="Search all pages" />
+        <button onclick="doFullTextSearch()" data-i18n="search_btn">Search</button>
+      </div>
+    </div>
+    <div id="results"></div>
+  </div>
 </div>
 
 <style>
+.agent-tab {
+  font-size:13px; padding:.5rem .9rem; border:none; background:none; cursor:pointer;
+  color:var(--muted); border-bottom:2px solid transparent; margin-bottom:-1px;
+  display:flex; align-items:center; gap:.35rem;
+}
+.agent-tab.active { color:var(--blue); border-bottom-color:var(--blue); font-weight:500; }
 .msg { display:flex; flex-direction:column; }
 .msg-user { align-items:flex-end; }
 .msg-assistant { align-items:flex-start; }
@@ -839,10 +866,109 @@ document.getElementById("chat-input").addEventListener("keydown", e => {
 });
 renderKeyBar();
 loadIndex();
+
+// ---- Search all pages (Pagefind) — merged into this page alongside the
+// Research Agent since the two overlapped heavily: the Agent's own quote
+// mode already does grounded retrieval over the core corpus, while this
+// covers full-text search across literally every rendered page (GPU
+// documents, aggregated views, etc.) that Pagefind's static index reaches
+// but the Agent's own curated index does not. Kept as a separate tab
+// rather than dropped, so neither capability is lost. ----
+function switchAgentTab(tab) {
+  const isAsk = tab === "ask";
+  document.getElementById("agent-panel").style.display = isAsk ? "flex" : "none";
+  document.getElementById("fulltext-panel").style.display = isAsk ? "none" : "flex";
+  document.getElementById("tab-btn-ask").classList.toggle("active", isAsk);
+  document.getElementById("tab-btn-search").classList.toggle("active", !isAsk);
+  if (!isAsk && !window._fulltextInited) {
+    window._fulltextInited = true;
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
+    if (q) { document.getElementById("q").value = q; doFullTextSearch(); }
+  }
+}
+
+// Pagefind's module does not expose a `window.pagefind` global on its own —
+// it must be dynamically imported and initialized. Dynamic import() works
+// from a plain script, so no separate type="module" tag is needed.
+window.pagefindReady = (async () => {
+  try {
+    // Pagefind derives its own basePath from this module's resolved URL
+    // (import.meta.url), so a relative dynamic import is enough for it to
+    // find its index and produce correctly-prefixed result URLs even when
+    // the site is deployed under a subpath like hochheim.github.io/Khliborob/.
+    const pf = await import("../pagefind/pagefind.js");
+    await pf.init();
+    return pf;
+  } catch (e) {
+    console.warn("Pagefind unavailable:", e);
+    return null;
+  }
+})();
+
+async function doFullTextSearch() {
+  const q = document.getElementById("q").value.trim();
+  if (!q) return;
+  window.history.replaceState({}, "", location.pathname + "?q=" + encodeURIComponent(q));
+  document.getElementById("results").innerHTML = '<p style="font-size:13px;color:var(--muted)">Searching…</p>';
+  const pf = await window.pagefindReady;
+  if (!pf) {
+    document.getElementById("results").innerHTML =
+      '<p style="font-size:13px;color:var(--muted)">Full-text search index is unavailable right now.</p>';
+    return;
+  }
+  const search = await pf.search(q);
+  if (!search.results.length) {
+    document.getElementById("results").innerHTML =
+      '<p style="font-size:13px;color:var(--muted)">No results found.</p>';
+    return;
+  }
+  const data = await Promise.all(search.results.slice(0, 20).map(x => x.data()));
+  // Pagefind tracks every element with an id as an "anchor", each carrying
+  // the word-offset location where it starts in the page — including every
+  // transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
+  // closest anchor at or before the first match's location tells us which
+  // paragraph the hit is actually in, and we can link straight to it.
+  const tlang = localStorage.getItem("transcriptLang") || "en";
+  document.getElementById("results").innerHTML = data.map(d => {
+    let url = d.url;
+    if (d.locations && d.locations.length && d.anchors && d.anchors.length) {
+      const target = d.locations[0];
+      let best = null;
+      for (const a of d.anchors) {
+        if (!a.id || a.id.indexOf("para-") !== 0) continue;
+        if (a.location > target) continue;
+        if (!best || a.location > best.location) best = a;
+      }
+      if (best) {
+        const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+        if (m) url = d.url + "#para-" + tlang + "-" + m[1] + "-" + m[2];
+      }
+    }
+    return `
+    <div class="result-card">
+      <div class="result-date">${d.meta?.date||""} ${d.meta?.issue||""}</div>
+      <div class="result-title"><a href="${url}">${d.meta?.title||d.url}</a></div>
+      <div class="result-snippet">${d.excerpt}</div>
+    </div>`;
+  }).join("");
+}
+document.getElementById("q").addEventListener("keydown", e => {
+  if (e.key === "Enter") doFullTextSearch();
+});
+
+// A link into this page with ?q=... (e.g. the homepage's own search box)
+// means "run a full-text search", not "ask the agent" — land on the
+// Search tab with that query already run, same as the old standalone
+// search page did.
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("q")) switchAgentTab("search");
+})();
 </script>
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609071516"></script>
+<script src="../assets/lang.js?v=202609071525"></script>
 </body>
 </html>
