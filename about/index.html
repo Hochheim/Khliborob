@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609071640">
+<link rel="stylesheet" href="../assets/main.css?v=202609071649">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -622,33 +622,55 @@
     silenciosamente com algo globalmente mais famoso sob o mesmo rótulo. Uma auditoria manual
     completa de todos os vínculos com o Wikidata que a extração de entidades produziu neste
     piloto — para pessoas, locais e organizações, não uma amostra de nenhum deles — mostrou que as
-    três categorias falham em taxas muito diferentes. Organizações: 15 de cerca de 38
-    correspondências erradas (uma marca brasileira de cerveja vinculada a um gênero de caramujo
-    marinho; um pequeno açougue do Paraná vinculado a um objeto de museu sem relação alguma).
-    Pessoas saíram-se pior: 38 de 73 correspondências erradas, quase todas do mesmo tipo — um nome
-    vinculado ao item genérico do Wikidata para um sobrenome ou prenome (esses itens existem no
-    próprio Wikidata como conceitos abstratos, não como pessoas), em vez de a uma pessoa real, ou a
-    uma pessoa real, porém historicamente sem relação, com o mesmo nome em outro país ou século (um
-    convidado de casamento brasileiro vinculado a um general polonês da era otomana; o pai de um
-    recém-nascido vinculado a um oficial da força aérea soviética). Os locais foram, de longe, os
-    mais confiáveis: apenas 2 de 68 errados (um vinculado a um município brasileiro parecido, mas
-    errado, com o mesmo nome; o outro novamente vinculado ao item abstrato "sobrenome"). Todas as
-    correspondências erradas foram corrigidas assim que encontradas. As 8 páginas deste piloto
-    atualmente têm vínculos com o Wikidata para 23 das 70 organizações, 35 das 176 pessoas e 66 dos
-    83 locais. Também se constatou que execuções independentes de extração ocasionalmente geram o
-    mesmo nome no idioma original em duas formas diferentes em inglês (por exemplo, "Rural World" e
-    "Silsky Svit (Rural World)" para uma mesma publicação); agora elas são mescladas automaticamente
-    pelo nome ucraniano compartilhado, em vez de permanecerem como duplicatas aparentemente não
-    relacionadas. Essa auditoria cobriu todos os vínculos existentes no piloto, não uma amostra
-    deles — mas o próprio piloto tem apenas 8 páginas de um recorte estreito de uma publicação
-    centenária, de modo que essas taxas de erro descrevem o que foi observado aqui, não uma
-    previsão validada da taxa a esperar em 14.000 páginas que abrangem muito mais épocas,
-    convenções de nomenclatura e tipos de erro. Elas são apresentadas como um resultado demonstrado
-    e o motivo pelo qual o processo de monitoramento abaixo agora existe, não como uma previsão —
-    embora a diferença entre locais (muito confiáveis) e pessoas (não confiáveis) seja, em si, um
-    sinal útil sobre onde a vinculação automática pode ser confiada com menos escrutínio em
-    escala, e onde não pode.
+    três categorias falham em taxas muito diferentes:
   </p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Locais errados<br>(2 de 68)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">de longe os mais confiáveis</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Organizações erradas<br>(15 de 38)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">colisões com entidades reais</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Pessoas erradas<br>(38 de 73)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">as menos confiáveis</div>
+    </div>
+  </div>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    As pessoas erraram quase sempre da mesma forma: um nome vinculado ao item genérico do Wikidata
+    para um sobrenome ou prenome (esses itens existem no próprio Wikidata como conceitos abstratos,
+    não como pessoas), em vez de a uma pessoa real, ou a uma pessoa real, porém historicamente sem
+    relação, com o mesmo nome em outro país ou século (um convidado de casamento brasileiro
+    vinculado a um general polonês da era otomana; o pai de um recém-nascido vinculado a um oficial
+    da força aérea soviética). Os erros de organizações foram colisões mais variadas com entidades
+    reais (uma marca brasileira de cerveja vinculada a um gênero de caramujo marinho; um pequeno
+    açougue do Paraná vinculado a um objeto de museu sem relação alguma). Os dois erros de locais
+    foram um município brasileiro parecido, mas errado, com o mesmo nome, e novamente o item
+    abstrato "sobrenome". Todas as correspondências erradas foram corrigidas assim que encontradas.
+    As 8 páginas deste piloto atualmente têm vínculos com o Wikidata para 23 das 70 organizações,
+    35 das 176 pessoas e 66 dos 83 locais. Também se constatou que execuções independentes de
+    extração ocasionalmente geram o mesmo nome no idioma original em duas formas diferentes em
+    inglês (por exemplo, "Rural World" e "Silsky Svit (Rural World)" para uma mesma publicação);
+    agora elas são mescladas automaticamente pelo nome ucraniano compartilhado, em vez de
+    permanecerem como duplicatas aparentemente não relacionadas.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Essa auditoria cobriu todos os vínculos existentes no piloto, não uma amostra deles — mas o
+    próprio piloto tem apenas 8 páginas de um recorte estreito de uma publicação centenária, de
+    modo que essas taxas de erro descrevem o que foi observado aqui, não uma previsão validada da
+    taxa a esperar em 14.000 páginas que abrangem muito mais épocas, convenções de nomenclatura e
+    tipos de erro. Elas são apresentadas como um resultado demonstrado e o motivo pelo qual o
+    processo de monitoramento abaixo agora existe, não como uma previsão — embora a diferença entre
+    locais (muito confiáveis) e pessoas (não confiáveis) seja, em si, um sinal útil sobre onde a
+    vinculação automática pode ser confiada com menos escrutínio em escala, e onde não pode.
+  </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Auditoria contínua de qualidade</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     A revisão manual de cada correspondência não é viável em escala para 14.000 páginas, então o
     pipeline agora inclui uma auditoria permanente por amostragem aleatória, em vez de uma
@@ -663,6 +685,8 @@
     mecanismo que acompanhará essa taxa, lote a lote, à medida que a digitalização for ampliada,
     em vez de presumir uma confiabilidade que nunca foi medida.
   </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Por que a vinculação se limita a nomes recorrentes</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Mas a amostragem sozinha não resolve o problema de escala subjacente: mesmo revisando uma
     porcentagem fixa dos novos vínculos a cada lote, isso não garante que o restante algum dia
@@ -866,35 +890,58 @@
     derselben Bezeichnung kollidieren kann. Eine vollständige manuelle Prüfung aller
     Wikidata-Verknüpfungen, die die Entitätsextraktion in diesem Piloten erzeugt hatte — für
     Personen, Orte und Organisationen, nicht nur eine Stichprobe davon —, zeigte, dass die drei
-    Kategorien mit sehr unterschiedlichen Raten fehlschlagen. Organisationen: 15 von etwa 38
-    Treffern falsch (eine brasilianische Biermarke, verknüpft mit einer Meeresschnecken-Gattung;
-    ein kleines Fleischereigeschäft aus Paraná, verknüpft mit einem völlig unabhängigen
-    Museumsexponat). Bei Personen war es noch schlechter: 38 von 73 Treffern falsch, fast alle
-    nach demselben Muster — ein Name wurde mit Wikidatas allgemeinem Platzhalter-Eintrag für einen
-    Nach- oder Vornamen verknüpft (solche Einträge existieren in Wikidata selbst als abstrakte
-    Begriffe, nicht als Personen), statt mit einer tatsächlichen Person, oder mit einer realen,
-    aber historisch unabhängigen Person gleichen Namens aus einem anderen Land oder Jahrhundert
-    (ein brasilianischer Hochzeitsgast wurde mit einem polnischen General aus der osmanischen Ära
-    verknüpft; der Vater eines Neugeborenen mit einem Offizier der sowjetischen Luftwaffe). Orte
-    waren mit Abstand am zuverlässigsten: nur 2 von 68 falsch (einer verknüpft mit einer ähnlich
-    benannten, aber falschen brasilianischen Gemeinde; der andere erneut mit dem abstrakten
-    Eintrag "Nachname"). Alle falschen Treffer wurden nach ihrer Entdeckung korrigiert. Die 8
-    Seiten dieses Piloten tragen derzeit Wikidata-Verknüpfungen für 23 von 70 Organisationen, 35
-    von 176 Personen und 66 von 83 Orten. Ebenfalls festgestellt wurde, dass unabhängige
-    Extraktionsdurchläufe gelegentlich denselben Namen in der Originalsprache in zwei
-    unterschiedlichen englischen Formen wiedergeben (z. B. "Rural World" und "Silsky Svit (Rural
-    World)" für dieselbe Publikation); diese werden nun automatisch über den gemeinsamen
-    ukrainischen Originalnamen zusammengeführt, statt als scheinbar unabhängige Duplikate stehen
-    zu bleiben. Diese Prüfung erfasste alle im Piloten vorhandenen Verknüpfungen, nicht nur eine
-    Stichprobe davon — doch der Pilot selbst umfasst lediglich 8 Seiten aus einem schmalen
-    Ausschnitt einer über hundertjährigen Zeitungsgeschichte, sodass diese Fehlerquoten
-    beschreiben, was hier gefunden wurde, und keine validierte Vorhersage der Quote sind, die auf
-    14.000 Seiten mit weit mehr Epochen, Namenskonventionen und Fehlerarten zu erwarten wäre. Sie
-    werden als belegter Befund und als Grund für den unten beschriebenen Überwachungsprozess
-    dargestellt, nicht als Prognose — wobei der Unterschied zwischen Orten (sehr zuverlässig) und
-    Personen (unzuverlässig) selbst ein nützliches Signal dafür ist, wo automatischer Verknüpfung
-    im großen Maßstab mit weniger Prüfung vertraut werden kann und wo nicht.
+    Kategorien mit sehr unterschiedlichen Raten fehlschlagen:
   </p>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Orte falsch<br>(2 von 68)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">mit Abstand am zuverlässigsten</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Organisationen falsch<br>(15 von 38)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">Verwechslungen mit realen Entitäten</div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
+      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Personen falsch<br>(38 von 73)</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">am wenigsten zuverlässig</div>
+    </div>
+  </div>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Bei Personen lag der Fehler fast immer nach demselben Muster: ein Name wurde mit Wikidatas
+    allgemeinem Platzhalter-Eintrag für einen Nach- oder Vornamen verknüpft (solche Einträge
+    existieren in Wikidata selbst als abstrakte Begriffe, nicht als Personen), statt mit einer
+    tatsächlichen Person, oder mit einer realen, aber historisch unabhängigen Person gleichen
+    Namens aus einem anderen Land oder Jahrhundert (ein brasilianischer Hochzeitsgast wurde mit
+    einem polnischen General aus der osmanischen Ära verknüpft; der Vater eines Neugeborenen mit
+    einem Offizier der sowjetischen Luftwaffe). Die Fehler bei Organisationen waren vielfältigere
+    Verwechslungen mit realen Entitäten (eine brasilianische Biermarke, verknüpft mit einer
+    Meeresschnecken-Gattung; ein kleines Fleischereigeschäft aus Paraná, verknüpft mit einem völlig
+    unabhängigen Museumsexponat). Die beiden Fehler bei Orten waren eine ähnlich benannte, aber
+    falsche brasilianische Gemeinde, sowie erneut der abstrakte Eintrag "Nachname". Alle falschen
+    Treffer wurden nach ihrer Entdeckung korrigiert. Die 8 Seiten dieses Piloten tragen derzeit
+    Wikidata-Verknüpfungen für 23 von 70 Organisationen, 35 von 176 Personen und 66 von 83 Orten.
+    Ebenfalls festgestellt wurde, dass unabhängige Extraktionsdurchläufe gelegentlich denselben
+    Namen in der Originalsprache in zwei unterschiedlichen englischen Formen wiedergeben (z. B.
+    "Rural World" und "Silsky Svit (Rural World)" für dieselbe Publikation); diese werden nun
+    automatisch über den gemeinsamen ukrainischen Originalnamen zusammengeführt, statt als
+    scheinbar unabhängige Duplikate stehen zu bleiben.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Diese Prüfung erfasste alle im Piloten vorhandenen Verknüpfungen, nicht nur eine Stichprobe
+    davon — doch der Pilot selbst umfasst lediglich 8 Seiten aus einem schmalen Ausschnitt einer
+    über hundertjährigen Zeitungsgeschichte, sodass diese Fehlerquoten beschreiben, was hier
+    gefunden wurde, und keine validierte Vorhersage der Quote sind, die auf 14.000 Seiten mit weit
+    mehr Epochen, Namenskonventionen und Fehlerarten zu erwarten wäre. Sie werden als belegter
+    Befund und als Grund für den unten beschriebenen Überwachungsprozess dargestellt, nicht als
+    Prognose — wobei der Unterschied zwischen Orten (sehr zuverlässig) und Personen (unzuverlässig)
+    selbst ein nützliches Signal dafür ist, wo automatischer Verknüpfung im großen Maßstab mit
+    weniger Prüfung vertraut werden kann und wo nicht.
+  </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Laufende Qualitätsprüfung</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Eine manuelle Prüfung jeder einzelnen Übereinstimmung lässt sich nicht auf 14.000 Seiten
     skalieren, daher enthält die Pipeline nun statt einer einmaligen Kontrolle eine dauerhafte
@@ -910,6 +957,8 @@
     zunehmender Digitalisierung durchlaufweise verfolgen wird, statt eine ungeprüfte
     Zuverlässigkeit einfach anzunehmen.
   </p>
+
+  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Warum die Verknüpfung auf wiederkehrende Namen beschränkt ist</h3>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Stichprobenprüfung allein löst das zugrunde liegende Skalierungsproblem jedoch nicht: Selbst
     wenn bei jedem Durchlauf ein fester Prozentsatz neuer Verknüpfungen geprüft wird, ist damit
@@ -1070,6 +1119,6 @@
 <footer>
   <span data-i18n="footer_credit">Preserved by SUBRAS (Sociedade Ucraniana do Brasil). Digital archive created as part of a research project at the University of Münster.</span>
 </footer>
-<script src="../assets/lang.js?v=202609071640"></script>
+<script src="../assets/lang.js?v=202609071649"></script>
 </body>
 </html>
