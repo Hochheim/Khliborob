@@ -44,6 +44,18 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
 .nav-title{font-size:14px;font-weight:500;color:#fff}
 .nav-links{display:flex;gap:1.2rem;align-items:center}
 .nav-links a{font-size:13px;color:rgba(255,255,255,.85)}
+.nav-dropdown{position:relative}
+.nav-dropdown-toggle{font-size:13px;color:rgba(255,255,255,.85);background:none;border:none;
+                     cursor:pointer;display:flex;align-items:center;gap:3px;padding:0;
+                     font-family:inherit}
+.nav-dropdown-toggle::after{content:"▾";font-size:10px;opacity:.7}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:0;
+                   background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.18);
+                   padding:6px;min-width:150px;z-index:101}
+.nav-dropdown-menu.open{display:block}
+.nav-dropdown-menu a{display:block;font-size:13px;color:var(--text);padding:7px 10px;
+                     border-radius:5px;white-space:nowrap}
+.nav-dropdown-menu a:hover{background:var(--blue-lt)}
 .lang-switcher{display:flex;gap:.3rem;margin-left:.8rem;
                border-left:1px solid rgba(255,255,255,.3);padding-left:.8rem}
 .lang-btn{font-size:11px;padding:3px 7px;border-radius:3px;cursor:pointer;
@@ -196,11 +208,11 @@ mark{background:var(--yellow);color:#1a1a1a;border-radius:2px;padding:0 2px}
   .content-grid-4 .content-panel:not(:first-child){margin-top:.8rem}
   .stats{grid-template-columns:1fr}
   .stat{border-right:none;border-bottom:1px solid var(--border)}
-  /* Nav has 8 links + a 4-button language switcher in one unwrapped flex
-     row; on a phone that overflows the page horizontally site-wide since
-     nav is sticky on every page. Let the links scroll horizontally within
-     the nav bar instead, like a tab strip, rather than blowing out the
-     page width. */
+  /* Nav has 7 links/dropdowns + a 4-button language switcher in one
+     unwrapped flex row; on a phone that overflows the page horizontally
+     site-wide since nav is sticky on every page. Let the links scroll
+     horizontally within the nav bar instead, like a tab strip, rather
+     than blowing out the page width. */
   nav{padding:0 .8rem}
   .nav-title{max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .nav-links{overflow-x:auto;flex-wrap:nowrap;gap:.9rem;-webkit-overflow-scrolling:touch;
