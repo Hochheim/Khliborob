@@ -249,9 +249,11 @@
     }
     
 
-  // Which language the detail panel's snippet shows — independent of any
-  // other language switcher, toggled via the buttons in #panel-lang.
-  let panelLang = "en";
+  // Which language the detail panel's snippet shows — toggled via the
+  // buttons in #panel-lang, and (like the location map) reads/writes the
+  // same 'lang' localStorage key the main site uses, so it starts in sync
+  // with the issue page instead of always defaulting to English.
+  let panelLang = (function() { try { return localStorage.getItem('lang') || 'en'; } catch(e) { return 'en'; } })();
   let selectedNode = null;
 
   function renderPanel(node) {
@@ -367,6 +369,26 @@
         `<p class="hint" id="panel-hint">${(UI_STRINGS[panelLang] || UI_STRINGS.en).hint}</p>`;
     }
   });
+
+  setPanelLang(panelLang);
+
+  // Embedded as a small iframe preview on the issue page (as opposed to
+  // opened standalone via the "expand" link) — the preview should just
+  // silently follow the issue page's own language rather than exposing a
+  // second, redundant language switcher in miniature. Initial language
+  // already matches (same-origin iframe shares localStorage with its
+  // parent, applied via panelLang's initializer above), so this only
+  // needs to keep following if the reader changes language on the parent
+  // page AFTER the graph has already loaded.
+  if (window.self !== window.top) {
+    var plangEl = document.getElementById('panel-lang');
+    if (plangEl) plangEl.style.display = 'none';
+    try {
+      window.parent.document.addEventListener('langchange', function(e) {
+        setPanelLang(e.detail.lang);
+      });
+    } catch (e) {}
+  }
   </script>
 </body>
 </html>
