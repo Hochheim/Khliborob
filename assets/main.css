@@ -75,14 +75,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
           border:1px solid var(--border);color:var(--muted);background:transparent}
 .tlang-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:500}
 
-/* GPU BANNER */
-.gpu-banner{background:var(--gpu-bg);border-bottom:2px solid var(--gpu-bd);
-            padding:.75rem 1.5rem;font-size:13px;color:var(--gpu-tx);
-            display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
-.gpu-banner strong{font-weight:500}
-.gpu-banner a{color:var(--blue);font-weight:500}
-.gpu-icon{font-size:18px;flex-shrink:0}
-
 /* HERO */
 .hero{background:var(--blue);color:#fff;padding:3.5rem 2.5rem}
 .hero h1{font-size:26px;font-weight:500;margin-bottom:.4rem}

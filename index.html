@@ -7,7 +7,7 @@
 <meta name="description" content="Pilot digital archive of 2 digitized issues (8 pages) of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil since 1927. Searchable transcripts, translations, person and location indices, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/main.css?v=202609072205">
+<link rel="stylesheet" href="assets/main.css?v=202609081454">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="feed.xml">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Khliborob Digital Archive", "alternateName": "Хлібороб / O Lavrador Digital Archive", "description": "Pilot digital archive of 2 digitized issues (8 pages) of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil since 1927. Searchable transcripts, translations, person and location indices, and declassified Soviet intelligence documents from the Holodomor period.", "url": "https://hochheim.github.io/Khliborob/", "creator": {"@type": "Organization", "name": "SUBRAS (Sociedade Ucraniana do Brasil)"}, "publisher": {"@type": "CollegeOrUniversity", "name": "University of Münster"}, "temporalCoverage": "1927/..", "inLanguage": ["uk", "en", "pt"], "isAccessibleForFree": true, "distribution": {"@type": "DataDownload", "encodingFormat": "text/xml", "contentUrl": "https://hochheim.github.io/Khliborob/oai-pmh.xml"}}</script>
 </head>
@@ -43,31 +43,6 @@
     </div>
   </div>
 </nav>
-
-<div class="gpu-banner" id="gpu-banner" style="display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.4rem 1.5rem;font-size:12px">
-  <span style="display:flex;align-items:center;gap:.5rem;color:var(--gpu-tx)">
-    <span style="font-size:13px">🔍</span>
-    <span data-i18n="gpu_banner" style="opacity:.85">Historical discovery: declassified Soviet GPU documents reveal that Khliborob was monitored by Soviet intelligence during the Holodomor (1932) and cited in reports compiled for Japanese diplomatic services.</span>
-    &nbsp;<a href="gpu-documents/" data-i18n="gpu_link" style="font-size:12px;white-space:nowrap">View documents</a>
-  </span>
-  <button onclick="closeBanner()" aria-label="Close"
-    style="flex-shrink:0;background:none;border:none;cursor:pointer;font-size:14px;
-           color:var(--gpu-tx);opacity:.5;padding:0 .2rem;line-height:1">✕</button>
-</div>
-<script>
-function closeBanner(){
-  const b=document.getElementById("gpu-banner");
-  if(b){b.style.display="none";sessionStorage.setItem("gpuBannerClosed","1");}
-}
-(function(){
-  if(sessionStorage.getItem("gpuBannerClosed")==="1"){
-    document.addEventListener("DOMContentLoaded",function(){
-      const b=document.getElementById("gpu-banner");
-      if(b)b.style.display="none";
-    });
-  }
-})();
-</script>
 
 <div class="hero">
   <div style="display:flex;gap:4rem;align-items:center;flex-wrap:wrap;max-width:1100px;margin:0 auto">
@@ -147,6 +122,6 @@ document.getElementById('q').addEventListener('keydown', e => {
 <footer>
   <span data-i18n="footer_credit">This newspaper is preserved by SUBRAS (Sociedade Ucraniana do Brasil).</span>
 </footer>
-<script src="assets/lang.js?v=202609072205"></script>
+<script src="assets/lang.js?v=202609081454"></script>
 </body>
 </html>
