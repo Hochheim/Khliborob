@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
-  <responseDate>2026-09-08T23:42:36Z</responseDate>
+  <responseDate>2026-09-08T23:47:32Z</responseDate>
   <request verb="ListRecords" metadataPrefix="oai_dc">https://hochheim.github.io/Khliborob/oai-pmh.xml</request>
   <!-- Static snapshot export, not a live OAI-PMH verb endpoint. See /about/ for details. -->
   <!-- DISASTER RECOVERY: every page/issue below was anchored on the Polygon blockchain from wallet
        0x41b28D2099E73c587e6420e564C4A18A2B5d23C0 (public address, safe to share — see secrets_local.py).
-       If this website and its own IPFS pins ever become unavailable, every transaction ever sent from
-       that address can be listed independently on a Polygon block explorer (e.g.
-       https://polygonscan.com/address/0x41b28D2099E73c587e6420e564C4A18A2B5d23C0), each one's calldata
-       decoded to recover the METS content ID it anchored, and each METS file fetched from any public
-       IPFS gateway to recover that page's scan, transcript, and ALTO/IIIF files in turn — independent
-       of this site, this export, and any single IPFS pinning service staying online. Each record below
-       also carries its own specific transaction as a direct, one-hop shortcut into that same chain. -->
+       If this website itself ever disappears, every transaction ever sent from that address can still
+       be listed independently on a Polygon block explorer (e.g.
+       https://polygonscan.com/address/0x41b28D2099E73c587e6420e564C4A18A2B5d23C0), and each one's
+       calldata decoded to recover the exact METS content ID it anchored — a permanent, tamper-evident
+       record of which file was declared authentic, independent of this site or this export. IMPORTANT
+       CAVEAT: the blockchain only preserves that identifying hash, not the file bytes themselves —
+       actually fetching the content still requires the corresponding IPFS pin to be live. As of this
+       writing, files are pinned via a single provider (Pinata) with no redundant pin elsewhere, so this
+       recovery path currently depends on that pin (or an independent copy someone else has since
+       fetched and re-pinned) still being available, not on this site alone. Each record below also
+       carries its own specific transaction as a direct, one-hop shortcut into that same chain. -->
   <ListRecords>
     <record>
       <header>
