@@ -7,17 +7,28 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <style>
     body { margin: 0; font-family: sans-serif; display: flex; flex-direction: column; height: 100vh; }
-    #header { background: #2c3e50; color: #fff; padding: 10px 16px; flex-shrink: 0; }
+    #header { background: #2c3e50; color: #fff; padding: 10px 16px; flex-shrink: 0;
+               display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
     #header h2 { margin: 0; font-size: 1rem; }
     #header p  { margin: 2px 0 0; font-size: 0.8rem; opacity: 0.7; }
     #map { width: 100%; flex: 1; min-height: 160px; }
+    .mlang-btn { font-size:.68rem; padding:3px 8px; border-radius:4px; cursor:pointer;
+                  background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3); }
+    .mlang-btn.active { background:#2980b9; border-color:#2980b9; font-weight:600; }
   </style>
 </head>
 <body>
   <div id="header">
-    <h2>📍 Location Map — Ukrainian Farmer · 1927-03-16 · No. № 11 (139)</h2>
-    <p>42 geocoded, 0 without coordinates
-       &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;border-radius:50%;vertical-align:middle"></span> = large region (approximate)</p>
+    <div>
+      <h2>📍 <span id="header-title">Location Map</span> — Ukrainian Farmer · 1927-03-16 · No. № 11 (139)</h2>
+      <p id="header-stats"></p>
+    </div>
+    <div style="display:flex;gap:4px;margin-left:auto">
+      <button class="mlang-btn" data-mlang="en" onclick="applyMapLang('en')">ENG</button>
+      <button class="mlang-btn" data-mlang="uk" onclick="applyMapLang('uk')">УКР</button>
+      <button class="mlang-btn" data-mlang="pt" onclick="applyMapLang('pt')">PT-BR</button>
+      <button class="mlang-btn" data-mlang="de" onclick="applyMapLang('de')">DE</button>
+    </div>
   </div>
   <div id="map"></div>
   
@@ -28,49 +39,90 @@
       attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       subdomains: 'abc', maxZoom: 19
     }).addTo(map);
-    L.marker([-26.2447, -51.0822]).addTo(map).bindPopup('Porto União (Порто Уніон)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-0" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([-14.235, -51.9253], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Brazil (Бразилія)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-9" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-23.5505, -46.6333]).addTo(map).bindPopup('São Paulo (Сан-Паулу)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-12" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([-25.252, -52.0211], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Paraná (Парана)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-20" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-25.4284, -49.2733]).addTo(map).bindPopup('Curitiba (Куритиба)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-15" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-22.9068, -43.1729]).addTo(map).bindPopup('Rio de Janeiro (Ріо-де-Жанейро)');
-    L.circleMarker([55.3781, -3.436], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ United Kingdom (Англія)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-31" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([41.8719, 12.5674], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Italy (Італія)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-31" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([46.2276, 2.2137], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ France (Франція)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-31" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([51.1657, 10.4515], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Germany (Німеччина)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-31" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([51.9194, 19.1451], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Poland (Польща)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-31" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([48.2082, 16.3738]).addTo(map).bindPopup('Vienna (Відень)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-33" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([43.83, 21.05], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Balkans (Балкани)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-33" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([44.787, 20.457], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Yugoslavia (Югославія)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-33" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([41.9028, 12.4964]).addTo(map).bindPopup('Rome (Рим)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-34" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([49.0, 24.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Galicia (Галичина)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-35" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([50.31, 18.66], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Upper Silesia (Горішній Шлеск)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-36" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([52.2297, 21.0122]).addTo(map).bindPopup('Warsaw (Варшава)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-36" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([54.6872, 25.2797]).addTo(map).bindPopup('Vilnius (Вільнюс)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-42" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([48.3794, 31.1656], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Ukraine (Україна)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-2" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-26.1114, -50.3792]).addTo(map).bindPopup('Três Barras (Трес Баррас)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page02-9" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-25.4746, -50.6409]).addTo(map).bindPopup('Irati Colony (Іраті Кольонія)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page02-9" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([0.0, -90.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ The Americas (Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-31" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([48.69096, 17.58552], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Europe (Европа)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-36" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-25.2106, -50.9708]).addTo(map).bindPopup('Prudentópolis (Прудентополіс)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page02-42" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([35.8617, 104.1954], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ China (Китай)<br><small><em>Large region — pin marks approximate centroid.</em></small>');
-    L.circleMarker([36.2048, 138.2529], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Japan (Японія)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page02-61" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([54.526, -105.2551], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ North America (Північна Америка)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page02-61" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-26.2239, -51.0922]).addTo(map).bindPopup('União da Vitória (Уніон да Вікторія)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page03-4" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-25.8778, -50.925]).addTo(map).bindPopup('Marechal Mallet (М. Малєт)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page03-12" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([49.8175, 15.473], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Czechoslovakia (Чехословаччина)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page03-59" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-30.0346, -51.2177]).addTo(map).bindPopup('Porto Alegre (Порті)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-0" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-25.8778, -50.925]).addTo(map).bindPopup('Ivan\'s House (Іванова Хата)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page03-38" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-15.25, -56.483333]).addTo(map).bindPopup('Jangada (Жангаді)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page04-9" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-22.21, -50.908333]).addTo(map).bindPopup('Rancharia (Раншарія)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page04-22" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-22.181944, -51.879444]).addTo(map).bindPopup('Presidente Bernardes (Президенті Бернардіс)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page04-23" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-21.89, -51.173611]).addTo(map).bindPopup('Santo Anastácio (Санту-Анастасіу)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page04-23" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-21.872778, -51.986667]).addTo(map).bindPopup('Presidente Wenceslau (Президенті Венсеслау)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page04-23" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-22.411667, -47.561111]).addTo(map).bindPopup('Rio Claro (Ріо Кляро)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page04-32" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([-27.27, -50.22], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Santa Catarina (Санта-Катаріна)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page04-43" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.circleMarker([60.0, -110.0], {radius:10, color:'#e67e22', fillColor:'#f39c12', fillOpacity:0.8}).addTo(map).bindPopup('⚠️ Canada (Канада)<br><small><em>Large region — pin marks approximate centroid.</em></small><br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page01-33" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
-    L.marker([-25.474444, -50.640833]).addTo(map).bindPopup('Irati (Іраті)<br><a href="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#para-uk-khliborob_19270316_no11_page02-9" target="_blank" style="font-size:.85em">View paragraph in transcript ↗</a>');
 
+    var allMarkers = [{"label": "Porto União (Порто Уніон)", "lat": -26.2447, "lon": -51.0822, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 0}, {"label": "Brazil (Бразилія)", "lat": -14.235, "lon": -51.9253, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 9}, {"label": "São Paulo (Сан-Паулу)", "lat": -23.5505, "lon": -46.6333, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 12}, {"label": "Paraná (Парана)", "lat": -25.252, "lon": -52.0211, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 20}, {"label": "Curitiba (Куритиба)", "lat": -25.4284, "lon": -49.2733, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 15}, {"label": "Rio de Janeiro (Ріо-де-Жанейро)", "lat": -22.9068, "lon": -43.1729, "is_region": false, "is_waterway": false, "polygon": null, "page_id": null, "para_idx": null}, {"label": "United Kingdom (Англія)", "lat": 55.3781, "lon": -3.436, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 31}, {"label": "Italy (Італія)", "lat": 41.8719, "lon": 12.5674, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 31}, {"label": "France (Франція)", "lat": 46.2276, "lon": 2.2137, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 31}, {"label": "Germany (Німеччина)", "lat": 51.1657, "lon": 10.4515, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 31}, {"label": "Poland (Польща)", "lat": 51.9194, "lon": 19.1451, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 31}, {"label": "Vienna (Відень)", "lat": 48.2082, "lon": 16.3738, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 33}, {"label": "Balkans (Балкани)", "lat": 43.83, "lon": 21.05, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 33}, {"label": "Yugoslavia (Югославія)", "lat": 44.787, "lon": 20.457, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 33}, {"label": "Rome (Рим)", "lat": 41.9028, "lon": 12.4964, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 34}, {"label": "Galicia (Галичина)", "lat": 49.0, "lon": 24.0, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 35}, {"label": "Upper Silesia (Горішній Шлеск)", "lat": 50.31, "lon": 18.66, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 36}, {"label": "Warsaw (Варшава)", "lat": 52.2297, "lon": 21.0122, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 36}, {"label": "Vilnius (Вільнюс)", "lat": 54.6872, "lon": 25.2797, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 42}, {"label": "Ukraine (Україна)", "lat": 48.3794, "lon": 31.1656, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 2}, {"label": "Três Barras (Трес Баррас)", "lat": -26.1114, "lon": -50.3792, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page02", "para_idx": 9}, {"label": "Irati Colony (Іраті Кольонія)", "lat": -25.4746, "lon": -50.6409, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page02", "para_idx": 9}, {"label": "The Americas (Америка)", "lat": 0.0, "lon": -90.0, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 31}, {"label": "Europe (Европа)", "lat": 48.69096, "lon": 17.58552, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 36}, {"label": "Prudentópolis (Прудентополіс)", "lat": -25.2106, "lon": -50.9708, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page02", "para_idx": 42}, {"label": "China (Китай)", "lat": 35.8617, "lon": 104.1954, "is_region": true, "is_waterway": false, "polygon": null, "page_id": null, "para_idx": null}, {"label": "Japan (Японія)", "lat": 36.2048, "lon": 138.2529, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page02", "para_idx": 61}, {"label": "North America (Північна Америка)", "lat": 54.526, "lon": -105.2551, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page02", "para_idx": 61}, {"label": "União da Vitória (Уніон да Вікторія)", "lat": -26.2239, "lon": -51.0922, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page03", "para_idx": 4}, {"label": "Marechal Mallet (М. Малєт)", "lat": -25.8778, "lon": -50.925, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page03", "para_idx": 12}, {"label": "Czechoslovakia (Чехословаччина)", "lat": 49.8175, "lon": 15.473, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page03", "para_idx": 59}, {"label": "Porto Alegre (Порті)", "lat": -30.0346, "lon": -51.2177, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 0}, {"label": "Ivan's House (Іванова Хата)", "lat": -25.8778, "lon": -50.925, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page03", "para_idx": 38}, {"label": "Jangada (Жангаді)", "lat": -15.25, "lon": -56.483333, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page04", "para_idx": 9}, {"label": "Rancharia (Раншарія)", "lat": -22.21, "lon": -50.908333, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page04", "para_idx": 22}, {"label": "Presidente Bernardes (Президенті Бернардіс)", "lat": -22.181944, "lon": -51.879444, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page04", "para_idx": 23}, {"label": "Santo Anastácio (Санту-Анастасіу)", "lat": -21.89, "lon": -51.173611, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page04", "para_idx": 23}, {"label": "Presidente Wenceslau (Президенті Венсеслау)", "lat": -21.872778, "lon": -51.986667, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page04", "para_idx": 23}, {"label": "Rio Claro (Ріо Кляро)", "lat": -22.411667, "lon": -47.561111, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page04", "para_idx": 32}, {"label": "Santa Catarina (Санта-Катаріна)", "lat": -27.27, "lon": -50.22, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page04", "para_idx": 43}, {"label": "Canada (Канада)", "lat": 60.0, "lon": -110.0, "is_region": true, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page01", "para_idx": 33}, {"label": "Irati (Іраті)", "lat": -25.474444, "lon": -50.640833, "is_region": false, "is_waterway": false, "polygon": null, "page_id": "khliborob_19270316_no11_page02", "para_idx": 9}];
+    var SITE_BASE = "https://hochheim.github.io/Khliborob/";
+    var ISSUE_ID  = "khliborob_19270316_no11";
+    var geocodedCount = 42, ungeocodedCount = 0;
+
+    // Standalone file (no site-wide lang.js), but reads/writes the same
+    // 'lang' localStorage key the main site uses, so switching language
+    // here also stays in sync with the main site and vice versa.
+    var MAP_UI = {
+      en: { title: "Location Map", waterway: "River / waterway course shown.",
+             region: "Region boundary shown.", regionCentroid: "Large region — pin marks approximate centroid.",
+             viewPara: "View paragraph in transcript ↗", noCoords: "📋 No coordinates available:",
+             stats: function(g,u){return g+" geocoded, "+u+" without coordinates";},
+             legend: "= large region (approximate)" },
+      uk: { title: "Мапа місць", waterway: "Показано річку / водний шлях.",
+             region: "Показано межі регіону.", regionCentroid: "Великий регіон — позначка на приблизному центроїді.",
+             viewPara: "Переглянути абзац у транскрипції ↗", noCoords: "📋 Без координат:",
+             stats: function(g,u){return g+" з координатами, "+u+" без координат";},
+             legend: "= великий регіон (приблизно)" },
+      pt: { title: "Mapa de Localidades", waterway: "Rio / curso d'água mostrado.",
+             region: "Limite da região mostrado.", regionCentroid: "Região grande — marcador no centroide aproximado.",
+             viewPara: "Ver parágrafo na transcrição ↗", noCoords: "📋 Sem coordenadas disponíveis:",
+             stats: function(g,u){return g+" geocodificados, "+u+" sem coordenadas";},
+             legend: "= região grande (aproximado)" },
+      de: { title: "Ortskarte", waterway: "Fluss / Wasserweg dargestellt.",
+             region: "Regionsgrenze dargestellt.", regionCentroid: "Große Region — Markierung am ungefähren Mittelpunkt.",
+             viewPara: "Absatz in der Abschrift ansehen ↗", noCoords: "📋 Keine Koordinaten verfügbar:",
+             stats: function(g,u){return g+" geokodiert, "+u+" ohne Koordinaten";},
+             legend: "= große Region (ungefähr)" },
+    };
+    var currentMapLang = (function(){ try { return localStorage.getItem('lang') || 'en'; } catch(e) { return 'en'; } })();
+    var layerGroup = L.layerGroup().addTo(map);
+
+    function renderMarkers() {
+      layerGroup.clearLayers();
+      var t = MAP_UI[currentMapLang] || MAP_UI.en;
+      allMarkers.forEach(function(loc) {
+        var mentionLink = "";
+        if (SITE_BASE && loc.page_id && loc.para_idx !== null && loc.para_idx !== undefined) {
+          mentionLink = '<br><a href="' + SITE_BASE + 'issues/' + ISSUE_ID + '/#para-' +
+            currentMapLang + '-' + loc.page_id + '-' + loc.para_idx +
+            '" target="_blank" style="font-size:.85em">' + t.viewPara + '</a>';
+        }
+        if ((loc.is_waterway || loc.is_region) && loc.polygon) {
+          var color = loc.is_waterway ? "#2980b9" : "#e67e22";
+          var fill  = loc.is_waterway ? "#3498db" : "#f39c12";
+          var note  = loc.is_waterway ? t.waterway : t.region;
+          var icon  = loc.is_waterway ? "💧 " : "";
+          L.geoJSON(JSON.parse(loc.polygon), {
+            style: {color: color, fillColor: fill, fillOpacity: 0.15, weight: loc.is_waterway ? 3 : 2}
+          }).addTo(layerGroup).bindPopup(icon + loc.label + "<br><small><em>" + note + "</em></small>" + mentionLink);
+        } else if (loc.is_waterway) {
+          L.circleMarker([loc.lat, loc.lon], {radius:8, color:"#2980b9", fillColor:"#3498db", fillOpacity:0.8})
+           .addTo(layerGroup).bindPopup("💧 " + loc.label + mentionLink);
+        } else if (loc.is_region) {
+          L.circleMarker([loc.lat, loc.lon], {radius:10, color:"#e67e22", fillColor:"#f39c12", fillOpacity:0.8})
+           .addTo(layerGroup).bindPopup("⚠️ " + loc.label + "<br><small><em>" + t.regionCentroid + "</em></small>" + mentionLink);
+        } else {
+          L.marker([loc.lat, loc.lon]).addTo(layerGroup).bindPopup(loc.label + mentionLink);
+        }
+      });
+    }
+
+    function applyMapLang(lang) {
+      currentMapLang = lang;
+      try { localStorage.setItem('lang', lang); } catch(e) {}
+      var t = MAP_UI[lang] || MAP_UI.en;
+      document.querySelectorAll('.mlang-btn').forEach(function(b) {
+        b.classList.toggle('active', b.dataset.mlang === lang);
+      });
+      document.getElementById('header-title').textContent = t.title;
+      document.getElementById('header-stats').innerHTML = t.stats(geocodedCount, ungeocodedCount) +
+        ' &nbsp;·&nbsp; <span style="display:inline-block;width:10px;height:10px;background:#f39c12;' +
+        'border-radius:50%;vertical-align:middle"></span> ' + t.legend;
+      var sidebarLabel = document.getElementById('sidebar-label');
+      if (sidebarLabel) sidebarLabel.textContent = t.noCoords;
+      renderMarkers();
+    }
+
+    document.querySelectorAll('.mlang-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset.mlang === currentMapLang);
+    });
+    applyMapLang(currentMapLang);
     map.fitBounds([[-26.2447, -51.0822], [-14.235, -51.9253], [-23.5505, -46.6333], [-25.252, -52.0211], [-25.4284, -49.2733], [-22.9068, -43.1729], [55.3781, -3.436], [41.8719, 12.5674], [46.2276, 2.2137], [51.1657, 10.4515], [51.9194, 19.1451], [48.2082, 16.3738], [43.83, 21.05], [44.787, 20.457], [41.9028, 12.4964], [49.0, 24.0], [50.31, 18.66], [52.2297, 21.0122], [54.6872, 25.2797], [48.3794, 31.1656], [-26.1114, -50.3792], [-25.4746, -50.6409], [0.0, -90.0], [48.69096, 17.58552], [-25.2106, -50.9708], [35.8617, 104.1954], [36.2048, 138.2529], [54.526, -105.2551], [-26.2239, -51.0922], [-25.8778, -50.925], [49.8175, 15.473], [-30.0346, -51.2177], [-25.8778, -50.925], [-15.25, -56.483333], [-22.21, -50.908333], [-22.181944, -51.879444], [-21.89, -51.173611], [-21.872778, -51.986667], [-22.411667, -47.561111], [-27.27, -50.22], [60.0, -110.0], [-25.474444, -50.640833]], {padding: [40, 40]});
   </script>
 </body>
