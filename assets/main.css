@@ -79,7 +79,7 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
 .article-index-item{padding:7px 12px;font-size:13px;line-height:1.4;cursor:pointer;
                      border-bottom:1px solid var(--border)}
 .article-index-item:last-child{border-bottom:none}
-.article-index-item:hover{background:var(--blue-lt)}
+.article-index-item:hover,.article-index-item:focus{background:var(--blue-lt);outline:none}
 .article-index-page{font-size:10px;font-weight:600;color:var(--blue);
                      text-transform:uppercase;letter-spacing:.03em;margin-right:.3rem}
 
