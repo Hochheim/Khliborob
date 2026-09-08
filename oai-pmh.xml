@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <OAI-PMH xmlns="http://www.openarchives.org/OAI/2.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/ http://www.openarchives.org/OAI/2.0/OAI-PMH.xsd">
-  <responseDate>2026-09-08T23:34:05Z</responseDate>
+  <responseDate>2026-09-08T23:42:36Z</responseDate>
   <request verb="ListRecords" metadataPrefix="oai_dc">https://hochheim.github.io/Khliborob/oai-pmh.xml</request>
   <!-- Static snapshot export, not a live OAI-PMH verb endpoint. See /about/ for details. -->
+  <!-- DISASTER RECOVERY: every page/issue below was anchored on the Polygon blockchain from wallet
+       0x41b28D2099E73c587e6420e564C4A18A2B5d23C0 (public address, safe to share — see secrets_local.py).
+       If this website and its own IPFS pins ever become unavailable, every transaction ever sent from
+       that address can be listed independently on a Polygon block explorer (e.g.
+       https://polygonscan.com/address/0x41b28D2099E73c587e6420e564C4A18A2B5d23C0), each one's calldata
+       decoded to recover the METS content ID it anchored, and each METS file fetched from any public
+       IPFS gateway to recover that page's scan, transcript, and ALTO/IIIF files in turn — independent
+       of this site, this export, and any single IPFS pinning service staying online. Each record below
+       also carries its own specific transaction as a direct, one-hop shortcut into that same chain. -->
   <ListRecords>
     <record>
       <header>
@@ -23,6 +32,7 @@
           <dc:language>por</dc:language>
           <dc:coverage>Porto União / União da Vitória, Paraná, Brazil</dc:coverage>
           <dc:identifier>https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/</dc:identifier>
+          <dc:identifier>https://polygonscan.com/tx/0x7e1360a8308f73b3dad7818dee0dd490ed7b8f5ebb91fba716cc4d5c55b82577</dc:identifier>
           <dc:relation>https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/manifest.json</dc:relation>
           <dc:rights>Free and open access. Preserved by SUBRAS; digitized as part of a research project at the University of Münster.</dc:rights>
           <dc:description>The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of trade and illiteracy. Ukrainian affairs include protests by scholars against the oppression of Belarusians and Ukrainians in Poland, the discovery of historical documents related to Hetman Mazepa in Par</dc:description>
@@ -48,6 +58,7 @@
           <dc:language>por</dc:language>
           <dc:coverage>Porto União / União da Vitória, Paraná, Brazil</dc:coverage>
           <dc:identifier>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/</dc:identifier>
+          <dc:identifier>https://polygonscan.com/tx/0x5e5c1d030805a5df00dacfbb87437234da74867a9bceb45ec0b2cdfc3796adbc</dc:identifier>
           <dc:relation>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/iiif/manifest.json</dc:relation>
           <dc:rights>Free and open access. Preserved by SUBRAS; digitized as part of a research project at the University of Münster.</dc:rights>
           <dc:description>This page features international news from Brazil, the USSR, Spain, Yugoslavia, China, and the USA. Key topics include the formation of a match syndicate in Brazil, the conscription law in the USSR, a theater fire in Madrid, a plague outbreak in Manchuria, widespread famine in China, and hurricane devastation in the Antilles and the Southern USA. Ukrainian news covers a lecture by German scholar Dr. Koch on Ukrainian identity, the expansion of the All-National Library of Ukraine, the restoration</dc:description>
