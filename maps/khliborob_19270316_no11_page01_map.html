@@ -30,7 +30,7 @@
       <h2>📍 <span id="header-title">Location Map</span> — Ukrainian Farmer · 1927-03-16 · No. № 11 (139)</h2>
       <p id="header-stats"></p>
     </div>
-    <div style="display:flex;gap:4px;margin-left:auto">
+    <div id="mlang-buttons" style="display:flex;gap:4px;margin-left:auto">
       <button class="mlang-btn" data-mlang="en" onclick="applyMapLang('en')">ENG</button>
       <button class="mlang-btn" data-mlang="uk" onclick="applyMapLang('uk')">УКР</button>
       <button class="mlang-btn" data-mlang="pt" onclick="applyMapLang('pt')">PT-BR</button>
@@ -159,6 +159,23 @@
     // internally rather than just failing to render.
     map.fitBounds([[-26.2447, -51.0822], [-14.235, -51.9253], [-23.5505, -46.6333], [-25.252, -52.0211], [-25.4284, -49.2733], [-22.9068, -43.1729], [55.3781, -3.436], [41.8719, 12.5674], [46.2276, 2.2137], [51.1657, 10.4515], [51.9194, 19.1451], [48.2082, 16.3738], [43.83, 21.05], [44.787, 20.457], [41.9028, 12.4964], [49.0, 24.0], [50.31, 18.66], [52.2297, 21.0122], [54.6872, 25.2797], [48.3794, 31.1656], [-26.1114, -50.3792], [-25.4746, -50.6409], [0.0, -90.0], [48.69096, 17.58552], [-25.2106, -50.9708], [35.8617, 104.1954], [36.2048, 138.2529], [54.526, -105.2551], [-26.2239, -51.0922], [-25.8778, -50.925], [49.8175, 15.473], [-30.0346, -51.2177], [-25.8778, -50.925], [-15.25, -56.483333], [-22.21, -50.908333], [-22.181944, -51.879444], [-21.89, -51.173611], [-21.872778, -51.986667], [-22.411667, -47.561111], [-27.27, -50.22], [60.0, -110.0], [-25.474444, -50.640833]], {padding: [40, 40]});
     applyMapLang(currentMapLang);
+
+    // Embedded as a small iframe preview on the issue page (as opposed to
+    // opened standalone via the "expand" link) — the preview should just
+    // silently follow the issue page's own language rather than exposing
+    // a second, redundant language switcher in miniature. Initial language
+    // already matches (same-origin iframe shares localStorage with its
+    // parent), so this only needs to keep following if the reader changes
+    // language on the parent page AFTER the map has already loaded.
+    if (window.self !== window.top) {
+      var btns = document.getElementById('mlang-buttons');
+      if (btns) btns.style.display = 'none';
+      try {
+        window.parent.document.addEventListener('langchange', function(e) {
+          applyMapLang(e.detail.lang);
+        });
+      } catch (e) {}
+    }
   </script>
 </body>
 </html>

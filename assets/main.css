@@ -191,6 +191,9 @@ nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h)
 .entity-list{display:flex;flex-wrap:wrap;gap:.3rem}
 .entity-tag{font-size:11px;padding:2px 7px;border-radius:3px;
             background:var(--blue-lt);color:var(--blue)}
+.entity-tag[role="button"]{cursor:pointer}
+.entity-tag[role="button"]:hover,.entity-tag[role="button"]:focus{
+  background:var(--blue);color:#fff;outline:none}
 
 /* GPU DOCS PAGE */
 .gpu-page{max-width:800px;margin:0 auto;padding:1.5rem}
