@@ -15,12 +15,13 @@
     .mlang-btn { font-size:.68rem; padding:3px 8px; border-radius:4px; cursor:pointer;
                   background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3); }
     .mlang-btn.active { background:#2980b9; border-color:#2980b9; font-weight:600; }
-    .snip { border-left:3px solid #ccc; padding:6px 8px; margin:6px 0 0; font-size:.8rem;
-             max-width:240px; background:#f8f8f8; }
-    .snip.uk { border-color:#3b82f6 }
-    .snip.en { border-color:#10b981 }
-    .snip.pt { border-color:#16a34a }
-    .snip.de { border-color:#eab308 }
+    .snip { max-width:240px; }
+    .snip { border-left:3px solid #ccc; padding:6px 8px; margin:6px 0;
+             font-size:.8rem; background:#f8f8f8; }
+    .snip.uk { border-color:#3b82f6; }
+    .snip.en { border-color:#10b981; }
+    .snip.pt { border-color:#16a34a; }
+    .snip.de { border-color:#eab308; }
   </style>
 </head>
 <body>
@@ -79,27 +80,22 @@
     var currentMapLang = (function(){ try { return localStorage.getItem('lang') || 'en'; } catch(e) { return 'en'; } })();
     var layerGroup = L.layerGroup().addTo(map);
 
+
     var SNIP_FLAGS = {en: "🇬🇧", uk: "🇺🇦", pt: "🇧🇷", de: "🇩🇪"};
     var SNIP_FALLBACK_ORDER = ["en", "uk", "pt", "de"];
-
-    // A snippet in the currently selected map language isn't always found
-    // (translations occasionally miss a paragraph) — fall back to whichever
-    // language does have one, same honest-fallback pattern the knowledge
-    // graph's detail panel uses, rather than showing nothing at all.
-    function snippetShownLang(loc) {
-      var snips = {en: loc.snippet_en, uk: loc.snippet_uk, pt: loc.snippet_pt, de: loc.snippet_de};
-      if (snips[currentMapLang]) return currentMapLang;
+    function pickSnippetLang(snips, preferredLang) {
+      if (snips[preferredLang]) return preferredLang;
       for (var i = 0; i < SNIP_FALLBACK_ORDER.length; i++) {
         if (snips[SNIP_FALLBACK_ORDER[i]]) return SNIP_FALLBACK_ORDER[i];
       }
       return null;
     }
-
-    function snippetHtml(loc, shownLang) {
-      var snips = {en: loc.snippet_en, uk: loc.snippet_uk, pt: loc.snippet_pt, de: loc.snippet_de};
-      if (!shownLang || !snips[shownLang]) return "";
-      return '<div class="snip ' + shownLang + '">' + SNIP_FLAGS[shownLang] + ' "' + snips[shownLang] + '"</div>';
+    function snippetDiv(snips, preferredLang) {
+      var lang = pickSnippetLang(snips, preferredLang);
+      if (!lang) return "";
+      return '<div class="snip ' + lang + '">' + SNIP_FLAGS[lang] + ' "' + snips[lang] + '"</div>';
     }
+    
 
     function renderMarkers() {
       layerGroup.clearLayers();
@@ -109,8 +105,9 @@
         // snippet above actually ended up showing (not necessarily the
         // selected map language, per the fallback), so what you land on
         // matches what you just read.
-        var shownLang = snippetShownLang(loc);
-        var snip = snippetHtml(loc, shownLang);
+        var snips = {en: loc.snippet_en, uk: loc.snippet_uk, pt: loc.snippet_pt, de: loc.snippet_de};
+        var shownLang = pickSnippetLang(snips, currentMapLang);
+        var snip = snippetDiv(snips, currentMapLang);
         var mentionLink = "";
         if (SITE_BASE && loc.page_id && loc.para_idx !== null && loc.para_idx !== undefined) {
           mentionLink = '<br><a href="' + SITE_BASE + 'issues/' + ISSUE_ID + '/#para-' +

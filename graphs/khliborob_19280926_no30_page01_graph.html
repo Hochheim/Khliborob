@@ -48,10 +48,10 @@
     .src-link{display:inline-block;font-size:.72rem;color:#2b6cb0;
                text-decoration:none;margin:2px 0 10px}
     .src-link:hover{text-decoration:underline}
-    .snip.uk{border-color:#3b82f6}
-    .snip.en{border-color:#10b981}
-    .snip.pt{border-color:#16a34a}
-    .snip.de{border-color:#eab308}
+    .snip.uk { border-color:#3b82f6; }
+    .snip.en { border-color:#10b981; }
+    .snip.pt { border-color:#16a34a; }
+    .snip.de { border-color:#eab308; }
     .hint{color:#ccc;font-size:.78rem;margin-top:24px;text-align:center;line-height:1.7}
     .about-box{border:1px solid #eee;border-radius:5px;padding:6px 10px;margin-bottom:9px;background:#fbfbfb}
     .about-box summary{cursor:pointer;font-size:.65rem;font-weight:600;text-transform:uppercase;
@@ -232,6 +232,23 @@
     cy.container().style.cursor="";
   });
 
+
+    var SNIP_FLAGS = {en: "🇬🇧", uk: "🇺🇦", pt: "🇧🇷", de: "🇩🇪"};
+    var SNIP_FALLBACK_ORDER = ["en", "uk", "pt", "de"];
+    function pickSnippetLang(snips, preferredLang) {
+      if (snips[preferredLang]) return preferredLang;
+      for (var i = 0; i < SNIP_FALLBACK_ORDER.length; i++) {
+        if (snips[SNIP_FALLBACK_ORDER[i]]) return SNIP_FALLBACK_ORDER[i];
+      }
+      return null;
+    }
+    function snippetDiv(snips, preferredLang) {
+      var lang = pickSnippetLang(snips, preferredLang);
+      if (!lang) return "";
+      return '<div class="snip ' + lang + '">' + SNIP_FLAGS[lang] + ' "' + snips[lang] + '"</div>';
+    }
+    
+
   // Which language the detail panel's snippet shows — independent of any
   // other language switcher, toggled via the buttons in #panel-lang.
   let panelLang = "en";
@@ -240,18 +257,14 @@
   function renderPanel(node) {
     const d = node.data();
     const snips = {en: d.snippet_en, uk: d.snippet_uk, pt: d.snippet_pt, de: d.snippet_de};
-    const flags = {en: "🇬🇧", uk: "🇺🇦", pt: "🇧🇷", de: "🇩🇪"};
     // A snippet in the requested language isn't always found (e.g. a
     // location's name isn't stored per-language, so searching for it in a
     // translation it doesn't literally contain can come up empty) — fall
     // back to whichever language does have one, but always label the
     // fallback honestly rather than showing e.g. English text under a
     // German flag just because German was requested first.
-    const fallbackOrder = ["en", "uk", "pt", "de"];
-    const shownLang = snips[panelLang] ? panelLang
-      : fallbackOrder.find(l => snips[l]) || panelLang;
-    const text = snips[shownLang] || "";
-    const snip = text ? `<div class="snip ${shownLang}">${flags[shownLang]} ${text}</div>` : "";
+    const shownLang = pickSnippetLang(snips, panelLang) || panelLang;
+    const snip = snippetDiv(snips, panelLang);
     // Links to whichever language the snippet above actually ended up
     // showing (not necessarily panelLang, per the fallback above) — not
     // always the Ukrainian original — so what you land on matches what
