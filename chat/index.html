@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609081527">
+<link rel="stylesheet" href="../assets/main.css?v=202609081931">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -330,11 +330,11 @@ function bestSnippet(weightedTokens, record) {
       const start = Math.max(0, idx - 140);
       const end = Math.min(text.length, idx + 200);
       const snippet = (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "");
-      return { label, snippet };
+      return { label, snippet, paraIdx: paragraphIndexForPosition(text, idx), lang: LABEL_TO_LANG[label] || "en" };
     }
   }
   const fallback = record.text_en || record.text_uk || record.text_pt || "";
-  return { label: "English translation", snippet: fallback.slice(0, 240) + (fallback.length > 240 ? "…" : "") };
+  return { label: "English translation", snippet: fallback.slice(0, 240) + (fallback.length > 240 ? "…" : ""), paraIdx: null, lang: "en" };
 }
 
 // ---- BYOK (bring your own key) AI research agent -------------------------
@@ -465,7 +465,7 @@ function resetSources() { SRC = { list: [], byKey: {} }; }
 // answer used to produce three separate numbered sources pointing at the
 // same issue link, which read as cluttered. One issue = one citation number;
 // the individual page scans it drew from are listed inside that entry.
-function registerPageSource(rec) {
+function registerPageSource(rec, paraIdx, lang) {
   const k = "pg|" + rec.issue_id;
   let s = SRC.byKey[k];
   if (!s) {
@@ -473,7 +473,8 @@ function registerPageSource(rec) {
     SRC.byKey[k] = s; SRC.list.push(s);
   }
   if (!s.pages.some(p => p.page_number === rec.page_number)) {
-    s.pages.push({ page_number: rec.page_number, ipfs_url: rec.ipfs_url });
+    s.pages.push({ page_number: rec.page_number, page_id: rec.page_id,
+                   para_idx: paraIdx != null ? paraIdx : null, lang: lang || "en" });
   }
   return s;
 }
@@ -492,19 +493,26 @@ function sourcesHtml() {
   for (const s of SRC.list) {
     if (s.kind === "page") {
       const r = s.issue;
-      const pageScans = s.pages.slice()
+      // Each page links straight to the specific paragraph the excerpt was
+      // drawn from (matching the language currently being browsed in, same
+      // convention as citation links everywhere else on the site), not
+      // just the top of the issue page — previously the only link here was
+      // a generic "issue page" one, so a cited passage could never actually
+      // be found without re-reading the whole page. Scan/blockchain links
+      // dropped from this footnote entirely: they're provenance/technical
+      // detail that belongs on the issue page itself (where both already
+      // appear), not repeated in every chat citation.
+      const pageLinks = s.pages.slice()
         .sort((a, b) => String(a.page_number).localeCompare(String(b.page_number)))
-        .map(p => p.ipfs_url
-          ? `<a href="${p.ipfs_url}" target="_blank" rel="noopener">p.${escHtml(String(p.page_number))} scan</a>`
-          : `p.${escHtml(String(p.page_number))}`)
+        .map(p => {
+          const lang = (typeof currentLang !== "undefined" && currentLang) || p.lang || "en";
+          const anchor = (p.para_idx != null && p.page_id)
+            ? `#para-${lang}-${p.page_id}-${p.para_idx}` : "";
+          return `<a href="${r.issue_url}${anchor}" target="_blank" rel="noopener">p.${escHtml(String(p.page_number))}</a>`;
+        })
         .join(", ");
-      const links = [
-        `<a href="${r.issue_url}" target="_blank" rel="noopener">issue page</a>`,
-        pageScans,
-        r.tx_url ? `<a href="${r.tx_url}" target="_blank" rel="noopener">blockchain</a>` : "",
-      ].filter(Boolean).join(" · ");
       h += `<div class="citation-item">[${s.num}] Khliborob / O Lavrador, ${escHtml(r.date)}, `
-        + `No. ${escHtml(String(r.issue_number))} — ${links}</div>`;
+        + `No. ${escHtml(String(r.issue_number))} — ${pageLinks}</div>`;
     } else {
       h += `<div class="citation-item">[${s.num}] GPU document ${escHtml(s.doc.archive_ref || "")} `
         + `(${escHtml(s.doc.date || "")}) — <a href="../gpu-documents/" target="_blank" rel="noopener">GPU documents</a></div>`;
@@ -512,6 +520,37 @@ function sourcesHtml() {
   }
   return h + "</div>";
 }
+
+// Finds which blank-line-delimited paragraph a character position falls
+// in, mirroring xml_generators.py's paragraph_index_for_position/
+// _paragraph_bounds exactly (same split rule, same 0-based numbering) so
+// a citation built here lands on the same #para-{lang}-{page_id}-{idx}
+// anchor the rest of the site already uses — previously this chat's
+// citations only ever linked to the top of the issue page, the one place
+// on the site that hadn't gotten the paragraph-anchor treatment.
+function paragraphIndexForPosition(text, pos) {
+  if (pos == null || pos < 0 || !text) return null;
+  const lead = text.length - text.replace(/^\s+/, "").length;
+  const stripped = text.trim();
+  const re = /
+\s*
+/g;
+  const raw = [0];
+  let m;
+  while ((m = re.exec(stripped)) !== null) raw.push(m.index + m[0].length);
+  raw.push(stripped.length);
+  let paraIdx = 0;
+  for (let i = 0; i < raw.length - 1; i++) {
+    const start = raw[i], end = raw[i + 1];
+    if (stripped.slice(start, end).trim()) {
+      if (pos >= start + lead && pos < end + lead) return paraIdx;
+      paraIdx++;
+    }
+  }
+  return null;
+}
+
+const LABEL_TO_LANG = { "English translation": "en", "Ukrainian original": "uk", "Portuguese": "pt", "Portuguese translation": "pt" };
 
 // Excerpt window around the most informative matched term.
 function excerptFor(weightedTokens, r) {
@@ -525,11 +564,12 @@ function excerptFor(weightedTokens, r) {
       if (idx === -1) continue;
       const start = Math.max(0, idx - 700);
       const end = Math.min(text.length, idx + 900);
-      return { label, snippet: (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "") };
+      return { label, snippet: (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : ""),
+               paraIdx: paragraphIndexForPosition(text, idx), lang: LABEL_TO_LANG[label] || "en" };
     }
   }
   const fb = r.text_en || r.text_uk || r.text_pt || "";
-  return { label: "English translation", snippet: fb.slice(0, 1200) };
+  return { label: "English translation", snippet: fb.slice(0, 1200), paraIdx: null, lang: "en" };
 }
 
 // ---- agent tools ----------------------------------------------------------
@@ -601,8 +641,8 @@ async function execTool(name, args) {
       .sort((a, b) => b.score - a.score)
       .slice(0, 4);
     return { results: scored.map(x => {
-      const s = registerPageSource(x.record);
       const e = excerptFor(wt, x.record);
+      const s = registerPageSource(x.record, e.paraIdx, e.lang);
       return { source_number: s.num, date: x.record.date, issue: x.record.issue_number,
                page: x.record.page_number, text_version: e.label, excerpt: e.snippet };
     }) };
@@ -842,8 +882,8 @@ async function sendQuestion() {
     resetSources();
     let answer = "Matching passage(s) from the corpus:\n\n";
     for (const x of scored) {
-      const s = registerPageSource(x.record);
-      const { label, snippet } = bestSnippet(weightedTokens, x.record);
+      const { label, snippet, paraIdx, lang } = bestSnippet(weightedTokens, x.record);
+      const s = registerPageSource(x.record, paraIdx, lang);
       answer += `[${s.num}] (${label}) "${snippet}"\n\n`;
     }
     replaceMsg(typingId, "assistant", answer.trim(), "", sourcesHtml());
@@ -991,6 +1031,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609081527"></script>
+<script src="../assets/lang.js?v=202609081931"></script>
 </body>
 </html>
