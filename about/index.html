@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609090151">
+<link rel="stylesheet" href="../assets/main.css?v=202609090202">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -143,62 +143,23 @@
     Organization errors were more varied real-entity collisions (a Brazilian beer brand linked to a
     genus of sea snail; a small Paraná butcher shop linked to an unrelated museum exhibit). The two
     location errors were a nearby-but-wrong Brazilian municipality of the same name, and the
-    abstract "family name" placeholder again. All wrong matches were corrected once found. This
-    pilot's 8 pages currently carry Wikidata links for 23 of 70 organizations, 35 of 176 persons,
-    and 66 of 83 locations. Independent extraction passes were also found to occasionally render
-    the same original-language name in two different English forms (e.g. "Rural World" and "Silsky
-    Svit (Rural World)" for one publication); these are now merged automatically by the shared
-    Ukrainian original rather than left as unrelated-looking duplicates.
+    abstract "family name" placeholder again. All wrong matches were corrected once found.
   </p>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    This audit covered every link that existed in the pilot, not a sample of them — but the pilot
-    itself is only 8 pages from one narrow slice of a century-long run, so these error rates
-    describe what was found here, not a validated prediction of the rate to expect across 14,000
-    pages spanning many more eras, name conventions, and failure modes. They are reported as a
-    demonstrated finding and the reason the monitoring process below now exists, not as a forecast
-    — though the gap between locations (highly reliable) and persons (unreliable) is itself a
-    useful signal for where automated linking can be trusted with less scrutiny at scale, and where
-    it cannot.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Ongoing QA sampling</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Manual review of every match does not scale to 14,000 pages, so the pipeline now includes a
-    standing random-sampling audit instead of a one-time check: after each processing batch, a
-    stratified sample of newly-linked persons, locations, and organizations — drawn separately per
-    category, since error rates differ meaningfully between them — is set aside for a person to
-    confirm or reject, shown next to the actual sentence the name was mentioned in, not the name
-    alone. Rejected matches are stripped immediately and logged. A first, small run of this process
-    against the pilot (24 links sampled) found a 25% error rate among the persons sampled and none
-    among the locations or organizations sampled that batch — too small a sample to generalize
-    from yet, but it establishes the mechanism that will track this rate, batch by batch, as
-    digitization scales, rather than assuming a reliability that has not been measured.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Why linking is limited to recurring names</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Sampling alone does not solve the underlying scale problem, though: even reviewing a fixed
-    percentage of new links every batch does not guarantee the rest are ever checked, since most
-    of a 14,000-page archive's persons and organizations are mentioned exactly once — a name in one
-    wedding announcement or obituary, never to reappear. Linking (and therefore reviewing) every
-    such name is not a cost that shrinks with better tooling; it grows in lockstep with the page
-    count. So person and organization linking is now attempted only for names that recur across
-    multiple <em>issues</em> — not pages, since a long article naming someone across three pages of
-    one edition is not more significant than a name mentioned once, but someone who reappears in a
-    later edition genuinely is. A one-off name is left unlinked by design, not queued for later.
-    Locations are exempt from this rule, since they were already shown to be reliable enough not to
-    need it. The current threshold (two issues) is a starting point, not a calibrated figure: this
-    pilot's two issues are 18 months apart with unrelated content, so zero persons and only a
-    handful of organizations recur across both — not because recurrence doesn't happen at real
-    scale, but because two sparse issues cannot demonstrate it either way. A companion script
-    (measure_entity_recurrence.py) reports the actual recurrence distribution and is meant to be
-    re-run once a real, time-spanning batch of issues exists, so the threshold can be set to match
-    whatever review capacity the project actually has, rather than a number picked in advance. Even
-    that measurement has a known limit worth stating plainly: it detects recurrence via the same
-    stemmed name-matching used for co-mention detection elsewhere on the site, which tolerates
-    Ukrainian grammatical case endings but not dialectal spelling variants (e.g. "Ліга"/"Лиги" for
-    "League," differing in a letter no suffix rule can account for) — so it is a floor on true
-    recurrence, not an exact count.
+    Given error rates this large for two of the three categories, entity links are currently turned
+    off on the live site rather than shown alongside a known, uncorrected risk of being wrong — no
+    data was discarded to do this, only its display. A standing review process already runs
+    independently of what's shown publicly: a random sample of matches is set aside for a person to
+    confirm or reject against the actual sentence the name came from, not the name alone, and
+    rejected matches are stripped and logged. Links will be re-enabled category by category as each
+    accumulates enough reviewed matches to trust — locations, at ~3% wrong, are the likeliest to
+    return first. This audit covered every match the pilot had produced, not a sample of them, but
+    the pilot itself is only 8 pages from one narrow slice of a century-long run, so these rates
+    describe what was found here, not a validated prediction for the 14,000-page archive. Review is
+    also scoped by recurrence: a person or organization mentioned in only one issue is left unlinked
+    by design rather than queued for later, since checking every one-off mention is a cost that
+    grows with page count, not one that shrinks with better tooling (locations are exempt, already
+    shown reliable enough not to need it).
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
@@ -399,66 +360,25 @@
     бренд пива, помилково пов'язаний із родом морських равликів; невеликий паранський м'ясний
     магазин, пов'язаний із непричетним музейним експонатом). Обидві помилки місць — це схожа, але
     неправильна бразильська муніципалітета з тією ж назвою, і знову абстрактний елемент «прізвище».
-    Усі помилкові збіги виправлено після виявлення. Наразі 8 сторінок цього пілотного корпусу мають
-    зв'язки з Вікіданими для 23 з 70 організацій, 35 зі 176 осіб і 66 з 83 місць. Також виявлено, що
-    незалежні проходи виділення сутностей іноді подають ту саму назву мовою оригіналу у двох різних
-    англійських формах (наприклад, «Rural World» і «Silsky Svit (Rural World)» для одного видання);
-    тепер їх автоматично об'єднують за спільним українським оригіналом, а не залишають виглядати як
-    непов'язані дублікати.
+    Усі помилкові збіги виправлено після виявлення.
   </p>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Цей аудит охопив усі зв'язки, що існували в пілотному корпусі, а не вибірку з них, — але сам
-    пілотний корпус налічує лише 8 сторінок з одного вузького зрізу столітнього видання, тож ці
-    рівні помилок описують те, що виявлено тут, а не перевірений прогноз рівня, якого слід
-    очікувати на 14 000 сторінках, що охоплюють значно більше епох, назвотворчих традицій і типів
-    помилок. Це подано як підтверджений результат і причина, з якої тепер існує описаний нижче
-    процес моніторингу, а не як прогноз — хоча різниця між місцями (дуже надійні) та особами
-    (ненадійні) сама собою є корисним сигналом про те, де автоматичному пов'язуванню в масштабі
-    можна довіряти з меншим контролем, а де ні.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Постійний аудит якості</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Ручна перевірка кожного збігу не масштабується до 14 000 сторінок, тож конвеєр тепер включає
-    постійний аудит методом випадкової вибірки замість одноразової перевірки: після кожної партії
-    обробки стратифіковану вибірку новостворених зв'язків для осіб, місць і організацій — вибрану
-    окремо для кожної категорії, оскільки рівні помилок суттєво різняться між ними — відкладають
-    для того, щоб людина підтвердила або відхилила її, показуючи поруч реальне речення, у якому
-    згадано назву, а не саму лише назву. Відхилені збіги негайно видаляють і фіксують у журналі.
-    Перший, невеликий запуск цього процесу на пілотному корпусі (вибірка 24 зв'язків) виявив 25%
-    помилок серед вибраних осіб і жодної серед вибраних місць чи організацій у цій партії — вибірка
-    поки що замала для узагальнень, але вона встановлює механізм, який відстежуватиме цей показник
-    від партії до партії в міру масштабування оцифрування, замість того, щоб покладатися на
-    невиміряну надійність.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Чому пов'язування обмежене лише повторюваними назвами</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Однак сама вибірка не розв'язує основну проблему масштабу: навіть перевірка фіксованого
-    відсотка нових зв'язків у кожній партії не гарантує, що решту колись перевірять, адже
-    більшість осіб і організацій у 14 000-сторінковому архіві згадуються рівно один раз — ім'я в
-    одному весільному оголошенні чи некролозі, яке більше ніколи не з'явиться. Пов'язування (а
-    отже й перевірка) кожного такого імені — це не витрата, яка зменшується з кращими
-    інструментами; вона зростає прямо пропорційно кількості сторінок. Тому пов'язування осіб і
-    організацій тепер намагаються здійснювати лише для назв, що повторюються в кількох
-    <em>випусках</em>, — не сторінках, адже довга стаття, що згадує когось на трьох сторінках
-    одного номера, не важливіша за ім'я, згадане один раз, а от особа, яка знову з'являється в
-    пізнішому номері, — дійсно важливіша. Одноразову назву за задумом залишають без зв'язку, а не
-    ставлять у чергу на потім. На місця це правило не поширюється, оскільки вони вже виявилися
-    достатньо надійними, щоб його не потребувати. Поточний поріг (два випуски) — це відправна
-    точка, а не відкалібрований показник: два випуски цього пілотного корпусу розділяють 18
-    місяців і непов'язаний зміст, тож жодна особа й лише кілька організацій повторюються в обох —
-    не тому, що повторення не трапляється в реальному масштабі, а тому, що два розрізнені випуски
-    не можуть цього продемонструвати в жодний бік. Допоміжний скрипт
-    (measure_entity_recurrence.py) показує реальний розподіл повторюваності, і його призначення —
-    запускати його знову, коли з'явиться реальна партія випусків, що охоплює значний період часу,
-    щоб поріг можна було встановити відповідно до реальної спроможності проєкту до перевірки, а не
-    до числа, обраного заздалегідь. Навіть це вимірювання має відому межу, яку варто зазначити
-    прямо: воно виявляє повторюваність за тим самим стемінговим зіставленням назв, яке
-    використовується для виявлення спільних згадок в інших місцях сайту, — воно враховує
-    українські відмінкові закінчення, але не діалектні орфографічні варіанти (наприклад, «Ліга» і
-    «Лиги» для «Ліги [Націй]» різняться літерою, яку жодне суфіксальне правило не врахує), тож це
-    нижня межа справжньої повторюваності, а не точний підрахунок.
+    З огляду на настільки високі рівні помилок у двох із трьох категорій, зв'язки із сутностями
+    наразі вимкнено на живому сайті, а не показано поряд із відомим, невиправленим ризиком помилки —
+    для цього не видалено жодних даних, лише їх показ. Постійний процес перевірки вже працює
+    незалежно від того, що показано публічно: випадкову вибірку збігів відкладають для того, щоб
+    людина підтвердила чи відхилила її, звіряючи з реальним реченням, у якому згадано назву, а не
+    саму лише назву; відхилені збіги видаляють і фіксують у журналі. Зв'язки вмикатимуть знову
+    категорія за категорією, щойно кожна накопичить достатньо перевірених збігів, яким можна
+    довіряти, — місця, з приблизно 3% помилок, найімовірніше повернуться першими. Цей аудит охопив
+    усі збіги, що існували в пілотному корпусі, а не вибірку з них, але сам пілотний корпус налічує
+    лише 8 сторінок з одного вузького зрізу столітнього видання, тож ці показники описують те, що
+    виявлено тут, а не перевірений прогноз для архіву в 14 000 сторінок. Перевірку також обмежено за
+    повторюваністю: особу чи організацію, згадану лише в одному випуску, за задумом залишають без
+    зв'язку, а не ставлять у чергу на потім, оскільки перевірка кожної одноразової згадки — це
+    витрата, яка зростає з кількістю сторінок, а не зменшується з кращими інструментами (на місця це
+    правило не поширюється, оскільки вони вже виявилися достатньо надійними, щоб його не
+    потребувати).
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Стандарти та сумісність</h2>
@@ -517,6 +437,19 @@
     підроблено, за умови, що є з чим його порівняти; запис у блокчейні надає саме цю постійну,
     незалежну точку порівняння, а також надійну дату — яка залишиться дійсною, навіть якщо сам
     файл колись стане недоступним.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Якщо цей сайт колись зникне</strong>, кожну транзакцію закріплення все одно можна
+    перевірити незалежно від нього: усі вони надіслані з однієї публічної гаманцевої адреси,
+    <code>0x41b28D2099E73c587e6420e564C4A18A2B5d23C0</code>, яку будь-хто може переглянути
+    безпосередньо на
+    <a href="https://polygonscan.com/address/0x41b28D2099E73c587e6420e564C4A18A2B5d23C0"
+       target="_blank" rel="noopener">polygonscan.com</a>, щоб побачити кожен відбиток, який цей
+    проєкт коли-небудь закріпив. Утім, блокчейн зберігає лише відбиток, а не сам файл — щоб
+    відновити реальний скан чи транскрипт, потрібно, щоб якийсь вузол IPFS і далі його розміщував.
+    Наразі це один постачальник пінінгу (Pinata), без другої, незалежної копії; запланований
+    наступний крок (див. «Дорожню карту» нижче) — депонування повного корпусу в Internet Archive,
+    щоб позбутися цієї залежності.
   </p>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     <strong>Чому не звичайний сервер?</strong> Традиційне цифрове збереження зазвичай означає
@@ -663,67 +596,25 @@
     açougue do Paraná vinculado a um objeto de museu sem relação alguma). Os dois erros de locais
     foram um município brasileiro parecido, mas errado, com o mesmo nome, e novamente o item
     abstrato "sobrenome". Todas as correspondências erradas foram corrigidas assim que encontradas.
-    As 8 páginas deste piloto atualmente têm vínculos com o Wikidata para 23 das 70 organizações,
-    35 das 176 pessoas e 66 dos 83 locais. Também se constatou que execuções independentes de
-    extração ocasionalmente geram o mesmo nome no idioma original em duas formas diferentes em
-    inglês (por exemplo, "Rural World" e "Silsky Svit (Rural World)" para uma mesma publicação);
-    agora elas são mescladas automaticamente pelo nome ucraniano compartilhado, em vez de
-    permanecerem como duplicatas aparentemente não relacionadas.
   </p>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Essa auditoria cobriu todos os vínculos existentes no piloto, não uma amostra deles — mas o
-    próprio piloto tem apenas 8 páginas de um recorte estreito de uma publicação centenária, de
-    modo que essas taxas de erro descrevem o que foi observado aqui, não uma previsão validada da
-    taxa a esperar em 14.000 páginas que abrangem muito mais épocas, convenções de nomenclatura e
-    tipos de erro. Elas são apresentadas como um resultado demonstrado e o motivo pelo qual o
-    processo de monitoramento abaixo agora existe, não como uma previsão — embora a diferença entre
-    locais (muito confiáveis) e pessoas (não confiáveis) seja, em si, um sinal útil sobre onde a
-    vinculação automática pode ser confiada com menos escrutínio em escala, e onde não pode.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Auditoria contínua de qualidade</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    A revisão manual de cada correspondência não é viável em escala para 14.000 páginas, então o
-    pipeline agora inclui uma auditoria permanente por amostragem aleatória, em vez de uma
-    verificação pontual: após cada lote de processamento, uma amostra estratificada de pessoas,
-    locais e organizações recém-vinculados — retirada separadamente por categoria, já que as taxas
-    de erro diferem significativamente entre elas — é reservada para que uma pessoa confirme ou
-    rejeite, exibida junto à frase real em que o nome foi mencionado, não apenas o nome isolado.
-    Correspondências rejeitadas são removidas imediatamente e registradas. Uma primeira execução,
-    ainda pequena, desse processo no corpus piloto (24 vínculos amostrados) encontrou uma taxa de
-    erro de 25% entre as pessoas amostradas e nenhuma entre os locais ou organizações amostrados
-    naquele lote — uma amostra pequena demais para generalizar por enquanto, mas que estabelece o
-    mecanismo que acompanhará essa taxa, lote a lote, à medida que a digitalização for ampliada,
-    em vez de presumir uma confiabilidade que nunca foi medida.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Por que a vinculação se limita a nomes recorrentes</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Mas a amostragem sozinha não resolve o problema de escala subjacente: mesmo revisando uma
-    porcentagem fixa dos novos vínculos a cada lote, isso não garante que o restante algum dia
-    seja verificado, já que a maioria das pessoas e organizações de um arquivo de 14.000 páginas é
-    mencionada exatamente uma vez — um nome em um anúncio de casamento ou obituário, que nunca mais
-    reaparece. Vincular (e, portanto, revisar) cada nome desses não é um custo que diminui com
-    ferramentas melhores; ele cresce na mesma proporção do número de páginas. Por isso, a
-    vinculação de pessoas e organizações agora só é tentada para nomes que se repetem em várias
-    <em>edições</em> — não páginas, já que um artigo longo que cita alguém em três páginas de uma
-    mesma edição não é mais significativo do que um nome citado uma única vez, mas alguém que
-    reaparece em uma edição posterior genuinamente é. Um nome citado uma única vez fica sem vínculo
-    por definição de escopo, não em espera. Os locais estão isentos dessa regra, pois já se mostraram
-    confiáveis o suficiente para dispensá-la. O limiar atual (duas edições) é um ponto de partida,
-    não um número calibrado: as duas edições deste piloto estão 18 meses distantes uma da outra e
-    têm conteúdo não relacionado, de modo que nenhuma pessoa e apenas um punhado de organizações se
-    repetem entre elas — não porque a recorrência não aconteça em escala real, mas porque duas
-    edições esparsas não conseguem demonstrá-la de nenhuma forma. Um script complementar
-    (measure_entity_recurrence.py) relata a distribuição real de recorrência e deve ser executado
-    novamente quando existir um lote real de edições que abranja um período de tempo significativo,
-    para que o limiar possa ser ajustado à capacidade de revisão que o projeto realmente tiver, em
-    vez de um número escolhido de antemão. Mesmo essa medição tem um limite conhecido que vale a
-    pena declarar abertamente: ela detecta recorrência pelo mesmo casamento de nomes por radical
-    usado para detectar coocorrências em outras partes do site, que tolera terminações de caso
-    gramatical ucraniano, mas não variantes ortográficas dialetais (por exemplo, "Ліга"/"Лиги"
-    para "Liga [das Nações]", que diferem em uma letra que nenhuma regra de sufixo consegue
-    captar) — portanto, é um piso da recorrência real, não uma contagem exata.
+    Diante de taxas de erro tão altas em duas das três categorias, os vínculos de entidades estão
+    atualmente desativados no site ao vivo, em vez de exibidos junto a um risco conhecido e não
+    corrigido de estarem errados — nenhum dado foi descartado para isso, apenas sua exibição. Um
+    processo permanente de revisão já funciona independentemente do que é exibido publicamente: uma
+    amostra aleatória de correspondências é reservada para que uma pessoa confirme ou rejeite,
+    comparando com a frase real em que o nome foi mencionado, não apenas o nome isolado;
+    correspondências rejeitadas são removidas e registradas. Os vínculos serão reativados categoria
+    por categoria, à medida que cada uma acumular correspondências revisadas suficientes para
+    inspirar confiança — os locais, com cerca de 3% de erro, são os mais propensos a voltar primeiro.
+    Essa auditoria cobriu todos os vínculos existentes no piloto, não uma amostra deles, mas o
+    próprio piloto tem apenas 8 páginas de um recorte estreito de uma publicação centenária, de modo
+    que essas taxas descrevem o que foi observado aqui, não uma previsão validada para o arquivo de
+    14.000 páginas. A revisão também é limitada pela recorrência: uma pessoa ou organização
+    mencionada em apenas uma edição fica sem vínculo por definição, em vez de entrar em uma fila,
+    já que revisar cada menção única é um custo que cresce com o número de páginas, não um que
+    diminui com ferramentas melhores (os locais estão isentos dessa regra, pois já se mostraram
+    confiáveis o suficiente para dispensá-la).
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Padrões e interoperabilidade</h2>
@@ -783,6 +674,19 @@
     arquivo não foi adulterado, desde que haja algo com que compará-lo; o registro na blockchain
     fornece exatamente esse ponto de comparação permanente e independente, além de uma data
     confiável — que continuaria válida mesmo que o próprio arquivo se tornasse indisponível.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Se este site algum dia desaparecer</strong>, cada transação de ancoragem continua
+    verificável independentemente dele: todas foram enviadas de um único endereço de carteira
+    público, <code>0x41b28D2099E73c587e6420e564C4A18A2B5d23C0</code>, que qualquer pessoa pode
+    consultar diretamente em
+    <a href="https://polygonscan.com/address/0x41b28D2099E73c587e6420e564C4A18A2B5d23C0"
+       target="_blank" rel="noopener">polygonscan.com</a> para ver cada impressão digital que este
+    projeto já ancorou. Dito isso, a blockchain preserva apenas a impressão digital, não o arquivo
+    em si — recuperar o scan ou a transcrição real ainda depende de algum nó do IPFS continuar a
+    hospedá-lo. Hoje isso significa um único provedor de pinning (Pinata), sem uma segunda cópia
+    independente ainda; um próximo passo planejado (ver Roteiro abaixo) é depositar o corpus
+    completo no Internet Archive para eliminar essa dependência.
   </p>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     <strong>Por que não um servidor tradicional?</strong> A preservação digital convencional
@@ -932,72 +836,27 @@
     Meeresschnecken-Gattung; ein kleines Fleischereigeschäft aus Paraná, verknüpft mit einem völlig
     unabhängigen Museumsexponat). Die beiden Fehler bei Orten waren eine ähnlich benannte, aber
     falsche brasilianische Gemeinde, sowie erneut der abstrakte Eintrag "Nachname". Alle falschen
-    Treffer wurden nach ihrer Entdeckung korrigiert. Die 8 Seiten dieses Piloten tragen derzeit
-    Wikidata-Verknüpfungen für 23 von 70 Organisationen, 35 von 176 Personen und 66 von 83 Orten.
-    Ebenfalls festgestellt wurde, dass unabhängige Extraktionsdurchläufe gelegentlich denselben
-    Namen in der Originalsprache in zwei unterschiedlichen englischen Formen wiedergeben (z. B.
-    "Rural World" und "Silsky Svit (Rural World)" für dieselbe Publikation); diese werden nun
-    automatisch über den gemeinsamen ukrainischen Originalnamen zusammengeführt, statt als
-    scheinbar unabhängige Duplikate stehen zu bleiben.
+    Treffer wurden nach ihrer Entdeckung korrigiert.
   </p>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Diese Prüfung erfasste alle im Piloten vorhandenen Verknüpfungen, nicht nur eine Stichprobe
-    davon — doch der Pilot selbst umfasst lediglich 8 Seiten aus einem schmalen Ausschnitt einer
-    über hundertjährigen Zeitungsgeschichte, sodass diese Fehlerquoten beschreiben, was hier
-    gefunden wurde, und keine validierte Vorhersage der Quote sind, die auf 14.000 Seiten mit weit
-    mehr Epochen, Namenskonventionen und Fehlerarten zu erwarten wäre. Sie werden als belegter
-    Befund und als Grund für den unten beschriebenen Überwachungsprozess dargestellt, nicht als
-    Prognose — wobei der Unterschied zwischen Orten (sehr zuverlässig) und Personen (unzuverlässig)
-    selbst ein nützliches Signal dafür ist, wo automatischer Verknüpfung im großen Maßstab mit
-    weniger Prüfung vertraut werden kann und wo nicht.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Laufende Qualitätsprüfung</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Eine manuelle Prüfung jeder einzelnen Übereinstimmung lässt sich nicht auf 14.000 Seiten
-    skalieren, daher enthält die Pipeline nun statt einer einmaligen Kontrolle eine dauerhafte
-    Stichprobenprüfung: Nach jedem Verarbeitungsdurchlauf wird eine geschichtete Stichprobe neu
-    verknüpfter Personen, Orte und Organisationen — je Kategorie getrennt gezogen, da sich die
-    Fehlerquoten zwischen ihnen deutlich unterscheiden — für eine Person zur Bestätigung oder
-    Ablehnung zurückgestellt, wobei der tatsächliche Satz angezeigt wird, in dem der Name erwähnt
-    wurde, nicht nur der Name allein. Abgelehnte Treffer werden sofort entfernt und protokolliert.
-    Ein erster, noch kleiner Durchlauf dieses Verfahrens am Piloten (24 geprüfte Verknüpfungen)
-    ergab eine Fehlerquote von 25 % bei den geprüften Personen und keine bei den in diesem
-    Durchlauf geprüften Orten oder Organisationen — eine noch zu kleine Stichprobe, um daraus
-    verallgemeinern zu können, doch sie etabliert den Mechanismus, der diese Quote mit
-    zunehmender Digitalisierung durchlaufweise verfolgen wird, statt eine ungeprüfte
-    Zuverlässigkeit einfach anzunehmen.
-  </p>
-
-  <h3 style="font-size:13px;font-weight:600;color:var(--text);margin:1rem 0 .3rem">Warum die Verknüpfung auf wiederkehrende Namen beschränkt ist</h3>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Stichprobenprüfung allein löst das zugrunde liegende Skalierungsproblem jedoch nicht: Selbst
-    wenn bei jedem Durchlauf ein fester Prozentsatz neuer Verknüpfungen geprüft wird, ist damit
-    nicht garantiert, dass der Rest jemals kontrolliert wird, denn die meisten Personen und
-    Organisationen eines 14.000-seitigen Archivs werden genau einmal erwähnt — ein Name in einer
-    Hochzeitsanzeige oder einem Nachruf, der nie wieder auftaucht. Jeden solchen Namen zu verknüpfen
-    (und damit zu prüfen) ist kein Aufwand, der mit besseren Werkzeugen sinkt; er wächst im
-    Gleichschritt mit der Seitenzahl. Deshalb wird die Verknüpfung von Personen und Organisationen
-    nun nur noch für Namen versucht, die sich über mehrere <em>Ausgaben</em> hinweg wiederholen —
-    nicht Seiten, denn ein langer Artikel, der jemanden über drei Seiten einer Ausgabe hinweg nennt,
-    ist nicht bedeutsamer als ein einmal erwähnter Name, während jemand, der in einer späteren
-    Ausgabe erneut auftaucht, es tatsächlich ist. Ein einmalig genannter Name bleibt absichtlich
-    unverknüpft, statt für später vorgemerkt zu werden. Orte sind von dieser Regel ausgenommen, da
-    sie sich bereits als zuverlässig genug erwiesen haben, um sie nicht zu benötigen. Der aktuelle
-    Schwellenwert (zwei Ausgaben) ist ein Ausgangspunkt, keine kalibrierte Zahl: Die beiden Ausgaben
-    dieses Piloten liegen 18 Monate auseinander und behandeln unabhängige Inhalte, sodass keine
-    Person und nur eine Handvoll Organisationen in beiden vorkommen — nicht weil Wiederkehr im
-    realen Maßstab nicht vorkäme, sondern weil zwei so vereinzelte Ausgaben sie in keine Richtung
-    belegen können. Ein begleitendes Skript (measure_entity_recurrence.py) meldet die tatsächliche
-    Wiederkehr-Verteilung und soll erneut ausgeführt werden, sobald ein echter, zeitlich
-    aussagekräftiger Ausgabenbestand existiert, damit der Schwellenwert an die tatsächlich
-    vorhandene Prüfkapazität angepasst werden kann, statt an eine im Voraus gewählte Zahl. Auch
-    diese Messung hat eine Grenze, die offen benannt werden sollte: Sie erkennt Wiederkehr über
-    denselben stammbasierten Namensabgleich, der auch anderswo auf der Website zur Erkennung
-    gemeinsamer Erwähnungen dient — er verträgt ukrainische Fallendungen, aber keine dialektalen
-    Rechtschreibvarianten (z. B. unterscheiden sich "Ліга" und "Лиги" für "Liga [der Nationen]" in
-    einem Buchstaben, den keine Endungsregel erfassen kann) — es handelt sich also um eine
-    Untergrenze der tatsächlichen Wiederkehr, keine exakte Zählung.
+    Angesichts so hoher Fehlerquoten in zwei der drei Kategorien sind Entitätsverknüpfungen auf der
+    Live-Website derzeit deaktiviert, statt neben einem bekannten, unkorrigierten Fehlerrisiko
+    angezeigt zu werden — dafür wurden keine Daten gelöscht, nur ihre Anzeige. Ein dauerhafter
+    Prüfprozess läuft bereits unabhängig davon, was öffentlich angezeigt wird: Eine Zufallsstichprobe
+    von Treffern wird für eine Person zur Bestätigung oder Ablehnung zurückgestellt, verglichen mit
+    dem tatsächlichen Satz, in dem der Name erwähnt wurde, nicht nur dem Namen allein; abgelehnte
+    Treffer werden entfernt und protokolliert. Verknüpfungen werden Kategorie für Kategorie wieder
+    aktiviert, sobald jede genug geprüfte Treffer gesammelt hat, um vertrauenswürdig zu sein — Orte,
+    mit rund 3 % Fehlerquote, kehren am wahrscheinlichsten zuerst zurück. Diese Prüfung erfasste
+    alle im Piloten vorhandenen Verknüpfungen, nicht nur eine Stichprobe davon — doch der Pilot
+    selbst umfasst lediglich 8 Seiten aus einem schmalen Ausschnitt einer über hundertjährigen
+    Zeitungsgeschichte, sodass diese Quoten beschreiben, was hier gefunden wurde, und keine
+    validierte Vorhersage für das 14.000-seitige Archiv sind. Die Prüfung ist zudem durch Wiederkehr
+    begrenzt: Eine Person oder Organisation, die nur in einer Ausgabe erwähnt wird, bleibt
+    absichtlich unverknüpft, statt für später vorgemerkt zu werden, da die Prüfung jeder einmaligen
+    Erwähnung ein Aufwand ist, der mit der Seitenzahl wächst, nicht einer, der mit besseren
+    Werkzeugen sinkt (Orte sind von dieser Regel ausgenommen, da sie sich bereits als zuverlässig
+    genug erwiesen haben, um sie nicht zu benötigen).
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards und Interoperabilität</h2>
@@ -1059,6 +918,20 @@
     kann; der Blockchain-Eintrag liefert genau diesen dauerhaften, unabhängigen Vergleichspunkt
     sowie ein vertrauenswürdiges Datum, das auch dann noch Bestand hätte, wenn die Datei selbst
     einmal nicht mehr verfügbar wäre.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Sollte diese Website jemals verschwinden</strong>, bleibt jede Verankerungstransaktion
+    dennoch unabhängig davon überprüfbar: Alle wurden von einer einzigen öffentlichen
+    Wallet-Adresse gesendet, <code>0x41b28D2099E73c587e6420e564C4A18A2B5d23C0</code>, die jeder
+    direkt auf
+    <a href="https://polygonscan.com/address/0x41b28D2099E73c587e6420e564C4A18A2B5d23C0"
+       target="_blank" rel="noopener">polygonscan.com</a> einsehen kann, um jeden Fingerabdruck zu
+    sehen, den dieses Projekt je verankert hat. Allerdings bewahrt die Blockchain nur den
+    Fingerabdruck, nicht die Datei selbst — den tatsächlichen Scan oder die Abschrift
+    wiederherzustellen hängt weiterhin davon ab, dass irgendein IPFS-Knoten sie weiterhin hostet.
+    Derzeit bedeutet das einen einzigen Pinning-Anbieter (Pinata), noch ohne zweite, unabhängige
+    Kopie; ein geplanter nächster Schritt (siehe Roadmap unten) ist die Hinterlegung des gesamten
+    Korpus beim Internet Archive, um diese Abhängigkeit zu beseitigen.
   </p>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     <strong>Warum nicht einfach ein herkömmlicher Server?</strong> Herkömmliche digitale
@@ -1128,6 +1001,6 @@
 </div>
 </div>
 
-<script src="../assets/lang.js?v=202609090151"></script>
+<script src="../assets/lang.js?v=202609090202"></script>
 </body>
 </html>
