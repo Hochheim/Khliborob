@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609091643">
+<link rel="stylesheet" href="../assets/main.css?v=202609091655">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -86,8 +86,10 @@
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Methodology &amp; limitations</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Page images are transcribed and translated (Ukrainian → English, and Portuguese where the
-    original is already in Portuguese) using Gemini 2.5 Flash vision OCR. The model flags
+    Page images are transcribed and translated (Ukrainian → English, Portuguese, and German;
+    issues already published in Portuguese, after the paper's forced Vargas-era transition of
+    1940–46, are used as the Portuguese text directly rather than machine-translated) using
+    Gemini 2.5 Flash vision OCR. The model flags
     tokens it is not confident about; these appear on each issue page as
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">highlighted words</mark> with the reason for the flag, so uncertain readings
@@ -108,14 +110,15 @@
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Entity linking &amp; data quality</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Every person, organization, and location extracted from the transcribed text is automatically
-    checked against Wikidata and linked where a plausible match exists, giving a path from a name
-    in this archive to the wider web of structured historical data. This step is probabilistic,
-    not exact: Wikidata's search has no confidence threshold and always returns its best guess, so
-    a short or literally-translated name can silently collide with something globally more famous
-    under the same label. A full manual audit of every Wikidata link this pilot's extraction had
-    produced — persons, locations, and organizations alike, not a sample of any of them — found the
-    three categories fail at very different rates:
+    Every recurring person, organization, and location — one mentioned in at least two issues,
+    since a one-off name is never shown here regardless — is automatically checked against
+    Wikidata and linked where a plausible match exists, giving a path from a name in this archive
+    to the wider web of structured historical data. This step is probabilistic, not exact:
+    Wikidata's search has no confidence threshold and always returns its best guess, so a short or
+    literally-translated name can silently collide with something globally more famous under the
+    same label. A full manual audit of every Wikidata link this pilot's extraction had produced —
+    persons, locations, and organizations alike, not a sample of any of them — found the three
+    categories fail at very different rates:
   </p>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
     <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
@@ -135,31 +138,16 @@
     </div>
   </div>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Persons failed almost entirely in one shape: a name matched to Wikidata's generic placeholder
-    entry for a surname or given name (its own "family name" or "male given name" items exist as
-    concepts, not people) rather than to any actual person, or to a real but historically unrelated
-    person sharing the name in a different country or century (a Brazilian wedding guest matched to
-    a Polish Ottoman-era general; a newborn's father matched to a Soviet Air Force officer).
-    Organization errors were more varied real-entity collisions (a Brazilian beer brand linked to a
-    genus of sea snail; a small Paraná butcher shop linked to an unrelated museum exhibit). The two
-    location errors were a nearby-but-wrong Brazilian municipality of the same name, and the
-    abstract "family name" placeholder again. All wrong matches were corrected once found.
-  </p>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Given error rates this large for two of the three categories, entity links are currently turned
-    off on the live site rather than shown alongside a known, uncorrected risk of being wrong — no
-    data was discarded to do this, only its display. A standing review process already runs
-    independently of what's shown publicly: a random sample of matches is set aside for a person to
-    confirm or reject against the actual sentence the name came from, not the name alone, and
-    rejected matches are stripped and logged. Links will be re-enabled category by category as each
-    accumulates enough reviewed matches to trust — locations, at ~3% wrong, are the likeliest to
-    return first. This audit covered every match the pilot had produced, not a sample of them, but
-    the pilot itself is only 8 pages from one narrow slice of a century-long run, so these rates
-    describe what was found here, not a validated prediction for the 14,000-page archive. Review is
-    also scoped by recurrence: a person or organization mentioned in only one issue is left unlinked
-    by design rather than queued for later, since checking every one-off mention is a cost that
-    grows with page count, not one that shrinks with better tooling (locations are exempt, already
-    shown reliable enough not to need it).
+    Given error rates this large for two of the three categories, entity links are currently
+    turned off on the live site rather than shown alongside a known, uncorrected risk of being
+    wrong — no data was discarded to do this, only its display. A standing review process already
+    runs independently of what's shown publicly: a random sample of matches is checked by a person
+    against the actual sentence the name came from, not the name alone, and rejected matches are
+    stripped and logged. Links will be re-enabled category by category as each accumulates enough
+    reviewed matches to trust — locations, at ~3% wrong, are the likeliest to return first. This
+    audit covers only the pilot's 8 pages, so these rates describe what was found here, not a
+    validated prediction for the 14,000-page archive — which is exactly why review continues
+    before any link goes back live.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
@@ -249,15 +237,7 @@
     (e.g. via Zenodo) for permanent citability; (4) migration of the Research Agent to a hosted
     backend so AI-assisted queries do not require visitors to supply their own API key.
   </p>
-
-  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Partners</h2>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    <strong>SUBRAS</strong> (Sociedade Ucraniana do Brasil) — institutional partner and custodian
-    of the physical archive.<br>
-    <strong>University of Münster</strong> — Institute for Eastern European History.<br>
-    <strong>SZRU</strong> (Foreign Intelligence Service of Ukraine) — provided the declassified
-    archival documents.
-  </p></div><div data-lang-uk style='display:none'>
+</div><div data-lang-uk style='display:none'>
   <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Про цей архів</h1>
 
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
@@ -299,9 +279,11 @@
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Методологія та обмеження</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Зображення сторінок розпізнаються й перекладаються (з української на англійську, а також
-    португальською — якщо оригінал уже португальською) за допомогою візуального розпізнавання
-    тексту Gemini 2.5 Flash. Модель позначає токени, у яких не впевнена; вони виділяються на
+    Зображення сторінок розпізнаються й перекладаються (з української на англійську, португальську
+    та німецьку; випуски, які вже виходили португальською — після вимушеного переходу газети в
+    добу Варгаса 1940–46 років — використовуються як португальський текст безпосередньо, без
+    машинного перекладу) за допомогою візуального розпізнавання тексту Gemini 2.5 Flash. Модель
+    позначає токени, у яких не впевнена; вони виділяються на
     кожній сторінці випуску як
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">позначені слова</mark> із зазначенням причини сумніву — щоб непевні прочитання
@@ -324,9 +306,10 @@
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Пов'язування сутностей і якість даних</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Кожну особу, організацію та місце, виділені з транскрибованого тексту, автоматично звіряють
-    із Вікіданими та зв'язують, якщо є правдоподібний збіг, — це дає шлях від імені в цьому архіві
-    до ширшої мережі структурованих історичних даних. Цей крок імовірнісний, а не точний: пошук
+    Кожну особу, організацію та місце, що повторюються — тобто згадані щонайменше у двох випусках,
+    оскільки одноразову згадку тут однаково не показують, — автоматично звіряють із Вікіданими та
+    зв'язують, якщо є правдоподібний збіг, даючи шлях від імені в цьому архіві до ширшої мережі
+    структурованих історичних даних. Цей крок імовірнісний, а не точний: пошук
     Вікіданих не має порогу впевненості й завжди повертає найкращу здогадку, тож коротка або
     буквально перекладена назва може непомітно збігтися з чимось глобально відомішим під тією ж
     назвою. Повний ручний аудит усіх зв'язків з Вікіданими, які створило виділення сутностей у
@@ -351,34 +334,16 @@
     </div>
   </div>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Особи помилялися майже завжди в один спосіб: ім'я збіглося із загальним елементом-заглушкою
-    Вікіданих для прізвища чи імені (в самих Вікіданих такі елементи існують як абстрактні поняття,
-    а не як люди), а не з якоюсь реальною особою, або зі справжньою, але історично непричетною
-    особою з тим самим ім'ям в іншій країні чи столітті (гостя бразильського весілля збіглася з
-    польським генералом османської доби; батька новонародженого збіглося з офіцером радянських
-    ВПС). Помилки організацій були більш різноманітними збігами з реальними сутностями (бразильський
-    бренд пива, помилково пов'язаний із родом морських равликів; невеликий паранський м'ясний
-    магазин, пов'язаний із непричетним музейним експонатом). Обидві помилки місць — це схожа, але
-    неправильна бразильська муніципалітета з тією ж назвою, і знову абстрактний елемент «прізвище».
-    Усі помилкові збіги виправлено після виявлення.
-  </p>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
     З огляду на настільки високі рівні помилок у двох із трьох категорій, зв'язки із сутностями
     наразі вимкнено на живому сайті, а не показано поряд із відомим, невиправленим ризиком помилки —
     для цього не видалено жодних даних, лише їх показ. Постійний процес перевірки вже працює
-    незалежно від того, що показано публічно: випадкову вибірку збігів відкладають для того, щоб
-    людина підтвердила чи відхилила її, звіряючи з реальним реченням, у якому згадано назву, а не
-    саму лише назву; відхилені збіги видаляють і фіксують у журналі. Зв'язки вмикатимуть знову
-    категорія за категорією, щойно кожна накопичить достатньо перевірених збігів, яким можна
-    довіряти, — місця, з приблизно 3% помилок, найімовірніше повернуться першими. Цей аудит охопив
-    усі збіги, що існували в пілотному корпусі, а не вибірку з них, але сам пілотний корпус налічує
-    лише 8 сторінок з одного вузького зрізу столітнього видання, тож ці показники описують те, що
-    виявлено тут, а не перевірений прогноз для архіву в 14 000 сторінок. Перевірку також обмежено за
-    повторюваністю: особу чи організацію, згадану лише в одному випуску, за задумом залишають без
-    зв'язку, а не ставлять у чергу на потім, оскільки перевірка кожної одноразової згадки — це
-    витрата, яка зростає з кількістю сторінок, а не зменшується з кращими інструментами (на місця це
-    правило не поширюється, оскільки вони вже виявилися достатньо надійними, щоб його не
-    потребувати).
+    незалежно від того, що показано публічно: випадкову вибірку збігів перевіряє людина, звіряючи
+    з реальним реченням, у якому згадано назву, а не саму лише назву; відхилені збіги видаляють і
+    фіксують у журналі. Зв'язки вмикатимуть знову категорія за категорією, щойно кожна накопичить
+    достатньо перевірених збігів, яким можна довіряти, — місця, з приблизно 3% помилок, найімовірніше
+    повернуться першими. Цей аудит охоплює лише 8 сторінок пілотного корпусу, тож ці показники
+    описують те, що виявлено тут, а не перевірений прогноз для архіву в 14 000 сторінок, — саме тому
+    перевірка триває, перш ніж будь-який зв'язок повернеться на живий сайт.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Стандарти та сумісність</h2>
@@ -475,22 +440,7 @@
     Дослідницького агента на розміщений на сервері бекенд, щоб запити зі штучним інтелектом не
     вимагали від відвідувачів надання власного ключа API.
   </p>
-
-  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Партнери</h2>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    <strong>SUBRAS</strong> (Українське товариство Бразилії) — інституційний партнер і зберігач
-    фізичного архіву.<br>
-    <strong>Мюнстерський університет</strong> — Інститут східноєвропейської історії.<br>
-    <strong>СЗРУ</strong> (Служба зовнішньої розвідки України) — надала розсекречені архівні
-    документи.
-  </p>
-
-  <p style="font-size:12px;color:var(--muted);margin-top:2rem">
-    Скани оцифрованих сторінок закріплені в основній мережі Polygon (хеш транзакції в блокчейні
-    наведено на сторінці кожного випуску) і зберігаються на IPFS через Pinata. Депонування
-    повного корпусу в Internet Archive заплановано після завершення пілотного етапу оцифрування.
-    Цей архів є безкоштовним і перебуває у відкритому доступі.
-  </p></div><div data-lang-pt style='display:none'>
+</div><div data-lang-pt style='display:none'>
   <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Sobre este arquivo</h1>
 
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
@@ -533,9 +483,10 @@
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Metodologia e limitações</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    As imagens das páginas são transcritas e traduzidas (do ucraniano para o inglês, e para o
-    português nos casos em que o original já está em português) usando o OCR de visão
-    computacional Gemini 2.5 Flash. O modelo sinaliza os termos sobre os quais não tem certeza;
+    As imagens das páginas são transcritas e traduzidas (do ucraniano para o inglês, o português
+    e o alemão; edições já publicadas em português — após a transição forçada do jornal na era
+    Vargas, entre 1940 e 1946 — são usadas como texto em português diretamente, sem tradução
+    automática) usando o OCR de visão computacional Gemini 2.5 Flash. O modelo sinaliza os termos sobre os quais não tem certeza;
     eles aparecem em cada página da edição como
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">palavras destacadas</mark>, junto com o motivo da sinalização, para que
@@ -558,7 +509,8 @@
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Vinculação de entidades e qualidade dos dados</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Cada pessoa, organização e local extraído do texto transcrito é automaticamente verificado
+    Cada pessoa, organização e local recorrente — mencionado em pelo menos duas edições, já que
+    uma menção isolada nunca seria exibida aqui de qualquer forma — é automaticamente verificado
     no Wikidata e vinculado onde existe uma correspondência plausível, oferecendo um caminho de
     um nome neste arquivo até a rede mais ampla de dados históricos estruturados. Essa etapa é
     probabilística, não exata: a busca do Wikidata não tem um limiar de confiança e sempre retorna
@@ -586,35 +538,18 @@
     </div>
   </div>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    As pessoas erraram quase sempre da mesma forma: um nome vinculado ao item genérico do Wikidata
-    para um sobrenome ou prenome (esses itens existem no próprio Wikidata como conceitos abstratos,
-    não como pessoas), em vez de a uma pessoa real, ou a uma pessoa real, porém historicamente sem
-    relação, com o mesmo nome em outro país ou século (um convidado de casamento brasileiro
-    vinculado a um general polonês da era otomana; o pai de um recém-nascido vinculado a um oficial
-    da força aérea soviética). Os erros de organizações foram colisões mais variadas com entidades
-    reais (uma marca brasileira de cerveja vinculada a um gênero de caramujo marinho; um pequeno
-    açougue do Paraná vinculado a um objeto de museu sem relação alguma). Os dois erros de locais
-    foram um município brasileiro parecido, mas errado, com o mesmo nome, e novamente o item
-    abstrato "sobrenome". Todas as correspondências erradas foram corrigidas assim que encontradas.
-  </p>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Diante de taxas de erro tão altas em duas das três categorias, os vínculos de entidades estão
     atualmente desativados no site ao vivo, em vez de exibidos junto a um risco conhecido e não
     corrigido de estarem errados — nenhum dado foi descartado para isso, apenas sua exibição. Um
     processo permanente de revisão já funciona independentemente do que é exibido publicamente: uma
-    amostra aleatória de correspondências é reservada para que uma pessoa confirme ou rejeite,
-    comparando com a frase real em que o nome foi mencionado, não apenas o nome isolado;
-    correspondências rejeitadas são removidas e registradas. Os vínculos serão reativados categoria
-    por categoria, à medida que cada uma acumular correspondências revisadas suficientes para
-    inspirar confiança — os locais, com cerca de 3% de erro, são os mais propensos a voltar primeiro.
-    Essa auditoria cobriu todos os vínculos existentes no piloto, não uma amostra deles, mas o
-    próprio piloto tem apenas 8 páginas de um recorte estreito de uma publicação centenária, de modo
-    que essas taxas descrevem o que foi observado aqui, não uma previsão validada para o arquivo de
-    14.000 páginas. A revisão também é limitada pela recorrência: uma pessoa ou organização
-    mencionada em apenas uma edição fica sem vínculo por definição, em vez de entrar em uma fila,
-    já que revisar cada menção única é um custo que cresce com o número de páginas, não um que
-    diminui com ferramentas melhores (os locais estão isentos dessa regra, pois já se mostraram
-    confiáveis o suficiente para dispensá-la).
+    amostra aleatória de correspondências é verificada por uma pessoa, comparando com a frase real
+    em que o nome foi mencionado, não apenas o nome isolado; correspondências rejeitadas são
+    removidas e registradas. Os vínculos serão reativados categoria por categoria, à medida que
+    cada uma acumular correspondências revisadas suficientes para inspirar confiança — os locais,
+    com cerca de 3% de erro, são os mais propensos a voltar primeiro. Essa auditoria cobre apenas
+    as 8 páginas do piloto, de modo que essas taxas descrevem o que foi observado aqui, não uma
+    previsão validada para o arquivo de 14.000 páginas — motivo exato pelo qual a revisão continua
+    antes de qualquer vínculo voltar ao ar.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Padrões e interoperabilidade</h2>
@@ -711,22 +646,7 @@
     Pesquisa para um backend hospedado, para que consultas assistidas por IA não exijam que os
     visitantes forneçam sua própria chave de API.
   </p>
-
-  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Parceiros</h2>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    <strong>SUBRAS</strong> (Sociedade Ucraniana do Brasil) — parceiro institucional e guardião
-    do arquivo físico.<br>
-    <strong>Universidade de Münster</strong> — Instituto de História da Europa Oriental.<br>
-    <strong>SZRU</strong> (Serviço de Inteligência Externa da Ucrânia) — forneceu os documentos
-    de arquivo desclassificados.
-  </p>
-
-  <p style="font-size:12px;color:var(--muted);margin-top:2rem">
-    As digitalizações das páginas são ancoradas na rede principal da Polygon (o hash da
-    transação na blockchain é exibido em cada página de edição) e armazenadas no IPFS via
-    Pinata. O depósito do corpus completo no Internet Archive está planejado assim que a
-    digitalização avançar além da fase piloto. Este arquivo é gratuito e de acesso aberto.
-  </p></div><div data-lang-de style='display:none'>
+</div><div data-lang-de style='display:none'>
   <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Über dieses Archiv</h1>
 
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
@@ -770,8 +690,10 @@
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Methodik und Grenzen</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Seitenbilder werden mittels der Bild-OCR von Gemini 2.5 Flash transkribiert und übersetzt
-    (Ukrainisch → Englisch sowie Portugiesisch, sofern das Original bereits auf Portugiesisch
-    vorliegt). Das Modell markiert Textstellen, bei denen es sich unsicher ist; diese erscheinen
+    (Ukrainisch → Englisch, Portugiesisch und Deutsch; Ausgaben, die bereits auf Portugiesisch
+    erschienen sind — nach dem erzwungenen Übergang der Zeitung in der Vargas-Ära 1940–46 —,
+    werden direkt als portugiesischer Text verwendet, statt maschinell übersetzt zu werden). Das
+    Modell markiert Textstellen, bei denen es sich unsicher ist; diese erscheinen
     auf jeder Ausgabenseite als
     <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
     padding:0 2px">hervorgehobene Wörter</mark> samt Begründung der Markierung, damit unsichere
@@ -796,7 +718,8 @@
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Verknüpfung von Entitäten und Datenqualität</h2>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Jede aus dem transkribierten Text extrahierte Person, Organisation und jeder Ort wird
+    Jede wiederkehrende Person, Organisation und jeder wiederkehrende Ort — also in mindestens
+    zwei Ausgaben erwähnt, da eine einmalige Erwähnung hier ohnehin nie angezeigt würde — wird
     automatisch mit Wikidata abgeglichen und verknüpft, sofern eine plausible Übereinstimmung
     besteht — das schafft einen Weg von einem Namen in diesem Archiv zum breiteren Netz
     strukturierter historischer Daten. Dieser Schritt ist probabilistisch, nicht exakt: Die
@@ -825,38 +748,18 @@
     </div>
   </div>
   <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Bei Personen lag der Fehler fast immer nach demselben Muster: ein Name wurde mit Wikidatas
-    allgemeinem Platzhalter-Eintrag für einen Nach- oder Vornamen verknüpft (solche Einträge
-    existieren in Wikidata selbst als abstrakte Begriffe, nicht als Personen), statt mit einer
-    tatsächlichen Person, oder mit einer realen, aber historisch unabhängigen Person gleichen
-    Namens aus einem anderen Land oder Jahrhundert (ein brasilianischer Hochzeitsgast wurde mit
-    einem polnischen General aus der osmanischen Ära verknüpft; der Vater eines Neugeborenen mit
-    einem Offizier der sowjetischen Luftwaffe). Die Fehler bei Organisationen waren vielfältigere
-    Verwechslungen mit realen Entitäten (eine brasilianische Biermarke, verknüpft mit einer
-    Meeresschnecken-Gattung; ein kleines Fleischereigeschäft aus Paraná, verknüpft mit einem völlig
-    unabhängigen Museumsexponat). Die beiden Fehler bei Orten waren eine ähnlich benannte, aber
-    falsche brasilianische Gemeinde, sowie erneut der abstrakte Eintrag "Nachname". Alle falschen
-    Treffer wurden nach ihrer Entdeckung korrigiert.
-  </p>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
     Angesichts so hoher Fehlerquoten in zwei der drei Kategorien sind Entitätsverknüpfungen auf der
     Live-Website derzeit deaktiviert, statt neben einem bekannten, unkorrigierten Fehlerrisiko
     angezeigt zu werden — dafür wurden keine Daten gelöscht, nur ihre Anzeige. Ein dauerhafter
     Prüfprozess läuft bereits unabhängig davon, was öffentlich angezeigt wird: Eine Zufallsstichprobe
-    von Treffern wird für eine Person zur Bestätigung oder Ablehnung zurückgestellt, verglichen mit
-    dem tatsächlichen Satz, in dem der Name erwähnt wurde, nicht nur dem Namen allein; abgelehnte
-    Treffer werden entfernt und protokolliert. Verknüpfungen werden Kategorie für Kategorie wieder
-    aktiviert, sobald jede genug geprüfte Treffer gesammelt hat, um vertrauenswürdig zu sein — Orte,
-    mit rund 3 % Fehlerquote, kehren am wahrscheinlichsten zuerst zurück. Diese Prüfung erfasste
-    alle im Piloten vorhandenen Verknüpfungen, nicht nur eine Stichprobe davon — doch der Pilot
-    selbst umfasst lediglich 8 Seiten aus einem schmalen Ausschnitt einer über hundertjährigen
-    Zeitungsgeschichte, sodass diese Quoten beschreiben, was hier gefunden wurde, und keine
-    validierte Vorhersage für das 14.000-seitige Archiv sind. Die Prüfung ist zudem durch Wiederkehr
-    begrenzt: Eine Person oder Organisation, die nur in einer Ausgabe erwähnt wird, bleibt
-    absichtlich unverknüpft, statt für später vorgemerkt zu werden, da die Prüfung jeder einmaligen
-    Erwähnung ein Aufwand ist, der mit der Seitenzahl wächst, nicht einer, der mit besseren
-    Werkzeugen sinkt (Orte sind von dieser Regel ausgenommen, da sie sich bereits als zuverlässig
-    genug erwiesen haben, um sie nicht zu benötigen).
+    von Treffern wird von einer Person geprüft, verglichen mit dem tatsächlichen Satz, in dem der
+    Name erwähnt wurde, nicht nur dem Namen allein; abgelehnte Treffer werden entfernt und
+    protokolliert. Verknüpfungen werden Kategorie für Kategorie wieder aktiviert, sobald jede genug
+    geprüfte Treffer gesammelt hat, um vertrauenswürdig zu sein — Orte, mit rund 3 % Fehlerquote,
+    kehren am wahrscheinlichsten zuerst zurück. Diese Prüfung erfasst nur die 8 Seiten des Piloten,
+    sodass diese Quoten beschreiben, was hier gefunden wurde, und keine validierte Vorhersage für
+    das 14.000-seitige Archiv sind — genau deshalb läuft die Prüfung weiter, bevor irgendeine
+    Verknüpfung wieder live geht.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards und Interoperabilität</h2>
@@ -956,22 +859,6 @@
     Korpus beim Internet Archive sowie ein DOI-tragender Datensatzeintrag (z. B. über Zenodo)
     für dauerhafte Zitierbarkeit; (4) Migration des Forschungsassistenten auf ein gehostetes
     Backend, damit KI-gestützte Anfragen keinen eigenen API-Schlüssel der Besucher erfordern.
-  </p>
-
-  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Partner</h2>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    <strong>SUBRAS</strong> (Sociedade Ucraniana do Brasil) — institutioneller Partner und Hüter
-    des physischen Archivs.<br>
-    <strong>Universität Münster</strong> — Institut für Osteuropäische Geschichte.<br>
-    <strong>SZRU</strong> (Auslandsnachrichtendienst der Ukraine) — stellte die freigegebenen
-    Archivdokumente zur Verfügung.
-  </p>
-
-  <p style="font-size:12px;color:var(--muted);margin-top:2rem">
-    Digitalisierte Seitenscans sind im Polygon-Mainnet verankert (der Transaktions-Hash der
-    Blockchain wird auf jeder Ausgabenseite angezeigt) und über Pinata auf IPFS gespeichert. Die
-    Hinterlegung des vollständigen Korpus beim Internet Archive ist geplant, sobald die
-    Digitalisierung über die Pilotphase hinausgeht. Dieses Archiv ist frei und offen zugänglich.
   </p></div>
   
 <div style="margin-top:1.6rem;padding:1rem;background:var(--card-bg);
@@ -1001,6 +888,6 @@
 </div>
 </div>
 
-<script src="../assets/lang.js?v=202609091643"></script>
+<script src="../assets/lang.js?v=202609091655"></script>
 </body>
 </html>
