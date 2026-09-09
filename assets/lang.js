@@ -26,7 +26,7 @@ function toggleChicago(id) {
 // site-wide language switcher in the nav (applyLang above), per user
 // request: reading a translation and checking the site UI in a different
 // language than the source transcript are two separate needs.
-function applyTranscriptLang(lang) {
+function applyTranscriptLang(lang, preserveScroll = true) {
   // Each language panel has its own independent scroll position (it's a
   // separate hidden/shown element, not shared content) — switching used
   // to always land wherever that panel's scroll last was, which is the
@@ -35,16 +35,25 @@ function applyTranscriptLang(lang) {
   // switching, then scroll the newly-shown panel to that same paragraph
   // (same page + index — translations preserve paragraph structure 1:1,
   // so this lines up even though the wording/length differs).
+  //
+  // preserveScroll=false is used for the initial call on page load (see
+  // DOMContentLoaded below): there is no prior reading position to
+  // preserve then, and running this anchor logic anyway found "paragraph
+  // 1" as the anchor and scrolled every fresh page load straight past
+  // the scan image to the top of the transcript — confirmed real case,
+  // reported by the user.
   let anchorPageId = null, anchorIdx = null;
-  const oldPanel = document.querySelector('[data-tlang-' + currentTranscriptLang + '] .transcript');
-  if (oldPanel) {
-    const containerTop = oldPanel.getBoundingClientRect().top;
-    const paras = oldPanel.querySelectorAll('p[id^="para-"]');
-    for (const p of paras) {
-      if (p.getBoundingClientRect().top >= containerTop) {
-        const m = p.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
-        if (m) { anchorPageId = m[1]; anchorIdx = m[2]; }
-        break;
+  if (preserveScroll) {
+    const oldPanel = document.querySelector('[data-tlang-' + currentTranscriptLang + '] .transcript');
+    if (oldPanel) {
+      const containerTop = oldPanel.getBoundingClientRect().top;
+      const paras = oldPanel.querySelectorAll('p[id^="para-"]');
+      for (const p of paras) {
+        if (p.getBoundingClientRect().top >= containerTop) {
+          const m = p.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+          if (m) { anchorPageId = m[1]; anchorIdx = m[2]; }
+          break;
+        }
       }
     }
   }
@@ -163,7 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => applyLang(btn.dataset.lang));
   });
   applyLang(currentLang);
-  if (document.querySelector('.tlang-btn')) applyTranscriptLang(currentTranscriptLang);
+  // false: just sync which language panel is visible, don't run the
+  // scroll-preservation logic — there's nothing to preserve on first
+  // load, and running it anyway auto-scrolled past the scan to the
+  // transcript (see applyTranscriptLang's preserveScroll param).
+  if (document.querySelector('.tlang-btn')) applyTranscriptLang(currentTranscriptLang, false);
 
   // A "View paragraph in transcript" link from a knowledge-graph node
   // (e.g. "#para-en-khliborob_19280926_no30_page01-5") jumps straight to
