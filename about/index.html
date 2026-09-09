@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609091655">
+<link rel="stylesheet" href="../assets/main.css?v=202609091704">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -89,19 +89,7 @@
     Page images are transcribed and translated (Ukrainian → English, Portuguese, and German;
     issues already published in Portuguese, after the paper's forced Vargas-era transition of
     1940–46, are used as the Portuguese text directly rather than machine-translated) using
-    Gemini 2.5 Flash vision OCR. The model flags
-    tokens it is not confident about; these appear on each issue page as
-    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
-    padding:0 2px">highlighted words</mark> with the reason for the flag, so uncertain readings
-    stay visible rather than silently smoothed over. A manual spot-check comparing two full pages
-    (one per issue) against the original scans found no errors on the words the model had flagged
-    — but did find errors the flagging missed entirely: text merged from separate masthead lines
-    into a word that appears nowhere on the page, a dropped personal-name letter, an omitted place
-    name in a list of several, and a tendency to render Latin-script place names (kept in
-    Portuguese in the original) in Ukrainian transliteration instead of verbatim. None of this was
-    flagged, because the flagging mechanism catches uncertain character-level reads, not omissions
-    or substitutions — it is a partial signal, not a validated error rate, and a systematic
-    accuracy study remains a planned next step (see Roadmap below). Machine translation of 1920s
+    Gemini 2.5 Flash vision OCR. Machine translation of 1920s
     diaspora Ukrainian and period Portuguese carries the usual risks
     of idiom loss and anachronistic phrasing; researchers doing close reading should treat the
     English/Portuguese columns as a navigation aid and verify against the Ukrainian original (or
@@ -117,37 +105,14 @@
     Wikidata's search has no confidence threshold and always returns its best guess, so a short or
     literally-translated name can silently collide with something globally more famous under the
     same label. A full manual audit of every Wikidata link this pilot's extraction had produced —
-    persons, locations, and organizations alike, not a sample of any of them — found the three
-    categories fail at very different rates:
-  </p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Locations wrong<br>(2 of 68)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">most reliable by far</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Organizations wrong<br>(15 of 38)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">real-entity collisions</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Persons wrong<br>(38 of 73)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">least reliable</div>
-    </div>
-  </div>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Given error rates this large for two of the three categories, entity links are currently
+    persons, locations, and organizations alike, not a sample of any of them — found locations
+    reliable but organizations and persons error-prone enough that entity links are currently
     turned off on the live site rather than shown alongside a known, uncorrected risk of being
     wrong — no data was discarded to do this, only its display. A standing review process already
     runs independently of what's shown publicly: a random sample of matches is checked by a person
     against the actual sentence the name came from, not the name alone, and rejected matches are
     stripped and logged. Links will be re-enabled category by category as each accumulates enough
-    reviewed matches to trust — locations, at ~3% wrong, are the likeliest to return first. This
-    audit covers only the pilot's 8 pages, so these rates describe what was found here, not a
-    validated prediction for the 14,000-page archive — which is exactly why review continues
-    before any link goes back live.
+    reviewed matches to trust — locations are the likeliest to return first.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
@@ -282,21 +247,7 @@
     Зображення сторінок розпізнаються й перекладаються (з української на англійську, португальську
     та німецьку; випуски, які вже виходили португальською — після вимушеного переходу газети в
     добу Варгаса 1940–46 років — використовуються як португальський текст безпосередньо, без
-    машинного перекладу) за допомогою візуального розпізнавання тексту Gemini 2.5 Flash. Модель
-    позначає токени, у яких не впевнена; вони виділяються на
-    кожній сторінці випуску як
-    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
-    padding:0 2px">позначені слова</mark> із зазначенням причини сумніву — щоб непевні прочитання
-    залишалися видимими, а не згладжувалися непомітно. Ручна вибіркова перевірка двох повних
-    сторінок (по одній з кожного випуску) супроти оригінальних сканів не виявила помилок у
-    словах, які модель позначила, — але виявила помилки, яких позначення взагалі не вловило:
-    текст, склеєний з окремих рядків шапки видання в слово, якого немає на сторінці, пропущену
-    літеру в особовому імені, пропущену назву місця в переліку кількох назв і схильність
-    передавати латинописні географічні назви (в оригіналі — португальською) українською
-    транслітерацією замість дослівного відтворення. Жодну з цих помилок не було позначено, тому
-    що механізм позначення вловлює непевні прочитання на рівні символів, а не пропуски чи
-    підміни, — це частковий сигнал, а не підтверджена оцінка похибки, і систематичне дослідження
-    точності залишається запланованим наступним кроком (див. розділ «Дорожня карта» нижче).
+    машинного перекладу) за допомогою візуального розпізнавання тексту Gemini 2.5 Flash.
     Машинний переклад української мови діаспори
     1920-х років і тогочасної португальської несе звичні ризики втрати ідіом і анахронічних
     формулювань; дослідникам, які працюють із текстом на рівні деталей, варто розглядати
@@ -314,36 +265,13 @@
     буквально перекладена назва може непомітно збігтися з чимось глобально відомішим під тією ж
     назвою. Повний ручний аудит усіх зв'язків з Вікіданими, які створило виділення сутностей у
     цьому пілотному корпусі, — для осіб, місць і організацій, а не вибірки з них, — показав, що
-    три категорії помиляються з дуже різною частотою:
-  </p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Місця помилкові<br>(2 з 68)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">найнадійніші</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Організації помилкові<br>(15 з 38)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">збіги з реальними сутностями</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Особи помилкові<br>(38 з 73)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">найменш надійні</div>
-    </div>
-  </div>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    З огляду на настільки високі рівні помилок у двох із трьох категорій, зв'язки із сутностями
+    місця надійні, а от організації та особи помиляються настільки часто, що зв'язки із сутностями
     наразі вимкнено на живому сайті, а не показано поряд із відомим, невиправленим ризиком помилки —
     для цього не видалено жодних даних, лише їх показ. Постійний процес перевірки вже працює
     незалежно від того, що показано публічно: випадкову вибірку збігів перевіряє людина, звіряючи
     з реальним реченням, у якому згадано назву, а не саму лише назву; відхилені збіги видаляють і
     фіксують у журналі. Зв'язки вмикатимуть знову категорія за категорією, щойно кожна накопичить
-    достатньо перевірених збігів, яким можна довіряти, — місця, з приблизно 3% помилок, найімовірніше
-    повернуться першими. Цей аудит охоплює лише 8 сторінок пілотного корпусу, тож ці показники
-    описують те, що виявлено тут, а не перевірений прогноз для архіву в 14 000 сторінок, — саме тому
-    перевірка триває, перш ніж будь-який зв'язок повернеться на живий сайт.
+    достатньо перевірених збігів, яким можна довіряти, — місця найімовірніше повернуться першими.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Стандарти та сумісність</h2>
@@ -486,21 +414,7 @@
     As imagens das páginas são transcritas e traduzidas (do ucraniano para o inglês, o português
     e o alemão; edições já publicadas em português — após a transição forçada do jornal na era
     Vargas, entre 1940 e 1946 — são usadas como texto em português diretamente, sem tradução
-    automática) usando o OCR de visão computacional Gemini 2.5 Flash. O modelo sinaliza os termos sobre os quais não tem certeza;
-    eles aparecem em cada página da edição como
-    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
-    padding:0 2px">palavras destacadas</mark>, junto com o motivo da sinalização, para que
-    leituras incertas permaneçam visíveis em vez de serem silenciosamente suavizadas. Uma
-    verificação manual comparando duas páginas completas (uma de cada edição) com as
-    digitalizações originais não encontrou erros nas palavras que o modelo havia sinalizado —
-    mas encontrou erros que a sinalização não captou de forma alguma: texto fundido de linhas
-    separadas do cabeçalho em uma palavra que não aparece em lugar nenhum da página, uma letra
-    omitida em um nome próprio, um topônimo omitido em uma lista de vários e uma tendência a
-    renderizar topônimos em escrita latina (mantidos em português no original) em translitera-
-    ção ucraniana em vez de literalmente. Nada disso foi sinalizado, porque o mecanismo de
-    sinalização capta leituras incertas em nível de caractere, não omissões ou substituições —
-    é um sinal parcial, não uma taxa de erro validada, e um estudo sistemático de precisão
-    continua sendo um próximo passo planejado (veja o Roteiro abaixo). A tradução automática do
+    automática) usando o OCR de visão computacional Gemini 2.5 Flash. A tradução automática do
     ucraniano da diáspora dos anos 1920 e do português da época carrega os
     riscos habituais de perda de idiomatismos e formulações anacrônicas; pesquisadores que
     fizerem leitura atenta devem tratar as colunas em inglês/português como um auxílio de
@@ -517,39 +431,16 @@
     seu melhor palpite, de modo que um nome curto ou traduzido literalmente pode colidir
     silenciosamente com algo globalmente mais famoso sob o mesmo rótulo. Uma auditoria manual
     completa de todos os vínculos com o Wikidata que a extração de entidades produziu neste
-    piloto — para pessoas, locais e organizações, não uma amostra de nenhum deles — mostrou que as
-    três categorias falham em taxas muito diferentes:
-  </p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Locais errados<br>(2 de 68)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">de longe os mais confiáveis</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Organizações erradas<br>(15 de 38)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">colisões com entidades reais</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Pessoas erradas<br>(38 de 73)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">as menos confiáveis</div>
-    </div>
-  </div>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Diante de taxas de erro tão altas em duas das três categorias, os vínculos de entidades estão
-    atualmente desativados no site ao vivo, em vez de exibidos junto a um risco conhecido e não
-    corrigido de estarem errados — nenhum dado foi descartado para isso, apenas sua exibição. Um
-    processo permanente de revisão já funciona independentemente do que é exibido publicamente: uma
-    amostra aleatória de correspondências é verificada por uma pessoa, comparando com a frase real
-    em que o nome foi mencionado, não apenas o nome isolado; correspondências rejeitadas são
-    removidas e registradas. Os vínculos serão reativados categoria por categoria, à medida que
-    cada uma acumular correspondências revisadas suficientes para inspirar confiança — os locais,
-    com cerca de 3% de erro, são os mais propensos a voltar primeiro. Essa auditoria cobre apenas
-    as 8 páginas do piloto, de modo que essas taxas descrevem o que foi observado aqui, não uma
-    previsão validada para o arquivo de 14.000 páginas — motivo exato pelo qual a revisão continua
-    antes de qualquer vínculo voltar ao ar.
+    piloto — para pessoas, locais e organizações, não uma amostra de nenhum deles — mostrou que os
+    locais são confiáveis, mas organizações e pessoas erram com frequência suficiente para que os
+    vínculos de entidades estejam atualmente desativados no site ao vivo, em vez de exibidos junto
+    a um risco conhecido e não corrigido de estarem errados — nenhum dado foi descartado para isso,
+    apenas sua exibição. Um processo permanente de revisão já funciona independentemente do que é
+    exibido publicamente: uma amostra aleatória de correspondências é verificada por uma pessoa,
+    comparando com a frase real em que o nome foi mencionado, não apenas o nome isolado;
+    correspondências rejeitadas são removidas e registradas. Os vínculos serão reativados categoria
+    por categoria, à medida que cada uma acumular correspondências revisadas suficientes para
+    inspirar confiança — os locais são os mais propensos a voltar primeiro.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Padrões e interoperabilidade</h2>
@@ -692,23 +583,8 @@
     Seitenbilder werden mittels der Bild-OCR von Gemini 2.5 Flash transkribiert und übersetzt
     (Ukrainisch → Englisch, Portugiesisch und Deutsch; Ausgaben, die bereits auf Portugiesisch
     erschienen sind — nach dem erzwungenen Übergang der Zeitung in der Vargas-Ära 1940–46 —,
-    werden direkt als portugiesischer Text verwendet, statt maschinell übersetzt zu werden). Das
-    Modell markiert Textstellen, bei denen es sich unsicher ist; diese erscheinen
-    auf jeder Ausgabenseite als
-    <mark style="background:#fef3c7;color:#92400e;border-bottom:2px solid #f59e0b;border-radius:2px;
-    padding:0 2px">hervorgehobene Wörter</mark> samt Begründung der Markierung, damit unsichere
-    Lesarten sichtbar bleiben, statt stillschweigend geglättet zu werden. Eine manuelle
-    Stichprobenprüfung, bei der zwei vollständige Seiten (eine je Ausgabe) mit den
-    Originalscans verglichen wurden, fand keine Fehler bei den vom Modell markierten Wörtern —
-    fand jedoch Fehler, die die Markierung vollständig übersah: Text, der aus getrennten
-    Kopfzeilen zu einem Wort verschmolzen wurde, das nirgends auf der Seite vorkommt, einen
-    fehlenden Buchstaben in einem Personennamen, einen ausgelassenen Ortsnamen in einer Liste
-    mehrerer Namen sowie eine Tendenz, lateinschriftliche Ortsnamen (im Original auf
-    Portugiesisch) in ukrainischer Transliteration statt wörtlich wiederzugeben. Nichts davon
-    wurde markiert, da der Markierungsmechanismus unsichere Lesarten auf Zeichenebene erfasst,
-    nicht Auslassungen oder Ersetzungen — er ist ein partielles Signal, keine validierte
-    Fehlerquote, und eine systematische Genauigkeitsstudie bleibt ein geplanter nächster Schritt
-    (siehe Fahrplan unten). Die maschinelle Übersetzung des ukrainischen Diaspora-Dialekts der
+    werden direkt als portugiesischer Text verwendet, statt maschinell übersetzt zu werden).
+    Die maschinelle Übersetzung des ukrainischen Diaspora-Dialekts der
     1920er Jahre sowie des
     zeitgenössischen Portugiesisch birgt die üblichen Risiken von Idiomverlust und
     anachronistischer Formulierung; Forschende, die eine genaue Lektüre durchführen, sollten die
@@ -727,39 +603,16 @@
     sodass ein kurzer oder wörtlich übersetzter Name unbemerkt mit etwas global Bekannterem unter
     derselben Bezeichnung kollidieren kann. Eine vollständige manuelle Prüfung aller
     Wikidata-Verknüpfungen, die die Entitätsextraktion in diesem Piloten erzeugt hatte — für
-    Personen, Orte und Organisationen, nicht nur eine Stichprobe davon —, zeigte, dass die drei
-    Kategorien mit sehr unterschiedlichen Raten fehlschlagen:
-  </p>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.7rem;margin:.9rem 0">
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">3%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Orte falsch<br>(2 von 68)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">mit Abstand am zuverlässigsten</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">39%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Organisationen falsch<br>(15 von 38)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">Verwechslungen mit realen Entitäten</div>
-    </div>
-    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem;text-align:center">
-      <div style="font-size:24px;font-weight:600;color:var(--text)">52%</div>
-      <div style="font-size:12px;color:var(--muted);margin-top:.2rem">Personen falsch<br>(38 von 73)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:.3rem">am wenigsten zuverlässig</div>
-    </div>
-  </div>
-  <p style="font-size:14px;line-height:1.7;color:var(--text)">
-    Angesichts so hoher Fehlerquoten in zwei der drei Kategorien sind Entitätsverknüpfungen auf der
-    Live-Website derzeit deaktiviert, statt neben einem bekannten, unkorrigierten Fehlerrisiko
-    angezeigt zu werden — dafür wurden keine Daten gelöscht, nur ihre Anzeige. Ein dauerhafter
-    Prüfprozess läuft bereits unabhängig davon, was öffentlich angezeigt wird: Eine Zufallsstichprobe
-    von Treffern wird von einer Person geprüft, verglichen mit dem tatsächlichen Satz, in dem der
-    Name erwähnt wurde, nicht nur dem Namen allein; abgelehnte Treffer werden entfernt und
-    protokolliert. Verknüpfungen werden Kategorie für Kategorie wieder aktiviert, sobald jede genug
-    geprüfte Treffer gesammelt hat, um vertrauenswürdig zu sein — Orte, mit rund 3 % Fehlerquote,
-    kehren am wahrscheinlichsten zuerst zurück. Diese Prüfung erfasst nur die 8 Seiten des Piloten,
-    sodass diese Quoten beschreiben, was hier gefunden wurde, und keine validierte Vorhersage für
-    das 14.000-seitige Archiv sind — genau deshalb läuft die Prüfung weiter, bevor irgendeine
-    Verknüpfung wieder live geht.
+    Personen, Orte und Organisationen, nicht nur eine Stichprobe davon —, zeigte, dass Orte
+    zuverlässig sind, Organisationen und Personen jedoch so häufig fehlschlagen, dass
+    Entitätsverknüpfungen auf der Live-Website derzeit deaktiviert sind, statt neben einem
+    bekannten, unkorrigierten Fehlerrisiko angezeigt zu werden — dafür wurden keine Daten gelöscht,
+    nur ihre Anzeige. Ein dauerhafter Prüfprozess läuft bereits unabhängig davon, was öffentlich
+    angezeigt wird: Eine Zufallsstichprobe von Treffern wird von einer Person geprüft, verglichen
+    mit dem tatsächlichen Satz, in dem der Name erwähnt wurde, nicht nur dem Namen allein;
+    abgelehnte Treffer werden entfernt und protokolliert. Verknüpfungen werden Kategorie für
+    Kategorie wieder aktiviert, sobald jede genug geprüfte Treffer gesammelt hat, um
+    vertrauenswürdig zu sein — Orte kehren am wahrscheinlichsten zuerst zurück.
   </p>
 
   <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards und Interoperabilität</h2>
@@ -888,6 +741,6 @@
 </div>
 </div>
 
-<script src="../assets/lang.js?v=202609091655"></script>
+<script src="../assets/lang.js?v=202609091704"></script>
 </body>
 </html>
