@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201851">
+<link rel="stylesheet" href="../assets/main.css?v=202609201902">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -969,7 +969,7 @@ window.pagefindReady = (async () => {
 })();
 
 const SEARCH_GROUP_STRINGS = {
-  en: { issues: "Newspaper issues", site: "Elsewhere on this site",
+  en: { issues: "Mentions in the newspaper", showMore: "Show more ({n} more)", site: "Elsewhere on this site",
         noIssues: "No matches in the newspaper issues.",
         dl: "⬇ Download transcript (.docx)", lang: "Language",
         article: "This article", page: "This page", issue: "Full issue",
@@ -977,7 +977,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Download all mentions", allArticles: "Articles (.zip)", allPages: "Pages (.zip)",
         allOne: "All in one document (.docx)", passages: "Passages",
         skipped: "{n} result(s) without a locatable passage left out" },
-  uk: { issues: "Випуски газети", site: "Інші сторінки сайту",
+  uk: { issues: "Згадки в газеті", showMore: "Показати ще ({n})", site: "Інші сторінки сайту",
         noIssues: "У випусках газети збігів немає.",
         dl: "⬇ Завантажити транскрипт (.docx)", lang: "Мова",
         article: "Ця стаття", page: "Ця сторінка", issue: "Весь випуск",
@@ -985,7 +985,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Завантажити всі згадки", allArticles: "Статті (.zip)", allPages: "Сторінки (.zip)",
         allOne: "Усе в одному документі (.docx)", passages: "Фрагменти",
         skipped: "результатів без знайденого фрагмента пропущено: {n}" },
-  pt: { issues: "Edições do jornal", site: "Em outras partes do site",
+  pt: { issues: "Menções no jornal", showMore: "Mostrar mais ({n})", site: "Em outras partes do site",
         noIssues: "Nenhuma correspondência nas edições do jornal.",
         dl: "⬇ Baixar transcrição (.docx)", lang: "Idioma",
         article: "Este artigo", page: "Esta página", issue: "Edição completa",
@@ -993,7 +993,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Baixar todas as menções", allArticles: "Artigos (.zip)", allPages: "Páginas (.zip)",
         allOne: "Tudo em um documento (.docx)", passages: "Trechos",
         skipped: "{n} resultado(s) sem trecho localizável omitido(s)" },
-  de: { issues: "Zeitungsausgaben", site: "Anderswo auf dieser Website",
+  de: { issues: "Erwähnungen in der Zeitung", showMore: "Mehr anzeigen ({n} weitere)", site: "Anderswo auf dieser Website",
         noIssues: "Keine Treffer in den Zeitungsausgaben.",
         dl: "⬇ Transkript herunterladen (.docx)", lang: "Sprache",
         article: "Dieser Artikel", page: "Diese Seite", issue: "Ganze Ausgabe",
@@ -1029,6 +1029,7 @@ async function doFullTextSearch() {
   window.history.replaceState({}, "", location.pathname + "?q=" + encodeURIComponent(q));
   window._lastSearchData = null;
   window._lastQuery = q;
+  window._passageLimit = 0;
   document.getElementById("results").innerHTML = '<p style="font-size:13px;color:var(--muted)">Searching…</p>';
   const pf = await window.pagefindReady;
   if (!pf) {
@@ -1063,7 +1064,7 @@ async function doFullTextSearch() {
 // so each paragraph is listed once.
 function hitParagraphs(d) {
   if (!(d.locations && d.locations.length && d.anchors && d.anchors.length)) return [];
-  const seen = new Set(), out = [];
+  const byKey = new Map(), out = [];
   for (const target of d.locations) {
     let best = null;
     for (const a of d.anchors) {
@@ -1071,10 +1072,18 @@ function hitParagraphs(d) {
       if (!best || a.location >= best.location) best = a;   // on a tie the innermost element wins
     }
     if (!best || best.id.indexOf("para-") !== 0) continue;
-    const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
-    if (!m || seen.has(m[1] + "#" + m[2])) continue;
-    seen.add(m[1] + "#" + m[2]);
-    out.push({ pageId: m[1], idx: parseInt(m[2], 10) });
+    const m = best.id.match(/^para-([a-z]+)-(.+)-(\d+)$/);
+    if (!m) continue;
+    const key = m[2] + "#" + m[3];
+    if (byKey.has(key)) {
+      // langs: the language panels the term matched in (used to pick which
+      // translation to quote, so the shown excerpt really contains the term).
+      if (!byKey.get(key).langs.includes(m[1])) byKey.get(key).langs.push(m[1]);
+      continue;
+    }
+    const hit = { pageId: m[2], idx: parseInt(m[3], 10), langs: [m[1]] };
+    byKey.set(key, hit);
+    out.push(hit);
   }
   return out;
 }
@@ -1130,7 +1139,7 @@ function attrEsc(s) {
 // One row per newspaper hit: a language picker plus "This article" / "This
 // page" (built in the browser from the issue page, so only the passage the
 // match is in) and "Full issue" (the pre-built file).
-function downloadRowHtml(d, tlang, manifest, S) {
+function downloadRowHtml(d, tlang, manifest, S, focus) {
   const m = d.url.match(/\/issues\/([^/]+)\//);
   const info = m && manifest[m[1]];
   const files = info && info.files;
@@ -1146,7 +1155,8 @@ function downloadRowHtml(d, tlang, manifest, S) {
   return `<div class="result-dl" data-dir="${attrEsc(dir)}" data-stem="${attrEsc(stem)}"
       data-date="${attrEsc(info.date)}" data-issue="${attrEsc(info.issue_number)}"
       data-files="${attrEsc(JSON.stringify(files))}"
-      data-hits="${attrEsc(JSON.stringify(hits.map(h => [h.pageId, h.idx])))}">
+      data-hits="${attrEsc(JSON.stringify(hits.map(h => [h.pageId, h.idx])))}"
+      ${focus != null ? `data-focus="${focus}"` : ""}>
     <span>${S.dl}</span> ${sel}
     ${hit ? btn("article", S.article) + btn("page", S.page) : ""}${btn("issue", S.issue)}
   </div>`;
@@ -1278,7 +1288,10 @@ function articleRange(paras, idx) {
 // paragraph of the page so they can be marked wherever they fall.
 async function rowUnits(row, lang, scope, firstOnly) {
   const all = JSON.parse(row.dataset.hits || "[]");
-  const hits = firstOnly ? all.slice(0, 1) : all;
+  // Buttons on one passage's card (data-focus) act on that passage; without
+  // it, firstOnly means the first mention; otherwise every mention.
+  const focus = row.dataset.focus;
+  const hits = firstOnly ? (focus != null ? all.slice(+focus, +focus + 1) : all.slice(0, 1)) : all;
   const shadeByPage = new Map();
   for (const [pageId, idx] of all) {
     if (!shadeByPage.has(pageId)) shadeByPage.set(pageId, new Set());
@@ -1448,8 +1461,11 @@ document.getElementById("results").addEventListener("click", async e => {
   const lang = b.closest(".result-dlall").querySelector("select").value;
   const scope = b.dataset.dlall;
   const L = lang.toUpperCase();
+  // One row per PASSAGE is on screen; the bulk downloads work per issue and
+  // already cover every mention in it, so each issue is taken once.
+  const seenDirs = new Set();
   const rows = [...document.querySelectorAll("#results .search-main .result-dl")]
-    .filter(r => JSON.parse(r.dataset.files)[lang]);
+    .filter(r => JSON.parse(r.dataset.files)[lang] && !seenDirs.has(r.dataset.dir) && seenDirs.add(r.dataset.dir));
   const slug = slugOf(window._lastQuery, 40) || "results";
   const label = b.textContent;
   b.disabled = true;
@@ -1480,41 +1496,170 @@ document.getElementById("results").addEventListener("click", async e => {
   }
 });
 
-// Newspaper issues (the actual archive content) get the main column; every
-// other indexed page (Research questions, knowledge graphs, indexes, About…)
-// goes in a side column, so a site page that happens to repeat a search term
-// more densely can no longer outrank the newspaper itself.
+// Lowercased, accent-free copy of a string plus a map from each of its
+// characters back to the original index (Pagefind ignores accents, so the
+// highlighting has to as well: "galicia" must mark "Galícia").
+function foldChars(s) {
+  let out = "";
+  const map = [];
+  for (let i = 0; i < s.length; i++) {
+    const n = s[i].normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
+    for (const ch of n) { out += ch; map.push(i); }
+  }
+  return { out, map };
+}
+
+// A short excerpt of `text` around the first match, with every occurrence of
+// the query words wrapped in <mark>.
+function highlightSnippet(text, query) {
+  const tokens = query.replace(/["\u201c\u201d\u201e]/g, " ").split(/\s+/)
+    .map(t => foldChars(t).out).filter(t => t.length >= 2);
+  const { out, map } = foldChars(text);
+  let ranges = [];
+  for (const t of tokens) {
+    for (let from = 0, at; (at = out.indexOf(t, from)) !== -1; from = at + t.length) {
+      ranges.push([map[at], map[at + t.length - 1] + 1]);
+    }
+  }
+  ranges.sort((a, b) => a[0] - b[0]);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r[0] <= merged[merged.length - 1][1]) {
+      merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], r[1]);
+    } else merged.push([r[0], r[1]]);
+  }
+  let start = 0, end = text.length;
+  if (text.length > 340) {
+    const center = merged.length ? merged[0][0] : 0;
+    start = Math.max(0, center - 150);
+    end = Math.min(text.length, start + 340);
+    while (start > 0 && !/\s/.test(text[start - 1])) start--;
+    while (end < text.length && !/\s/.test(text[end])) end++;
+  }
+  let html = "", pos = start;
+  for (const [a, b] of merged) {
+    if (b <= start || a >= end) continue;
+    const s = Math.max(a, start), e = Math.min(b, end);
+    html += escHtml(text.slice(pos, s)) + "<mark>" + escHtml(text.slice(s, e)) + "</mark>";
+    pos = e;
+  }
+  html += escHtml(text.slice(pos, end));
+  return (start > 0 ? "… " : "") + html + (end < text.length ? " …" : "");
+}
+
+// One card per mention. The excerpt and headline are filled in afterwards,
+// from the issue page's own paragraph (see hydratePassage).
+function passageCardHtml(d, info, hit, k, tlang, S, uiLang, downloadHtml) {
+  const url = d.url + "#para-" + tlang + "-" + hit.pageId + "-" + hit.idx;
+  const pageNum = pageNumOf(hit.pageId);
+  const pageLabel = (DOCX_STRINGS[uiLang] || DOCX_STRINGS.en).page + " " + pageNum;
+  return `
+    <div class="result-card passage-card" data-dir="${attrEsc(d.url.replace(/[^/]*$/, ""))}"
+         data-page="${attrEsc(hit.pageId)}" data-idx="${hit.idx}" data-langs="${attrEsc(hit.langs.join(","))}">
+      <div class="result-date">${pageLabel}</div>
+      <div class="result-title"><a href="${url}" data-ptitle>…</a></div>
+      <div class="result-snippet" data-psnip></div>
+      ${downloadHtml || ""}
+    </div>`;
+}
+
+async function hydratePassage(card, tlang, query, fallbackTitle) {
+  const { dir, page: pageId } = card.dataset;
+  const idx = parseInt(card.dataset.idx, 10);
+  const langs = card.dataset.langs.split(",");
+  // Quote the reader's transcript language when the term matched there,
+  // otherwise a language it did match in, so the excerpt contains the term.
+  const lang = langs.includes(tlang) ? tlang : langs[0];
+  const titleEl = card.querySelector("[data-ptitle]");
+  try {
+    const paras = await fetchPageParas(dir, pageId, lang);
+    const p = paras[idx];
+    if (!p) throw new Error("paragraph missing");
+    card.querySelector("[data-psnip]").innerHTML = highlightSnippet(p.text, query);
+    let head = null;
+    for (let k = idx; k >= 0; k--) if (paras[k].head) { head = paras[k].text; break; }
+    titleEl.textContent = head || fallbackTitle;
+  } catch (err) {
+    titleEl.textContent = fallbackTitle;
+  }
+}
+
+// Newspaper passages (the actual archive content) get the main column, one
+// card per mention grouped under their issue; every other indexed page
+// (Research questions, knowledge graphs, indexes, About…) goes in a side
+// column, so a site page that repeats a search term more densely can no
+// longer outrank the newspaper itself.
+const PASSAGE_PAGE_SIZE = 40;
 async function renderSearchResults() {
   const data = window._lastSearchData;
   if (!data) return;
   const manifest = await getTranscriptManifest();
   if (window._lastSearchData !== data) return;
-  const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
-  const S = SEARCH_GROUP_STRINGS[lang] || SEARCH_GROUP_STRINGS.en;
+  const uiLang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+  const S = SEARCH_GROUP_STRINGS[uiLang] || SEARCH_GROUP_STRINGS.en;
   const tlang = localStorage.getItem("transcriptLang") || "en";
   const isIssue = d => d.url.indexOf("/issues/") !== -1;
   const issues = data.filter(isIssue).slice(0, 20);
   const others = data.filter(d => !isIssue(d)).slice(0, 12);
-  const mainCards = issues.length
-    ? issues.map(d => searchCardHtml(d, tlang, downloadRowHtml(d, tlang, manifest, S))).join("")
-    : `<p style="font-size:13px;color:var(--muted)">${S.noIssues}</p>`;
+  const query = (window._lastQuery || "").trim();
+
+  // Flatten to one entry per passage (an issue whose only matches are outside
+  // the transcript still gets one card, from Pagefind's own excerpt).
+  const entries = [];
+  for (const d of issues) {
+    const m = d.url.match(/\/issues\/([^/]+)\//);
+    const info = m ? manifest[m[1]] : null;
+    const hits = hitParagraphs(d);
+    if (!hits.length) entries.push({ d, info, hit: null, k: 0 });
+    hits.forEach((hit, k) => entries.push({ d, info, hit, k }));
+  }
+  const limit = window._passageLimit || PASSAGE_PAGE_SIZE;
+  const shown = entries.slice(0, limit);
+  const total = entries.length;
+
+  let mainCards = "", lastDir = null;
+  for (const e of shown) {
+    if (e.d.url !== lastDir) {
+      lastDir = e.d.url;
+      const label = e.info ? `${e.info.date} · ${e.info.issue_number}` : (e.d.meta?.title || e.d.url);
+      mainCards += `<div class="result-issue"><a href="${e.d.url}">${escHtml(label)}</a></div>`;
+    }
+    const dl = downloadRowHtml(e.d, tlang, manifest, S, e.hit ? e.k : null);
+    mainCards += e.hit
+      ? passageCardHtml(e.d, e.info, e.hit, e.k, tlang, S, uiLang, dl)
+      : searchCardHtml(e.d, tlang, dl);
+  }
+  if (!total) mainCards = `<p style="font-size:13px;color:var(--muted)">${S.noIssues}</p>`;
+  const more = total > shown.length
+    ? `<button type="button" class="search-more" data-more>${S.showMore.replace("{n}", total - shown.length)}</button>`
+    : "";
   const side = others.length
     ? `<aside class="search-side">
          <h3 class="search-col-title">${S.site} <span style="font-weight:400">(${others.length})</span></h3>
          ${others.map(d => searchCardHtml(d, tlang)).join("")}
        </aside>`
     : "";
-  document.getElementById("results").innerHTML = `
+  const resultsEl = document.getElementById("results");
+  resultsEl.innerHTML = `
     <div class="search-layout${others.length ? "" : " single"}">
       <div class="search-main">
-        <h3 class="search-col-title">${S.issues} <span style="font-weight:400">(${issues.length})</span></h3>
+        <h3 class="search-col-title">${S.issues} <span style="font-weight:400">(${total})</span></h3>
         ${downloadAllHtml(issues, tlang, manifest, S)}
-        ${mainCards}
+        ${mainCards}${more}
       </div>
       ${side}
     </div>`;
+  resultsEl.querySelectorAll(".passage-card").forEach(card => {
+    const label = (manifest[card.dataset.dir.match(/\/issues\/([^/]+)\//)[1]] || {}).date || "";
+    hydratePassage(card, tlang, query, label);
+  });
 }
 document.addEventListener("langchange", renderSearchResults);
+document.getElementById("results").addEventListener("click", e => {
+  if (!e.target.closest("[data-more]")) return;
+  window._passageLimit = (window._passageLimit || PASSAGE_PAGE_SIZE) + PASSAGE_PAGE_SIZE;
+  renderSearchResults();
+});
 document.getElementById("q").addEventListener("keydown", e => {
   if (e.key === "Enter") doFullTextSearch();
 });
@@ -1529,6 +1674,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201851"></script>
+<script src="../assets/lang.js?v=202609201902"></script>
 </body>
 </html>
