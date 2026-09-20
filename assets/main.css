@@ -249,6 +249,11 @@ p:hover .scan-jump,.scan-jump:focus{opacity:.85}
            color:var(--blue);cursor:pointer;font-family:inherit}
 .result-dl button:disabled,.result-dlall button:disabled{opacity:.5;cursor:wait}
 .result-dlall .dl-note{flex-basis:100%;font-size:10.5px}
+.gbadge{color:#fff;border-radius:9px;padding:0 7px;font-size:10px;margin-left:.35rem;white-space:nowrap}
+.genre-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .8rem}
+.gchip{font-size:11px;padding:.15rem .6rem;border-radius:12px;border:1px solid var(--border);
+  background:transparent;color:var(--text);cursor:pointer}
+.gchip.on{background:var(--blue);color:#fff;border-color:transparent}
 .passage-cont{margin-top:-.35rem;margin-left:1.25rem;border-top-style:dashed}
 .passage-cont .result-title{display:none}
 .result-issue{font-size:12px;font-weight:600;margin:1rem 0 .4rem;padding-bottom:.25rem;

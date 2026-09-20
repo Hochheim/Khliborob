@@ -7,9 +7,9 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609210047">
+<link rel="stylesheet" href="../assets/main.css?v=202609210049">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
-<script src="../assets/lang-tools.js?v=202609210047"></script>
+<script src="../assets/lang-tools.js?v=202609210049"></script>
 </head>
 <body>
 
@@ -1768,8 +1768,67 @@ async function renderSearchResults() {
   Promise.all(cardEls.map(card => {
     const label = (manifest[card.dataset.dir.match(/\/issues\/([^/]+)\//)[1]] || {}).date || "";
     return hydratePassage(card, uiLang, query, label);
-  })).then(() => {
-    if (cardEls.length && document.body.contains(cardEls[0])) groupPassages(resultsEl, S);
+  })).then(async () => {
+    if (!cardEls.length || !document.body.contains(cardEls[0])) return;
+    groupPassages(resultsEl, S);
+    await annotateGenres(resultsEl, cardEls, uiLang);
+  });
+}
+
+// Article type of each passage (from assets/genres.json, produced by
+// classify_genres.py): a coloured tag on the card, plus chips above the results
+// to show only some types. Only offered when the results span 2+ types.
+const GENRE_COLORS = { news: "#2563eb", opinion: "#7c3aed", community: "#059669", correspondence: "#d97706",
+  advertisement: "#dc2626", notice: "#64748b", literature: "#db2777", feature: "#0891b2", other: "#9ca3af" };
+let _genres = null;
+async function getGenres() {
+  if (_genres) return _genres;
+  _genres = { labels: {}, byPage: {} };
+  try {
+    const r = await fetch("../assets/genres.json");
+    if (r.ok) {
+      const j = await r.json();
+      _genres.labels = j.genres;
+      for (const a of j.articles) (_genres.byPage[a.page] = _genres.byPage[a.page] || []).push(a);
+    }
+  } catch (err) { /* no labels yet: results are shown without types */ }
+  return _genres;
+}
+async function annotateGenres(resultsEl, cards, uiLang) {
+  const G = await getGenres();
+  const name = g => ((G.labels[g] || {})[uiLang]) || g;
+  const present = new Map();
+  for (const card of cards) {
+    const idx = +card.dataset.idx;
+    const a = (G.byPage[card.dataset.page] || []).find(x => idx >= x.start && idx < x.end);
+    if (!a) continue;
+    card.dataset.genre = a.genre;
+    present.set(a.genre, (present.get(a.genre) || 0) + 1);
+    card.querySelector(".result-date").insertAdjacentHTML("beforeend",
+      ` <span class="gbadge" style="background:${GENRE_COLORS[a.genre]}">${escHtml(name(a.genre))}</span>`);
+  }
+  if (present.size < 2) return;
+  const main = resultsEl.querySelector(".search-main");
+  const bar = document.createElement("div");
+  bar.className = "genre-chips";
+  bar.innerHTML = [...present].map(([g, n]) =>
+    `<button type="button" class="gchip" data-g="${g}">${escHtml(name(g))} (${n})</button>`).join("");
+  (main.querySelector(".result-dlall") || main.querySelector(".search-col-title")).insertAdjacentElement("afterend", bar);
+  const on = new Set();
+  bar.addEventListener("click", e => {
+    const b = e.target.closest(".gchip");
+    if (!b) return;
+    on.has(b.dataset.g) ? on.delete(b.dataset.g) : on.add(b.dataset.g);
+    b.classList.toggle("on", on.has(b.dataset.g));
+    for (const c of cards) c.style.display = (!on.size || on.has(c.dataset.genre)) ? "" : "none";
+    // an issue heading with nothing left under it is hidden too
+    for (const h of main.querySelectorAll(".result-issue")) {
+      let visible = false;
+      for (let s = h.nextElementSibling; s && !s.classList.contains("result-issue"); s = s.nextElementSibling) {
+        if (s.classList.contains("result-card") && s.style.display !== "none") { visible = true; break; }
+      }
+      h.style.display = visible ? "" : "none";
+    }
   });
 }
 
@@ -1811,6 +1870,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609210047"></script>
+<script src="../assets/lang.js?v=202609210049"></script>
 </body>
 </html>
