@@ -705,6 +705,51 @@
       cy.elements().removeClass("dimmed highlighted");
     }
   });
+
+  // ── arriving from site search: find and highlight the searched node ──
+  // The site's search results link here as ...#find=<query>. The graph is
+  // drawn client-side, so nothing else tells this page which entity the
+  // visitor was looking for. Matches against every language's label (the
+  // searched word may be Ukrainian while the graph shows English labels).
+  (function () {
+    const raw = (new URLSearchParams(location.hash.slice(1)).get("find") || "").trim();
+    if (!raw) return;
+    const norm = s => String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const phrase = norm(raw);
+    const tokens = phrase.split(/\s+/).filter(t => t.length >= 3);
+    const labelsOf = n => [n.label_en, n.label_uk, n.label_pt, n.label_de, n.label].map(norm);
+    const entities = rawNodes.filter(n => n.type !== "page");
+    let hits = entities.filter(n => labelsOf(n).some(l => l.includes(phrase)));
+    if (!hits.length) hits = entities.filter(n => labelsOf(n).some(l => tokens.some(t => l.includes(t))));
+    const hitIds = new Set(hits.map(n => n.id));
+    const pick = () => cy.nodes().filter(n => hitIds.has(n.id()));
+
+    function run() {
+      let found = pick();
+      if (!found.length && hits.length) {
+        // Hidden by the min-mentions filter: show every entity, then look again.
+        slider.value = 1;
+        slider.dispatchEvent(new Event("input"));
+        found = pick();
+      }
+      if (!found.length) {
+        const p = document.createElement("p");
+        p.className = "hint";
+        p.textContent = "\u201c" + raw + "\u201d: no matching node in this graph.";
+        document.getElementById("detail-body").replaceChildren(p);
+        return;
+      }
+      document.getElementById("search").value = raw;
+      const best = found.toArray().sort((a, b) => b.data("mentions") - a.data("mentions"))[0];
+      best.emit("tap");   // same as a click: opens the detail panel and locks the highlight
+      best.select();
+      found.addClass("highlighted");
+      cy.animate({ center: { eles: best }, zoom: Math.max(cy.zoom(), 1.1) }, { duration: 350 });
+    }
+    // After the delayed second layout pass (kickoffLayout at 250ms), so the
+    // view isn't re-shuffled after the node has been centered.
+    setTimeout(run, 450);
+  })();
   </script>
 </body>
 </html>
