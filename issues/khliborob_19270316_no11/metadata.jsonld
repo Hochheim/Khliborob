@@ -1,0 +1,133 @@
+{
+ "@context": "https://schema.org",
+ "@type": "PublicationIssue",
+ "@id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#issue",
+ "name": "УКРАЇНСЬКИЙ ХЛІБОРОБ / O Lavrador, No. № 11 (139), 1927-03-16",
+ "issueNumber": "№ 11 (139)",
+ "datePublished": "1927-03-16",
+ "url": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/",
+ "inLanguage": "uk",
+ "isPartOf": {
+  "@type": "Periodical",
+  "@id": "https://hochheim.github.io/Khliborob/#periodical",
+  "name": "Khliborob / O Lavrador",
+  "alternateName": "Хлібороб"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "SUBRAS (Sociedade Ucraniana do Brasil)"
+ },
+ "provider": {
+  "@type": "Organization",
+  "name": "Khliborob Digital Archive (University of Münster)"
+ },
+ "numberOfPages": 4,
+ "isAccessibleForFree": true,
+ "contentLocation": {
+  "@type": "Place",
+  "name": "Porto União",
+  "geo": {
+   "@type": "GeoCoordinates",
+   "latitude": -26.2361,
+   "longitude": -50.9392
+  }
+ },
+ "description": "The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of trade and illiteracy. Ukrainian affairs include protests by scholars against the oppression of Belarusians and Ukrainians in Poland, the discovery of historical documents related to Hetman Mazepa in Par",
+ "abstract": "The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of trade and illiteracy. Ukrainian affairs include protests by scholars against the oppression of Belarusians and Ukrainians in Poland, the discovery of historical documents related to Hetman Mazepa in Paris, and the liquidation of 'khrunivstvo' (a political movement) by Bachynsky. International news covers the political isolation of Yugoslavia, England's role in the Balkans, Pope Pius XI's awards to Polish figures, and the situation in Upper Silesia. The issue also includes a chronicle of life in Brazil, financial reports, and editorial correspondence.",
+ "keywords": [
+  "Ukrainian diaspora",
+  "Brazil",
+  "São Paulo",
+  "emigration",
+  "Poland",
+  "Ukrainian scholars",
+  "Hetman Mazepa",
+  "Voinarovsky",
+  "Piłsudski",
+  "Yugoslavia",
+  "League of Nations",
+  "Pope Pius XI"
+ ],
+ "hasPart": [
+  {
+   "@type": "ImageObject",
+   "name": "Page 01",
+   "position": 1,
+   "contentUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page01_view.jpg",
+   "encodingFormat": "image/jpeg",
+   "inLanguage": "uk",
+   "thumbnailUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page01_thumb.jpg"
+  },
+  {
+   "@type": "ImageObject",
+   "name": "Page 02",
+   "position": 2,
+   "contentUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page02_view.jpg",
+   "encodingFormat": "image/jpeg",
+   "inLanguage": "uk",
+   "thumbnailUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page02_thumb.jpg"
+  },
+  {
+   "@type": "ImageObject",
+   "name": "Page 03",
+   "position": 3,
+   "contentUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page03_view.jpg",
+   "encodingFormat": "image/jpeg",
+   "inLanguage": "uk",
+   "thumbnailUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page03_thumb.jpg"
+  },
+  {
+   "@type": "ImageObject",
+   "name": "Page 04",
+   "position": 4,
+   "contentUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page04_view.jpg",
+   "encodingFormat": "image/jpeg",
+   "inLanguage": "uk",
+   "thumbnailUrl": "https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page04_thumb.jpg"
+  }
+ ],
+ "associatedMedia": [
+  {
+   "@type": "MediaObject",
+   "name": "IIIF manifest",
+   "encodingFormat": "application/ld+json",
+   "contentUrl": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/manifest.json"
+  },
+  {
+   "@type": "MediaObject",
+   "name": "Transcript (original Ukrainian)",
+   "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "inLanguage": "uk",
+   "contentUrl": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/Khliborob_1927-03-16_no11_UK.docx"
+  },
+  {
+   "@type": "MediaObject",
+   "name": "Translation (English, machine translation)",
+   "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "inLanguage": "en",
+   "contentUrl": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/Khliborob_1927-03-16_no11_EN.docx"
+  },
+  {
+   "@type": "MediaObject",
+   "name": "Translation (Portuguese, machine translation)",
+   "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "inLanguage": "pt",
+   "contentUrl": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/Khliborob_1927-03-16_no11_PT.docx"
+  },
+  {
+   "@type": "MediaObject",
+   "name": "Translation (German, machine translation)",
+   "encodingFormat": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+   "inLanguage": "de",
+   "contentUrl": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/Khliborob_1927-03-16_no11_DE.docx"
+  }
+ ],
+ "identifier": [
+  {
+   "@type": "PropertyValue",
+   "propertyID": "Polygon transaction",
+   "value": "0x7e1360a8308f73b3dad7818dee0dd490ed7b8f5ebb91fba716cc4d5c55b82577",
+   "url": "https://polygonscan.com/tx/0x7e1360a8308f73b3dad7818dee0dd490ed7b8f5ebb91fba716cc4d5c55b82577"
+  }
+ ]
+}

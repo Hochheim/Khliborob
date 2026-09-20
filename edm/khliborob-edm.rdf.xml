@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:edm="http://www.europeana.eu/schemas/edm/" xmlns:ore="http://www.openarchives.org/ore/terms/" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:wgs84_pos="http://www.w3.org/2003/01/geo/wgs84_pos#">
+  <!-- Europeana Data Model export of the Khliborob / O Lavrador digital archive. One edm:ProvidedCHO per issue, with its page scans as edm:WebResource. Regenerated at every build. edm:rights is set in build_site.py (RIGHTS_SCANS_URI). -->
+  <edm:Place rdf:about="https://hochheim.github.io/Khliborob/#place-porto-uniao">
+    <wgs84_pos:lat>-26.2361</wgs84_pos:lat>
+    <wgs84_pos:long>-50.9392</wgs84_pos:long>
+    <skos:prefLabel xml:lang="pt">Porto União</skos:prefLabel>
+  </edm:Place>
+  <edm:ProvidedCHO rdf:about="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#cho">
+    <dc:title xml:lang="uk">УКРАЇНСЬКИЙ ХЛІБОРОБ / O Lavrador, No. № 11 (139), 1927-03-16</dc:title>
+    <dc:title xml:lang="en">Ukrainian Farmer / O Lavrador, No. № 11 (139), 1927-03-16</dc:title>
+    <dc:description xml:lang="en">The newspaper 'Ukrainian Farmer', issue 11 (139) from March 16, 1927, presents diverse news from Brazil, Ukraine, and around the world. From Brazil, reports cover the arrival of Spanish and upcoming Polish emigrants to São Paulo, a violent incident at the American consulate, and general issues of trade and illiteracy. Ukrainian affairs include protests by scholars against the oppression of Belarusians and Ukrainians in Poland, the discovery of historical documents related to Hetman Mazepa in Paris, and the liquidation of 'khrunivstvo' (a political movement) by Bachynsky. International news covers the political isolation of Yugoslavia, England's role in the Balkans, Pope Pius XI's awards to Polish figures, and the situation in Upper Silesia. The issue also includes a chronicle of life in Brazil, financial reports, and editorial correspondence.</dc:description>
+    <dc:description xml:lang="uk">Газета 'Український Хлібороб', випуск 11 (139) від 16 березня 1927 року, містить різноманітні новини з Бразилії, України та світу. З Бразилії повідомляється про приїзд іспанських та майбутній приїзд польських емігрантів до Сан-Паулу, криваву сцену в американському консуляті, та загальні проблеми торгівлі та неписьменності. Українські справи включають протести вчених проти утисків білорусів та українців у Польщі, викриття історичних документів гетьмана Мазепи у Парижі, а також ліквідацію 'хрунівства' Бачинського. Міжнародні новини охоплюють політичну ізоляцію Югославії, роль Англії на Балканах, діяльність Папи Пія ХІ щодо нагородження польських діячів, а також ситуацію в Горішньому Шлеську. Також присутні хроніка життя в Бразилії, фінансові звіти та редакційна переписка.</dc:description>
+    <dc:subject xml:lang="en">Ukrainian diaspora</dc:subject>
+    <dc:subject xml:lang="en">Brazil</dc:subject>
+    <dc:subject xml:lang="en">São Paulo</dc:subject>
+    <dc:subject xml:lang="en">emigration</dc:subject>
+    <dc:subject xml:lang="en">Poland</dc:subject>
+    <dc:subject xml:lang="en">Ukrainian scholars</dc:subject>
+    <dc:subject xml:lang="en">Hetman Mazepa</dc:subject>
+    <dc:subject xml:lang="en">Voinarovsky</dc:subject>
+    <dc:subject xml:lang="en">Piłsudski</dc:subject>
+    <dc:subject xml:lang="en">Yugoslavia</dc:subject>
+    <dc:subject xml:lang="en">League of Nations</dc:subject>
+    <dc:subject xml:lang="en">Pope Pius XI</dc:subject>
+    <dc:date>1927-03-16</dc:date>
+    <dcterms:issued>1927-03-16</dcterms:issued>
+    <dc:language>uk</dc:language>
+    <dc:type>Newspaper issue</dc:type>
+    <edm:type>TEXT</edm:type>
+    <dc:identifier>https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/</dc:identifier>
+    <dcterms:isPartOf>Khliborob / O Lavrador</dcterms:isPartOf>
+    <dcterms:bibliographicCitation>Khliborob / O Lavrador, No. № 11 (139), 1927-03-16</dcterms:bibliographicCitation>
+    <dcterms:extent>4 pages</dcterms:extent>
+    <dcterms:spatial rdf:resource="https://hochheim.github.io/Khliborob/#place-porto-uniao"/>
+    <dcterms:isReferencedBy rdf:resource="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/manifest.json"/>
+  </edm:ProvidedCHO>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page01_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 01</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page02_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 02</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page03_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 03</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page04_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 04</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <ore:Aggregation rdf:about="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#aggregation">
+    <edm:aggregatedCHO rdf:resource="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#cho"/>
+    <edm:dataProvider>SUBRAS (Sociedade Ucraniana do Brasil)</edm:dataProvider>
+    <edm:provider>Khliborob Digital Archive (University of Münster)</edm:provider>
+    <edm:isShownAt rdf:resource="https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/"/>
+    <edm:isShownBy rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page01_view.jpg"/>
+    <edm:object rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page01_thumb.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page01_view.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page02_view.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page03_view.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19270316_no11_page04_view.jpg"/>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </ore:Aggregation>
+  <edm:ProvidedCHO rdf:about="https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/#cho">
+    <dc:title xml:lang="uk">Український Хлібороб / O Lavrador, No. V. 30. (207), 1928-09-26</dc:title>
+    <dc:title xml:lang="en">Ukrainian Farmer / O Lavrador, No. V. 30. (207), 1928-09-26</dc:title>
+    <dc:description xml:lang="en">This page features international news from Brazil, the USSR, Spain, Yugoslavia, China, and the USA. Key topics include the formation of a match syndicate in Brazil, the conscription law in the USSR, a theater fire in Madrid, a plague outbreak in Manchuria, widespread famine in China, and hurricane devastation in the Antilles and the Southern USA. Ukrainian news covers a lecture by German scholar Dr. Koch on Ukrainian identity, the expansion of the All-National Library of Ukraine, the restoration of St. Sophia Cathedral, the continued closure of 'Prosvita' reading rooms in Volhynia, and reports of hailstorms in Galicia. It also mentions Metropolitan Andriy Sheptytsky being referred to as a cardinal in Rome and the appointment of a new rector for the Ukrainian Economic Academy in Poděbrady.</dc:description>
+    <dc:description xml:lang="uk">Ця сторінка містить міжнародні новини з Бразилії, СРСР, Іспанії, Югославії, Китаю та США. Основні теми включають створення синдикату сірників у Бразилії, закон про військову службу в СРСР, пожежу в театрі Мадрида, чуму в Маньчжурії, голод у Китаї та ураганні руйнування на Антильських островах та півдні США. Українські новини охоплюють виклад німецького вченого доктора Коха про українську ідентичність, розширення Всенародної Бібліотеки України, реставрацію Софійського Собору, подальше закриття читалень 'Просвіти' на Волині та повідомлення про градові бурі на Галичині. Також згадується, що митрополит Андрей Шептицький іменується кардиналом у Римі та призначено нового ректора Української Господарської Академії в Подебрадах.</dc:description>
+    <dc:subject xml:lang="en">Brazil</dc:subject>
+    <dc:subject xml:lang="en">Ukraine</dc:subject>
+    <dc:subject xml:lang="en">USSR</dc:subject>
+    <dc:subject xml:lang="en">Spain</dc:subject>
+    <dc:subject xml:lang="en">Yugoslavia</dc:subject>
+    <dc:subject xml:lang="en">China</dc:subject>
+    <dc:subject xml:lang="en">USA</dc:subject>
+    <dc:subject xml:lang="en">Manchuria</dc:subject>
+    <dc:subject xml:lang="en">Famine</dc:subject>
+    <dc:subject xml:lang="en">Hurricanes</dc:subject>
+    <dc:subject xml:lang="en">World news</dc:subject>
+    <dc:subject xml:lang="en">Ukrainian affairs</dc:subject>
+    <dc:date>1928-09-26</dc:date>
+    <dcterms:issued>1928-09-26</dcterms:issued>
+    <dc:language>uk</dc:language>
+    <dc:type>Newspaper issue</dc:type>
+    <edm:type>TEXT</edm:type>
+    <dc:identifier>https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/</dc:identifier>
+    <dcterms:isPartOf>Khliborob / O Lavrador</dcterms:isPartOf>
+    <dcterms:bibliographicCitation>Khliborob / O Lavrador, No. V. 30. (207), 1928-09-26</dcterms:bibliographicCitation>
+    <dcterms:extent>4 pages</dcterms:extent>
+    <dcterms:spatial rdf:resource="https://hochheim.github.io/Khliborob/#place-porto-uniao"/>
+    <dcterms:isReferencedBy rdf:resource="https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/iiif/manifest.json"/>
+  </edm:ProvidedCHO>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page01_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 01</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page02_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 02</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page03_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 03</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <edm:WebResource rdf:about="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page04_view.jpg">
+    <dc:format>image/jpeg</dc:format>
+    <dc:description>Page 04</dc:description>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </edm:WebResource>
+  <ore:Aggregation rdf:about="https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/#aggregation">
+    <edm:aggregatedCHO rdf:resource="https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/#cho"/>
+    <edm:dataProvider>SUBRAS (Sociedade Ucraniana do Brasil)</edm:dataProvider>
+    <edm:provider>Khliborob Digital Archive (University of Münster)</edm:provider>
+    <edm:isShownAt rdf:resource="https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/"/>
+    <edm:isShownBy rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page01_view.jpg"/>
+    <edm:object rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page01_thumb.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page01_view.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page02_view.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page03_view.jpg"/>
+    <edm:hasView rdf:resource="https://hochheim.github.io/Khliborob/assets/scans/khliborob_19280926_no30_page04_view.jpg"/>
+    <edm:rights rdf:resource="http://rightsstatements.org/vocab/CNE/1.0/"/>
+  </ore:Aggregation>
+</rdf:RDF>
