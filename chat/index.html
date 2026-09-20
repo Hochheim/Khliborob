@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609202110">
+<link rel="stylesheet" href="../assets/main.css?v=202609202113">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1543,10 +1543,13 @@ async function highlightWords(query) {
   if (qf.length < 4) return { words, extra: [] };
   const extra = [];
   for (const e of await getEntityNames()) {
-    const en = foldChars(e.name_en).out, uk = foldChars(e.name_uk).out;
-    const ukStems = nameStems(e.name_uk);
-    if (en === qf || en.includes(qf)) extra.push(...ukStems);
-    else if (uk === qf || uk.includes(qf) || ukStems.some(s => qf.startsWith(s))) extra.push(...nameStems(e.name_en));
+    // If the query names this entity in any language, mark it in all of them.
+    const forms = ["name_en", "name_uk", "name_pt", "name_de"].map(f => e[f]).filter(Boolean);
+    const folded = forms.map(n => foldChars(n).out);
+    const stems = forms.map(nameStems);
+    if (folded.some((f, i) => f === qf || f.includes(qf) || stems[i].some(s => qf.startsWith(s)))) {
+      stems.forEach(s => extra.push(...s));
+    }
   }
   return { words, extra };
 }
@@ -1740,6 +1743,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609202110"></script>
+<script src="../assets/lang.js?v=202609202113"></script>
 </body>
 </html>
