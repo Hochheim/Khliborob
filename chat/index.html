@@ -7,9 +7,9 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609210023">
+<link rel="stylesheet" href="../assets/main.css?v=202609210027">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
-
+<script src="../assets/lang-tools.js?v=202609210027"></script>
 </head>
 <body>
 
@@ -1041,16 +1041,31 @@ async function doFullTextSearch() {
       '<p style="font-size:13px;color:var(--muted)">Full-text search index is unavailable right now.</p>';
     return;
   }
-  const search = await pf.search(q);
-  if (!search.results.length) {
+  // Search the word as typed AND its base form: every paragraph carries a
+  // hidden layer of base forms, so "селянам" also finds "селянин" and
+  // "українцям" finds "українець". Old-spelling letters (ґ, ъ…) are folded in
+  // the base-form query too. Hits from both searches are merged per page.
+  const queries = [q];
+  const lq = await lemmaQuery(q);
+  if (lq && lq !== q.toLowerCase()) queries.push(lq);
+  const merged = new Map();
+  for (const query of queries) {
+    const search = await pf.search(query);
+    // Fetch well past the display limit: the two groups below are filled
+    // independently, so a burst of site-page hits at the top of the ranking
+    // must not crowd newspaper hits out of a shared top-N.
+    for (const d of await Promise.all(search.results.slice(0, 60).map(x => x.data()))) {
+      const seen = merged.get(d.url);
+      if (!seen) merged.set(d.url, { ...d, locations: [...(d.locations || [])] });
+      else seen.locations = [...new Set([...seen.locations, ...(d.locations || [])])].sort((a, b) => a - b);
+    }
+  }
+  if (!merged.size) {
     document.getElementById("results").innerHTML =
       '<p style="font-size:13px;color:var(--muted)">No results found.</p>';
     return;
   }
-  // Fetch well past the display limit: the two groups below are filled
-  // independently, so a burst of site-page hits at the top of the ranking
-  // must not crowd newspaper hits out of a shared top-N.
-  window._lastSearchData = await Promise.all(search.results.slice(0, 60).map(x => x.data()));
+  window._lastSearchData = [...merged.values()];
   renderSearchResults();
 }
 
@@ -1500,18 +1515,9 @@ document.getElementById("results").addEventListener("click", async e => {
   }
 });
 
-// Lowercased, accent-free copy of a string plus a map from each of its
-// characters back to the original index (Pagefind ignores accents, so the
-// highlighting has to as well: "galicia" must mark "Galícia").
-function foldChars(s) {
-  let out = "";
-  const map = [];
-  for (let i = 0; i < s.length; i++) {
-    const n = s[i].normalize("NFD").replace(/\p{M}/gu, "").toLowerCase();
-    for (const ch of n) { out += ch; map.push(i); }
-  }
-  return { out, map };
-}
+// (foldChars, foldText and the base-form lookups come from assets/lang-tools.js:
+// the highlighting ignores accents and old spellings exactly as the search does,
+// so "galicia" marks "Galícia" and "грабський" marks "Ґрабського".)
 
 // Folded (lowercase, accent-free) query words worth matching.
 const queryWords = q => q.replace(/["\u201c\u201d\u201e]/g, " ").split(/\s+/)
@@ -1543,8 +1549,10 @@ async function getEntityNames() {
 // name's stems in the other language.
 async function highlightWords(query) {
   const words = queryWords(query);
+  // Every inflected form of the query words' base forms, matched as whole words.
+  const exact = await inflectedForms(query);
   const qf = words.join(" ");
-  if (qf.length < 4) return { words, extra: [] };
+  if (qf.length < 4) return { words, extra: [], exact };
   const extra = [];
   for (const e of await getEntityNames()) {
     // If the query names this entity in any language, mark it in all of them.
@@ -1555,15 +1563,23 @@ async function highlightWords(query) {
       stems.forEach(s => extra.push(...s));
     }
   }
-  return { words, extra };
+  return { words, extra, exact };
 }
 
-// Merged [start, end) ranges in `text` where any of the folded words occurs.
-function matchRanges(text, words) {
+// Merged [start, end) ranges in `text` where any of the folded words occurs
+// (anywhere, so stems match) or any of the `exact` forms occurs as a whole word.
+function matchRanges(text, words, exact) {
   const { out, map } = foldChars(text);
   const ranges = [];
   for (const t of words) {
     for (let from = 0, at; (at = out.indexOf(t, from)) !== -1; from = at + t.length) {
+      ranges.push([map[at], map[at + t.length - 1] + 1]);
+    }
+  }
+  const isLetter = ch => ch !== undefined && /\p{L}/u.test(ch);
+  for (const t of exact || []) {
+    for (let from = 0, at; (at = out.indexOf(t, from)) !== -1; from = at + t.length) {
+      if (isLetter(out[at - 1]) || isLetter(out[at + t.length])) continue;
       ranges.push([map[at], map[at + t.length - 1] + 1]);
     }
   }
@@ -1635,7 +1651,7 @@ async function hydratePassage(card, uiLang, query, fallbackTitle) {
     const p = paras[idx];
     if (!p) throw new Error("paragraph missing");
     const hw = await highlightWords(query);
-    let ranges = matchRanges(p.text, [...hw.words, ...hw.extra]);
+    let ranges = matchRanges(p.text, [...hw.words, ...hw.extra], hw.exact);
     // Other word forms (Ukrainian "Галицької" = "Galician" for the name
     // "Галичина" = "Galicia"): only when nothing matched, retry on the
     // first four letters of the translated names.
@@ -1790,6 +1806,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609210023"></script>
+<script src="../assets/lang.js?v=202609210027"></script>
 </body>
 </html>
