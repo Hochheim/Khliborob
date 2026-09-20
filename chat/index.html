@@ -7,9 +7,9 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609210027">
+<link rel="stylesheet" href="../assets/main.css?v=202609210031">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
-<script src="../assets/lang-tools.js?v=202609210027"></script>
+<script src="../assets/lang-tools.js?v=202609210031"></script>
 </head>
 <body>
 
@@ -1656,6 +1656,9 @@ async function hydratePassage(card, uiLang, query, fallbackTitle) {
     // "Галичина" = "Galicia"): only when nothing matched, retry on the
     // first four letters of the translated names.
     if (!ranges.length && hw.extra.length) ranges = matchRanges(p.text, hw.extra.map(s => s.slice(0, 4)));
+    // Last resort for words the dictionary doesn't know (surnames): the query
+    // word without its last two letters, so "грабський" marks "Грабського".
+    if (!ranges.length) ranges = matchRanges(p.text, hw.words.filter(w => w.length >= 6).map(w => w.slice(0, -2)));
     let ratio = null;
     if (!ranges.length && !matchedLangs.includes(lang)) {
       // The word isn't in this language's text: find where it sits in one it
@@ -1806,6 +1809,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609210027"></script>
+<script src="../assets/lang.js?v=202609210031"></script>
 </body>
 </html>
