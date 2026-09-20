@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201824">
+<link rel="stylesheet" href="../assets/main.css?v=202609201828">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1193,19 +1193,45 @@ async function buildFragmentDocx(row, lang, scope) {
   const doc = new DOMParser().parseFromString(html, "text/html");
   const nodes = [...doc.querySelectorAll(`p[id^="para-${lang}-${pageId}-"]`)];
   if (!nodes.length) throw new Error("no paragraphs");
+  // The page data only records some headlines; short ALL-CAPS lines (section
+  // titles such as "DE TODO O MUNDO.") are headings too, as on the issue page.
+  const isCapsHead = t => t.length >= 3 && t.length <= 90 &&
+    t.replace(/[^\p{L}]/gu, "").length >= 3 && t === t.toUpperCase();
+  // A paragraph that opens with a bracket/quote or a lowercase letter belongs
+  // to the item before it (an editor's note, a quoted passage, a split line).
+  const isCont = t => /^[(\[„«“]/.test(t) || /^\p{Ll}/u.test(t);
   const paras = nodes.map(p => {
     const c = p.cloneNode(true);
     c.querySelectorAll(".xlink-jump").forEach(x => x.remove());
-    return { text: c.textContent.replace(/\s+/g, " ").trim(), head: !!p.querySelector(".t-head") };
+    const text = c.textContent.replace(/\s+/g, " ").trim();
+    return { text, head: !!p.querySelector(".t-head") || isCapsHead(text) };
   });
   let slice = paras;
   if (scope === "article") {
-    // An article runs from its headline to the next one on the page.
-    let start = 0;
-    for (let i = Math.min(idx, paras.length - 1); i >= 0; i--) if (paras[i].head) { start = i; break; }
-    let end = paras.length;
-    for (let i = start + 1; i < paras.length; i++) if (paras[i].head) { end = i; break; }
-    slice = paras.slice(start, end);
+    const n = paras.length;
+    const i = Math.min(idx, n - 1);
+    if (paras[i].head) {
+      // The match is in a headline: take it and its text up to the next heading.
+      let end = n;
+      for (let k = i + 1; k < n; k++) if (paras[k].head) { end = k; break; }
+      slice = paras.slice(i, end);
+    } else {
+      // Otherwise: the news item containing the match (plus any notes attached
+      // to it), under its section heading. Items inside a section have no
+      // markers of their own, so anything between the heading and the item is
+      // left out and marked with […].
+      let a = i, b = i;
+      while (a > 0 && !paras[a - 1].head && isCont(paras[a].text)) a--;
+      while (b + 1 < n && !paras[b + 1].head && isCont(paras[b + 1].text)) b++;
+      let h = -1;
+      for (let k = a - 1; k >= 0; k--) if (paras[k].head) { h = k; break; }
+      slice = [];
+      if (h >= 0) {
+        slice.push(paras[h]);
+        if (h < a - 1) slice.push({ text: "[…]", head: false, italic: true });
+      }
+      slice.push(...paras.slice(a, b + 1));
+    }
   }
   const S = DOCX_STRINGS[lang];
   const pageNum = (pageId.match(/_page(\d+)$/) || [])[1] || "";
@@ -1219,7 +1245,7 @@ async function buildFragmentDocx(row, lang, scope) {
   body += wPara(S.note, null, { italic: true });
   body += wPara(S.credit, null, { italic: true });
   body += wPara(S.page + " " + pageNum, "Heading1");
-  for (const p of slice) if (p.text) body += wPara(p.text, p.head ? "Heading2" : null);
+  for (const p of slice) if (p.text) body += wPara(p.text, p.head ? "Heading2" : null, p.italic ? { italic: true } : null);
   return buildDocxBlob(body);
 }
 
@@ -1310,6 +1336,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201824"></script>
+<script src="../assets/lang.js?v=202609201828"></script>
 </body>
 </html>
