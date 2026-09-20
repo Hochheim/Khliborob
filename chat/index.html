@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609202353">
+<link rel="stylesheet" href="../assets/main.css?v=202609202357">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -973,7 +973,7 @@ window.pagefindReady = (async () => {
 })();
 
 const SEARCH_GROUP_STRINGS = {
-  en: { issues: "Mentions in the newspaper", showMore: "Show more ({n} more)", sameArticle: "same article", site: "Elsewhere on this site",
+  en: { issues: "Mentions in the newspaper", showMore: "Show more ({n} more)", sameArticle: "same article", mapsGraphs: "Maps & knowledge graphs", sitePages: "Other pages", site: "Elsewhere on this site",
         noIssues: "No matches in the newspaper issues.",
         dl: "⬇ Download transcript (.docx)", lang: "Language",
         article: "This article", page: "This page", issue: "Full issue",
@@ -981,7 +981,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Download all mentions", allArticles: "Articles (.zip)", allPages: "Pages (.zip)",
         allOne: "All in one document (.docx)", passages: "Passages",
         skipped: "{n} result(s) without a locatable passage left out" },
-  uk: { issues: "Згадки в газеті", showMore: "Показати ще ({n})", sameArticle: "та сама стаття", site: "Інші сторінки сайту",
+  uk: { issues: "Згадки в газеті", showMore: "Показати ще ({n})", sameArticle: "та сама стаття", mapsGraphs: "Мапи та графи знань", sitePages: "Інші сторінки", site: "Інші сторінки сайту",
         noIssues: "У випусках газети збігів немає.",
         dl: "⬇ Завантажити транскрипт (.docx)", lang: "Мова",
         article: "Ця стаття", page: "Ця сторінка", issue: "Весь випуск",
@@ -989,7 +989,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Завантажити всі згадки", allArticles: "Статті (.zip)", allPages: "Сторінки (.zip)",
         allOne: "Усе в одному документі (.docx)", passages: "Фрагменти",
         skipped: "результатів без знайденого фрагмента пропущено: {n}" },
-  pt: { issues: "Menções no jornal", showMore: "Mostrar mais ({n})", sameArticle: "mesmo artigo", site: "Em outras partes do site",
+  pt: { issues: "Menções no jornal", showMore: "Mostrar mais ({n})", sameArticle: "mesmo artigo", mapsGraphs: "Mapas e grafos de conhecimento", sitePages: "Outras páginas", site: "Em outras partes do site",
         noIssues: "Nenhuma correspondência nas edições do jornal.",
         dl: "⬇ Baixar transcrição (.docx)", lang: "Idioma",
         article: "Este artigo", page: "Esta página", issue: "Edição completa",
@@ -997,7 +997,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Baixar todas as menções", allArticles: "Artigos (.zip)", allPages: "Páginas (.zip)",
         allOne: "Tudo em um documento (.docx)", passages: "Trechos",
         skipped: "{n} resultado(s) sem trecho localizável omitido(s)" },
-  de: { issues: "Erwähnungen in der Zeitung", showMore: "Mehr anzeigen ({n} weitere)", sameArticle: "gleicher Artikel", site: "Anderswo auf dieser Website",
+  de: { issues: "Erwähnungen in der Zeitung", showMore: "Mehr anzeigen ({n} weitere)", sameArticle: "gleicher Artikel", mapsGraphs: "Karten & Wissensgraphen", sitePages: "Weitere Seiten", site: "Anderswo auf dieser Website",
         noIssues: "Keine Treffer in den Zeitungsausgaben.",
         dl: "⬇ Transkript herunterladen (.docx)", lang: "Sprache",
         article: "Dieser Artikel", page: "Diese Seite", issue: "Ganze Ausgabe",
@@ -1674,7 +1674,14 @@ async function renderSearchResults() {
   const tlang = localStorage.getItem("transcriptLang") || "en";
   const isIssue = d => d.url.indexOf("/issues/") !== -1;
   const issues = data.filter(isIssue).slice(0, 20);
-  const others = data.filter(d => !isIssue(d)).slice(0, 12);
+  // Everything that isn't a newspaper issue, in two tiers: maps and knowledge
+  // graphs first, then the other site pages (GPU documents, indexes, Research
+  // questions…). Order within a tier is the search engine's own ranking.
+  const isMapOrGraph = d => /\/aggregated\/[^/]*_agg_(map|graph)\.html$/.test(d.url);
+  const rest = data.filter(d => !isIssue(d));
+  const mapsGraphs = rest.filter(isMapOrGraph).slice(0, 12);
+  const sitePages = rest.filter(d => !isMapOrGraph(d)).slice(0, 12);
+  const others = [...mapsGraphs, ...sitePages];
   const query = (window._lastQuery || "").trim();
 
   // Flatten to one entry per passage (an issue whose only matches are outside
@@ -1707,10 +1714,15 @@ async function renderSearchResults() {
   const more = total > shown.length
     ? `<button type="button" class="search-more" data-more>${S.showMore.replace("{n}", total - shown.length)}</button>`
     : "";
+  // Tier headings only when both tiers are present; a lone tier needs none.
+  const tier = (label, list) => list.length
+    ? (mapsGraphs.length && sitePages.length ? `<div class="search-subhead">${label}</div>` : "") +
+      list.map(d => searchCardHtml(d, tlang)).join("")
+    : "";
   const side = others.length
     ? `<aside class="search-side">
          <h3 class="search-col-title">${S.site} <span style="font-weight:400">(${others.length})</span></h3>
-         ${others.map(d => searchCardHtml(d, tlang)).join("")}
+         ${tier(S.mapsGraphs, mapsGraphs)}${tier(S.sitePages, sitePages)}
        </aside>`
     : "";
   const resultsEl = document.getElementById("results");
@@ -1770,6 +1782,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609202353"></script>
+<script src="../assets/lang.js?v=202609202357"></script>
 </body>
 </html>
