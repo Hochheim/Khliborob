@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609202325">
+<link rel="stylesheet" href="../assets/main.css?v=202609202332">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -44,7 +44,7 @@
   </div>
 </nav>
 
-<div style="max-width:800px;margin:0 auto;padding:1.5rem;display:flex;flex-direction:column;height:calc(100vh - 120px)">
+<div style="max-width:800px;margin:0 auto 8rem;padding:1.5rem;display:flex;flex-direction:column;height:calc(100vh - 120px)">
   <div style="margin-bottom:1rem">
     <h1 style="font-size:20px;font-weight:500;margin-bottom:.3rem" data-i18n="nav_chat">Research Agent</h1>
     <p style="font-size:13px;color:var(--muted)">
@@ -969,7 +969,7 @@ window.pagefindReady = (async () => {
 })();
 
 const SEARCH_GROUP_STRINGS = {
-  en: { issues: "Mentions in the newspaper", showMore: "Show more ({n} more)", site: "Elsewhere on this site",
+  en: { issues: "Mentions in the newspaper", showMore: "Show more ({n} more)", sameArticle: "↳ same article", site: "Elsewhere on this site",
         noIssues: "No matches in the newspaper issues.",
         dl: "⬇ Download transcript (.docx)", lang: "Language",
         article: "This article", page: "This page", issue: "Full issue",
@@ -977,7 +977,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Download all mentions", allArticles: "Articles (.zip)", allPages: "Pages (.zip)",
         allOne: "All in one document (.docx)", passages: "Passages",
         skipped: "{n} result(s) without a locatable passage left out" },
-  uk: { issues: "Згадки в газеті", showMore: "Показати ще ({n})", site: "Інші сторінки сайту",
+  uk: { issues: "Згадки в газеті", showMore: "Показати ще ({n})", sameArticle: "↳ та сама стаття", site: "Інші сторінки сайту",
         noIssues: "У випусках газети збігів немає.",
         dl: "⬇ Завантажити транскрипт (.docx)", lang: "Мова",
         article: "Ця стаття", page: "Ця сторінка", issue: "Весь випуск",
@@ -985,7 +985,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Завантажити всі згадки", allArticles: "Статті (.zip)", allPages: "Сторінки (.zip)",
         allOne: "Усе в одному документі (.docx)", passages: "Фрагменти",
         skipped: "результатів без знайденого фрагмента пропущено: {n}" },
-  pt: { issues: "Menções no jornal", showMore: "Mostrar mais ({n})", site: "Em outras partes do site",
+  pt: { issues: "Menções no jornal", showMore: "Mostrar mais ({n})", sameArticle: "↳ mesmo artigo", site: "Em outras partes do site",
         noIssues: "Nenhuma correspondência nas edições do jornal.",
         dl: "⬇ Baixar transcrição (.docx)", lang: "Idioma",
         article: "Este artigo", page: "Esta página", issue: "Edição completa",
@@ -993,7 +993,7 @@ const SEARCH_GROUP_STRINGS = {
         dlAll: "⬇ Baixar todas as menções", allArticles: "Artigos (.zip)", allPages: "Páginas (.zip)",
         allOne: "Tudo em um documento (.docx)", passages: "Trechos",
         skipped: "{n} resultado(s) sem trecho localizável omitido(s)" },
-  de: { issues: "Erwähnungen in der Zeitung", showMore: "Mehr anzeigen ({n} weitere)", site: "Anderswo auf dieser Website",
+  de: { issues: "Erwähnungen in der Zeitung", showMore: "Mehr anzeigen ({n} weitere)", sameArticle: "↳ gleicher Artikel", site: "Anderswo auf dieser Website",
         noIssues: "Keine Treffer in den Zeitungsausgaben.",
         dl: "⬇ Transkript herunterladen (.docx)", lang: "Sprache",
         article: "Dieser Artikel", page: "Diese Seite", issue: "Ganze Ausgabe",
@@ -1645,8 +1645,9 @@ async function hydratePassage(card, uiLang, query, fallbackTitle) {
       if (mr.length) ratio = mr[0][0] / mp.text.length;
     }
     card.querySelector("[data-psnip]").innerHTML = snippetHtml(p.text, ranges, ratio);
-    let head = null;
-    for (let k = idx; k >= 0; k--) if (paras[k].head) { head = paras[k].text; break; }
+    let head = null, headIdx = -1;
+    for (let k = idx; k >= 0; k--) if (paras[k].head) { head = paras[k].text; headIdx = k; break; }
+    card.dataset.head = String(headIdx);   // which article this passage belongs to (see groupPassages)
     titleEl.textContent = head || fallbackTitle;
   } catch (err) {
     titleEl.textContent = fallbackTitle;
@@ -1718,10 +1719,32 @@ async function renderSearchResults() {
       </div>
       ${side}
     </div>`;
-  resultsEl.querySelectorAll(".passage-card").forEach(card => {
+  const cardEls = [...resultsEl.querySelectorAll(".passage-card")];
+  Promise.all(cardEls.map(card => {
     const label = (manifest[card.dataset.dir.match(/\/issues\/([^/]+)\//)[1]] || {}).date || "";
-    hydratePassage(card, uiLang, query, label);
+    return hydratePassage(card, uiLang, query, label);
+  })).then(() => {
+    if (cardEls.length && document.body.contains(cardEls[0])) groupPassages(resultsEl, S);
   });
+}
+
+// Several mentions can fall in one long article (four paragraphs of one
+// article can all say "Pope"). They stay separate passages, but consecutive
+// ones under the same headline share it: only the first shows the title,
+// the rest are marked as the same article and tucked under it.
+function groupPassages(resultsEl, S) {
+  let prev = null;
+  for (const el of resultsEl.querySelectorAll(".search-main .result-issue, .search-main .result-card")) {
+    if (!el.classList.contains("passage-card")) { prev = null; continue; }
+    if (prev && el.dataset.head !== undefined && el.dataset.head !== "-1" &&
+        el.dataset.dir === prev.dataset.dir && el.dataset.page === prev.dataset.page &&
+        el.dataset.head === prev.dataset.head) {
+      el.classList.add("passage-cont");
+      const meta = el.querySelector(".result-date");
+      if (meta && !meta.dataset.grouped) { meta.textContent += " · " + S.sameArticle; meta.dataset.grouped = "1"; }
+    }
+    prev = el;
+  }
 }
 document.addEventListener("langchange", renderSearchResults);
 document.getElementById("results").addEventListener("click", e => {
@@ -1743,6 +1766,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609202325"></script>
+<script src="../assets/lang.js?v=202609202332"></script>
 </body>
 </html>
