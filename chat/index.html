@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201829">
+<link rel="stylesheet" href="../assets/main.css?v=202609201840">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -973,22 +973,26 @@ const SEARCH_GROUP_STRINGS = {
         noIssues: "No matches in the newspaper issues.",
         dl: "⬇ Download transcript (.docx)", lang: "Language",
         article: "This article", page: "This page", issue: "Full issue",
-        fail: "Could not build the document — please try again." },
+        fail: "Could not build the document — please try again.",
+        dlAll: "⬇ Download all (.zip)", allArticles: "Articles", allPages: "Pages", allIssues: "Full issues" },
   uk: { issues: "Випуски газети", site: "Інші сторінки сайту",
         noIssues: "У випусках газети збігів немає.",
         dl: "⬇ Завантажити транскрипт (.docx)", lang: "Мова",
         article: "Ця стаття", page: "Ця сторінка", issue: "Весь випуск",
-        fail: "Не вдалося створити документ — спробуйте ще раз." },
+        fail: "Не вдалося створити документ — спробуйте ще раз.",
+        dlAll: "⬇ Завантажити все (.zip)", allArticles: "Статті", allPages: "Сторінки", allIssues: "Випуски повністю" },
   pt: { issues: "Edições do jornal", site: "Em outras partes do site",
         noIssues: "Nenhuma correspondência nas edições do jornal.",
         dl: "⬇ Baixar transcrição (.docx)", lang: "Idioma",
         article: "Este artigo", page: "Esta página", issue: "Edição completa",
-        fail: "Não foi possível gerar o documento — tente novamente." },
+        fail: "Não foi possível gerar o documento — tente novamente.",
+        dlAll: "⬇ Baixar tudo (.zip)", allArticles: "Artigos", allPages: "Páginas", allIssues: "Edições completas" },
   de: { issues: "Zeitungsausgaben", site: "Anderswo auf dieser Website",
         noIssues: "Keine Treffer in den Zeitungsausgaben.",
         dl: "⬇ Transkript herunterladen (.docx)", lang: "Sprache",
         article: "Dieser Artikel", page: "Diese Seite", issue: "Ganze Ausgabe",
-        fail: "Das Dokument konnte nicht erstellt werden — bitte erneut versuchen." }
+        fail: "Das Dokument konnte nicht erstellt werden — bitte erneut versuchen.",
+        dlAll: "⬇ Alles herunterladen (.zip)", allArticles: "Artikel", allPages: "Seiten", allIssues: "Ganze Ausgaben" }
 };
 const DOCX_STRINGS = {"uk": {"newspaper": "Газета", "date": "Дата", "issue": "Номер", "language": "Мова тексту", "source": "Джерело", "page": "Сторінка", "langname": "українська — оригінальний текст (автоматичне розпізнавання)", "note": "Текст розпізнано автоматично й він може містити помилки. Перед цитуванням звіряйте його зі скан-копією сторінки.", "credit": "Цифровий архів «Хлібороб» — Мюнстерський університет, у партнерстві з SUBRAS (Sociedade Ucraniana do Brasil)."}, "en": {"newspaper": "Newspaper", "date": "Date", "issue": "Issue", "language": "Text language", "source": "Source", "page": "Page", "langname": "English — machine translation of the Ukrainian original", "note": "Machine translation; idioms and period wording may be rendered imperfectly. Verify against the Ukrainian original or the page scan before quoting.", "credit": "Khliborob Digital Archive — University of Münster, in partnership with SUBRAS (Sociedade Ucraniana do Brasil)."}, "pt": {"newspaper": "Jornal", "date": "Data", "issue": "Edição", "language": "Idioma do texto", "source": "Fonte", "page": "Página", "langname": "Português (Brasil) — tradução automática do original ucraniano", "note": "Tradução automática; expressões idiomáticas e a linguagem da época podem não ser perfeitamente reproduzidas. Verifique o original em ucraniano ou a digitalização da página antes de citar.", "credit": "Arquivo Digital Khliborob — Universidade de Münster, em parceria com a SUBRAS (Sociedade Ucraniana do Brasil)."}, "de": {"newspaper": "Zeitung", "date": "Datum", "issue": "Ausgabe", "language": "Textsprache", "source": "Quelle", "page": "Seite", "langname": "Deutsch — maschinelle Übersetzung des ukrainischen Originals", "note": "Maschinelle Übersetzung; Redewendungen und zeitgenössische Ausdrucksweise werden ggf. nicht exakt wiedergegeben. Vor einem Zitat mit dem ukrainischen Original oder dem Seitenscan abgleichen.", "credit": "Digitales Archiv Khliborob — Universität Münster, in Zusammenarbeit mit SUBRAS (Sociedade Ucraniana do Brasil)."}};
 function uiStrings() {
@@ -1081,6 +1085,21 @@ function searchCardHtml(d, tlang, downloadHtml) {
     </div>`;
 }
 
+// The bar above the newspaper results: one zip covering every listed issue.
+function downloadAllHtml(issues, tlang, manifest, S) {
+  const infos = issues.map(d => {
+    const m = d.url.match(/\/issues\/([^/]+)\//);
+    return m && manifest[m[1]] && manifest[m[1]].files;
+  }).filter(Boolean);
+  if (infos.length < 2) return "";
+  const langs = ["uk", "en", "pt", "de"].filter(l => infos.some(f => f[l]));
+  const sel = `<select aria-label="${attrEsc(S.lang)}">` + langs.map(l =>
+    `<option value="${l}"${l === tlang ? " selected" : ""}>${DL_LANG_LABELS[l]}</option>`).join("") + `</select>`;
+  const btn = (scope, label) => `<button type="button" data-dlall="${scope}">${label}</button>`;
+  return `<div class="result-dlall"><span>${S.dlAll}</span> ${sel}
+    ${btn("article", S.allArticles)}${btn("page", S.allPages)}${btn("issue", S.allIssues)}</div>`;
+}
+
 function attrEsc(s) {
   return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -1119,14 +1138,16 @@ function crc32(bytes) {
   }
   return (crc ^ 0xFFFFFFFF) >>> 0;
 }
-function makeZip(files) {
+const DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+// files: [{name, text}] or [{name, data: Uint8Array}]
+function makeZip(files, mime) {
   const enc = new TextEncoder();
   const u16 = n => [n & 255, (n >>> 8) & 255];
   const u32 = n => [n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255];
   const parts = [], central = [];
   let offset = 0;
   for (const f of files) {
-    const name = enc.encode(f.name), data = enc.encode(f.text);
+    const name = enc.encode(f.name), data = f.data || enc.encode(f.text);
     const crc = crc32(data), size = data.length;
     const local = new Uint8Array([0x50, 0x4b, 3, 4, ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0),
       ...u16(0x21), ...u32(crc), ...u32(size), ...u32(size), ...u16(name.length), ...u16(0)]);
@@ -1139,8 +1160,7 @@ function makeZip(files) {
   const centralSize = central.reduce((n, c) => n + c.length, 0);
   const eocd = new Uint8Array([0x50, 0x4b, 5, 6, ...u16(0), ...u16(0), ...u16(files.length),
     ...u16(files.length), ...u32(centralSize), ...u32(offset), ...u16(0)]);
-  return new Blob([...parts, ...central, eocd],
-    { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+  return new Blob([...parts, ...central, eocd], { type: mime || DOCX_MIME });
 }
 const W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
 const DOCX_STYLES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -1253,6 +1273,31 @@ function saveHref(href, filename) {
   a.remove();
 }
 
+function fragmentFilename(row, lang, scope) {
+  const pageNum = (row.dataset.page.match(/_page(\d+)$/) || [])[1] || "";
+  return `${row.dataset.stem}_p${pageNum}${scope === "article" ? "_article" : ""}_${lang.toUpperCase()}.docx`;
+}
+
+function saveBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  saveHref(url, filename);
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+
+// One result's document as bytes: the matching article/page when the hit's
+// paragraph is known, otherwise (or for "issue") the pre-built full-issue file.
+async function rowDocument(row, lang, scope) {
+  const files = JSON.parse(row.dataset.files);
+  if (!files[lang]) return null;
+  if (scope === "issue" || !row.dataset.page) {
+    const r = await fetch(row.dataset.dir + files[lang]);
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return { name: files[lang], data: new Uint8Array(await r.arrayBuffer()) };
+  }
+  const blob = await buildFragmentDocx(row, lang, scope);
+  return { name: fragmentFilename(row, lang, scope), data: new Uint8Array(await blob.arrayBuffer()) };
+}
+
 document.getElementById("results").addEventListener("click", async e => {
   const b = e.target.closest("button[data-dl]");
   if (!b) return;
@@ -1268,14 +1313,40 @@ document.getElementById("results").addEventListener("click", async e => {
   b.disabled = true;
   b.textContent = "…";
   try {
-    const blob = await buildFragmentDocx(row, lang, scope);
-    const pageNum = (row.dataset.page.match(/_page(\d+)$/) || [])[1] || "";
-    const filename = `${row.dataset.stem}_p${pageNum}${scope === "article" ? "_article" : ""}_${lang.toUpperCase()}.docx`;
-    const url = URL.createObjectURL(blob);
-    saveHref(url, filename);
-    setTimeout(() => URL.revokeObjectURL(url), 10000);
+    saveBlob(await buildFragmentDocx(row, lang, scope), fragmentFilename(row, lang, scope));
   } catch (err) {
     console.warn("Transcript download failed:", err);
+    alert(uiStrings().fail);
+  } finally {
+    b.disabled = false;
+    b.textContent = label;
+  }
+});
+
+// "Download all": one .zip with a document for every newspaper result listed.
+document.getElementById("results").addEventListener("click", async e => {
+  const b = e.target.closest("button[data-dlall]");
+  if (!b) return;
+  const lang = b.closest(".result-dlall").querySelector("select").value;
+  const scope = b.dataset.dlall;
+  const rows = [...document.querySelectorAll("#results .search-main .result-dl")];
+  const label = b.textContent;
+  b.disabled = true;
+  try {
+    const files = [];
+    for (let i = 0; i < rows.length; i++) {
+      b.textContent = (i + 1) + "/" + rows.length;
+      const doc = await rowDocument(rows[i], lang, scope);
+      if (doc && !files.some(f => f.name === doc.name)) files.push(doc);
+    }
+    if (!files.length) throw new Error("nothing to download");
+    const slug = (window._lastQuery || "").trim().toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "").slice(0, 40) || "results";
+    const scopeWord = { article: "articles", page: "pages", issue: "issues" }[scope];
+    saveBlob(makeZip(files, "application/zip"),
+      `Khliborob_search-${slug}_${scopeWord}_${lang.toUpperCase()}.zip`);
+  } catch (err) {
+    console.warn("Bulk download failed:", err);
     alert(uiStrings().fail);
   } finally {
     b.disabled = false;
@@ -1311,6 +1382,7 @@ async function renderSearchResults() {
     <div class="search-layout${others.length ? "" : " single"}">
       <div class="search-main">
         <h3 class="search-col-title">${S.issues} <span style="font-weight:400">(${issues.length})</span></h3>
+        ${downloadAllHtml(issues, tlang, manifest, S)}
         ${mainCards}
       </div>
       ${side}
@@ -1331,6 +1403,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201829"></script>
+<script src="../assets/lang.js?v=202609201840"></script>
 </body>
 </html>
