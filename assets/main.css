@@ -231,6 +231,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
            padding:1px 7px;border:1px solid var(--border);border-radius:4px;background:transparent;
            color:var(--blue);cursor:pointer;font-family:inherit}
 .result-dl button:disabled,.result-dlall button:disabled{opacity:.5;cursor:wait}
+.result-dlall .dl-note{flex-basis:100%;font-size:10.5px}
 .search-side .result-card{padding:.55rem .75rem;background:transparent}
 .search-side .result-title{font-size:13px}
 .search-side .result-snippet{font-size:11px}

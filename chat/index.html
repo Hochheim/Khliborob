@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201840">
+<link rel="stylesheet" href="../assets/main.css?v=202609201850">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -974,27 +974,35 @@ const SEARCH_GROUP_STRINGS = {
         dl: "⬇ Download transcript (.docx)", lang: "Language",
         article: "This article", page: "This page", issue: "Full issue",
         fail: "Could not build the document — please try again.",
-        dlAll: "⬇ Download all (.zip)", allArticles: "Articles", allPages: "Pages", allIssues: "Full issues" },
+        dlAll: "⬇ Download all mentions", allArticles: "Articles (.zip)", allPages: "Pages (.zip)",
+        allOne: "All in one document (.docx)", passages: "Passages",
+        skipped: "{n} result(s) without a locatable passage left out" },
   uk: { issues: "Випуски газети", site: "Інші сторінки сайту",
         noIssues: "У випусках газети збігів немає.",
         dl: "⬇ Завантажити транскрипт (.docx)", lang: "Мова",
         article: "Ця стаття", page: "Ця сторінка", issue: "Весь випуск",
         fail: "Не вдалося створити документ — спробуйте ще раз.",
-        dlAll: "⬇ Завантажити все (.zip)", allArticles: "Статті", allPages: "Сторінки", allIssues: "Випуски повністю" },
+        dlAll: "⬇ Завантажити всі згадки", allArticles: "Статті (.zip)", allPages: "Сторінки (.zip)",
+        allOne: "Усе в одному документі (.docx)", passages: "Фрагменти",
+        skipped: "результатів без знайденого фрагмента пропущено: {n}" },
   pt: { issues: "Edições do jornal", site: "Em outras partes do site",
         noIssues: "Nenhuma correspondência nas edições do jornal.",
         dl: "⬇ Baixar transcrição (.docx)", lang: "Idioma",
         article: "Este artigo", page: "Esta página", issue: "Edição completa",
         fail: "Não foi possível gerar o documento — tente novamente.",
-        dlAll: "⬇ Baixar tudo (.zip)", allArticles: "Artigos", allPages: "Páginas", allIssues: "Edições completas" },
+        dlAll: "⬇ Baixar todas as menções", allArticles: "Artigos (.zip)", allPages: "Páginas (.zip)",
+        allOne: "Tudo em um documento (.docx)", passages: "Trechos",
+        skipped: "{n} resultado(s) sem trecho localizável omitido(s)" },
   de: { issues: "Zeitungsausgaben", site: "Anderswo auf dieser Website",
         noIssues: "Keine Treffer in den Zeitungsausgaben.",
         dl: "⬇ Transkript herunterladen (.docx)", lang: "Sprache",
         article: "Dieser Artikel", page: "Diese Seite", issue: "Ganze Ausgabe",
         fail: "Das Dokument konnte nicht erstellt werden — bitte erneut versuchen.",
-        dlAll: "⬇ Alles herunterladen (.zip)", allArticles: "Artikel", allPages: "Seiten", allIssues: "Ganze Ausgaben" }
+        dlAll: "⬇ Alle Erwähnungen herunterladen", allArticles: "Artikel (.zip)", allPages: "Seiten (.zip)",
+        allOne: "Alles in einem Dokument (.docx)", passages: "Fundstellen",
+        skipped: "{n} Ergebnis(se) ohne auffindbare Stelle ausgelassen" }
 };
-const DOCX_STRINGS = {"uk": {"newspaper": "Газета", "date": "Дата", "issue": "Номер", "language": "Мова тексту", "source": "Джерело", "page": "Сторінка", "langname": "українська — оригінальний текст (автоматичне розпізнавання)", "note": "Текст розпізнано автоматично й він може містити помилки. Перед цитуванням звіряйте його зі скан-копією сторінки.", "credit": "Цифровий архів «Хлібороб» — Мюнстерський університет, у партнерстві з SUBRAS (Sociedade Ucraniana do Brasil)."}, "en": {"newspaper": "Newspaper", "date": "Date", "issue": "Issue", "language": "Text language", "source": "Source", "page": "Page", "langname": "English — machine translation of the Ukrainian original", "note": "Machine translation; idioms and period wording may be rendered imperfectly. Verify against the Ukrainian original or the page scan before quoting.", "credit": "Khliborob Digital Archive — University of Münster, in partnership with SUBRAS (Sociedade Ucraniana do Brasil)."}, "pt": {"newspaper": "Jornal", "date": "Data", "issue": "Edição", "language": "Idioma do texto", "source": "Fonte", "page": "Página", "langname": "Português (Brasil) — tradução automática do original ucraniano", "note": "Tradução automática; expressões idiomáticas e a linguagem da época podem não ser perfeitamente reproduzidas. Verifique o original em ucraniano ou a digitalização da página antes de citar.", "credit": "Arquivo Digital Khliborob — Universidade de Münster, em parceria com a SUBRAS (Sociedade Ucraniana do Brasil)."}, "de": {"newspaper": "Zeitung", "date": "Datum", "issue": "Ausgabe", "language": "Textsprache", "source": "Quelle", "page": "Seite", "langname": "Deutsch — maschinelle Übersetzung des ukrainischen Originals", "note": "Maschinelle Übersetzung; Redewendungen und zeitgenössische Ausdrucksweise werden ggf. nicht exakt wiedergegeben. Vor einem Zitat mit dem ukrainischen Original oder dem Seitenscan abgleichen.", "credit": "Digitales Archiv Khliborob — Universität Münster, in Zusammenarbeit mit SUBRAS (Sociedade Ucraniana do Brasil)."}};
+const DOCX_STRINGS = {"uk": {"newspaper": "Газета", "date": "Дата", "issue": "Номер", "language": "Мова тексту", "source": "Джерело", "page": "Сторінка", "searchTerm": "Пошуковий запит", "passages": "Фрагменти", "langname": "українська — оригінальний текст (автоматичне розпізнавання)", "note": "Текст розпізнано автоматично й він може містити помилки. Перед цитуванням звіряйте його зі скан-копією сторінки.", "credit": "Цифровий архів «Хлібороб» — Мюнстерський університет, у партнерстві з SUBRAS (Sociedade Ucraniana do Brasil)."}, "en": {"newspaper": "Newspaper", "date": "Date", "issue": "Issue", "language": "Text language", "source": "Source", "page": "Page", "searchTerm": "Search term", "passages": "Passages", "langname": "English — machine translation of the Ukrainian original", "note": "Machine translation; idioms and period wording may be rendered imperfectly. Verify against the Ukrainian original or the page scan before quoting.", "credit": "Khliborob Digital Archive — University of Münster, in partnership with SUBRAS (Sociedade Ucraniana do Brasil)."}, "pt": {"newspaper": "Jornal", "date": "Data", "issue": "Edição", "language": "Idioma do texto", "source": "Fonte", "page": "Página", "searchTerm": "Termo de busca", "passages": "Trechos", "langname": "Português (Brasil) — tradução automática do original ucraniano", "note": "Tradução automática; expressões idiomáticas e a linguagem da época podem não ser perfeitamente reproduzidas. Verifique o original em ucraniano ou a digitalização da página antes de citar.", "credit": "Arquivo Digital Khliborob — Universidade de Münster, em parceria com a SUBRAS (Sociedade Ucraniana do Brasil)."}, "de": {"newspaper": "Zeitung", "date": "Datum", "issue": "Ausgabe", "language": "Textsprache", "source": "Quelle", "page": "Seite", "searchTerm": "Suchbegriff", "passages": "Fundstellen", "langname": "Deutsch — maschinelle Übersetzung des ukrainischen Originals", "note": "Maschinelle Übersetzung; Redewendungen und zeitgenössische Ausdrucksweise werden ggf. nicht exakt wiedergegeben. Vor einem Zitat mit dem ukrainischen Original oder dem Seitenscan abgleichen.", "credit": "Digitales Archiv Khliborob — Universität Münster, in Zusammenarbeit mit SUBRAS (Sociedade Ucraniana do Brasil)."}};
 function uiStrings() {
   const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
   return SEARCH_GROUP_STRINGS[lang] || SEARCH_GROUP_STRINGS.en;
@@ -1046,25 +1054,31 @@ async function doFullTextSearch() {
 // transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
 // closest anchor at or before the first match's location tells us which
 // paragraph the hit is actually in, and we can link straight to it.
-function hitParagraph(d) {
-  if (!(d.locations && d.locations.length && d.anchors && d.anchors.length)) return null;
-  // The first match can sit outside the transcript (an issue's header or
-  // summary mentions the term before any paragraph starts). A match counts
-  // as "in a paragraph" only if the closest anchor of ANY kind before it is
-  // a paragraph anchor; otherwise move on to the next match.
+// Returns EVERY paragraph the query matches, in order, as {pageId, idx}.
+// A match can sit outside the transcript (an issue's header or summary may
+// mention the term before any paragraph starts), so it only counts as "in a
+// paragraph" when the closest anchor of ANY kind before it is a paragraph
+// anchor. All four language panels are indexed, so the same paragraph can
+// match in several of them; paragraph numbering is shared across languages,
+// so each paragraph is listed once.
+function hitParagraphs(d) {
+  if (!(d.locations && d.locations.length && d.anchors && d.anchors.length)) return [];
+  const seen = new Set(), out = [];
   for (const target of d.locations) {
     let best = null;
     for (const a of d.anchors) {
       if (!a.id || a.location > target) continue;
-      if (!best || a.location > best.location) best = a;
+      if (!best || a.location >= best.location) best = a;   // on a tie the innermost element wins
     }
-    if (best && best.id.indexOf("para-") === 0) {
-      const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
-      if (m) return { pageId: m[1], idx: parseInt(m[2], 10) };
-    }
+    if (!best || best.id.indexOf("para-") !== 0) continue;
+    const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+    if (!m || seen.has(m[1] + "#" + m[2])) continue;
+    seen.add(m[1] + "#" + m[2]);
+    out.push({ pageId: m[1], idx: parseInt(m[2], 10) });
   }
-  return null;
+  return out;
 }
+function hitParagraph(d) { return hitParagraphs(d)[0] || null; }
 
 function searchCardHtml(d, tlang, downloadHtml) {
   let url = d.url;
@@ -1085,19 +1099,27 @@ function searchCardHtml(d, tlang, downloadHtml) {
     </div>`;
 }
 
-// The bar above the newspaper results: one zip covering every listed issue.
+// The bar above the newspaper results: every mention in every listed issue,
+// as a zip of articles, a zip of pages, or one combined document. Full issues
+// are deliberately not offered here (they bury the mentions); each result
+// still has its own "Full issue" button.
 function downloadAllHtml(issues, tlang, manifest, S) {
-  const infos = issues.map(d => {
+  const infoOf = d => {
     const m = d.url.match(/\/issues\/([^/]+)\//);
-    return m && manifest[m[1]] && manifest[m[1]].files;
-  }).filter(Boolean);
-  if (infos.length < 2) return "";
-  const langs = ["uk", "en", "pt", "de"].filter(l => infos.some(f => f[l]));
+    return m && manifest[m[1]];
+  };
+  const listed = issues.filter(infoOf);
+  const passages = listed.reduce((n, d) => n + hitParagraphs(d).length, 0);
+  if (passages < 2) return "";
+  const skipped = listed.filter(d => !hitParagraphs(d).length).length;
+  const langs = ["uk", "en", "pt", "de"].filter(l => listed.some(d => infoOf(d).files[l]));
   const sel = `<select aria-label="${attrEsc(S.lang)}">` + langs.map(l =>
     `<option value="${l}"${l === tlang ? " selected" : ""}>${DL_LANG_LABELS[l]}</option>`).join("") + `</select>`;
   const btn = (scope, label) => `<button type="button" data-dlall="${scope}">${label}</button>`;
+  const note = `${S.passages}: ${passages}` + (skipped ? " · " + S.skipped.replace("{n}", skipped) : "");
   return `<div class="result-dlall"><span>${S.dlAll}</span> ${sel}
-    ${btn("article", S.allArticles)}${btn("page", S.allPages)}${btn("issue", S.allIssues)}</div>`;
+    ${btn("article", S.allArticles)}${btn("page", S.allPages)}${btn("one", S.allOne)}
+    <span class="dl-note">${note}</span></div>`;
 }
 
 function attrEsc(s) {
@@ -1114,7 +1136,8 @@ function downloadRowHtml(d, tlang, manifest, S) {
   const files = info && info.files;
   const langs = files ? ["uk", "en", "pt", "de"].filter(l => files[l]) : [];
   if (!langs.length) return "";
-  const hit = hitParagraph(d);
+  const hits = hitParagraphs(d);
+  const hit = hits[0];
   const dir = d.url.replace(/[^/]*$/, "");
   const stem = files[langs[0]].replace(/_[A-Z]{2}\.docx$/, "");
   const sel = `<select aria-label="${attrEsc(S.lang)}">` + langs.map(l =>
@@ -1123,7 +1146,7 @@ function downloadRowHtml(d, tlang, manifest, S) {
   return `<div class="result-dl" data-dir="${attrEsc(dir)}" data-stem="${attrEsc(stem)}"
       data-date="${attrEsc(info.date)}" data-issue="${attrEsc(info.issue_number)}"
       data-files="${attrEsc(JSON.stringify(files))}"
-      ${hit ? `data-page="${attrEsc(hit.pageId)}" data-para="${hit.idx}"` : ""}>
+      data-hits="${attrEsc(JSON.stringify(hits.map(h => [h.pageId, h.idx])))}">
     <span>${S.dl}</span> ${sel}
     ${hit ? btn("article", S.article) + btn("page", S.page) : ""}${btn("issue", S.issue)}
   </div>`;
@@ -1178,7 +1201,10 @@ function wRun(text, rpr) {
 }
 function wPara(text, style, opts) {
   opts = opts || {};
-  const ppr = style ? `<w:pPr><w:pStyle w:val="${style}"/></w:pPr>` : "";
+  // shade: marks a paragraph that contains the search term (pale yellow).
+  const pprInner = (style ? `<w:pStyle w:val="${style}"/>` : "") +
+    (opts.shade ? `<w:shd w:val="clear" w:color="auto" w:fill="FFF1B8"/>` : "");
+  const ppr = pprInner ? `<w:pPr>${pprInner}</w:pPr>` : "";
   const rpr = opts.italic ? "<w:i/>" : "";
   const label = opts.label ? wRun(opts.label + ": ", "<w:b/>") : "";
   return `<w:p>${ppr}${label}${wRun(text, rpr)}</w:p>`;
@@ -1199,69 +1225,165 @@ function buildDocxBlob(bodyXml) {
   ]);
 }
 
-const _issueHtmlCache = {};
-async function buildFragmentDocx(row, lang, scope) {
-  const { dir, page: pageId, date, issue } = row.dataset;
-  const idx = parseInt(row.dataset.para, 10);
-  // The issue page already holds every paragraph of every language with a
-  // stable id (para-{lang}-{page}-{n}) and marks headlines with .t-head, so
-  // the exact text the reader sees can be lifted from it directly.
-  const html = await (_issueHtmlCache[dir] = _issueHtmlCache[dir] || fetch(dir).then(r => {
+const _issueDocCache = {};
+// Short ALL-CAPS lines (section titles such as "DE TODO O MUNDO.") count as
+// headings too, since the page data only records some headlines.
+const isCapsHead = t => t.length >= 3 && t.length <= 90 &&
+  t.replace(/[^\p{L}]/gu, "").length >= 3 && t === t.toUpperCase();
+// A paragraph that opens with a bracket/quote or a lowercase letter belongs
+// to the item before it (an editor's note, a quoted passage, a split line).
+const isCont = t => /^[(\[„«“]/.test(t) || /^\p{Ll}/u.test(t);
+
+// One page's paragraphs in one language, lifted from the issue page itself:
+// it already holds every paragraph of every language with a stable id
+// (para-{lang}-{page}-{n}) and marks headlines with .t-head, so the exact
+// text the reader sees is used.
+async function fetchPageParas(dir, pageId, lang) {
+  const doc = await (_issueDocCache[dir] = _issueDocCache[dir] || fetch(dir).then(async r => {
     if (!r.ok) throw new Error("HTTP " + r.status);
-    return r.text();
+    return new DOMParser().parseFromString(await r.text(), "text/html");
   }));
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const nodes = [...doc.querySelectorAll(`p[id^="para-${lang}-${pageId}-"]`)];
-  if (!nodes.length) throw new Error("no paragraphs");
-  // The page data only records some headlines; short ALL-CAPS lines (section
-  // titles such as "DE TODO O MUNDO.") are headings too, as on the issue page.
-  const isCapsHead = t => t.length >= 3 && t.length <= 90 &&
-    t.replace(/[^\p{L}]/gu, "").length >= 3 && t === t.toUpperCase();
-  // A paragraph that opens with a bracket/quote or a lowercase letter belongs
-  // to the item before it (an editor's note, a quoted passage, a split line).
-  const isCont = t => /^[(\[„«“]/.test(t) || /^\p{Ll}/u.test(t);
-  const paras = nodes.map(p => {
+  return [...doc.querySelectorAll(`p[id^="para-${lang}-${pageId}-"]`)].map(p => {
     const c = p.cloneNode(true);
     c.querySelectorAll(".xlink-jump").forEach(x => x.remove());
     const text = c.textContent.replace(/\s+/g, " ").trim();
     return { text, head: !!p.querySelector(".t-head") || isCapsHead(text) };
   });
-  let slice = paras;
-  if (scope === "article") {
-    const n = paras.length;
-    const i = Math.min(idx, n - 1);
-    if (paras[i].head) {
-      // The match is in a headline: take it and its text up to the next heading.
-      let end = n;
-      for (let k = i + 1; k < n; k++) if (paras[k].head) { end = k; break; }
-      slice = paras.slice(i, end);
-    } else {
-      // Otherwise: from the nearest heading (headline or section title) to the
-      // end of the news item containing the match, including any notes or
-      // quotes attached to it. Items inside a section have no markers of
-      // their own, so what follows the matching item is never included.
-      let a = i, b = i;
-      while (a > 0 && !paras[a - 1].head && isCont(paras[a].text)) a--;
-      while (b + 1 < n && !paras[b + 1].head && isCont(paras[b + 1].text)) b++;
-      let start = a;
-      for (let k = a - 1; k >= 0; k--) if (paras[k].head) { start = k; break; }
-      slice = paras.slice(start, b + 1);
-    }
+}
+
+// [start, end) of the "article" around paragraph idx: from the nearest heading
+// (headline or section title) to the end of the news item containing it,
+// including any notes or quotes attached to it. Items inside a section have no
+// markers of their own, so what follows the matching item is never included.
+function articleRange(paras, idx) {
+  const n = paras.length, i = Math.min(idx, n - 1);
+  if (paras[i].head) {
+    // The match is in a heading: take it and its text up to the next heading.
+    let end = n;
+    for (let k = i + 1; k < n; k++) if (paras[k].head) { end = k; break; }
+    return [i, end];
   }
+  let a = i, b = i;
+  while (a > 0 && !paras[a - 1].head && isCont(paras[a].text)) a--;
+  while (b + 1 < n && !paras[b + 1].head && isCont(paras[b + 1].text)) b++;
+  let start = a;
+  for (let k = a - 1; k >= 0; k--) if (paras[k].head) { start = k; break; }
+  return [start, b + 1];
+}
+
+// The passages to extract for one result: one per page ("page") or one per
+// article ("article"), covering every mention (or just the first, for the
+// buttons on a single result). Mentions under the same heading share one
+// excerpt that ends at the last of them. `shade` holds every mentioning
+// paragraph of the page so they can be marked wherever they fall.
+async function rowUnits(row, lang, scope, firstOnly) {
+  const all = JSON.parse(row.dataset.hits || "[]");
+  const hits = firstOnly ? all.slice(0, 1) : all;
+  const shadeByPage = new Map();
+  for (const [pageId, idx] of all) {
+    if (!shadeByPage.has(pageId)) shadeByPage.set(pageId, new Set());
+    shadeByPage.get(pageId).add(idx);
+  }
+  const byPage = new Map();
+  for (const [pageId, idx] of hits) {
+    if (!byPage.has(pageId)) byPage.set(pageId, []);
+    byPage.get(pageId).push(idx);
+  }
+  const units = [];
+  for (const [pageId, idxs] of byPage) {
+    const paras = await fetchPageParas(row.dataset.dir, pageId, lang);
+    if (!paras.length) continue;
+    const shade = shadeByPage.get(pageId);
+    if (scope === "page") {
+      units.push({ pageId, paras, start: 0, end: paras.length, hits: new Set(idxs), shade });
+      continue;
+    }
+    const byStart = new Map();
+    for (const i of idxs) {
+      const [s, e] = articleRange(paras, i);
+      const u = byStart.get(s) || { pageId, paras, start: s, end: e, hits: new Set(), shade };
+      u.end = Math.max(u.end, e);
+      u.hits.add(i);
+      byStart.set(s, u);
+    }
+    units.push(...[...byStart.values()].sort((a, b) => a.start - b.start));
+  }
+  return units;
+}
+
+const pageNumOf = pageId => (pageId.match(/_page(\d+)$/) || [])[1] || "";
+const slugOf = (s, n) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-")
+  .replace(/^-+|-+$/g, "").slice(0, n).replace(/-+$/, "");
+
+function docHeaderXml(S, date, issue, source) {
+  let x = wPara("Хлібороб / O Lavrador — " + date, "Title");
+  x += wPara("Khliborob / O Lavrador (Хлібороб)", null, { label: S.newspaper });
+  x += wPara(date, null, { label: S.date });
+  x += wPara(issue, null, { label: S.issue });
+  x += wPara(S.langname, null, { label: S.language });
+  x += wPara(source, null, { label: S.source });
+  x += wPara(S.note, null, { italic: true });
+  x += wPara(S.credit, null, { italic: true });
+  return x;
+}
+
+function unitParasXml(unit) {
+  let x = "";
+  for (let k = unit.start; k < unit.end; k++) {
+    const p = unit.paras[k];
+    if (p.text) x += wPara(p.text, p.head ? "Heading2" : null, unit.shade.has(k) ? { shade: true } : null);
+  }
+  return x;
+}
+
+function unitSource(row, lang, unit) {
+  return location.origin + row.dataset.dir + "#para-" + lang + "-" + unit.pageId + "-" + Math.min(...unit.hits);
+}
+
+function unitDocx(row, lang, unit) {
   const S = DOCX_STRINGS[lang];
-  const pageNum = (pageId.match(/_page(\d+)$/) || [])[1] || "";
-  const source = location.origin + dir + "#para-" + lang + "-" + pageId + "-" + idx;
-  let body = wPara("Хлібороб / O Lavrador — " + date, "Title");
+  return buildDocxBlob(
+    docHeaderXml(S, row.dataset.date, row.dataset.issue, unitSource(row, lang, unit)) +
+    wPara(S.page + " " + pageNumOf(unit.pageId), "Heading1") + unitParasXml(unit));
+}
+
+function unitFilename(row, lang, scope, unit) {
+  const pageNum = pageNumOf(unit.pageId), L = lang.toUpperCase();
+  if (scope === "page") return `${row.dataset.stem}_p${pageNum}_${L}.docx`;
+  const first = unit.paras.slice(unit.start, unit.end).find(p => p.head) || unit.paras[unit.start];
+  const name = slugOf(first.text, 40);
+  return `${row.dataset.stem}_p${pageNum}_article${name ? "_" + name : ""}_${L}.docx`;
+}
+
+// Every mention from every listed issue in ONE document: issues in date order
+// (Heading 1), each passage under a line giving its page and source link, the
+// mentioning paragraphs shaded. Meant for searching and commenting locally.
+async function compilationDocx(rows, lang) {
+  const S = DOCX_STRINGS[lang];
+  const sorted = [...rows].sort((a, b) => a.dataset.date.localeCompare(b.dataset.date));
+  const groups = [];
+  let count = 0;
+  for (const row of sorted) {
+    const units = await rowUnits(row, lang, "article", false);
+    if (units.length) { groups.push({ row, units }); count += units.length; }
+  }
+  if (!count) throw new Error("nothing to compile");
+  const query = (window._lastQuery || "").trim();
+  let body = wPara("Khliborob / O Lavrador — \u201c" + query + "\u201d", "Title");
   body += wPara("Khliborob / O Lavrador (Хлібороб)", null, { label: S.newspaper });
-  body += wPara(date, null, { label: S.date });
-  body += wPara(issue, null, { label: S.issue });
+  body += wPara(query, null, { label: S.searchTerm });
   body += wPara(S.langname, null, { label: S.language });
-  body += wPara(source, null, { label: S.source });
+  body += wPara(String(count), null, { label: S.passages });
   body += wPara(S.note, null, { italic: true });
   body += wPara(S.credit, null, { italic: true });
-  body += wPara(S.page + " " + pageNum, "Heading1");
-  for (const p of slice) if (p.text) body += wPara(p.text, p.head ? "Heading2" : null);
-  return buildDocxBlob(body);
+  for (const { row, units } of groups) {
+    body += wPara(row.dataset.date + " — " + row.dataset.issue, "Heading1");
+    for (const u of units) {
+      body += wPara(unitSource(row, lang, u), null, { label: S.page + " " + pageNumOf(u.pageId) });
+      body += unitParasXml(u);
+    }
+  }
+  return { blob: buildDocxBlob(body), count };
 }
 
 function saveHref(href, filename) {
@@ -1273,31 +1395,22 @@ function saveHref(href, filename) {
   a.remove();
 }
 
-function fragmentFilename(row, lang, scope) {
-  const pageNum = (row.dataset.page.match(/_page(\d+)$/) || [])[1] || "";
-  return `${row.dataset.stem}_p${pageNum}${scope === "article" ? "_article" : ""}_${lang.toUpperCase()}.docx`;
-}
-
 function saveBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
   saveHref(url, filename);
   setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
-// One result's document as bytes: the matching article/page when the hit's
-// paragraph is known, otherwise (or for "issue") the pre-built full-issue file.
-async function rowDocument(row, lang, scope) {
-  const files = JSON.parse(row.dataset.files);
-  if (!files[lang]) return null;
-  if (scope === "issue" || !row.dataset.page) {
-    const r = await fetch(row.dataset.dir + files[lang]);
-    if (!r.ok) throw new Error("HTTP " + r.status);
-    return { name: files[lang], data: new Uint8Array(await r.arrayBuffer()) };
+function uniqueName(files, name) {
+  if (!files.some(f => f.name === name)) return name;
+  const m = name.match(/^(.*)(_[A-Z]{2}\.docx)$/);
+  for (let n = 2; ; n++) {
+    const cand = m ? `${m[1]}-${n}${m[2]}` : `${n}-${name}`;
+    if (!files.some(f => f.name === cand)) return cand;
   }
-  const blob = await buildFragmentDocx(row, lang, scope);
-  return { name: fragmentFilename(row, lang, scope), data: new Uint8Array(await blob.arrayBuffer()) };
 }
 
+// Buttons on a single result.
 document.getElementById("results").addEventListener("click", async e => {
   const b = e.target.closest("button[data-dl]");
   if (!b) return;
@@ -1313,7 +1426,9 @@ document.getElementById("results").addEventListener("click", async e => {
   b.disabled = true;
   b.textContent = "…";
   try {
-    saveBlob(await buildFragmentDocx(row, lang, scope), fragmentFilename(row, lang, scope));
+    const units = await rowUnits(row, lang, scope, true);
+    if (!units.length) throw new Error("no passage");
+    saveBlob(unitDocx(row, lang, units[0]), unitFilename(row, lang, scope, units[0]));
   } catch (err) {
     console.warn("Transcript download failed:", err);
     alert(uiStrings().fail);
@@ -1323,28 +1438,37 @@ document.getElementById("results").addEventListener("click", async e => {
   }
 });
 
-// "Download all": one .zip with a document for every newspaper result listed.
+// "Download all mentions": every mention in every listed newspaper result, as
+// a .zip of articles, a .zip of pages, or one combined document.
 document.getElementById("results").addEventListener("click", async e => {
   const b = e.target.closest("button[data-dlall]");
   if (!b) return;
   const lang = b.closest(".result-dlall").querySelector("select").value;
   const scope = b.dataset.dlall;
-  const rows = [...document.querySelectorAll("#results .search-main .result-dl")];
+  const L = lang.toUpperCase();
+  const rows = [...document.querySelectorAll("#results .search-main .result-dl")]
+    .filter(r => JSON.parse(r.dataset.files)[lang]);
+  const slug = slugOf(window._lastQuery, 40) || "results";
   const label = b.textContent;
   b.disabled = true;
   try {
-    const files = [];
-    for (let i = 0; i < rows.length; i++) {
-      b.textContent = (i + 1) + "/" + rows.length;
-      const doc = await rowDocument(rows[i], lang, scope);
-      if (doc && !files.some(f => f.name === doc.name)) files.push(doc);
+    if (scope === "one") {
+      b.textContent = "…";
+      const { blob } = await compilationDocx(rows, lang);
+      saveBlob(blob, `Khliborob_search-${slug}_all-mentions_${L}.docx`);
+    } else {
+      const files = [];
+      for (let i = 0; i < rows.length; i++) {
+        b.textContent = (i + 1) + "/" + rows.length;
+        for (const u of await rowUnits(rows[i], lang, scope, false)) {
+          const data = new Uint8Array(await unitDocx(rows[i], lang, u).arrayBuffer());
+          files.push({ name: uniqueName(files, unitFilename(rows[i], lang, scope, u)), data });
+        }
+      }
+      if (!files.length) throw new Error("nothing to download");
+      saveBlob(makeZip(files, "application/zip"),
+        `Khliborob_search-${slug}_${scope === "page" ? "pages" : "articles"}_${L}.zip`);
     }
-    if (!files.length) throw new Error("nothing to download");
-    const slug = (window._lastQuery || "").trim().toLowerCase()
-      .replace(/[^\p{L}\p{N}]+/gu, "-").replace(/^-+|-+$/g, "").slice(0, 40) || "results";
-    const scopeWord = { article: "articles", page: "pages", issue: "issues" }[scope];
-    saveBlob(makeZip(files, "application/zip"),
-      `Khliborob_search-${slug}_${scopeWord}_${lang.toUpperCase()}.zip`);
   } catch (err) {
     console.warn("Bulk download failed:", err);
     alert(uiStrings().fail);
@@ -1403,6 +1527,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201840"></script>
+<script src="../assets/lang.js?v=202609201850"></script>
 </body>
 </html>
