@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201812">
+<link rel="stylesheet" href="../assets/main.css?v=202609201816">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -971,17 +971,30 @@ window.pagefindReady = (async () => {
 const SEARCH_GROUP_STRINGS = {
   en: { issues: "Newspaper issues", site: "Elsewhere on this site",
         noIssues: "No matches in the newspaper issues.",
-        dl: "⬇ Download transcript (.docx)" },
+        dl: "⬇ Download transcript (.docx)", lang: "Language",
+        article: "This article", page: "This page", issue: "Full issue",
+        fail: "Could not build the document — please try again." },
   uk: { issues: "Випуски газети", site: "Інші сторінки сайту",
         noIssues: "У випусках газети збігів немає.",
-        dl: "⬇ Завантажити транскрипт (.docx)" },
+        dl: "⬇ Завантажити транскрипт (.docx)", lang: "Мова",
+        article: "Ця стаття", page: "Ця сторінка", issue: "Весь випуск",
+        fail: "Не вдалося створити документ — спробуйте ще раз." },
   pt: { issues: "Edições do jornal", site: "Em outras partes do site",
         noIssues: "Nenhuma correspondência nas edições do jornal.",
-        dl: "⬇ Baixar transcrição (.docx)" },
+        dl: "⬇ Baixar transcrição (.docx)", lang: "Idioma",
+        article: "Este artigo", page: "Esta página", issue: "Edição completa",
+        fail: "Não foi possível gerar o documento — tente novamente." },
   de: { issues: "Zeitungsausgaben", site: "Anderswo auf dieser Website",
         noIssues: "Keine Treffer in den Zeitungsausgaben.",
-        dl: "⬇ Transkript herunterladen (.docx)" }
+        dl: "⬇ Transkript herunterladen (.docx)", lang: "Sprache",
+        article: "Dieser Artikel", page: "Diese Seite", issue: "Ganze Ausgabe",
+        fail: "Das Dokument konnte nicht erstellt werden — bitte erneut versuchen." }
 };
+const DOCX_STRINGS = {"uk": {"newspaper": "Газета", "date": "Дата", "issue": "Номер", "language": "Мова тексту", "source": "Джерело", "page": "Сторінка", "langname": "українська — оригінальний текст (автоматичне розпізнавання)", "note": "Текст розпізнано автоматично й він може містити помилки. Перед цитуванням звіряйте його зі скан-копією сторінки.", "credit": "Цифровий архів «Хлібороб» — Мюнстерський університет, у партнерстві з SUBRAS (Sociedade Ucraniana do Brasil)."}, "en": {"newspaper": "Newspaper", "date": "Date", "issue": "Issue", "language": "Text language", "source": "Source", "page": "Page", "langname": "English — machine translation of the Ukrainian original", "note": "Machine translation; idioms and period wording may be rendered imperfectly. Verify against the Ukrainian original or the page scan before quoting.", "credit": "Khliborob Digital Archive — University of Münster, in partnership with SUBRAS (Sociedade Ucraniana do Brasil)."}, "pt": {"newspaper": "Jornal", "date": "Data", "issue": "Edição", "language": "Idioma do texto", "source": "Fonte", "page": "Página", "langname": "Português (Brasil) — tradução automática do original ucraniano", "note": "Tradução automática; expressões idiomáticas e a linguagem da época podem não ser perfeitamente reproduzidas. Verifique o original em ucraniano ou a digitalização da página antes de citar.", "credit": "Arquivo Digital Khliborob — Universidade de Münster, em parceria com a SUBRAS (Sociedade Ucraniana do Brasil)."}, "de": {"newspaper": "Zeitung", "date": "Datum", "issue": "Ausgabe", "language": "Textsprache", "source": "Quelle", "page": "Seite", "langname": "Deutsch — maschinelle Übersetzung des ukrainischen Originals", "note": "Maschinelle Übersetzung; Redewendungen und zeitgenössische Ausdrucksweise werden ggf. nicht exakt wiedergegeben. Vor einem Zitat mit dem ukrainischen Original oder dem Seitenscan abgleichen.", "credit": "Digitales Archiv Khliborob — Universität Münster, in Zusammenarbeit mit SUBRAS (Sociedade Ucraniana do Brasil)."}};
+function uiStrings() {
+  const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+  return SEARCH_GROUP_STRINGS[lang] || SEARCH_GROUP_STRINGS.en;
+}
 const DL_LANG_LABELS = { uk: "УКР", en: "ENG", pt: "PT-BR", de: "DE" };
 
 // assets/transcripts.json lists which per-issue Word files exist; a missing
@@ -1028,21 +1041,24 @@ async function doFullTextSearch() {
 // transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
 // closest anchor at or before the first match's location tells us which
 // paragraph the hit is actually in, and we can link straight to it.
+function hitParagraph(d) {
+  if (!(d.locations && d.locations.length && d.anchors && d.anchors.length)) return null;
+  const target = d.locations[0];
+  let best = null;
+  for (const a of d.anchors) {
+    if (!a.id || a.id.indexOf("para-") !== 0) continue;
+    if (a.location > target) continue;
+    if (!best || a.location > best.location) best = a;
+  }
+  if (!best) return null;
+  const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+  return m ? { pageId: m[1], idx: parseInt(m[2], 10) } : null;
+}
+
 function searchCardHtml(d, tlang, downloadHtml) {
   let url = d.url;
-  if (d.locations && d.locations.length && d.anchors && d.anchors.length) {
-    const target = d.locations[0];
-    let best = null;
-    for (const a of d.anchors) {
-      if (!a.id || a.id.indexOf("para-") !== 0) continue;
-      if (a.location > target) continue;
-      if (!best || a.location > best.location) best = a;
-    }
-    if (best) {
-      const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
-      if (m) url = d.url + "#para-" + tlang + "-" + m[1] + "-" + m[2];
-    }
-  }
+  const hit = hitParagraph(d);
+  if (hit) url = d.url + "#para-" + tlang + "-" + hit.pageId + "-" + hit.idx;
   const dateLine = ((d.meta?.date || "") + " " + (d.meta?.issue || "")).trim();
   return `
     <div class="result-card">
@@ -1053,17 +1069,186 @@ function searchCardHtml(d, tlang, downloadHtml) {
     </div>`;
 }
 
+function attrEsc(s) {
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// One row per newspaper hit: a language picker plus "This article" / "This
+// page" (built in the browser from the issue page, so only the passage the
+// match is in) and "Full issue" (the pre-built file).
 function downloadRowHtml(d, tlang, manifest, S) {
   const m = d.url.match(/\/issues\/([^/]+)\//);
-  const files = m && manifest[m[1]];
+  const info = m && manifest[m[1]];
+  const files = info && info.files;
   const langs = files ? ["uk", "en", "pt", "de"].filter(l => files[l]) : [];
   if (!langs.length) return "";
+  const hit = hitParagraph(d);
   const dir = d.url.replace(/[^/]*$/, "");
-  const links = langs.map(l =>
-    `<a href="${dir}${files[l]}" download${l === tlang ? ' style="font-weight:600"' : ""}>${DL_LANG_LABELS[l]}</a>`
-  ).join(" · ");
-  return `<div class="result-dl">${S.dl}: ${links}</div>`;
+  const stem = files[langs[0]].replace(/_[A-Z]{2}\.docx$/, "");
+  const sel = `<select aria-label="${attrEsc(S.lang)}">` + langs.map(l =>
+    `<option value="${l}"${l === tlang ? " selected" : ""}>${DL_LANG_LABELS[l]}</option>`).join("") + `</select>`;
+  const btn = (scope, label) => `<button type="button" data-dl="${scope}">${label}</button>`;
+  return `<div class="result-dl" data-dir="${attrEsc(dir)}" data-stem="${attrEsc(stem)}"
+      data-date="${attrEsc(info.date)}" data-issue="${attrEsc(info.issue_number)}"
+      data-files="${attrEsc(JSON.stringify(files))}"
+      ${hit ? `data-page="${attrEsc(hit.pageId)}" data-para="${hit.idx}"` : ""}>
+    <span>${S.dl}</span> ${sel}
+    ${hit ? btn("article", S.article) + btn("page", S.page) : ""}${btn("issue", S.issue)}
+  </div>`;
 }
+
+// ---- Minimal in-browser .docx writer (stored, uncompressed zip; no library) ----
+function crc32(bytes) {
+  let crc = 0xFFFFFFFF;
+  for (let i = 0; i < bytes.length; i++) {
+    crc ^= bytes[i];
+    for (let k = 0; k < 8; k++) crc = (crc & 1) ? (crc >>> 1) ^ 0xEDB88320 : (crc >>> 1);
+  }
+  return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+function makeZip(files) {
+  const enc = new TextEncoder();
+  const u16 = n => [n & 255, (n >>> 8) & 255];
+  const u32 = n => [n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255];
+  const parts = [], central = [];
+  let offset = 0;
+  for (const f of files) {
+    const name = enc.encode(f.name), data = enc.encode(f.text);
+    const crc = crc32(data), size = data.length;
+    const local = new Uint8Array([0x50, 0x4b, 3, 4, ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0),
+      ...u16(0x21), ...u32(crc), ...u32(size), ...u32(size), ...u16(name.length), ...u16(0)]);
+    parts.push(local, name, data);
+    central.push(new Uint8Array([0x50, 0x4b, 1, 2, ...u16(20), ...u16(20), ...u16(0x0800), ...u16(0),
+      ...u16(0), ...u16(0x21), ...u32(crc), ...u32(size), ...u32(size), ...u16(name.length),
+      ...u16(0), ...u16(0), ...u16(0), ...u16(0), ...u32(0), ...u32(offset)]), name);
+    offset += local.length + name.length + size;
+  }
+  const centralSize = central.reduce((n, c) => n + c.length, 0);
+  const eocd = new Uint8Array([0x50, 0x4b, 5, 6, ...u16(0), ...u16(0), ...u16(files.length),
+    ...u16(files.length), ...u32(centralSize), ...u32(offset), ...u16(0)]);
+  return new Blob([...parts, ...central, eocd],
+    { type: "application/vnd.openxmlformats-officedocument.wordprocessingml.document" });
+}
+const W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+const DOCX_STYLES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="${W_NS}"><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:eastAsia="Calibri" w:cs="Calibri"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="160" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
+<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>
+<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:after="240"/></w:pPr><w:rPr><w:color w:val="1F3A5F"/><w:sz w:val="48"/><w:szCs w:val="48"/></w:rPr></w:style>
+<w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="320" w:after="120"/><w:outlineLvl w:val="0"/></w:pPr><w:rPr><w:b/><w:color w:val="1F3A5F"/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr></w:style>
+<w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="240" w:after="80"/><w:outlineLvl w:val="1"/></w:pPr><w:rPr><w:b/><w:color w:val="2E5B8F"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr></w:style>
+</w:styles>`;
+function xmlEsc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+function wRun(text, rpr) {
+  return `<w:r>${rpr ? `<w:rPr>${rpr}</w:rPr>` : ""}<w:t xml:space="preserve">${xmlEsc(text)}</w:t></w:r>`;
+}
+function wPara(text, style, opts) {
+  opts = opts || {};
+  const ppr = style ? `<w:pPr><w:pStyle w:val="${style}"/></w:pPr>` : "";
+  const rpr = opts.italic ? "<w:i/>" : "";
+  const label = opts.label ? wRun(opts.label + ": ", "<w:b/>") : "";
+  return `<w:p>${ppr}${label}${wRun(text, rpr)}</w:p>`;
+}
+function buildDocxBlob(bodyXml) {
+  const R = "http://schemas.openxmlformats.org/package/2006/relationships";
+  const docRel = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+  return makeZip([
+    { name: "[Content_Types].xml", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>` },
+    { name: "_rels/.rels", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="${R}"><Relationship Id="rId1" Type="${docRel}/officeDocument" Target="word/document.xml"/></Relationships>` },
+    { name: "word/_rels/document.xml.rels", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="${R}"><Relationship Id="rId1" Type="${docRel}/styles" Target="styles.xml"/></Relationships>` },
+    { name: "word/styles.xml", text: DOCX_STYLES },
+    { name: "word/document.xml", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="${W_NS}"><w:body>${bodyXml}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>` },
+  ]);
+}
+
+const _issueHtmlCache = {};
+async function buildFragmentDocx(row, lang, scope) {
+  const { dir, page: pageId, date, issue } = row.dataset;
+  const idx = parseInt(row.dataset.para, 10);
+  // The issue page already holds every paragraph of every language with a
+  // stable id (para-{lang}-{page}-{n}) and marks headlines with .t-head, so
+  // the exact text the reader sees can be lifted from it directly.
+  const html = await (_issueHtmlCache[dir] = _issueHtmlCache[dir] || fetch(dir).then(r => {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.text();
+  }));
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const nodes = [...doc.querySelectorAll(`p[id^="para-${lang}-${pageId}-"]`)];
+  if (!nodes.length) throw new Error("no paragraphs");
+  const paras = nodes.map(p => {
+    const c = p.cloneNode(true);
+    c.querySelectorAll(".xlink-jump").forEach(x => x.remove());
+    return { text: c.textContent.replace(/\s+/g, " ").trim(), head: !!p.querySelector(".t-head") };
+  });
+  let slice = paras;
+  if (scope === "article") {
+    // An article runs from its headline to the next one on the page.
+    let start = 0;
+    for (let i = Math.min(idx, paras.length - 1); i >= 0; i--) if (paras[i].head) { start = i; break; }
+    let end = paras.length;
+    for (let i = start + 1; i < paras.length; i++) if (paras[i].head) { end = i; break; }
+    slice = paras.slice(start, end);
+  }
+  const S = DOCX_STRINGS[lang];
+  const pageNum = (pageId.match(/_page(\d+)$/) || [])[1] || "";
+  const source = location.origin + dir + "#para-" + lang + "-" + pageId + "-" + idx;
+  let body = wPara("Хлібороб / O Lavrador — " + date, "Title");
+  body += wPara("Khliborob / O Lavrador (Хлібороб)", null, { label: S.newspaper });
+  body += wPara(date, null, { label: S.date });
+  body += wPara(issue, null, { label: S.issue });
+  body += wPara(S.langname, null, { label: S.language });
+  body += wPara(source, null, { label: S.source });
+  body += wPara(S.note, null, { italic: true });
+  body += wPara(S.credit, null, { italic: true });
+  body += wPara(S.page + " " + pageNum, "Heading1");
+  for (const p of slice) if (p.text) body += wPara(p.text, p.head ? "Heading2" : null);
+  return buildDocxBlob(body);
+}
+
+function saveHref(href, filename) {
+  const a = document.createElement("a");
+  a.href = href;
+  a.download = filename || "";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+document.getElementById("results").addEventListener("click", async e => {
+  const b = e.target.closest("button[data-dl]");
+  if (!b) return;
+  const row = b.closest(".result-dl");
+  const lang = row.querySelector("select").value;
+  const scope = b.dataset.dl;
+  if (scope === "issue") {
+    const files = JSON.parse(row.dataset.files);
+    saveHref(row.dataset.dir + files[lang], files[lang]);
+    return;
+  }
+  const label = b.textContent;
+  b.disabled = true;
+  b.textContent = "…";
+  try {
+    const blob = await buildFragmentDocx(row, lang, scope);
+    const pageNum = (row.dataset.page.match(/_page(\d+)$/) || [])[1] || "";
+    const filename = `${row.dataset.stem}_p${pageNum}${scope === "article" ? "_article" : ""}_${lang.toUpperCase()}.docx`;
+    const url = URL.createObjectURL(blob);
+    saveHref(url, filename);
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
+  } catch (err) {
+    console.warn("Transcript download failed:", err);
+    alert(uiStrings().fail);
+  } finally {
+    b.disabled = false;
+    b.textContent = label;
+  }
+});
 
 // Newspaper issues (the actual archive content) get the main column; every
 // other indexed page (Research questions, knowledge graphs, indexes, About…)
@@ -1113,6 +1298,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201812"></script>
+<script src="../assets/lang.js?v=202609201816"></script>
 </body>
 </html>

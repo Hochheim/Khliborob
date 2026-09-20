@@ -223,8 +223,11 @@ footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
 .search-col-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
                   color:var(--muted);margin:0 0 .6rem;padding-bottom:.35rem;
                   border-bottom:1px solid var(--border)}
-.result-dl{font-size:11px;color:var(--muted);margin-top:.5rem}
-.result-dl a{margin:0 .1rem}
+.result-dl{font-size:11px;color:var(--muted);margin-top:.55rem;display:flex;flex-wrap:wrap;
+           align-items:center;gap:.35rem}
+.result-dl select,.result-dl button{font-size:11px;padding:1px 7px;border:1px solid var(--border);
+           border-radius:4px;background:transparent;color:var(--blue);cursor:pointer;font-family:inherit}
+.result-dl button:disabled{opacity:.5;cursor:wait}
 .search-side .result-card{padding:.55rem .75rem;background:transparent}
 .search-side .result-title{font-size:13px}
 .search-side .result-snippet{font-size:11px}
