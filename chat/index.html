@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609202359">
+<link rel="stylesheet" href="../assets/main.css?v=202609210023">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1259,7 +1259,7 @@ async function fetchPageParas(dir, pageId, lang) {
   }));
   return [...doc.querySelectorAll(`p[id^="para-${lang}-${pageId}-"]`)].map(p => {
     const c = p.cloneNode(true);
-    c.querySelectorAll(".xlink-jump").forEach(x => x.remove());
+    c.querySelectorAll(".xlink-jump, .lemmas").forEach(x => x.remove());
     const text = c.textContent.replace(/\s+/g, " ").trim();
     return { text, head: !!p.querySelector(".t-head") || isCapsHead(text) };
   });
@@ -1790,6 +1790,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609202359"></script>
+<script src="../assets/lang.js?v=202609210023"></script>
 </body>
 </html>

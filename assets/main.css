@@ -229,6 +229,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
 .search-col-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
                   color:var(--muted);margin:0 0 .6rem;padding-bottom:.35rem;
                   border-bottom:1px solid var(--border)}
+.lemmas{display:none !important}
 .result-dl,.result-dlall{font-size:11px;color:var(--muted);margin-top:.55rem;display:flex;
            flex-wrap:wrap;align-items:center;gap:.35rem}
 .result-dlall{margin:0 0 .8rem;padding:.5rem .7rem;border:1px dashed var(--border);
