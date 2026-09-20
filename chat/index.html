@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201850">
+<link rel="stylesheet" href="../assets/main.css?v=202609201851">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1365,7 +1365,9 @@ async function compilationDocx(rows, lang) {
   let count = 0;
   for (const row of sorted) {
     const units = await rowUnits(row, lang, "article", false);
-    if (units.length) { groups.push({ row, units }); count += units.length; }
+    // Counted as mentions (mentioning paragraphs), matching the number shown
+    // above the results, not as excerpts (mentions under one heading share one).
+    if (units.length) { groups.push({ row, units }); count += units.reduce((n, u) => n + u.hits.size, 0); }
   }
   if (!count) throw new Error("nothing to compile");
   const query = (window._lastQuery || "").trim();
@@ -1527,6 +1529,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201850"></script>
+<script src="../assets/lang.js?v=202609201851"></script>
 </body>
 </html>
