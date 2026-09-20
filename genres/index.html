@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article types — Khliborob Digital Archive</title>
+<meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css?v=202609210047">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="../index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
+      <div class="nav-dropdown-menu">
+        <a href="../persons/" data-i18n="persons">Persons</a>
+        <a href="../locations/" data-i18n="locations">Locations</a>
+        <a href="../organizations/" data-i18n="organizations">Organizations</a>
+        <a href="../concordance/" data-i18n="nav_concordance">Concordance</a>
+        <a href="../genres/" data-i18n="nav_genres">Article types</a>
+      </div>
+    </div>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../research-questions/" data-i18n="nav_questions">Research Questions</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+</nav>
+
+<style>
+.gp{max-width:1000px;margin:2rem auto;padding:0 1.5rem}
+.gp h1{font-size:22px;font-weight:500;margin-bottom:.4rem}
+.gp h2{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+  margin:1.6rem 0 .6rem;padding-bottom:.3rem;border-bottom:1px solid var(--border)}
+.gp .intro{font-size:13px;color:var(--muted);line-height:1.6;max-width:780px}
+.gp .caveat{font-size:12px;line-height:1.6;color:var(--text);background:var(--card-bg);
+  border:1px solid var(--border);border-left:3px solid #d97706;border-radius:var(--radius);
+  padding:.6rem .8rem;margin:.8rem 0;max-width:780px}
+.bar{display:flex;height:22px;border-radius:5px;overflow:hidden;background:var(--border);margin:.25rem 0 .1rem}
+.bar span{display:block;height:100%}
+.barlabel{font-size:12px;color:var(--muted);margin-top:.5rem}
+.legend{display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:12px;margin:.6rem 0}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:.3rem;vertical-align:middle}
+table.gt{border-collapse:collapse;font-size:12px;width:100%;max-width:700px}
+table.gt th,table.gt td{padding:.3rem .6rem;border-bottom:1px solid var(--border);text-align:right}
+table.gt th:first-child,table.gt td:first-child{text-align:left}
+table.gt th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
+.chip{font-size:12px;padding:.25rem .7rem;border-radius:14px;border:1px solid var(--border);
+  background:transparent;color:var(--text);cursor:pointer}
+.chip.on{color:#fff;border-color:transparent}
+.gtools{display:flex;flex-wrap:wrap;gap:.7rem;align-items:center;font-size:12px;color:var(--muted);margin:.4rem 0 .8rem}
+.gtools input,.gtools select{font-size:12px;padding:.35rem .55rem;border:1px solid var(--border);
+  border-radius:6px;background:var(--card-bg);color:var(--text)}
+.gtools input{min-width:220px}
+.gtools button{font-size:12px;padding:.35rem .8rem;border:1px solid var(--border);border-radius:6px;
+  background:transparent;color:var(--blue);cursor:pointer}
+.acard{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+  padding:.7rem .9rem;margin-bottom:.5rem}
+.acard .meta{font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:.3rem .6rem;align-items:center}
+.acard .badge{color:#fff;border-radius:10px;padding:1px 8px;font-size:11px}
+.acard .head{font-size:14px;font-weight:500;margin:.25rem 0}
+.acard .snip{font-size:12px;color:var(--muted);line-height:1.5}
+</style>
+<div class="gp">
+  <h1 data-k="title"></h1>
+  <p class="intro" data-k="intro"></p>
+  <div class="caveat" data-k="caveat"></div>
+  <h2 data-k="mix"></h2>
+  <div id="mix"></div>
+  <div class="legend" id="legend"></div>
+  <h2 data-k="table"></h2>
+  <div style="overflow-x:auto"><table class="gt" id="gtable"></table></div>
+  <h2 data-k="list"></h2>
+  <div class="chips" id="chips"></div>
+  <div class="gtools">
+    <input id="gq" type="search" data-k="filter" autocomplete="off">
+    <label><span data-k="year"></span> <select id="gyear"></select></label>
+    <span id="gcount"></span>
+    <button id="gexport" data-k="export"></button>
+  </div>
+  <div id="glist"></div>
+</div>
+<script>
+const I18N = {"en": {"title": "Article types", "intro": "What kinds of text fill the newspaper: news, opinion, letters, community life, advertisements and so on. Each article is a headline and the text up to the next one. Filter the list, and see how the mix changes from year to year.", "caveat": "Types are assigned automatically by a language model from the English translation and have not been checked by a person. An internal check of the 80 articles in the pilot found roughly nine in ten labels clearly right; most errors are in units that merge several items, because not every headline is detected.", "mix": "Share of the text by type", "words": "of all words", "table": "Articles and words per year", "list": "Articles", "year": "Year", "allYears": "All years", "filter": "Filter by headline or text", "count": "{n} articles", "export": "Export CSV", "page": "p.", "open": "Open in the issue", "wordsShort": "words", "type": "Type", "articles": "Articles"}, "uk": {"title": "Типи текстів", "intro": "Які саме тексти заповнюють газету: новини, думки, листи, життя громади, оголошення тощо. Стаття — це заголовок і текст до наступного заголовка. Фільтруйте список і дивіться, як співвідношення змінюється з року в рік.", "caveat": "Типи визначає автоматично мовна модель за англійським перекладом; людина їх не перевіряла. Внутрішня перевірка 80 статей пілотного корпусу показала, що приблизно дев'ять із десяти позначок явно правильні; більшість помилок — у блоках, що поєднують кілька матеріалів, бо не всі заголовки розпізнано.", "mix": "Частка тексту за типами", "words": "усіх слів", "table": "Статті та слова за роками", "list": "Статті", "year": "Рік", "allYears": "Усі роки", "filter": "Фільтр за заголовком чи текстом", "count": "Статей: {n}", "export": "Експорт CSV", "page": "с.", "open": "Відкрити у випуску", "wordsShort": "слів", "type": "Тип", "articles": "Статті"}, "pt": {"title": "Tipos de texto", "intro": "Que tipos de texto preenchem o jornal: notícias, opinião, cartas, vida comunitária, anúncios e assim por diante. Cada artigo é um título e o texto até o seguinte. Filtre a lista e veja como a mistura muda de ano para ano.", "caveat": "Os tipos são atribuídos automaticamente por um modelo de linguagem a partir da tradução em inglês e não foram conferidos por uma pessoa. Uma verificação interna dos 80 artigos do piloto encontrou cerca de nove em dez rótulos claramente corretos; a maioria dos erros está em blocos que reúnem vários itens, pois nem todo título é detectado.", "mix": "Parcela do texto por tipo", "words": "de todas as palavras", "table": "Artigos e palavras por ano", "list": "Artigos", "year": "Ano", "allYears": "Todos os anos", "filter": "Filtrar por título ou texto", "count": "{n} artigos", "export": "Exportar CSV", "page": "p.", "open": "Abrir na edição", "wordsShort": "palavras", "type": "Tipo", "articles": "Artigos"}, "de": {"title": "Textarten", "intro": "Welche Arten von Text die Zeitung füllen: Nachrichten, Meinung, Briefe, Gemeindeleben, Anzeigen und so weiter. Ein Artikel ist eine Überschrift und der Text bis zur nächsten. Filtern Sie die Liste und sehen Sie, wie sich die Mischung von Jahr zu Jahr ändert.", "caveat": "Die Arten werden automatisch von einem Sprachmodell anhand der englischen Übersetzung vergeben und wurden nicht von einer Person geprüft. Eine interne Prüfung der 80 Artikel des Piloten ergab etwa neun von zehn eindeutig richtige Zuordnungen; die meisten Fehler betreffen Einheiten, die mehrere Beiträge zusammenfassen, weil nicht jede Überschrift erkannt wird.", "mix": "Anteil des Textes nach Art", "words": "aller Wörter", "table": "Artikel und Wörter pro Jahr", "list": "Artikel", "year": "Jahr", "allYears": "Alle Jahre", "filter": "Nach Überschrift oder Text filtern", "count": "{n} Artikel", "export": "CSV exportieren", "page": "S.", "open": "In der Ausgabe öffnen", "wordsShort": "Wörter", "type": "Art", "articles": "Artikel"}};
+const COLORS = {news:"#2563eb",opinion:"#7c3aed",community:"#059669",correspondence:"#d97706",
+  advertisement:"#dc2626",notice:"#64748b",literature:"#db2777",feature:"#0891b2",other:"#9ca3af"};
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+const uiLang = () => (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+const T = () => I18N[uiLang()] || I18N.en;
+let DATA = { genres: {}, articles: [] };
+const active = new Set();
+
+function applyUi() {
+  document.querySelectorAll("[data-k]").forEach(el => {
+    const v = T()[el.dataset.k]; if (v == null) return;
+    if (el.tagName === "INPUT") el.placeholder = v; else el.textContent = v;
+  });
+  drawAll();
+}
+const label = g => (DATA.genres[g] || {})[uiLang()] || (DATA.genres[g] || {}).en || g;
+const pick = (o, lang) => (o && (o[lang] || o.uk || o.en)) || "";
+
+function drawStats() {
+  const years = [...new Set(DATA.articles.map(a => a.date.slice(0, 4)))].sort();
+  const codes = Object.keys(DATA.genres);
+  const words = {}, arts = {};
+  for (const y of years) { words[y] = {}; arts[y] = {}; }
+  for (const a of DATA.articles) {
+    const y = a.date.slice(0, 4);
+    words[y][a.genre] = (words[y][a.genre] || 0) + a.words;
+    arts[y][a.genre] = (arts[y][a.genre] || 0) + 1;
+  }
+  const tot = y => Object.values(words[y]).reduce((s, n) => s + n, 0) || 1;
+  $("mix").innerHTML = years.map(y => `<div class="barlabel">${esc(y)}</div><div class="bar">` +
+    codes.filter(g => words[y][g]).map(g => `<span style="width:${(100 * words[y][g] / tot(y)).toFixed(1)}%;background:${COLORS[g]}"
+      title="${esc(label(g))}: ${(100 * words[y][g] / tot(y)).toFixed(0)}% ${esc(T().words)}"></span>`).join("") + `</div>`).join("");
+  $("legend").innerHTML = codes.map(g => `<span><i style="background:${COLORS[g]}"></i>${esc(label(g))}</span>`).join("");
+  $("gtable").innerHTML = `<tr><th>${esc(T().type)}</th>` + years.map(y => `<th>${esc(y)}</th>`).join("") + `</tr>` +
+    codes.map(g => `<tr><td><i style="display:inline-block;width:9px;height:9px;border-radius:2px;background:${COLORS[g]};margin-right:.4rem"></i>${esc(label(g))}</td>` +
+      years.map(y => `<td>${arts[y][g] || "–"}${arts[y][g] ? ` <span style="color:var(--muted)">(${(100 * words[y][g] / tot(y)).toFixed(0)}%)</span>` : ""}</td>`).join("") + `</tr>`).join("");
+  const sel = $("gyear"), keep = sel.value;
+  sel.innerHTML = `<option value="">${esc(T().allYears)}</option>` + years.map(y => `<option>${y}</option>`).join("");
+  sel.value = keep;
+}
+
+function filtered() {
+  const q = $("gq").value.trim().toLowerCase(), y = $("gyear").value, lang = uiLang();
+  return DATA.articles.filter(a => (!active.size || active.has(a.genre)) && (!y || a.date.startsWith(y)) &&
+    (!q || (pick(a.head, lang) + " " + pick(a.snip, lang)).toLowerCase().includes(q)));
+}
+
+function drawList() {
+  const list = filtered(), lang = uiLang(), t = T();
+  $("gcount").textContent = t.count.replace("{n}", list.length);
+  $("glist").innerHTML = list.slice(0, 300).map(a => {
+    const tl = localStorage.getItem("transcriptLang") || lang;
+    const url = `../issues/${a.issue}/#para-${lang}-${a.page}-${a.start}`;
+    return `<div class="acard"><div class="meta"><span class="badge" style="background:${COLORS[a.genre]}">${esc(label(a.genre))}</span>` +
+      `<span>${esc(a.date)} · ${esc(a.issueNo)} · ${esc(t.page)} ${esc(a.pageNum)}</span><span>${a.words} ${esc(t.wordsShort)}</span></div>` +
+      `<div class="head"><a href="${url}">${esc(pick(a.head, lang) || "—")}</a></div>` +
+      `<div class="snip">${esc(pick(a.snip, lang))}</div></div>`;
+  }).join("");
+}
+
+function drawChips() {
+  $("chips").innerHTML = Object.keys(DATA.genres).map(g => {
+    const n = DATA.articles.filter(a => a.genre === g).length;
+    const on = active.has(g);
+    return `<button class="chip${on ? " on" : ""}" data-g="${g}" style="${on ? `background:${COLORS[g]}` : ""}">${esc(label(g))} (${n})</button>`;
+  }).join("");
+}
+function drawAll() { drawStats(); drawChips(); drawList(); }
+
+function exportCsv() {
+  const q = s => '"' + String(s == null ? "" : s).replace(/"/g, '""') + '"', lang = uiLang();
+  const rows = [["date","issue","page","first_paragraph","type","words","headline","url"].join(",")];
+  for (const a of filtered()) {
+    rows.push([a.date, q(a.issueNo), a.pageNum, a.start, a.genre, a.words, q(pick(a.head, lang)),
+      q(location.origin + location.pathname.replace(/genres\/?$/, "") + `issues/${a.issue}/#para-${lang}-${a.page}-${a.start}`)].join(","));
+  }
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob(["﻿" + rows.join("\r\n")], { type: "text/csv;charset=utf-8" }));
+  a.download = "Khliborob_article_types.csv";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+$("chips").addEventListener("click", e => {
+  const b = e.target.closest("[data-g]"); if (!b) return;
+  active.has(b.dataset.g) ? active.delete(b.dataset.g) : active.add(b.dataset.g);
+  drawChips(); drawList();
+});
+$("gq").addEventListener("input", drawList);
+$("gyear").addEventListener("change", drawList);
+$("gexport").addEventListener("click", exportCsv);
+document.addEventListener("langchange", applyUi);
+fetch("../assets/genres.json").then(r => r.ok ? r.json() : DATA).then(d => { DATA = d; applyUi(); });
+applyUi();
+</script>
+
+
+<script src="../assets/lang.js?v=202609210047"></script>
+</body>
+</html>
