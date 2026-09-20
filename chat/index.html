@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609101636">
+<link rel="stylesheet" href="../assets/main.css?v=202609201802">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -968,10 +968,22 @@ window.pagefindReady = (async () => {
   }
 })();
 
+const SEARCH_GROUP_STRINGS = {
+  en: { issues: "Newspaper issues", site: "Elsewhere on this site",
+        noIssues: "No matches in the newspaper issues." },
+  uk: { issues: "Випуски газети", site: "Інші сторінки сайту",
+        noIssues: "У випусках газети збігів немає." },
+  pt: { issues: "Edições do jornal", site: "Em outras partes do site",
+        noIssues: "Nenhuma correspondência nas edições do jornal." },
+  de: { issues: "Zeitungsausgaben", site: "Anderswo auf dieser Website",
+        noIssues: "Keine Treffer in den Zeitungsausgaben." }
+};
+
 async function doFullTextSearch() {
   const q = document.getElementById("q").value.trim();
   if (!q) return;
   window.history.replaceState({}, "", location.pathname + "?q=" + encodeURIComponent(q));
+  window._lastSearchData = null;
   document.getElementById("results").innerHTML = '<p style="font-size:13px;color:var(--muted)">Searching…</p>';
   const pf = await window.pagefindReady;
   if (!pf) {
@@ -985,36 +997,74 @@ async function doFullTextSearch() {
       '<p style="font-size:13px;color:var(--muted)">No results found.</p>';
     return;
   }
-  const data = await Promise.all(search.results.slice(0, 20).map(x => x.data()));
-  // Pagefind tracks every element with an id as an "anchor", each carrying
-  // the word-offset location where it starts in the page — including every
-  // transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
-  // closest anchor at or before the first match's location tells us which
-  // paragraph the hit is actually in, and we can link straight to it.
-  const tlang = localStorage.getItem("transcriptLang") || "en";
-  document.getElementById("results").innerHTML = data.map(d => {
-    let url = d.url;
-    if (d.locations && d.locations.length && d.anchors && d.anchors.length) {
-      const target = d.locations[0];
-      let best = null;
-      for (const a of d.anchors) {
-        if (!a.id || a.id.indexOf("para-") !== 0) continue;
-        if (a.location > target) continue;
-        if (!best || a.location > best.location) best = a;
-      }
-      if (best) {
-        const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
-        if (m) url = d.url + "#para-" + tlang + "-" + m[1] + "-" + m[2];
-      }
+  // Fetch well past the display limit: the two groups below are filled
+  // independently, so a burst of site-page hits at the top of the ranking
+  // must not crowd newspaper hits out of a shared top-N.
+  window._lastSearchData = await Promise.all(search.results.slice(0, 60).map(x => x.data()));
+  renderSearchResults();
+}
+
+// Pagefind tracks every element with an id as an "anchor", each carrying
+// the word-offset location where it starts in the page — including every
+// transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
+// closest anchor at or before the first match's location tells us which
+// paragraph the hit is actually in, and we can link straight to it.
+function searchCardHtml(d, tlang) {
+  let url = d.url;
+  if (d.locations && d.locations.length && d.anchors && d.anchors.length) {
+    const target = d.locations[0];
+    let best = null;
+    for (const a of d.anchors) {
+      if (!a.id || a.id.indexOf("para-") !== 0) continue;
+      if (a.location > target) continue;
+      if (!best || a.location > best.location) best = a;
     }
-    return `
+    if (best) {
+      const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+      if (m) url = d.url + "#para-" + tlang + "-" + m[1] + "-" + m[2];
+    }
+  }
+  const dateLine = ((d.meta?.date || "") + " " + (d.meta?.issue || "")).trim();
+  return `
     <div class="result-card">
-      <div class="result-date">${d.meta?.date||""} ${d.meta?.issue||""}</div>
+      ${dateLine ? `<div class="result-date">${dateLine}</div>` : ""}
       <div class="result-title"><a href="${url}">${d.meta?.title||d.url}</a></div>
       <div class="result-snippet">${d.excerpt}</div>
     </div>`;
-  }).join("");
 }
+
+// Newspaper issues (the actual archive content) get the main column; every
+// other indexed page (Research questions, knowledge graphs, indexes, About…)
+// goes in a side column, so a site page that happens to repeat a search term
+// more densely can no longer outrank the newspaper itself.
+function renderSearchResults() {
+  const data = window._lastSearchData;
+  if (!data) return;
+  const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+  const S = SEARCH_GROUP_STRINGS[lang] || SEARCH_GROUP_STRINGS.en;
+  const tlang = localStorage.getItem("transcriptLang") || "en";
+  const isIssue = d => d.url.indexOf("/issues/") !== -1;
+  const issues = data.filter(isIssue).slice(0, 20);
+  const others = data.filter(d => !isIssue(d)).slice(0, 12);
+  const mainCards = issues.length
+    ? issues.map(d => searchCardHtml(d, tlang)).join("")
+    : `<p style="font-size:13px;color:var(--muted)">${S.noIssues}</p>`;
+  const side = others.length
+    ? `<aside class="search-side">
+         <h3 class="search-col-title">${S.site} <span style="font-weight:400">(${others.length})</span></h3>
+         ${others.map(d => searchCardHtml(d, tlang)).join("")}
+       </aside>`
+    : "";
+  document.getElementById("results").innerHTML = `
+    <div class="search-layout${others.length ? "" : " single"}">
+      <div class="search-main">
+        <h3 class="search-col-title">${S.issues} <span style="font-weight:400">(${issues.length})</span></h3>
+        ${mainCards}
+      </div>
+      ${side}
+    </div>`;
+}
+document.addEventListener("langchange", renderSearchResults);
 document.getElementById("q").addEventListener("keydown", e => {
   if (e.key === "Enter") doFullTextSearch();
 });
@@ -1029,6 +1079,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609101636"></script>
+<script src="../assets/lang.js?v=202609201802"></script>
 </body>
 </html>
