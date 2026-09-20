@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201828">
+<link rel="stylesheet" href="../assets/main.css?v=202609201829">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1216,21 +1216,16 @@ async function buildFragmentDocx(row, lang, scope) {
       for (let k = i + 1; k < n; k++) if (paras[k].head) { end = k; break; }
       slice = paras.slice(i, end);
     } else {
-      // Otherwise: the news item containing the match (plus any notes attached
-      // to it), under its section heading. Items inside a section have no
-      // markers of their own, so anything between the heading and the item is
-      // left out and marked with […].
+      // Otherwise: from the nearest heading (headline or section title) to the
+      // end of the news item containing the match, including any notes or
+      // quotes attached to it. Items inside a section have no markers of
+      // their own, so what follows the matching item is never included.
       let a = i, b = i;
       while (a > 0 && !paras[a - 1].head && isCont(paras[a].text)) a--;
       while (b + 1 < n && !paras[b + 1].head && isCont(paras[b + 1].text)) b++;
-      let h = -1;
-      for (let k = a - 1; k >= 0; k--) if (paras[k].head) { h = k; break; }
-      slice = [];
-      if (h >= 0) {
-        slice.push(paras[h]);
-        if (h < a - 1) slice.push({ text: "[…]", head: false, italic: true });
-      }
-      slice.push(...paras.slice(a, b + 1));
+      let start = a;
+      for (let k = a - 1; k >= 0; k--) if (paras[k].head) { start = k; break; }
+      slice = paras.slice(start, b + 1);
     }
   }
   const S = DOCX_STRINGS[lang];
@@ -1245,7 +1240,7 @@ async function buildFragmentDocx(row, lang, scope) {
   body += wPara(S.note, null, { italic: true });
   body += wPara(S.credit, null, { italic: true });
   body += wPara(S.page + " " + pageNum, "Heading1");
-  for (const p of slice) if (p.text) body += wPara(p.text, p.head ? "Heading2" : null, p.italic ? { italic: true } : null);
+  for (const p of slice) if (p.text) body += wPara(p.text, p.head ? "Heading2" : null);
   return buildDocxBlob(body);
 }
 
@@ -1336,6 +1331,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201828"></script>
+<script src="../assets/lang.js?v=202609201829"></script>
 </body>
 </html>
