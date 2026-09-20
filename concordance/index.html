@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Concordance — Khliborob Digital Archive</title>
+<meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css?v=202609210035">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
+<script src="../assets/lang-tools.js?v=202609210035"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="../index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
+      <div class="nav-dropdown-menu">
+        <a href="../persons/" data-i18n="persons">Persons</a>
+        <a href="../locations/" data-i18n="locations">Locations</a>
+        <a href="../organizations/" data-i18n="organizations">Organizations</a>
+        <a href="../concordance/" data-i18n="nav_concordance">Concordance</a>
+      </div>
+    </div>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../research-questions/" data-i18n="nav_questions">Research Questions</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+</nav>
+
+<style>
+.conc-wrap{max-width:1080px;margin:2rem auto;padding:0 1.5rem}
+.conc-wrap h1{font-size:22px;font-weight:500;margin-bottom:.4rem}
+.conc-intro{font-size:13px;color:var(--muted);line-height:1.6;max-width:760px;margin-bottom:1.1rem}
+.conc-form{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:.7rem}
+.conc-form input[type=search]{flex:1;min-width:200px;max-width:320px;font-size:14px;padding:.55rem .8rem;
+  border:1px solid var(--border);border-radius:var(--radius);background:var(--card-bg);color:var(--text)}
+.conc-form select,.conc-tools select{font-size:12px;padding:.35rem .5rem;border:1px solid var(--border);
+  border-radius:6px;background:var(--card-bg);color:var(--text)}
+.conc-form button.go{font-size:13px;padding:.55rem 1.1rem;border:none;border-radius:var(--radius);
+  background:var(--yellow,#ffd700);color:#1a1a1a;font-weight:500;cursor:pointer}
+.conc-tools{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center;font-size:12px;color:var(--muted);
+  margin:.6rem 0}
+.conc-tools button{font-size:12px;padding:.35rem .8rem;border:1px solid var(--border);border-radius:6px;
+  background:transparent;color:var(--blue);cursor:pointer}
+#cmeta{font-size:13px;margin:.6rem 0 .2rem}
+#cforms{font-size:12px;color:var(--muted);margin-bottom:.4rem;line-height:1.7}
+.conc-scroll{overflow-x:auto;border:1px solid var(--border);border-radius:var(--radius);background:var(--card-bg)}
+table.conc{border-collapse:collapse;width:100%;font-size:13px;min-width:760px}
+table.conc th{position:sticky;top:0;text-align:left;font-size:11px;text-transform:uppercase;
+  letter-spacing:.04em;color:var(--muted);padding:.5rem .6rem;border-bottom:1px solid var(--border);
+  background:var(--card-bg)}
+table.conc td{padding:.32rem .6rem;border-bottom:1px solid var(--border);vertical-align:baseline}
+table.conc td.l{text-align:right;color:var(--muted);width:36%}
+table.conc td.k{font-weight:600;white-space:nowrap;color:var(--blue)}
+table.conc td.r{width:36%}
+table.conc td.s{white-space:nowrap;font-size:11px;color:var(--muted)}
+table.conc td.s a{color:var(--blue)}
+#cnote{font-size:12px;color:var(--muted);margin:.5rem 0}
+</style>
+<div class="conc-wrap">
+  <h1 data-k="title">Concordance</h1>
+  <p class="conc-intro" data-k="intro"></p>
+  <div class="conc-form">
+    <input id="cq" type="search" data-k="placeholder" autocomplete="off">
+    <label style="font-size:12px;color:var(--muted)"><span data-k="lang"></span>
+      <select id="clang">
+        <option value="uk">УКР</option><option value="en">ENG</option>
+        <option value="pt">PT-BR</option><option value="de">DE</option>
+      </select></label>
+    <button class="go" id="cgo" data-k="go"></button>
+  </div>
+  <div id="cmeta"></div>
+  <div id="cforms"></div>
+  <div class="conc-tools" id="ctools" style="display:none">
+    <label><span data-k="sort"></span>
+      <select id="csort">
+        <option value="date" data-k="sortDate"></option><option value="left" data-k="sortLeft"></option>
+        <option value="right" data-k="sortRight"></option><option value="form" data-k="sortForm"></option>
+      </select></label>
+    <label><span data-k="year"></span> <select id="cyear"></select></label>
+    <label><span data-k="width"></span>
+      <select id="cwidth"><option value="40">40</option><option value="60" selected>60</option>
+        <option value="90">90</option><option value="140">140</option></select></label>
+    <button id="cexport" data-k="export"></button>
+  </div>
+  <div class="conc-scroll" id="cscroll" style="display:none">
+    <table class="conc"><thead><tr>
+      <th data-k="colSource"></th><th data-k="colLeft" style="text-align:right"></th>
+      <th data-k="colKw"></th><th data-k="colRight"></th>
+    </tr></thead><tbody id="cbody"></tbody></table>
+  </div>
+  <div id="cnote"></div>
+</div>
+<script>
+const I18N = {"en": {"title": "Concordance", "intro": "Every occurrence of a word in its context. The search covers all inflected forms of the word (its base form is found automatically) and ignores accents and old spelling variants. Pick the language of the text to search, sort the lines, and export them as CSV for your own analysis.", "placeholder": "one word, e.g. Галичина", "lang": "Text language", "go": "Search", "searching": "Searching…", "none": "No occurrences found.", "summary": "{n} occurrences in {p} paragraphs — base form: {l}", "forms": "Forms", "sort": "Sort by", "sortDate": "Date", "sortLeft": "Left context", "sortRight": "Right context", "sortForm": "Word form", "year": "Year", "allYears": "All years", "width": "Context", "export": "Export CSV", "colSource": "Source", "colLeft": "Left context", "colKw": "Word", "colRight": "Right context", "showing": "Showing the first {n} lines; the CSV export contains all {m}.", "page": "p."}, "uk": {"title": "Конкорданс", "intro": "Усі вживання слова в контексті. Пошук охоплює всі словоформи (початкова форма визначається автоматично) і не зважає на наголоси та старі варіанти правопису. Оберіть мову тексту, відсортуйте рядки й експортуйте їх у CSV для власного аналізу.", "placeholder": "одне слово, напр. Галичина", "lang": "Мова тексту", "go": "Шукати", "searching": "Пошук…", "none": "Вживань не знайдено.", "summary": "{n} вживань у {p} абзацах — початкова форма: {l}", "forms": "Форми", "sort": "Сортувати за", "sortDate": "Датою", "sortLeft": "Лівим контекстом", "sortRight": "Правим контекстом", "sortForm": "Словоформою", "year": "Рік", "allYears": "Усі роки", "width": "Контекст", "export": "Експорт CSV", "colSource": "Джерело", "colLeft": "Лівий контекст", "colKw": "Слово", "colRight": "Правий контекст", "showing": "Показано перші {n} рядків; експорт у CSV містить усі {m}.", "page": "с."}, "pt": {"title": "Concordância", "intro": "Todas as ocorrências de uma palavra em contexto. A busca abrange todas as formas flexionadas da palavra (a forma-base é encontrada automaticamente) e ignora acentos e variantes ortográficas antigas. Escolha o idioma do texto, ordene as linhas e exporte-as em CSV para sua própria análise.", "placeholder": "uma palavra, ex.: Галичина", "lang": "Idioma do texto", "go": "Buscar", "searching": "Buscando…", "none": "Nenhuma ocorrência encontrada.", "summary": "{n} ocorrências em {p} parágrafos — forma-base: {l}", "forms": "Formas", "sort": "Ordenar por", "sortDate": "Data", "sortLeft": "Contexto esquerdo", "sortRight": "Contexto direito", "sortForm": "Forma da palavra", "year": "Ano", "allYears": "Todos os anos", "width": "Contexto", "export": "Exportar CSV", "colSource": "Fonte", "colLeft": "Contexto esquerdo", "colKw": "Palavra", "colRight": "Contexto direito", "showing": "Mostrando as primeiras {n} linhas; o CSV exportado contém todas as {m}.", "page": "p."}, "de": {"title": "Konkordanz", "intro": "Jedes Vorkommen eines Wortes im Kontext. Die Suche erfasst alle gebeugten Formen des Wortes (die Grundform wird automatisch gefunden) und ignoriert Akzente und alte Schreibvarianten. Wählen Sie die Textsprache, sortieren Sie die Zeilen und exportieren Sie sie als CSV für eigene Analysen.", "placeholder": "ein Wort, z. B. Галичина", "lang": "Textsprache", "go": "Suchen", "searching": "Suche läuft…", "none": "Keine Vorkommen gefunden.", "summary": "{n} Vorkommen in {p} Absätzen — Grundform: {l}", "forms": "Formen", "sort": "Sortieren nach", "sortDate": "Datum", "sortLeft": "Linker Kontext", "sortRight": "Rechter Kontext", "sortForm": "Wortform", "year": "Jahr", "allYears": "Alle Jahre", "width": "Kontext", "export": "CSV exportieren", "colSource": "Quelle", "colLeft": "Linker Kontext", "colKw": "Wort", "colRight": "Rechter Kontext", "showing": "Die ersten {n} Zeilen werden angezeigt; der CSV-Export enthält alle {m}.", "page": "S."}};
+const $ = id => document.getElementById(id);
+const uiLang = () => (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+const T = () => I18N[uiLang()] || I18N.en;
+const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const MAX_SHOWN = 1000;
+const postings = {}, shards = {};
+let rows = [], state = { lemma: "", lang: "uk" };
+
+async function loadPostings(lang) {
+  if (!postings[lang]) {
+    const r = await fetch("../assets/concordance/" + lang + ".json");
+    postings[lang] = r.ok ? await r.json() : { issues: [], post: {} };
+  }
+  return postings[lang];
+}
+async function loadShard(id) {
+  if (!shards[id]) {
+    const r = await fetch("../assets/corpus/" + id + ".json");
+    shards[id] = r.ok ? await r.json() : { pages: {} };
+  }
+  return shards[id];
+}
+
+function applyUi() {
+  const t = T();
+  document.querySelectorAll("[data-k]").forEach(el => {
+    const v = t[el.dataset.k];
+    if (v == null) return;
+    if (el.tagName === "INPUT") el.placeholder = v; else el.textContent = v;
+  });
+  render();
+}
+
+async function search() {
+  const raw = $("cq").value.trim();
+  if (!raw) return;
+  const lang = $("clang").value;
+  history.replaceState({}, "", location.pathname + "?q=" + encodeURIComponent(raw) + "&lang=" + lang);
+  $("cmeta").textContent = T().searching;
+  const f = foldText(queryTokens(raw)[0] || raw);
+  const { maps } = await getLemmas("../");
+  const map = maps[lang] || {};
+  const lemma = map[f] || f;
+  const P = await loadPostings(lang);
+  const out = [];
+  for (const [ii, pi, ni] of P.post[lemma] || []) {
+    const iss = P.issues[ii];
+    const shard = await loadShard(iss.id);
+    const pageId = iss.pages[pi];
+    const para = ((shard.pages[pageId] || {})[lang] || [])[ni];
+    if (!para) continue;
+    for (const m of para.matchAll(/\p{L}+(?:['’ʼ-]\p{L}+)*/gu)) {
+      const tf = foldText(m[0]);
+      if (tf !== lemma && map[tf] !== lemma) continue;
+      out.push({
+        issue: iss.id, date: shard.date, issueNo: shard.issue, pageId,
+        pageNum: (pageId.match(/_page(\d+)$/) || [])[1] || "", para: ni,
+        left: para.slice(Math.max(0, m.index - 200), m.index), kw: m[0],
+        right: para.slice(m.index + m[0].length, m.index + m[0].length + 200), form: tf,
+      });
+    }
+  }
+  rows = out;
+  state = { lemma, lang };
+  const years = [...new Set(rows.map(r => r.date.slice(0, 4)))].sort();
+  $("cyear").innerHTML = `<option value="">${esc(T().allYears)}</option>` +
+    years.map(y => `<option>${y}</option>`).join("");
+  render();
+}
+
+const firstWord = s => foldText((s.trim().split(/\s+/)[0]) || "");
+const lastWord = s => foldText((s.trim().split(/\s+/).slice(-1)[0]) || "");
+const SORTERS = {
+  date: (a, b) => a.date.localeCompare(b.date) || a.pageId.localeCompare(b.pageId) || a.para - b.para,
+  left: (a, b) => lastWord(a.left).localeCompare(lastWord(b.left)),
+  right: (a, b) => firstWord(a.right).localeCompare(firstWord(b.right)),
+  form: (a, b) => a.form.localeCompare(b.form),
+};
+// Trim a context to about n characters without cutting a word in half.
+const trimLeft = (s, n) => (s.length > n ? s.slice(-n).replace(/^\S+\s+/, "") : s);
+const trimRight = (s, n) => (s.length > n ? s.slice(0, n).replace(/\s+\S*$/, "") : s);
+
+function visibleRows() {
+  const y = $("cyear").value;
+  const list = rows.filter(r => !y || r.date.startsWith(y));
+  return list.sort(SORTERS[$("csort").value] || SORTERS.date);
+}
+
+function render() {
+  const t = T();
+  const meta = $("cmeta");
+  if (!rows.length && !state.lemma) { meta.textContent = ""; return; }
+  const list = visibleRows();
+  if (!rows.length) {
+    meta.textContent = t.none;
+    for (const id of ["cforms", "cnote"]) $(id).textContent = "";
+    $("ctools").style.display = "none";
+    $("cscroll").style.display = "none";
+    return;
+  }
+  const paras = new Set(list.map(r => r.issue + r.pageId + r.para)).size;
+  meta.textContent = t.summary.replace("{n}", list.length).replace("{p}", paras).replace("{l}", state.lemma);
+  const counts = {};
+  for (const r of list) counts[r.form] = (counts[r.form] || 0) + 1;
+  $("cforms").textContent = t.forms + ": " + Object.entries(counts).sort((a, b) => b[1] - a[1])
+    .map(([f, n]) => `${f} ×${n}`).join(", ");
+  const w = +$("cwidth").value;
+  $("cbody").innerHTML = list.slice(0, MAX_SHOWN).map(r => {
+    const url = `../issues/${r.issue}/#para-${state.lang}-${r.pageId}-${r.para}`;
+    return `<tr><td class="s"><a href="${url}">${esc(r.date)} · ${esc(t.page)} ${esc(r.pageNum)}</a></td>` +
+      `<td class="l">${esc(trimLeft(r.left, w))}</td><td class="k">${esc(r.kw)}</td>` +
+      `<td class="r">${esc(trimRight(r.right, w))}</td></tr>`;
+  }).join("");
+  $("ctools").style.display = "flex";
+  $("cscroll").style.display = "block";
+  $("cnote").textContent = list.length > MAX_SHOWN
+    ? t.showing.replace("{n}", MAX_SHOWN).replace("{m}", list.length) : "";
+}
+
+function exportCsv() {
+  const list = visibleRows(), w = +$("cwidth").value;
+  const q = s => '"' + String(s).replace(/"/g, '""') + '"';
+  const lines = [["date", "issue", "page", "paragraph", "left_context", "word", "right_context", "url"].join(",")];
+  for (const r of list) {
+    const url = `${location.origin}${location.pathname.replace(/concordance\/?$/, "")}issues/${r.issue}/#para-${state.lang}-${r.pageId}-${r.para}`;
+    lines.push([r.date, q(r.issueNo), r.pageNum, r.para, q(trimLeft(r.left, w)), q(r.kw), q(trimRight(r.right, w)), q(url)].join(","));
+  }
+  const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = `Khliborob_concordance_${state.lemma}_${state.lang.toUpperCase()}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 10000);
+}
+
+$("cgo").addEventListener("click", search);
+$("cq").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
+for (const id of ["csort", "cyear", "cwidth"]) $(id).addEventListener("change", render);
+$("cexport").addEventListener("click", exportCsv);
+document.addEventListener("langchange", applyUi);
+(function init() {
+  const p = new URLSearchParams(location.search);
+  $("clang").value = p.get("lang") || localStorage.getItem("transcriptLang") || "uk";
+  applyUi();
+  if (p.get("q")) { $("cq").value = p.get("q"); search(); }
+})();
+</script>
+
+
+<script src="../assets/lang.js?v=202609210035"></script>
+</body>
+</html>
