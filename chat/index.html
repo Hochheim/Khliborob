@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201816">
+<link rel="stylesheet" href="../assets/main.css?v=202609201818">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1043,16 +1043,22 @@ async function doFullTextSearch() {
 // paragraph the hit is actually in, and we can link straight to it.
 function hitParagraph(d) {
   if (!(d.locations && d.locations.length && d.anchors && d.anchors.length)) return null;
-  const target = d.locations[0];
-  let best = null;
-  for (const a of d.anchors) {
-    if (!a.id || a.id.indexOf("para-") !== 0) continue;
-    if (a.location > target) continue;
-    if (!best || a.location > best.location) best = a;
+  // The first match can sit outside the transcript (an issue's header or
+  // summary mentions the term before any paragraph starts). A match counts
+  // as "in a paragraph" only if the closest anchor of ANY kind before it is
+  // a paragraph anchor; otherwise move on to the next match.
+  for (const target of d.locations) {
+    let best = null;
+    for (const a of d.anchors) {
+      if (!a.id || a.location > target) continue;
+      if (!best || a.location > best.location) best = a;
+    }
+    if (best && best.id.indexOf("para-") === 0) {
+      const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
+      if (m) return { pageId: m[1], idx: parseInt(m[2], 10) };
+    }
   }
-  if (!best) return null;
-  const m = best.id.match(/^para-[a-z]+-(.+)-(\d+)$/);
-  return m ? { pageId: m[1], idx: parseInt(m[2], 10) } : null;
+  return null;
 }
 
 function searchCardHtml(d, tlang, downloadHtml) {
@@ -1298,6 +1304,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201816"></script>
+<script src="../assets/lang.js?v=202609201818"></script>
 </body>
 </html>
