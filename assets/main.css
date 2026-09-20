@@ -220,7 +220,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
 .result-snippet{font-size:12px;color:var(--muted);line-height:1.5}
 /* Room below the last result: the results scroll inside a fixed-height panel,
    so without this the final card sits flush against the panel's bottom edge. */
-#results{padding-bottom:max(12rem,40vh)}
+#results{padding-bottom:max(10rem,30vh)}
 .search-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:1.4rem;align-items:start}
 .search-layout.single{grid-template-columns:minmax(0,1fr)}
 .search-col-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
