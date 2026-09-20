@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201808">
+<link rel="stylesheet" href="../assets/main.css?v=202609201812">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1055,11 +1055,12 @@ function searchCardHtml(d, tlang, downloadHtml) {
 
 function downloadRowHtml(d, tlang, manifest, S) {
   const m = d.url.match(/\/issues\/([^/]+)\//);
-  const langs = m && manifest[m[1]];
-  if (!langs || !langs.length) return "";
+  const files = m && manifest[m[1]];
+  const langs = files ? ["uk", "en", "pt", "de"].filter(l => files[l]) : [];
+  if (!langs.length) return "";
   const dir = d.url.replace(/[^/]*$/, "");
   const links = langs.map(l =>
-    `<a href="${dir}transcript_${l}.docx" download${l === tlang ? ' style="font-weight:600"' : ""}>${DL_LANG_LABELS[l]}</a>`
+    `<a href="${dir}${files[l]}" download${l === tlang ? ' style="font-weight:600"' : ""}>${DL_LANG_LABELS[l]}</a>`
   ).join(" · ");
   return `<div class="result-dl">${S.dl}: ${links}</div>`;
 }
@@ -1112,6 +1113,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201808"></script>
+<script src="../assets/lang.js?v=202609201812"></script>
 </body>
 </html>
