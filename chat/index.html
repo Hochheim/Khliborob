@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609202108">
+<link rel="stylesheet" href="../assets/main.css?v=202609202110">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1540,7 +1540,7 @@ async function getEntityNames() {
 async function highlightWords(query) {
   const words = queryWords(query);
   const qf = words.join(" ");
-  if (qf.length < 4) return words;
+  if (qf.length < 4) return { words, extra: [] };
   const extra = [];
   for (const e of await getEntityNames()) {
     const en = foldChars(e.name_en).out, uk = foldChars(e.name_uk).out;
@@ -1548,7 +1548,7 @@ async function highlightWords(query) {
     if (en === qf || en.includes(qf)) extra.push(...ukStems);
     else if (uk === qf || uk.includes(qf) || ukStems.some(s => qf.startsWith(s))) extra.push(...nameStems(e.name_en));
   }
-  return [...words, ...extra];
+  return { words, extra };
 }
 
 // Merged [start, end) ranges in `text` where any of the folded words occurs.
@@ -1627,7 +1627,12 @@ async function hydratePassage(card, uiLang, query, fallbackTitle) {
     }
     const p = paras[idx];
     if (!p) throw new Error("paragraph missing");
-    const ranges = matchRanges(p.text, await highlightWords(query));
+    const hw = await highlightWords(query);
+    let ranges = matchRanges(p.text, [...hw.words, ...hw.extra]);
+    // Other word forms (Ukrainian "Галицької" = "Galician" for the name
+    // "Галичина" = "Galicia"): only when nothing matched, retry on the
+    // first four letters of the translated names.
+    if (!ranges.length && hw.extra.length) ranges = matchRanges(p.text, hw.extra.map(s => s.slice(0, 4)));
     let ratio = null;
     if (!ranges.length && !matchedLangs.includes(lang)) {
       // The word isn't in this language's text: find where it sits in one it
@@ -1735,6 +1740,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609202108"></script>
+<script src="../assets/lang.js?v=202609202110"></script>
 </body>
 </html>
