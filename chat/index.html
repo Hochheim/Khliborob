@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609202351">
+<link rel="stylesheet" href="../assets/main.css?v=202609202353">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -45,7 +45,7 @@
 </nav>
 
 <!-- Height: the window minus the 60px nav, divided by the page's zoom (body{zoom:1.15}) so the search box ends at the bottom edge of the window instead of running past it. -->
-<div style="max-width:800px;margin:0 auto;padding:1.5rem;display:flex;flex-direction:column;height:calc((100vh - 60px) / 1.15)">
+<div class="agent-wrap" style="max-width:800px;margin:0 auto;padding:1.5rem;display:flex;flex-direction:column;height:calc((100vh - 60px) / 1.15)">
   <div style="margin-bottom:1rem">
     <h1 style="font-size:20px;font-weight:500;margin-bottom:.3rem" data-i18n="nav_chat">Research Agent</h1>
     <p style="font-size:13px;color:var(--muted)">
@@ -939,6 +939,9 @@ loadIndex();
 // rather than dropped, so neither capability is lost. ----
 function switchAgentTab(tab) {
   const isAsk = tab === "ask";
+  // Search results scroll with the page (see .search-mode in the CSS); the Ask
+  // tab keeps its fixed-height chat box.
+  document.querySelector(".agent-wrap").classList.toggle("search-mode", !isAsk);
   document.getElementById("agent-panel").style.display = isAsk ? "flex" : "none";
   document.getElementById("fulltext-panel").style.display = isAsk ? "none" : "flex";
   document.getElementById("tab-btn-ask").classList.toggle("active", isAsk);
@@ -1767,6 +1770,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609202351"></script>
+<script src="../assets/lang.js?v=202609202353"></script>
 </body>
 </html>
