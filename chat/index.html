@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609201802">
+<link rel="stylesheet" href="../assets/main.css?v=202609201808">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -970,14 +970,33 @@ window.pagefindReady = (async () => {
 
 const SEARCH_GROUP_STRINGS = {
   en: { issues: "Newspaper issues", site: "Elsewhere on this site",
-        noIssues: "No matches in the newspaper issues." },
+        noIssues: "No matches in the newspaper issues.",
+        dl: "⬇ Download transcript (.docx)" },
   uk: { issues: "Випуски газети", site: "Інші сторінки сайту",
-        noIssues: "У випусках газети збігів немає." },
+        noIssues: "У випусках газети збігів немає.",
+        dl: "⬇ Завантажити транскрипт (.docx)" },
   pt: { issues: "Edições do jornal", site: "Em outras partes do site",
-        noIssues: "Nenhuma correspondência nas edições do jornal." },
+        noIssues: "Nenhuma correspondência nas edições do jornal.",
+        dl: "⬇ Baixar transcrição (.docx)" },
   de: { issues: "Zeitungsausgaben", site: "Anderswo auf dieser Website",
-        noIssues: "Keine Treffer in den Zeitungsausgaben." }
+        noIssues: "Keine Treffer in den Zeitungsausgaben.",
+        dl: "⬇ Transkript herunterladen (.docx)" }
 };
+const DL_LANG_LABELS = { uk: "УКР", en: "ENG", pt: "PT-BR", de: "DE" };
+
+// assets/transcripts.json lists which per-issue Word files exist; a missing
+// or unreadable manifest just means no download row is shown.
+let _transcriptManifest = null;
+async function getTranscriptManifest() {
+  if (_transcriptManifest) return _transcriptManifest;
+  try {
+    const r = await fetch("../assets/transcripts.json");
+    _transcriptManifest = r.ok ? await r.json() : {};
+  } catch (e) {
+    _transcriptManifest = {};
+  }
+  return _transcriptManifest;
+}
 
 async function doFullTextSearch() {
   const q = document.getElementById("q").value.trim();
@@ -1009,7 +1028,7 @@ async function doFullTextSearch() {
 // transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
 // closest anchor at or before the first match's location tells us which
 // paragraph the hit is actually in, and we can link straight to it.
-function searchCardHtml(d, tlang) {
+function searchCardHtml(d, tlang, downloadHtml) {
   let url = d.url;
   if (d.locations && d.locations.length && d.anchors && d.anchors.length) {
     const target = d.locations[0];
@@ -1030,16 +1049,30 @@ function searchCardHtml(d, tlang) {
       ${dateLine ? `<div class="result-date">${dateLine}</div>` : ""}
       <div class="result-title"><a href="${url}">${d.meta?.title||d.url}</a></div>
       <div class="result-snippet">${d.excerpt}</div>
+      ${downloadHtml || ""}
     </div>`;
+}
+
+function downloadRowHtml(d, tlang, manifest, S) {
+  const m = d.url.match(/\/issues\/([^/]+)\//);
+  const langs = m && manifest[m[1]];
+  if (!langs || !langs.length) return "";
+  const dir = d.url.replace(/[^/]*$/, "");
+  const links = langs.map(l =>
+    `<a href="${dir}transcript_${l}.docx" download${l === tlang ? ' style="font-weight:600"' : ""}>${DL_LANG_LABELS[l]}</a>`
+  ).join(" · ");
+  return `<div class="result-dl">${S.dl}: ${links}</div>`;
 }
 
 // Newspaper issues (the actual archive content) get the main column; every
 // other indexed page (Research questions, knowledge graphs, indexes, About…)
 // goes in a side column, so a site page that happens to repeat a search term
 // more densely can no longer outrank the newspaper itself.
-function renderSearchResults() {
+async function renderSearchResults() {
   const data = window._lastSearchData;
   if (!data) return;
+  const manifest = await getTranscriptManifest();
+  if (window._lastSearchData !== data) return;
   const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
   const S = SEARCH_GROUP_STRINGS[lang] || SEARCH_GROUP_STRINGS.en;
   const tlang = localStorage.getItem("transcriptLang") || "en";
@@ -1047,7 +1080,7 @@ function renderSearchResults() {
   const issues = data.filter(isIssue).slice(0, 20);
   const others = data.filter(d => !isIssue(d)).slice(0, 12);
   const mainCards = issues.length
-    ? issues.map(d => searchCardHtml(d, tlang)).join("")
+    ? issues.map(d => searchCardHtml(d, tlang, downloadRowHtml(d, tlang, manifest, S))).join("")
     : `<p style="font-size:13px;color:var(--muted)">${S.noIssues}</p>`;
   const side = others.length
     ? `<aside class="search-side">
@@ -1079,6 +1112,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609201802"></script>
+<script src="../assets/lang.js?v=202609201808"></script>
 </body>
 </html>
