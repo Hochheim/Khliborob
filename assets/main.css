@@ -218,8 +218,6 @@ footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
 .result-date{font-size:11px;color:var(--muted)}
 .result-title{font-size:14px;font-weight:500;margin:.2rem 0}
 .result-snippet{font-size:12px;color:var(--muted);line-height:1.5}
-/* A little room below the last result inside the scrolling results panel. */
-#results{padding-bottom:4rem}
 .search-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:1.4rem;align-items:start}
 .search-layout.single{grid-template-columns:minmax(0,1fr)}
 .search-col-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
@@ -234,7 +232,7 @@ footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
            color:var(--blue);cursor:pointer;font-family:inherit}
 .result-dl button:disabled,.result-dlall button:disabled{opacity:.5;cursor:wait}
 .result-dlall .dl-note{flex-basis:100%;font-size:10.5px}
-.passage-cont{margin-top:-.35rem;border-top-style:dashed}
+.passage-cont{margin-top:-.35rem;margin-left:1.25rem;border-top-style:dashed}
 .passage-cont .result-title{display:none}
 .result-issue{font-size:12px;font-weight:600;margin:1rem 0 .4rem;padding-bottom:.25rem;
               border-bottom:1px solid var(--border)}
