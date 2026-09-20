@@ -7,7 +7,7 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609202357">
+<link rel="stylesheet" href="../assets/main.css?v=202609202359">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
 
 </head>
@@ -1679,7 +1679,15 @@ async function renderSearchResults() {
   // questions…). Order within a tier is the search engine's own ranking.
   const isMapOrGraph = d => /\/aggregated\/[^/]*_agg_(map|graph)\.html$/.test(d.url);
   const rest = data.filter(d => !isIssue(d));
-  const mapsGraphs = rest.filter(isMapOrGraph).slice(0, 12);
+  // Maps and graphs in the same order as the Maps & Graphs page: full archive,
+  // then decades, then years; for each scope the location map, then its graph.
+  const mgKey = d => {
+    const m = d.url.match(/\/aggregated\/(all_history|decade_[^_]+|year_[^_]+)_agg_(map|graph)\.html$/);
+    return m ? [{ all: 0, decade: 1, year: 2 }[m[1].split("_")[0]], m[1], m[2] === "map" ? 0 : 1] : [9, "", 0];
+  };
+  const mapsGraphs = rest.filter(isMapOrGraph)
+    .sort((a, b) => { const x = mgKey(a), y = mgKey(b); return x[0] - y[0] || x[1].localeCompare(y[1]) || x[2] - y[2]; })
+    .slice(0, 12);
   const sitePages = rest.filter(d => !isMapOrGraph(d)).slice(0, 12);
   const others = [...mapsGraphs, ...sitePages];
   const query = (window._lastQuery || "").trim();
@@ -1782,6 +1790,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609202357"></script>
+<script src="../assets/lang.js?v=202609202359"></script>
 </body>
 </html>
