@@ -7,9 +7,9 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609210054">
+<link rel="stylesheet" href="../assets/main.css?v=202609211023">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
-<script src="../assets/lang-tools.js?v=202609210054"></script>
+<script src="../assets/lang-tools.js?v=202609211023"></script>
 </head>
 <body>
 
@@ -247,13 +247,36 @@
 const AGENT_WORKER_URL = "https://khliborob-agent.walterj-hochheim.workers.dev";
 function hasWorker() { return !!AGENT_WORKER_URL; }
 
-let SEARCH_INDEX = null;
+// The agent never downloads "the whole corpus". Each query is looked up in the
+// sharded word data (assets/lex/, helpers in assets/lang-tools.js), which names
+// the pages that mention its words; only the issue files of the best-matching
+// pages are then fetched (assets/corpus/<issue>.json) and scored in detail.
+const RETRIEVE_PAGES = 16;
+const _issueShards = {};
+function loadIssueShard(id) {
+  if (!/^[\w-]+$/.test(id)) return Promise.resolve(null);
+  if (!_issueShards[id]) {
+    _issueShards[id] = fetch("../assets/corpus/" + id + ".json")
+      .then(r => (r.ok ? r.json() : null)).catch(() => null);
+  }
+  return _issueShards[id];
+}
 
-async function loadIndex() {
-  if (SEARCH_INDEX) return SEARCH_INDEX;
-  const resp = await fetch("../assets/search-index.json");
-  SEARCH_INDEX = await resp.json();
-  return SEARCH_INDEX;
+// One page of an issue shard as the flat record the scoring code below expects.
+function recordFrom(shard, issueId, pageId) {
+  const per = (shard.pages || {})[pageId];
+  if (!per) return null;
+  const meta = (shard.meta || {})[pageId] || {};
+  return {
+    issue_id: issueId, issue_url: "../issues/" + issueId + "/",
+    date: shard.date || "", issue_number: shard.issue || "",
+    page_number: meta.n || ((pageId.match(/_page(\d+)$/) || [])[1] || ""),
+    page_id: pageId,
+    text_en: (per.en || []).join("\n\n"),
+    text_uk: (per.uk || []).join("\n\n"),
+    text_pt: (per.pt || []).join("\n\n"),
+    ipfs_url: meta.ipfs || "", tx_url: shard.tx || "",
+  };
 }
 
 function tokenize(text) {
@@ -281,25 +304,55 @@ function recordHay(record) {
 // Natural-language questions ("what does the newspaper say about Lukashenko")
 // are mostly filler words that occur on every page; counting their matches
 // drowns out the one informative term. Instead of a per-language stop-word
-// list, weight each query token by inverse document frequency across the
-// corpus: a token found on (nearly) every page gets ~zero weight, a rare
-// name dominates. Tokens are dropped entirely when uninformative so the
-// snippet picker can't anchor on them either.
-function weighQueryTokens(queryTokens, index) {
-  const N = index.length;
-  const hays = index.map(recordHay);
-  const weighted = [];
+// list, weight each query token by inverse document frequency: a token found on
+// (nearly) every page gets ~zero weight, a rare name dominates. Tokens are
+// dropped entirely when uninformative so the snippet picker can't anchor on
+// them either. The pages that contain a token (and so its document frequency)
+// come from the sharded word data: its base-form postings (all inflections) and
+// its stem (so a name in another case still matches). Returns the weighted
+// tokens, rarest first, and the records of the best-matching pages.
+async function retrieve(queryTokens, limit) {
+  const base = "../";
+  const idx = await lexIssues(base);
+  const N = Math.max(idx.totalPages || 0, 1);
+  const weighted = [], score = new Map();
   for (const tok of [...new Set(queryTokens)]) {
-    const stem = stemOf(tok);
-    const probe = stem.length >= 3 ? stem : tok;
-    const df = hays.reduce((n, hay) => n + (hay.includes(probe) ? 1 : 0), 0);
+    const f = foldText(tok);
+    const langs = /[Ѐ-ӿ]/.test(f) ? ["uk"] : ["pt", "en"];
+    const pages = new Map();                           // "issue|page" -> paragraphs mentioning it
+    for (const lang of langs) {
+      const lem = (await lemmaInLang(f, lang, base)) || f;
+      for (const [ii, pi] of await postingsOf(lem, lang, base)) {
+        const k = ii + "|" + pi;
+        pages.set(k, (pages.get(k) || 0) + 1);
+      }
+      for (const [ii, pi] of await stemPagesOf(stemKey(f), lang, base)) {
+        const k = ii + "|" + pi;
+        if (!pages.has(k)) pages.set(k, 1);
+      }
+    }
+    const df = pages.size;
     const idf = Math.log((N + 1) / (df + 1));
-    if (df > 0 && idf < 0.2) continue;   // appears on ~every page — filler
-    weighted.push({ tok, stem, weight: Math.max(idf, 0.2) });
+    if (df > 0 && idf < 0.2) continue;                 // appears on ~every page — filler
+    const weight = Math.max(idf, 0.2);
+    weighted.push({ tok, stem: stemOf(tok), weight });
+    for (const [k, c] of pages) score.set(k, (score.get(k) || 0) + weight * (1 + Math.log(c)));
   }
-  // Rarest first, so snippet anchoring prefers the informative term
-  weighted.sort((a, b) => b.weight - a.weight);
-  return weighted;
+  weighted.sort((a, b) => b.weight - a.weight);        // rarest first, for snippet anchoring
+  const top = [...score].sort((a, b) => b[1] - a[1]).slice(0, limit || RETRIEVE_PAGES);
+  const issueIdx = [...new Set(top.map(([k]) => +k.split("|")[0]))];
+  const shards = await Promise.all(issueIdx.map(ii => loadIssueShard(idx.issues[ii].id)));
+  const shardOf = {};
+  issueIdx.forEach((ii, i) => { shardOf[ii] = shards[i]; });
+  const records = [];
+  for (const [k] of top) {
+    const [ii, pi] = k.split("|").map(Number);
+    const iss = idx.issues[ii];
+    if (!shardOf[ii]) continue;
+    const rec = recordFrom(shardOf[ii], iss.id, iss.pages[pi]);
+    if (rec) records.push(rec);
+  }
+  return { weighted, records };
 }
 
 function scoreRecord(weightedTokens, record) {
@@ -633,10 +686,9 @@ const TOOL_DECLS = [{
 async function execTool(name, args) {
   const data = await loadAgentData();
   if (name === "search_corpus") {
-    const index = await loadIndex();
-    const wt = weighQueryTokens(tokenize(String(args.query || "")), index);
+    const { weighted: wt, records } = await retrieve(tokenize(String(args.query || "")));
     if (!wt.length) return { results: [], note: "Query too generic — retry with a distinctive name or term." };
-    const scored = index
+    const scored = records
       .map(r => ({ record: r, score: scoreRecord(wt, r) }))
       .filter(x => x.score > 0)
       .sort((a, b) => b.score - a.score)
@@ -660,10 +712,16 @@ async function execTool(name, args) {
   }
   if (name === "list_issues") return { issues: data.issues };
   if (name === "read_page") {
-    const index = await loadIndex();
     const pn = String(args.page_number || "").replace(/^0+/, "");
-    const rec = index.find(r => r.issue_id === String(args.issue_id || "").trim()
-      && String(r.page_number).replace(/^0+/, "") === pn);
+    const issueId = String(args.issue_id || "").trim();
+    const shard = await loadIssueShard(issueId);
+    let rec = null;
+    if (shard) {
+      for (const pid of Object.keys(shard.pages || {})) {
+        const r = recordFrom(shard, issueId, pid);
+        if (r && String(r.page_number).replace(/^0+/, "") === pn) { rec = r; break; }
+      }
+    }
     if (!rec) return { error: "Page not found. Call list_issues for valid issue ids; pages are numbered 01.." };
     const s = registerPageSource(rec);
     return {
@@ -850,14 +908,13 @@ async function sendQuestion() {
     }
 
     // Extractive fallback: quote the top passages verbatim.
-    const index = await loadIndex();
     const queryTokens = tokenize(q);
     if (queryTokens.length === 0) {
       replaceMsg(typingId, "assistant", "Please enter a search term.");
       return;
     }
 
-    const weightedTokens = weighQueryTokens(queryTokens, index);
+    const { weighted: weightedTokens, records } = await retrieve(queryTokens);
     if (weightedTokens.length === 0) {
       replaceMsg(typingId, "assistant",
         "Your question contains only very common words, so no specific passage can be " +
@@ -866,7 +923,7 @@ async function sendQuestion() {
       return;
     }
 
-    const scored = index
+    const scored = records
       .map(r => ({ record: r, score: scoreRecord(weightedTokens, r) }))
       .filter(r => r.score > 0)
       .sort((a, b) => b.score - a.score)
@@ -930,7 +987,7 @@ document.getElementById("chat-input").addEventListener("keydown", e => {
   if (e.key === "Enter") sendQuestion();
 });
 renderKeyBar();
-loadIndex();
+lexBuckets("../");   // warm the lookup manifest
 
 // ---- Search all pages (Pagefind) — merged into this page alongside the
 // Research Agent since the two overlapped heavily: the Agent's own quote
@@ -1870,6 +1927,6 @@ document.getElementById("q").addEventListener("keydown", e => {
 })();
 </script>
 
-<script src="../assets/lang.js?v=202609210054"></script>
+<script src="../assets/lang.js?v=202609211023"></script>
 </body>
 </html>

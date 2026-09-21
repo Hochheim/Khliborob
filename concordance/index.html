@@ -7,9 +7,9 @@
 <meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/main.css?v=202609210054">
+<link rel="stylesheet" href="../assets/main.css?v=202609211023">
 <link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
-<script src="../assets/lang-tools.js?v=202609210054"></script>
+<script src="../assets/lang-tools.js?v=202609211023"></script>
 </head>
 <body>
 
@@ -75,6 +75,8 @@ table.conc td.r{width:36%}
 table.conc td.s{white-space:nowrap;font-size:11px;color:var(--muted)}
 table.conc td.s a{color:var(--blue)}
 #cnote{font-size:12px;color:var(--muted);margin:.5rem 0}
+#cmore{display:none;font-size:13px;padding:.5rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius);
+  background:transparent;color:var(--blue);cursor:pointer;margin:.3rem 0 1.5rem}
 </style>
 <div class="conc-wrap">
   <h1 data-k="title">Concordance</h1>
@@ -109,24 +111,20 @@ table.conc td.s a{color:var(--blue)}
     </tr></thead><tbody id="cbody"></tbody></table>
   </div>
   <div id="cnote"></div>
+  <button id="cmore" data-k="more"></button>
 </div>
 <script>
-const I18N = {"en": {"title": "Concordance", "intro": "Every occurrence of a word in its context. The search covers all inflected forms of the word (its base form is found automatically) and ignores accents and old spelling variants. Pick the language of the text to search, sort the lines, and export them as CSV for your own analysis.", "placeholder": "one word, e.g. Галичина", "lang": "Text language", "go": "Search", "searching": "Searching…", "none": "No occurrences found.", "summary": "{n} occurrences in {p} paragraphs — base form: {l}", "forms": "Forms", "sort": "Sort by", "sortDate": "Date", "sortLeft": "Left context", "sortRight": "Right context", "sortForm": "Word form", "year": "Year", "allYears": "All years", "width": "Context", "export": "Export CSV", "colSource": "Source", "colLeft": "Left context", "colKw": "Word", "colRight": "Right context", "showing": "Showing the first {n} lines; the CSV export contains all {m}.", "page": "p."}, "uk": {"title": "Конкорданс", "intro": "Усі вживання слова в контексті. Пошук охоплює всі словоформи (початкова форма визначається автоматично) і не зважає на наголоси та старі варіанти правопису. Оберіть мову тексту, відсортуйте рядки й експортуйте їх у CSV для власного аналізу.", "placeholder": "одне слово, напр. Галичина", "lang": "Мова тексту", "go": "Шукати", "searching": "Пошук…", "none": "Вживань не знайдено.", "summary": "{n} вживань у {p} абзацах — початкова форма: {l}", "forms": "Форми", "sort": "Сортувати за", "sortDate": "Датою", "sortLeft": "Лівим контекстом", "sortRight": "Правим контекстом", "sortForm": "Словоформою", "year": "Рік", "allYears": "Усі роки", "width": "Контекст", "export": "Експорт CSV", "colSource": "Джерело", "colLeft": "Лівий контекст", "colKw": "Слово", "colRight": "Правий контекст", "showing": "Показано перші {n} рядків; експорт у CSV містить усі {m}.", "page": "с."}, "pt": {"title": "Concordância", "intro": "Todas as ocorrências de uma palavra em contexto. A busca abrange todas as formas flexionadas da palavra (a forma-base é encontrada automaticamente) e ignora acentos e variantes ortográficas antigas. Escolha o idioma do texto, ordene as linhas e exporte-as em CSV para sua própria análise.", "placeholder": "uma palavra, ex.: Галичина", "lang": "Idioma do texto", "go": "Buscar", "searching": "Buscando…", "none": "Nenhuma ocorrência encontrada.", "summary": "{n} ocorrências em {p} parágrafos — forma-base: {l}", "forms": "Formas", "sort": "Ordenar por", "sortDate": "Data", "sortLeft": "Contexto esquerdo", "sortRight": "Contexto direito", "sortForm": "Forma da palavra", "year": "Ano", "allYears": "Todos os anos", "width": "Contexto", "export": "Exportar CSV", "colSource": "Fonte", "colLeft": "Contexto esquerdo", "colKw": "Palavra", "colRight": "Contexto direito", "showing": "Mostrando as primeiras {n} linhas; o CSV exportado contém todas as {m}.", "page": "p."}, "de": {"title": "Konkordanz", "intro": "Jedes Vorkommen eines Wortes im Kontext. Die Suche erfasst alle gebeugten Formen des Wortes (die Grundform wird automatisch gefunden) und ignoriert Akzente und alte Schreibvarianten. Wählen Sie die Textsprache, sortieren Sie die Zeilen und exportieren Sie sie als CSV für eigene Analysen.", "placeholder": "ein Wort, z. B. Галичина", "lang": "Textsprache", "go": "Suchen", "searching": "Suche läuft…", "none": "Keine Vorkommen gefunden.", "summary": "{n} Vorkommen in {p} Absätzen — Grundform: {l}", "forms": "Formen", "sort": "Sortieren nach", "sortDate": "Datum", "sortLeft": "Linker Kontext", "sortRight": "Rechter Kontext", "sortForm": "Wortform", "year": "Jahr", "allYears": "Alle Jahre", "width": "Kontext", "export": "CSV exportieren", "colSource": "Quelle", "colLeft": "Linker Kontext", "colKw": "Wort", "colRight": "Rechter Kontext", "showing": "Die ersten {n} Zeilen werden angezeigt; der CSV-Export enthält alle {m}.", "page": "S."}};
+const I18N = {"en": {"title": "Concordance", "intro": "Every occurrence of a word in its context. The search covers all inflected forms of the word (its base form is found automatically) and ignores accents and old spelling variants. Pick the language of the text to search, sort the lines, and export them as CSV for your own analysis.", "placeholder": "one word, e.g. Галичина", "lang": "Text language", "go": "Search", "searching": "Searching…", "none": "No occurrences found.", "summary": "{n} occurrences in {p} paragraphs — base form: {l}", "forms": "Forms", "sort": "Sort by", "sortDate": "Date", "sortLeft": "Left context", "sortRight": "Right context", "sortForm": "Word form", "year": "Year", "allYears": "All years", "width": "Context", "export": "Export CSV", "colSource": "Source", "colLeft": "Left context", "colKw": "Word", "colRight": "Right context", "showing": "Showing the first {n} lines; the CSV export contains all {m}.", "page": "p.", "more": "Load more", "loaded": "{a} of {b} paragraphs loaded so far."}, "uk": {"title": "Конкорданс", "intro": "Усі вживання слова в контексті. Пошук охоплює всі словоформи (початкова форма визначається автоматично) і не зважає на наголоси та старі варіанти правопису. Оберіть мову тексту, відсортуйте рядки й експортуйте їх у CSV для власного аналізу.", "placeholder": "одне слово, напр. Галичина", "lang": "Мова тексту", "go": "Шукати", "searching": "Пошук…", "none": "Вживань не знайдено.", "summary": "{n} вживань у {p} абзацах — початкова форма: {l}", "forms": "Форми", "sort": "Сортувати за", "sortDate": "Датою", "sortLeft": "Лівим контекстом", "sortRight": "Правим контекстом", "sortForm": "Словоформою", "year": "Рік", "allYears": "Усі роки", "width": "Контекст", "export": "Експорт CSV", "colSource": "Джерело", "colLeft": "Лівий контекст", "colKw": "Слово", "colRight": "Правий контекст", "showing": "Показано перші {n} рядків; експорт у CSV містить усі {m}.", "page": "с.", "more": "Завантажити ще", "loaded": "Завантажено {a} з {b} абзаців."}, "pt": {"title": "Concordância", "intro": "Todas as ocorrências de uma palavra em contexto. A busca abrange todas as formas flexionadas da palavra (a forma-base é encontrada automaticamente) e ignora acentos e variantes ortográficas antigas. Escolha o idioma do texto, ordene as linhas e exporte-as em CSV para sua própria análise.", "placeholder": "uma palavra, ex.: Галичина", "lang": "Idioma do texto", "go": "Buscar", "searching": "Buscando…", "none": "Nenhuma ocorrência encontrada.", "summary": "{n} ocorrências em {p} parágrafos — forma-base: {l}", "forms": "Formas", "sort": "Ordenar por", "sortDate": "Data", "sortLeft": "Contexto esquerdo", "sortRight": "Contexto direito", "sortForm": "Forma da palavra", "year": "Ano", "allYears": "Todos os anos", "width": "Contexto", "export": "Exportar CSV", "colSource": "Fonte", "colLeft": "Contexto esquerdo", "colKw": "Palavra", "colRight": "Contexto direito", "showing": "Mostrando as primeiras {n} linhas; o CSV exportado contém todas as {m}.", "page": "p.", "more": "Carregar mais", "loaded": "{a} de {b} parágrafos carregados até agora."}, "de": {"title": "Konkordanz", "intro": "Jedes Vorkommen eines Wortes im Kontext. Die Suche erfasst alle gebeugten Formen des Wortes (die Grundform wird automatisch gefunden) und ignoriert Akzente und alte Schreibvarianten. Wählen Sie die Textsprache, sortieren Sie die Zeilen und exportieren Sie sie als CSV für eigene Analysen.", "placeholder": "ein Wort, z. B. Галичина", "lang": "Textsprache", "go": "Suchen", "searching": "Suche läuft…", "none": "Keine Vorkommen gefunden.", "summary": "{n} Vorkommen in {p} Absätzen — Grundform: {l}", "forms": "Formen", "sort": "Sortieren nach", "sortDate": "Datum", "sortLeft": "Linker Kontext", "sortRight": "Rechter Kontext", "sortForm": "Wortform", "year": "Jahr", "allYears": "Alle Jahre", "width": "Kontext", "export": "CSV exportieren", "colSource": "Quelle", "colLeft": "Linker Kontext", "colKw": "Wort", "colRight": "Rechter Kontext", "showing": "Die ersten {n} Zeilen werden angezeigt; der CSV-Export enthält alle {m}.", "page": "S.", "more": "Mehr laden", "loaded": "{a} von {b} Absätzen bisher geladen."}};
 const $ = id => document.getElementById(id);
 const uiLang = () => (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
 const T = () => I18N[uiLang()] || I18N.en;
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-const MAX_SHOWN = 1000;
-const postings = {}, shards = {};
-let rows = [], state = { lemma: "", lang: "uk" };
+const MAX_SHOWN = 1000, BATCH = 6, CHUNK = 300;
+const shards = {};
+let rows = [];
+let state = { lemma: "", lang: "uk", forms: new Set(), all: [], groups: [], next: 0, paras: 0, gen: 0, busy: false };
+let ISSUES = [];
 
-async function loadPostings(lang) {
-  if (!postings[lang]) {
-    const r = await fetch("../assets/concordance/" + lang + ".json");
-    postings[lang] = r.ok ? await r.json() : { issues: [], post: {} };
-  }
-  return postings[lang];
-}
 async function loadShard(id) {
   if (!shards[id]) {
     const r = await fetch("../assets/corpus/" + id + ".json");
@@ -145,27 +143,17 @@ function applyUi() {
   render();
 }
 
-async function search() {
-  const raw = $("cq").value.trim();
-  if (!raw) return;
-  const lang = $("clang").value;
-  history.replaceState({}, "", location.pathname + "?q=" + encodeURIComponent(raw) + "&lang=" + lang);
-  $("cmeta").textContent = T().searching;
-  const f = foldText(queryTokens(raw)[0] || raw);
-  const { maps } = await getLemmas("../");
-  const map = maps[lang] || {};
-  const lemma = map[f] || f;
-  const P = await loadPostings(lang);
-  const out = [];
-  for (const [ii, pi, ni] of P.post[lemma] || []) {
-    const iss = P.issues[ii];
-    const shard = await loadShard(iss.id);
+// The concordance lines of one issue: [pageIndex, paragraphIndex] postings -> rows.
+async function rowsFor(g) {
+  const iss = ISSUES[g.ii], lang = state.lang, out = [];
+  const shard = await loadShard(iss.id);
+  for (const [pi, ni] of g.list) {
     const pageId = iss.pages[pi];
     const para = ((shard.pages[pageId] || {})[lang] || [])[ni];
     if (!para) continue;
     for (const m of para.matchAll(/\p{L}+(?:['’ʼ-]\p{L}+)*/gu)) {
       const tf = foldText(m[0]);
-      if (tf !== lemma && map[tf] !== lemma) continue;
+      if (!state.forms.has(tf)) continue;
       out.push({
         issue: iss.id, date: shard.date, issueNo: shard.issue, pageId,
         pageNum: (pageId.match(/_page(\d+)$/) || [])[1] || "", para: ni,
@@ -174,12 +162,66 @@ async function search() {
       });
     }
   }
-  rows = out;
-  state = { lemma, lang };
-  const years = [...new Set(rows.map(r => r.date.slice(0, 4)))].sort();
-  $("cyear").innerHTML = `<option value="">${esc(T().allYears)}</option>` +
-    years.map(y => `<option>${y}</option>`).join("");
+  return out;
+}
+
+// Loads issue files a few at a time until `want` more lines are in (Infinity = all).
+async function loadMore(want) {
+  const gen = state.gen;
+  if (state.busy) return;
+  state.busy = true;
+  try {
+    const goal = rows.length + want;
+    while (gen === state.gen && state.next < state.groups.length && rows.length < goal) {
+      const batch = state.groups.slice(state.next, state.next + BATCH);
+      state.next += batch.length;
+      const parts = await Promise.all(batch.map(rowsFor));
+      if (gen !== state.gen) return;
+      for (const part of parts) rows.push(...part);
+      render();
+    }
+  } finally { if (gen === state.gen) state.busy = false; }
   render();
+}
+
+function applyYear() {
+  const y = $("cyear").value;
+  state.gen++;
+  state.busy = false;
+  state.groups = state.all.filter(g => !y || g.date.startsWith(y));
+  state.next = 0;
+  rows = [];
+  render();
+  loadMore(CHUNK);
+}
+
+async function search() {
+  const raw = $("cq").value.trim();
+  if (!raw) return;
+  const lang = $("clang").value;
+  history.replaceState({}, "", location.pathname + "?q=" + encodeURIComponent(raw) + "&lang=" + lang);
+  $("cmeta").textContent = T().searching;
+  const f = foldText(queryTokens(raw)[0] || raw);
+  const lemma = (await lemmaInLang(f, lang, "../")) || f;
+  const [post, idx, formList] = await Promise.all(
+    [postingsOf(lemma, lang, "../"), lexIssues("../"), formsOfLemma(lemma, lang, "../")]);
+  ISSUES = idx.issues;
+  const byIssue = new Map();
+  for (const [ii, pi, ni] of post) {
+    if (!byIssue.has(ii)) byIssue.set(ii, []);
+    byIssue.get(ii).push([pi, ni]);
+  }
+  const all = [...byIssue].map(([ii, list]) => ({ ii, list, date: ISSUES[ii].date }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+  state = { lemma, lang, forms: new Set([lemma, ...formList]), all, groups: all, next: 0,
+            paras: post.length, gen: state.gen + 1, busy: false };
+  rows = [];
+  const perYear = {};
+  for (const g of all) { const y = g.date.slice(0, 4); perYear[y] = (perYear[y] || 0) + g.list.length; }
+  $("cyear").innerHTML = `<option value="">${esc(T().allYears)}</option>` +
+    Object.keys(perYear).sort().map(y => `<option value="${y}">${y} (${perYear[y]})</option>`).join("");
+  render();
+  await loadMore(CHUNK);
 }
 
 const firstWord = s => foldText((s.trim().split(/\s+/)[0]) || "");
@@ -195,25 +237,28 @@ const trimLeft = (s, n) => (s.length > n ? s.slice(-n).replace(/^\S+\s+/, "") : 
 const trimRight = (s, n) => (s.length > n ? s.slice(0, n).replace(/\s+\S*$/, "") : s);
 
 function visibleRows() {
-  const y = $("cyear").value;
-  const list = rows.filter(r => !y || r.date.startsWith(y));
-  return list.sort(SORTERS[$("csort").value] || SORTERS.date);
+  return rows.slice().sort(SORTERS[$("csort").value] || SORTERS.date);
 }
 
 function render() {
   const t = T();
   const meta = $("cmeta");
-  if (!rows.length && !state.lemma) { meta.textContent = ""; return; }
-  const list = visibleRows();
-  if (!rows.length) {
+  if (!state.lemma) { meta.textContent = ""; return; }
+  const done = state.next >= state.groups.length && !state.busy;
+  if (!rows.length && !state.paras) {
     meta.textContent = t.none;
     for (const id of ["cforms", "cnote"]) $(id).textContent = "";
     $("ctools").style.display = "none";
     $("cscroll").style.display = "none";
+    $("cmore").style.display = "none";
     return;
   }
-  const paras = new Set(list.map(r => r.issue + r.pageId + r.para)).size;
-  meta.textContent = t.summary.replace("{n}", list.length).replace("{p}", paras).replace("{l}", state.lemma);
+  if (!rows.length) meta.textContent = done ? t.none : t.searching;
+  const list = visibleRows();
+  if (rows.length) {
+    const paras = new Set(list.map(r => r.issue + r.pageId + r.para)).size;
+    meta.textContent = t.summary.replace("{n}", list.length).replace("{p}", paras).replace("{l}", state.lemma);
+  }
   const counts = {};
   for (const r of list) counts[r.form] = (counts[r.form] || 0) + 1;
   $("cforms").textContent = t.forms + ": " + Object.entries(counts).sort((a, b) => b[1] - a[1])
@@ -226,12 +271,19 @@ function render() {
       `<td class="r">${esc(trimRight(r.right, w))}</td></tr>`;
   }).join("");
   $("ctools").style.display = "flex";
-  $("cscroll").style.display = "block";
-  $("cnote").textContent = list.length > MAX_SHOWN
-    ? t.showing.replace("{n}", MAX_SHOWN).replace("{m}", list.length) : "";
+  $("cscroll").style.display = rows.length ? "block" : "none";
+  const shownParas = state.groups.slice(0, state.next).reduce((n, g) => n + g.list.length, 0);
+  const totalParas = state.groups.reduce((n, g) => n + g.list.length, 0);
+  const notes = [];
+  if (list.length > MAX_SHOWN) notes.push(t.showing.replace("{n}", MAX_SHOWN).replace("{m}", list.length));
+  if (state.next < state.groups.length) notes.push(t.loaded.replace("{a}", shownParas).replace("{b}", totalParas));
+  $("cnote").textContent = notes.join(" ");
+  $("cmore").style.display = state.next < state.groups.length && !state.busy ? "inline-block" : "none";
 }
 
-function exportCsv() {
+async function exportCsv() {
+  while (state.busy) await new Promise(r => setTimeout(r, 100));
+  await loadMore(Infinity);
   const list = visibleRows(), w = +$("cwidth").value;
   const q = s => '"' + String(s).replace(/"/g, '""') + '"';
   const lines = [["date", "issue", "page", "paragraph", "left_context", "word", "right_context", "url"].join(",")];
@@ -251,7 +303,9 @@ function exportCsv() {
 
 $("cgo").addEventListener("click", search);
 $("cq").addEventListener("keydown", e => { if (e.key === "Enter") search(); });
-for (const id of ["csort", "cyear", "cwidth"]) $(id).addEventListener("change", render);
+for (const id of ["csort", "cwidth"]) $(id).addEventListener("change", render);
+$("cyear").addEventListener("change", applyYear);
+$("cmore").addEventListener("click", () => loadMore(CHUNK));
 $("cexport").addEventListener("click", exportCsv);
 document.addEventListener("langchange", applyUi);
 (function init() {
@@ -263,6 +317,6 @@ document.addEventListener("langchange", applyUi);
 </script>
 
 
-<script src="../assets/lang.js?v=202609210054"></script>
+<script src="../assets/lang.js?v=202609211023"></script>
 </body>
 </html>

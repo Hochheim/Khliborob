@@ -20,31 +20,46 @@ function foldChars(s) {
   return { out, map };
 }
 
-let _lemmas = null;
-// {maps: {lang: {form: lemma}}, inverse: {lang: {lemma: [forms]}}}
-async function getLemmas(base) {
-  if (_lemmas) return _lemmas;
-  let maps = {};
-  try {
-    const r = await fetch((base || "../") + "assets/lemmas.json");
-    if (r.ok) maps = await r.json();
-  } catch (err) { /* no lemma data: searches just use the words as typed */ }
-  const inverse = {};
-  for (const [lang, m] of Object.entries(maps)) {
-    const inv = inverse[lang] = {};
-    for (const [form, lem] of Object.entries(m)) (inv[lem] = inv[lem] || []).push(form);
+// ---- Sharded lookup data (see lexicon_shards.py) ------------------------------
+// Nothing here loads a whole vocabulary: each lookup fetches the one small file
+// its key hashes to. The hash MUST equal lexicon_shards.fnv1a().
+const _lexBase = b => (b || "../") + "assets/lex/";
+const _lexCache = {};
+function _fetchJson(url, fallback) {
+  if (!_lexCache[url]) {
+    _lexCache[url] = fetch(url).then(r => (r.ok ? r.json() : fallback)).catch(() => fallback);
   }
-  _lemmas = { maps, inverse };
-  return _lemmas;
+  return _lexCache[url];
 }
+function fnv1a(s) {
+  let h = 0x811c9dc5;
+  for (const b of new TextEncoder().encode(s)) { h ^= b; h = Math.imul(h, 0x01000193) >>> 0; }
+  return h >>> 0;
+}
+async function lexBuckets(base) { return (await _fetchJson(_lexBase(base) + "manifest.json", { buckets: 8 })).buckets; }
+// kind: form | inv | post | stem. Returns the {key: value} shard the key belongs to.
+async function lexShard(kind, lang, key, base) {
+  const n = await lexBuckets(base);
+  return _fetchJson(`${_lexBase(base)}${kind}/${lang}/${fnv1a(key) % n}.json`, {});
+}
+async function lexIssues(base) { return _fetchJson(_lexBase(base) + "issues.json", { issues: [], totalPages: 0 }); }
+// folded word stem, cut like the Research Agent's stemOf()
+const stemKey = f => (f.length >= 6 ? f.slice(0, f.length - 2) : (f.length >= 4 ? f.slice(0, f.length - 1) : f));
 
 // Cyrillic is Ukrainian; a Latin-script word could be Portuguese, German or English.
 const langsFor = f => (/[Ѐ-ӿ]/.test(f) ? ["uk"] : ["pt", "de", "en"]);
 
+async function lemmaInLang(f, lang, base) { return (await lexShard("form", lang, f, base))[f] || null; }
+async function formsOfLemma(lemma, lang, base) { return (await lexShard("inv", lang, lemma, base))[lemma] || []; }
+async function postingsOf(lemma, lang, base) { return (await lexShard("post", lang, lemma, base))[lemma] || []; }
+async function stemPagesOf(stem, lang, base) { return (await lexShard("stem", lang, stem, base))[stem] || []; }
+
 // The lemma of a folded word and the language it was found in, or null.
 async function lemmaOf(f, base) {
-  const { maps } = await getLemmas(base);
-  for (const l of langsFor(f)) if (maps[l] && maps[l][f]) return { lemma: maps[l][f], lang: l };
+  for (const l of langsFor(f)) {
+    const lem = await lemmaInLang(f, l, base);
+    if (lem) return { lemma: lem, lang: l };
+  }
   return null;
 }
 
@@ -65,7 +80,6 @@ async function lemmaQuery(q, base) {
 // Every folded form of each query word's lemma (the lemma itself included), for
 // highlighting and concordance matching as whole words.
 async function inflectedForms(q, base) {
-  const { inverse } = await getLemmas(base);
   const forms = new Set();
   for (const w of queryTokens(q)) {
     const f = foldText(w);
@@ -73,7 +87,7 @@ async function inflectedForms(q, base) {
     const lemma = hit ? hit.lemma : f;
     forms.add(f);
     forms.add(lemma);
-    for (const l of langsFor(f)) for (const x of (inverse[l] && inverse[l][lemma]) || []) forms.add(x);
+    for (const l of langsFor(f)) for (const x of await formsOfLemma(lemma, l, base)) forms.add(x);
   }
   return [...forms].filter(x => x.length >= 2);
 }
