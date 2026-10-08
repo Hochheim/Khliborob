@@ -1,0 +1,300 @@
+
+:root {
+  --blue:    #1a4a8a;
+  --yellow:  #FFD500;
+  --blue-lt: #e8f0fb;
+  --gpu-bg:  #fff8e6;
+  --gpu-bd:  #c8a800;
+  --gpu-tx:  #7a5c00;
+  --text:    #1a1a1a;
+  --muted:   #666;
+  --border:  #ddd;
+  --bg:      #f8f8f6;
+  --card-bg: #fff;
+  --radius:  8px;
+  --nav-h:   52px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text:    #eee;
+    --muted:   #aaa;
+    --border:  #333;
+    --bg:      #111;
+    --card-bg: #1c1c1c;
+    --blue-lt: #0d2545;
+    --gpu-bg:  #2a2000;
+    --gpu-bd:  #9a7a00;
+    --gpu-tx:  #e8c840;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+     background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;
+     /* Most text on this site uses explicit inline font-size:Npx (hundreds
+        of individual declarations across dozens of page builders), which
+        would make a real site-wide size increase a huge, risky refactor to
+        do by editing every declaration. zoom scales everything — text,
+        spacing, icons — uniformly and proportionally instead, same effect
+        as a reader pressing browser zoom, without touching any of those
+        individual declarations or their carefully-tuned relative sizing. */
+     zoom:1.15}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:var(--blue);height:var(--nav-h);
+    display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem}
+.nav-brand{display:flex;align-items:center;gap:.6rem}
+.flag{width:24px;height:16px;display:flex;flex-direction:column;
+      border-radius:2px;overflow:hidden;flex-shrink:0}
+.flag-top{background:#005BBB;flex:1}
+.flag-bot{background:#FFD500;flex:1}
+.nav-title{font-size:14px;font-weight:500;color:#fff}
+.nav-links{display:flex;gap:1.2rem;align-items:center}
+.nav-links a{font-size:13px;color:rgba(255,255,255,.85)}
+.nav-dropdown{position:relative}
+.nav-dropdown-toggle{font-size:13px;color:rgba(255,255,255,.85);background:none;border:none;
+                     cursor:pointer;display:flex;align-items:center;gap:3px;padding:0;
+                     font-family:inherit}
+.nav-dropdown-toggle::after{content:"▾";font-size:10px;opacity:.7}
+.nav-dropdown-menu{display:none;position:absolute;top:calc(100% + 12px);left:0;
+                   background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.18);
+                   padding:6px;min-width:150px;z-index:101}
+.nav-dropdown-menu.open{display:block}
+.nav-dropdown-menu a{display:block;font-size:13px;color:var(--text);padding:7px 10px;
+                     border-radius:5px;white-space:nowrap}
+.nav-dropdown-menu a:hover{background:var(--blue-lt)}
+.lang-switcher{display:flex;gap:.3rem;margin-left:.8rem;
+               border-left:1px solid rgba(255,255,255,.3);padding-left:.8rem}
+.lang-btn{font-size:11px;padding:3px 7px;border-radius:3px;cursor:pointer;
+          border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);
+          background:transparent}
+.lang-btn.active{background:#FFD500;color:#1a1a1a;border-color:#FFD500;font-weight:500}
+.tlang-switcher{display:flex;gap:.3rem;flex-shrink:0}
+.tlang-btn{font-size:11px;padding:3px 7px;border-radius:3px;cursor:pointer;
+          border:1px solid var(--border);color:var(--muted);background:transparent}
+.tlang-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);font-weight:500}
+.issue-main-grid{display:grid;grid-template-columns:230px 1fr;gap:1.2rem;
+                  margin-bottom:1.2rem;align-items:start}
+.article-index-sidebar{background:var(--card-bg);border:1px solid var(--border);
+                        border-radius:var(--radius);padding:.8rem;
+                        position:sticky;top:1rem;max-height:85vh;overflow-y:auto}
+.article-index-sidebar h3{font-size:12px;font-weight:500;color:var(--muted);
+                           text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.article-index-list{list-style:none;margin:0;padding:0}
+.article-index-item{padding:6px 4px;font-size:12.5px;line-height:1.35;cursor:pointer;
+                     border-bottom:1px solid var(--border)}
+.article-index-item:last-child{border-bottom:none}
+.article-index-item.sub{padding:4px 4px 4px 14px;font-size:11.5px;color:var(--muted);
+                         border-bottom:none;border-left:2px solid var(--border);margin-left:6px}
+.article-index-item.sub:hover,.article-index-item.sub:focus{color:var(--text)}
+.article-index-item.auto span[data-lang-en],.article-index-item.auto span[data-lang-uk],
+.article-index-item.auto span[data-lang-pt],.article-index-item.auto span[data-lang-de]{font-style:italic}
+.article-index-note{font-size:10.5px;color:var(--muted);margin:-.2rem 0 .5rem}
+.article-index-item:hover,.article-index-item:focus{background:var(--blue-lt);outline:none}
+.article-index-page{display:block;font-size:9.5px;font-weight:600;color:var(--blue);
+                     text-transform:uppercase;letter-spacing:.03em;margin-bottom:1px}
+@media(max-width:640px){
+  .issue-main-grid{grid-template-columns:1fr}
+  .article-index-sidebar{position:static;max-height:none}
+}
+
+/* HERO */
+.hero{background:var(--blue);color:#fff;padding:3.5rem 2.5rem}
+.hero h1{font-size:26px;font-weight:500;margin-bottom:.4rem}
+.hero p{font-size:14px;opacity:.85;max-width:520px;margin-bottom:1.2rem;line-height:1.6}
+.search-box{display:flex;gap:.5rem;max-width:560px}
+.search-box input{flex:1;font-size:14px;padding:.55rem .9rem;
+                  border:none;border-radius:var(--radius);
+                  background:rgba(255,255,255,.95);color:#222}
+.search-box input:focus{outline:2px solid var(--yellow);outline-offset:1px}
+.search-box button{font-size:13px;padding:.55rem 1.1rem;border:none;
+                   border-radius:var(--radius);background:var(--yellow);
+                   color:#1a1a1a;font-weight:500;cursor:pointer}
+.search-box button:hover{background:#e8c800}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);
+       border-bottom:1px solid var(--border)}
+.stat{padding:1.5rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.stat-num{font-size:22px;font-weight:500;color:var(--blue)}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:.1rem}
+
+/* BROWSE */
+.browse-layout{display:grid;grid-template-columns:200px 1fr;gap:0;
+               min-height:calc(100vh - var(--nav-h) - 200px)}
+.sidebar{border-right:1px solid var(--border);padding:1.2rem;
+         background:var(--card-bg)}
+.sidebar h3{font-size:11px;font-weight:500;color:var(--muted);
+            text-transform:uppercase;letter-spacing:.06em;margin-bottom:.7rem}
+.decade-group{margin-bottom:.6rem}
+.decade-toggle{display:flex;align-items:center;justify-content:space-between;
+               font-size:12px;font-weight:500;color:var(--text);cursor:pointer;
+               padding:.3rem .4rem;border-radius:4px;user-select:none;
+               background:var(--blue-lt)}
+.decade-toggle:hover{background:var(--blue);color:#fff}
+.decade-toggle .arrow{font-size:10px;transition:transform .2s}
+.decade-toggle.collapsed .arrow{transform:rotate(-90deg)}
+.decade-years{overflow:hidden;transition:max-height .2s ease}
+.year-link{display:block;font-size:13px;color:var(--text);
+           padding:.15rem .6rem;border-radius:4px;text-decoration:none}
+.year-link:hover{background:var(--blue-lt);color:var(--blue)}
+.year-link.active{background:var(--blue);color:#fff;font-weight:500}
+.year-link.has-gpu::after{content:" ●";color:var(--gpu-bd);font-size:9px}
+
+.main-content{padding:1.5rem}
+.main-content h2{font-size:18px;font-weight:500;margin-bottom:1rem}
+.issue-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.8rem}
+.issue-card{background:var(--card-bg);border:1px solid var(--border);
+            border-radius:var(--radius);padding:.75rem;cursor:pointer;
+            text-decoration:none;display:block;transition:border-color .15s}
+.issue-card:hover{border-color:var(--blue)}
+.issue-card.gpu-linked{border-color:var(--gpu-bd)}
+.issue-date{font-size:11px;color:var(--muted)}
+.issue-num{font-size:14px;font-weight:500;color:var(--text);margin:.2rem 0}
+.issue-meta{font-size:11px;color:var(--muted)}
+.gpu-tag{display:inline-block;font-size:10px;padding:1px 5px;border-radius:3px;
+         background:var(--gpu-bg);color:var(--gpu-tx);margin-top:.3rem;
+         border:1px solid var(--gpu-bd)}
+
+/* ISSUE PAGE */
+.issue-layout{max-width:960px;margin:0 auto;padding:1.5rem}
+.issue-header{margin-bottom:1.2rem;padding-bottom:1rem;
+              border-bottom:1px solid var(--border)}
+.issue-header h1{font-size:22px;font-weight:500;margin-bottom:.2rem}
+.issue-header p{font-size:13px;color:var(--muted)}
+.gpu-connection{background:var(--gpu-bg);border:.5px solid var(--gpu-bd);
+                border-left:4px solid var(--gpu-bd);border-radius:0 var(--radius) var(--radius) 0;
+                padding:.8rem 1rem;margin-bottom:1.2rem}
+.gpu-connection h3{font-size:13px;font-weight:500;color:var(--gpu-tx);margin-bottom:.3rem}
+.gpu-connection p{font-size:12px;color:var(--gpu-tx);line-height:1.5}
+.gpu-connection .gpu-meta{font-size:11px;color:var(--muted);margin-top:.4rem}
+
+.content-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:1.2rem}
+.content-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-bottom:1.2rem}
+@media (max-width:1100px){.content-grid-4{grid-template-columns:1fr 1fr}}
+.content-panel{background:var(--card-bg);border:1px solid var(--border);
+               border-radius:var(--radius);padding:1rem}
+.content-panel h3{font-size:12px;font-weight:500;color:var(--muted);
+                  text-transform:uppercase;letter-spacing:.05em;margin-bottom:.7rem}
+.transcript{font-size:13px;line-height:1.7;max-height:70vh;overflow-y:auto;
+            word-break:break-word}
+.transcript .t-head{display:inline-block;font-weight:700;letter-spacing:.02em;
+            margin:.3rem 0 .1rem;color:var(--blue)}
+.transcript p{margin:0 0 .8rem;transition:background-color 1.6s ease;border-radius:3px}
+.transcript p.xlink-highlight{background-color:#ffd60a55;transition:background-color .15s ease}
+.xlink-jump{display:inline-block;cursor:pointer;color:var(--blue);font-size:.85em;
+            opacity:.55;margin-left:2px;user-select:none}
+.xlink-jump:hover{opacity:1}
+.map-frame{width:100%;height:420px;border:none;border-radius:var(--radius)}
+.graph-frame{width:100%;height:320px;border:none;border-radius:var(--radius)}
+.meta-table{width:100%;font-size:12px;border-collapse:collapse}
+.meta-table td{padding:.3rem .4rem;border-bottom:1px solid var(--border);
+               vertical-align:top}
+.meta-table td:first-child{color:var(--muted);width:120px;font-weight:500}
+.meta-table td a{word-break:break-all;font-size:11px}
+.entity-list{display:flex;flex-wrap:wrap;gap:.3rem}
+.entity-tag{font-size:11px;padding:2px 7px;border-radius:3px;
+            background:var(--blue-lt);color:var(--blue)}
+.entity-tag[role="button"]{cursor:pointer}
+.entity-tag[role="button"]:hover,.entity-tag[role="button"]:focus{
+  background:var(--blue);color:#fff;outline:none}
+
+/* GPU DOCS PAGE */
+.gpu-page{max-width:800px;margin:0 auto;padding:1.5rem}
+.gpu-doc-card{background:var(--card-bg);border:1px solid var(--border);
+              border-radius:var(--radius);padding:1.2rem;margin-bottom:1rem}
+.gpu-doc-card h2{font-size:16px;font-weight:500;margin-bottom:.4rem}
+.gpu-doc-card .arch-ref{font-size:12px;color:var(--muted);margin-bottom:.7rem;
+                        font-family:monospace}
+.gpu-doc-card p{font-size:13px;line-height:1.6;margin-bottom:.5rem}
+.issue-links{display:flex;gap:.4rem;flex-wrap:wrap}
+.issue-link{font-size:11px;padding:2px 7px;border-radius:3px;
+            background:var(--blue-lt);color:var(--blue);text-decoration:none}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:1.2rem 1.5rem;
+       font-size:12px;color:var(--muted);text-align:center;margin-top:2rem}
+
+/* SEARCH RESULTS */
+#search-results{padding:1.5rem;max-width:800px;margin:0 auto}
+.result-card{background:var(--card-bg);border:1px solid var(--border);
+             border-radius:var(--radius);padding:.8rem 1rem;margin-bottom:.6rem}
+.result-date{font-size:11px;color:var(--muted)}
+.result-title{font-size:14px;font-weight:500;margin:.2rem 0}
+.result-snippet{font-size:12px;color:var(--muted);line-height:1.5}
+/* Search tab: no fixed-height box with its own scrollbar. The results are part
+   of the page, so scrolling moves the menu and title away and the results fill
+   the window. (!important: the wrapper's and panel's sizes are inline styles
+   that the Ask tab relies on.) */
+.agent-wrap.search-mode{height:auto !important;padding-bottom:4rem !important}
+.agent-wrap.search-mode #fulltext-panel{flex:none !important;overflow:visible !important;min-height:auto !important}
+.search-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:1.4rem;align-items:start}
+.search-layout.single{grid-template-columns:minmax(0,1fr)}
+.search-col-title{font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+                  color:var(--muted);margin:0 0 .6rem;padding-bottom:.35rem;
+                  border-bottom:1px solid var(--border)}
+.lemmas{display:none !important}
+.scan-jump{cursor:pointer;margin-left:.4rem;font-size:.85em;opacity:0;transition:opacity .15s;user-select:none}
+p:hover .scan-jump,.scan-jump:focus{opacity:.85}
+@media(hover:none){.scan-jump{opacity:.6}}
+#scan-hl{position:absolute;display:none;pointer-events:none;z-index:3;box-sizing:border-box;
+  border:4px solid #e11d48;background:rgba(255,210,0,.18);border-radius:4px}
+#scan-hl.flash{animation:scanflash 1.6s ease-out 1}
+@keyframes scanflash{0%{box-shadow:0 0 0 0 rgba(225,29,72,.6)}60%{box-shadow:0 0 0 26px rgba(225,29,72,0)}
+  100%{box-shadow:0 0 0 0 rgba(225,29,72,0)}}
+#scan-back{position:absolute;top:8px;left:10px;z-index:4;display:none;font-size:12px;padding:4px 11px;
+  border-radius:14px;border:none;background:#e11d48;color:#fff;cursor:pointer}
+.result-dl,.result-dlall{font-size:11px;color:var(--muted);margin-top:.55rem;display:flex;
+           flex-wrap:wrap;align-items:center;gap:.35rem}
+.result-dlall{margin:0 0 .8rem;padding:.5rem .7rem;border:1px dashed var(--border);
+           border-radius:var(--radius)}
+.result-dl select,.result-dl button,.result-dlall select,.result-dlall button{font-size:11px;
+           padding:1px 7px;border:1px solid var(--border);border-radius:4px;background:transparent;
+           color:var(--blue);cursor:pointer;font-family:inherit}
+.result-dl button:disabled,.result-dlall button:disabled{opacity:.5;cursor:wait}
+.result-dlall .dl-note{flex-basis:100%;font-size:10.5px}
+.gbadge{color:#fff;border-radius:9px;padding:0 7px;font-size:10px;margin-left:.35rem;white-space:nowrap}
+.genre-chips{display:flex;flex-wrap:wrap;gap:.35rem;margin:0 0 .8rem}
+.gchip{font-size:11px;padding:.15rem .6rem;border-radius:12px;border:1px solid var(--border);
+  background:transparent;color:var(--text);cursor:pointer}
+.gchip.on{background:var(--blue);color:#fff;border-color:transparent}
+.passage-cont{margin-top:-.35rem;margin-left:1.25rem;border-top-style:dashed}
+.passage-cont .result-title{display:none}
+.result-issue{font-size:12px;font-weight:600;margin:1rem 0 .4rem;padding-bottom:.25rem;
+              border-bottom:1px solid var(--border)}
+.result-issue:first-of-type{margin-top:.2rem}
+.search-more{font-size:12px;padding:.4rem .9rem;border:1px solid var(--border);border-radius:6px;
+             background:transparent;color:var(--blue);cursor:pointer;margin:.4rem 0 1rem}
+.search-subhead{font-size:11px;font-weight:600;color:var(--muted);margin:.9rem 0 .4rem;
+               padding-left:.15rem}
+.search-subhead:first-of-type{margin-top:.1rem}
+.search-side .result-card{padding:.55rem .75rem;background:transparent}
+.search-side .result-title{font-size:13px}
+.search-side .result-snippet{font-size:11px}
+@media(max-width:760px){.search-layout{grid-template-columns:minmax(0,1fr)}}
+mark{background:var(--yellow);color:#1a1a1a;border-radius:2px;padding:0 2px}
+
+@media(max-width:640px){
+  .browse-layout{grid-template-columns:1fr}
+  .sidebar{border-right:none;border-bottom:1px solid var(--border)}
+  .content-grid{grid-template-columns:1fr}
+  .content-grid .content-panel:not(:first-child){margin-top:.8rem}
+  .content-grid-4{grid-template-columns:1fr}
+  .content-grid-4 .content-panel:not(:first-child){margin-top:.8rem}
+  .stats{grid-template-columns:1fr}
+  .stat{border-right:none;border-bottom:1px solid var(--border)}
+  /* Nav has 7 links/dropdowns + a 4-button language switcher in one
+     unwrapped flex row; on a phone that overflows the page horizontally
+     site-wide since nav is sticky on every page. Let the links scroll
+     horizontally within the nav bar instead, like a tab strip, rather
+     than blowing out the page width. */
+  nav{padding:0 .8rem}
+  .nav-title{max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .nav-links{overflow-x:auto;flex-wrap:nowrap;gap:.9rem;-webkit-overflow-scrolling:touch;
+             scrollbar-width:none;padding-bottom:1px}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{white-space:nowrap}
+  .lang-switcher{flex-shrink:0}
+}

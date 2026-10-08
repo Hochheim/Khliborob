@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search — Khliborob Digital Archive</title>
+<meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css?v=202610081331">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="../index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
+      <div class="nav-dropdown-menu">
+        <a href="../persons/" data-i18n="persons">Persons</a>
+        <a href="../locations/" data-i18n="locations">Locations</a>
+        <a href="../organizations/" data-i18n="organizations">Organizations</a>
+        <a href="../concordance/" data-i18n="nav_concordance">Concordance</a>
+        <a href="../genres/" data-i18n="nav_genres">Article types</a>
+      </div>
+    </div>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../research-questions/" data-i18n="nav_questions">Research Questions</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+</nav>
+
+<div style="padding:3rem 1.5rem;text-align:center;font-size:13px;color:var(--muted)">
+  <p>Redirecting to <a href="../chat/">Research Agent → Search</a>…</p>
+</div>
+<script>
+const params = new URLSearchParams(window.location.search);
+const q = params.get('q');
+window.location.replace('../chat/' + (q ? '?q=' + encodeURIComponent(q) : ''));
+</script>
+
+<script src="../assets/lang.js?v=202610081331"></script>
+</body>
+</html>

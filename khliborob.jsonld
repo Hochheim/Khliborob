@@ -1,0 +1,63 @@
+{
+ "@context": "https://schema.org",
+ "@type": "Periodical",
+ "@id": "https://hochheim.github.io/Khliborob/#periodical",
+ "name": "Khliborob / O Lavrador",
+ "alternateName": "Хлібороб",
+ "url": "https://hochheim.github.io/Khliborob/",
+ "inLanguage": [
+  "uk",
+  "pt"
+ ],
+ "contentLocation": {
+  "@type": "Place",
+  "name": "Porto União"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "SUBRAS (Sociedade Ucraniana do Brasil)"
+ },
+ "provider": {
+  "@type": "Organization",
+  "name": "Khliborob Digital Archive (University of Münster)"
+ },
+ "isAccessibleForFree": true,
+ "hasPart": [
+  {
+   "@type": "PublicationIssue",
+   "@id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/#issue",
+   "name": "УКРАЇНСЬКИЙ ХЛІБОРОБ / O Lavrador, No. № 11 (139), 1927-03-16",
+   "datePublished": "1927-03-16",
+   "url": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/",
+   "metadataUrl": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/metadata.jsonld"
+  },
+  {
+   "@type": "PublicationIssue",
+   "@id": "https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/#issue",
+   "name": "Український Хлібороб / O Lavrador, No. V. 30. (207), 1928-09-26",
+   "datePublished": "1928-09-26",
+   "url": "https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/",
+   "metadataUrl": "https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/metadata.jsonld"
+  }
+ ],
+ "distribution": [
+  {
+   "@type": "DataDownload",
+   "name": "Dublin Core / OAI-PMH snapshot",
+   "encodingFormat": "text/xml",
+   "contentUrl": "https://hochheim.github.io/Khliborob/oai-pmh.xml"
+  },
+  {
+   "@type": "DataDownload",
+   "name": "Europeana Data Model (EDM)",
+   "encodingFormat": "application/rdf+xml",
+   "contentUrl": "https://hochheim.github.io/Khliborob/edm/khliborob-edm.rdf.xml"
+  },
+  {
+   "@type": "DataDownload",
+   "name": "IIIF collection",
+   "encodingFormat": "application/ld+json",
+   "contentUrl": "https://hochheim.github.io/Khliborob/iiif/collection.json"
+  }
+ ]
+}

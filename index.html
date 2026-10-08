@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home — Khliborob Digital Archive</title>
+<meta name="description" content="Pilot digital archive of 2 digitized issues (8 pages) of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil since 1927. Searchable transcripts, translations, person and location indices, and declassified Soviet intelligence documents from the Holodomor period.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/main.css?v=202610081331">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="feed.xml">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Khliborob Digital Archive", "alternateName": "Хлібороб / O Lavrador Digital Archive", "description": "Pilot digital archive of 2 digitized issues (8 pages) of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil since 1927. Searchable transcripts, translations, person and location indices, and declassified Soviet intelligence documents from the Holodomor period.", "url": "https://hochheim.github.io/Khliborob/", "creator": {"@type": "Organization", "name": "SUBRAS (Sociedade Ucraniana do Brasil)"}, "publisher": {"@type": "CollegeOrUniversity", "name": "University of Münster"}, "temporalCoverage": "1927/..", "inLanguage": ["uk", "en", "pt"], "isAccessibleForFree": true, "distribution": {"@type": "DataDownload", "encodingFormat": "text/xml", "contentUrl": "https://hochheim.github.io/Khliborob/oai-pmh.xml"}}</script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="about/" data-i18n="nav_about">About</a>
+    <a href="browse/" data-i18n="nav_browse">Browse</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
+      <div class="nav-dropdown-menu">
+        <a href="persons/" data-i18n="persons">Persons</a>
+        <a href="locations/" data-i18n="locations">Locations</a>
+        <a href="organizations/" data-i18n="organizations">Organizations</a>
+        <a href="concordance/" data-i18n="nav_concordance">Concordance</a>
+        <a href="genres/" data-i18n="nav_genres">Article types</a>
+      </div>
+    </div>
+    <a href="aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="research-questions/" data-i18n="nav_questions">Research Questions</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div style="display:flex;gap:4rem;align-items:center;flex-wrap:wrap;max-width:1100px;margin:0 auto">
+    <div style="flex:1 1 440px;min-width:300px">
+      <h1>Хлібороб · O Lavrador</h1>
+      <p data-i18n="hero_subtitle">Digital archive of Khliborob / O Lavrador — the Ukrainian diaspora newspaper in Brazil (1924–present)</p>
+      <div class="search-box">
+        <input type="search" data-i18n="search_placeholder" placeholder="Search all pages — e.g. Galicia, Curitiba, Pope" id="q" />
+        <button onclick="doSearch()" data-i18n="search_btn">Search</button>
+      </div>
+      <p data-i18n="pilot_notice" style="font-size:11px;opacity:.7;max-width:520px;margin-top:1.1rem;
+         margin-bottom:0;line-height:1.5">Pilot corpus: this demo currently contains 8 of an
+         estimated 14,000+ pages held by SUBRAS (2 issues), digitized to demonstrate the pipeline
+         as part of a grant application.</p>
+    </div>
+    <p data-i18n="site_intro" style="flex:1 1 400px;min-width:280px;font-size:13px;line-height:1.7;
+       opacity:.9;margin:0;max-width:520px">
+      Khliborob (Хлібороб, 'The Farmer'), founded in Porto União, Paraná in 1924 and published
+      as O Lavrador since the 1940s, is one of the longest-running Ukrainian diaspora newspapers
+      in the world. For a century it has chronicled the life of the Ukrainian community in
+      Brazil — its parishes and schools, its politics, and its ties to Ukraine through war,
+      famine, and independence. This archive presents digitized issues with searchable Ukrainian
+      transcripts, English and Portuguese translations, and indices of the people and places
+      they mention. Every page scan is preserved on IPFS and anchored on the Polygon blockchain,
+      alongside declassified Soviet intelligence files documenting the newspaper's surveillance
+      during the Holodomor.
+    </p>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-num">2</div>
+    <div class="stat-lbl" data-i18n="stat_issues">digitized issues</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">8</div>
+    <div class="stat-lbl" data-i18n="stat_pages">searchable pages</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1927</div>
+    <div class="stat-lbl" data-i18n="stat_from">first issue</div>
+  </div>
+</div>
+
+<div style="padding:2.5rem;max-width:1100px;margin:0 auto">
+  <div style="max-width:560px;margin:0 auto 1.8rem">
+
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+         transition:box-shadow .15s;cursor:pointer" onclick="location.href='browse/'"
+         onmouseover="this.style.boxShadow='0 4px 12px rgba(26,74,138,.15)'"
+         onmouseout="this.style.boxShadow='none'">
+      <img src="assets/scans/khliborob_19270316_no11_page01_thumb.jpg" style="width:100%;height:140px;object-fit:cover;object-position:top;display:block" alt="Newspaper scan">
+      <div style="padding:1rem">
+        <h3 data-i18n="home_browse_title" style="font-size:15px;font-weight:500;margin-bottom:.3rem">Browse the Archive</h3>
+        <p style="font-size:12px;color:var(--muted);margin-bottom:.8rem;line-height:1.5">
+          2 <span data-i18n="home_browse_desc1">digitized issues from</span>
+          1927 <span data-i18n="home_browse_desc2">to present. Navigate by year and decade.</span>
+        </p>
+        <span data-i18n="home_browse_cta" style="display:inline-flex;align-items:center;gap:.4rem;
+          background:#1a4a8a;color:#fff;padding:.5rem 1rem;border-radius:var(--radius);
+          font-size:13px;font-weight:500">
+          📂 Browse all issues →
+        </span>
+      </div>
+    </div>
+
+<script>
+function doSearch() {
+  const q = document.getElementById('q').value.trim();
+  if (q) window.location.href = 'chat/?q=' + encodeURIComponent(q);
+}
+document.getElementById('q').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doSearch();
+});
+</script>
+<footer>
+  <span data-i18n="footer_credit">This newspaper is preserved by SUBRAS (Sociedade Ucraniana do Brasil).</span>
+</footer>
+<script src="assets/lang.js?v=202610081331"></script>
+</body>
+</html>

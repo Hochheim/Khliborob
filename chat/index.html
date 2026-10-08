@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Agent — Khliborob Digital Archive</title>
+<meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css?v=202610081331">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
+<script src="../assets/lang-tools.js?v=202610081331"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="../index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
+      <div class="nav-dropdown-menu">
+        <a href="../persons/" data-i18n="persons">Persons</a>
+        <a href="../locations/" data-i18n="locations">Locations</a>
+        <a href="../organizations/" data-i18n="organizations">Organizations</a>
+        <a href="../concordance/" data-i18n="nav_concordance">Concordance</a>
+        <a href="../genres/" data-i18n="nav_genres">Article types</a>
+      </div>
+    </div>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../research-questions/" data-i18n="nav_questions">Research Questions</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Height: the window minus the 60px nav, divided by the page's zoom (body{zoom:1.15}) so the search box ends at the bottom edge of the window instead of running past it. -->
+<div class="agent-wrap" style="max-width:800px;margin:0 auto;padding:1.5rem;display:flex;flex-direction:column;height:calc((100vh - 60px) / 1.15)">
+  <div style="margin-bottom:1rem">
+    <h1 style="font-size:20px;font-weight:500;margin-bottom:.3rem" data-i18n="nav_chat">Research Agent</h1>
+    <p style="font-size:13px;color:var(--muted)">
+      <span data-lang-en>Ask questions about the archive in Ukrainian, English, or Brazilian Portuguese.
+      The agent retrieves the relevant passages from the digitized corpus and — when AI
+      synthesis is enabled below — writes a grounded answer with inline citations.
+      Without it, matching passages are quoted verbatim. Either way, every claim links
+      to its source. Covers the <a href="../about/">pilot corpus</a> (2 issues) only.</span>
+      <span data-lang-uk style="display:none">Задавайте питання про архів українською, англійською або
+      бразильською португальською. Агент знаходить відповідні уривки в оцифрованому корпусі й —
+      якщо ввімкнено синтез ШІ нижче — формує обґрунтовану відповідь із вбудованими посиланнями.
+      Без цього збіжні уривки цитуються дослівно. У будь-якому разі кожне твердження посилається
+      на джерело. Охоплює лише <a href="../about/">пілотний корпус</a> (2 випуски).</span>
+      <span data-lang-pt style="display:none">Faça perguntas sobre o arquivo em ucraniano, inglês ou
+      português brasileiro. O agente recupera as passagens relevantes do corpus digitalizado e —
+      quando a síntese por IA estiver ativada abaixo — escreve uma resposta fundamentada com
+      citações incorporadas. Sem isso, as passagens correspondentes são citadas literalmente. De
+      qualquer forma, toda afirmação está vinculada à sua fonte. Cobre apenas o
+      <a href="../about/">corpus piloto</a> (2 edições).</span>
+      <span data-lang-de style="display:none">Stellen Sie Fragen zum Archiv auf Ukrainisch, Englisch
+      oder brasilianischem Portugiesisch. Der Assistent ruft die relevanten Passagen aus dem
+      digitalisierten Korpus ab und verfasst — wenn die KI-Synthese unten aktiviert ist — eine
+      belegte Antwort mit eingebetteten Quellenangaben. Ohne diese Funktion werden übereinstimmende
+      Passagen wörtlich zitiert. So oder so verweist jede Aussage auf ihre Quelle. Deckt nur den
+      <a href="../about/">Pilotkorpus</a> (2 Ausgaben) ab.</span>
+    </p>
+  </div>
+
+  <div id="agent-tabs" style="display:flex;gap:.4rem;margin-bottom:.9rem;border-bottom:1px solid var(--border)">
+    <button class="agent-tab active" id="tab-btn-ask" onclick="switchAgentTab('ask')">
+      💬 <span data-i18n="tab_ask">Ask</span>
+    </button>
+    <button class="agent-tab" id="tab-btn-search" onclick="switchAgentTab('search')">
+      🔍 <span data-i18n="tab_search">Search all pages</span>
+    </button>
+  </div>
+
+  <div id="agent-panel" style="flex:1;display:flex;flex-direction:column;min-height:0">
+  <div id="chat-messages" style="flex:1;overflow-y:auto;border:1px solid var(--border);
+       border-radius:var(--radius);padding:1rem;background:var(--card-bg);margin-bottom:1rem;
+       display:flex;flex-direction:column;gap:.8rem">
+    <div class="msg msg-system">
+      <div class="msg-bubble msg-bubble-system">
+        <span data-lang-en>👋 Welcome to the Khliborob Research Agent. Ask about people, places, or events in
+        <em>Хлібороб / O Lavrador</em> — in Ukrainian, English, or Portuguese. Answers are
+        grounded in the corpus and cite their sources. Try one of these:</span>
+        <span data-lang-uk style="display:none">👋 Ласкаво просимо до Дослідницького агента Khliborob.
+        Запитуйте про людей, місця чи події в <em>Хлібороб / O Lavrador</em> — українською,
+        англійською чи португальською. Відповіді ґрунтуються на корпусі й посилаються на джерела.
+        Спробуйте одне з цих:</span>
+        <span data-lang-pt style="display:none">👋 Bem-vindo ao Agente de Pesquisa do Khliborob.
+        Pergunte sobre pessoas, lugares ou eventos em <em>Хлібороб / O Lavrador</em> — em ucraniano,
+        inglês ou português. As respostas são fundamentadas no corpus e citam suas fontes.
+        Experimente uma destas:</span>
+        <span data-lang-de style="display:none">👋 Willkommen beim Khliborob-Forschungsassistenten.
+        Fragen Sie nach Personen, Orten oder Ereignissen in <em>Хлібороб / O Lavrador</em> — auf
+        Ukrainisch, Englisch oder Portugiesisch. Antworten stützen sich auf den Korpus und
+        belegen ihre Quellen. Probieren Sie eines davon:</span>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.6rem">
+          <span class="lang-chips" data-lang-en>
+            <button class="chip" onclick="askExample(this)">Who is Pedro Mazurechen?</button>
+            <button class="chip" onclick="askExample(this)">What did the newspaper write about Mazepa?</button>
+            <button class="chip" onclick="askExample(this)">Which international events of 1927 are covered?</button>
+          </span>
+          <span class="lang-chips" data-lang-uk style="display:none">
+            <button class="chip" onclick="askExample(this)">Хто такий Педро Мазуречен?</button>
+            <button class="chip" onclick="askExample(this)">Що газета писала про Мазепу?</button>
+            <button class="chip" onclick="askExample(this)">Які міжнародні події 1927 року висвітлені?</button>
+          </span>
+          <span class="lang-chips" data-lang-pt style="display:none">
+            <button class="chip" onclick="askExample(this)">Quem é Pedro Mazurechen?</button>
+            <button class="chip" onclick="askExample(this)">O que o jornal escreveu sobre Mazepa?</button>
+            <button class="chip" onclick="askExample(this)">Quais eventos internacionais de 1927 são abordados?</button>
+          </span>
+          <span class="lang-chips" data-lang-de style="display:none">
+            <button class="chip" onclick="askExample(this)">Wer ist Pedro Mazurechen?</button>
+            <button class="chip" onclick="askExample(this)">Was schrieb die Zeitung über Mazepa?</button>
+            <button class="chip" onclick="askExample(this)">Welche internationalen Ereignisse von 1927 werden behandelt?</button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:.5rem">
+    <input id="chat-input" type="text" placeholder="Ask a question about the archive…" data-i18n="chat_input_placeholder"
+           style="flex:1;font-size:14px;padding:.55rem .9rem;border:1px solid var(--border-strong,#ccc);
+                  border-radius:var(--radius);background:var(--card-bg);color:var(--text)" />
+    <button onclick="sendQuestion()" id="send-btn" data-i18n="ask_btn"
+            style="font-size:13px;padding:.55rem 1.1rem;border:none;border-radius:var(--radius);
+                   background:#1a4a8a;color:#fff;font-weight:500;cursor:pointer;white-space:nowrap">
+      Ask
+    </button>
+  </div>
+
+  <div id="key-bar" style="font-size:11px;color:var(--muted);margin-top:.5rem;text-align:center"></div>
+  <div id="key-form" style="display:none;margin-top:.4rem;text-align:center">
+    <div style="font-size:11px;color:var(--muted);margin-bottom:.4rem;max-width:480px;margin-left:auto;margin-right:auto">
+      <span data-lang-en>Experimental, not required. It connects this page directly to Google's free Gemini API using a key
+      you supply — nothing to install, and it costs nothing at this scale. If you'd rather see it working
+      first, ask the project team for a live demo instead of setting this up yourself.</span>
+      <span data-lang-uk style="display:none">Експериментально, не обов'язково. Це з'єднує цю сторінку
+      напряму з безкоштовним Gemini API від Google за допомогою наданого вами ключа — нічого
+      встановлювати не потрібно, і на цьому масштабі це безкоштовно. Якщо ви хочете спершу побачити,
+      як це працює, попросіть команду проєкту про живу демонстрацію, замість того щоб налаштовувати
+      це самостійно.</span>
+      <span data-lang-pt style="display:none">Experimental, não obrigatório. Isso conecta esta página
+      diretamente à API gratuita Gemini do Google usando uma chave fornecida por você — nada para
+      instalar, e não custa nada nessa escala. Se preferir ver funcionando primeiro, peça à equipe
+      do projeto uma demonstração ao vivo em vez de configurar isso você mesmo.</span>
+      <span data-lang-de style="display:none">Experimentell, nicht erforderlich. Dies verbindet diese
+      Seite direkt mit Googles kostenloser Gemini-API über einen von Ihnen bereitgestellten
+      Schlüssel — nichts zu installieren, und in diesem Umfang kostenlos. Wenn Sie es zunächst in
+      Aktion sehen möchten, bitten Sie das Projektteam um eine Live-Demo, statt dies selbst
+      einzurichten.</span>
+    </div>
+    <input id="key-input" type="password" placeholder="Paste your Gemini API key" data-i18n="key_input_placeholder"
+           style="font-size:12px;padding:.35rem .6rem;border:1px solid var(--border);
+                  border-radius:var(--radius);background:var(--card-bg);color:var(--text);width:260px" />
+    <button onclick="saveKey()" data-i18n="save_btn" style="font-size:12px;padding:.35rem .8rem;border:1px solid var(--blue);
+            border-radius:var(--radius);background:var(--blue-lt,#e8f0fb);color:var(--blue);cursor:pointer">Save</button>
+    <div style="font-size:10px;color:var(--muted);margin-top:.3rem">
+      <span data-lang-en><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a free key here</a> —
+      it is stored only in this browser (localStorage) and sent only to Google's API, never to this site.</span>
+      <span data-lang-uk style="display:none"><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Отримати безкоштовний ключ тут</a> —
+      він зберігається лише в цьому браузері (localStorage) і надсилається лише до API Google, ніколи до цього сайту.</span>
+      <span data-lang-pt style="display:none"><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Obtenha uma chave gratuita aqui</a> —
+      ela é armazenada apenas neste navegador (localStorage) e enviada apenas para a API do Google, nunca para este site.</span>
+      <span data-lang-de style="display:none"><a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Hier einen kostenlosen Schlüssel erhalten</a> —
+      er wird nur in diesem Browser (localStorage) gespeichert und nur an die API von Google gesendet, niemals an diese Website.</span>
+    </div>
+  </div>
+  </div>
+
+  <div id="fulltext-panel" style="display:none;flex:1;flex-direction:column;min-height:0;overflow-y:auto">
+    <div style="max-width:560px;margin-bottom:1rem">
+      <div class="search-box">
+        <input type="search" id="q" data-i18n="search_placeholder"
+               placeholder="Search all pages" />
+        <button onclick="doFullTextSearch()" data-i18n="search_btn">Search</button>
+      </div>
+    </div>
+    <div id="results"></div>
+  </div>
+</div>
+
+<style>
+/* Wraps each language's set of example-question chips so they lay out as
+   direct flex children of their parent row — a plain inline span would
+   otherwise sit as one flex item containing three buttons stacked inside
+   it, not three flex items. Using a class (not an inline style) here
+   matters: the site-wide language toggle resets hidden languages' style
+   to '' to re-show them, which falls back to whatever the stylesheet
+   says — display:contents — rather than the browser's inline default. */
+.lang-chips { display:contents; }
+.agent-tab {
+  font-size:13px; padding:.5rem .9rem; border:none; background:none; cursor:pointer;
+  color:var(--muted); border-bottom:2px solid transparent; margin-bottom:-1px;
+  display:flex; align-items:center; gap:.35rem;
+}
+.agent-tab.active { color:var(--blue); border-bottom-color:var(--blue); font-weight:500; }
+.msg { display:flex; flex-direction:column; }
+.msg-user { align-items:flex-end; }
+.msg-assistant { align-items:flex-start; }
+.msg-system { align-items:flex-start; }
+.msg-bubble {
+  max-width:85%; font-size:13px; line-height:1.6; padding:.6rem .9rem;
+  border-radius:10px; white-space:pre-wrap; word-break:break-word;
+}
+.msg-bubble-user      { background:#1a4a8a; color:#fff; }
+.msg-bubble-assistant { background:var(--card-bg); border:1px solid var(--border); color:var(--text); }
+.msg-bubble-system    { background:var(--blue-lt,#e8f0fb); color:var(--text); }
+.msg-bubble-error     { background:#fff0f0; border:1px solid #fcc; color:#900; }
+.citations-block {
+  margin-top:.5rem; font-size:11px; color:var(--muted);
+  border-top:1px solid var(--border); padding-top:.4rem;
+}
+.citation-item { margin-bottom:.2rem; }
+.citation-item a { color:#1a4a8a; }
+.typing { opacity:.6; font-style:italic; }
+.chip { font-size:12px; padding:4px 10px; border-radius:12px; border:1px solid var(--blue);
+        background:transparent; color:var(--blue); cursor:pointer; }
+.chip:hover { background:var(--blue-lt,#e8f0fb); }
+</style>
+
+<script>
+// Fully static, client-side grounded search. No server, no API key.
+// Loads a pre-built index of every digitized page's transcripts and
+// scores them against the question by term overlap, then quotes the
+// original passages back verbatim with a citation — extractive, not
+// generative, so it cannot hallucinate a source.
+
+// Set by build_site.py from the AGENT_WORKER_URL env var. When present, AI
+// mode is on for every visitor via a Cloudflare Worker holding the real
+// Gemini key server-side — no visitor key needed. When empty, falls back to
+// the bring-your-own-key flow below.
+const AGENT_WORKER_URL = "https://khliborob-agent.walterj-hochheim.workers.dev";
+function hasWorker() { return !!AGENT_WORKER_URL; }
+
+// The agent never downloads "the whole corpus". Each query is looked up in the
+// sharded word data (assets/lex/, helpers in assets/lang-tools.js), which names
+// the pages that mention its words; only the issue files of the best-matching
+// pages are then fetched (assets/corpus/<issue>.json) and scored in detail.
+const RETRIEVE_PAGES = 16;
+const _issueShards = {};
+function loadIssueShard(id) {
+  if (!/^[\w-]+$/.test(id)) return Promise.resolve(null);
+  if (!_issueShards[id]) {
+    _issueShards[id] = fetch("../assets/corpus/" + id + ".json")
+      .then(r => (r.ok ? r.json() : null)).catch(() => null);
+  }
+  return _issueShards[id];
+}
+
+// One page of an issue shard as the flat record the scoring code below expects.
+function recordFrom(shard, issueId, pageId) {
+  const per = (shard.pages || {})[pageId];
+  if (!per) return null;
+  const meta = (shard.meta || {})[pageId] || {};
+  return {
+    issue_id: issueId, issue_url: "../issues/" + issueId + "/",
+    date: shard.date || "", issue_number: shard.issue || "",
+    page_number: meta.n || ((pageId.match(/_page(\d+)$/) || [])[1] || ""),
+    page_id: pageId,
+    text_en: (per.en || []).join("\n\n"),
+    text_uk: (per.uk || []).join("\n\n"),
+    text_pt: (per.pt || []).join("\n\n"),
+    ipfs_url: meta.ipfs || "", tx_url: shard.tx || "",
+  };
+}
+
+function tokenize(text) {
+  return (text.toLowerCase().match(/[\p{L}\p{N}]+/gu) || []).filter(t => t.length >= 2);
+}
+
+function escapeRe(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+// Ukrainian/Portuguese are inflected languages — a query for "Мазепа" (nominative)
+// will not substring-match "Мазепи" (genitive) in the transcript. A real stemmer
+// is out of scope for a static client-side tool, so this falls back to matching
+// on a truncated stem (drop the last 1-2 characters) for longer words, which
+// catches most case-ending variation cheaply. Full-word hits are weighted higher
+// than stem-only hits so exact matches still rank first.
+function stemOf(tok) {
+  return tok.length >= 6 ? tok.slice(0, tok.length - 2) : (tok.length >= 4 ? tok.slice(0, tok.length - 1) : tok);
+}
+
+function recordHay(record) {
+  return ((record.text_en||"") + " " + (record.text_uk||"") + " " + (record.text_pt||"")).toLowerCase();
+}
+
+// Natural-language questions ("what does the newspaper say about Lukashenko")
+// are mostly filler words that occur on every page; counting their matches
+// drowns out the one informative term. Instead of a per-language stop-word
+// list, weight each query token by inverse document frequency: a token found on
+// (nearly) every page gets ~zero weight, a rare name dominates. Tokens are
+// dropped entirely when uninformative so the snippet picker can't anchor on
+// them either. The pages that contain a token (and so its document frequency)
+// come from the sharded word data: its base-form postings (all inflections) and
+// its stem (so a name in another case still matches). Returns the weighted
+// tokens, rarest first, and the records of the best-matching pages.
+async function retrieve(queryTokens, limit) {
+  const base = "../";
+  const idx = await lexIssues(base);
+  const N = Math.max(idx.totalPages || 0, 1);
+  const weighted = [], score = new Map();
+  for (const tok of [...new Set(queryTokens)]) {
+    const f = foldText(tok);
+    const langs = /[Ѐ-ӿ]/.test(f) ? ["uk"] : ["pt", "en"];
+    const pages = new Map();                           // "issue|page" -> paragraphs mentioning it
+    for (const lang of langs) {
+      const lem = (await lemmaInLang(f, lang, base)) || f;
+      for (const [ii, pi] of await postingsOf(lem, lang, base)) {
+        const k = ii + "|" + pi;
+        pages.set(k, (pages.get(k) || 0) + 1);
+      }
+      for (const [ii, pi] of await stemPagesOf(stemKey(f), lang, base)) {
+        const k = ii + "|" + pi;
+        if (!pages.has(k)) pages.set(k, 1);
+      }
+    }
+    const df = pages.size;
+    const idf = Math.log((N + 1) / (df + 1));
+    if (df > 0 && idf < 0.2) continue;                 // appears on ~every page — filler
+    const weight = Math.max(idf, 0.2);
+    weighted.push({ tok, stem: stemOf(tok), weight });
+    for (const [k, c] of pages) score.set(k, (score.get(k) || 0) + weight * (1 + Math.log(c)));
+  }
+  weighted.sort((a, b) => b.weight - a.weight);        // rarest first, for snippet anchoring
+  const top = [...score].sort((a, b) => b[1] - a[1]).slice(0, limit || RETRIEVE_PAGES);
+  const issueIdx = [...new Set(top.map(([k]) => +k.split("|")[0]))];
+  const shards = await Promise.all(issueIdx.map(ii => loadIssueShard(idx.issues[ii].id)));
+  const shardOf = {};
+  issueIdx.forEach((ii, i) => { shardOf[ii] = shards[i]; });
+  const records = [];
+  for (const [k] of top) {
+    const [ii, pi] = k.split("|").map(Number);
+    const iss = idx.issues[ii];
+    if (!shardOf[ii]) continue;
+    const rec = recordFrom(shardOf[ii], iss.id, iss.pages[pi]);
+    if (rec) records.push(rec);
+  }
+  return { weighted, records };
+}
+
+function scoreRecord(weightedTokens, record) {
+  const hay = recordHay(record);
+  let score = 0;
+  for (const { tok, stem, weight } of weightedTokens) {
+    const fullMatches = hay.match(new RegExp(escapeRe(tok), "g"));
+    if (fullMatches) { score += fullMatches.length * 3 * weight; continue; }
+    if (stem.length < 3) continue;
+    const stemMatches = hay.match(new RegExp(escapeRe(stem), "g"));
+    if (stemMatches) score += stemMatches.length * weight;
+  }
+  return score;
+}
+
+function bestSnippet(weightedTokens, record) {
+  const fields = [
+    ["English translation", record.text_en],
+    ["Ukrainian original", record.text_uk],
+    ["Portuguese translation", record.text_pt],
+  ];
+  // Tokens are pre-sorted rarest-first, so the first hit found is the most
+  // informative match, not just the first word of the question.
+  for (const { tok, stem } of weightedTokens) {
+    for (const [label, text] of fields) {
+      if (!text) continue;
+      const lower = text.toLowerCase();
+      let idx = lower.indexOf(tok);
+      if (idx === -1 && stem.length >= 3) idx = lower.indexOf(stem);
+      if (idx === -1) continue;
+      const start = Math.max(0, idx - 140);
+      const end = Math.min(text.length, idx + 200);
+      const snippet = (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : "");
+      return { label, snippet, paraIdx: paragraphIndexForPosition(text, idx), lang: LABEL_TO_LANG[label] || "en" };
+    }
+  }
+  const fallback = record.text_en || record.text_uk || record.text_pt || "";
+  return { label: "English translation", snippet: fallback.slice(0, 240) + (fallback.length > 240 ? "…" : ""), paraIdx: null, lang: "en" };
+}
+
+// ---- BYOK (bring your own key) AI research agent -------------------------
+// A static site cannot hide a server-side API key, so the AI mode uses a key
+// the visitor supplies. It lives in localStorage and is sent only to Google's
+// Gemini API from this browser. Without a key the agent falls back to
+// extractive mode (verbatim quoted passages).
+function getKey() { return localStorage.getItem("gemini_key") || ""; }
+
+// Set once this session if the shared Worker reports its capacity is spent
+// (its own rate limit, or Google's quota rejecting the Worker's key). At
+// that point we stop retrying the Worker and offer BYOK as the way to keep
+// AI mode going, rather than only falling back to quote mode.
+let workerCapacityReached = false;
+
+const KEY_BAR_STRINGS = {
+  en: {
+    enabled: '🤖 AI agent <strong>enabled</strong> — multi-step research over the corpus, indices, and GPU documents.',
+    enabledKey: '🤖 AI agent <strong>enabled</strong> (your key) — multi-step research over the corpus, '
+      + 'indices, and GPU documents. <a href="#" onclick="clearKey();return false">Remove key</a>',
+    capacityReached: "💬 The shared AI assistant has reached its capacity for now — quote mode above still works fully. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Add your own free Gemini key to keep getting AI-written answers</a>.',
+    capacityMsgChat: "⚠️ The shared research assistant has reached today's free capacity — continuing in quote "
+      + "mode, which shows the matching passages from the archive directly, each with its source cited. "
+      + "(Optional: add your own free Gemini key below to keep getting AI-written answers.)",
+    default: '💬 This already works — every answer above quotes the archive directly, with a citation, '
+      + 'no setup needed. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Optional: switch on AI-written answers</a> (technical preview).',
+  },
+  uk: {
+    enabled: '🤖 ШІ-агент <strong>увімкнено</strong> — багатоетапний пошук по корпусу, покажчиках і документах ГПУ.',
+    enabledKey: '🤖 ШІ-агент <strong>увімкнено</strong> (ваш ключ) — багатоетапний пошук по корпусу, '
+      + 'покажчиках і документах ГПУ. <a href="#" onclick="clearKey();return false">Видалити ключ</a>',
+    capacityReached: "💬 Спільний ШІ-асистент наразі вичерпав свою потужність — режим цитування вище й далі працює повністю. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Додайте власний безкоштовний ключ Gemini, щоб і далі отримувати відповіді, написані ШІ</a>.',
+    capacityMsgChat: "⚠️ Спільний дослідницький асистент вичерпав сьогоднішню безкоштовну квоту — продовжуємо в "
+      + "режимі цитування, який показує відповідні уривки з архіву напряму, кожен із посиланням на джерело. "
+      + "(Необов'язково: додайте власний безкоштовний ключ Gemini нижче, щоб і далі отримувати відповіді, написані ШІ.)",
+    default: '💬 Це вже працює — кожна відповідь вище цитує архів безпосередньо, з посиланням на джерело, '
+      + 'без жодних налаштувань. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Необов\'язково: увімкнути відповіді, написані ШІ</a> (технічний препринт).',
+  },
+  pt: {
+    enabled: '🤖 Agente de IA <strong>ativado</strong> — pesquisa em múltiplas etapas sobre o corpus, índices e documentos GPU.',
+    enabledKey: '🤖 Agente de IA <strong>ativado</strong> (sua chave) — pesquisa em múltiplas etapas sobre o corpus, '
+      + 'índices e documentos GPU. <a href="#" onclick="clearKey();return false">Remover chave</a>',
+    capacityReached: "💬 O assistente de IA compartilhado atingiu sua capacidade por enquanto — o modo de citação acima continua funcionando plenamente. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Adicione sua própria chave gratuita do Gemini para continuar recebendo respostas escritas por IA</a>.',
+    capacityMsgChat: "⚠️ O assistente de pesquisa compartilhado atingiu a capacidade gratuita de hoje — continuando "
+      + "no modo de citação, que mostra as passagens correspondentes do arquivo diretamente, cada uma com sua "
+      + "fonte citada. (Opcional: adicione sua própria chave gratuita do Gemini abaixo para continuar recebendo "
+      + "respostas escritas por IA.)",
+    default: '💬 Isso já funciona — toda resposta acima cita o arquivo diretamente, com uma citação, '
+      + 'sem necessidade de configuração. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Opcional: ativar respostas escritas por IA</a> (prévia técnica).',
+  },
+  de: {
+    enabled: '🤖 KI-Assistent <strong>aktiviert</strong> — mehrstufige Recherche über Korpus, Register und GPU-Dokumente.',
+    enabledKey: '🤖 KI-Assistent <strong>aktiviert</strong> (Ihr Schlüssel) — mehrstufige Recherche über Korpus, '
+      + 'Register und GPU-Dokumente. <a href="#" onclick="clearKey();return false">Schlüssel entfernen</a>',
+    capacityReached: "💬 Der gemeinsame KI-Assistent hat vorübergehend seine Kapazität erreicht — der Zitatmodus oben funktioniert weiterhin vollständig. "
+      + '<a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Fügen Sie Ihren eigenen kostenlosen Gemini-Schlüssel hinzu, um weiterhin KI-verfasste Antworten zu erhalten</a>.',
+    capacityMsgChat: "⚠️ Der gemeinsame Forschungsassistent hat die heutige kostenlose Kapazität erreicht — es wird "
+      + "im Zitatmodus fortgefahren, der passende Passagen direkt aus dem Archiv anzeigt, jede mit Quellenangabe. "
+      + "(Optional: Fügen Sie unten Ihren eigenen kostenlosen Gemini-Schlüssel hinzu, um weiterhin KI-verfasste "
+      + "Antworten zu erhalten.)",
+    default: '💬 Das funktioniert bereits — jede Antwort oben zitiert das Archiv direkt, mit Quellenangabe, '
+      + 'keine Einrichtung nötig. <a href="#" onclick="document.getElementById(\'key-form\').style.display=\'block\';return false">'
+      + 'Optional: KI-verfasste Antworten aktivieren</a> (technische Vorschau).',
+  },
+};
+
+function renderKeyBar() {
+  const bar = document.getElementById("key-bar");
+  const form = document.getElementById("key-form");
+  // lang.js (which declares currentLang) loads after this inline script, so
+  // the very first call — before lang.js has run — can't reference it yet.
+  // Read the same localStorage key it will end up using instead of relying
+  // on load order; the langchange listener below re-renders correctly once
+  // lang.js's own initial applyLang() call fires anyway.
+  const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+  const t = KEY_BAR_STRINGS[lang] || KEY_BAR_STRINGS.en;
+  if (hasWorker() && !workerCapacityReached) {
+    bar.innerHTML = t.enabled;
+    form.style.display = "none";
+  } else if (getKey()) {
+    bar.innerHTML = t.enabledKey;
+    form.style.display = "none";
+  } else if (workerCapacityReached) {
+    bar.innerHTML = t.capacityReached;
+  } else {
+    bar.innerHTML = t.default;
+  }
+}
+document.addEventListener('langchange', renderKeyBar);
+
+function saveKey() {
+  const v = document.getElementById("key-input").value.trim();
+  if (v) { localStorage.setItem("gemini_key", v); document.getElementById("key-input").value = ""; }
+  renderKeyBar();
+}
+
+function clearKey() { localStorage.removeItem("gemini_key"); renderKeyBar(); }
+
+function askExample(btn) {
+  document.getElementById("chat-input").value = btn.textContent.trim();
+  sendQuestion();
+}
+
+let AGENT_DATA = null;
+async function loadAgentData() {
+  if (AGENT_DATA) return AGENT_DATA;
+  const r = await fetch("../assets/agent-data.json");
+  AGENT_DATA = await r.json();
+  return AGENT_DATA;
+}
+
+// ---- source registry: every tool result the model sees gets a stable
+// citation number, so [N] markers in the answer map to real links ----------
+let SRC = { list: [], byKey: {} };
+function resetSources() { SRC = { list: [], byKey: {} }; }
+
+// Keyed by issue, not by page: citing three pages of the same issue in one
+// answer used to produce three separate numbered sources pointing at the
+// same issue link, which read as cluttered. One issue = one citation number;
+// the individual page scans it drew from are listed inside that entry.
+function registerPageSource(rec, paraIdx, lang) {
+  const k = "pg|" + rec.issue_id;
+  let s = SRC.byKey[k];
+  if (!s) {
+    s = { num: SRC.list.length + 1, kind: "page", issue: rec, pages: [] };
+    SRC.byKey[k] = s; SRC.list.push(s);
+  }
+  if (!s.pages.some(p => p.page_number === rec.page_number)) {
+    s.pages.push({ page_number: rec.page_number, page_id: rec.page_id,
+                   para_idx: paraIdx != null ? paraIdx : null, lang: lang || "en" });
+  }
+  return s;
+}
+
+function registerGpuSource(doc) {
+  const k = "gpu|" + doc.date + "|" + doc.archive_ref;
+  if (SRC.byKey[k]) return SRC.byKey[k];
+  const s = { num: SRC.list.length + 1, kind: "gpu", doc };
+  SRC.byKey[k] = s; SRC.list.push(s);
+  return s;
+}
+
+function sourcesHtml() {
+  if (!SRC.list.length) return "";
+  let h = '<div class="citations-block"><strong>Sources:</strong><br>';
+  for (const s of SRC.list) {
+    if (s.kind === "page") {
+      const r = s.issue;
+      // Each page links straight to the specific paragraph the excerpt was
+      // drawn from (matching the language currently being browsed in, same
+      // convention as citation links everywhere else on the site), not
+      // just the top of the issue page — previously the only link here was
+      // a generic "issue page" one, so a cited passage could never actually
+      // be found without re-reading the whole page. Scan/blockchain links
+      // dropped from this footnote entirely: they're provenance/technical
+      // detail that belongs on the issue page itself (where both already
+      // appear), not repeated in every chat citation.
+      const pageLinks = s.pages.slice()
+        .sort((a, b) => String(a.page_number).localeCompare(String(b.page_number)))
+        .map(p => {
+          const lang = (typeof currentLang !== "undefined" && currentLang) || p.lang || "en";
+          const anchor = (p.para_idx != null && p.page_id)
+            ? `#para-${lang}-${p.page_id}-${p.para_idx}` : "";
+          return `<a href="${r.issue_url}${anchor}" target="_blank" rel="noopener">p.${escHtml(String(p.page_number))}</a>`;
+        })
+        .join(", ");
+      h += `<div class="citation-item">[${s.num}] Khliborob / O Lavrador, ${escHtml(r.date)}, `
+        + `No. ${escHtml(String(r.issue_number))} — ${pageLinks}</div>`;
+    } else {
+      h += `<div class="citation-item">[${s.num}] GPU document ${escHtml(s.doc.archive_ref || "")} `
+        + `(${escHtml(s.doc.date || "")}) — <a href="../gpu-documents/" target="_blank" rel="noopener">GPU documents</a></div>`;
+    }
+  }
+  return h + "</div>";
+}
+
+// Finds which blank-line-delimited paragraph a character position falls
+// in, mirroring xml_generators.py's paragraph_index_for_position/
+// _paragraph_bounds exactly (same split rule, same 0-based numbering) so
+// a citation built here lands on the same #para-{lang}-{page_id}-{idx}
+// anchor the rest of the site already uses — previously this chat's
+// citations only ever linked to the top of the issue page, the one place
+// on the site that hadn't gotten the paragraph-anchor treatment.
+function paragraphIndexForPosition(text, pos) {
+  if (pos == null || pos < 0 || !text) return null;
+  const lead = text.length - text.replace(/^\s+/, "").length;
+  const stripped = text.trim();
+  const re = /\n\s*\n/g;
+  const raw = [0];
+  let m;
+  while ((m = re.exec(stripped)) !== null) raw.push(m.index + m[0].length);
+  raw.push(stripped.length);
+  let paraIdx = 0;
+  for (let i = 0; i < raw.length - 1; i++) {
+    const start = raw[i], end = raw[i + 1];
+    if (stripped.slice(start, end).trim()) {
+      if (pos >= start + lead && pos < end + lead) return paraIdx;
+      paraIdx++;
+    }
+  }
+  return null;
+}
+
+const LABEL_TO_LANG = { "English translation": "en", "Ukrainian original": "uk", "Portuguese": "pt", "Portuguese translation": "pt" };
+
+// Excerpt window around the most informative matched term.
+function excerptFor(weightedTokens, r) {
+  const fields = [["English translation", r.text_en], ["Ukrainian original", r.text_uk], ["Portuguese", r.text_pt]];
+  for (const { tok, stem } of weightedTokens) {
+    for (const [label, text] of fields) {
+      if (!text) continue;
+      const lower = text.toLowerCase();
+      let idx = lower.indexOf(tok);
+      if (idx === -1 && stem.length >= 3) idx = lower.indexOf(stem);
+      if (idx === -1) continue;
+      const start = Math.max(0, idx - 700);
+      const end = Math.min(text.length, idx + 900);
+      return { label, snippet: (start > 0 ? "…" : "") + text.slice(start, end).trim() + (end < text.length ? "…" : ""),
+               paraIdx: paragraphIndexForPosition(text, idx), lang: LABEL_TO_LANG[label] || "en" };
+    }
+  }
+  const fb = r.text_en || r.text_uk || r.text_pt || "";
+  return { label: "English translation", snippet: fb.slice(0, 1200), paraIdx: null, lang: "en" };
+}
+
+// ---- agent tools ----------------------------------------------------------
+const TOOL_DECLS = [{
+  functionDeclarations: [
+    {
+      name: "search_corpus",
+      description: "Full-text search over the digitized newspaper pages. The corpus is written in "
+        + "Ukrainian with English and Portuguese translations. For best recall, include several "
+        + "variants of key terms in one query — e.g. a person's name in both Latin and Cyrillic "
+        + "script ('Mazepa Мазепа'), or a concept in Ukrainian, English, and Portuguese.",
+      parameters: { type: "object", properties: {
+        query: { type: "string", description: "Search terms; mix Ukrainian, English, and Portuguese variants" }
+      }, required: ["query"] },
+    },
+    {
+      name: "lookup_person",
+      description: "Look up a person in the archive's person index. Returns name variants (Latin and "
+        + "Cyrillic), which issues mention them, and a Wikidata link when identified.",
+      parameters: { type: "object", properties: {
+        name: { type: "string", description: "Person name or fragment, any script" }
+      }, required: ["name"] },
+    },
+    {
+      name: "lookup_location",
+      description: "Look up a place in the archive's location index. Returns name variants and which issues mention it.",
+      parameters: { type: "object", properties: {
+        name: { type: "string", description: "Place name or fragment, any script" }
+      }, required: ["name"] },
+    },
+    {
+      name: "list_issues",
+      description: "List all digitized issues with dates, page counts, and abstracts. "
+        + "Follow up with read_page to read the actual content of a page.",
+      parameters: { type: "object", properties: {} },
+    },
+    {
+      name: "read_page",
+      description: "Read the full transcript of one newspaper page (Ukrainian original and English "
+        + "translation). The pilot corpus is tiny — for broad or thematic questions ('what topics "
+        + "are covered', 'what international news appears') reading the pages directly is far more "
+        + "reliable than keyword search.",
+      parameters: { type: "object", properties: {
+        issue_id: { type: "string", description: "Issue id from list_issues, e.g. khliborob_19270316_no11" },
+        page_number: { type: "string", description: "Page number, e.g. '01'" }
+      }, required: ["issue_id", "page_number"] },
+    },
+    {
+      name: "get_gpu_documents",
+      description: "Declassified Soviet GPU secret-police intelligence documents ABOUT the newspaper's "
+        + "network (Holodomor period, 1929-1933): intercepted letters and intelligence summaries written "
+        + "by Soviet surveillance, not by the newspaper. Never present their contents as something the "
+        + "newspaper itself reported, wrote, or covered — attribute them to the GPU documents explicitly "
+        + "and keep them distinct from newspaper-page claims in the answer.",
+      parameters: { type: "object", properties: {} },
+    },
+  ],
+}];
+
+async function execTool(name, args) {
+  const data = await loadAgentData();
+  if (name === "search_corpus") {
+    const { weighted: wt, records } = await retrieve(tokenize(String(args.query || "")));
+    if (!wt.length) return { results: [], note: "Query too generic — retry with a distinctive name or term." };
+    const scored = records
+      .map(r => ({ record: r, score: scoreRecord(wt, r) }))
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 4);
+    return { results: scored.map(x => {
+      const e = excerptFor(wt, x.record);
+      const s = registerPageSource(x.record, e.paraIdx, e.lang);
+      return { source_number: s.num, date: x.record.date, issue: x.record.issue_number,
+               page: x.record.page_number, text_version: e.label, excerpt: e.snippet };
+    }) };
+  }
+  if (name === "lookup_person" || name === "lookup_location") {
+    const pool = name === "lookup_person" ? data.persons : data.locations;
+    const q = String(args.name || "").toLowerCase();
+    const hits = pool.filter(p =>
+      (p.name_en || "").toLowerCase().includes(q) || (p.name_uk || "").toLowerCase().includes(q)
+    ).slice(0, 6);
+    return { matches: hits, note: hits.length
+      ? "To find actual passages, call search_corpus with both name variants."
+      : "No match in the index. Try search_corpus directly, or a shorter fragment." };
+  }
+  if (name === "list_issues") return { issues: data.issues };
+  if (name === "read_page") {
+    const pn = String(args.page_number || "").replace(/^0+/, "");
+    const issueId = String(args.issue_id || "").trim();
+    const shard = await loadIssueShard(issueId);
+    let rec = null;
+    if (shard) {
+      for (const pid of Object.keys(shard.pages || {})) {
+        const r = recordFrom(shard, issueId, pid);
+        if (r && String(r.page_number).replace(/^0+/, "") === pn) { rec = r; break; }
+      }
+    }
+    if (!rec) return { error: "Page not found. Call list_issues for valid issue ids; pages are numbered 01.." };
+    const s = registerPageSource(rec);
+    return {
+      source_number: s.num,
+      date: rec.date, issue: rec.issue_number, page: rec.page_number,
+      transcript_english: (rec.text_en || "").slice(0, 9000),
+      transcript_ukrainian: (rec.text_uk || "").slice(0, 9000),
+    };
+  }
+  if (name === "get_gpu_documents") {
+    return { documents: data.gpu_documents.map(d => {
+      const s = registerGpuSource(d);
+      return Object.assign({ source_number: s.num }, d);
+    }) };
+  }
+  return { error: "Unknown tool: " + name };
+}
+
+// ---- agent loop -----------------------------------------------------------
+const AGENT_SYS =
+  'You are the Research Agent of the Khliborob Digital Archive — the digitized run of ' +
+  '"Khliborob / O Lavrador" (Хлібороб), a Ukrainian-language diaspora newspaper published in Brazil since 1924. ' +
+  'Only a small pilot corpus (2 issues from 1927-1928, 8 pages) is digitized so far.\n\n' +
+  'RESEARCH PROTOCOL — follow it before answering:\n' +
+  '- Person or place questions: lookup_person / lookup_location first to learn the spelling variants, ' +
+  'THEN search_corpus with the variants in both scripts (e.g. "Mazurechen Мазуречен"). Index metadata ' +
+  'alone (which issues mention a name) is NOT an answer — find the actual passages and report what they say.\n' +
+  '- GPU, Soviet surveillance, intercepted letters, Holodomor-intelligence, or Istanbul-connection ' +
+  'questions: ALWAYS call get_gpu_documents. These documents are separate from the newspaper pages ' +
+  'and keyword search will not find them.\n' +
+  '- Broad or thematic questions (what topics/events/coverage): call list_issues, then read_page on ' +
+  'the plausible pages. The corpus is tiny — reading pages directly is more reliable than keyword search.\n' +
+  '- NEVER claim the corpus lacks something until you have tried at least two differently-worded ' +
+  'searches (different languages/synonyms) or read the relevant pages, and checked get_gpu_documents ' +
+  'when the topic could touch it.\n\n' +
+  'STRICT RULES:\n' +
+  '1. Base every factual claim EXCLUSIVELY on tool results from this conversation. No outside knowledge about the newspaper\'s content.\n' +
+  '2. GPU documents are Soviet secret-police intelligence records ABOUT the newspaper\'s network — ' +
+  'they are not the newspaper\'s own content. NEVER describe something a GPU document says as ' +
+  'something Khliborob "reported," "wrote," "covered," or "said." Attribute them explicitly and ' +
+  'separately, e.g. "a GPU intelligence report notes..." or "Soviet surveillance records describe...". ' +
+  'Do not fold GPU-derived claims into a list of what the newspaper itself printed — keep the two ' +
+  'source types in visibly separate sentences or sections.\n' +
+  '3. Cite claims with [N] markers using the source_number values from tool results, e.g. [1] or [1][3].\n' +
+  '4. If, after the protocol above, the corpus still does not contain the answer, say so explicitly — mention the pilot corpus is only 2 issues.\n' +
+  '5. When quoting Ukrainian text, give the original followed by a translation in parentheses.\n' +
+  '6. LANGUAGE: Write the ENTIRE answer in the language of the researcher\'s latest question. ' +
+  'A question asked in English gets an English answer, Portuguese gets Portuguese, Ukrainian gets ' +
+  'Ukrainian — regardless of the language of the source material. Only verbatim quotes stay in the ' +
+  'original (with a translation in parentheses).\n' +
+  '7. Be concise: a focused paragraph or two.';
+
+let chatHistory = [];
+
+async function geminiTurn(contents, key, useWorker) {
+  // Worker mode: the Worker attaches the real key server-side, so nothing
+  // secret goes in this request or URL. BYOK mode: the visitor's own key
+  // goes straight to Google, as before. useWorker is passed explicitly
+  // (rather than read from hasWorker() here) so a capacity-exhausted
+  // session can force BYOK for a retry even while a Worker is configured.
+  const url = useWorker
+    ? AGENT_WORKER_URL
+    : "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=" + encodeURIComponent(key);
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      systemInstruction: { parts: [{ text: AGENT_SYS }] },
+      contents,
+      tools: TOOL_DECLS,
+      // Default (dynamic) thinking stays on: multi-step tool planning is
+      // where it earns its cost — disabling it produced lazy single-tool
+      // runs that answered from index metadata.
+      generationConfig: { temperature: 0.2, maxOutputTokens: 4096 },
+    }),
+  });
+  if (!resp.ok) {
+    const err = await resp.json().catch(() => ({}));
+    // Direct-to-Google errors nest under err.error.message; the Worker's
+    // own errors (rate limits, sanitized upstream failures) are flat
+    // {error, message} so raw Gemini/billing text never reaches a visitor.
+    const message = (err.error && err.error.message) || err.message || ("HTTP " + resp.status);
+    const e = new Error(message);
+    // 429 from the Worker means shared capacity is spent — either its own
+    // rate limiter or Google's, both mapped to 429 on that side. Tag it so
+    // the caller can offer BYOK instead of just falling back to quote mode.
+    if (useWorker && resp.status === 429) e.capacityReached = true;
+    throw e;
+  }
+  const data = await resp.json();
+  return (((data.candidates || [])[0] || {}).content) || { parts: [] };
+}
+
+async function runAgent(question, key, status, useWorker) {
+  chatHistory.push({ role: "user", parts: [{ text: question }] });
+  // Persistent history keeps only user questions and final answers (so
+  // follow-ups like "what else did he do?" resolve); tool traffic stays
+  // local to the current question to keep requests small.
+  let contents = chatHistory.slice(-16);
+  // Reinforce language fidelity at the point where the model reads the
+  // question: with all source material in Ukrainian, a system-prompt rule
+  // alone was not enough to keep e.g. an English question from getting a
+  // Ukrainian answer. Local copy only — chat history stays clean.
+  const lastTurn = contents[contents.length - 1];
+  contents[contents.length - 1] = { role: "user", parts: [{
+    text: lastTurn.parts[0].text + "\n\n[Answer in the same language this question is written in.]"
+  }] };
+  for (let step = 0; step < 8; step++) {
+    const content = await geminiTurn(contents, key, useWorker);
+    const parts = content.parts || [];
+    const calls = parts.filter(p => p.functionCall);
+    if (!calls.length) {
+      const text = parts.filter(p => !p.thought).map(p => p.text || "").join("").trim();
+      if (!text) throw new Error("Empty response from the model");
+      chatHistory.push({ role: "model", parts: [{ text }] });
+      return text;
+    }
+    contents = contents.concat([{ role: "model", parts }]);
+    const frParts = [];
+    for (const c of calls) {
+      const fc = c.functionCall;
+      const argPreview = fc.args && (fc.args.query || fc.args.name) ? ': "' + (fc.args.query || fc.args.name) + '"' : "";
+      status("🔎 " + fc.name.replace(/_/g, " ") + argPreview + "…");
+      let result;
+      try { result = await execTool(fc.name, fc.args || {}); }
+      catch (e) { result = { error: e.message }; }
+      frParts.push({ functionResponse: { name: fc.name, response: { result } } });
+    }
+    contents = contents.concat([{ role: "user", parts: frParts }]);
+  }
+  throw new Error("Research exceeded the step limit");
+}
+
+async function sendQuestion() {
+  const input = document.getElementById("chat-input");
+  const q = input.value.trim();
+  if (!q) return;
+
+  input.value = "";
+  document.getElementById("send-btn").disabled = true;
+  appendMsg("user", q);
+  const typingId = appendMsg("assistant", "Searching the corpus…", "typing");
+  const status = t => replaceMsg(typingId, "assistant", t, "typing");
+
+  try {
+    const key = getKey();
+    // Once the Worker's capacity is known to be spent this session, don't
+    // keep spending a round trip re-discovering that — go straight to
+    // BYOK (if the visitor has a key) or quote mode.
+    const tryWorker = hasWorker() && !workerCapacityReached;
+    if (tryWorker || key) {
+      resetSources();
+      try {
+        status("🤖 Planning research…");
+        const answer = await runAgent(q, key, status, tryWorker);
+        replaceMsg(typingId, "assistant", answer, "", sourcesHtml());
+        return;
+      } catch (llmErr) {
+        // Drop the dangling user turn so a failed run doesn't corrupt history
+        if (chatHistory.length && chatHistory[chatHistory.length - 1].role === "user") chatHistory.pop();
+        if (llmErr.capacityReached) {
+          workerCapacityReached = true;
+          renderKeyBar();
+          if (key) {
+            // Own key already saved — the Worker was only being tried
+            // because it's normally free; fall through to it transparently.
+            try {
+              status("🤖 Shared capacity reached — continuing with your key…");
+              const answer = await runAgent(q, key, status, false);
+              replaceMsg(typingId, "assistant", answer, "", sourcesHtml());
+              return;
+            } catch (retryErr) {
+              if (chatHistory.length && chatHistory[chatHistory.length - 1].role === "user") chatHistory.pop();
+              appendMsg("system", "⚠️ AI agent failed (" + retryErr.message + ") — showing matching passages instead.");
+            }
+          } else {
+            const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+            appendMsg("system", (KEY_BAR_STRINGS[lang] || KEY_BAR_STRINGS.en).capacityMsgChat);
+          }
+        } else {
+          appendMsg("system", "⚠️ AI agent failed (" + llmErr.message + ") — showing matching passages instead.");
+        }
+      }
+    }
+
+    // Extractive fallback: quote the top passages verbatim.
+    const queryTokens = tokenize(q);
+    if (queryTokens.length === 0) {
+      replaceMsg(typingId, "assistant", "Please enter a search term.");
+      return;
+    }
+
+    const { weighted: weightedTokens, records } = await retrieve(queryTokens);
+    if (weightedTokens.length === 0) {
+      replaceMsg(typingId, "assistant",
+        "Your question contains only very common words, so no specific passage can be " +
+        "pinpointed. Try including a distinctive name or term — e.g. a person, place, " +
+        "or event from the Persons and Locations index.");
+      return;
+    }
+
+    const scored = records
+      .map(r => ({ record: r, score: scoreRecord(weightedTokens, r) }))
+      .filter(r => r.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
+
+    if (scored.length === 0) {
+      replaceMsg(typingId, "assistant",
+        "The digitized pilot corpus (2 issues, 8 pages) does not contain material matching " +
+        "this query. Try a different term, or browse the Persons and Locations index for " +
+        "names known to appear in the archive.");
+      return;
+    }
+
+    resetSources();
+    let answer = "Matching passage(s) from the corpus:\n\n";
+    for (const x of scored) {
+      const { label, snippet, paraIdx, lang } = bestSnippet(weightedTokens, x.record);
+      const s = registerPageSource(x.record, paraIdx, lang);
+      answer += `[${s.num}] (${label}) "${snippet}"\n\n`;
+    }
+    replaceMsg(typingId, "assistant", answer.trim(), "", sourcesHtml());
+
+  } catch (err) {
+    replaceMsg(typingId, "error", "⚠️ " + err.message);
+  } finally {
+    document.getElementById("send-btn").disabled = false;
+    input.focus();
+  }
+}
+
+function appendMsg(role, text, extra_class = "", citBlock = "") {
+  const id = "msg-" + Date.now() + "-" + Math.random();
+  const box = document.getElementById("chat-messages");
+  const div = document.createElement("div");
+  div.className = "msg msg-" + role;
+  div.id = id;
+  div.innerHTML = `<div class="msg-bubble msg-bubble-${extra_class || role}">${
+    escHtml(text)
+  }</div>${citBlock}`;
+  box.appendChild(div);
+  box.scrollTop = box.scrollHeight;
+  return id;
+}
+
+function replaceMsg(id, role, text, extra_class = "", citBlock = "") {
+  const div = document.getElementById(id);
+  if (!div) return;
+  div.className = "msg msg-" + role;
+  div.innerHTML = `<div class="msg-bubble msg-bubble-${extra_class || role}">${
+    escHtml(text)
+  }</div>${citBlock}`;
+  document.getElementById("chat-messages").scrollTop = 99999;
+}
+
+function escHtml(t) {
+  return t.replace(/&/g,"&amp;").replace(/</g,"&lt;")
+          .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+document.getElementById("chat-input").addEventListener("keydown", e => {
+  if (e.key === "Enter") sendQuestion();
+});
+renderKeyBar();
+lexBuckets("../");   // warm the lookup manifest
+
+// ---- Search all pages (Pagefind) — merged into this page alongside the
+// Research Agent since the two overlapped heavily: the Agent's own quote
+// mode already does grounded retrieval over the core corpus, while this
+// covers full-text search across literally every rendered page (GPU
+// documents, aggregated views, etc.) that Pagefind's static index reaches
+// but the Agent's own curated index does not. Kept as a separate tab
+// rather than dropped, so neither capability is lost. ----
+function switchAgentTab(tab) {
+  const isAsk = tab === "ask";
+  // Search results scroll with the page (see .search-mode in the CSS); the Ask
+  // tab keeps its fixed-height chat box.
+  document.querySelector(".agent-wrap").classList.toggle("search-mode", !isAsk);
+  document.getElementById("agent-panel").style.display = isAsk ? "flex" : "none";
+  document.getElementById("fulltext-panel").style.display = isAsk ? "none" : "flex";
+  document.getElementById("tab-btn-ask").classList.toggle("active", isAsk);
+  document.getElementById("tab-btn-search").classList.toggle("active", !isAsk);
+  if (!isAsk && !window._fulltextInited) {
+    window._fulltextInited = true;
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("q");
+    if (q) { document.getElementById("q").value = q; doFullTextSearch(); }
+  }
+}
+
+// Pagefind's module does not expose a `window.pagefind` global on its own —
+// it must be dynamically imported and initialized. Dynamic import() works
+// from a plain script, so no separate type="module" tag is needed.
+window.pagefindReady = (async () => {
+  try {
+    // Pagefind derives its own basePath from this module's resolved URL
+    // (import.meta.url), so a relative dynamic import is enough for it to
+    // find its index and produce correctly-prefixed result URLs even when
+    // the site is deployed under a subpath like hochheim.github.io/Khliborob/.
+    const pf = await import("../pagefind/pagefind.js");
+    await pf.init();
+    return pf;
+  } catch (e) {
+    console.warn("Pagefind unavailable:", e);
+    return null;
+  }
+})();
+
+const SEARCH_GROUP_STRINGS = {
+  en: { issues: "Mentions in the newspaper", showMore: "Show more ({n} more)", sameArticle: "same article", mapsGraphs: "Maps & knowledge graphs", sitePages: "Other pages", site: "Elsewhere on this site",
+        noIssues: "No matches in the newspaper issues.",
+        dl: "⬇ Download transcript (.docx)", lang: "Language",
+        article: "This article", page: "This page", issue: "Full issue",
+        fail: "Could not build the document — please try again.",
+        dlAll: "⬇ Download all mentions", allArticles: "Articles (.zip)", allPages: "Pages (.zip)",
+        allOne: "All in one document (.docx)", passages: "Passages",
+        skipped: "{n} result(s) without a locatable passage left out" },
+  uk: { issues: "Згадки в газеті", showMore: "Показати ще ({n})", sameArticle: "та сама стаття", mapsGraphs: "Мапи та графи знань", sitePages: "Інші сторінки", site: "Інші сторінки сайту",
+        noIssues: "У випусках газети збігів немає.",
+        dl: "⬇ Завантажити транскрипт (.docx)", lang: "Мова",
+        article: "Ця стаття", page: "Ця сторінка", issue: "Весь випуск",
+        fail: "Не вдалося створити документ — спробуйте ще раз.",
+        dlAll: "⬇ Завантажити всі згадки", allArticles: "Статті (.zip)", allPages: "Сторінки (.zip)",
+        allOne: "Усе в одному документі (.docx)", passages: "Фрагменти",
+        skipped: "результатів без знайденого фрагмента пропущено: {n}" },
+  pt: { issues: "Menções no jornal", showMore: "Mostrar mais ({n})", sameArticle: "mesmo artigo", mapsGraphs: "Mapas e grafos de conhecimento", sitePages: "Outras páginas", site: "Em outras partes do site",
+        noIssues: "Nenhuma correspondência nas edições do jornal.",
+        dl: "⬇ Baixar transcrição (.docx)", lang: "Idioma",
+        article: "Este artigo", page: "Esta página", issue: "Edição completa",
+        fail: "Não foi possível gerar o documento — tente novamente.",
+        dlAll: "⬇ Baixar todas as menções", allArticles: "Artigos (.zip)", allPages: "Páginas (.zip)",
+        allOne: "Tudo em um documento (.docx)", passages: "Trechos",
+        skipped: "{n} resultado(s) sem trecho localizável omitido(s)" },
+  de: { issues: "Erwähnungen in der Zeitung", showMore: "Mehr anzeigen ({n} weitere)", sameArticle: "gleicher Artikel", mapsGraphs: "Karten & Wissensgraphen", sitePages: "Weitere Seiten", site: "Anderswo auf dieser Website",
+        noIssues: "Keine Treffer in den Zeitungsausgaben.",
+        dl: "⬇ Transkript herunterladen (.docx)", lang: "Sprache",
+        article: "Dieser Artikel", page: "Diese Seite", issue: "Ganze Ausgabe",
+        fail: "Das Dokument konnte nicht erstellt werden — bitte erneut versuchen.",
+        dlAll: "⬇ Alle Erwähnungen herunterladen", allArticles: "Artikel (.zip)", allPages: "Seiten (.zip)",
+        allOne: "Alles in einem Dokument (.docx)", passages: "Fundstellen",
+        skipped: "{n} Ergebnis(se) ohne auffindbare Stelle ausgelassen" }
+};
+const DOCX_STRINGS = {"uk": {"newspaper": "Газета", "date": "Дата", "issue": "Номер", "language": "Мова тексту", "source": "Джерело", "page": "Сторінка", "searchTerm": "Пошуковий запит", "passages": "Фрагменти", "langname": "українська — оригінальний текст (автоматичне розпізнавання)", "note": "Текст розпізнано автоматично й він може містити помилки. Перед цитуванням звіряйте його зі скан-копією сторінки.", "credit": "Цифровий архів «Хлібороб» — Мюнстерський університет, у партнерстві з SUBRAS (Sociedade Ucraniana do Brasil)."}, "en": {"newspaper": "Newspaper", "date": "Date", "issue": "Issue", "language": "Text language", "source": "Source", "page": "Page", "searchTerm": "Search term", "passages": "Passages", "langname": "English — machine translation of the Ukrainian original", "note": "Machine translation; idioms and period wording may be rendered imperfectly. Verify against the Ukrainian original or the page scan before quoting.", "credit": "Khliborob Digital Archive — University of Münster, in partnership with SUBRAS (Sociedade Ucraniana do Brasil)."}, "pt": {"newspaper": "Jornal", "date": "Data", "issue": "Edição", "language": "Idioma do texto", "source": "Fonte", "page": "Página", "searchTerm": "Termo de busca", "passages": "Trechos", "langname": "Português (Brasil) — tradução automática do original ucraniano", "note": "Tradução automática; expressões idiomáticas e a linguagem da época podem não ser perfeitamente reproduzidas. Verifique o original em ucraniano ou a digitalização da página antes de citar.", "credit": "Arquivo Digital Khliborob — Universidade de Münster, em parceria com a SUBRAS (Sociedade Ucraniana do Brasil)."}, "de": {"newspaper": "Zeitung", "date": "Datum", "issue": "Ausgabe", "language": "Textsprache", "source": "Quelle", "page": "Seite", "searchTerm": "Suchbegriff", "passages": "Fundstellen", "langname": "Deutsch — maschinelle Übersetzung des ukrainischen Originals", "note": "Maschinelle Übersetzung; Redewendungen und zeitgenössische Ausdrucksweise werden ggf. nicht exakt wiedergegeben. Vor einem Zitat mit dem ukrainischen Original oder dem Seitenscan abgleichen.", "credit": "Digitales Archiv Khliborob — Universität Münster, in Zusammenarbeit mit SUBRAS (Sociedade Ucraniana do Brasil)."}};
+function uiStrings() {
+  const lang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+  return SEARCH_GROUP_STRINGS[lang] || SEARCH_GROUP_STRINGS.en;
+}
+const DL_LANG_LABELS = { uk: "УКР", en: "ENG", pt: "PT-BR", de: "DE" };
+
+// assets/transcripts.json lists which per-issue Word files exist; a missing
+// or unreadable manifest just means no download row is shown.
+let _transcriptManifest = null;
+async function getTranscriptManifest() {
+  if (_transcriptManifest) return _transcriptManifest;
+  try {
+    const r = await fetch("../assets/transcripts.json");
+    _transcriptManifest = r.ok ? await r.json() : {};
+  } catch (e) {
+    _transcriptManifest = {};
+  }
+  return _transcriptManifest;
+}
+
+async function doFullTextSearch() {
+  const q = document.getElementById("q").value.trim();
+  if (!q) return;
+  window.history.replaceState({}, "", location.pathname + "?q=" + encodeURIComponent(q));
+  window._lastSearchData = null;
+  window._lastQuery = q;
+  window._passageLimit = 0;
+  document.getElementById("results").innerHTML = '<p style="font-size:13px;color:var(--muted)">Searching…</p>';
+  const pf = await window.pagefindReady;
+  if (!pf) {
+    document.getElementById("results").innerHTML =
+      '<p style="font-size:13px;color:var(--muted)">Full-text search index is unavailable right now.</p>';
+    return;
+  }
+  // Search the word as typed AND its base form: every paragraph carries a
+  // hidden layer of base forms, so "селянам" also finds "селянин" and
+  // "українцям" finds "українець". Old-spelling letters (ґ, ъ…) are folded in
+  // the base-form query too. Hits from both searches are merged per page.
+  const queries = [q];
+  const lq = await lemmaQuery(q);
+  if (lq && lq !== q.toLowerCase()) queries.push(lq);
+  const merged = new Map();
+  for (const query of queries) {
+    const search = await pf.search(query);
+    // Fetch well past the display limit: the two groups below are filled
+    // independently, so a burst of site-page hits at the top of the ranking
+    // must not crowd newspaper hits out of a shared top-N.
+    for (const d of await Promise.all(search.results.slice(0, 60).map(x => x.data()))) {
+      const seen = merged.get(d.url);
+      if (!seen) merged.set(d.url, { ...d, locations: [...(d.locations || [])] });
+      else seen.locations = [...new Set([...seen.locations, ...(d.locations || [])])].sort((a, b) => a - b);
+    }
+  }
+  if (!merged.size) {
+    document.getElementById("results").innerHTML =
+      '<p style="font-size:13px;color:var(--muted)">No results found.</p>';
+    return;
+  }
+  window._lastSearchData = [...merged.values()];
+  renderSearchResults();
+}
+
+// Pagefind tracks every element with an id as an "anchor", each carrying
+// the word-offset location where it starts in the page — including every
+// transcript paragraph's own id="para-{lang}-{page}-{idx}". So the
+// closest anchor at or before the first match's location tells us which
+// paragraph the hit is actually in, and we can link straight to it.
+// Returns EVERY paragraph the query matches, in order, as {pageId, idx}.
+// A match can sit outside the transcript (an issue's header or summary may
+// mention the term before any paragraph starts), so it only counts as "in a
+// paragraph" when the closest anchor of ANY kind before it is a paragraph
+// anchor. All four language panels are indexed, so the same paragraph can
+// match in several of them; paragraph numbering is shared across languages,
+// so each paragraph is listed once.
+function hitParagraphs(d) {
+  if (!(d.locations && d.locations.length && d.anchors && d.anchors.length)) return [];
+  const byKey = new Map(), out = [];
+  for (const target of d.locations) {
+    let best = null;
+    for (const a of d.anchors) {
+      if (!a.id || a.location > target) continue;
+      if (!best || a.location >= best.location) best = a;   // on a tie the innermost element wins
+    }
+    if (!best || best.id.indexOf("para-") !== 0) continue;
+    const m = best.id.match(/^para-([a-z]+)-(.+)-(\d+)$/);
+    if (!m) continue;
+    const key = m[2] + "#" + m[3];
+    if (byKey.has(key)) {
+      // langs: the language panels the term matched in (used to pick which
+      // translation to quote, so the shown excerpt really contains the term).
+      if (!byKey.get(key).langs.includes(m[1])) byKey.get(key).langs.push(m[1]);
+      continue;
+    }
+    const hit = { pageId: m[2], idx: parseInt(m[3], 10), langs: [m[1]] };
+    byKey.set(key, hit);
+    out.push(hit);
+  }
+  return out;
+}
+function hitParagraph(d) { return hitParagraphs(d)[0] || null; }
+
+function searchCardHtml(d, tlang, downloadHtml) {
+  let url = d.url;
+  const hit = hitParagraph(d);
+  if (hit) url = d.url + "#para-" + tlang + "-" + hit.pageId + "-" + hit.idx;
+  // Knowledge-graph pages are drawn client-side; hand them the query so
+  // they can find and highlight the matching node on arrival.
+  if (/_agg_graph\.html$/.test(d.url) && window._lastQuery) {
+    url = d.url + "#find=" + encodeURIComponent(window._lastQuery);
+  }
+  const dateLine = ((d.meta?.date || "") + " " + (d.meta?.issue || "")).trim();
+  return `
+    <div class="result-card">
+      ${dateLine ? `<div class="result-date">${dateLine}</div>` : ""}
+      <div class="result-title"><a href="${url}">${d.meta?.title||d.url}</a></div>
+      <div class="result-snippet">${d.excerpt}</div>
+      ${downloadHtml || ""}
+    </div>`;
+}
+
+// The bar above the newspaper results: every mention in every listed issue,
+// as a zip of articles, a zip of pages, or one combined document. Full issues
+// are deliberately not offered here (they bury the mentions); each result
+// still has its own "Full issue" button.
+function downloadAllHtml(issues, tlang, manifest, S) {
+  const infoOf = d => {
+    const m = d.url.match(/\/issues\/([^/]+)\//);
+    return m && manifest[m[1]];
+  };
+  const listed = issues.filter(infoOf);
+  const passages = listed.reduce((n, d) => n + hitParagraphs(d).length, 0);
+  if (passages < 2) return "";
+  const skipped = listed.filter(d => !hitParagraphs(d).length).length;
+  const langs = ["uk", "en", "pt", "de"].filter(l => listed.some(d => infoOf(d).files[l]));
+  const sel = `<select aria-label="${attrEsc(S.lang)}">` + langs.map(l =>
+    `<option value="${l}"${l === tlang ? " selected" : ""}>${DL_LANG_LABELS[l]}</option>`).join("") + `</select>`;
+  const btn = (scope, label) => `<button type="button" data-dlall="${scope}">${label}</button>`;
+  const note = `${S.passages}: ${passages}` + (skipped ? " · " + S.skipped.replace("{n}", skipped) : "");
+  return `<div class="result-dlall"><span>${S.dlAll}</span> ${sel}
+    ${btn("article", S.allArticles)}${btn("page", S.allPages)}${btn("one", S.allOne)}
+    <span class="dl-note">${note}</span></div>`;
+}
+
+function attrEsc(s) {
+  return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
+// One row per newspaper hit: a language picker plus "This article" / "This
+// page" (built in the browser from the issue page, so only the passage the
+// match is in) and "Full issue" (the pre-built file).
+function downloadRowHtml(d, tlang, manifest, S, focus) {
+  const m = d.url.match(/\/issues\/([^/]+)\//);
+  const info = m && manifest[m[1]];
+  const files = info && info.files;
+  const langs = files ? ["uk", "en", "pt", "de"].filter(l => files[l]) : [];
+  if (!langs.length) return "";
+  const hits = hitParagraphs(d);
+  const hit = hits[0];
+  const dir = d.url.replace(/[^/]*$/, "");
+  const stem = files[langs[0]].replace(/_[A-Z]{2}\.docx$/, "");
+  const sel = `<select aria-label="${attrEsc(S.lang)}">` + langs.map(l =>
+    `<option value="${l}"${l === tlang ? " selected" : ""}>${DL_LANG_LABELS[l]}</option>`).join("") + `</select>`;
+  const btn = (scope, label) => `<button type="button" data-dl="${scope}">${label}</button>`;
+  return `<div class="result-dl" data-dir="${attrEsc(dir)}" data-stem="${attrEsc(stem)}"
+      data-date="${attrEsc(info.date)}" data-issue="${attrEsc(info.issue_number)}"
+      data-files="${attrEsc(JSON.stringify(files))}"
+      data-hits="${attrEsc(JSON.stringify(hits.map(h => [h.pageId, h.idx])))}"
+      ${focus != null ? `data-focus="${focus}"` : ""}>
+    <span>${S.dl}</span> ${sel}
+    ${hit ? btn("article", S.article) + btn("page", S.page) : ""}${btn("issue", S.issue)}
+  </div>`;
+}
+
+// ---- Minimal in-browser .docx writer (stored, uncompressed zip; no library) ----
+function crc32(bytes) {
+  let crc = 0xFFFFFFFF;
+  for (let i = 0; i < bytes.length; i++) {
+    crc ^= bytes[i];
+    for (let k = 0; k < 8; k++) crc = (crc & 1) ? (crc >>> 1) ^ 0xEDB88320 : (crc >>> 1);
+  }
+  return (crc ^ 0xFFFFFFFF) >>> 0;
+}
+const DOCX_MIME = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+// files: [{name, text}] or [{name, data: Uint8Array}]
+function makeZip(files, mime) {
+  const enc = new TextEncoder();
+  const u16 = n => [n & 255, (n >>> 8) & 255];
+  const u32 = n => [n & 255, (n >>> 8) & 255, (n >>> 16) & 255, (n >>> 24) & 255];
+  const parts = [], central = [];
+  let offset = 0;
+  for (const f of files) {
+    const name = enc.encode(f.name), data = f.data || enc.encode(f.text);
+    const crc = crc32(data), size = data.length;
+    const local = new Uint8Array([0x50, 0x4b, 3, 4, ...u16(20), ...u16(0x0800), ...u16(0), ...u16(0),
+      ...u16(0x21), ...u32(crc), ...u32(size), ...u32(size), ...u16(name.length), ...u16(0)]);
+    parts.push(local, name, data);
+    central.push(new Uint8Array([0x50, 0x4b, 1, 2, ...u16(20), ...u16(20), ...u16(0x0800), ...u16(0),
+      ...u16(0), ...u16(0x21), ...u32(crc), ...u32(size), ...u32(size), ...u16(name.length),
+      ...u16(0), ...u16(0), ...u16(0), ...u16(0), ...u32(0), ...u32(offset)]), name);
+    offset += local.length + name.length + size;
+  }
+  const centralSize = central.reduce((n, c) => n + c.length, 0);
+  const eocd = new Uint8Array([0x50, 0x4b, 5, 6, ...u16(0), ...u16(0), ...u16(files.length),
+    ...u16(files.length), ...u32(centralSize), ...u32(offset), ...u16(0)]);
+  return new Blob([...parts, ...central, eocd], { type: mime || DOCX_MIME });
+}
+const W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main";
+const DOCX_STYLES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:styles xmlns:w="${W_NS}"><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:eastAsia="Calibri" w:cs="Calibri"/><w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="160" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
+<w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>
+<w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:after="240"/></w:pPr><w:rPr><w:color w:val="1F3A5F"/><w:sz w:val="48"/><w:szCs w:val="48"/></w:rPr></w:style>
+<w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="320" w:after="120"/><w:outlineLvl w:val="0"/></w:pPr><w:rPr><w:b/><w:color w:val="1F3A5F"/><w:sz w:val="32"/><w:szCs w:val="32"/></w:rPr></w:style>
+<w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:spacing w:before="240" w:after="80"/><w:outlineLvl w:val="1"/></w:pPr><w:rPr><w:b/><w:color w:val="2E5B8F"/><w:sz w:val="26"/><w:szCs w:val="26"/></w:rPr></w:style>
+</w:styles>`;
+function xmlEsc(s) {
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+function wRun(text, rpr) {
+  return `<w:r>${rpr ? `<w:rPr>${rpr}</w:rPr>` : ""}<w:t xml:space="preserve">${xmlEsc(text)}</w:t></w:r>`;
+}
+function wPara(text, style, opts) {
+  opts = opts || {};
+  // shade: marks a paragraph that contains the search term (pale yellow).
+  const pprInner = (style ? `<w:pStyle w:val="${style}"/>` : "") +
+    (opts.shade ? `<w:shd w:val="clear" w:color="auto" w:fill="FFF1B8"/>` : "");
+  const ppr = pprInner ? `<w:pPr>${pprInner}</w:pPr>` : "";
+  const rpr = opts.italic ? "<w:i/>" : "";
+  const label = opts.label ? wRun(opts.label + ": ", "<w:b/>") : "";
+  return `<w:p>${ppr}${label}${wRun(text, rpr)}</w:p>`;
+}
+function buildDocxBlob(bodyXml) {
+  const R = "http://schemas.openxmlformats.org/package/2006/relationships";
+  const docRel = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+  return makeZip([
+    { name: "[Content_Types].xml", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/></Types>` },
+    { name: "_rels/.rels", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="${R}"><Relationship Id="rId1" Type="${docRel}/officeDocument" Target="word/document.xml"/></Relationships>` },
+    { name: "word/_rels/document.xml.rels", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Relationships xmlns="${R}"><Relationship Id="rId1" Type="${docRel}/styles" Target="styles.xml"/></Relationships>` },
+    { name: "word/styles.xml", text: DOCX_STYLES },
+    { name: "word/document.xml", text: `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<w:document xmlns:w="${W_NS}"><w:body>${bodyXml}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="708" w:footer="708" w:gutter="0"/></w:sectPr></w:body></w:document>` },
+  ]);
+}
+
+const _issueDocCache = {};
+// Short ALL-CAPS lines (section titles such as "DE TODO O MUNDO.") count as
+// headings too, since the page data only records some headlines.
+const isCapsHead = t => t.length >= 3 && t.length <= 90 &&
+  t.replace(/[^\p{L}]/gu, "").length >= 3 && t === t.toUpperCase();
+// A paragraph that opens with a bracket/quote or a lowercase letter belongs
+// to the item before it (an editor's note, a quoted passage, a split line).
+const isCont = t => /^[(\[„«“]/.test(t) || /^\p{Ll}/u.test(t);
+
+// One page's paragraphs in one language, lifted from the issue page itself:
+// it already holds every paragraph of every language with a stable id
+// (para-{lang}-{page}-{n}) and marks headlines with .t-head, so the exact
+// text the reader sees is used.
+async function fetchPageParas(dir, pageId, lang) {
+  const doc = await (_issueDocCache[dir] = _issueDocCache[dir] || fetch(dir).then(async r => {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return new DOMParser().parseFromString(await r.text(), "text/html");
+  }));
+  return [...doc.querySelectorAll(`p[id^="para-${lang}-${pageId}-"]`)].map(p => {
+    const c = p.cloneNode(true);
+    c.querySelectorAll(".xlink-jump, .lemmas, .scan-jump").forEach(x => x.remove());
+    const text = c.textContent.replace(/\s+/g, " ").trim();
+    return { text, head: !!p.querySelector(".t-head") || isCapsHead(text),
+             item: p.dataset.item === "1", level: +(p.dataset.ilevel || 0),
+             title: p.dataset.ititle || "", auto: p.dataset.iauto === "1" };
+  });
+}
+
+// [start, end, lead) of the "article" around paragraph idx. On pages with item
+// data (item_titles.py) an article is one ITEM: from its start to the next item
+// or heading, so neighbouring news items are never included. A heading that
+// groups items takes them all, up to the next heading. An item inside a section
+// also reports the paragraph of its section heading (lead, or -1), which the
+// documents print first as context. Pages without item data use the older rule:
+// from the nearest heading to the end of the news item containing the match.
+function articleRange(paras, idx) {
+  const n = paras.length, i = Math.min(idx, n - 1);
+  if (paras.some(p => p.item)) {
+    const isStart = k => paras[k].head || paras[k].item;
+    const isGroup = k => paras[k].head || (paras[k].item && paras[k].level === 1);
+    let s = i;
+    while (s > 0 && !isStart(s)) s--;
+    let e = i + 1;
+    if (isGroup(s)) { while (e < n && !isGroup(e)) e++; }
+    else { while (e < n && !isStart(e)) e++; }
+    let lead = -1;
+    if (!isGroup(s)) {
+      for (let k = s - 1; k >= 0; k--) if (isGroup(k)) { lead = k; break; }
+    }
+    return [s, e, lead];
+  }
+  if (paras[i].head) {
+    // The match is in a heading: take it and its text up to the next heading.
+    let end = n;
+    for (let k = i + 1; k < n; k++) if (paras[k].head) { end = k; break; }
+    return [i, end, -1];
+  }
+  let a = i, b = i;
+  while (a > 0 && !paras[a - 1].head && isCont(paras[a].text)) a--;
+  while (b + 1 < n && !paras[b + 1].head && isCont(paras[b + 1].text)) b++;
+  let start = a;
+  for (let k = a - 1; k >= 0; k--) if (paras[k].head) { start = k; break; }
+  return [start, b + 1, -1];
+}
+
+// The passages to extract for one result: one per page ("page") or one per
+// article ("article"), covering every mention (or just the first, for the
+// buttons on a single result). Mentions under the same heading share one
+// excerpt that ends at the last of them. `shade` holds every mentioning
+// paragraph of the page so they can be marked wherever they fall.
+async function rowUnits(row, lang, scope, firstOnly) {
+  const all = JSON.parse(row.dataset.hits || "[]");
+  // Buttons on one passage's card (data-focus) act on that passage; without
+  // it, firstOnly means the first mention; otherwise every mention.
+  const focus = row.dataset.focus;
+  const hits = firstOnly ? (focus != null ? all.slice(+focus, +focus + 1) : all.slice(0, 1)) : all;
+  const shadeByPage = new Map();
+  for (const [pageId, idx] of all) {
+    if (!shadeByPage.has(pageId)) shadeByPage.set(pageId, new Set());
+    shadeByPage.get(pageId).add(idx);
+  }
+  const byPage = new Map();
+  for (const [pageId, idx] of hits) {
+    if (!byPage.has(pageId)) byPage.set(pageId, []);
+    byPage.get(pageId).push(idx);
+  }
+  const units = [];
+  for (const [pageId, idxs] of byPage) {
+    const paras = await fetchPageParas(row.dataset.dir, pageId, lang);
+    if (!paras.length) continue;
+    const shade = shadeByPage.get(pageId);
+    if (scope === "page") {
+      units.push({ pageId, paras, start: 0, end: paras.length, hits: new Set(idxs), shade });
+      continue;
+    }
+    const byStart = new Map();
+    for (const i of idxs) {
+      const [s, e, lead] = articleRange(paras, i);
+      const u = byStart.get(s) || { pageId, paras, start: s, end: e, lead, hits: new Set(), shade };
+      u.end = Math.max(u.end, e);
+      u.hits.add(i);
+      byStart.set(s, u);
+    }
+    units.push(...[...byStart.values()].sort((a, b) => a.start - b.start));
+  }
+  return units;
+}
+
+const pageNumOf = pageId => (pageId.match(/_page(\d+)$/) || [])[1] || "";
+const slugOf = (s, n) => String(s || "").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "-")
+  .replace(/^-+|-+$/g, "").slice(0, n).replace(/-+$/, "");
+
+function docHeaderXml(S, date, issue, source) {
+  let x = wPara("Хлібороб / O Lavrador — " + date, "Title");
+  x += wPara("Khliborob / O Lavrador (Хлібороб)", null, { label: S.newspaper });
+  x += wPara(date, null, { label: S.date });
+  x += wPara(issue, null, { label: S.issue });
+  x += wPara(S.langname, null, { label: S.language });
+  x += wPara(source, null, { label: S.source });
+  x += wPara(S.note, null, { italic: true });
+  x += wPara(S.credit, null, { italic: true });
+  return x;
+}
+
+function unitParasXml(unit) {
+  let x = "";
+  if (unit.lead != null && unit.lead >= 0 && unit.paras[unit.lead].text) {
+    x += wPara(unit.paras[unit.lead].text, "Heading2");     // the section the item belongs to
+  }
+  for (let k = unit.start; k < unit.end; k++) {
+    const p = unit.paras[k];
+    if (p.text) x += wPara(p.text, p.head ? "Heading2" : null, unit.shade.has(k) ? { shade: true } : null);
+  }
+  return x;
+}
+
+function unitSource(row, lang, unit) {
+  return location.origin + row.dataset.dir + "#para-" + lang + "-" + unit.pageId + "-" + Math.min(...unit.hits);
+}
+
+function unitDocx(row, lang, unit) {
+  const S = DOCX_STRINGS[lang];
+  return buildDocxBlob(
+    docHeaderXml(S, row.dataset.date, row.dataset.issue, unitSource(row, lang, unit)) +
+    wPara(S.page + " " + pageNumOf(unit.pageId), "Heading1") + unitParasXml(unit));
+}
+
+function unitFilename(row, lang, scope, unit) {
+  const pageNum = pageNumOf(unit.pageId), L = lang.toUpperCase();
+  if (scope === "page") return `${row.dataset.stem}_p${pageNum}_${L}.docx`;
+  const first = unit.paras.slice(unit.start, unit.end).find(p => p.head) || unit.paras[unit.start];
+  const name = slugOf(unit.paras[unit.start].title || first.text, 40);
+  return `${row.dataset.stem}_p${pageNum}_article${name ? "_" + name : ""}_${L}.docx`;
+}
+
+// Every mention from every listed issue in ONE document: issues in date order
+// (Heading 1), each passage under a line giving its page and source link, the
+// mentioning paragraphs shaded. Meant for searching and commenting locally.
+async function compilationDocx(rows, lang) {
+  const S = DOCX_STRINGS[lang];
+  const sorted = [...rows].sort((a, b) => a.dataset.date.localeCompare(b.dataset.date));
+  const groups = [];
+  let count = 0;
+  for (const row of sorted) {
+    const units = await rowUnits(row, lang, "article", false);
+    // Counted as mentions (mentioning paragraphs), matching the number shown
+    // above the results, not as excerpts (mentions under one heading share one).
+    if (units.length) { groups.push({ row, units }); count += units.reduce((n, u) => n + u.hits.size, 0); }
+  }
+  if (!count) throw new Error("nothing to compile");
+  const query = (window._lastQuery || "").trim();
+  let body = wPara("Khliborob / O Lavrador — \u201c" + query + "\u201d", "Title");
+  body += wPara("Khliborob / O Lavrador (Хлібороб)", null, { label: S.newspaper });
+  body += wPara(query, null, { label: S.searchTerm });
+  body += wPara(S.langname, null, { label: S.language });
+  body += wPara(String(count), null, { label: S.passages });
+  body += wPara(S.note, null, { italic: true });
+  body += wPara(S.credit, null, { italic: true });
+  for (const { row, units } of groups) {
+    body += wPara(row.dataset.date + " — " + row.dataset.issue, "Heading1");
+    for (const u of units) {
+      body += wPara(unitSource(row, lang, u), null, { label: S.page + " " + pageNumOf(u.pageId) });
+      body += unitParasXml(u);
+    }
+  }
+  return { blob: buildDocxBlob(body), count };
+}
+
+function saveHref(href, filename) {
+  const a = document.createElement("a");
+  a.href = href;
+  a.download = filename || "";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
+function saveBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  saveHref(url, filename);
+  setTimeout(() => URL.revokeObjectURL(url), 10000);
+}
+
+function uniqueName(files, name) {
+  if (!files.some(f => f.name === name)) return name;
+  const m = name.match(/^(.*)(_[A-Z]{2}\.docx)$/);
+  for (let n = 2; ; n++) {
+    const cand = m ? `${m[1]}-${n}${m[2]}` : `${n}-${name}`;
+    if (!files.some(f => f.name === cand)) return cand;
+  }
+}
+
+// Buttons on a single result.
+document.getElementById("results").addEventListener("click", async e => {
+  const b = e.target.closest("button[data-dl]");
+  if (!b) return;
+  const row = b.closest(".result-dl");
+  const lang = row.querySelector("select").value;
+  const scope = b.dataset.dl;
+  if (scope === "issue") {
+    const files = JSON.parse(row.dataset.files);
+    saveHref(row.dataset.dir + files[lang], files[lang]);
+    return;
+  }
+  const label = b.textContent;
+  b.disabled = true;
+  b.textContent = "…";
+  try {
+    const units = await rowUnits(row, lang, scope, true);
+    if (!units.length) throw new Error("no passage");
+    saveBlob(unitDocx(row, lang, units[0]), unitFilename(row, lang, scope, units[0]));
+  } catch (err) {
+    console.warn("Transcript download failed:", err);
+    alert(uiStrings().fail);
+  } finally {
+    b.disabled = false;
+    b.textContent = label;
+  }
+});
+
+// "Download all mentions": every mention in every listed newspaper result, as
+// a .zip of articles, a .zip of pages, or one combined document.
+document.getElementById("results").addEventListener("click", async e => {
+  const b = e.target.closest("button[data-dlall]");
+  if (!b) return;
+  const lang = b.closest(".result-dlall").querySelector("select").value;
+  const scope = b.dataset.dlall;
+  const L = lang.toUpperCase();
+  // One row per PASSAGE is on screen; the bulk downloads work per issue and
+  // already cover every mention in it, so each issue is taken once.
+  const seenDirs = new Set();
+  const rows = [...document.querySelectorAll("#results .search-main .result-dl")]
+    .filter(r => JSON.parse(r.dataset.files)[lang] && !seenDirs.has(r.dataset.dir) && seenDirs.add(r.dataset.dir));
+  const slug = slugOf(window._lastQuery, 40) || "results";
+  const label = b.textContent;
+  b.disabled = true;
+  try {
+    if (scope === "one") {
+      b.textContent = "…";
+      const { blob } = await compilationDocx(rows, lang);
+      saveBlob(blob, `Khliborob_search-${slug}_all-mentions_${L}.docx`);
+    } else {
+      const files = [];
+      for (let i = 0; i < rows.length; i++) {
+        b.textContent = (i + 1) + "/" + rows.length;
+        for (const u of await rowUnits(rows[i], lang, scope, false)) {
+          const data = new Uint8Array(await unitDocx(rows[i], lang, u).arrayBuffer());
+          files.push({ name: uniqueName(files, unitFilename(rows[i], lang, scope, u)), data });
+        }
+      }
+      if (!files.length) throw new Error("nothing to download");
+      saveBlob(makeZip(files, "application/zip"),
+        `Khliborob_search-${slug}_${scope === "page" ? "pages" : "articles"}_${L}.zip`);
+    }
+  } catch (err) {
+    console.warn("Bulk download failed:", err);
+    alert(uiStrings().fail);
+  } finally {
+    b.disabled = false;
+    b.textContent = label;
+  }
+});
+
+// (foldChars, foldText and the base-form lookups come from assets/lang-tools.js:
+// the highlighting ignores accents and old spellings exactly as the search does,
+// so "galicia" marks "Galícia" and "грабський" marks "Ґрабського".)
+
+// Folded (lowercase, accent-free) query words worth matching.
+const queryWords = q => q.replace(/["\u201c\u201d\u201e]/g, " ").split(/\s+/)
+  .map(t => foldChars(t).out).filter(t => t.length >= 2);
+
+// Word stems of a name, folded, so inflected forms still match (Ukrainian
+// "Галичина" / "Галичині"): a short ending is dropped from longer words.
+const nameStems = name => name.split(/\s+/)
+  .map(w => foldChars(w).out.replace(/[^\p{L}]/gu, "")).filter(w => w.length >= 4)
+  .map(w => w.length > 5 ? w.slice(0, -1) : w);
+
+// English/Ukrainian names of the persons and places in the archive, so a
+// search for "Galicia" can also mark "Галичині" when the Ukrainian text is
+// what's shown (the search engine only matches the language typed).
+let _entityNames = null;
+async function getEntityNames() {
+  if (_entityNames) return _entityNames;
+  try {
+    const r = await fetch("../assets/agent-data.json");
+    const j = r.ok ? await r.json() : {};
+    _entityNames = [...(j.persons || []), ...(j.locations || [])].filter(e => e.name_en && e.name_uk);
+  } catch (err) {
+    _entityNames = [];
+  }
+  return _entityNames;
+}
+
+// The query's own words plus, when it names a known person/place, that
+// name's stems in the other language.
+async function highlightWords(query) {
+  const words = queryWords(query);
+  // Every inflected form of the query words' base forms, matched as whole words.
+  const exact = await inflectedForms(query);
+  const qf = words.join(" ");
+  if (qf.length < 4) return { words, extra: [], exact };
+  const extra = [];
+  for (const e of await getEntityNames()) {
+    // If the query names this entity in any language, mark it in all of them.
+    const forms = ["name_en", "name_uk", "name_pt", "name_de"].map(f => e[f]).filter(Boolean);
+    const folded = forms.map(n => foldChars(n).out);
+    const stems = forms.map(nameStems);
+    if (folded.some((f, i) => f === qf || f.includes(qf) || stems[i].some(s => qf.startsWith(s)))) {
+      stems.forEach(s => extra.push(...s));
+    }
+  }
+  return { words, extra, exact };
+}
+
+// Merged [start, end) ranges in `text` where any of the folded words occurs
+// (anywhere, so stems match) or any of the `exact` forms occurs as a whole word.
+function matchRanges(text, words, exact) {
+  const { out, map } = foldChars(text);
+  const ranges = [];
+  for (const t of words) {
+    for (let from = 0, at; (at = out.indexOf(t, from)) !== -1; from = at + t.length) {
+      ranges.push([map[at], map[at + t.length - 1] + 1]);
+    }
+  }
+  const isLetter = ch => ch !== undefined && /\p{L}/u.test(ch);
+  for (const t of exact || []) {
+    for (let from = 0, at; (at = out.indexOf(t, from)) !== -1; from = at + t.length) {
+      if (isLetter(out[at - 1]) || isLetter(out[at + t.length])) continue;
+      ranges.push([map[at], map[at + t.length - 1] + 1]);
+    }
+  }
+  ranges.sort((a, b) => a[0] - b[0]);
+  const merged = [];
+  for (const r of ranges) {
+    if (merged.length && r[0] <= merged[merged.length - 1][1]) {
+      merged[merged.length - 1][1] = Math.max(merged[merged.length - 1][1], r[1]);
+    } else merged.push([r[0], r[1]]);
+  }
+  return merged;
+}
+
+// A short excerpt of `text` centered on the first range (or, when the term
+// isn't literally in this text, on `ratio`: how far into the paragraph the
+// mention sits in the language it did match in), with each range in <mark>.
+function snippetHtml(text, merged, ratio) {
+  let start = 0, end = text.length;
+  if (text.length > 340) {
+    const center = merged.length ? merged[0][0] : (ratio != null ? Math.round(ratio * text.length) : 0);
+    start = Math.max(0, center - 150);
+    end = Math.min(text.length, start + 340);
+    while (start > 0 && !/\s/.test(text[start - 1])) start--;
+    while (end < text.length && !/\s/.test(text[end])) end++;
+  }
+  let html = "", pos = start;
+  for (const [a, b] of merged) {
+    if (b <= start || a >= end) continue;
+    const s = Math.max(a, start), e = Math.min(b, end);
+    html += escHtml(text.slice(pos, s)) + "<mark>" + escHtml(text.slice(s, e)) + "</mark>";
+    pos = e;
+  }
+  html += escHtml(text.slice(pos, end));
+  return (start > 0 ? "… " : "") + html + (end < text.length ? " …" : "");
+}
+
+// One card per mention. The excerpt and headline are filled in afterwards,
+// from the issue page's own paragraph (see hydratePassage).
+function passageCardHtml(d, info, hit, k, tlang, S, uiLang, downloadHtml) {
+  const url = d.url + "#para-" + tlang + "-" + hit.pageId + "-" + hit.idx;
+  const pageNum = pageNumOf(hit.pageId);
+  const pageLabel = (DOCX_STRINGS[uiLang] || DOCX_STRINGS.en).page + " " + pageNum;
+  return `
+    <div class="result-card passage-card" data-dir="${attrEsc(d.url.replace(/[^/]*$/, ""))}"
+         data-page="${attrEsc(hit.pageId)}" data-idx="${hit.idx}" data-langs="${attrEsc(hit.langs.join(","))}">
+      <div class="result-date">${pageLabel}</div>
+      <div class="result-title"><a href="${url}" data-ptitle>…</a></div>
+      <div class="result-snippet" data-psnip></div>
+      ${downloadHtml || ""}
+    </div>`;
+}
+
+async function hydratePassage(card, uiLang, query, fallbackTitle) {
+  const { dir, page: pageId } = card.dataset;
+  const idx = parseInt(card.dataset.idx, 10);
+  const matchedLangs = card.dataset.langs.split(",");
+  const titleEl = card.querySelector("[data-ptitle]");
+  try {
+    // Quote the site's current language (the toggle top right), whether or
+    // not the search word was typed in it; paragraph numbers are shared by
+    // all languages. Fall back to a language it matched in if that
+    // translation doesn't exist for this page.
+    let lang = uiLang;
+    let paras = await fetchPageParas(dir, pageId, lang);
+    if (!paras[idx]) {
+      lang = matchedLangs[0];
+      paras = await fetchPageParas(dir, pageId, lang);
+    }
+    const p = paras[idx];
+    if (!p) throw new Error("paragraph missing");
+    const hw = await highlightWords(query);
+    let ranges = matchRanges(p.text, [...hw.words, ...hw.extra], hw.exact);
+    // Other word forms (Ukrainian "Галицької" = "Galician" for the name
+    // "Галичина" = "Galicia"): only when nothing matched, retry on the
+    // first four letters of the translated names.
+    if (!ranges.length && hw.extra.length) ranges = matchRanges(p.text, hw.extra.map(s => s.slice(0, 4)));
+    // Last resort for words the dictionary doesn't know (surnames): the query
+    // word without its last two letters, so "грабський" marks "Грабського".
+    if (!ranges.length) ranges = matchRanges(p.text, hw.words.filter(w => w.length >= 6).map(w => w.slice(0, -2)));
+    let ratio = null;
+    if (!ranges.length && !matchedLangs.includes(lang)) {
+      // The word isn't in this language's text: find where it sits in one it
+      // did match in, and centre the excerpt at the same relative position.
+      const mp = (await fetchPageParas(dir, pageId, matchedLangs[0]))[idx];
+      const mr = mp ? matchRanges(mp.text, queryWords(query)) : [];
+      if (mr.length) ratio = mr[0][0] / mp.text.length;
+    }
+    card.querySelector("[data-psnip]").innerHTML = snippetHtml(p.text, ranges, ratio);
+    let head = null, headIdx = -1, auto = false;
+    if (paras.some(q => q.item)) {
+      // pages with item data: the passage is titled by the item it sits in
+      headIdx = articleRange(paras, idx)[0];
+      const sp = paras[headIdx];
+      head = sp.title || (sp.head ? sp.text : null);
+      auto = !!sp.title && sp.auto;
+    } else {
+      for (let k = idx; k >= 0; k--) if (paras[k].head) { head = paras[k].text; headIdx = k; break; }
+    }
+    card.dataset.head = String(headIdx);   // which article this passage belongs to (see groupPassages)
+    titleEl.textContent = head || fallbackTitle;
+    titleEl.style.fontStyle = auto ? "italic" : "";
+  } catch (err) {
+    titleEl.textContent = fallbackTitle;
+  }
+}
+
+// Newspaper passages (the actual archive content) get the main column, one
+// card per mention grouped under their issue; every other indexed page
+// (Research questions, knowledge graphs, indexes, About…) goes in a side
+// column, so a site page that repeats a search term more densely can no
+// longer outrank the newspaper itself.
+const PASSAGE_PAGE_SIZE = 40;
+async function renderSearchResults() {
+  const data = window._lastSearchData;
+  if (!data) return;
+  const manifest = await getTranscriptManifest();
+  if (window._lastSearchData !== data) return;
+  const uiLang = (typeof currentLang !== "undefined") ? currentLang : (localStorage.getItem("lang") || "en");
+  const S = SEARCH_GROUP_STRINGS[uiLang] || SEARCH_GROUP_STRINGS.en;
+  const tlang = localStorage.getItem("transcriptLang") || "en";
+  const isIssue = d => d.url.indexOf("/issues/") !== -1;
+  const issues = data.filter(isIssue).slice(0, 20);
+  // Everything that isn't a newspaper issue, in two tiers: maps and knowledge
+  // graphs first, then the other site pages (GPU documents, indexes, Research
+  // questions…). Order within a tier is the search engine's own ranking.
+  const isMapOrGraph = d => /\/aggregated\/[^/]*_agg_(map|graph)\.html$/.test(d.url);
+  const rest = data.filter(d => !isIssue(d));
+  // Maps and graphs in the same order as the Maps & Graphs page: full archive,
+  // then decades, then years; for each scope the location map, then its graph.
+  const mgKey = d => {
+    const m = d.url.match(/\/aggregated\/(all_history|decade_[^_]+|year_[^_]+)_agg_(map|graph)\.html$/);
+    return m ? [{ all: 0, decade: 1, year: 2 }[m[1].split("_")[0]], m[1], m[2] === "map" ? 0 : 1] : [9, "", 0];
+  };
+  const mapsGraphs = rest.filter(isMapOrGraph)
+    .sort((a, b) => { const x = mgKey(a), y = mgKey(b); return x[0] - y[0] || x[1].localeCompare(y[1]) || x[2] - y[2]; })
+    .slice(0, 12);
+  const sitePages = rest.filter(d => !isMapOrGraph(d)).slice(0, 12);
+  const others = [...mapsGraphs, ...sitePages];
+  const query = (window._lastQuery || "").trim();
+
+  // Flatten to one entry per passage (an issue whose only matches are outside
+  // the transcript still gets one card, from Pagefind's own excerpt).
+  const entries = [];
+  for (const d of issues) {
+    const m = d.url.match(/\/issues\/([^/]+)\//);
+    const info = m ? manifest[m[1]] : null;
+    const hits = hitParagraphs(d);
+    if (!hits.length) entries.push({ d, info, hit: null, k: 0 });
+    hits.forEach((hit, k) => entries.push({ d, info, hit, k }));
+  }
+  const limit = window._passageLimit || PASSAGE_PAGE_SIZE;
+  const shown = entries.slice(0, limit);
+  const total = entries.length;
+
+  let mainCards = "", lastDir = null;
+  for (const e of shown) {
+    if (e.d.url !== lastDir) {
+      lastDir = e.d.url;
+      const label = e.info ? `${e.info.date} · ${e.info.issue_number}` : (e.d.meta?.title || e.d.url);
+      mainCards += `<div class="result-issue"><a href="${e.d.url}">${escHtml(label)}</a></div>`;
+    }
+    const dl = downloadRowHtml(e.d, tlang, manifest, S, e.hit ? e.k : null);
+    mainCards += e.hit
+      ? passageCardHtml(e.d, e.info, e.hit, e.k, tlang, S, uiLang, dl)
+      : searchCardHtml(e.d, tlang, dl);
+  }
+  if (!total) mainCards = `<p style="font-size:13px;color:var(--muted)">${S.noIssues}</p>`;
+  const more = total > shown.length
+    ? `<button type="button" class="search-more" data-more>${S.showMore.replace("{n}", total - shown.length)}</button>`
+    : "";
+  // Tier headings only when both tiers are present; a lone tier needs none.
+  const tier = (label, list) => list.length
+    ? (mapsGraphs.length && sitePages.length ? `<div class="search-subhead">${label}</div>` : "") +
+      list.map(d => searchCardHtml(d, tlang)).join("")
+    : "";
+  const side = others.length
+    ? `<aside class="search-side">
+         <h3 class="search-col-title">${S.site} <span style="font-weight:400">(${others.length})</span></h3>
+         ${tier(S.mapsGraphs, mapsGraphs)}${tier(S.sitePages, sitePages)}
+       </aside>`
+    : "";
+  const resultsEl = document.getElementById("results");
+  resultsEl.innerHTML = `
+    <div class="search-layout${others.length ? "" : " single"}">
+      <div class="search-main">
+        <h3 class="search-col-title">${S.issues} <span style="font-weight:400">(${total})</span></h3>
+        ${downloadAllHtml(issues, tlang, manifest, S)}
+        ${mainCards}${more}
+      </div>
+      ${side}
+    </div>`;
+  const cardEls = [...resultsEl.querySelectorAll(".passage-card")];
+  Promise.all(cardEls.map(card => {
+    const label = (manifest[card.dataset.dir.match(/\/issues\/([^/]+)\//)[1]] || {}).date || "";
+    return hydratePassage(card, uiLang, query, label);
+  })).then(async () => {
+    if (!cardEls.length || !document.body.contains(cardEls[0])) return;
+    groupPassages(resultsEl, S);
+    await annotateGenres(resultsEl, cardEls, uiLang);
+  });
+}
+
+// Article type of each passage (from assets/genres.json, produced by
+// classify_genres.py): a coloured tag on the card, plus chips above the results
+// to show only some types. Only offered when the results span 2+ types.
+const GENRE_COLORS = { news: "#2563eb", opinion: "#7c3aed", community: "#059669", correspondence: "#d97706",
+  advertisement: "#dc2626", notice: "#64748b", literature: "#db2777", feature: "#0891b2", other: "#9ca3af" };
+let _genres = null;
+async function getGenres() {
+  if (_genres) return _genres;
+  _genres = { labels: {}, byPage: {} };
+  try {
+    const r = await fetch("../assets/genres.json");
+    if (r.ok) {
+      const j = await r.json();
+      _genres.labels = j.genres;
+      for (const a of j.articles) (_genres.byPage[a.page] = _genres.byPage[a.page] || []).push(a);
+    }
+  } catch (err) { /* no labels yet: results are shown without types */ }
+  return _genres;
+}
+async function annotateGenres(resultsEl, cards, uiLang) {
+  const G = await getGenres();
+  const name = g => ((G.labels[g] || {})[uiLang]) || g;
+  const present = new Map();
+  for (const card of cards) {
+    const idx = +card.dataset.idx;
+    const a = (G.byPage[card.dataset.page] || []).find(x => idx >= x.start && idx < x.end);
+    if (!a) continue;
+    card.dataset.genre = a.genre;
+    present.set(a.genre, (present.get(a.genre) || 0) + 1);
+    card.querySelector(".result-date").insertAdjacentHTML("beforeend",
+      ` <span class="gbadge" style="background:${GENRE_COLORS[a.genre]}">${escHtml(name(a.genre))}</span>`);
+  }
+  if (present.size < 2) return;
+  const main = resultsEl.querySelector(".search-main");
+  const bar = document.createElement("div");
+  bar.className = "genre-chips";
+  bar.innerHTML = [...present].map(([g, n]) =>
+    `<button type="button" class="gchip" data-g="${g}">${escHtml(name(g))} (${n})</button>`).join("");
+  (main.querySelector(".result-dlall") || main.querySelector(".search-col-title")).insertAdjacentElement("afterend", bar);
+  const on = new Set();
+  bar.addEventListener("click", e => {
+    const b = e.target.closest(".gchip");
+    if (!b) return;
+    on.has(b.dataset.g) ? on.delete(b.dataset.g) : on.add(b.dataset.g);
+    b.classList.toggle("on", on.has(b.dataset.g));
+    for (const c of cards) c.style.display = (!on.size || on.has(c.dataset.genre)) ? "" : "none";
+    // an issue heading with nothing left under it is hidden too
+    for (const h of main.querySelectorAll(".result-issue")) {
+      let visible = false;
+      for (let s = h.nextElementSibling; s && !s.classList.contains("result-issue"); s = s.nextElementSibling) {
+        if (s.classList.contains("result-card") && s.style.display !== "none") { visible = true; break; }
+      }
+      h.style.display = visible ? "" : "none";
+    }
+  });
+}
+
+// Several mentions can fall in one long article (four paragraphs of one
+// article can all say "Pope"). They stay separate passages, but consecutive
+// ones under the same headline share it: only the first shows the title,
+// the rest are marked as the same article and tucked under it.
+function groupPassages(resultsEl, S) {
+  let prev = null;
+  for (const el of resultsEl.querySelectorAll(".search-main .result-issue, .search-main .result-card")) {
+    if (!el.classList.contains("passage-card")) { prev = null; continue; }
+    if (prev && el.dataset.head !== undefined && el.dataset.head !== "-1" &&
+        el.dataset.dir === prev.dataset.dir && el.dataset.page === prev.dataset.page &&
+        el.dataset.head === prev.dataset.head) {
+      el.classList.add("passage-cont");
+      const meta = el.querySelector(".result-date");
+      if (meta && !meta.dataset.grouped) { meta.textContent += " · " + S.sameArticle; meta.dataset.grouped = "1"; }
+    }
+    prev = el;
+  }
+}
+document.addEventListener("langchange", renderSearchResults);
+document.getElementById("results").addEventListener("click", e => {
+  if (!e.target.closest("[data-more]")) return;
+  window._passageLimit = (window._passageLimit || PASSAGE_PAGE_SIZE) + PASSAGE_PAGE_SIZE;
+  renderSearchResults();
+});
+document.getElementById("q").addEventListener("keydown", e => {
+  if (e.key === "Enter") doFullTextSearch();
+});
+
+// A link into this page with ?q=... (e.g. the homepage's own search box)
+// means "run a full-text search", not "ask the agent" — land on the
+// Search tab with that query already run, same as the old standalone
+// search page did.
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("q")) switchAgentTab("search");
+})();
+</script>
+
+<script src="../assets/lang.js?v=202610081331"></script>
+</body>
+</html>

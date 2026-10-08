@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Khliborob Digital Archive</title>
+<meta name="description" content="Digital archive of Khliborob / O Lavrador, the Ukrainian diaspora newspaper in Brazil (1924-present): searchable transcripts, English and Portuguese translations, and declassified Soviet intelligence documents from the Holodomor period.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/main.css?v=202610081331">
+<link rel="alternate" type="application/atom+xml" title="Khliborob Digital Archive — new issues" href="../feed.xml">
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="../index.html" style="display:flex;align-items:center;gap:.6rem;text-decoration:none">
+      <div class="flag"><div class="flag-top"></div><div class="flag-bot"></div></div>
+      <span class="nav-title">Khliborob Digital Archive</span>
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="../about/" data-i18n="nav_about">About</a>
+    <a href="../browse/" data-i18n="nav_browse">Browse</a>
+    <div class="nav-dropdown">
+      <button class="nav-dropdown-toggle" data-i18n="nav_indexes" onclick="toggleNavDropdown(event)">Indexes</button>
+      <div class="nav-dropdown-menu">
+        <a href="../persons/" data-i18n="persons">Persons</a>
+        <a href="../locations/" data-i18n="locations">Locations</a>
+        <a href="../organizations/" data-i18n="organizations">Organizations</a>
+        <a href="../concordance/" data-i18n="nav_concordance">Concordance</a>
+        <a href="../genres/" data-i18n="nav_genres">Article types</a>
+      </div>
+    </div>
+    <a href="../aggregated/" data-i18n="nav_maps">Maps &amp; Graphs</a>
+    <a href="../chat/" data-i18n="nav_chat">Research Agent</a>
+    <a href="../gpu-documents/" data-i18n="nav_gpu">GPU Documents</a>
+    <a href="../research-questions/" data-i18n="nav_questions">Research Questions</a>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="uk">УКР</button>
+      <button class="lang-btn active" data-lang="en">ENG</button>
+      <button class="lang-btn" data-lang="pt">PT-BR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+    </div>
+  </div>
+</nav>
+
+<div style="max-width:720px;margin:2rem auto;padding:0 1.5rem">
+  <div data-lang-en>
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">About this archive</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Pilot corpus.</strong> This site currently presents 2 fully digitized issues
+    (8 pages) out of an estimated 14,000+ pages held by SUBRAS spanning 1924–present. It exists
+    to demonstrate the digitization pipeline end-to-end — OCR, translation, entity extraction,
+    provenance anchoring, standards-compliant export — ahead of a funding application to digitize
+    the full run. Figures on this site (issue counts, person/location indices) describe the pilot
+    corpus, not the complete newspaper archive.
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The newspaper</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Khliborob (Хлібороб, "The Farmer") was founded in Porto União, Paraná, Brazil
+    in 1924 by the Ukrainian poet Petro Karmansky. It is one of the longest-running
+    Ukrainian diaspora newspapers in the world, published continuously to the present
+    day (under the name O Lavrador since the Vargas-era forced Portuguese transition
+    of 1940–46). It is published by SUBRAS (Sociedade Ucraniana do Brasil) in Curitiba.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The GPU discovery</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Four declassified documents from the Branch State Archives of the Ukrainian
+    Foreign Intelligence Service (SZRU) demonstrate that Khliborob circulated
+    within a transnational Ukrainian political network connecting Curitiba, São Paulo,
+    and Istanbul during the Holodomor period (1929–1933). GPU intelligence summaries
+    compiled for Japanese diplomatic services in November 1932 cite the newspaper
+    as a source for information about executions of starving peasants in Soviet Ukraine.
+  </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    These documents name real individuals under surveillance during a period of political
+    persecution. They are reproduced here as declassified historical intelligence records
+    released by SZRU (published 23 November 2025) for scholarly research; readers should
+    treat the identities involved with the same care historians apply to any archive
+    documenting political repression of named persons.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Methodology &amp; limitations</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Page images are transcribed and translated (Ukrainian → English, Portuguese, and German;
+    issues already published in Portuguese, after the paper's forced Vargas-era transition of
+    1940–46, are used as the Portuguese text directly rather than machine-translated) using
+    Gemini 2.5 Flash vision OCR. Machine translation of 1920s
+    diaspora Ukrainian and period Portuguese carries the usual risks
+    of idiom loss and anachronistic phrasing; researchers doing close reading should treat the
+    English/Portuguese columns as a navigation aid and verify against the Ukrainian original (or
+    the page scan) before quoting.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Entity linking &amp; data quality</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Every recurring person, organization, and location — one mentioned in at least two issues — is
+    extracted automatically from the transcripts. An earlier version also matched each name
+    against Wikidata, but a full manual audit found too many wrong matches, especially for
+    organizations and persons. The feature is therefore switched off: no Wikidata links are shown
+    anywhere on the site. No data was deleted, only hidden. Links may return, category by
+    category, once enough matches have been checked by a person against the sentence the name
+    came from; locations are the likeliest to come back first.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards &amp; interoperability</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Each digitized page has an IIIF Presentation 3.0 manifest (linked from its issue page) so
+    the scans can be opened in Mirador, Universal Viewer, or any other IIIF-compatible tool.
+    Metadata for all issues is also published as a Dublin Core /
+    <a href="../oai-pmh.xml" target="_blank" rel="noopener">OAI-PMH-format static export</a> —
+    a snapshot rather than a live query endpoint, since the site itself is static-hosted, but
+    structured for reuse by aggregators such as Europeana or the Deutsche Digitale Bibliothek.
+    TEI, ALTO, and METS XML are also generated per page by the pipeline. For aggregators and
+    linked-data tools, the same metadata is available in the Europeana Data Model (EDM, RDF/XML)
+    and as schema.org JSON-LD, one file per issue and one for the whole archive (see Maps &amp; Graphs).
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">The pipeline</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    This archive was built using an open-source digitization pipeline developed at
+    the University of Münster. Issues are processed using Gemini 2.5 Flash for OCR
+    and bilingual (Ukrainian/English) transcription, stored permanently on IPFS via
+    Pinata, and cryptographically anchored on the Polygon blockchain. The pipeline
+    source code is available at
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank"
+       rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Digital provenance: IPFS and blockchain anchoring</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Every digitized page in this archive is preserved through two complementary technologies
+    designed to make its origin and integrity independently verifiable — not just by this
+    website, but by anyone, using public tools that have nothing to do with this project.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>IPFS (InterPlanetary File System)</strong> addresses files by their content rather
+    than by a location. A normal web link (<code>example.com/page1.png</code>) could point to
+    different content at different times without anyone noticing. Instead, each scanned page
+    gets a unique fingerprint generated directly from its own data — the "Qm…" identifiers used
+    throughout this site. If even a single pixel changed, the fingerprint would change too. That
+    fingerprint is a durable, checkable guarantee that what you're viewing is exactly the file
+    that was originally digitized, not a silently altered or corrupted copy.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Polygon</strong> is a public blockchain — a shared ledger maintained by thousands of
+    independent computers worldwide rather than by any single company or institution. For each
+    digitized page, this project writes a small, permanent record onto that ledger stating, in
+    effect, "this exact file fingerprint, for this exact page, existed at this exact time."
+    <strong>POL</strong> is the token used to pay the small fee for writing that record. Because
+    the ledger is public and decentralized, anyone can independently check that timestamp — for
+    example on <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — and it cannot be altered afterward by this project, by SUBRAS, or by anyone else.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Together, the two cover different risks. IPFS's fingerprint proves a file hasn't been
+    tampered with, provided you have something to compare it against; the blockchain record
+    supplies that permanent, independent point of comparison, plus a trustworthy date — one that
+    would still stand even if the file itself ever became unavailable.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>The blockchain only preserves the fingerprint, not the file itself</strong> —
+    recovering the actual scan or transcript still depends on some IPFS node continuing to host it.
+    Today that means a single pinning provider (Pinata), with no second, independent copy yet; a
+    planned next step (see Roadmap below) is depositing the full corpus with the Internet Archive
+    to remove that dependency.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Why not a traditional server instead?</strong> Conventional digital preservation
+    usually means paying for dedicated, redundant infrastructure — storage mirrored across
+    multiple sites for disaster recovery, ongoing hardware and software maintenance, and often a
+    commercial repository platform on top — costs that recur for as long as the archive exists,
+    and add up faster than they might seem once staff time to keep it all running is factored in.
+    IPFS and blockchain anchoring aim for the same core guarantees — content that can be proven
+    unaltered, with a permanent, independently verifiable record of when it existed — through
+    shared, already-existing infrastructure instead.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Roadmap</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    This pilot corpus (2 issues, 8 pages) exists to demonstrate the pipeline end-to-end for a
+    funding application. If funded, the next phases are: (1) full digitization of SUBRAS's
+    physical archive — an estimated 14,000+ pages spanning 1924 to the present; (2) a formal
+    accuracy evaluation of the OCR/translation pipeline against a sampled set of pages, extending
+    the entity-linking audit above to transcription and translation quality as well; (3)
+    deposit of the complete corpus with the Internet Archive and a DOI-bearing dataset record
+    (e.g. via Zenodo) for permanent citability; (4) migration of the Research Agent to a hosted
+    backend so AI-assisted queries do not require visitors to supply their own API key.
+  </p>
+</div><div data-lang-uk style='display:none'>
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Про цей архів</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Пілотний корпус.</strong> Цей сайт наразі демонструє 2 повністю оцифровані випуски
+    (8 сторінок) з приблизно 14 000+ сторінок, що зберігаються в SUBRAS і охоплюють період з 1924
+    року дотепер. Він створений, щоб продемонструвати повний цикл роботи конвеєра оцифрування —
+    розпізнавання тексту, переклад, виділення сутностей, закріплення походження, експорт у
+    стандартизованих форматах — перед поданням заявки на фінансування оцифрування повного архіву.
+    Показники на цьому сайті (кількість випусків, покажчики осіб і місць) стосуються пілотного
+    корпусу, а не повного архіву газети.
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Газета</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Газету «Хлібороб» засновано в Порто-Уніоні, штат Парана, Бразилія, 1924 року українським
+    поетом Петром Карманським. Це одне з найдовговічніших видань української діаспори у світі —
+    виходить безперервно й донині (з 1940–46 рр., після примусового переходу на португальську
+    мову за часів Варгаса, під назвою O Lavrador). Видає газету SUBRAS (Українське товариство
+    Бразилії) в Курітибі.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Відкриття документів ГПУ</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Чотири розсекречені документи з Галузевого державного архіву Служби зовнішньої розвідки
+    України (СЗРУ) свідчать, що «Хлібороб» перебував у полі зору транснаціональної української
+    політичної мережі, яка з'єднувала Курітибу, Сан-Паулу та Стамбул у період Голодомору
+    (1929–1933). Розвідувальні зведення ГПУ, складені для японської дипломатичної служби в
+    листопаді 1932 року, цитують газету як джерело інформації про страти голодуючих селян у
+    радянській Україні.
+  </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    Ці документи називають реальних осіб, які перебували під наглядом у період політичних
+    переслідувань. Вони відтворені тут як розсекречені історичні розвідувальні матеріали,
+    оприлюднені СЗРУ (опубліковано 23 листопада 2025 року) для наукових досліджень; читачам варто
+    ставитися до згаданих осіб з такою ж обережністю, яку історики застосовують до будь-якого
+    архіву, що документує політичні репресії проти конкретних людей.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Методологія та обмеження</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Зображення сторінок розпізнаються й перекладаються (з української на англійську, португальську
+    та німецьку; випуски, які вже виходили португальською — після вимушеного переходу газети в
+    добу Варгаса 1940–46 років — використовуються як португальський текст безпосередньо, без
+    машинного перекладу) за допомогою візуального розпізнавання тексту Gemini 2.5 Flash.
+    Машинний переклад української мови діаспори
+    1920-х років і тогочасної португальської несе звичні ризики втрати ідіом і анахронічних
+    формулювань; дослідникам, які працюють із текстом на рівні деталей, варто розглядати
+    англійську та португальську колонки як допоміжний навігаційний інструмент і звірятися з
+    українським оригіналом (або сканом сторінки) перед цитуванням.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Пов'язування сутностей і якість даних</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Кожну особу, організацію та місце, що повторюються, — згадані щонайменше у двох випусках, —
+    автоматично виділяють із транскрипцій. Попередня версія також зіставляла кожне ім'я з
+    Вікіданими, але повний ручний аудит виявив забагато хибних збігів, особливо для організацій
+    та осіб. Тому цю функцію вимкнено: жодних зв'язків із Вікіданими на сайті не показано. Жодних
+    даних не видалено, їх лише приховано. Зв'язки можуть повернутися категорія за категорією,
+    щойно достатньо збігів перевірить людина за реченням, у якому згадано назву; місця
+    найімовірніше повернуться першими.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Стандарти та сумісність</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Кожна оцифрована сторінка має маніфест IIIF Presentation 3.0 (посилання на нього — на
+    сторінці випуску), тож скани можна відкривати в Mirador, Universal Viewer чи будь-якому
+    іншому інструменті, сумісному з IIIF. Метадані всіх випусків також публікуються у форматі
+    Dublin Core / <a href="../oai-pmh.xml" target="_blank" rel="noopener">статичного експорту
+    OAI-PMH</a> — це знімок стану, а не активна кінцева точка запитів, оскільки сам сайт є
+    статичним, але структурований для повторного використання агрегаторами, такими як Europeana
+    чи Deutsche Digitale Bibliothek. Конвеєр також генерує для кожної сторінки файли TEI, ALTO
+    та METS XML. Для агрегаторів і інструментів зв'язаних даних ті самі метадані доступні в
+    Європейській моделі даних (EDM, RDF/XML) та як schema.org JSON-LD — по одному файлу на випуск
+    і один на весь архів (див. «Мапи та графи»).
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Конвеєр</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Цей архів створено за допомогою відкритого конвеєра оцифрування, розробленого в
+    Мюнстерському університеті. Випуски обробляються за допомогою Gemini 2.5 Flash для
+    розпізнавання тексту й двомовної (українсько-англійської) транскрипції, постійно
+    зберігаються на IPFS через Pinata та криптографічно закріплюються в блокчейні Polygon.
+    Вихідний код конвеєра доступний на
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Цифрове підтвердження походження: IPFS та закріплення в блокчейні</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Кожна оцифрована сторінка цього архіву зберігається за допомогою двох взаємодоповнюючих
+    технологій, покликаних зробити її походження та цілісність незалежно перевірюваними — не
+    лише цим сайтом, а будь-ким, за допомогою публічних інструментів, які не мають жодного
+    стосунку до цього проєкту.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>IPFS (InterPlanetary File System)</strong> адресує файли за їхнім вмістом, а не за
+    місцем розташування. Звичайне вебпосилання (<code>example.com/page1.png</code>) могло б у
+    різний час вказувати на різний вміст, і ніхто б цього не помітив. Натомість кожна відсканована
+    сторінка отримує унікальний відбиток, згенерований безпосередньо з її власних даних —
+    ідентифікатори „Qm…“, що використовуються по всьому цьому сайту. Якби змінився хоча б один
+    піксель, відбиток теж змінився б. Цей відбиток є тривкою, перевірюваною гарантією того, що те,
+    що ви бачите, є саме тим файлом, який було оцифровано спочатку, а не непомітно зміненою чи
+    пошкодженою копією.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Polygon</strong> — це публічний блокчейн: спільний реєстр, який підтримують тисячі
+    незалежних комп'ютерів по всьому світу, а не якась одна компанія чи установа. Для кожної
+    оцифрованої сторінки цей проєкт записує в цей реєстр невеликий, постійний запис, який фактично
+    засвідчує: „цей точний відбиток файлу для цієї точної сторінки існував у цей точний момент
+    часу“. <strong>POL</strong> — це токен, яким сплачується невелика комісія за запис такого
+    запису. Оскільки реєстр публічний і децентралізований, будь-хто може незалежно перевірити цю
+    позначку часу — наприклад, на
+    <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — і жодна зі сторін, включно з цим проєктом, SUBRAS чи будь-ким іншим, не може змінити її
+    заднім числом.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Разом ці дві технології покривають різні ризики. Відбиток IPFS доводить, що файл не було
+    підроблено, за умови, що є з чим його порівняти; запис у блокчейні надає саме цю постійну,
+    незалежну точку порівняння, а також надійну дату — яка залишиться дійсною, навіть якщо сам
+    файл колись стане недоступним.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Блокчейн зберігає лише відбиток, а не сам файл</strong> — щоб
+    відновити реальний скан чи транскрипт, потрібно, щоб якийсь вузол IPFS і далі його розміщував.
+    Наразі це один постачальник пінінгу (Pinata), без другої, незалежної копії; запланований
+    наступний крок (див. «Дорожню карту» нижче) — депонування повного корпусу в Internet Archive,
+    щоб позбутися цієї залежності.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Чому не звичайний сервер?</strong> Традиційне цифрове збереження зазвичай означає
+    оплату виділеної, резервованої інфраструктури — сховища, дзеркального на кількох майданчиках
+    для аварійного відновлення, постійного обслуговування апаратного й програмного забезпечення, а
+    часто ще й комерційної платформи-репозиторію зверху — витрати, які повторюються, доки існує
+    архів, і накопичуються швидше, ніж здається, якщо врахувати час персоналу, потрібний для
+    підтримання всього цього в робочому стані. IPFS та закріплення в блокчейні прагнуть до тих
+    самих базових гарантій — вмісту, незмінність якого можна довести, з постійним, незалежно
+    перевірюваним записом про те, коли він існував — але за допомогою спільної, вже наявної
+    інфраструктури.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Дорожня карта</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Цей пілотний корпус (2 випуски, 8 сторінок) створений, щоб продемонструвати конвеєр
+    повністю в рамках заявки на фінансування. У разі отримання фінансування наступні етапи:
+    (1) повне оцифрування фізичного архіву SUBRAS — приблизно 14 000+ сторінок за період з 1924
+    року дотепер; (2) формальна оцінка точності конвеєра розпізнавання й перекладу на вибірці
+    сторінок, поширюючи наведений вище аудит пов'язування сутностей також на якість транскрипції
+    й перекладу; (3) депонування повного корпусу в Internet Archive та створення запису набору
+    даних із DOI (наприклад, через Zenodo) для постійного цитування; (4) перенесення
+    Дослідницького агента на розміщений на сервері бекенд, щоб запити зі штучним інтелектом не
+    вимагали від відвідувачів надання власного ключа API.
+  </p>
+</div><div data-lang-pt style='display:none'>
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Sobre este arquivo</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Corpus piloto.</strong> Este site apresenta atualmente 2 edições totalmente
+    digitalizadas (8 páginas) de um total estimado de mais de 14.000 páginas mantidas pela
+    SUBRAS, abrangendo o período de 1924 até o presente. Ele existe para demonstrar todo o
+    pipeline de digitalização — OCR, tradução, extração de entidades, ancoragem de proveniência,
+    exportação em formatos padronizados — antes de um pedido de financiamento para digitalizar a
+    coleção completa. Os números apresentados neste site (número de edições, índices de
+    pessoas/locais) referem-se ao corpus piloto, não ao arquivo completo do jornal.
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">O jornal</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    O Khliborob (Хлібороб, "O Lavrador") foi fundado em Porto União, Paraná, em 1924 pelo poeta
+    ucraniano Petro Karmansky. É um dos jornais da diáspora ucraniana mais antigos em circulação
+    contínua no mundo, publicado ininterruptamente até hoje (sob o nome O Lavrador desde a
+    transição forçada para o português na era Vargas, 1940–46). É publicado pela SUBRAS
+    (Sociedade Ucraniana do Brasil), em Curitiba.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">A descoberta dos documentos da GPU</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Quatro documentos desclassificados dos Arquivos Estaduais Regionais do Serviço de
+    Inteligência Externa da Ucrânia (SZRU) demonstram que o Khliborob circulava dentro de uma
+    rede política ucraniana transnacional que conectava Curitiba, São Paulo e Istambul durante o
+    período do Holodomor (1929–1933). Resumos de inteligência da GPU, compilados para os serviços
+    diplomáticos japoneses em novembro de 1932, citam o jornal como fonte de informações sobre
+    execuções de camponeses famintos na Ucrânia soviética.
+  </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    Esses documentos citam nominalmente indivíduos reais que estavam sob vigilância durante um
+    período de perseguição política. Eles são reproduzidos aqui como registros de inteligência
+    histórica desclassificados, divulgados pelo SZRU (publicados em 23 de novembro de 2025) para
+    fins de pesquisa acadêmica; os leitores devem tratar as identidades envolvidas com o mesmo
+    cuidado que historiadores aplicam a qualquer arquivo que documente repressão política contra
+    pessoas nomeadas.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Metodologia e limitações</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    As imagens das páginas são transcritas e traduzidas (do ucraniano para o inglês, o português
+    e o alemão; edições já publicadas em português — após a transição forçada do jornal na era
+    Vargas, entre 1940 e 1946 — são usadas como texto em português diretamente, sem tradução
+    automática) usando o OCR de visão computacional Gemini 2.5 Flash. A tradução automática do
+    ucraniano da diáspora dos anos 1920 e do português da época carrega os
+    riscos habituais de perda de idiomatismos e formulações anacrônicas; pesquisadores que
+    fizerem leitura atenta devem tratar as colunas em inglês/português como um auxílio de
+    navegação e verificar o original em ucraniano (ou a digitalização da página) antes de citar.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Vinculação de entidades e qualidade dos dados</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Cada pessoa, organização e local recorrente — mencionado em pelo menos duas edições — é
+    extraído automaticamente das transcrições. Uma versão anterior também comparava cada nome
+    com o Wikidata, mas uma auditoria manual completa encontrou correspondências erradas demais,
+    sobretudo para organizações e pessoas. Por isso o recurso está desativado: nenhum vínculo com
+    o Wikidata é exibido em qualquer parte do site. Nenhum dado foi apagado, apenas ocultado. Os
+    vínculos poderão voltar, categoria por categoria, quando correspondências suficientes tiverem
+    sido conferidas por uma pessoa na frase de origem; os locais são os mais prováveis de voltar
+    primeiro.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Padrões e interoperabilidade</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Cada página digitalizada possui um manifesto IIIF Presentation 3.0 (vinculado a partir da
+    página da edição), de modo que as digitalizações podem ser abertas no Mirador, Universal
+    Viewer ou qualquer outra ferramenta compatível com IIIF. Os metadados de todas as edições
+    também são publicados como uma
+    <a href="../oai-pmh.xml" target="_blank" rel="noopener">exportação estática em Dublin Core /
+    formato OAI-PMH</a> — um instantâneo, não um ponto de consulta ativo, já que o próprio site é
+    hospedado de forma estática, mas estruturado para reutilização por agregadores como a
+    Europeana ou a Deutsche Digitale Bibliothek. TEI, ALTO e METS XML também são gerados por
+    página pelo pipeline. Para agregadores e ferramentas de dados vinculados, os mesmos metadados
+    estão disponíveis no Europeana Data Model (EDM, RDF/XML) e como schema.org JSON-LD, um arquivo
+    por edição e um para todo o arquivo (veja Mapas e Gráficos).
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">O pipeline</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Este arquivo foi construído usando um pipeline de digitalização de código aberto desenvolvido
+    na Universidade de Münster. As edições são processadas usando o Gemini 2.5 Flash para OCR e
+    transcrição bilíngue (ucraniano/inglês), armazenadas permanentemente no IPFS via Pinata e
+    ancoradas criptograficamente na blockchain Polygon. O código-fonte do pipeline está
+    disponível no
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Proveniência digital: IPFS e ancoragem em blockchain</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Cada página digitalizada deste arquivo é preservada por meio de duas tecnologias
+    complementares, projetadas para tornar sua origem e integridade verificáveis de forma
+    independente — não apenas por este site, mas por qualquer pessoa, usando ferramentas públicas
+    que nada têm a ver com este projeto.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    O <strong>IPFS (InterPlanetary File System)</strong> endereça arquivos pelo seu conteúdo, não
+    por uma localização. Um link comum (<code>example.com/page1.png</code>) poderia apontar para
+    conteúdos diferentes em momentos diferentes sem que ninguém percebesse. Em vez disso, cada
+    página escaneada recebe uma impressão digital única, gerada diretamente a partir de seus
+    próprios dados — os identificadores "Qm…" usados em todo este site. Se até um único pixel
+    mudasse, a impressão digital também mudaria. Essa impressão digital é uma garantia duradoura e
+    verificável de que o que você está vendo é exatamente o arquivo que foi originalmente
+    digitalizado, não uma cópia alterada ou corrompida silenciosamente.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    A <strong>Polygon</strong> é uma blockchain pública — um livro-razão compartilhado, mantido
+    por milhares de computadores independentes ao redor do mundo, e não por uma única empresa ou
+    instituição. Para cada página digitalizada, este projeto grava um pequeno registro permanente
+    nesse livro-razão, afirmando, em essência: "esta impressão digital exata, para esta página
+    exata, existia neste momento exato". O <strong>POL</strong> é o token usado para pagar a
+    pequena taxa dessa gravação. Como o livro-razão é público e descentralizado, qualquer pessoa
+    pode verificar essa data de forma independente — por exemplo, em
+    <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — e ela não pode ser alterada posteriormente por este projeto, pela SUBRAS ou por qualquer
+    outra pessoa.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Juntas, as duas tecnologias cobrem riscos diferentes. A impressão digital do IPFS prova que um
+    arquivo não foi adulterado, desde que haja algo com que compará-lo; o registro na blockchain
+    fornece exatamente esse ponto de comparação permanente e independente, além de uma data
+    confiável — que continuaria válida mesmo que o próprio arquivo se tornasse indisponível.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>A blockchain preserva apenas a impressão digital, não o arquivo em si</strong> — recuperar o scan ou a transcrição real ainda depende de algum nó do IPFS continuar a
+    hospedá-lo. Hoje isso significa um único provedor de pinning (Pinata), sem uma segunda cópia
+    independente ainda; um próximo passo planejado (ver Roteiro abaixo) é depositar o corpus
+    completo no Internet Archive para eliminar essa dependência.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Por que não um servidor tradicional?</strong> A preservação digital convencional
+    geralmente significa pagar por infraestrutura dedicada e redundante — armazenamento espelhado
+    em vários locais para recuperação de desastres, manutenção contínua de hardware e software, e
+    frequentemente uma plataforma de repositório comercial adicional — custos que se repetem
+    enquanto o arquivo existir, e que aumentam mais rápido do que parece quando se considera o
+    tempo de equipe necessário para manter tudo funcionando. O IPFS e a ancoragem em blockchain
+    buscam as mesmas garantias essenciais — conteúdo que pode ser comprovadamente inalterado, com
+    um registro permanente e independentemente verificável de quando existiu — mas por meio de uma
+    infraestrutura compartilhada já existente.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Roteiro</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Este corpus piloto (2 edições, 8 páginas) existe para demonstrar o pipeline de ponta a ponta
+    para um pedido de financiamento. Se financiado, as próximas fases são: (1) digitalização
+    completa do acervo físico da SUBRAS — cerca de 14.000+ páginas, de 1924 até o presente; (2)
+    uma avaliação formal de precisão do pipeline de OCR/tradução sobre uma amostra de páginas;
+    (3) depósito do corpus completo no Internet Archive e um registro de conjunto de dados com
+    DOI (por exemplo, via Zenodo) para citabilidade permanente; (4) migração do Agente de
+    Pesquisa para um backend hospedado, para que consultas assistidas por IA não exijam que os
+    visitantes forneçam sua própria chave de API.
+  </p>
+</div><div data-lang-de style='display:none'>
+  <h1 style="font-size:22px;font-weight:500;margin-bottom:1rem">Über dieses Archiv</h1>
+
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+       padding:.9rem 1.1rem;margin-bottom:1.2rem;font-size:13px;line-height:1.6;color:var(--text)">
+    📌 <strong>Pilotkorpus.</strong> Diese Website zeigt derzeit 2 vollständig digitalisierte
+    Ausgaben (8 Seiten) von schätzungsweise über 14.000 Seiten im Bestand von SUBRAS aus der Zeit
+    von 1924 bis heute. Sie dient dazu, die gesamte Digitalisierungs-Pipeline zu demonstrieren —
+    OCR, Übersetzung, Entitätenextraktion, Provenienzverankerung, standardkonformer Export — vor
+    einem Förderantrag zur Digitalisierung des vollständigen Bestands. Die Zahlen auf dieser
+    Website (Ausgabenanzahl, Personen-/Ortsregister) beziehen sich auf den Pilotkorpus, nicht auf
+    das vollständige Zeitungsarchiv.
+  </div>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Die Zeitung</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Chliborob (Хлібороб, „Der Landwirt") wurde 1924 in Porto União, Paraná, von dem ukrainischen
+    Dichter Petro Karmansky gegründet. Sie ist eine der am längsten ununterbrochen erscheinenden
+    Zeitungen der ukrainischen Diaspora weltweit und wird bis heute fortlaufend veröffentlicht
+    (seit dem erzwungenen Übergang zur portugiesischen Sprache in der Vargas-Ära 1940–46 unter
+    dem Namen O Lavrador). Herausgeber ist SUBRAS (Sociedade Ucraniana do Brasil) in Curitiba.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Die GPU-Entdeckung</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Vier freigegebene Dokumente aus den Regionalen Staatsarchiven des Auslandsnachrichtendienstes
+    der Ukraine (SZRU) belegen, dass Chliborob innerhalb eines transnationalen ukrainischen
+    politischen Netzwerks zirkulierte, das Curitiba, São Paulo und Istanbul während der Zeit des
+    Holodomor (1929–1933) verband. GPU-Geheimdienstberichte, die im November 1932 für den
+    japanischen diplomatischen Dienst zusammengestellt wurden, zitieren die Zeitung als Quelle
+    für Informationen über die Hinrichtung hungernder Bauern in der Sowjetukraine.
+  </p>
+  <p style="font-size:12px;line-height:1.6;color:var(--muted)">
+    Diese Dokumente nennen reale Personen, die während einer Periode politischer Verfolgung
+    überwacht wurden. Sie werden hier als freigegebene historische Geheimdienstunterlagen
+    wiedergegeben, veröffentlicht vom SZRU (erschienen am 23. November 2025) zu
+    wissenschaftlichen Forschungszwecken; Leserinnen und Leser sollten die betroffenen Personen
+    mit derselben Sorgfalt behandeln, die Historiker jedem Archiv entgegenbringen, das politische
+    Verfolgung namentlich genannter Personen dokumentiert.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Methodik und Grenzen</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Seitenbilder werden mittels der Bild-OCR von Gemini 2.5 Flash transkribiert und übersetzt
+    (Ukrainisch → Englisch, Portugiesisch und Deutsch; Ausgaben, die bereits auf Portugiesisch
+    erschienen sind — nach dem erzwungenen Übergang der Zeitung in der Vargas-Ära 1940–46 —,
+    werden direkt als portugiesischer Text verwendet, statt maschinell übersetzt zu werden).
+    Die maschinelle Übersetzung des ukrainischen Diaspora-Dialekts der
+    1920er Jahre sowie des
+    zeitgenössischen Portugiesisch birgt die üblichen Risiken von Idiomverlust und
+    anachronistischer Formulierung; Forschende, die eine genaue Lektüre durchführen, sollten die
+    englische/portugiesische Spalte als Orientierungshilfe betrachten und vor einem Zitat mit dem
+    ukrainischen Original (oder dem Seitenscan) abgleichen.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Verknüpfung von Entitäten und Datenqualität</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Jede wiederkehrende Person, Organisation und jeder wiederkehrende Ort — in mindestens zwei
+    Ausgaben erwähnt — wird automatisch aus den Transkripten extrahiert. Eine frühere Version
+    glich außerdem jeden Namen mit Wikidata ab, doch eine vollständige manuelle Prüfung ergab zu
+    viele falsche Treffer, besonders bei Organisationen und Personen. Die Funktion ist daher
+    abgeschaltet: Auf der Website werden keine Wikidata-Verknüpfungen angezeigt. Es wurden keine
+    Daten gelöscht, nur ausgeblendet. Die Verknüpfungen können Kategorie für Kategorie
+    zurückkehren, sobald genug Treffer von einer Person am Ursprungssatz geprüft wurden; Orte
+    kehren am wahrscheinlichsten zuerst zurück.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Standards und Interoperabilität</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Jede digitalisierte Seite verfügt über ein IIIF-Presentation-3.0-Manifest (verlinkt von der
+    jeweiligen Ausgabenseite), sodass die Scans in Mirador, Universal Viewer oder jedem anderen
+    IIIF-kompatiblen Tool geöffnet werden können. Die Metadaten aller Ausgaben werden zudem als
+    <a href="../oai-pmh.xml" target="_blank" rel="noopener">statischer Dublin-Core-/OAI-PMH-
+    Export</a> veröffentlicht — ein Schnappschuss statt eines aktiven Abfrage-Endpunkts, da die
+    Website selbst statisch gehostet wird, jedoch strukturiert für die Weiterverwendung durch
+    Aggregatoren wie Europeana oder die Deutsche Digitale Bibliothek. TEI-, ALTO- und METS-XML
+    werden von der Pipeline ebenfalls pro Seite erzeugt. Für Aggregatoren und Linked-Data-Werkzeuge
+    sind dieselben Metadaten im Europeana Data Model (EDM, RDF/XML) und als schema.org JSON-LD
+    verfügbar, je eine Datei pro Ausgabe und eine für das gesamte Archiv (siehe Karten &amp; Graphen).
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Die Pipeline</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Dieses Archiv wurde mit einer Open-Source-Digitalisierungs-Pipeline erstellt, die an der
+    Universität Münster entwickelt wurde. Die Ausgaben werden mit Gemini 2.5 Flash für OCR und
+    zweisprachige (ukrainisch/englische) Transkription verarbeitet, dauerhaft über Pinata auf
+    IPFS gespeichert und kryptografisch in der Polygon-Blockchain verankert. Der Quellcode der
+    Pipeline ist auf
+    <a href="https://github.com/Hochheim/Khliborob" target="_blank" rel="noopener">GitHub</a>
+    verfügbar.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Digitale Herkunftssicherung: IPFS und Blockchain-Verankerung</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Jede digitalisierte Seite dieses Archivs wird durch zwei einander ergänzende Technologien
+    gesichert, die ihre Herkunft und Unversehrtheit unabhängig überprüfbar machen sollen — nicht
+    nur durch diese Website, sondern durch jeden, mit öffentlichen Werkzeugen, die mit diesem
+    Projekt nichts zu tun haben.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>IPFS (InterPlanetary File System)</strong> adressiert Dateien anhand ihres Inhalts,
+    nicht anhand eines Speicherorts. Ein gewöhnlicher Weblink (<code>example.com/page1.png</code>)
+    könnte zu unterschiedlichen Zeitpunkten auf unterschiedliche Inhalte verweisen, ohne dass es
+    jemand bemerkt. Stattdessen erhält jede gescannte Seite einen einzigartigen Fingerabdruck, der
+    direkt aus ihren eigenen Daten erzeugt wird — die auf dieser ganzen Website verwendeten
+    „Qm…“-Kennungen. Würde sich auch nur ein einziges Pixel ändern, würde sich auch der
+    Fingerabdruck ändern. Dieser Fingerabdruck ist eine dauerhafte, überprüfbare Garantie dafür,
+    dass das, was Sie sehen, exakt die ursprünglich digitalisierte Datei ist — und keine
+    unbemerkt veränderte oder beschädigte Kopie.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Polygon</strong> ist eine öffentliche Blockchain — ein gemeinsames Register, das von
+    Tausenden unabhängiger Computer weltweit geführt wird, nicht von einem einzelnen Unternehmen
+    oder einer einzelnen Institution. Für jede digitalisierte Seite schreibt dieses Projekt einen
+    kleinen, dauerhaften Eintrag in dieses Register, der im Kern besagt: „Dieser exakte
+    Datei-Fingerabdruck für diese exakte Seite existierte zu diesem exakten Zeitpunkt.“
+    <strong>POL</strong> ist das Token, mit dem die geringe Gebühr für das Schreiben dieses
+    Eintrags bezahlt wird. Da das Register öffentlich und dezentral ist, kann jeder diesen
+    Zeitstempel unabhängig überprüfen — zum Beispiel auf
+    <a href="https://polygonscan.com" target="_blank" rel="noopener">polygonscan.com</a>
+    — und weder dieses Projekt noch SUBRAS noch sonst jemand kann ihn nachträglich verändern.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Gemeinsam decken die beiden unterschiedliche Risiken ab. Der IPFS-Fingerabdruck beweist, dass
+    eine Datei nicht manipuliert wurde — vorausgesetzt, man hat etwas, womit man sie vergleichen
+    kann; der Blockchain-Eintrag liefert genau diesen dauerhaften, unabhängigen Vergleichspunkt
+    sowie ein vertrauenswürdiges Datum, das auch dann noch Bestand hätte, wenn die Datei selbst
+    einmal nicht mehr verfügbar wäre.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Die Blockchain bewahrt nur den Fingerabdruck, nicht die Datei selbst</strong> — den tatsächlichen Scan oder die Abschrift
+    wiederherzustellen hängt weiterhin davon ab, dass irgendein IPFS-Knoten sie weiterhin hostet.
+    Derzeit bedeutet das einen einzigen Pinning-Anbieter (Pinata), noch ohne zweite, unabhängige
+    Kopie; ein geplanter nächster Schritt (siehe Roadmap unten) ist die Hinterlegung des gesamten
+    Korpus beim Internet Archive, um diese Abhängigkeit zu beseitigen.
+  </p>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    <strong>Warum nicht einfach ein herkömmlicher Server?</strong> Herkömmliche digitale
+    Langzeitarchivierung bedeutet meist, für dedizierte, redundante Infrastruktur zu bezahlen —
+    Speicher, der zur Notfallwiederherstellung an mehreren Standorten gespiegelt wird, laufende
+    Hardware- und Softwarewartung und oft zusätzlich eine kommerzielle Repository-Plattform —
+    Kosten, die anfallen, solange das Archiv besteht, und sich schneller summieren, als es zunächst
+    scheint, sobald man den Personalaufwand für den laufenden Betrieb mit einrechnet. IPFS und
+    Blockchain-Verankerung streben dieselben grundlegenden Garantien an — nachweislich
+    unveränderter Inhalt mit einem dauerhaften, unabhängig überprüfbaren Nachweis darüber, wann er
+    existierte — jedoch über bereits vorhandene, gemeinsam genutzte Infrastruktur.
+  </p>
+
+  <h2 style="font-size:16px;font-weight:500;margin:1.2rem 0 .4rem">Fahrplan</h2>
+  <p style="font-size:14px;line-height:1.7;color:var(--text)">
+    Dieser Pilotkorpus (2 Ausgaben, 8 Seiten) dient dazu, die Pipeline für einen Förderantrag
+    vollständig zu demonstrieren. Im Falle einer Förderung sind die nächsten Phasen: (1)
+    vollständige Digitalisierung des physischen Bestands von SUBRAS — schätzungsweise über
+    14.000 Seiten von 1924 bis heute; (2) eine formale Genauigkeitsbewertung der OCR-/
+    Übersetzungs-Pipeline anhand einer Stichprobe von Seiten, die die oben beschriebene
+    Verknüpfungsprüfung auch auf die Transkriptions- und Übersetzungsqualität ausweitet; (3) Hinterlegung des vollständigen
+    Korpus beim Internet Archive sowie ein DOI-tragender Datensatzeintrag (z. B. über Zenodo)
+    für dauerhafte Zitierbarkeit; (4) Migration des Forschungsassistenten auf ein gehostetes
+    Backend, damit KI-gestützte Anfragen keinen eigenen API-Schlüssel der Besucher erfordern.
+  </p></div>
+  
+<div style="margin-top:1.6rem;padding:1rem;background:var(--card-bg);
+     border:1px solid var(--border);border-radius:var(--radius)">
+  <h3 style="font-size:12px;font-weight:500;color:var(--muted);text-transform:uppercase;
+      letter-spacing:.05em;margin-bottom:.7rem">Cite this archive</h3>
+  <div style="display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+    <button onclick="toggleBibtex('archive')"
+      style="font-size:12px;padding:5px 12px;border-radius:4px;background:var(--blue-lt);
+      color:var(--blue);cursor:pointer;border:1px solid var(--blue)">BibTeX</button>
+    <button onclick="toggleChicago('archive')"
+      style="font-size:12px;padding:5px 12px;border-radius:4px;background:var(--blue-lt);
+      color:var(--blue);cursor:pointer;border:1px solid var(--blue)">Chicago</button>
+  </div>
+  <pre id="bibtex-popup-archive" style="display:none;margin-top:.8rem;font-size:11px;font-family:monospace;white-space:pre-wrap;color:var(--text);background:var(--bg);padding:.7rem;border-radius:4px;border:1px solid var(--border);user-select:all;cursor:text">@misc{khliborob_archive,
+  author = {University of M\"unster},
+  title  = {Khliborob Digital Archive},
+  note   = {Digital archive of Khliborob / O Lavrador, in partnership with SUBRAS},
+  url    = {https://hochheim.github.io/Khliborob/},
+  urldate = {2026-10-08}
+}</pre>
+  <div id="chicago-popup-archive" style="display:none;margin-top:.8rem;font-size:12px;
+       color:var(--text);background:var(--bg);padding:.7rem;border-radius:4px;
+       border:1px solid var(--border);user-select:all;cursor:text;font-style:italic">
+    Khliborob Digital Archive. University of Münster, in partnership with SUBRAS (Sociedade Ucraniana do Brasil). Accessed 2026-10-08. https://hochheim.github.io/Khliborob/
+  </div>
+</div>
+</div>
+
+<script src="../assets/lang.js?v=202610081331"></script>
+</body>
+</html>

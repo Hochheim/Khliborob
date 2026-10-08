@@ -1,0 +1,38 @@
+{
+  "@context": "http://iiif.io/api/presentation/3/context.json",
+  "id": "https://hochheim.github.io/Khliborob/iiif/collection.json",
+  "type": "Collection",
+  "label": {
+    "uk": [
+      "Хлібороб / O Lavrador — Цифровий архів"
+    ],
+    "en": [
+      "Khliborob / O Lavrador — Digital Archive"
+    ]
+  },
+  "summary": {
+    "en": [
+      "Digitized issues of the Ukrainian diaspora newspaper Khliborob / O Lavrador (Brazil, 1924–present). Pilot corpus."
+    ]
+  },
+  "items": [
+    {
+      "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19270316_no11/iiif/manifest.json",
+      "type": "Manifest",
+      "label": {
+        "en": [
+          "Khliborob / O Lavrador — 1927-03-16, No. № 11 (139)"
+        ]
+      }
+    },
+    {
+      "id": "https://hochheim.github.io/Khliborob/issues/khliborob_19280926_no30/iiif/manifest.json",
+      "type": "Manifest",
+      "label": {
+        "en": [
+          "Khliborob / O Lavrador — 1928-09-26, No. V. 30. (207)"
+        ]
+      }
+    }
+  ]
+}
